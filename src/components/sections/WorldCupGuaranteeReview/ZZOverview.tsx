@@ -300,59 +300,35 @@ export const ZZOverview: React.FC = () => {
       </div>
     </div>
 
-      {/* 飞轮落地拆解过渡模块（独立的段落与4个核心方向卡片，不在框内） */}
+      {/* 飞轮落地拆解过渡模块（独立的段落与核心方向卡片，不在框内） */}
       <div className="space-y-3.5 pt-2">
         <div className="flex items-center gap-2.5 text-slate-900 font-black text-base px-1">
           <span className="w-2.5 h-2.5 rounded-xs bg-blue-600 shrink-0"></span>
-          <span>为实现“质量效率飞轮”目标，将从以下 4 个核心方向进行拆解与落地：</span>
+          <span>为实现“质量效率飞轮”目标，将从以下核心方向进行拆解与落地：</span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          <div className="bg-white border border-slate-200/90 rounded-xl p-4 flex flex-col justify-between hover:border-blue-300 transition-colors shadow-2xs">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white border border-slate-100 rounded-md p-4 flex flex-col justify-between">
             <div className="flex items-center justify-between gap-2 mb-2">
-              <span className="text-sm font-black text-blue-900 bg-blue-50 border border-blue-200/90 px-2 py-0.5 rounded">
-                3.1 风险前置
+              <span className="text-xs font-bold text-slate-800 bg-slate-100 px-2 py-0.5 rounded">
+                系统审核能力
               </span>
-              <ShieldAlert className="w-4.5 h-4.5 text-blue-600 shrink-0" />
+              <Cpu className="w-4 h-4 text-slate-700 shrink-0" />
             </div>
-            <p className="text-sm font-bold text-slate-700 leading-relaxed m-0">
-              跨站关联与自动上标，前置拦截与提升审核效率
+            <p className="text-xs font-medium text-slate-700 leading-relaxed m-0">
+              云盾闭环与量化决策模型，持续提升系统自动放行与直出占比（达 82.4%+）
             </p>
           </div>
 
-          <div className="bg-white border border-slate-200/90 rounded-xl p-4 flex flex-col justify-between hover:border-blue-300 transition-colors shadow-2xs">
+          <div className="bg-white border border-slate-100 rounded-md p-4 flex flex-col justify-between">
             <div className="flex items-center justify-between gap-2 mb-2">
-              <span className="text-sm font-black text-blue-900 bg-blue-50 border border-blue-200/90 px-2 py-0.5 rounded">
-                3.2 系统审核
+              <span className="text-xs font-bold text-slate-800 bg-slate-100 px-2 py-0.5 rounded">
+                人工审核质效
               </span>
-              <Cpu className="w-4.5 h-4.5 text-blue-600 shrink-0" />
+              <UserCheck className="w-4 h-4 text-slate-700 shrink-0" />
             </div>
-            <p className="text-sm font-bold text-slate-700 leading-relaxed m-0">
-              规则模型直出与拦截，持续提升系统自动审核率
-            </p>
-          </div>
-
-          <div className="bg-white border border-slate-200/90 rounded-xl p-4 flex flex-col justify-between hover:border-blue-300 transition-colors shadow-2xs">
-            <div className="flex items-center justify-between gap-2 mb-2">
-              <span className="text-sm font-black text-blue-900 bg-blue-50 border border-blue-200/90 px-2 py-0.5 rounded">
-                3.3 智能派单
-              </span>
-              <GitBranch className="w-4.5 h-4.5 text-blue-600 shrink-0" />
-            </div>
-            <p className="text-sm font-bold text-slate-700 leading-relaxed m-0">
-              风险分级与精细派发，优化审单结构与匹配效率
-            </p>
-          </div>
-
-          <div className="bg-white border border-slate-200/90 rounded-xl p-4 flex flex-col justify-between hover:border-blue-300 transition-colors shadow-2xs">
-            <div className="flex items-center justify-between gap-2 mb-2">
-              <span className="text-sm font-black text-blue-900 bg-blue-50 border border-blue-200/90 px-2 py-0.5 rounded">
-                3.4 人工审核
-              </span>
-              <UserCheck className="w-4.5 h-4.5 text-blue-600 shrink-0" />
-            </div>
-            <p className="text-sm font-bold text-slate-700 leading-relaxed m-0">
-              通过流程改造、绩效改革与工具支持，全面提升人工审核质效
+            <p className="text-xs font-medium text-slate-700 leading-relaxed m-0">
+              通过流程改造、绩效改革与工具支持，全面提升人工审核质效与安全合规
             </p>
           </div>
         </div>

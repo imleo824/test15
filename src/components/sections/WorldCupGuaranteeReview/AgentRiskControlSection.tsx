@@ -53,7 +53,7 @@ export const AgentRiskControlSection: React.FC = () => {
 
   return (
     <div id="section-agent-risk-control" className="report-business-section">
-      <ChapterTitle>3.5 代理审核</ChapterTitle>
+      <ChapterTitle>4.5 代理审核</ChapterTitle>
 
       {/* 核心价值、核心目标、整体进度模块 */}
       <ModuleStatusCard
@@ -200,25 +200,25 @@ export const AgentRiskControlSection: React.FC = () => {
                   }
                 />
 
-                <div className="p-3 bg-slate-50/50 border border-slate-200/90 rounded-xl">
+                <div className="p-3 bg-slate-50/80 border border-slate-100 rounded-md">
                   <div className="grid grid-cols-3 gap-2.5 items-center text-center">
                     {/* 左侧：人工录入 */}
-                    <div className="bg-white border border-slate-200/90 rounded-lg p-3 space-y-1">
+                    <div className="bg-white border border-slate-100 rounded-md p-3 space-y-1">
                       <div className="text-xs font-bold text-slate-900">人工录入</div>
                       <div className="text-xl md:text-2xl font-black text-slate-900 font-mono">45%</div>
                     </div>
 
                     {/* 中间：对比差值 */}
-                    <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 space-y-1">
+                    <div className="bg-amber-50/80 border border-amber-100/80 rounded-md p-3 space-y-1">
                       <div className="text-xs font-bold text-slate-900">对比差值</div>
                       <div className="text-xl md:text-2xl font-black text-rose-900 font-mono">+10%</div>
-                      <div className="text-xs font-black text-slate-900 bg-amber-100 border border-amber-200 px-2 py-0.5 rounded inline-block">
+                      <div className="text-xs font-bold text-slate-900 bg-amber-100/80 px-2 py-0.5 rounded inline-block">
                         触发预警
                       </div>
                     </div>
 
                     {/* 右侧：系统标准 */}
-                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 space-y-1">
+                    <div className="bg-blue-50/80 border border-blue-100/80 rounded-md p-3 space-y-1">
                       <div className="text-xs font-bold text-blue-900">系统标准</div>
                       <div className="text-xl md:text-2xl font-black text-blue-900 font-mono">35%</div>
                     </div>

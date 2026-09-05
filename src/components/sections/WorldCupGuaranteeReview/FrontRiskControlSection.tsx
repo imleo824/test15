@@ -284,8 +284,8 @@ export const CrossSiteTaggingGraph: React.FC = () => {
 export const FrontRiskControlSection: React.FC = () => {
   return (
     <div id="section-front-risk-control" className="report-business-section">
-      {/* 3.1 FKQZ 模块主标题 */}
-      <ChapterTitle>3.1 风险前置</ChapterTitle>
+      {/* 4.1 FKQZ 模块主标题 */}
+      <ChapterTitle>4.1 风险前置</ChapterTitle>
 
       {/* 3.1 核心价值、关键指标、当前状态与整体进度 */}
       <ModuleStatusCard
@@ -385,13 +385,13 @@ export const FrontRiskControlSection: React.FC = () => {
         </div>
         
         <ReportStepGrid>
-          <ReportStepCard index={1} title="3.1.1 系统自动预警" icon={<BellRing className="w-5 h-5" />}>
+          <ReportStepCard index={1} title="4.1.1 系统自动预警" icon={<BellRing className="w-5 h-5" />}>
             {highlightNumbers("抽象[[多维指标]]全方位覆盖，分[[实时]]、[[时级]]、[[天级]]多时效[[前置识别]]。")}
           </ReportStepCard>
-          <ReportStepCard index={2} title="3.1.2 系统自动上标" icon={<Tags className="w-5 h-5" />}>
+          <ReportStepCard index={2} title="4.1.2 系统自动上标" icon={<Tags className="w-5 h-5" />}>
             {highlightNumbers("监测[[核心事件]]触发，自动[[跨站扫描]]关联同局、同设备、[[高危账号]]并[[同步上标]]。")}
           </ReportStepCard>
-          <ReportStepCard index={3} title="3.1.3 人工主动上标" icon={<UserCheck className="w-5 h-5" />}>
+          <ReportStepCard index={3} title="4.1.3 人工主动上标" icon={<UserCheck className="w-5 h-5" />}>
             {highlightNumbers("在[[订单低峰期]]主动排查高危前置[[打标锁定]]，释放[[高峰期审单]]瓶颈压力。")}
           </ReportStepCard>
         </ReportStepGrid>
@@ -399,10 +399,10 @@ export const FrontRiskControlSection: React.FC = () => {
 
       {/* 核心前置流程图与三大维度架构 */}
       <div className="report-module-list">
-        {/* 3.1.1 系统自动预警 */}
+        {/* 4.1.1 系统自动预警 */}
         <ReportProcessBlock
-          id="section-3-1-1"
-          title={<><BellRing className="w-5 h-5 text-slate-900 shrink-0" /><span>3.1.1 系统自动预警</span></>}
+          id="section-4-1-1"
+          title={<><BellRing className="w-5 h-5 text-slate-900 shrink-0" /><span>4.1.1 系统自动预警</span></>}
           right={<ReportBadge>轻度风险</ReportBadge>}
           flow={
             <ReportFlow
@@ -423,7 +423,7 @@ export const FrontRiskControlSection: React.FC = () => {
               title={<>系统预警维度覆盖（共 <span className="text-blue-900 font-black underline decoration-2">21 项</span>）</>}
               desc="抽象为四大核心维度进行全方位覆盖，分实时、时级、天级多时效前置识别"
               items={[
-                { title: "用户（盈利维度）", desc: "对用户单笔、周期等盈利和胜率进行异常预警监控", badge: "5项" },
+                { title: "用户（盈利维度）", desc: "对用户单笔、周期等盈利 and 胜率进行异常预警监控", badge: "5项" },
                 { title: "用户（账户维度）", desc: "对多账号关联设备、IP聚类及身份环境异常的预警监控", badge: "4项" },
                 { title: "用户（行为维度）", desc: "对高频、算牌、偏好等异常预警监控", badge: "6项" },
                 { title: "游戏（杀率维度）", desc: "对游戏、场馆的盈亏率进行异常预警监控", badge: "6项" },
@@ -433,10 +433,10 @@ export const FrontRiskControlSection: React.FC = () => {
           }
         />
 
-        {/* 3.1.2 系统自动上标 - 优化结构，消除多层卡片嵌套 */}
+        {/* 4.1.2 系统自动上标 - 优化结构，消除多层卡片嵌套 */}
         <ReportProcessBlock
-          id="section-3-1-2"
-          title={<><Tags className="w-5 h-5 text-slate-900 shrink-0" /><span>3.1.2 系统自动上标</span></>}
+          id="section-4-1-2"
+          title={<><Tags className="w-5 h-5 text-slate-900 shrink-0" /><span>4.1.2 系统自动上标</span></>}
           right={<ReportBadge>重度风险</ReportBadge>}
           flow={
             <ReportFlow
@@ -473,10 +473,10 @@ export const FrontRiskControlSection: React.FC = () => {
           }
         />
 
-        {/* 3.1.3 人工主动扫描 */}
+        {/* 4.1.3 人工主动扫描 */}
         <ReportProcessBlock
-          id="section-3-1-3"
-          title={<><UserCheck className="w-5 h-5 text-slate-900 shrink-0" /><span>3.1.3 人工主动上标</span></>}
+          id="section-4-1-3"
+          title={<><UserCheck className="w-5 h-5 text-slate-900 shrink-0" /><span>4.1.3 人工主动上标</span></>}
           right={<ReportBadge>重度风险</ReportBadge>}
           flow={
             <ReportFlow

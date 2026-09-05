@@ -170,7 +170,11 @@ export const SmartDispatchOrderStructure: React.FC = () => {
   return (
     <ReportPanel className="report-panel-stack">
       {/* 头部标题 */}
-      <ReportPanelHeader icon={<BarChart3 className="h-5 w-5" />} title="订单结构" />
+      <ReportPanelHeader
+        icon={<BarChart3 className="h-5 w-5" />}
+        title="一、订单结构"
+        badge="角色与质量分布"
+      />
 
       {/* 优化总结 */}
       <SummaryBox>

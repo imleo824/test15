@@ -36,7 +36,7 @@ export const MemberRiskSmartDispatch: React.FC = () => {
       {/* 头部标题：3.3.2 升级派单模式 */}
       <div className="report-module-intro">
         <ModuleBlockHeader
-          title={<><Route className="w-5 h-5 text-slate-900 shrink-0" /><span>3.3.2 升级派单模式</span></>}
+          title={<><Route className="w-5 h-5 text-slate-900 shrink-0" /><span>4.3.2 升级派单模式</span></>}
           right={<ReportBadge>人与单精准匹配</ReportBadge>}
         />
       </div>

@@ -103,8 +103,8 @@ export const SystemAuditSection: React.FC = () => {
 
   return (
     <div id="section-system-audit" className="report-business-section">
-      {/* 3.2 系统审核 模块主标题 */}
-      <ChapterTitle>3.2 系统审核</ChapterTitle>
+      {/* 4.2 系统审核 模块主标题 */}
+      <ChapterTitle>4.2 系统审核</ChapterTitle>
 
       {/* 3.2 核心价值、关键指标、当前状态与整体进度 */}
       <ModuleStatusCard
@@ -119,7 +119,7 @@ export const SystemAuditSection: React.FC = () => {
 
       <ReportPanel className="report-panel-stack">
         <ReportPanelHeader
-          title="3.2.1 系统评估指标"
+          title="4.2.1 系统评估指标"
           icon={<Target className="h-5 w-5" />}
         />
 
@@ -292,7 +292,7 @@ export const SystemAuditSection: React.FC = () => {
       <ReportPanel className="system-audit-flow-panel report-panel-stack">
         <ReportPanelHeader
           icon={<Workflow className="h-5 w-5" />}
-          title="3.2.2 系统审核流程"
+          title="4.2.2 系统审核流程"
           rightContent={<ReportBadge>全链路闭环</ReportBadge>}
         />
         <SummaryBox>

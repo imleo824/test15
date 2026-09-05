@@ -9,7 +9,7 @@ export const PerformanceReformSection: React.FC = () => {
       <div className="report-module-main">
         {/* 顶部标题与标签 */}
         <div className="report-module-intro">
-          <ModuleBlockHeader title={<><Trophy className="w-5 h-5 text-slate-900 shrink-0" /><span>3.4.2 升级考核机制</span></>} />
+          <ModuleBlockHeader title={<><Trophy className="w-5 h-5 text-slate-900 shrink-0" /><span>4.4.2 升级考核机制</span></>} />
           <SummaryBox>
             {highlightNumbers("打破传统单一关注[[粗暴划档绩效]]与[[个人孤立竞争]]的误区，重构[[绩效档次]]与[[老带动新机制]]，形成正向团队生态。")}
           </SummaryBox>

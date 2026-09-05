@@ -33,7 +33,7 @@ export const SystemToolsSection: React.FC = () => {
       <div className="report-module-main">
         {/* 顶部标题 */}
         <div className="report-module-intro">
-          <ModuleBlockHeader title={<><Wrench className="w-5 h-5 text-slate-900 shrink-0" /><span>3.4.3 系统工具支持</span></>} />
+          <ModuleBlockHeader title={<><Wrench className="w-5 h-5 text-slate-900 shrink-0" /><span>4.4.3 系统工具支持</span></>} />
           <SummaryBox>
             <div className="space-y-2">
               <div className="font-bold text-slate-900">

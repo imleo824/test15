@@ -9,7 +9,7 @@ export const MemberRiskDirectPayout: React.FC = () => {
       {/* 头部标题：3.3.1 提升系统出单 */}
       <div className="report-module-intro">
         <ModuleBlockHeader
-          title={<><Gauge className="w-5 h-5 text-slate-900 shrink-0" /><span>3.3.1 提升系统出单</span></>}
+          title={<><Gauge className="w-5 h-5 text-slate-900 shrink-0" /><span>4.3.1 提升系统出单</span></>}
           right={<ReportBadge>风险分数驱动</ReportBadge>}
         />
 

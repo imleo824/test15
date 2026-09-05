@@ -3,15 +3,14 @@ import { SummaryBox, highlightNumbers } from "./utils";
 import { MemberRiskDirectPayout } from "./MemberRiskDirectPayout";
 import { MemberRiskSmartDispatch } from "./MemberRiskSmartDispatch";
 import { ModuleStatusCard } from "./ModuleStatusCard";
-import { SmartDispatchOrderStructure } from "./SmartDispatchOrderStructure";
 import { ChapterTitle, ReportPanel, ReportPanelHeader, ReportStepCard } from "../../ReportSections";
 import { Funnel } from "lucide-react";
 
 export const SmartDispatchSection: React.FC = () => {
   return (
     <div id="section-smart-dispatch" className="report-business-section">
-      {/* 3.3 智能派单 模块主标题 */}
-      <ChapterTitle>3.3 智能派单</ChapterTitle>
+      {/* 4.3 智能派单 模块主标题 */}
+      <ChapterTitle>4.3 智能派单</ChapterTitle>
 
       {/* 3.3 核心价值、关键指标、当前状态与整体进度 */}
       <ModuleStatusCard
@@ -22,9 +21,6 @@ export const SmartDispatchSection: React.FC = () => {
         progress="70%"
         estimatedTime="世界杯前"
       />
-
-      {/* 订单结构与角色效能图表（4月 - 6月） */}
-      <SmartDispatchOrderStructure />
 
       {/* 独立模块：审核漏斗 */}
       <ReportPanel className="report-panel-stack">
