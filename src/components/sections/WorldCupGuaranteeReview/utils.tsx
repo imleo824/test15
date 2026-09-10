@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowDown, ArrowRight, Tag, Check, Clock } from "lucide-react";
+import { Check, Clock, Info, BookmarkCheck, FileText } from "lucide-react";
 import { ReportBadge, ReportHeading, ReportTableFrame } from "../../ReportSections";
 
 export const stripDisplayUnits = (value: string | number) => String(value);
@@ -232,12 +232,24 @@ export const SummaryBox = ({
     >
       {title && (
         <div className="report-note-title">
-          {icon && <span>{icon}</span>}
+          {icon ? (
+            <span>{icon}</span>
+          ) : !hideIcon ? (
+            <span className="shrink-0">
+              {variant === "chapter" ? (
+                <BookmarkCheck className="w-4 h-4 text-slate-900 shrink-0 stroke-[2]" />
+              ) : variant === "note" ? (
+                <FileText className="w-4 h-4 text-slate-700 shrink-0 stroke-[2]" />
+              ) : (
+                <Info className="w-4 h-4 text-blue-900 shrink-0 stroke-[2]" />
+              )}
+            </span>
+          ) : null}
           <span>{title}</span>
         </div>
       )}
-      <div className="flex items-start gap-3">
-        <div className="report-note-content report-summary-copy">
+      <div className="flex items-start">
+        <div className="report-note-content report-summary-copy w-full">
           {children}
         </div>
       </div>
@@ -364,57 +376,6 @@ export const ModuleSubsectionTitle = ({
   </ReportHeading>
 );
 
-export const ReportFlow = ({
-  title,
-  icon,
-  desc,
-  steps,
-  className = "",
-}: {
-  title: React.ReactNode;
-  icon?: React.ReactNode;
-  desc?: React.ReactNode;
-  steps: { title: string; desc: string; strong?: boolean }[];
-  className?: string;
-}) => (
-  <div className={`report-flow-box ${className}`}>
-    <div className="report-info-head">
-      <ModuleSubsectionTitle
-        title={
-          <>
-            {icon || <Tag className="w-4 h-4 text-slate-900 shrink-0" />}
-            <span>{title}</span>
-          </>
-        }
-      />
-      {desc && <p>{desc}</p>}
-    </div>
-    <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] gap-2 items-stretch">
-      {steps.map((step, index) => (
-        <React.Fragment key={`${step.title}-${index}`}>
-          <div className={step.strong ? "report-flow-step report-flow-step-strong" : "report-flow-step"}>
-            <div className="report-flow-step-title">
-              <span className="report-sequence-badge">{index + 1}</span>
-              <span>{step.title}</span>
-            </div>
-            <div className="text-xs font-bold leading-normal">{highlightNumbers(step.desc)}</div>
-          </div>
-          {index < steps.length - 1 && (
-            <>
-              <div className="hidden md:flex items-center justify-center text-blue-900">
-                <ArrowRight className="w-5 h-5" strokeWidth={3} />
-              </div>
-              <div className="md:hidden flex items-center justify-center text-blue-900">
-                <ArrowDown className="w-5 h-5" strokeWidth={3} />
-              </div>
-            </>
-          )}
-        </React.Fragment>
-      ))}
-    </div>
-  </div>
-);
-
 export const ReportInfoGrid = ({
   title,
   icon,
@@ -492,28 +453,6 @@ export const ReportInfoGrid = ({
     </div>
   );
 };
-
-export const ReportProcessBlock = ({
-  id,
-  title,
-  right,
-  flow,
-  detail,
-}: {
-  id?: string;
-  title: React.ReactNode;
-  right?: React.ReactNode;
-  flow: React.ReactNode;
-  detail: React.ReactNode;
-}) => (
-  <section id={id} className="report-process-block">
-    <ModuleBlockHeader title={title} right={right} />
-    <div className="report-process-body">
-      <div className="report-process-flow">{flow}</div>
-      <div className="report-process-detail">{detail}</div>
-    </div>
-  </section>
-);
 
 export const BeforeAfter = ({
   beforeTitle = "原来模式",

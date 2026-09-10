@@ -32,7 +32,7 @@ export const MemberRiskDirectPayout: React.FC = () => {
           coreI="[[精准过滤]]"
           afterTitle="升级模式"
           afterSubtitle="[[风险分数驱动]]"
-          after="[[风险分数]] > [[XX]] 才会转人工"
+          after="[[风险分数]] > [[设定高风险阈值]] 才会转人工"
           afterRelation="[[高风险转人工]]，[[极低风险单直出]]"
         />
 
@@ -61,7 +61,7 @@ export const MemberRiskDirectPayout: React.FC = () => {
               <div className="flex items-center gap-1.5"><span className="w-1 h-1 bg-blue-600 rounded-full"></span>每个标签分数</div>
               <div className="flex items-center gap-1.5"><span className="w-1 h-1 bg-blue-600 rounded-full"></span>转派人工分数</div>
             </div>
-            <div className="direct-payout-step-badge">按VIP等级不同设置</div>
+            <div className="direct-payout-step-badge">按会员等级不同设置</div>
           </div>
 
           <div className="direct-payout-arrow">
@@ -152,9 +152,9 @@ export const MemberRiskDirectPayout: React.FC = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span className="report-example-masked">risk_user150</span></td>
-                    <td><span className="report-example-masked">VIP3</span></td>
-                    <td><span className="report-example-masked">agent_risk</span></td>
+                    <td><span className="report-example-masked">测试账号_150</span></td>
+                    <td><span className="report-example-masked">3级会员</span></td>
+                    <td><span className="report-example-masked">测试渠道_029</span></td>
                     <td><span className="report-example-masked">¥ 18,500.00</span></td>
                     <td><span className="report-example-masked">2026-07-31 10:44:58</span></td>
                     <td><span className="report-example-masked">张三风</span></td>

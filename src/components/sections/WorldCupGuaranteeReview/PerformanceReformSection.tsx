@@ -1,6 +1,6 @@
 import React from "react";
 import { BeforeAfter, ExpectedRhythm, ModuleBlockHeader, SummaryBox, highlightNumbers } from "./utils";
-import { ReportPanel } from "../../ReportSections";
+import { ReportDimensionCard, ReportPanel } from "../../ReportSections";
 import { Trophy } from "lucide-react";
 
 export const PerformanceReformSection: React.FC = () => {
@@ -9,25 +9,19 @@ export const PerformanceReformSection: React.FC = () => {
       <div className="report-module-main">
         {/* 顶部标题与标签 */}
         <div className="report-module-intro">
-          <ModuleBlockHeader title={<><Trophy className="w-5 h-5 text-slate-900 shrink-0" /><span>4.4.2 升级考核机制</span></>} />
+          <ModuleBlockHeader title={<><Trophy className="w-5 h-5 text-slate-900 shrink-0" /><span>6.2.2 升级考核机制</span></>} />
           <SummaryBox>
             {highlightNumbers("打破传统单一关注[[粗暴划档绩效]]与[[个人孤立竞争]]的误区，重构[[绩效档次]]与[[老带动新机制]]，形成正向团队生态。")}
           </SummaryBox>
         </div>
 
         {/* 2个核心维度对比 */}
-        <div className="report-module-body">
+        <div className="report-module-body space-y-4">
           {/* 维度一：绩效档次机制 */}
-          <div className="p-5 bg-slate-50/40 border border-slate-200/90 rounded-xl space-y-4">
-            <div className="flex items-center gap-2 pb-0.5">
-              <span className="report-sequence-badge">
-                1
-              </span>
-              <span className="font-black text-slate-900 text-sm">
-                {highlightNumbers("绩效档次机制：按[[实际得分]]")}
-              </span>
-            </div>
-
+          <ReportDimensionCard
+            index={1}
+            title={highlightNumbers("绩效档次机制：按[[实际得分]]")}
+          >
             <BeforeAfter
               beforeTitle="传统老机制"
               beforeSubtitle="按[[固定区间划档]]"
@@ -39,31 +33,25 @@ export const PerformanceReformSection: React.FC = () => {
               afterSubtitle="按[[实际得分精细计提]]"
               after="基于[[实际得分]]计提，[[70分]] 一定比 [[40分]] 回报更高。"
             />
-          </div>
+          </ReportDimensionCard>
 
           {/* 维度二：老带动新机制 */}
-          <div className="p-5 bg-slate-50/40 border border-slate-200/90 rounded-xl space-y-4">
-            <div className="flex items-center gap-2 pb-0.5">
-              <span className="report-sequence-badge">
-                2
-              </span>
-              <span className="font-black text-slate-900 text-sm">
-                {highlightNumbers("老带动新机制：按[[组间竞争]]")}
-              </span>
-            </div>
-
+          <ReportDimensionCard
+            index={2}
+            title={highlightNumbers("老带动新机制：按[[组间竞争]]")}
+          >
             <BeforeAfter
               beforeTitle="传统老机制"
               beforeSubtitle="纯[[个人独立考核]]"
               before="员工[[各自为战]]，新老竞争不愿传授经验，致[[经验断层]]。"
               coreSpan="[[模式升级]]"
-              coreStrong="[[组间PK]]"
+              coreStrong="[[组间竞逐]]"
               coreI="[[责任制]]"
               afterTitle="升级新机制"
               afterSubtitle="按[[组分配]]与[[组间竞争]]"
               after="[[组间竞争]]、合作，[[按组考核]]倒逼组内[[主动辅导新人]]提升绩效。"
             />
-          </div>
+          </ReportDimensionCard>
         </div>
       </div>
 
@@ -79,3 +67,4 @@ export const PerformanceReformSection: React.FC = () => {
     </ReportPanel>
   );
 };
+

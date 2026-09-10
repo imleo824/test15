@@ -22,13 +22,13 @@ export const chartSeriesColors = {
 export const chartAxisTick = {
   fill: chartColors.ink,
   fontWeight: 600,
-  fontSize: 13,
+  fontSize: 14,
 };
 
 export const chartLabelStyle = {
   fill: chartColors.ink,
   fontWeight: 650,
-  fontSize: 13,
+  fontSize: 14.5,
   paintOrder: "stroke",
   stroke: "#ffffff",
   strokeWidth: 2,

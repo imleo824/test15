@@ -10,9 +10,8 @@ import {
   ResponsiveContainer,
   LabelList,
 } from "recharts";
-import { SummaryBox, highlightNumbers } from "./utils";
-import { ReportBadge, ReportPanel, ReportPanelHeader } from "../../ReportSections";
-import { ChartColumn } from "lucide-react";
+import { highlightNumbers } from "./utils";
+import { ReportChartCard } from "../../ReportSections";
 import {
   chartAxisTick,
   chartColors,
@@ -102,82 +101,75 @@ const renderSystemMetricLabel =
 
 export const SystemAuditMetricsChart: React.FC = () => {
   return (
-    <ReportPanel className="report-panel-stack">
-      {/* 头部标题与单位 */}
-      <ReportPanelHeader
-        title="系统召回率和命中率指标监控"
-        icon={<ChartColumn className="h-5 w-5" />}
-      />
-
-      {/* 总结说明 */}
-      <SummaryBox>
-        {highlightNumbers(
-          "当前汇总[[问题召回率]]为[[51.25%]]，低于[[70.6%]]的最低要求；当前[[问题命中率]]为[[11.40%]]，高于[[6.75%]]的最低要求。后续先[[补召回]]，再在问题召回率不下降的前提下提升[[问题命中率]]。"
-        )}
-      </SummaryBox>
-
-      {/* 柱状图图表 */}
-      <div className="h-[320px] w-full pt-2">
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart
-            data={systemMetricsData}
-            margin={chartMargins.compact}
-            barGap={chartBarGap.grouped}
-            barSize={chartBarSize.grouped}
+    <ReportChartCard
+      title="系统审核效果指标趋势"
+      subtitle="问题召回率与问题命中率月度监控"
+      value="召回率 51.25% | 命中率 11.40%"
+      description={highlightNumbers(
+        "当前汇总[[问题召回率]]为[[51.25%]]，低于[[70.6%]]的最低要求；当前[[问题命中率]]为[[11.40%]]，高于[[6.75%]]的最低要求。后续策略重点为先[[补召回]]，再在问题召回率不下降的前提下提升[[问题命中率]]。"
+      )}
+      bodyHeight="h-[320px]"
+      footnote="注：指标数据根据抽检样本集及资损订单拦截表现综合反洗核算。"
+    >
+      <ResponsiveContainer width="100%" height="100%">
+        <BarChart
+          data={systemMetricsData}
+          margin={chartMargins.compact}
+          barGap={chartBarGap.grouped}
+          barSize={chartBarSize.grouped}
+        >
+          <CartesianGrid strokeDasharray="3 3" stroke={chartColors.grid} />
+          <XAxis
+            dataKey="month"
+            stroke={chartColors.ink}
+            tick={chartAxisTick}
+            padding={{ left: 20, right: 20 }}
+          />
+          <YAxis
+            stroke={chartColors.ink}
+            tick={chartAxisTick}
+            tickFormatter={(val) => `${val}%`}
+            domain={[0, 70]}
+            ticks={[0, 10, 20, 30, 40, 50, 60, 70]}
+          />
+          <Tooltip
+            contentStyle={chartTooltipStyle}
+            itemStyle={chartTooltipItemStyle}
+            formatter={(value: any, name: any) => [`${value}%`, name]}
+          />
+          <Legend
+            wrapperStyle={chartLegendStyle}
+          />
+          {/* 问题召回率 柱子 */}
+          <Bar
+            dataKey="问题召回率"
+            fill={chartSeriesColors.primary}
+            name="问题召回率"
+            isAnimationActive={false}
+            radius={chartBarRadius.standard}
           >
-            <CartesianGrid strokeDasharray="3 3" stroke={chartColors.grid} />
-            <XAxis
-              dataKey="month"
-              stroke={chartColors.ink}
-              tick={chartAxisTick}
-              padding={{ left: 20, right: 20 }}
+            <LabelList
+              dataKey="问题召回率标签"
+              position="top"
+              content={renderSystemMetricLabel("问题召回率", "问题召回率标签")}
             />
-            <YAxis
-              stroke={chartColors.ink}
-              tick={chartAxisTick}
-              tickFormatter={(val) => `${val}%`}
-              domain={[0, 70]}
-              ticks={[0, 10, 20, 30, 40, 50, 60, 70]}
+          </Bar>
+          {/* 问题命中率 柱子 */}
+          <Bar
+            dataKey="问题命中率"
+            fill={chartSeriesColors.secondary}
+            name="问题命中率"
+            isAnimationActive={false}
+            radius={chartBarRadius.standard}
+          >
+            <LabelList
+              dataKey="问题命中率标签"
+              position="top"
+              content={renderSystemMetricLabel("问题命中率", "问题命中率标签")}
             />
-            <Tooltip
-              contentStyle={chartTooltipStyle}
-              itemStyle={chartTooltipItemStyle}
-              formatter={(value: any, name: any) => [`${value}%`, name]}
-            />
-            <Legend
-              wrapperStyle={chartLegendStyle}
-            />
-            {/* 问题召回率 柱子 */}
-            <Bar
-              dataKey="问题召回率"
-              fill={chartSeriesColors.primary}
-              name="问题召回率"
-              isAnimationActive={false}
-              radius={chartBarRadius.standard}
-            >
-              <LabelList
-                dataKey="问题召回率标签"
-                position="top"
-                content={renderSystemMetricLabel("问题召回率", "问题召回率标签")}
-              />
-            </Bar>
-            {/* 问题命中率 柱子 */}
-            <Bar
-              dataKey="问题命中率"
-              fill={chartSeriesColors.secondary}
-              name="问题命中率"
-              isAnimationActive={false}
-              radius={chartBarRadius.standard}
-            >
-              <LabelList
-                dataKey="问题命中率标签"
-                position="top"
-                content={renderSystemMetricLabel("问题命中率", "问题命中率标签")}
-              />
-            </Bar>
-          </BarChart>
-        </ResponsiveContainer>
-      </div>
-    </ReportPanel>
+          </Bar>
+        </BarChart>
+      </ResponsiveContainer>
+    </ReportChartCard>
   );
 };

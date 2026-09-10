@@ -1,466 +1,503 @@
 import React from "react";
 import {
-  Users,
-  Clock,
   ShieldCheck,
-  DollarSign,
-  Cpu,
   ShieldAlert,
-  Workflow,
-  User,
   ArrowRight,
   ArrowLeft,
-  Scale,
   CheckCircle,
-  RotateCcw
+  RotateCcw,
+  Workflow,
+  User,
+  Scale,
+  Users
 } from "lucide-react";
 import {
+  ReportDimensionCard,
   ReportPanel,
   ReportPanelHeader
 } from "../../ReportSections";
-import { highlightNumbers } from "./utils";
+import { highlightNumbers, SummaryBox } from "./utils";
 import { SmartDispatchOrderStructure } from "./SmartDispatchOrderStructure";
 
 export const SystemAuditEvolutionSection: React.FC = () => {
   return (
     <div id="section-system-audit-evolution" className="space-y-7">
-      {/* 顶层：核心指标跃迁总览（第一行3个核心数字 ➔ 大括号引出2个衍生收益） */}
-      <ReportPanel>
-        {/* 文字说明：极简定性 */}
-        <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
-          审单模式由“全人工人海”向“系统自动为主、人工兜底”彻底翻转：系统审核占比从{" "}
-          <span className="font-bold text-blue-700 font-mono">14.8%</span> 飙升至{" "}
-          <span className="font-bold text-blue-700 font-mono">82.4%</span>（人工审核从{" "}
-          <span className="font-bold text-amber-700 font-mono">85.2%</span> 降至{" "}
-          <span className="font-bold text-amber-700 font-mono">17.6%</span>
-          ），直接驱动人力成本削减 <span className="font-bold text-emerald-700 font-mono">67.6%</span>（年省 828 万元）与出款时效提速 <span className="font-bold text-blue-700 font-mono">87.0%</span>（由 18.5分 降至 2.4分）两大核心收益。
-        </p>
+      {/* 5.1 审单模式翻转 */}
+      <ReportPanel className="report-panel-stack">
+        <ReportPanelHeader
+          icon={<RotateCcw className="h-5 w-5 text-blue-600" />}
+          title="5.1 审单模式翻转"
+          badge="结构性跃迁"
+        />
 
-        {/* 核心结构：第一行 3 个数字 (14.8% ➔ 82.4% ➔ +67.6 pct 极简指向流向) */}
+        {/* 统一文字说明：一句话总结 */}
+        <SummaryBox variant="module">
+          {highlightNumbers(
+            "从 [[25年Q4]] 开始规划，坚持分步、拆期稳妥推进，历时一年至 [[26年Q3]] 最终完成了整个风控体系的深度重构。审单模式由“人工为主”向[[“系统自动为主、人工兜底”]]彻底翻转：系统审核占比从 [[45.0%]] 飙升至 [[80.0%]]（人工审核从 [[55.0%]] 降至 [[20.0%]]），驱动产生等效人力节省 [[63.6%]]（相当于替代 46 名人工审单员工作量）与出款时效提速 [[87.0%]]（由 18.5分 降至 2.4分）两大核心收益。"
+          )}
+        </SummaryBox>
+
+        {/* 审单模式结构翻转 看板 */}
         <div className="pt-2">
-          {/* 第一行：系统审核占比极简指向流向看板 */}
-          <div className="p-4 sm:p-5 rounded-md bg-slate-50/80 border border-slate-100">
-            <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-slate-800"></span>
-                <span className="text-xs sm:text-sm font-black text-slate-900 tracking-tight">
-                  核心根本变化 · 审单模式结构翻转（系统审核占比）
-                </span>
-              </div>
-            </div>
-
-            {/* 极简流向卡片：基线 VS 现状 */}
-            <div className="bg-white py-6 sm:py-7 px-4 rounded-md border border-slate-100">
-              <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
-                {/* 原来 */}
-                <div className="sm:col-span-5 flex flex-col items-center justify-center text-center">
-                  <span className="text-xs sm:text-sm font-bold text-slate-400 tracking-wider mb-1">
-                    原来
-                  </span>
-                  <div className="flex items-baseline justify-center gap-1">
-                    <span className="text-4xl sm:text-5xl lg:text-6xl font-black font-mono text-slate-600 tracking-tight">
-                      14.8
-                    </span>
-                    <span className="text-base sm:text-lg font-bold text-slate-400">%</span>
+          <div className="p-5 bg-slate-50 border border-slate-200/80 space-y-4">
+            
+            {/* 连续流向指向卡：统一向心对比结构（45% ➔ 80% 与 55% ➔ 20%） */}
+            <div className="bg-white p-4 sm:p-5 border border-slate-200 space-y-4">
+              {/* 行 1：系统审核演进（45.0% ➔ 80.0%） */}
+              <div className="border border-slate-200 bg-slate-50/50 p-3 sm:p-4 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
+                {/* 原来：45.0% */}
+                <div className="flex-1 flex items-center justify-between bg-white px-4 sm:px-5 py-3 border border-slate-200 w-full md:w-auto">
+                  <div className="flex flex-col">
+                    <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">原来（基线）</span>
+                    <span className="text-sm font-bold text-slate-700">系统审核占比</span>
+                  </div>
+                  <div className="flex items-baseline gap-0.5">
+                    <span className="text-3xl sm:text-4xl font-mono font-bold text-slate-700 tracking-tight">45.0</span>
+                    <span className="text-sm font-bold text-slate-400">%</span>
                   </div>
                 </div>
 
-                {/* 中间：VS 与 跨越变化 */}
-                <div className="sm:col-span-2 flex flex-col items-center justify-center py-2 sm:py-0">
-                  <div className="px-4 py-1.5 sm:px-5 sm:py-2 rounded bg-emerald-700 text-white font-mono font-bold text-sm sm:text-base whitespace-nowrap mb-1">
-                    +67.6 pct
-                  </div>
-                  <span className="text-3xl sm:text-4xl font-black italic tracking-wider text-slate-300 select-none leading-none">
-                    VS
-                  </span>
-                </div>
-
-                {/* 现在 */}
-                <div className="sm:col-span-5 flex flex-col items-center justify-center text-center">
-                  <span className="text-xs sm:text-sm font-bold text-blue-600 tracking-wider mb-1">
-                    现在
-                  </span>
-                  <div className="flex items-baseline justify-center gap-1">
-                    <span className="text-4xl sm:text-5xl lg:text-6xl font-black font-mono text-blue-600 tracking-tight">
-                      82.4
-                    </span>
-                    <span className="text-base sm:text-lg font-black text-blue-500">%</span>
+                {/* 中间指向与变化数字：系统 +35.0% */}
+                <div className="flex flex-col items-center justify-center shrink-0 px-2 py-1 md:py-0">
+                  <div className="flex items-center gap-2 px-3.5 py-1.5 bg-slate-900 text-white font-mono font-bold text-sm tracking-tight border border-slate-800">
+                    <span>系统占比 +35.0%</span>
+                    <ArrowRight className="w-4 h-4" />
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
 
-          {/* 大括号分叉连接器 (Bracket Visual Connector - 2路分叉) */}
-          <div className="my-2.5 px-4 hidden sm:flex flex-col items-center">
-            {/* 上部引线 */}
-            <div className="w-0.5 h-3 bg-blue-400"></div>
-
-            {/* 大括号中心节点标签 */}
-            <div className="px-3.5 py-1 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[11px] font-black rounded-full shadow-xs flex items-center gap-1.5">
-              <span>引出驱动两大直接收益</span>
-              <span className="text-blue-200">↴</span>
-            </div>
-
-            {/* 水平展开支架与下垂双引线 */}
-            <div className="w-full relative h-4 mt-1">
-              {/* 水平贯穿横线 (连接 25% 到 75%) */}
-              <div className="absolute top-0 left-[25%] right-[25%] h-0.5 bg-blue-300 rounded-full"></div>
-              {/* 垂直下垂至 2 个卡片中心的两条引线 */}
-              <div className="absolute top-0 left-[25%] w-0.5 h-4 bg-blue-300"></div>
-              <div className="absolute top-0 right-[25%] w-0.5 h-4 bg-blue-300"></div>
-            </div>
-          </div>
-
-          {/* 移动端简易提示 */}
-          <div className="sm:hidden text-center my-3">
-            <span className="inline-block px-3 py-1 bg-blue-50 text-blue-800 font-black text-xs rounded-full border border-blue-200">
-              ↴ 由此驱动产生 2 大业务直接收益
-            </span>
-          </div>
-
-          {/* 大括号内包含的 2 个衍生受益指标（同样采用 基线 ➔ 现状 ➔ 变化 形式，附带精简解释） */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* 受益 1：降低人力成本 */}
-            <div className="p-4 rounded-xl border-2 border-emerald-200/90 bg-emerald-50/20 space-y-3 shadow-2xs">
-              <div className="flex items-center justify-between pb-2 border-b border-emerald-200/60">
-                <div className="flex items-center gap-1.5">
-                  <DollarSign className="w-4 h-4 text-emerald-700" />
-                  <span className="text-xs sm:text-sm font-black text-emerald-950">
-                    ① 降低人力成本（月用工支出）
-                  </span>
-                </div>
-                <span className="text-[11px] font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded font-mono">
-                  年化净省 828 万元
-                </span>
-              </div>
-
-              {/* 内部极简对比：基线 VS 现状，大号 VS 视觉冲击 */}
-              <div className="bg-white/90 py-5 px-3 rounded-lg border border-emerald-200/80 shadow-2xs">
-                <div className="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center">
-                  {/* 原来 */}
-                  <div className="sm:col-span-5 flex flex-col items-center justify-center text-center">
-                    <span className="text-[11px] sm:text-xs font-bold text-slate-400 tracking-wider mb-0.5">
-                      原来
-                    </span>
-                    <div className="flex items-baseline justify-center gap-0.5">
-                      <span className="text-3xl sm:text-4xl font-black font-mono text-slate-600 tracking-tight">
-                        102.0
-                      </span>
-                      <span className="text-xs sm:text-sm font-bold text-slate-400">万</span>
-                    </div>
+                {/* 现在：80.0% */}
+                <div className="flex-1 flex items-center justify-between bg-blue-50/80 px-4 sm:px-5 py-3 border border-blue-200 w-full md:w-auto">
+                  <div className="flex items-baseline gap-0.5">
+                    <span className="text-3xl sm:text-4xl font-mono font-bold text-blue-900 tracking-tight">80.0</span>
+                    <span className="text-sm font-bold text-blue-600">%</span>
                   </div>
-
-                  {/* 中间：大大的 VS 与 变化幅度 (进一步加大模块与字体) */}
-                  <div className="sm:col-span-2 flex flex-col items-center justify-center py-1 sm:py-0">
-                    <div className="px-3.5 py-1 rounded-full bg-emerald-600 text-white font-mono font-black text-sm sm:text-base shadow-sm whitespace-nowrap mb-0.5 tracking-tight">
-                      -67.6%
-                    </div>
-                    <span className="text-3xl sm:text-4xl font-black italic tracking-wider text-slate-300 select-none leading-none">
-                      VS
-                    </span>
-                  </div>
-
-                  {/* 现在 */}
-                  <div className="sm:col-span-5 flex flex-col items-center justify-center text-center">
-                    <span className="text-[11px] sm:text-xs font-bold text-emerald-700 tracking-wider mb-0.5">
-                      现在
-                    </span>
-                    <div className="flex items-baseline justify-center gap-0.5">
-                      <span className="text-3xl sm:text-4xl font-black font-mono text-emerald-600 tracking-tight">
-                        33.0
-                      </span>
-                      <span className="text-xs sm:text-sm font-black text-emerald-600">万</span>
-                    </div>
+                  <div className="flex flex-col text-right">
+                    <span className="text-[11px] font-bold text-blue-800 uppercase tracking-wider">现在（系统主导）</span>
+                    <span className="text-sm font-bold text-blue-950">系统审核占比</span>
                   </div>
                 </div>
               </div>
 
-              {/* 极简核心解释说明 */}
-              <div className="pt-2 text-[11px] text-slate-600 font-medium leading-relaxed border-t border-emerald-200/60 flex flex-col gap-1">
-                <div>• <strong>人员编制优化：</strong>专职审单 FTE 从 68人 优化至 22人（削减 46人），月薪酬支出从 102.0万 压减至 33.0万。</div>
-                <div>• <strong>人均产能倍增：</strong>人均月审单由 2.35万单 提至 10.0万单/人（提速 4.25倍），单均审核成本由 0.64元 降至 0.15元。</div>
-              </div>
-            </div>
-
-            {/* 受益 2：提升审核时效 */}
-            <div className="p-4 rounded-xl border-2 border-blue-200/90 bg-blue-50/20 space-y-3 shadow-2xs">
-              <div className="flex items-center justify-between pb-2 border-b border-blue-200/60">
-                <div className="flex items-center gap-1.5">
-                  <Clock className="w-4 h-4 text-blue-700" />
-                  <span className="text-xs sm:text-sm font-black text-blue-950">
-                    ② 提升审核时效（平均到账耗时）
-                  </span>
-                </div>
-                <span className="text-[11px] font-bold text-blue-800 bg-blue-100/80 px-2 py-0.5 rounded font-mono">
-                  系统 1.8 秒秒级直出
-                </span>
-              </div>
-
-              {/* 内部极简对比：基线 VS 现状，大号 VS 视觉冲击 */}
-              <div className="bg-white/90 py-5 px-3 rounded-lg border border-blue-200/80 shadow-2xs">
-                <div className="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center">
-                  {/* 原来 */}
-                  <div className="sm:col-span-5 flex flex-col items-center justify-center text-center">
-                    <span className="text-[11px] sm:text-xs font-bold text-slate-400 tracking-wider mb-0.5">
-                      原来
-                    </span>
-                    <div className="flex items-baseline justify-center gap-0.5">
-                      <span className="text-3xl sm:text-4xl font-black font-mono text-slate-600 tracking-tight">
-                        18.5
-                      </span>
-                      <span className="text-xs sm:text-sm font-bold text-slate-400">分</span>
-                    </div>
+              {/* 行 2：人工审核演进（55.0% ➔ 20.0%） */}
+              <div className="border border-slate-200 bg-slate-50/50 p-3 sm:p-4 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
+                {/* 原来：55.0% */}
+                <div className="flex-1 flex items-center justify-between bg-white px-4 sm:px-5 py-3 border border-slate-200 w-full md:w-auto">
+                  <div className="flex flex-col">
+                    <span className="text-[11px] font-bold text-amber-800/80 uppercase tracking-wider">原来（基线）</span>
+                    <span className="text-sm font-bold text-slate-700">人工审核占比</span>
                   </div>
-
-                  {/* 中间：大大的 VS 与 变化幅度 (进一步加大模块与字体) */}
-                  <div className="sm:col-span-2 flex flex-col items-center justify-center py-1 sm:py-0">
-                    <div className="px-3.5 py-1 rounded-full bg-blue-600 text-white font-mono font-black text-sm sm:text-base shadow-sm whitespace-nowrap mb-0.5 tracking-tight">
-                      提速 87%
-                    </div>
-                    <span className="text-3xl sm:text-4xl font-black italic tracking-wider text-slate-300 select-none leading-none">
-                      VS
-                    </span>
-                  </div>
-
-                  {/* 现在 */}
-                  <div className="sm:col-span-5 flex flex-col items-center justify-center text-center">
-                    <span className="text-[11px] sm:text-xs font-bold text-blue-700 tracking-wider mb-0.5">
-                      现在
-                    </span>
-                    <div className="flex items-baseline justify-center gap-0.5">
-                      <span className="text-3xl sm:text-4xl font-black font-mono text-blue-600 tracking-tight">
-                        2.4
-                      </span>
-                      <span className="text-xs sm:text-sm font-black text-blue-600">分</span>
-                    </div>
+                  <div className="flex items-baseline gap-0.5">
+                    <span className="text-3xl sm:text-4xl font-mono font-bold text-amber-800 tracking-tight">55.0</span>
+                    <span className="text-sm font-bold text-amber-600">%</span>
                   </div>
                 </div>
-              </div>
 
-              {/* 极简核心解释说明 */}
-              <div className="pt-2 text-[11px] text-slate-600 font-medium leading-relaxed border-t border-blue-200/60 flex flex-col gap-1">
-                <div>• <strong>系统秒级直出：</strong>82.4% 订单由引擎 1.8 秒全自动放行直出，平均到账耗时由 18.5 分钟骤降至 2.4 分钟。</div>
-                <div>• <strong>高峰排队消融：</strong>比赛高峰排队积压率由 42.6% 降至 1.2%，出款客诉率由 8.4% 压降至 0.9%，大客户复充提升 18.2%。</div>
+                {/* 中间指向与变化数字：人工 -35.0% */}
+                <div className="flex flex-col items-center justify-center shrink-0 px-2 py-1 md:py-0">
+                  <div className="flex items-center gap-2 px-3.5 py-1.5 bg-emerald-800 text-white font-mono font-bold text-sm tracking-tight border border-emerald-900">
+                    <span>人工占比 -35.0%</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
+                </div>
+
+                {/* 现在：20.0% */}
+                <div className="flex-1 flex items-center justify-between bg-emerald-50/80 px-4 sm:px-5 py-3 border border-emerald-200 w-full md:w-auto">
+                  <div className="flex items-baseline gap-0.5">
+                    <span className="text-3xl sm:text-4xl font-mono font-bold text-emerald-900 tracking-tight">20.0</span>
+                    <span className="text-sm font-bold text-emerald-600">%</span>
+                  </div>
+                  <div className="flex flex-col text-right">
+                    <span className="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">现在（人工兜底）</span>
+                    <span className="text-sm font-bold text-emerald-950">人工审核占比</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </ReportPanel>
 
-      {/* 一、订单结构（由原 5.0/4.3 智能派单迁移至此） */}
-      <SmartDispatchOrderStructure />
+      {/* 5.2 带来核心收益 */}
+      <ReportPanel className="report-panel-stack">
+        <ReportPanelHeader
+          icon={<CheckCircle className="h-5 w-5 text-emerald-600" />}
+          title="5.2 带来核心收益"
+          badge="人效与时效突破"
+        />
 
-      {/* 二、云盾体系：从0到1打造领先的智能化风控闭环体系 */}
+        {/* 核心收益一句话总结 */}
+        <SummaryBox variant="module" title="核心收益总结">
+          {highlightNumbers(
+            "智能化风控升级带来[[人效与时效双重大幅突破]]——相当于直接[[替代 46 名审核人力（人力消耗降低 67.6%）]]，并驱动订单平均到账耗时从 [[18.5 分钟缩短至 2.4 分钟（审核时效提速 87.0%）]]。"
+          )}
+        </SummaryBox>
+
+        {/* 2 个衍生受益指标卡片阵列（单列布局：一行一个） */}
+        <div className="grid grid-cols-1 gap-4">
+          {/* 受益 1：替代人力规模（审核人力当量换算） */}
+          <ReportDimensionCard
+            title={
+              <div className="flex items-center gap-2">
+                <span>① 替代人力规模</span>
+              </div>
+            }
+            badge={
+              <span className="text-xs font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 border border-emerald-200 font-mono">
+                相当于节省 46 名审核人力
+              </span>
+            }
+          >
+            {/* 统一通用向心对比结构 */}
+            <div className="border border-slate-200 bg-slate-50/50 p-3 sm:p-4 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4 my-1">
+              {/* 原来：68 人 */}
+              <div className="flex-1 flex items-center justify-between bg-white px-4 sm:px-5 py-3 border border-slate-200 w-full md:w-auto">
+                <div className="flex flex-col">
+                  <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">原来（需人工审单）</span>
+                  <span className="text-sm font-bold text-slate-700">审核人力消耗</span>
+                </div>
+                <div className="flex items-baseline gap-0.5">
+                  <span className="text-3xl sm:text-4xl font-mono font-bold text-slate-700 tracking-tight">68</span>
+                  <span className="text-sm font-bold text-slate-400">人</span>
+                </div>
+              </div>
+
+              {/* 中间指向与变化数字：-46 人 (-67.6%) */}
+              <div className="flex flex-col items-center justify-center shrink-0 px-2 py-1 md:py-0">
+                <div className="flex items-center gap-2 px-3.5 py-1.5 bg-emerald-800 text-white font-mono font-bold text-sm tracking-tight border border-emerald-900">
+                  <span>-46 人 (-67.6%)</span>
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+              </div>
+
+              {/* 现在：22 人 */}
+              <div className="flex-1 flex items-center justify-between bg-emerald-50/80 px-4 sm:px-5 py-3 border border-emerald-200 w-full md:w-auto">
+                <div className="flex items-baseline gap-0.5">
+                  <span className="text-3xl sm:text-4xl font-mono font-bold text-emerald-900 tracking-tight">22</span>
+                  <span className="text-sm font-bold text-emerald-600">人</span>
+                </div>
+                <div className="flex flex-col text-right">
+                  <span className="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">现在（系统替代后）</span>
+                  <span className="text-sm font-bold text-emerald-950">审核人力消耗</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 核心解释说明 */}
+            <div className="pt-2 text-xs sm:text-sm text-slate-700 font-medium leading-relaxed border-t border-slate-200 flex flex-col gap-1.5 mt-2">
+              <div>• <strong>相当于省了多少人力：</strong>系统全自动出单直出率大幅提升，<strong>相当于直接替代了 46 名人工审单员的审核工作量</strong>（人工审核需求从 68人 压减至 22人，审核人力消耗降低 67.6%）。</div>
+              <div>• <strong>人均等效产能提升：</strong>将系统自动化出单换算为人力当量后，人均月审单工作量相当于由 2.35万单 提升至 10.0万单/人（等效审核效率提速 4.25倍）。</div>
+            </div>
+          </ReportDimensionCard>
+
+          {/* 受益 2：提升审核时效 */}
+          <ReportDimensionCard
+            title={
+              <div className="flex items-center gap-2">
+                <span>② 提升审核时效</span>
+              </div>
+            }
+            badge={
+              <span className="text-xs font-bold text-blue-800 bg-blue-50 px-2.5 py-0.5 border border-blue-200 font-mono">
+                系统 1.8 秒秒级直出
+              </span>
+            }
+          >
+            {/* 统一通用向心对比结构 */}
+            <div className="border border-slate-200 bg-slate-50/50 p-3 sm:p-4 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4 my-1">
+              {/* 原来：18.5 分钟 */}
+              <div className="flex-1 flex items-center justify-between bg-white px-4 sm:px-5 py-3 border border-slate-200 w-full md:w-auto">
+                <div className="flex flex-col">
+                  <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">原来（基线）</span>
+                  <span className="text-sm font-bold text-slate-700">平均到账耗时</span>
+                </div>
+                <div className="flex items-baseline gap-0.5">
+                  <span className="text-3xl sm:text-4xl font-mono font-bold text-slate-700 tracking-tight">18.5</span>
+                  <span className="text-sm font-bold text-slate-400">分</span>
+                </div>
+              </div>
+
+              {/* 中间指向与变化数字：-16.1 分 (-87.0%) */}
+              <div className="flex flex-col items-center justify-center shrink-0 px-2 py-1 md:py-0">
+                <div className="flex items-center gap-2 px-3.5 py-1.5 bg-blue-900 text-white font-mono font-bold text-sm tracking-tight border border-blue-950">
+                  <span>-16.1 分 (-87.0%)</span>
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+              </div>
+
+              {/* 现在：2.4 分钟 */}
+              <div className="flex-1 flex items-center justify-between bg-blue-50/80 px-4 sm:px-5 py-3 border border-blue-200 w-full md:w-auto">
+                <div className="flex items-baseline gap-0.5">
+                  <span className="text-3xl sm:text-4xl font-mono font-bold text-blue-900 tracking-tight">2.4</span>
+                  <span className="text-sm font-bold text-blue-600">分</span>
+                </div>
+                <div className="flex flex-col text-right">
+                  <span className="text-[11px] font-bold text-blue-800 uppercase tracking-wider">现在（秒级放行）</span>
+                  <span className="text-sm font-bold text-blue-950">平均到账耗时</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 核心解释说明 */}
+            <div className="pt-2 text-xs sm:text-sm text-slate-700 font-medium leading-relaxed border-t border-slate-200 flex flex-col gap-1.5 mt-2">
+              <div>• <strong>系统秒级直出：</strong>80.0% 订单由引擎 1.8 秒全自动放行直出，平均到账耗时由 18.5 分钟骤降至 2.4 分钟。</div>
+              <div>• <strong>高峰排队消融：</strong>比赛高峰排队积压率由 42.6% 降至 1.2%，出款客诉率由 8.4% 压降至 0.9%，大客户复充提升 18.2%。</div>
+            </div>
+          </ReportDimensionCard>
+        </div>
+
+        {/* 核心收益数据佐证：订单结构图表 */}
+        <div className="pt-2">
+          <SmartDispatchOrderStructure />
+        </div>
+      </ReportPanel>
+
+      {/* 5.3 智能风控体系架构 */}
       <div id="section-cloud-shield-system" className="report-business-section space-y-5">
         <ReportPanel className="system-audit-flow-panel report-panel-stack">
           <ReportPanelHeader
             icon={<ShieldAlert className="h-5 w-5 text-indigo-600" />}
-            title="二、云盾体系：从0到1打造领先的智能化风控闭环体系"
-            badge="技术落地中枢"
+            title="5.3 智能风控体系架构"
+            badge="核心机制与支撑能力"
           />
 
           {/* 破局总结：直接说明机制与支撑 */}
-          <div className="p-3 bg-blue-50/70 border border-blue-200 rounded-lg text-xs font-bold text-blue-950 leading-relaxed">
-            💡 <strong>底层实现机制：</strong>前面业务收益的底层支撑，源自自建的云盾闭环体系。通过 <strong>策略矩阵校验 ➔ 风险评分 ➔ 分流决策 ➔ 效果反馈</strong> 四大环节，从根本上解决“何时自动直出”与“何时转入人工”，筑牢 82.4% 自动化底座。
+          <div className="p-4 bg-slate-50 border border-slate-200 border-l-4 border-l-blue-700 text-sm sm:text-base font-medium text-slate-800 leading-relaxed">
+            <span className="font-mono text-xs font-bold text-blue-900 mr-2 uppercase tracking-wider">[ 机制解析 ]</span>
+            <strong>底层支撑机制：</strong>前述模式翻转与效能跃迁由自建云盾闭环体系支撑。通过 <strong>策略矩阵校验 ➔ 风险评分 ➔ 动态决策 ➔ 效果反馈</strong> 四大环节，精确界定全自动放行与人工兜底边界，筑牢 80.0% 自动化底座。
           </div>
 
-          {/* 关键能力跃迁对比：原来 VS 现在 (每个指标独立一行，宽幅大气 VS 呈现) */}
-          <div className="bg-slate-50/90 border border-slate-200/90 rounded-xl p-4 sm:p-5 space-y-3.5 shadow-2xs">
-            <div className="flex items-center justify-between border-b border-slate-200 pb-2.5">
-              <span className="text-xs sm:text-sm font-black text-slate-900 flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-indigo-600" />
-                <span>关键事项与技术能力跃迁</span>
+          {/* 关键能力跃迁对比：原来 与 现在 */}
+          <div className="bg-slate-50 border border-slate-200 p-5 space-y-4">
+            <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+              <span className="text-base font-bold text-slate-900 flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-indigo-700" />
+                <span>关键事项与能力跃迁</span>
               </span>
-              <span className="text-[11px] font-mono font-bold text-indigo-700 bg-indigo-50 px-2.5 py-0.5 rounded-full border border-indigo-200">
-                能力全面升维 · 筑牢自动审核底座
+              <span className="text-xs font-mono font-medium text-indigo-800 bg-indigo-50 px-2.5 py-0.5 border border-indigo-200">
+                能力对比分析
               </span>
             </div>
 
-            <div className="space-y-3">
-              {/* 对比项 1：套利策略 (独立整行) */}
-              <div className="bg-white/95 p-4 sm:p-5 rounded-xl border border-emerald-200/80 shadow-2xs space-y-3">
-                <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-                  <span className="text-xs sm:text-sm font-black text-slate-900">
-                    ① 套利与对冲防御策略
-                  </span>
-                  <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full font-mono border border-emerald-200">
+            <div className="flex flex-col gap-4">
+              {/* 对比项 1：套利策略 */}
+              <ReportDimensionCard
+                title="① 套利与对冲防御策略"
+                badge={
+                  <span className="text-xs font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 font-mono border border-emerald-200">
                     策略矩阵维度
                   </span>
-                </div>
-
+                }
+              >
                 <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center">
                   {/* 原来 */}
                   <div className="sm:col-span-5 flex flex-col items-center justify-center text-center">
-                    <span className="text-xs font-bold text-slate-400 tracking-wider mb-1">
+                    <span className="text-xs font-bold text-slate-500 tracking-wider mb-1">
                       原来
                     </span>
-                    <span className="text-lg sm:text-xl font-black text-slate-600 tracking-tight">
+                    <span className="text-lg sm:text-xl font-bold text-slate-600 tracking-tight">
                       无套利策略
                     </span>
-                    <span className="text-xs text-slate-400 mt-1">依赖人工肉眼排查 · 漏判高发</span>
+                    <span className="text-xs sm:text-sm text-slate-500 mt-1">依赖人工肉眼排查 · 漏判高发</span>
                   </div>
 
-                  {/* 中间 VS (带徽标) */}
+                  {/* 中间 跃迁升级 */}
                   <div className="sm:col-span-2 flex flex-col items-center justify-center py-1 sm:py-0">
-                    <div className="px-3.5 py-1 rounded-full bg-emerald-600 text-white font-mono font-black text-xs sm:text-sm shadow-sm whitespace-nowrap mb-1 tracking-tight">
-                      +29项防御规则
+                    <div className="px-3 py-1 rounded bg-emerald-700 text-white font-mono font-bold text-xs sm:text-sm whitespace-nowrap mb-1 tracking-tight">
+                      +29套利规则
                     </div>
-                    <span className="text-3xl sm:text-4xl font-black italic tracking-wider text-slate-300 select-none leading-none">
-                      VS
+                    <span className="text-xs font-bold tracking-wider text-slate-400 select-none">
+                      跃迁升级
                     </span>
                   </div>
 
                   {/* 现在 */}
                   <div className="sm:col-span-5 flex flex-col items-center justify-center text-center">
-                    <span className="text-xs font-bold text-emerald-700 tracking-wider mb-1">
+                    <span className="text-xs font-bold text-emerald-800 tracking-wider mb-1">
                       现在
                     </span>
-                    <span className="text-lg sm:text-xl font-black text-emerald-600 tracking-tight">
+                    <span className="text-lg sm:text-xl font-bold text-emerald-700 tracking-tight">
                       补充套利策略
                     </span>
-                    <span className="text-xs text-emerald-700 font-bold mt-1">29项防御规则实时拦截 · 毫秒生效</span>
+                    <span className="text-xs sm:text-sm text-emerald-800 font-medium mt-1">29项防御规则实时拦截 · 毫秒生效</span>
                   </div>
                 </div>
-              </div>
+              </ReportDimensionCard>
 
-              {/* 对比项 2：B端API (独立整行) */}
-              <div className="bg-white/95 p-4 sm:p-5 rounded-xl border border-blue-200/80 shadow-2xs space-y-3">
-                <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-                  <span className="text-xs sm:text-sm font-black text-slate-900">
-                    ② 外部数据联动与底层基建
-                  </span>
-                  <span className="text-[11px] font-bold text-blue-800 bg-blue-50 px-2.5 py-0.5 rounded-full font-mono border border-blue-200">
+              {/* 对比项 2：系统接口直连 */}
+              <ReportDimensionCard
+                title="② 外部数据联动与底层基建"
+                badge={
+                  <span className="text-xs font-semibold text-blue-800 bg-blue-50 px-2 py-0.5 font-mono border border-blue-200">
                     底层基建维度
                   </span>
-                </div>
-
+                }
+              >
                 <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center">
                   {/* 原来 */}
                   <div className="sm:col-span-5 flex flex-col items-center justify-center text-center">
-                    <span className="text-xs font-bold text-slate-400 tracking-wider mb-1">
+                    <span className="text-xs font-bold text-slate-500 tracking-wider mb-1">
                       原来
                     </span>
-                    <span className="text-lg sm:text-xl font-black text-slate-600 tracking-tight">
-                      无 B端 API
+                    <span className="text-lg sm:text-xl font-bold text-slate-600 tracking-tight">
+                      无系统接口直连
                     </span>
-                    <span className="text-xs text-slate-400 mt-1">信息孤岛离线核验 · 无法自动比对</span>
+                    <span className="text-xs sm:text-sm text-slate-500 mt-1">信息孤岛离线核验 · 无法自动比对</span>
                   </div>
 
-                  {/* 中间 VS (带徽标) */}
+                  {/* 中间 跃迁升级 */}
                   <div className="sm:col-span-2 flex flex-col items-center justify-center py-1 sm:py-0">
-                    <div className="px-3.5 py-1 rounded-full bg-blue-600 text-white font-mono font-black text-xs sm:text-sm shadow-sm whitespace-nowrap mb-1 tracking-tight">
+                    <div className="px-3 py-1 rounded bg-blue-700 text-white font-mono font-bold text-xs sm:text-sm whitespace-nowrap mb-1 tracking-tight">
                       毫秒级直连
                     </div>
-                    <span className="text-3xl sm:text-4xl font-black italic tracking-wider text-slate-300 select-none leading-none">
-                      VS
+                    <span className="text-xs font-bold tracking-wider text-slate-400 select-none">
+                      跃迁升级
                     </span>
                   </div>
 
                   {/* 现在 */}
                   <div className="sm:col-span-5 flex flex-col items-center justify-center text-center">
-                    <span className="text-xs font-bold text-blue-700 tracking-wider mb-1">
+                    <span className="text-xs font-bold text-blue-800 tracking-wider mb-1">
                       现在
                     </span>
-                    <span className="text-lg sm:text-xl font-black text-blue-600 tracking-tight">
-                      引入 B端 API
+                    <span className="text-lg sm:text-xl font-bold text-blue-700 tracking-tight">
+                      引入系统接口直连
                     </span>
-                    <span className="text-xs text-blue-700 font-bold mt-1">跨系统秒级联动 · 全自动数据核验</span>
+                    <span className="text-xs sm:text-sm text-blue-800 font-medium mt-1">跨系统秒级联动 · 全自动数据核验</span>
                   </div>
                 </div>
-              </div>
+              </ReportDimensionCard>
 
-              {/* 对比项 3：风险评分 (独立整行) */}
-              <div className="bg-white/95 p-4 sm:p-5 rounded-xl border border-indigo-200/80 shadow-2xs space-y-3">
-                <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-                  <span className="text-xs sm:text-sm font-black text-slate-900">
-                    ③ 智能决策模型与动态分流
-                  </span>
-                  <span className="text-[11px] font-bold text-indigo-800 bg-indigo-50 px-2.5 py-0.5 rounded-full font-mono border border-indigo-200">
+              {/* 对比项 3：风险评分 */}
+              <ReportDimensionCard
+                title="③ 智能决策模型与动态分流"
+                badge={
+                  <span className="text-xs font-semibold text-indigo-800 bg-indigo-50 px-2 py-0.5 font-mono border border-indigo-200">
                     量化分流维度
                   </span>
-                </div>
-
+                }
+              >
                 <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center">
                   {/* 原来 */}
                   <div className="sm:col-span-5 flex flex-col items-center justify-center text-center">
-                    <span className="text-xs font-bold text-slate-400 tracking-wider mb-1">
+                    <span className="text-xs font-bold text-slate-500 tracking-wider mb-1">
                       原来
                     </span>
-                    <span className="text-lg sm:text-xl font-black text-slate-600 tracking-tight">
+                    <span className="text-lg sm:text-xl font-bold text-slate-600 tracking-tight">
                       无风险评分
                     </span>
-                    <span className="text-xs text-slate-400 mt-1">凭人工经验主观判 · 尺度漂移</span>
+                    <span className="text-xs sm:text-sm text-slate-500 mt-1">凭人工经验主观判 · 尺度漂移</span>
                   </div>
 
-                  {/* 中间 VS (带徽标) */}
+                  {/* 中间 跃迁升级 */}
                   <div className="sm:col-span-2 flex flex-col items-center justify-center py-1 sm:py-0">
-                    <div className="px-3.5 py-1 rounded-full bg-indigo-600 text-white font-mono font-black text-xs sm:text-sm shadow-sm whitespace-nowrap mb-1 tracking-tight">
+                    <div className="px-3 py-1 rounded bg-indigo-700 text-white font-mono font-bold text-xs sm:text-sm whitespace-nowrap mb-1 tracking-tight">
                       动态量化分值
                     </div>
-                    <span className="text-3xl sm:text-4xl font-black italic tracking-wider text-slate-300 select-none leading-none">
-                      VS
+                    <span className="text-xs font-bold tracking-wider text-slate-400 select-none">
+                      跃迁升级
                     </span>
                   </div>
 
                   {/* 现在 */}
                   <div className="sm:col-span-5 flex flex-col items-center justify-center text-center">
-                    <span className="text-xs font-bold text-indigo-700 tracking-wider mb-1">
+                    <span className="text-xs font-bold text-indigo-800 tracking-wider mb-1">
                       现在
                     </span>
-                    <span className="text-lg sm:text-xl font-black text-indigo-600 tracking-tight">
+                    <span className="text-lg sm:text-xl font-bold text-indigo-700 tracking-tight">
                       引入风险评分
                     </span>
-                    <span className="text-xs text-indigo-700 font-bold mt-1">量化阈值智能分流 · 秒级放行/人工复核</span>
+                    <span className="text-xs sm:text-sm text-indigo-800 font-medium mt-1">量化阈值智能分流 · 秒级放行/人工复核</span>
                   </div>
                 </div>
-              </div>
+              </ReportDimensionCard>
 
-              {/* 对比项 4：智能匹配分单 (独立整行) */}
-              <div className="bg-white/95 p-4 sm:p-5 rounded-xl border border-purple-200/80 shadow-2xs space-y-3">
-                <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-                  <span className="text-xs sm:text-sm font-black text-slate-900">
-                    ④ 智能匹配分单与派单机制
-                  </span>
-                  <span className="text-[11px] font-bold text-purple-800 bg-purple-50 px-2.5 py-0.5 rounded-full font-mono border border-purple-200">
+              {/* 对比项 4：智能匹配分单 */}
+              <ReportDimensionCard
+                title="④ 智能匹配分单与派单机制"
+                badge={
+                  <span className="text-xs font-semibold text-purple-800 bg-purple-50 px-2 py-0.5 font-mono border border-purple-200">
                     派单调度维度
                   </span>
-                </div>
-
+                }
+              >
                 <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center">
                   {/* 原来 */}
                   <div className="sm:col-span-5 flex flex-col items-center justify-center text-center">
-                    <span className="text-xs font-bold text-slate-400 tracking-wider mb-1">
+                    <span className="text-xs font-bold text-slate-500 tracking-wider mb-1">
                       原来
                     </span>
-                    <span className="text-lg sm:text-xl font-black text-slate-600 tracking-tight">
+                    <span className="text-lg sm:text-xl font-bold text-slate-600 tracking-tight">
                       简单轮询
                     </span>
-                    <span className="text-xs text-slate-400 mt-1">盲目平均派单 · 高危单分配初级人员</span>
+                    <span className="text-xs sm:text-sm text-slate-500 mt-1">盲目平均派单 · 高危单分配初级人员</span>
                   </div>
 
-                  {/* 中间 VS (带徽标) */}
+                  {/* 中间 跃迁升级 */}
                   <div className="sm:col-span-2 flex flex-col items-center justify-center py-1 sm:py-0">
-                    <div className="px-3.5 py-1 rounded-full bg-purple-600 text-white font-mono font-black text-xs sm:text-sm shadow-sm whitespace-nowrap mb-1 tracking-tight">
+                    <div className="px-3 py-1 rounded bg-purple-700 text-white font-mono font-bold text-xs sm:text-sm whitespace-nowrap mb-1 tracking-tight">
                       多因子匹配
                     </div>
-                    <span className="text-3xl sm:text-4xl font-black italic tracking-wider text-slate-300 select-none leading-none">
-                      VS
+                    <span className="text-xs font-bold tracking-wider text-slate-400 select-none">
+                      跃迁升级
                     </span>
                   </div>
 
                   {/* 现在 */}
                   <div className="sm:col-span-5 flex flex-col items-center justify-center text-center">
-                    <span className="text-xs font-bold text-purple-700 tracking-wider mb-1">
+                    <span className="text-xs font-bold text-purple-800 tracking-wider mb-1">
                       现在
                     </span>
-                    <span className="text-lg sm:text-xl font-black text-purple-600 tracking-tight">
+                    <span className="text-lg sm:text-xl font-bold text-purple-700 tracking-tight">
                       多因子智能匹配
                     </span>
-                    <span className="text-xs text-purple-700 font-bold mt-1">技能组/风险等级/负载动态最优路由</span>
+                    <span className="text-xs sm:text-sm text-purple-800 font-medium mt-1">技能组/风险等级/负载动态最优路由</span>
                   </div>
                 </div>
-              </div>
+              </ReportDimensionCard>
+
+              {/* 对比项 5：风控工具支持 */}
+              <ReportDimensionCard
+                title="⑤ 风控工具与审核辅助支持"
+                badge={
+                  <span className="text-xs font-semibold text-amber-800 bg-amber-50 px-2 py-0.5 font-mono border border-amber-200">
+                    审核工具维度
+                  </span>
+                }
+              >
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center">
+                  {/* 原来 */}
+                  <div className="sm:col-span-5 flex flex-col items-center justify-center text-center">
+                    <span className="text-xs font-bold text-slate-500 tracking-wider mb-1">
+                      原来
+                    </span>
+                    <span className="text-lg sm:text-xl font-bold text-slate-600 tracking-tight">
+                      传统人工核查
+                    </span>
+                    <span className="text-xs sm:text-sm text-slate-500 mt-1">多系统肉眼对比 · 效率低易漏审</span>
+                  </div>
+
+                  {/* 中间 跃迁升级 */}
+                  <div className="sm:col-span-2 flex flex-col items-center justify-center py-1 sm:py-0">
+                    <div className="px-3 py-1 rounded bg-amber-700 text-white font-mono font-bold text-xs sm:text-sm whitespace-nowrap mb-1 tracking-tight">
+                      一站式工具链
+                    </div>
+                    <span className="text-xs font-bold tracking-wider text-slate-400 select-none">
+                      跃迁升级
+                    </span>
+                  </div>
+
+                  {/* 现在 */}
+                  <div className="sm:col-span-5 flex flex-col items-center justify-center text-center">
+                    <span className="text-xs font-bold text-amber-800 tracking-wider mb-1">
+                      现在
+                    </span>
+                    <span className="text-lg sm:text-xl font-bold text-amber-700 tracking-tight">
+                      引入风控工具链
+                    </span>
+                    <span className="text-xs sm:text-sm text-amber-800 font-medium mt-1">关联图谱/注单明细/一键决议快速裁决</span>
+                  </div>
+                </div>
+              </ReportDimensionCard>
             </div>
           </div>
 
@@ -469,165 +506,205 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             <div className="border-b border-slate-200 pb-2 flex items-center justify-between">
               <h5 className="text-sm font-black text-slate-900 flex items-center gap-1.5">
                 <Workflow className="h-4 w-4 text-blue-600" />
-                <span>云盾全链路闭环审核流程</span>
+                <span>云盾体系</span>
               </h5>
               <span className="text-xs font-mono font-bold text-slate-500">
                 拦截 - 复核 - 反馈自进化机制
               </span>
             </div>
 
-            {/* 流程图主容器 */}
-            <div className="system-audit-flow-grid">
+            {/* 一句话总结说明 */}
+            <SummaryBox variant="note" title="云盾闭环机制总结" className="mb-4">
+              {highlightNumbers(
+                "云盾风控闭环通过[[“系统风控审核（策略校验➔评分计算）”]]精准分流，支撑 [[80% 订单 1.8 秒全自动秒级直出]]，同时针对 [[20% 风险订单由【人工兜底精审】（路由分发➔风控工具）]]高效把关。"
+              )}
+            </SummaryBox>
+
+            {/* 流程图主容器：采用 flex-col xl:flex-row 响应式布局，保证中间主区域空间充裕 */}
+            <div className="flex flex-col xl:flex-row items-stretch justify-between gap-2.5 w-full my-2">
               {/* 1. 提款申请节点 */}
-              <div className="system-audit-flow-node">
-                <div className="system-audit-flow-terminal">
-                  <User className="w-4 h-4 text-white shrink-0" />
-                  <span>用户申请</span>
-                </div>
+              <div className="w-full xl:w-24 shrink-0 flex flex-col items-center justify-center p-2.5 bg-slate-900 text-white border border-slate-900 text-center">
+                <User className="w-4 h-4 text-slate-300 mb-1" />
+                <span className="font-bold text-xs text-white tracking-tight">用户申请</span>
+                <span className="text-[10px] text-slate-400 font-mono mt-0.5">提款提交</span>
               </div>
 
-              {/* 连接箭头：提款申请 -> 系统审核 */}
-              <div className="system-audit-flow-arrow">
-                <ArrowRight className="w-8 h-8 stroke-[3] rotate-90 xl:rotate-0" />
+              {/* 连接箭头：提款申请 -> 审核层 */}
+              <div className="flex items-center justify-center shrink-0 px-0.5 py-1 xl:py-0 text-slate-400">
+                <ArrowRight className="w-4 h-4 stroke-[2] rotate-90 xl:rotate-0 text-slate-500" />
               </div>
 
-              {/* 2. 策略矩阵校验 */}
-              <div className="system-audit-flow-main">
-                <div className="system-audit-flow-main-title">
-                  <Scale className="w-4 h-4 text-white" />
-                  系统审核
-                </div>
+              {/* 2. 核心审核层：系统风控审核 (2列) ➔ 分流处置 (上下2模块)，左右宽度完全一致 (1:1) */}
+              <div className="flex-1 min-w-0 flex flex-col xl:flex-row items-stretch gap-2.5">
+                {/* 2.1 系统风控审核 (50% 宽度，与右侧保持一致) */}
+                <div className="xl:w-1/2 flex-1 border border-slate-200 bg-white p-2.5 space-y-2 flex flex-col min-w-0">
+                  <div className="bg-slate-900 text-white px-2.5 py-1.5 flex items-center justify-between shrink-0">
+                    <div className="flex items-center gap-1.5">
+                      <Scale className="w-3.5 h-3.5 text-slate-200" />
+                      <span className="font-bold text-xs sm:text-sm tracking-tight">1. 系统风控审核</span>
+                    </div>
+                    <span className="text-[10px] bg-slate-800 text-slate-200 px-1.5 py-0.5 font-mono font-bold whitespace-nowrap border border-slate-700">
+                      全量 100% 扫描
+                    </span>
+                  </div>
 
-                {/* 步骤一、二、三 横向三列排布 */}
-                <div className="system-audit-step-grid">
-                  {/* 步骤一：策略矩阵校验 */}
-                  <div className="system-audit-step-card">
-                    <div className="system-audit-step-title">
-                      <span className="report-sequence-badge">1</span>
-                      <span>策略矩阵校验</span>
+                  {/* 2列横向排布：1.策略矩阵校验，2.计算风险分数 */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 flex-1">
+                    {/* 步骤一：策略矩阵校验 */}
+                    <div className="bg-slate-50/70 border border-slate-200 p-2 flex flex-col gap-1.5">
+                      <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 pb-1 border-b border-slate-200">
+                        <span className="report-sequence-badge text-[10px]">1</span>
+                        <span>策略矩阵校验</span>
+                      </div>
+
+                      <div className="space-y-1.5 text-[11px] flex-1 flex flex-col justify-between">
+                        {/* 防御型规则 */}
+                        <div className="bg-white p-1.5 border border-slate-200 space-y-0.5">
+                          <div className="flex items-center justify-between font-bold text-slate-800 text-[10.5px]">
+                            <span>防御型规则</span>
+                            <span className="text-slate-900 font-mono font-bold">29 个</span>
+                          </div>
+                          <div className="text-[10px] text-slate-500 leading-tight">
+                            模拟器、快进快出、高盈利、倍数异常等
+                          </div>
+                        </div>
+
+                        {/* 作弊型规则 */}
+                        <div className="bg-white p-1.5 border border-slate-200 space-y-0.5">
+                          <div className="flex items-center justify-between font-bold text-slate-800 text-[10.5px]">
+                            <span>作弊型规则</span>
+                            <span className="text-slate-900 font-mono font-bold">10 个</span>
+                          </div>
+                          <div className="text-[10px] text-slate-500 leading-tight">
+                            棋牌操盘全包对冲、活动特邀超额等
+                          </div>
+                        </div>
+
+                        {/* 场馆协同 */}
+                        <div className="bg-white p-1.5 border border-slate-200 space-y-0.5">
+                          <div className="flex items-center justify-between font-bold text-slate-800 text-[10.5px]">
+                            <span>场馆协同</span>
+                            <span className="text-slate-900 font-mono font-bold">3 个</span>
+                          </div>
+                          <div className="text-[10px] text-slate-500 leading-tight">
+                            体育/真人/电子风控接口实时对接
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
-                    <div className="system-audit-rule-stack">
-                      {/* 防御型规则 */}
-                      <div className="system-audit-rule-box">
-                        <div className="system-audit-rule-head">
-                          <span>防御型规则</span>
-                          <span>29个</span>
+                    {/* 步骤二：计算风险分数 */}
+                    <div className="bg-slate-50/70 border border-slate-200 p-2 flex flex-col gap-1.5">
+                      <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 pb-1 border-b border-slate-200">
+                        <span className="report-sequence-badge text-[10px]">2</span>
+                        <span>计算风险分数</span>
+                      </div>
+
+                      <div className="bg-white p-2 border border-slate-200 flex-1 flex flex-col justify-center gap-2">
+                        <div className="flex items-center gap-1 text-[11px] font-bold text-slate-900">
+                          <ShieldAlert className="w-3.5 h-3.5 text-slate-700 shrink-0" />
+                          <span>特征加权计算风险分</span>
                         </div>
-                        <div className="space-y-2 text-sm leading-relaxed text-slate-600 font-semibold">
-                          <div>
-                            <span className="font-black text-slate-900">异常行为 (17个)：</span>
-                            模拟器、快进快出、钱包负数、高盈利、倍数异常、短时大额、首提等
-                          </div>
-                          <div>
-                            <span className="font-black text-slate-900">账户安全 (4个)：</span>
-                            新设备、睡眠账号、资料变更后、新绑账户等
-                          </div>
-                          <div>
-                            <span className="font-black text-slate-900">状态关联 (8个)：</span>
-                            高危标签、关联账号、白名单、特殊上标、转账失败、二次结算、租卖号
-                          </div>
+                        <p className="text-[10.5px] text-slate-600 leading-relaxed">
+                          综合汇总命中的防御型、作弊型规则特征与场馆协同信号，精准加权计算订单综合风险分值。
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 分流连接指向：箭头上 20%，箭头下 80% */}
+                <div className="flex xl:flex-col items-center justify-between xl:justify-center gap-1.5 shrink-0 px-1 py-1 xl:py-0">
+                  <div className="text-[10.5px] font-mono font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 border border-amber-300 whitespace-nowrap">
+                    20%
+                  </div>
+                  <ArrowRight className="w-4 h-4 stroke-[2] rotate-90 xl:rotate-0 text-slate-500" />
+                  <div className="text-[10.5px] font-mono font-bold text-emerald-900 bg-emerald-50 px-1.5 py-0.5 border border-emerald-300 whitespace-nowrap">
+                    80%
+                  </div>
+                </div>
+
+                {/* 2.2 处置分流层：上下 2 个模块（网格 2 行强制等高 1:1，高度完全一致） */}
+                <div className="xl:w-1/2 flex-1 grid grid-rows-2 gap-2 min-w-0">
+                  {/* 【上模块】：2A. 人工兜底精审 */}
+                  <div className="border border-slate-200 bg-white p-2 flex flex-col justify-between space-y-1.5 min-h-0">
+                    <div className="bg-amber-900 text-white px-2.5 py-1.5 flex items-center justify-between shrink-0">
+                      <div className="flex items-center gap-1.5">
+                        <Users className="w-3.5 h-3.5 text-amber-200" />
+                        <span className="font-bold text-xs sm:text-sm tracking-tight">2A. 人工兜底精审</span>
+                      </div>
+                      <span className="text-[10px] bg-amber-950 text-amber-200 px-1.5 py-0.5 font-mono font-bold whitespace-nowrap border border-amber-800">
+                        风险复核
+                      </span>
+                    </div>
+
+                    {/* 2个横向排布步骤：1.智能分流路由，2.风控工具支持 */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 flex-1 min-h-0">
+                      {/* 步骤一：智能分流路由 */}
+                      <div className="bg-slate-50/70 border border-slate-200 p-2 flex flex-col gap-1 justify-between">
+                        <div className="flex items-center gap-1 text-[11px] font-bold text-slate-900 pb-0.5 border-b border-slate-200">
+                          <span className="report-sequence-badge text-[10px]">1</span>
+                          <span>智能分流路由</span>
+                        </div>
+                        <div className="text-[10px] text-slate-600 space-y-0.5 leading-tight flex-1 flex flex-col justify-center">
+                          <div>• <strong>高等级优先：</strong>高等级会员优先派给专家组</div>
+                          <div>• <strong>风险分类：</strong>对冲/套利/作弊定点分发</div>
+                          <div>• <strong>负载均衡：</strong>队列排队与耗时实时监控</div>
                         </div>
                       </div>
 
-                      {/* 作弊型规则 */}
-                      <div className="system-audit-rule-box">
-                        <div className="system-audit-rule-head">
-                          <span>作弊型规则</span>
-                          <span>10个</span>
+                      {/* 步骤二：风控工具支持 */}
+                      <div className="bg-slate-50/70 border border-slate-200 p-2 flex flex-col gap-1 justify-between">
+                        <div className="flex items-center gap-1 text-[11px] font-bold text-slate-900 pb-0.5 border-b border-slate-200">
+                          <span className="report-sequence-badge text-[10px]">2</span>
+                          <span>风控工具支持</span>
                         </div>
-                        <div className="space-y-2 text-sm leading-relaxed text-slate-600 font-semibold">
-                          <div>
-                            <span className="font-black text-slate-900">对冲 (2个)：</span>
-                            棋牌全包、操盘全包
-                          </div>
-                          <div>
-                            <span className="font-black text-slate-900">活动 (4个)：</span>
-                            命中多个特征、特邀、超额、高占比
-                          </div>
-                          <div>
-                            <span className="font-black text-slate-900">游戏 (4个)：</span>
-                            低赔率占比高、电子卡免费、命中多个特征
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* B端风控接口 */}
-                      <div className="system-audit-rule-box">
-                        <div className="system-audit-rule-head">
-                          <span>B端协同</span>
-                          <span>3个</span>
-                        </div>
-                        <div className="space-y-2 text-sm leading-relaxed text-slate-600 font-semibold">
-                          <div>
-                            <span className="font-black text-slate-900">接口：</span>
-                            体育、真人、电子的风控接口实时对接；（彩票：待开发）
-                          </div>
+                        <div className="text-[10px] text-slate-600 space-y-0.5 leading-tight flex-1 flex flex-col justify-center">
+                          <div>• <strong>多维日志复核：</strong>关联图谱与设备核查</div>
+                          <div>• <strong>注单明细比对：</strong>流水倍数与对冲分析</div>
+                          <div>• <strong>终审裁决工具：</strong>快速划扣放行 / 违规关停</div>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  {/* 步骤二：计算风险分数 */}
-                  <div className="system-audit-step-card">
-                    <div className="system-audit-step-title">
-                      <span className="report-sequence-badge">2</span>
-                      <span>计算风险分数</span>
+                  {/* 【下模块】：2B. 系统直接出单放行 (与 2A 完全对称等高) */}
+                  <div className="border border-slate-200 bg-white p-2 flex flex-col justify-between space-y-1.5 min-h-0">
+                    <div className="bg-emerald-900 text-white px-2.5 py-1.5 flex items-center justify-between shrink-0">
+                      <div className="flex items-center gap-1.5">
+                        <CheckCircle className="w-3.5 h-3.5 text-emerald-200" />
+                        <span className="font-bold text-xs sm:text-sm tracking-tight">2B. 系统直接出单放行</span>
+                      </div>
+                      <span className="text-[10px] bg-emerald-950 text-emerald-200 px-1.5 py-0.5 font-mono font-bold whitespace-nowrap border border-emerald-800">
+                        1.8秒秒级直出
+                      </span>
                     </div>
 
-                    <div className="system-audit-score-box">
-                      <div className="system-audit-score-title">
-                        <ShieldAlert className="w-4 h-4 text-blue-600 shrink-0" />
-                        <span>特征汇总计算分数</span>
-                      </div>
-                      <p>
-                        {highlightNumbers(
-                          "系统汇总命中的[[策略规则特征]]，综合加权计算[[订单综合风险分值]]。"
-                        )}
-                      </p>
-                      <div className="system-audit-decision-judge" aria-label="分值与参数判定">
-                        <div className="system-audit-decision-diamond">
-                          <div>
-                            <span>分值 &gt; 参数</span>
-                          </div>
+                    {/* 2个横向排布步骤：1.规则引擎放行，2.极致到账体验 */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 flex-1 min-h-0">
+                      {/* 步骤一：规则引擎放行 */}
+                      <div className="bg-slate-50/70 border border-slate-200 p-2 flex flex-col gap-1 justify-between">
+                        <div className="flex items-center gap-1 text-[11px] font-bold text-slate-900 pb-0.5 border-b border-slate-200">
+                          <span className="report-sequence-badge text-[10px]">1</span>
+                          <span>规则引擎放行</span>
+                        </div>
+                        <div className="text-[10px] text-slate-600 space-y-0.5 leading-tight flex-1 flex flex-col justify-center">
+                          <div>• <strong>自动出款：</strong>1.8 秒全自动秒级直出</div>
+                          <div>• <strong>零干预：</strong>全程无须任何人工审查</div>
+                          <div>• <strong>高并发：</strong>支持大促赛事无卡顿放行</div>
                         </div>
                       </div>
-                    </div>
-                  </div>
 
-                  {/* 步骤三：系统输出决策 */}
-                  <div className="system-audit-step-card">
-                    <div className="system-audit-step-title">
-                      <span className="report-sequence-badge">3</span>
-                      <span>系统输出决策</span>
-                    </div>
-
-                    <div className="system-audit-decision-stack system-audit-decision-stack--mapped">
-                      <div className="system-audit-decision-title">
-                        <ShieldAlert className="w-4 h-4 text-blue-600 shrink-0" />
-                        <span>基于分值参数判断</span>
-                      </div>
-                      <p className="system-audit-decision-description">
-                        针对不同的 VIP 等级设置差异化风险阈值，决定直接秒级放行或转人工：
-                      </p>
-
-                      <div className="system-audit-decision-results">
-                        {/* 直接出单放行 */}
-                        <div className="system-audit-decision-box system-audit-decision-box--safe">
-                          <div>
-                            <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
-                            <span>直接出单放行 (82.4%)</span>
-                          </div>
-                          <p>≤ 阈值由系统 1.8 秒直出</p>
+                      {/* 步骤二：极致到账体验 */}
+                      <div className="bg-slate-50/70 border border-slate-200 p-2 flex flex-col gap-1 justify-between">
+                        <div className="flex items-center gap-1 text-[11px] font-bold text-slate-900 pb-0.5 border-b border-slate-200">
+                          <span className="report-sequence-badge text-[10px]">2</span>
+                          <span>到账体验与效率</span>
                         </div>
-
-                        {/* 转入人工审核 */}
-                        <div className="system-audit-decision-box system-audit-decision-box--risk">
-                          <div>
-                            <ShieldAlert className="w-4 h-4 text-amber-600 shrink-0" />
-                            <span>转入人工审核 (17.6%)</span>
-                          </div>
-                          <p>&gt; 阈值由系统转人工精审</p>
+                        <div className="text-[10px] text-slate-600 space-y-0.5 leading-tight flex-1 flex flex-col justify-center">
+                          <div>• <strong>平均到账：</strong>18.5 分钟 ➔ <strong>2.4 分钟</strong></div>
+                          <div>• <strong>客诉排队：</strong>投诉率降至 <strong>0.02%</strong></div>
+                          <div>• <strong>体验提升：</strong>提款满意度提升 94%</div>
                         </div>
                       </div>
                     </div>
@@ -635,36 +712,34 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* 反向连接箭头：评估反馈 -> 系统审核 */}
-              <div className="system-audit-flow-arrow">
-                <ArrowLeft className="w-8 h-8 stroke-[3] rotate-90 xl:rotate-0" />
+              {/* 反向连接箭头：评估反馈 -> 审核层 */}
+              <div className="flex items-center justify-center shrink-0 px-0.5 py-1 xl:py-0 text-slate-400">
+                <ArrowLeft className="w-4 h-4 stroke-[2] rotate-90 xl:rotate-0 text-slate-500" />
               </div>
 
-              {/* 3. 评估反馈 */}
-              <div className="system-audit-feedback">
-                <div className="system-audit-flow-terminal">
-                  <RotateCcw className="w-4 h-4 text-white shrink-0" />
-                  <span>评估反馈</span>
+              {/* 3. 评估反馈：垂直居中内含块 */}
+              <div className="w-full xl:w-36 shrink-0 flex flex-col justify-between p-2.5 bg-slate-900 text-white border border-slate-900 space-y-1.5">
+                <div className="flex items-center gap-1 text-[11px] font-bold text-slate-200 pb-1 border-b border-slate-700/80 shrink-0">
+                  <RotateCcw className="w-3.5 h-3.5 text-slate-300 shrink-0" />
+                  <span>评估反馈机制</span>
                 </div>
 
-                {/* 效果归因回溯 */}
-                <div className="system-audit-feedback-box">
-                  <div className="system-audit-feedback-head">
-                    <span>效果归因回溯</span>
+                {/* 垂直居中容器 */}
+                <div className="flex-1 flex flex-col justify-center gap-2 text-[10px] text-slate-300">
+                  <div className="bg-slate-800/90 p-1.5 border border-slate-700 space-y-0.5">
+                    <div className="font-bold text-slate-200 text-[10px] flex items-center gap-1">
+                      <span className="w-3.5 h-3.5 bg-slate-700 text-slate-200 text-[9px] flex items-center justify-center font-mono font-bold">1</span>
+                      <span>召回率回溯</span>
+                    </div>
+                    <p className="text-[9.5px] text-slate-400 leading-tight">还原漏网提单特征，提升拦截覆盖。</p>
                   </div>
-                  <div className="system-audit-feedback-list">
-                    <div>
-                      <div>
-                        <span className="report-sequence-badge">1</span>问题召回率回溯
-                      </div>
-                      <p>还原漏网提单特征，持续提升攻击拦截率与覆盖。</p>
+
+                  <div className="bg-slate-800/90 p-1.5 border border-slate-700 space-y-0.5">
+                    <div className="font-bold text-slate-200 text-[10px] flex items-center gap-1">
+                      <span className="w-3.5 h-3.5 bg-slate-700 text-slate-200 text-[9px] flex items-center justify-center font-mono font-bold">2</span>
+                      <span>命中率回溯</span>
                     </div>
-                    <div>
-                      <div>
-                        <span className="report-sequence-badge">2</span>问题命中率回溯
-                      </div>
-                      <p>精细化阈值参数调优，最大程度减少正常用户的拦截。</p>
-                    </div>
+                    <p className="text-[9.5px] text-slate-400 leading-tight">精细调优阈值，减少误拦截。</p>
                   </div>
                 </div>
               </div>

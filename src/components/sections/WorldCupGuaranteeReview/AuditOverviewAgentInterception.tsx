@@ -143,37 +143,37 @@ export const AuditOverviewAgentInterception: React.FC = () => {
 
       {/* 统一总结模块 */}
       <SummaryBox>
-        <div className="space-y-4">
-          <div>
+        <div className="space-y-3">
+          <div className="text-sm md:text-base text-slate-800 font-medium leading-relaxed">
             {highlightNumbers(
               "代理以[[佣金]]为主体，[[活动类]]与[[用户首复存]]共同构成主要补充。"
             )}
           </div>
-          <ul className="space-y-3 text-slate-900 font-bold">
-          <li className="flex items-start gap-2 text-sm text-slate-900 font-bold">
-            <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-slate-700 shrink-0" />
-            <span>
-              {highlightNumbers(
-                "[[佣金]]：含基础及额外，总占比达 [[62.42%]]，核心为[[基础佣金]]与[[扶持降档]]",
-              )}
-            </span>
-          </li>
-          <li className="flex items-start gap-2 text-sm text-slate-900 font-bold">
-            <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-slate-700 shrink-0" />
-            <span>
-              {highlightNumbers(
-                "[[活动]]：以[[奖励活动]]（[[4.35%]]）与[[新增冲刺]]（[[12.02%]]）为主，两者合计占整体的 [[16.37%]]。若叠加[[用户首复存]]，三项合计金额为 [[2,932.8]]，占整体约 [[33.15%]]。",
-              )}
-            </span>
-          </li>
-          <li className="flex items-start gap-2 text-sm text-slate-900 font-bold">
-            <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-slate-700 shrink-0" />
-            <span>
-              {highlightNumbers(
-                "[[存款]]：针对用户的[[首复存的活动套利]]，整体占比约为 [[16.77%]]。",
-              )}
-            </span>
-          </li>
+          <ul className="space-y-2 text-slate-700">
+            <li className="flex items-start gap-2 text-sm text-slate-700 leading-relaxed">
+              <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-slate-700 shrink-0" />
+              <span>
+                {highlightNumbers(
+                  "[[佣金]]：含基础及额外，总占比达 [[62.42%]]，核心为[[基础佣金]]与[[扶持降档]]",
+                )}
+              </span>
+            </li>
+            <li className="flex items-start gap-2 text-sm text-slate-700 leading-relaxed">
+              <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-slate-700 shrink-0" />
+              <span>
+                {highlightNumbers(
+                  "[[活动]]：以[[奖励活动]]（[[4.35%]]）与[[新增冲刺]]（[[12.02%]]）为主，两者合计占整体的 [[16.37%]]。若叠加[[用户首复存]]，三项合计金额为 [[2,932.8]]，占整体约 [[33.15%]]。",
+                )}
+              </span>
+            </li>
+            <li className="flex items-start gap-2 text-sm text-slate-700 leading-relaxed">
+              <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-slate-700 shrink-0" />
+              <span>
+                {highlightNumbers(
+                  "[[存款]]：针对[[用户首复存活动套利]]，整体拦截占比约为 [[16.77%]]。",
+                )}
+              </span>
+            </li>
           </ul>
         </div>
       </SummaryBox>
@@ -181,78 +181,78 @@ export const AuditOverviewAgentInterception: React.FC = () => {
       {/* 表格 */}
       <ReportTableFrame>
         <table className="report-dense-table">
-          <thead className="bg-slate-100 text-slate-900 ">
-            <tr className="bg-slate-100 border-b border-slate-100 font-bold text-slate-900">
-              <th rowSpan={2} className="p-0.5 md:p-1 lg:p-2.5 border-r border-slate-100">时间</th>
-              <th rowSpan={2} className="p-0.5 md:p-1 lg:p-2.5 border-r border-slate-100">合计</th>
-              <th colSpan={2} className="p-0.5 md:p-1 lg:p-2 border-r border-slate-100">基础拦截</th>
-              <th colSpan={2} className="p-0.5 md:p-1 lg:p-2 border-r border-slate-100">额外拦截金额</th>
-              <th colSpan={2} className="p-0.5 md:p-1 lg:p-2 border-r border-slate-100">人头费拦截</th>
-              <th colSpan={2} className="p-0.5 md:p-1 lg:p-2 border-r border-slate-100">首复存</th>
-              <th colSpan={2} className="p-0.5 md:p-1 lg:p-2 border-r border-slate-100">奖励活动</th>
-              <th colSpan={2} className="p-0.5 md:p-1 lg:p-2 border-r border-slate-100">新增冲刺</th>
-              <th colSpan={2} className="p-0.5 md:p-1 lg:p-2">其他</th>
+          <thead className="bg-slate-50 text-slate-800">
+            <tr className="border-b border-slate-200 font-bold text-slate-900">
+              <th rowSpan={2} className="py-2 px-2 border-r border-slate-200 text-center">时间</th>
+              <th rowSpan={2} className="py-2 px-2 border-r border-slate-200 text-center">合计</th>
+              <th colSpan={2} className="py-2 px-2 border-r border-slate-200 text-center">基础拦截</th>
+              <th colSpan={2} className="py-2 px-2 border-r border-slate-200 text-center">额外拦截金额</th>
+              <th colSpan={2} className="py-2 px-2 border-r border-slate-200 text-center">人头费拦截</th>
+              <th colSpan={2} className="py-2 px-2 border-r border-slate-200 text-center">首复存</th>
+              <th colSpan={2} className="py-2 px-2 border-r border-slate-200 text-center">奖励活动</th>
+              <th colSpan={2} className="py-2 px-2 border-r border-slate-200 text-center">新增冲刺</th>
+              <th colSpan={2} className="py-2 px-2 text-center">其他</th>
             </tr>
-            <tr className="bg-slate-50 border-b border-slate-100 text-slate-900 font-bold font-semibold text-sm">
-              <th className="px-2 md:px-3 lg:px-4 py-3 border-b border-slate-200 font-black text-center">金额</th>
-              <th className="px-2 md:px-3 lg:px-4 py-3 border-b border-slate-200 font-black text-center">占比</th>
-              <th className="px-2 md:px-3 lg:px-4 py-3 border-b border-slate-200 font-black text-center">金额</th>
-              <th className="px-2 md:px-3 lg:px-4 py-3 border-b border-slate-200 font-black text-center">占比</th>
-              <th className="px-2 md:px-3 lg:px-4 py-3 border-b border-slate-200 font-black text-center">金额</th>
-              <th className="px-2 md:px-3 lg:px-4 py-3 border-b border-slate-200 font-black text-center">占比</th>
-              <th className="px-2 md:px-3 lg:px-4 py-3 border-b border-slate-200 font-black text-center">金额</th>
-              <th className="px-2 md:px-3 lg:px-4 py-3 border-b border-slate-200 font-black text-center">占比</th>
-              <th className="px-2 md:px-3 lg:px-4 py-3 border-b border-slate-200 font-black text-center">金额</th>
-              <th className="px-2 md:px-3 lg:px-4 py-3 border-b border-slate-200 font-black text-center">占比</th>
-              <th className="px-2 md:px-3 lg:px-4 py-3 border-b border-slate-200 font-black text-center">金额</th>
-              <th className="px-2 md:px-3 lg:px-4 py-3 border-b border-slate-200 font-black text-center">占比</th>
-              <th className="px-2 md:px-3 lg:px-4 py-3 border-b border-slate-200 font-black text-center">金额</th>
-              <th className="px-2 md:px-3 lg:px-4 py-3 border-b border-slate-200 font-black text-center">占比</th>
+            <tr className="border-b-2 border-slate-900 text-slate-700 font-bold text-xs">
+              <th className="px-2 py-2 border-b border-slate-200 text-center">金额</th>
+              <th className="px-2 py-2 border-b border-slate-200 border-r border-slate-200 text-center">占比</th>
+              <th className="px-2 py-2 border-b border-slate-200 text-center">金额</th>
+              <th className="px-2 py-2 border-b border-slate-200 border-r border-slate-200 text-center">占比</th>
+              <th className="px-2 py-2 border-b border-slate-200 text-center">金额</th>
+              <th className="px-2 py-2 border-b border-slate-200 border-r border-slate-200 text-center">占比</th>
+              <th className="px-2 py-2 border-b border-slate-200 text-center">金额</th>
+              <th className="px-2 py-2 border-b border-slate-200 border-r border-slate-200 text-center">占比</th>
+              <th className="px-2 py-2 border-b border-slate-200 text-center">金额</th>
+              <th className="px-2 py-2 border-b border-slate-200 border-r border-slate-200 text-center">占比</th>
+              <th className="px-2 py-2 border-b border-slate-200 text-center">金额</th>
+              <th className="px-2 py-2 border-b border-slate-200 border-r border-slate-200 text-center">占比</th>
+              <th className="px-2 py-2 border-b border-slate-200 text-center">金额</th>
+              <th className="px-2 py-2 border-b border-slate-200 text-center">占比</th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-slate-100 font-mono tabular-nums">
+          <tbody className="bg-white divide-y divide-slate-100 font-mono tabular-nums text-xs">
             {processedData.map((row, idx) => {
               const isMay = row.month === "5月";
               return (
-                <tr key={idx} className={idx % 2 === 0 ? "bg-white" : "bg-slate-50/80"}>
-                  <td className="px-2 md:px-3 lg:px-4 py-3 text-center font-bold text-slate-900">{row.month}</td>
-                  <td className="px-2 md:px-3 lg:px-4 py-3 text-center font-black text-blue-900">{row.total_amt}</td>
-                  <td className="px-2 md:px-3 lg:px-4 py-3 text-center">{row.base_amt}</td>
-                  <td className="px-2 md:px-3 lg:px-4 py-3 text-center">{row.base_pct}</td>
-                  <td className={`px-2 md:px-3 lg:px-4 py-3 text-center ${isMay ? "text-blue-700 font-black bg-blue-50/80" : "text-blue-800 font-bold"}`}>{row.extra_amt}</td>
-                  <td className={`px-2 md:px-3 lg:px-4 py-3 text-center ${isMay ? "text-blue-700 font-black bg-blue-50/80" : "text-blue-800 font-bold"}`}>{row.extra_pct}</td>
-                  <td className="px-2 md:px-3 lg:px-4 py-3 text-center">{row.head_amt}</td>
-                  <td className="px-2 md:px-3 lg:px-4 py-3 text-center">{row.head_pct}</td>
-                  <td className="px-2 md:px-3 lg:px-4 py-3 text-center">{row.first_dep_amt}</td>
-                  <td className="px-2 md:px-3 lg:px-4 py-3 text-center">{row.first_dep_pct}</td>
-                  <td className="px-2 md:px-3 lg:px-4 py-3 text-center">{row.reward1_amt}</td>
-                  <td className="px-2 md:px-3 lg:px-4 py-3 text-center">{row.reward1_pct}</td>
-                  <td className="px-2 md:px-3 lg:px-4 py-3 text-center">{row.sprint_amt}</td>
-                  <td className="px-2 md:px-3 lg:px-4 py-3 text-center">{row.sprint_pct}</td>
-                  <td className="px-2 md:px-3 lg:px-4 py-3 text-center">{row.other_amt}</td>
-                  <td className="px-2 md:px-3 lg:px-4 py-3 text-center">{row.other_pct}</td>
+                <tr key={idx} className={idx % 2 === 0 ? "bg-white" : "bg-slate-50/50"}>
+                  <td className="px-2 py-2 text-center font-bold text-slate-900 border-r border-slate-200">{row.month}</td>
+                  <td className="px-2 py-2 text-center font-bold text-blue-900 border-r border-slate-200">{row.total_amt}</td>
+                  <td className="px-2 py-2 text-center text-slate-700">{row.base_amt}</td>
+                  <td className="px-2 py-2 text-center border-r border-slate-200 text-slate-700">{row.base_pct}</td>
+                  <td className={`px-2 py-2 text-center ${isMay ? "text-blue-900 font-bold bg-blue-50/40" : "text-slate-800"}`}>{row.extra_amt}</td>
+                  <td className={`px-2 py-2 text-center border-r border-slate-200 ${isMay ? "text-blue-900 font-bold bg-blue-50/40" : "text-slate-700"}`}>{row.extra_pct}</td>
+                  <td className="px-2 py-2 text-center text-slate-700">{row.head_amt}</td>
+                  <td className="px-2 py-2 text-center border-r border-slate-200 text-slate-700">{row.head_pct}</td>
+                  <td className="px-2 py-2 text-center text-slate-700">{row.first_dep_amt}</td>
+                  <td className="px-2 py-2 text-center border-r border-slate-200 text-slate-700">{row.first_dep_pct}</td>
+                  <td className="px-2 py-2 text-center text-slate-700">{row.reward1_amt}</td>
+                  <td className="px-2 py-2 text-center border-r border-slate-200 text-slate-700">{row.reward1_pct}</td>
+                  <td className="px-2 py-2 text-center text-slate-700">{row.sprint_amt}</td>
+                  <td className="px-2 py-2 text-center border-r border-slate-200 text-slate-700">{row.sprint_pct}</td>
+                  <td className="px-2 py-2 text-center text-slate-700">{row.other_amt}</td>
+                  <td className="px-2 py-2 text-center text-slate-700">{row.other_pct}</td>
                 </tr>
               );
             })}
           </tbody>
-          <tfoot>
-            <tr className="bg-blue-50/90 font-black border-t border-blue-200 text-slate-900">
-              <td className="px-2 md:px-3 lg:px-4 py-3 text-center font-black">总计</td>
-              <td className="px-2 md:px-3 lg:px-4 py-3 text-center font-black text-blue-900">{totals.total_amt.toFixed(1)}</td>
-              <td className="px-2 md:px-3 lg:px-4 py-3 text-center">{totals.base_amt.toFixed(1)}</td>
-              <td className="px-2 md:px-3 lg:px-4 py-3 text-center">{safePercent(totals.base_amt, totals.total_amt)}</td>
-              <td className="px-2 md:px-3 lg:px-4 py-3 text-center text-blue-900 font-black">{totals.extra_amt.toFixed(1)}</td>
-              <td className="px-2 md:px-3 lg:px-4 py-3 text-center text-blue-900 font-black">{safePercent(totals.extra_amt, totals.total_amt)}</td>
-              <td className="px-2 md:px-3 lg:px-4 py-3 text-center">{totals.head_amt.toFixed(1)}</td>
-              <td className="px-2 md:px-3 lg:px-4 py-3 text-center">{safePercent(totals.head_amt, totals.total_amt)}</td>
-              <td className="px-2 md:px-3 lg:px-4 py-3 text-center">{totals.first_dep_amt.toFixed(1)}</td>
-              <td className="px-2 md:px-3 lg:px-4 py-3 text-center">{safePercent(totals.first_dep_amt, totals.total_amt)}</td>
-              <td className="px-2 md:px-3 lg:px-4 py-3 text-center">{totals.reward1_amt.toFixed(1)}</td>
-              <td className="px-2 md:px-3 lg:px-4 py-3 text-center">{safePercent(totals.reward1_amt, totals.total_amt)}</td>
-              <td className="px-2 md:px-3 lg:px-4 py-3 text-center">{totals.sprint_amt.toFixed(1)}</td>
-              <td className="px-2 md:px-3 lg:px-4 py-3 text-center">{safePercent(totals.sprint_amt, totals.total_amt)}</td>
-              <td className="px-2 md:px-3 lg:px-4 py-3 text-center">{totals.other_amt.toFixed(1)}</td>
-              <td className="px-2 md:px-3 lg:px-4 py-3 text-center">{safePercent(totals.other_amt, totals.total_amt)}</td>
+          <tfoot className="border-t-2 border-b-2 border-slate-900 bg-slate-50 font-mono tabular-nums text-xs text-slate-900 font-bold">
+            <tr>
+              <td className="px-2 py-2.5 text-center font-bold border-r border-slate-200">总计</td>
+              <td className="px-2 py-2.5 text-center font-bold text-blue-900 border-r border-slate-200">{totals.total_amt.toFixed(1)}</td>
+              <td className="px-2 py-2.5 text-center text-slate-800">{totals.base_amt.toFixed(1)}</td>
+              <td className="px-2 py-2.5 text-center border-r border-slate-200 text-slate-700">{safePercent(totals.base_amt, totals.total_amt)}</td>
+              <td className="px-2 py-2.5 text-center text-blue-900 font-bold">{totals.extra_amt.toFixed(1)}</td>
+              <td className="px-2 py-2.5 text-center border-r border-slate-200 text-blue-900 font-bold">{safePercent(totals.extra_amt, totals.total_amt)}</td>
+              <td className="px-2 py-2.5 text-center text-slate-800">{totals.head_amt.toFixed(1)}</td>
+              <td className="px-2 py-2.5 text-center border-r border-slate-200 text-slate-700">{safePercent(totals.head_amt, totals.total_amt)}</td>
+              <td className="px-2 py-2.5 text-center text-slate-800">{totals.first_dep_amt.toFixed(1)}</td>
+              <td className="px-2 py-2.5 text-center border-r border-slate-200 text-slate-700">{safePercent(totals.first_dep_amt, totals.total_amt)}</td>
+              <td className="px-2 py-2.5 text-center text-slate-800">{totals.reward1_amt.toFixed(1)}</td>
+              <td className="px-2 py-2.5 text-center border-r border-slate-200 text-slate-700">{safePercent(totals.reward1_amt, totals.total_amt)}</td>
+              <td className="px-2 py-2.5 text-center text-slate-800">{totals.sprint_amt.toFixed(1)}</td>
+              <td className="px-2 py-2.5 text-center border-r border-slate-200 text-slate-700">{safePercent(totals.sprint_amt, totals.total_amt)}</td>
+              <td className="px-2 py-2.5 text-center text-slate-800">{totals.other_amt.toFixed(1)}</td>
+              <td className="px-2 py-2.5 text-center text-slate-700">{safePercent(totals.other_amt, totals.total_amt)}</td>
             </tr>
           </tfoot>
         </table>

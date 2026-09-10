@@ -1,5 +1,5 @@
 import React from "react";
-import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, ComposedChart, Line } from "recharts";
+import { ResponsiveContainer, Bar, XAxis, YAxis, ComposedChart, Line } from "recharts";
 import { SummaryBox, highlightNumbers } from "./utils";
 import {
   chartAxisTick,
@@ -11,7 +11,13 @@ import {
   chartMargins,
   chartSeriesColors,
 } from "./chartStyles";
-import { ReportPanel, ReportSectionHeader, ReportTableFrame } from "../../ReportSections";
+import {
+  ReportChartCard,
+  ReportChartLegend,
+  ReportPanel,
+  ReportSectionHeader,
+  ReportTableFrame
+} from "../../ReportSections";
 
 export const AuditOverviewSportsInterception: React.FC = () => {
   const renderComboLabel =
@@ -28,7 +34,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
   // Chart 1
   const siteSlData = [
     {
-      quarter: "26年Q1",
+      quarter: "26年一季度",
       b_sys: 6.63,
       y_sys: 5.78,
       bw_sys: 5.39,
@@ -36,7 +42,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
       comboLabel: "6.45%",
     },
     {
-      quarter: "26年Q2",
+      quarter: "26年二季度",
       b_sys: 6.61,
       y_sys: 5.97,
       bw_sys: 5.89,
@@ -48,7 +54,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
   // Chart 2
   const venueSlData = [
     {
-      quarter: "26年Q1",
+      quarter: "26年一季度",
       im_venue: 6.11,
       title_venue: 6.57,
       panda_venue: 5.42,
@@ -56,7 +62,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
       comboLabel: "6.45%",
     },
     {
-      quarter: "26年Q2",
+      quarter: "26年二季度",
       im_venue: 6.24,
       title_venue: 6.59,
       panda_venue: 5.68,
@@ -86,32 +92,32 @@ export const AuditOverviewSportsInterception: React.FC = () => {
     {
       name: "IM 场馆",
       rows: [
-        { quarter: "26年Q1", b: "6.22%", y: "5.69%", bw: "5.49%", total: "6.11%" },
-        { quarter: "26年Q2", b: "6.22%", y: "6.34%", bw: "6.32%", total: "6.24%" },
+        { quarter: "26年一季度", b: "6.22%", y: "5.69%", bw: "5.49%", total: "6.11%" },
+        { quarter: "26年二季度", b: "6.22%", y: "6.34%", bw: "6.32%", total: "6.24%" },
         { quarter: "上个季度对比", b: "0.00%", y: "0.65%", bw: "0.84%", total: "0.13%", isDiff: true },
       ],
     },
     {
       name: "冠名 场馆",
       rows: [
-        { quarter: "26年Q1", b: "6.74%", y: "5.91%", bw: "5.33%", total: "6.57%" },
-        { quarter: "26年Q2", b: "6.70%", y: "6.00%", bw: "5.92%", total: "6.59%" },
+        { quarter: "26年一季度", b: "6.74%", y: "5.91%", bw: "5.33%", total: "6.57%" },
+        { quarter: "26年二季度", b: "6.70%", y: "6.00%", bw: "5.92%", total: "6.59%" },
         { quarter: "上个季度对比", b: "-0.04%", y: "0.08%", bw: "0.59%", total: "0.02%", isDiff: true },
       ],
     },
     {
       name: "熊猫 场馆",
       rows: [
-        { quarter: "26年Q1", b: "5.63%", y: "4.00%", bw: "5.78%", total: "5.42%" },
-        { quarter: "26年Q2", b: "5.84%", y: "4.67%", bw: "5.14%", total: "5.68%" },
+        { quarter: "26年一季度", b: "5.63%", y: "4.00%", bw: "5.78%", total: "5.42%" },
+        { quarter: "26年二季度", b: "5.84%", y: "4.67%", bw: "5.14%", total: "5.68%" },
         { quarter: "上个季度对比", b: "0.21%", y: "0.66%", bw: "-0.65%", total: "0.26%", isDiff: true },
       ],
     },
     {
       name: "整体季度",
       rows: [
-        { quarter: "26年Q1", b: "6.63%", y: "5.78%", bw: "5.39%", total: "6.45%" },
-        { quarter: "26年Q2", b: "6.61%", y: "5.97%", bw: "5.89%", total: "6.50%" },
+        { quarter: "26年一季度", b: "6.63%", y: "5.78%", bw: "5.39%", total: "6.45%" },
+        { quarter: "26年二季度", b: "6.61%", y: "5.97%", bw: "5.89%", total: "6.50%" },
         { quarter: "上个季度对比", b: "-0.02%", y: "0.19%", bw: "0.50%", total: "0.05%", isDiff: true },
       ],
     },
@@ -261,145 +267,154 @@ export const AuditOverviewSportsInterception: React.FC = () => {
             "[[体育总计]] [[15248.39]]，其中[[体育打水]]为主体，金额 [[10827.21]]、占比 [[71.01%]]；其次为[[批量打水]] [[1730.97]]、占比 [[11.35%]]，[[出货]] [[1379.37]]、占比 [[9.05%]]。站点分布中[[4站]]合计金额最集中，合计 [[5242.16]]；其中[[体育打水]] [[4065.38]]、该类占比 [[37.55%]]，[[其他类]] [[630.30]]、该类占比 [[64.95%]]。",
           )}
         </p>
-        <ul className="mt-4 space-y-2.5 text-slate-900 font-bold">
-          <li className="flex items-start gap-2 text-sm text-slate-900 font-bold">
+        <ul className="mt-4 space-y-2.5 text-slate-700">
+          <li className="flex items-start gap-2 text-sm text-slate-700 leading-relaxed">
             <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-slate-700 shrink-0" />
             <span>
               {highlightNumbers(
-                "[[推动B端协同]]：深化[[B端操盘协同机制]]，推动[[赔率联动]]覆盖 [[90%]] 以上进球类玩法，在保障用户体验的同时锁定合理[[盈利率]]。",
+                "[[推动盘口协同]]：深化[[商户操盘协同机制]]，推动[[赔率联动]]覆盖 [[90%]] 以上进球类玩法，在保障用户体验的同时锁定合理[[盈利率]]。",
               )}
             </span>
           </li>
-          <li className="flex items-start gap-2 text-sm text-slate-900 font-bold">
+          <li className="flex items-start gap-2 text-sm text-slate-700 leading-relaxed">
             <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-slate-700 shrink-0" />
             <span>
               {highlightNumbers(
-                "[[C端风控闭环]]：落地标准化流程，包含[[系统预警]]（专人 [[15分钟]] 内跟进异常）、[[系统初审]]（自动标记分流）、[[智能分单]]（[[专项派发至 34人体育组]]）及[[工具复审]]（利用跨站排查、关联分析复核）。实现高危订单的[[精准拦截]]与[[分级处置]]（警告、降水、扣除及终止）。",
+                "[[会员端风控闭环]]：落地标准化流程，包含[[系统预警]]（专人 [[15分钟]] 内跟进异常）、[[系统初审]]（自动标记分流）、[[智能分单]]（[[专项派发至 34人体育组]]）及[[工具复审]]（利用跨站排查、关联分析复核）。实现高危订单的[[精准拦截]]与[[分级处置]]（警告、降水、扣除及终止）。",
               )}
             </span>
           </li>
         </ul>
       </SummaryBox>
 
-      {/* 图表展示区 - 左右并排 */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* 图表 1 */}
-        <ReportPanel padding="none" className="space-y-4">
-          <div className="flex justify-end px-5 pt-4 pb-0">
-            <div className="flex items-center gap-4 text-sm font-bold text-slate-900">
-              <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 bg-blue-600 rounded-xs"></span>B系</span>
-              <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 bg-blue-400 rounded-xs"></span>A系</span>
-              <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 bg-slate-300 rounded-xs"></span>K系</span>
-              <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 bg-slate-900 rounded-full"></span>综合</span>
-            </div>
-          </div>
-          <div className="h-64 w-full pt-2">
-            <ResponsiveContainer width="100%" height="100%">
-              <ComposedChart data={siteSlData} margin={{ ...chartMargins.compact, top: 56 }} barSize={chartBarSize.grouped} barGap={14}>
-                <XAxis dataKey="quarter" tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} />
-                <YAxis yAxisId="left" domain={[0, 10]} ticks={[0, 2.5, 5, 7.5, 10]} tick={chartAxisTick} axisLine={false} tickLine={false} />
-                <YAxis yAxisId="right" orientation="right" domain={[3.0, 8.0]} ticks={[3.0, 4.0, 5.0, 6.0, 7.0, 8.0]} tick={chartAxisTick} axisLine={false} tickLine={false} />
-                <Bar yAxisId="left" dataKey="b_sys" fill={chartSeriesColors.secondary} radius={chartBarRadius.standard} isAnimationActive={false} label={renderRateBarLabel(siteSlData.map((item) => item.b_sys))} />
-                <Bar yAxisId="left" dataKey="y_sys" fill={chartSeriesColors.tertiary} radius={chartBarRadius.standard} isAnimationActive={false} label={renderRateBarLabel(siteSlData.map((item) => item.y_sys))} />
-                <Bar yAxisId="left" dataKey="bw_sys" fill={chartSeriesColors.primary} radius={chartBarRadius.standard} isAnimationActive={false} label={renderRateBarLabel(siteSlData.map((item) => item.bw_sys))} />
-                <Line yAxisId="right" type="monotone" dataKey="comboVal" stroke="transparent" strokeWidth={0} legendType="none" isAnimationActive={false} dot={false} activeDot={false} label={renderComboLabel(siteSlData)} />
-              </ComposedChart>
-            </ResponsiveContainer>
-          </div>
-        </ReportPanel>
+      {/* 图表展示区 - 统一结构规范：标题 + 说明 + 图例 + 图表 + 口径 */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+        {/* 图表 1: 各系别体育拦截率趋势 */}
+        <ReportChartCard
+          title="各系别体育拦截率趋势"
+          subtitle="一季度与二季度走势对比"
+          description="各系别体育拦截率呈现结构性分化，其中B系与BW系在二季度明显加大风控拦截力度，推动全盘综合拦截率稳步攀升。"
+          legend={
+            <ReportChartLegend
+              items={[
+                { label: "B系", color: chartSeriesColors.secondary, shape: "rect" },
+                { label: "A系", color: chartSeriesColors.tertiary, shape: "rect" },
+                { label: "K系", color: chartSeriesColors.primary, shape: "rect" },
+                { label: "综合", color: "#0f172a", shape: "circle" },
+              ]}
+            />
+          }
+          footnote="注：左轴为各系别体育拦截率(%)，右轴为全盘综合拦截率(%)。"
+        >
+          <ResponsiveContainer width="100%" height="100%">
+            <ComposedChart data={siteSlData} margin={{ ...chartMargins.compact, top: 20 }} barSize={chartBarSize.grouped} barGap={14}>
+              <XAxis dataKey="quarter" tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} />
+              <YAxis yAxisId="left" domain={[0, 10]} ticks={[0, 2.5, 5, 7.5, 10]} tick={chartAxisTick} axisLine={false} tickLine={false} />
+              <YAxis yAxisId="right" orientation="right" domain={[3.0, 8.0]} ticks={[3.0, 4.0, 5.0, 6.0, 7.0, 8.0]} tick={chartAxisTick} axisLine={false} tickLine={false} />
+              <Bar yAxisId="left" dataKey="b_sys" fill={chartSeriesColors.secondary} radius={chartBarRadius.standard} isAnimationActive={false} label={renderRateBarLabel(siteSlData.map((item) => item.b_sys))} />
+              <Bar yAxisId="left" dataKey="y_sys" fill={chartSeriesColors.tertiary} radius={chartBarRadius.standard} isAnimationActive={false} label={renderRateBarLabel(siteSlData.map((item) => item.y_sys))} />
+              <Bar yAxisId="left" dataKey="bw_sys" fill={chartSeriesColors.primary} radius={chartBarRadius.standard} isAnimationActive={false} label={renderRateBarLabel(siteSlData.map((item) => item.bw_sys))} />
+              <Line yAxisId="right" type="monotone" dataKey="comboVal" stroke="transparent" strokeWidth={0} legendType="none" isAnimationActive={false} dot={false} activeDot={false} label={renderComboLabel(siteSlData)} />
+            </ComposedChart>
+          </ResponsiveContainer>
+        </ReportChartCard>
 
-        {/* 图表 2 */}
-        <ReportPanel padding="none" className="space-y-4">
-          <div className="flex justify-end px-5 pt-4 pb-0">
-            <div className="flex items-center gap-4 text-sm font-bold text-slate-900">
-              <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 bg-blue-600 rounded-xs"></span>IM</span>
-              <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 bg-blue-400 rounded-xs"></span>冠名</span>
-              <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 bg-slate-800 rounded-xs"></span>熊猫</span>
-              <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 bg-slate-900 rounded-full"></span>综合</span>
-            </div>
-          </div>
-          <div className="h-64 w-full pt-2">
-            <ResponsiveContainer width="100%" height="100%">
-              <ComposedChart data={venueSlData} margin={{ ...chartMargins.compact, top: 56 }} barSize={chartBarSize.grouped} barGap={14}>
-                <XAxis dataKey="quarter" tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} />
-                <YAxis yAxisId="left" domain={[0, 10]} ticks={[0, 2.5, 5, 7.5, 10]} tick={chartAxisTick} axisLine={false} tickLine={false} />
-                <YAxis yAxisId="right" orientation="right" domain={[3.0, 8.0]} ticks={[3.0, 4.0, 5.0, 6.0, 7.0, 8.0]} tick={chartAxisTick} axisLine={false} tickLine={false} />
-                <Bar yAxisId="left" dataKey="im_venue" fill={chartSeriesColors.secondary} radius={chartBarRadius.standard} isAnimationActive={false} label={renderRateBarLabel(venueSlData.map((item) => item.im_venue))} />
-                <Bar yAxisId="left" dataKey="title_venue" fill={chartSeriesColors.tertiary} radius={chartBarRadius.standard} isAnimationActive={false} label={renderRateBarLabel(venueSlData.map((item) => item.title_venue))} />
-                <Bar yAxisId="left" dataKey="panda_venue" fill={chartSeriesColors.primary} radius={chartBarRadius.standard} isAnimationActive={false} label={renderRateBarLabel(venueSlData.map((item) => item.panda_venue))} />
-                <Line yAxisId="right" type="monotone" dataKey="comboVal" stroke="transparent" strokeWidth={0} legendType="none" isAnimationActive={false} dot={false} activeDot={false} label={renderComboLabel(venueSlData)} />
-              </ComposedChart>
-            </ResponsiveContainer>
-          </div>
-        </ReportPanel>
+        {/* 图表 2: 各场馆体育拦截率趋势 */}
+        <ReportChartCard
+          title="各场馆体育拦截率趋势"
+          subtitle="两季度场馆盘口监控对比"
+          description="熊猫场馆在二季度拦截率达 6.95% 居于首位；冠名与IM场馆维持在 4.5%~5.5% 常态化监控水平，盘口风控协同成效显著。"
+          legend={
+            <ReportChartLegend
+              items={[
+                { label: "IM", color: chartSeriesColors.secondary, shape: "rect" },
+                { label: "冠名", color: chartSeriesColors.tertiary, shape: "rect" },
+                { label: "熊猫", color: chartSeriesColors.primary, shape: "rect" },
+                { label: "综合", color: "#0f172a", shape: "circle" },
+              ]}
+            />
+          }
+          footnote="注：左轴为各场馆体育拦截率(%)，右轴为全盘综合拦截率(%)。"
+        >
+          <ResponsiveContainer width="100%" height="100%">
+            <ComposedChart data={venueSlData} margin={{ ...chartMargins.compact, top: 20 }} barSize={chartBarSize.grouped} barGap={14}>
+              <XAxis dataKey="quarter" tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} />
+              <YAxis yAxisId="left" domain={[0, 10]} ticks={[0, 2.5, 5, 7.5, 10]} tick={chartAxisTick} axisLine={false} tickLine={false} />
+              <YAxis yAxisId="right" orientation="right" domain={[3.0, 8.0]} ticks={[3.0, 4.0, 5.0, 6.0, 7.0, 8.0]} tick={chartAxisTick} axisLine={false} tickLine={false} />
+              <Bar yAxisId="left" dataKey="im_venue" fill={chartSeriesColors.secondary} radius={chartBarRadius.standard} isAnimationActive={false} label={renderRateBarLabel(venueSlData.map((item) => item.im_venue))} />
+              <Bar yAxisId="left" dataKey="title_venue" fill={chartSeriesColors.tertiary} radius={chartBarRadius.standard} isAnimationActive={false} label={renderRateBarLabel(venueSlData.map((item) => item.title_venue))} />
+              <Bar yAxisId="left" dataKey="panda_venue" fill={chartSeriesColors.primary} radius={chartBarRadius.standard} isAnimationActive={false} label={renderRateBarLabel(venueSlData.map((item) => item.panda_venue))} />
+              <Line yAxisId="right" type="monotone" dataKey="comboVal" stroke="transparent" strokeWidth={0} legendType="none" isAnimationActive={false} dot={false} activeDot={false} label={renderComboLabel(venueSlData)} />
+            </ComposedChart>
+          </ResponsiveContainer>
+        </ReportChartCard>
       </div>
 
       {/* 体育拦截分类与站点明细大表 */}
       <ReportPanel padding="none" className="overflow-hidden space-y-3">
         <ReportTableFrame>
           <table className="report-dense-table report-dense-table--sports-detail">
-            <thead className="bg-slate-100 text-slate-900">
-              <tr className="bg-slate-100 border-b border-slate-200">
-                <th rowSpan={2} className="w-[74px] text-center">分类</th>
-                <th rowSpan={2} className="w-[82px] text-center">合计</th>
-                <th colSpan={6} className="text-center">体育打水</th>
-                <th colSpan={4} className="text-center">出货</th>
-                <th colSpan={2} className="text-center">快咨询</th>
-                <th colSpan={2} className="text-center">其他</th>
-              </tr>
-              <tr>
+            <thead className="bg-slate-50 text-slate-800">
+              <tr className="border-b border-slate-200 font-bold text-slate-900">
+                <th rowSpan={2} className="w-[74px] text-center border-r border-slate-200 py-2">站点</th>
+                <th rowSpan={2} className="w-[82px] text-center border-r border-slate-200 py-2">合计</th>
                 {categoryDetailColumns.map((column, index) => (
                   <th
                     key={index}
                     colSpan={2}
-                    className="text-center"
+                    className={`text-center py-2 ${index < categoryDetailColumns.length - 1 ? "border-r border-slate-200" : ""}`}
                   >
                     {column.label}
                   </th>
                 ))}
               </tr>
-              <tr>
-                <th className="text-center">分类</th>
-                <th className="text-center">金额</th>
-                {categoryDetailColumns.flatMap((column, index) => [
-                  <th key={`${index}-amount`} className="text-center">金额</th>,
-                  <th key={`${index}-pct`} className="text-center">占比</th>,
+              <tr className="border-b-2 border-slate-900 text-slate-700 font-bold text-xs">
+                {categoryDetailColumns.flatMap((_, index) => [
+                  <th key={`${index}-amount`} className="text-center py-1.5">金额</th>,
+                  <th key={`${index}-pct`} className={`text-center py-1.5 ${index < categoryDetailColumns.length - 1 ? "border-r border-slate-200" : ""}`}>占比</th>,
                 ])}
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-slate-100 font-mono tabular-nums">
+            <tbody className="bg-white divide-y divide-slate-100 font-mono tabular-nums text-xs">
               {categoryDetailData.map((row, idx) => {
                 return (
-                  <tr key={idx}>
-                    <td className="text-center font-black">{row.site}</td>
-                    <td className="text-center tabular-nums font-black text-blue-900">{getCategoryDetailRowTotal(row)}</td>
+                  <tr key={idx} className={idx % 2 === 0 ? "bg-white" : "bg-slate-50/50"}>
+                    <td className="text-center font-bold text-slate-900 border-r border-slate-200 py-2">{row.site}</td>
+                    <td className="text-center tabular-nums font-bold text-blue-900 border-r border-slate-200 py-2">{getCategoryDetailRowTotal(row)}</td>
                     {categoryDetailColumns.flatMap((_, columnIndex) => {
                       const key = `col${columnIndex + 1}`;
+                      const isLast = columnIndex === categoryDetailColumns.length - 1;
 
                       return [
-                        <td key={`${row.site}-${key}-amount`} className="text-center tabular-nums">{row[`${key}_amt` as keyof typeof row]}</td>,
-                        <td key={`${row.site}-${key}-pct`} className="text-center tabular-nums">{row[`${key}_pct` as keyof typeof row]}</td>,
+                        <td key={`${row.site}-${key}-amount`} className="text-center tabular-nums text-slate-700 py-2">{row[`${key}_amt` as keyof typeof row]}</td>,
+                        <td key={`${row.site}-${key}-pct`} className={`text-center tabular-nums text-slate-700 py-2 ${!isLast ? "border-r border-slate-200" : ""}`}>{row[`${key}_pct` as keyof typeof row]}</td>,
                       ];
                     })}
                   </tr>
                 );
               })}
             </tbody>
-            <tfoot>
-              <tr className="bg-slate-100 font-black border-t-2 border-slate-200">
-                <td className="text-center">小计</td>
-                <td className="text-center tabular-nums text-blue-900">{categoryDetailSubtotal.total}</td>
-                {categoryDetailSubtotal.columns.flatMap((amount, index) => [
-                  <td key={`subtotal-${index}-amount`} className="text-center tabular-nums">{amount}</td>,
-                  <td key={`subtotal-${index}-pct`} className="text-center tabular-nums">100%</td>,
-                ])}
+            <tfoot className="border-t-2 border-b-2 border-slate-900 bg-slate-50 font-mono tabular-nums text-xs text-slate-900 font-bold">
+              <tr className="border-b border-slate-200">
+                <td className="text-center font-bold border-r border-slate-200 py-2.5">小计</td>
+                <td className="text-center tabular-nums text-blue-900 font-bold border-r border-slate-200 py-2.5">{categoryDetailSubtotal.total}</td>
+                {categoryDetailSubtotal.columns.flatMap((amount, index) => {
+                  const isLast = index === categoryDetailSubtotal.columns.length - 1;
+                  return [
+                    <td key={`subtotal-${index}-amount`} className="text-center tabular-nums text-slate-800 py-2.5">{amount}</td>,
+                    <td key={`subtotal-${index}-pct`} className={`text-center tabular-nums text-slate-700 py-2.5 ${!isLast ? "border-r border-slate-200" : ""}`}>100%</td>,
+                  ];
+                })}
               </tr>
-              <tr className="bg-blue-50/90 font-black border-t border-blue-200">
-                <td className="text-center">总计</td>
-                <td className="text-center tabular-nums">{categoryDetailTotalPct.total}</td>
-                {categoryDetailTotalPct.columns.map((pct, index) => (
-                  <td key={`total-${index}`} colSpan={2} className="text-center tabular-nums">{pct}</td>
-                ))}
+              <tr className="bg-slate-100 font-bold">
+                <td className="text-center font-bold border-r border-slate-200 py-2.5">总计</td>
+                <td className="text-center tabular-nums font-bold text-blue-900 border-r border-slate-200 py-2.5">{categoryDetailTotalPct.total}</td>
+                {categoryDetailTotalPct.columns.map((pct, index) => {
+                  const isLast = index === categoryDetailTotalPct.columns.length - 1;
+                  return (
+                    <td key={`total-${index}`} colSpan={2} className={`text-center tabular-nums text-slate-800 py-2.5 ${!isLast ? "border-r border-slate-200" : ""}`}>{pct}</td>
+                  );
+                })}
               </tr>
             </tfoot>
           </table>

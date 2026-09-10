@@ -29,10 +29,16 @@ export const ReportHeading: React.FC<{
 
 export const ChapterTitle: React.FC<{
   children: React.ReactNode;
+  eyebrow?: string;
   className?: string;
-}> = ({ children, className = "" }) => {
+}> = ({ children, eyebrow, className = "" }) => {
   return (
-    <div className={`report-chapter-title ${className}`}>
+    <div className={`report-chapter-title mb-6 pb-3 border-b-2 border-slate-900 ${className}`}>
+      {eyebrow && (
+        <div className="flex items-center justify-between text-[11px] font-mono font-bold tracking-widest text-slate-500 mb-1">
+          <span>{eyebrow}</span>
+        </div>
+      )}
       <ReportHeading level="chapter">{children}</ReportHeading>
     </div>
   );
@@ -98,7 +104,7 @@ export const ReportTableFrame: React.FC<{
   className?: string;
 }> = ({ children, className = "" }) => {
   return (
-    <div className={`report-table-frame report-surface report-surface--default report-surface--padding-none ${className}`}>
+    <div className={`report-table-frame border-t-2 border-b-2 border-slate-900 my-4 overflow-x-auto ${className}`}>
       {children}
     </div>
   );
@@ -124,14 +130,29 @@ export const ReportMetricCard: React.FC<{
   tone?: "default" | "dark";
   className?: string;
 }> = ({ title, value, unit, detail, tone = "default", className = "" }) => {
+  const isDark = tone === "dark";
   return (
-    <div className={`report-metric-card report-metric-card--${tone} ${className}`}>
-      <div className="report-metric-card-title">{title}</div>
-      <div className="report-metric-card-value">
-        <span>{value}</span>
-        {unit && <small>{unit}</small>}
+    <div
+      className={`report-metric-card border p-4 flex flex-col justify-between ${
+        isDark
+          ? "bg-slate-900 border-slate-900 text-white"
+          : "bg-white border-slate-200 text-slate-900 border-t-2 border-t-slate-800"
+      } ${className}`}
+    >
+      <div className={`text-xs font-bold ${isDark ? "text-slate-300" : "text-slate-600"}`}>{title}</div>
+      <div className="my-2 flex items-baseline gap-1.5">
+        <span className={`text-2xl sm:text-3xl font-bold font-mono tabular-nums ${isDark ? "text-white" : "text-slate-900"}`}>
+          {value}
+        </span>
+        {unit && (
+          <span className={`text-xs font-bold ${isDark ? "text-slate-400" : "text-slate-500"}`}>{unit}</span>
+        )}
       </div>
-      {detail && <div className="report-metric-card-detail">{detail}</div>}
+      {detail && (
+        <div className={`text-xs leading-normal ${isDark ? "text-slate-400" : "text-slate-500"}`}>
+          {detail}
+        </div>
+      )}
     </div>
   );
 };
@@ -153,19 +174,100 @@ export const ReportMetricHero: React.FC<{
   );
 };
 
+export interface ChartLegendItem {
+  label: string;
+  color: string;
+  shape?: "rect" | "line" | "circle";
+}
+
+export const ReportChartLegend: React.FC<{
+  items: ChartLegendItem[];
+  className?: string;
+}> = ({ items, className = "" }) => {
+  return (
+    <div className={`flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-slate-700 font-semibold ${className}`}>
+      {items.map((item, idx) => (
+        <span key={idx} className="inline-flex items-center gap-1.5">
+          {item.shape === "line" ? (
+            <span className="w-3.5 h-0.5 inline-block shrink-0" style={{ backgroundColor: item.color }} />
+          ) : item.shape === "circle" ? (
+            <span className="w-2 h-2 rounded-full inline-block shrink-0" style={{ backgroundColor: item.color }} />
+          ) : (
+            <span className="w-2.5 h-2.5 rounded-xs inline-block shrink-0" style={{ backgroundColor: item.color }} />
+          )}
+          <span>{item.label}</span>
+        </span>
+      ))}
+    </div>
+  );
+};
+
 export const ReportChartCard: React.FC<{
   title: React.ReactNode;
+  subtitle?: React.ReactNode;
   value?: React.ReactNode;
+  badge?: React.ReactNode;
+  description?: React.ReactNode;
+  legend?: React.ReactNode;
   children: React.ReactNode;
+  footnote?: React.ReactNode;
   className?: string;
-}> = ({ title, value, children, className = "" }) => {
+  bodyHeight?: string;
+}> = ({
+  title,
+  subtitle,
+  value,
+  badge,
+  description,
+  legend,
+  children,
+  footnote,
+  className = "",
+  bodyHeight,
+}) => {
   return (
-    <div className={`report-chart-card ${className}`}>
-      <div className="report-chart-card-head">
-        <span>{title}</span>
-        {value && <strong>{value}</strong>}
+    <div className={`report-chart-card bg-white border border-slate-200 p-5 flex flex-col justify-between ${className}`}>
+      <div className="flex-1 flex flex-col min-h-0">
+        {/* 头部：标题、副标题与关键数值/标签 */}
+        <div className="report-chart-card-head pb-3 mb-3 border-b border-slate-200">
+          <div className="min-w-0 pr-2">
+            <div className="text-[10px] font-mono font-bold tracking-wider text-slate-400">
+              专项图表分析
+            </div>
+            <span className="text-sm font-bold text-slate-900 block mt-0.5">{title}</span>
+            {subtitle && <p className="text-xs text-slate-500 font-normal mt-0.5">{subtitle}</p>}
+          </div>
+          <div className="flex items-center gap-2 shrink-0">
+            {badge}
+            {value && <strong className="font-mono text-xl text-slate-900 font-bold">{value}</strong>}
+          </div>
+        </div>
+
+        {/* 一段文字说明 (Key Takeaway / 洞察分析) */}
+        {description && (
+          <div className="text-xs text-slate-700 font-medium leading-relaxed bg-slate-50/80 px-3 py-2.5 border-l-2 border-slate-800 mb-3 min-h-[48px] flex items-center">
+            {description}
+          </div>
+        )}
+
+        {/* 统一图例栏 */}
+        {legend && (
+          <div className="flex items-center justify-end pb-2">
+            {legend}
+          </div>
+        )}
+
+        {/* 图表画布主体 */}
+        <div className={`report-chart-card-body flex-1 w-full ${bodyHeight ? bodyHeight : ""}`}>{children}</div>
       </div>
-      <div className="report-chart-card-body">{children}</div>
+
+      {/* 底部口径与备注说明 */}
+      {footnote && (
+        <div className="mt-3 pt-2 border-t border-slate-100 text-[11px] font-mono text-slate-400 flex items-center justify-between min-h-[24px]">
+          <span>{footnote}</span>
+          <span className="text-slate-300">绝密受控</span>
+        </div>
+      )}
     </div>
   );
 };
@@ -194,6 +296,27 @@ export const ReportStepCard: React.FC<{
         <strong>{title}</strong>
       </div>
       <div className="report-step-card-body">{children}</div>
+    </div>
+  );
+};
+
+export const ReportDimensionCard: React.FC<{
+  index?: number;
+  title: React.ReactNode;
+  badge?: React.ReactNode;
+  children: React.ReactNode;
+  className?: string;
+}> = ({ index, title, badge, children, className = "" }) => {
+  return (
+    <div className={`report-dimension-card ${className}`}>
+      <div className="report-dimension-card-head">
+        <div className="report-dimension-card-title">
+          {index !== undefined && <span className="report-sequence-badge">{index}</span>}
+          <span>{title}</span>
+        </div>
+        {badge && <div>{badge}</div>}
+      </div>
+      <div className="space-y-3">{children}</div>
     </div>
   );
 };

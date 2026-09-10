@@ -1,85 +1,48 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { FA } from "./types";
 import { ReportCover } from "./components/ReportCover";
 import { WorldCupGuaranteeReview } from "./components/sections/WorldCupGuaranteeReview";
 
 export default function App() {
-  const [activeSection, setActiveSection] = useState<string>("cover");
-
-  // References to section elements for scrolling and scroll spying
-  const sectionRefs = {
-    cover: useRef<HTMLDivElement>(null),
-    "fk-world-cup-review": useRef<HTMLDivElement>(null),
-  };
-
   // Set document title
   useEffect(() => {
     document.title = FA.pageTitle;
   }, []);
 
-  // Scrollspy logic to automatically highlight active section based on scroll position
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200;
-
-      // Find which section is currently in view
-      let currentSection = "cover";
-      for (const [key, ref] of Object.entries(sectionRefs)) {
-        if (ref.current) {
-          const top = ref.current.offsetTop;
-          const height = ref.current.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            currentSection = key;
-            break;
-          }
-        }
-      }
-      setActiveSection(currentSection);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Section jump helper
-  const scrollToSection = (id: string) => {
-    const ref = sectionRefs[id as keyof typeof sectionRefs];
-    if (ref && ref.current) {
-      const offsetTop = ref.current.offsetTop - 80; // Offset for header
-      window.scrollTo({
-        top: offsetTop,
-      });
-      setActiveSection(id);
-    }
-  };
-
   return (
-    <div className="report-shell min-h-screen bg-white text-slate-900 flex flex-col font-sans selection:bg-blue-50 antialiased">
-      {/* Print-only Header (visible when printing) */}
-      <div className="hidden print:flex items-center justify-between border-b-2 border-black pb-3 mb-10 text-base font-black text-slate-900">
-        <span>{FA.printHeaderLeft}</span>
-      </div>
-
+    <div className="report-shell min-h-screen bg-white text-slate-900 flex flex-col font-sans selection:bg-slate-200 antialiased">
       {/* Workspace Container */}
-      <div className="flex-1 flex w-full py-8 md:py-10">
+      <div className="flex-1 flex w-full py-6 md:py-8">
         {/* Main Content Area */}
         <main className="report-main flex-1 w-full space-y-14 print:space-y-20">
           {/* Cover & Directory */}
-          <div ref={sectionRefs.cover} className="scroll-mt-6">
+          <div id="cover" className="scroll-mt-14">
             <ReportCover />
           </div>
 
-          {/* 世界杯 Guarantee Review */}
-          <div ref={sectionRefs["fk-world-cup-review"]} className="scroll-mt-6">
+          {/* 世界杯 Guarantee Review (Chapters 1.0 - 7.0) */}
+          <div id="fk-world-cup-review" className="scroll-mt-14">
             <WorldCupGuaranteeReview />
           </div>
 
           {/* Report End Page */}
-          <footer className="report-end-page print:hidden">
-            <div className="report-end-content">
-              <h2>汇报结束</h2>
-              <div className="report-end-meta">
-                <span>{FA.reportDate}</span>
+          <footer className="report-end-page print:hidden border-t-2 border-slate-900 mt-16 pt-12">
+            <div className="report-end-content space-y-4 text-center">
+              <div className="text-xs font-mono font-bold text-slate-400 tracking-wider">
+                专项战略审计报告 · 汇报结语
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                汇报结束 · 感谢审阅
+              </h2>
+              <p className="text-xs text-slate-500 max-w-md mx-auto leading-relaxed">
+                本报告内容包含核心风控业务数据与算法战略，属于内部高度机密资产，严禁对外复制、散发或流转。
+              </p>
+              <div className="flex items-center justify-center gap-6 pt-2 text-xs font-mono text-slate-500">
+                <span>周期：{FA.navTitle}</span>
+                <span>•</span>
+                <span>归档日期：{FA.reportDate}</span>
+                <span>•</span>
+                <span>密级：{FA.confidentiality}</span>
               </div>
             </div>
           </footer>

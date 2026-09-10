@@ -1,7 +1,7 @@
 import React from "react";
 import { Search, Shield, ShieldCheck } from "lucide-react";
 import { ReportInfoGrid, SummaryBox, highlightNumbers } from "./utils";
-import { ChapterTitle, ReportMetricCard, ReportMetricGrid, ReportMetricHero, ReportPanel, ReportSectionHeader } from "../../ReportSections";
+import { ReportMetricCard, ReportMetricGrid, ReportMetricHero, ReportSectionHeader } from "../../ReportSections";
 
 const clueSourceItems = [
   {
@@ -44,18 +44,15 @@ const auditActionItems = [
 export const InternalControlSection: React.FC = () => {
   return (
     <div id="section-internal-control" className="space-y-12">
-      {/* 2.2 内控概览 模块主标题 */}
-      <ChapterTitle>2.2 内控数据</ChapterTitle>
-
       <SummaryBox variant="chapter">
         {highlightNumbers(
           "全方位监控内外勾结行为，聚焦[[红利发放]]、[[敏感参数]]、[[异常登录]]等高危场景。建立完整的行为追溯机制，确保所有内部管理动作有据可查，实现异常[[即时预警与快速处置]]。",
         )}
       </SummaryBox>
 
-      {/* 2.2.1 内控事件管理 */}
+      {/* 3.1 内控事件管理 */}
       <div className="space-y-6">
-        <ReportSectionHeader title="2.2.1 工作成果" />
+        <ReportSectionHeader title="3.1 工作成果" />
         
         <ReportMetricHero
           title="违规处理总计"
@@ -63,7 +60,7 @@ export const InternalControlSection: React.FC = () => {
           metrics={
             <>
               <span className="text-3xl md:text-4xl text-slate-900 font-black">225<small className="ml-1 text-sm text-slate-700 font-bold font-sans">人</small></span>
-              <span className="text-2xl md:text-3xl text-blue-700 font-black">178,140 U</span>
+              <span className="text-2xl md:text-3xl text-blue-700 font-black">178,140 <small className="text-sm font-sans font-bold">泰达币</small></span>
             </>
           }
         />
@@ -96,7 +93,7 @@ export const InternalControlSection: React.FC = () => {
           <ReportMetricCard
             title="后台登陆监测"
             value="568+"
-            unit="个常用IP"
+            unit="个网络节点"
             detail={highlightNumbers("其中[[16条]]异常跳跃登录节点已全部核实")}
           />
           <ReportMetricCard
@@ -108,12 +105,12 @@ export const InternalControlSection: React.FC = () => {
         </ReportMetricGrid>
       </div>
 
-      {/* 2.2.2 核心规则内容 */}
+      {/* 3.2 核心规则内容 */}
       <div className="space-y-8">
-        <ReportSectionHeader title="2.2.2 工作内容" />
+        <ReportSectionHeader title="3.2 工作内容" />
 
         <SummaryBox className="mb-6">
-          <p className="text-sm md:text-base text-slate-900 font-bold leading-relaxed">
+          <p className="text-sm md:text-base text-slate-800 font-medium leading-relaxed">
             {highlightNumbers(
               "内控稽查围绕[[线索发现]]与[[跟进处置]]两条主线开展：前端扩大信息触达面，后端通过日志、录屏、权限、流程和外部核验完成闭环追溯。",
             )}
@@ -140,77 +137,77 @@ export const InternalControlSection: React.FC = () => {
         </div>
       </div>
 
-      {/* 2.2.3 违规岗位场景 */}
+      {/* 3.3 违规岗位场景 */}
       <div className="space-y-8">
-        <ReportSectionHeader title="2.2.3 高危场景" />
+        <ReportSectionHeader title="3.3 高危场景" />
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* 1. 小飞机群信息 */}
-          <div className="bg-white rounded-xl p-6 flex flex-col justify-between space-y-4 border border-slate-200/80">
-            <div className="space-y-3">
-              <div className="flex items-center gap-2 text-slate-900 font-black text-base">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* 1. 外部通讯群信息 */}
+          <div className="border-t-2 border-slate-800 pt-4 flex flex-col justify-between space-y-3">
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 text-slate-900 font-bold text-base">
                 <span className="report-sequence-badge report-sequence-badge--risk">1</span>
-                <span>小飞机群风险</span>
+                <span>外部通讯群聊风险</span>
               </div>
-              <p className="text-sm text-slate-900 font-bold leading-relaxed">
+              <p className="text-sm text-slate-700 leading-relaxed font-normal">
                 {highlightNumbers("群内成员通过搜索关键信息即可轻易获取[[敏感信息]]，以此进行不当获利，对信息安全造成极大威胁。")}
               </p>
             </div>
-            <div className="pt-3 space-y-1 border-t border-slate-100">
-              <div className="text-sm font-black text-slate-900 flex items-center gap-1">
+            <div className="pt-3 space-y-1 border-t border-slate-200">
+              <div className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 bg-emerald-600 rounded-full"></span>
                 <span>解决策略：</span>
               </div>
-              <p className="text-sm text-slate-900 font-bold leading-relaxed">
-                {highlightNumbers("针对敏感和核心业务对接，逐步[[取消飞机群]]，详情见下文章节说明。")}
+              <p className="text-xs text-slate-700 leading-relaxed font-normal">
+                {highlightNumbers("针对敏感和核心业务对接，逐步全面[[关停外部通讯群聊]]，详情见第 4.0 章节说明。")}
               </p>
             </div>
           </div>
 
           {/* 2. 内部勾结查控 */}
-          <div className="bg-white rounded-xl p-6 flex flex-col justify-between space-y-4 border border-slate-200/80">
-            <div className="space-y-3">
-              <div className="flex items-center gap-2 text-slate-900 font-black text-base">
+          <div className="border-t-2 border-slate-800 pt-4 flex flex-col justify-between space-y-3">
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 text-slate-900 font-bold text-base">
                 <span className="report-sequence-badge report-sequence-badge--risk">2</span>
                 <span>内部勾结风险</span>
               </div>
-              <p className="text-sm text-slate-900 font-bold leading-relaxed">
+              <p className="text-sm text-slate-700 leading-relaxed font-normal">
                 {highlightNumbers("涉及[[身份验证审核]]、[[佣金审核]]、[[提款审核]]等多关键环节，极易形成上下游的内部链条合作。")}
               </p>
             </div>
-            <div className="pt-3 space-y-1 border-t border-slate-100">
-              <div className="text-sm font-black text-slate-900 flex items-center gap-1">
+            <div className="pt-3 space-y-1 border-t border-slate-200">
+              <div className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 bg-emerald-600 rounded-full"></span>
                 <span>解决策略：</span>
               </div>
-              <p className="text-sm text-slate-900 font-bold leading-relaxed">
-                {highlightNumbers("核心环节启动[[随机分配且多层审批]]的流程；如身份验证、提款、佣金等，详情见下文说明。")}
+              <p className="text-xs text-slate-700 leading-relaxed font-normal">
+                {highlightNumbers("核心环节启动[[随机分配且多层审批]]的流程；如身份验证、提款、佣金等，详情见后续章节说明。")}
               </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* 2.2.4 典型违规案例剖析 */}
+      {/* 3.4 典型违规案例剖析 */}
       <div className="space-y-8">
-        <ReportSectionHeader title="2.2.4 案例剖析" />
+        <ReportSectionHeader title="3.4 案例剖析" />
         
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-          <div className="bg-white rounded-xl p-6 space-y-5 border border-slate-200/80">
-            <div className="flex items-center gap-2 text-slate-900 font-black text-base pb-1">
-              <Shield className="w-6 h-6 text-blue-700 shrink-0" />
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+          <div className="border-t-2 border-slate-800 pt-4 space-y-4">
+            <div className="flex items-center gap-2 text-slate-900 font-bold text-base pb-1 border-b border-slate-200">
+              <Shield className="w-5 h-5 text-blue-800 shrink-0" />
               <span>外包审核违规案例</span>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               <div className="flex gap-3">
                 <div className="flex flex-col items-center shrink-0">
                   <div className="report-sequence-badge">1</div>
                   <div className="w-0.5 flex-1 bg-slate-200 my-1"></div>
                 </div>
-                <div className="pb-3">
-                  <span className="font-black text-slate-900 block text-base mb-1">背景</span>
-                  <p className="text-sm text-slate-900 font-bold leading-relaxed">
+                <div className="pb-2">
+                  <span className="font-bold text-slate-900 block text-sm mb-0.5">背景</span>
+                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
                     {highlightNumbers("外包团队审核质量长期未达预期，且日常审计已查实存在[[内部数据泄露]]风险案例；以此为契机，稽查于5月全面启动[[外包专项治理]]。")}
                   </p>
                 </div>
@@ -221,9 +218,9 @@ export const InternalControlSection: React.FC = () => {
                   <div className="report-sequence-badge">2</div>
                   <div className="w-0.5 flex-1 bg-slate-200 my-1"></div>
                 </div>
-                <div className="pb-3">
-                  <span className="font-black text-slate-900 block text-base mb-1">专项跟进与录屏分析</span>
-                  <p className="text-sm text-slate-900 font-bold leading-relaxed">
+                <div className="pb-2">
+                  <span className="font-bold text-slate-900 block text-sm mb-0.5">专项跟进与录屏分析</span>
+                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
                     {highlightNumbers("对全量外包账号展开深度跟进与录屏抽检。结果表明，审核环节中的[[不规范操作占比高达 33%]]，存在极大的安全隐患。")}
                   </p>
                 </div>
@@ -234,8 +231,8 @@ export const InternalControlSection: React.FC = () => {
                   <div className="report-sequence-badge">3</div>
                 </div>
                 <div>
-                  <span className="font-black text-slate-900 block text-base mb-1">深度挖掘与处理情况</span>
-                  <p className="text-sm text-slate-900 font-bold leading-relaxed">
+                  <span className="font-bold text-slate-900 block text-sm mb-0.5">深度挖掘与处理情况</span>
+                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
                     {highlightNumbers("通过对外包相关责任人的专项监控，最终锁定并查实其涉嫌严重渎职、内外勾结违规操作，甚至利用职务便利进行[[不当获利]]的恶劣违规行为。")}
                   </p>
                 </div>
@@ -243,21 +240,21 @@ export const InternalControlSection: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-xl p-6 space-y-5 border border-slate-200/80">
-            <div className="flex items-center gap-2 text-slate-900 font-black text-base pb-1">
-              <Shield className="w-6 h-6 text-blue-700 shrink-0" />
+          <div className="border-t-2 border-slate-800 pt-4 space-y-4">
+            <div className="flex items-center gap-2 text-slate-900 font-bold text-base pb-1 border-b border-slate-200">
+              <Shield className="w-5 h-5 text-blue-800 shrink-0" />
               <span>业绩造假违规案例</span>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               <div className="flex gap-3">
                 <div className="flex flex-col items-center shrink-0">
                   <div className="report-sequence-badge">1</div>
                   <div className="w-0.5 flex-1 bg-slate-200 my-1"></div>
                 </div>
-                <div className="pb-3">
-                  <span className="font-black text-slate-900 block text-base mb-1">违规类型</span>
-                  <p className="text-sm text-slate-900 font-bold leading-relaxed">
+                <div className="pb-2">
+                  <span className="font-bold text-slate-900 block text-sm mb-0.5">违规类型</span>
+                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
                     {highlightNumbers("[[业绩造假]]：员工通过伪造业务过程材料，虚构用户参与记录，以此违规完成个人业绩指标。")}
                   </p>
                 </div>
@@ -268,10 +265,10 @@ export const InternalControlSection: React.FC = () => {
                   <div className="report-sequence-badge">2</div>
                   <div className="w-0.5 flex-1 bg-slate-200 my-1"></div>
                 </div>
-                <div className="pb-3">
-                  <span className="font-black text-slate-900 block text-base mb-1">发现情况</span>
-                  <p className="text-sm text-slate-900 font-bold leading-relaxed">
-                    {highlightNumbers("用户**中心多位员工利用[[智能工具P图]]伪造与用户的对话记录，伪装用户参与记录，造成业绩数据失真。")}
+                <div className="pb-2">
+                  <span className="font-bold text-slate-900 block text-sm mb-0.5">发现情况</span>
+                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+                    {highlightNumbers("用户中心多位员工利用[[图像合成工具]]伪造与用户的对话记录，伪装用户参与记录，造成业绩数据失真。")}
                   </p>
                 </div>
               </div>
@@ -281,8 +278,8 @@ export const InternalControlSection: React.FC = () => {
                   <div className="report-sequence-badge">3</div>
                 </div>
                 <div>
-                  <span className="font-black text-slate-900 block text-base mb-1">风险影响</span>
-                  <p className="text-sm text-slate-900 font-bold leading-relaxed">
+                  <span className="font-bold text-slate-900 block text-sm mb-0.5">风险影响</span>
+                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
                     {highlightNumbers("该行为直接破坏[[业绩考核真实性]]与活动执行合规性，需纳入异常素材复核、聊天记录交叉验证和人员绩效审计范围。")}
                   </p>
                 </div>

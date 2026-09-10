@@ -2,7 +2,6 @@ import React from "react";
 import {
   ComposedChart,
   Bar,
-  Line,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -11,9 +10,8 @@ import {
   ResponsiveContainer,
   LabelList,
 } from "recharts";
-import { SummaryBox, highlightNumbers } from "./utils";
-import { ReportPanel, ReportPanelHeader } from "../../ReportSections";
-import { Activity, Lightbulb } from "lucide-react";
+import { highlightNumbers } from "./utils";
+import { ReportChartCard } from "../../ReportSections";
 import {
   chartAxisTick,
   chartColors,
@@ -125,110 +123,102 @@ const renderEfficiencyLabel =
 
 export const ManualAuditEfficiencyChart: React.FC = () => {
   return (
-    <ReportPanel className="report-panel-stack">
-      {/* 头部标题 */}
-      <ReportPanelHeader icon={<Activity className="h-5 w-5" />} title="人均效能" />
+    <ReportChartCard
+      title="4-6月 人均审核效能趋势与压力情景"
+      subtitle="单位: 单/小时 (含月审总量测算)"
+      value="总部 33.4 单/小时"
+      description={highlightNumbers(
+        "按正常标准审核单个订单需 [[7-8分钟]]（人均约 [[8单/小时]]），当前实际人效已处于 [[极高超负荷]] 状态，需持续加班并对订单分级快速判断。若全面取消外包由总部全量承接，人均需求将激增至 [[38.6单/小时]]，对整体审核质量带来[[严峻挑战]]。"
+      )}
+      bodyHeight="h-[400px]"
+      footnote="注：全归总部为假设取消外包后，全量人工审核需求全部由总部承接的压力测算值。"
+    >
+      <ResponsiveContainer width="100%" height="100%">
+        <ComposedChart
+          data={efficiencyData}
+          barSize={chartBarSize.grouped}
+          barGap={chartBarGap.grouped}
+          margin={chartMargins.standard}
+        >
+          <CartesianGrid strokeDasharray="3 3" stroke={chartColors.grid} />
+          <XAxis
+            dataKey="month"
+            stroke={chartColors.ink}
+            tick={chartAxisTick}
+          />
 
-      {/* 核心结论与逻辑总结 */}
-      <SummaryBox hideIcon={false}>
-        <div className="space-y-2 text-slate-900 font-bold leading-relaxed">
-          <div>
-            {highlightNumbers(
-              "按正常标准审核单个订单需 [[7-8分钟]]（人均约 [[8单/小时]]），当前实际人效已处于 [[极高超负荷]] 状态，需持续加班并对订单分级快速判断（低危加快、高危精审）。当全面取消外包由总部承接，人均需求将高达 [[30+单/小时]]，对整体审核质量带来[[严峻挑战]]。",
-            )}
-          </div>
-        </div>
-      </SummaryBox>
+          {/* 左Y轴：人均审核效率 (单/小时) */}
+          <YAxis
+            stroke={chartColors.ink}
+            tick={chartAxisTick}
+            tickFormatter={(val) => `${val}单`}
+            domain={[0, 50]}
+            ticks={[0, 10, 20, 30, 40, 50]}
+          />
 
-      {/* 柱状图图表 */}
-      <div className="h-[400px] w-full pt-2">
-        <ResponsiveContainer width="100%" height="100%">
-          <ComposedChart
-            data={efficiencyData}
-            barSize={chartBarSize.grouped}
-            barGap={chartBarGap.grouped}
-            margin={chartMargins.standard}
+          <Tooltip
+            contentStyle={chartTooltipStyle}
+            itemStyle={chartTooltipItemStyle}
+            formatter={(value: any, name: any, item: any) => {
+              const payload = item?.payload;
+              let monthly = "";
+              if (name === "总部人均效率") monthly = payload?.总部月审单量;
+              else if (name === "外包人均效率") monthly = payload?.外包月审单量;
+              else if (name === "全归总部假设人均效率") monthly = payload?.全归总部月审单量;
+              return [`${value} 单/小时 (${monthly})`, name];
+            }}
+          />
+
+          <Legend
+            wrapperStyle={chartLegendStyle}
+          />
+
+          {/* 柱状图：总部人员人均效率 */}
+          <Bar
+            dataKey="总部人员效率"
+            fill={chartSeriesColors.primary}
+            name="总部人均效率"
+            radius={chartBarRadius.standard}
+            isAnimationActive={false}
           >
-            <CartesianGrid strokeDasharray="3 3" stroke={chartColors.grid} />
-            <XAxis
-              dataKey="month"
-              stroke={chartColors.ink}
-              tick={chartAxisTick}
+            <LabelList
+              dataKey="总部标签"
+              position="top"
+              content={renderEfficiencyLabel("总部人员效率", "总部标签")}
             />
+          </Bar>
 
-            {/* 左Y轴：人均审核效率 (单/小时) */}
-            <YAxis
-              stroke={chartColors.ink}
-              tick={chartAxisTick}
-              tickFormatter={(val) => `${val}单`}
-              domain={[0, 50]}
-              ticks={[0, 10, 20, 30, 40, 50]}
+          {/* 柱状图：外包人员人均效率 */}
+          <Bar
+            dataKey="外包人员效率"
+            fill={chartSeriesColors.secondary}
+            name="外包人均效率"
+            radius={chartBarRadius.standard}
+            isAnimationActive={false}
+          >
+            <LabelList
+              dataKey="外包标签"
+              position="top"
+              content={renderEfficiencyLabel("外包人员效率", "外包标签")}
             />
+          </Bar>
 
-            <Tooltip
-              contentStyle={chartTooltipStyle}
-              itemStyle={chartTooltipItemStyle}
-              formatter={(value: any, name: any, item: any) => {
-                const payload = item?.payload;
-                let monthly = "";
-                if (name === "总部人均效率") monthly = payload?.总部月审单量;
-                else if (name === "外包人均效率") monthly = payload?.外包月审单量;
-                else if (name === "全归总部假设人均效率") monthly = payload?.全归总部月审单量;
-                return [`${value} 单/小时 (${monthly})`, name];
-              }}
+          {/* 柱状图：全归总部假设人均效率 */}
+          <Bar
+            dataKey="全归总部效率"
+            fill={chartSeriesColors.positive}
+            name="全归总部假设人均效率"
+            radius={chartBarRadius.standard}
+            isAnimationActive={false}
+          >
+            <LabelList
+              dataKey="全归总部标签"
+              position="top"
+              content={renderEfficiencyLabel("全归总部效率", "全归总部标签", { riskScenario: true })}
             />
-
-            <Legend
-              wrapperStyle={chartLegendStyle}
-            />
-
-            {/* 柱状图：总部人员人均效率 */}
-            <Bar
-              dataKey="总部人员效率"
-              fill={chartSeriesColors.primary}
-              name="总部人均效率"
-              radius={chartBarRadius.standard}
-              isAnimationActive={false}
-            >
-              <LabelList
-                dataKey="总部标签"
-                position="top"
-                content={renderEfficiencyLabel("总部人员效率", "总部标签")}
-              />
-            </Bar>
-
-            {/* 柱状图：外包人员人均效率 */}
-            <Bar
-              dataKey="外包人员效率"
-              fill={chartSeriesColors.secondary}
-              name="外包人均效率"
-              radius={chartBarRadius.standard}
-              isAnimationActive={false}
-            >
-              <LabelList
-                dataKey="外包标签"
-                position="top"
-                content={renderEfficiencyLabel("外包人员效率", "外包标签")}
-              />
-            </Bar>
-
-            {/* 柱状图：全归总部假设人均效率 */}
-            <Bar
-              dataKey="全归总部效率"
-              fill={chartSeriesColors.positive}
-              name="全归总部假设人均效率"
-              radius={chartBarRadius.standard}
-              isAnimationActive={false}
-            >
-              <LabelList
-                dataKey="全归总部标签"
-                position="top"
-                content={renderEfficiencyLabel("全归总部效率", "全归总部标签", { riskScenario: true })}
-              />
-            </Bar>
-          </ComposedChart>
-        </ResponsiveContainer>
-      </div>
-    </ReportPanel>
+          </Bar>
+        </ComposedChart>
+      </ResponsiveContainer>
+    </ReportChartCard>
   );
 };

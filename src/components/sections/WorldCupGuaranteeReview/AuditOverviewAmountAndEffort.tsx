@@ -1,7 +1,7 @@
 import React from "react";
-import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, ComposedChart, Line } from "recharts";
+import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, ComposedChart, Line } from "recharts";
 import { SummaryBox, highlightNumbers } from "./utils";
-import { ReportChartCard, ReportSectionHeader } from "../../ReportSections";
+import { ReportChartCard, ReportChartLegend, ReportSectionHeader } from "../../ReportSections";
 import {
   chartAxisTick,
   chartBarRadius,
@@ -61,13 +61,13 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
 
       {/* 文字总结区 */}
       <SummaryBox>
-        <div className="space-y-4">
-          <div className="text-base text-slate-900 font-bold leading-relaxed">
+        <div className="space-y-3">
+          <div className="text-sm md:text-base text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
                "[[Q2 总拦截金]]：累计为 [[2.72]]，6月达 [[1.046]]，[[世界杯期间]]有所提升，对比Q1下降 [[0.35]]，主要为[[批量团伙]]等力度增大，采用[[扣本金]]方式；随着对用户[[违规行为]]持续管控，已形成威慑力成效明显。",
             )}
           </div>
-          <div className="text-base text-slate-900 font-bold leading-relaxed">
+          <div className="text-sm md:text-base text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
               "[[Q2 平均时长]]：经过近一年的对[[系统]]、[[流程]]、[[派单]]、[[人员]]等综合优化，Q2整体[[平均人工时长]]为 [[0:08:45]]，对比Q1提升明显；在[[世界杯期间]]单量增加背景下，[[时效]]仍完成度较高。",
             )}
@@ -75,10 +75,16 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
         </div>
       </SummaryBox>
 
-      {/* 图表展示区 - 左右并排 */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* 图表展示区 - 统一结构规范：标题 + 说明 + 图例 + 图表 + 备注 */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
         {/* 左卡片: 26年Q2总拦截金额 */}
-        <ReportChartCard title="Q2 总拦截金" value="2.72">
+        <ReportChartCard
+          title="Q2 拦截金额月度走势"
+          subtitle="2026/1 - 2026/6 月度分布"
+          value="2.72"
+          description="Q2累计拦截金额 2.72，6月受世界杯赛事驱动达到 1.046 峰值；通过强化对黑产批量团伙直接扣除本金，管控威慑效应显著增强。"
+          footnote="注：统计口径包含体育、代理、红利等全类别风控拦截处置金额。"
+        >
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={amountData} margin={chartMargins.hiddenAxis}>
                 <XAxis dataKey="month" tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} />
@@ -96,7 +102,21 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
         </ReportChartCard>
 
         {/* 右卡片: 26年Q2平均审核时长 */}
-        <ReportChartCard title="Q2 平均时长" value="0:08:45">
+        <ReportChartCard
+          title="Q2 平均人工审核时长"
+          subtitle="时效与审单总量走势"
+          value="0:08:45"
+          description="经系统派单分流与全流程优化，Q2整体平均人工审核时长稳固在 0:08:45；即使在6月单量激增至 300.77万单 背景下，时效依然平稳可控。"
+          legend={
+            <ReportChartLegend
+              items={[
+                { label: "人工审单量 (万单)", color: chartSeriesColors.secondary, shape: "rect" },
+                { label: "平均审核时长 (分:秒)", color: chartSeriesColors.trend, shape: "line" },
+              ]}
+            />
+          }
+          footnote="注：柱状图代表月度人工审单总量，折线为工单接单至完成审核平均时长。"
+        >
             <ResponsiveContainer width="100%" height="100%">
               <ComposedChart data={effortData} margin={chartMargins.hiddenAxis}>
                 <XAxis dataKey="month" tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} />

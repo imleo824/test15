@@ -7,15 +7,12 @@ import {
   Cpu,
   Crosshair,
   Database,
-  GitBranch,
   RotateCw,
-  ShieldAlert,
-  ShieldCheck,
-  Target,
   UserCheck,
   UsersRound,
 } from "lucide-react";
 import { highlightNumbers } from "./utils";
+import { ReportSectionHeader } from "../../ReportSections";
 
 const flywheelSteps = [
   {
@@ -64,6 +61,7 @@ const flywheelSteps = [
 export const ZZOverview: React.FC = () => {
   return (
     <div className="space-y-6">
+      <ReportSectionHeader title="6.1 整体态势与人效" />
       <div className="report-card business-flywheel-shell p-6 overflow-hidden">
         <div className="business-flywheel">
         {/* 页眉标题 */}
@@ -80,102 +78,102 @@ export const ZZOverview: React.FC = () => {
 
         {/* 业务目标与支撑指标的逻辑体系 */}
         <div className="business-flywheel-goal-chain flex flex-col lg:flex-row lg:items-stretch gap-4 mt-4 mb-6">
-          {/* 1. 质量指标（安全底线） - 起始基石 (最浅) */}
-          <div className="business-flywheel-goal-stage business-flywheel-goal-stage--quality flex-1 w-full bg-blue-50/30 border border-blue-100 rounded-xl p-5 flex flex-col justify-between">
-            <div className="space-y-1 mb-4">
+          {/* 1. 质量指标（安全底线） */}
+          <div className="report-dimension-card flex-1 w-full justify-between">
+            <div className="space-y-1.5 mb-2">
               <div className="flex items-center gap-2">
                 <span className="report-sequence-badge shrink-0">1</span>
-                <span className="text-base font-black text-slate-900">质量指标（安全底线）</span>
+                <span className="text-base font-bold text-slate-900">质量指标（安全底线）</span>
               </div>
-              <p className="text-sm text-slate-700 leading-relaxed font-bold">
+              <p className="text-sm text-slate-600 leading-relaxed font-normal">
                 指标需达到以下阈值是必要条件，下文会详细说明。
               </p>
             </div>
 
-            <div className="grid grid-cols-3 gap-2">
-              <div className="business-flywheel-goal-metric flex flex-col items-center justify-center bg-white px-1 py-3 rounded border border-blue-50 text-center shadow-xs">
-                <span className="text-xs font-black text-slate-900 leading-tight whitespace-nowrap">问题召回率</span>
-                <span className="text-lg font-black text-blue-600 tabular-nums mt-1">≥ 70.6%</span>
+            <div className="grid grid-cols-3 gap-2 mt-auto">
+              <div className="business-flywheel-goal-metric flex flex-col items-center justify-center bg-slate-50 px-2 py-3 border border-slate-100 text-center">
+                <span className="text-xs sm:text-sm font-medium text-slate-600 leading-tight whitespace-nowrap">问题召回率</span>
+                <span className="text-lg sm:text-xl font-bold text-blue-700 font-mono mt-1">≥ 70.6%</span>
               </div>
               
-              <div className="business-flywheel-goal-metric flex flex-col items-center justify-center bg-white px-1 py-3 rounded border border-blue-50 text-center shadow-xs">
-                <span className="text-xs font-black text-slate-900 leading-tight whitespace-nowrap">问题命中率</span>
-                <span className="text-lg font-black text-blue-600 tabular-nums mt-1">≥ 6.75%</span>
+              <div className="business-flywheel-goal-metric flex flex-col items-center justify-center bg-slate-50 px-2 py-3 border border-slate-100 text-center">
+                <span className="text-xs sm:text-sm font-medium text-slate-600 leading-tight whitespace-nowrap">问题命中率</span>
+                <span className="text-lg sm:text-xl font-bold text-blue-700 font-mono mt-1">≥ 6.75%</span>
               </div>
               
-              <div className="business-flywheel-goal-metric flex flex-col items-center justify-center bg-white px-1 py-3 rounded border border-blue-50 text-center shadow-xs">
-                <span className="text-xs font-black text-slate-900 leading-tight whitespace-nowrap">系统错误率</span>
-                <span className="text-lg font-black text-blue-600 tabular-nums mt-1">≤ 0.7%</span>
+              <div className="business-flywheel-goal-metric flex flex-col items-center justify-center bg-slate-50 px-2 py-3 border border-slate-100 text-center">
+                <span className="text-xs sm:text-sm font-medium text-slate-600 leading-tight whitespace-nowrap">系统错误率</span>
+                <span className="text-lg sm:text-xl font-bold text-blue-700 font-mono mt-1">≤ 0.7%</span>
               </div>
             </div>
           </div>
 
-          {/* 粗箭头 1 */}
+          {/* 箭头 1 */}
           <div className="business-flywheel-goal-arrow flex items-center justify-center shrink-0 py-1 lg:py-0 self-center">
-            <ArrowRight className="hidden lg:block w-7 h-7 text-blue-400 stroke-[3.5]" />
-            <ArrowDown className="lg:hidden w-7 h-7 text-blue-400 stroke-[3.5]" />
+            <ArrowRight className="hidden lg:block w-6 h-6 text-slate-400 stroke-[2.5]" />
+            <ArrowDown className="lg:hidden w-6 h-6 text-slate-400 stroke-[2.5]" />
           </div>
 
-          {/* 2. 业务目标（放行配比） - 核心过程支撑 (中等) */}
-          <div className="business-flywheel-goal-stage business-flywheel-goal-stage--business flex-1 w-full bg-blue-50 border border-blue-200 rounded-xl p-5 flex flex-col justify-between">
-            <div className="space-y-1 mb-4">
+          {/* 2. 业务目标（放行配比） */}
+          <div className="report-dimension-card flex-1 w-full justify-between">
+            <div className="space-y-1.5 mb-2">
               <div className="flex items-center gap-2">
                 <span className="report-sequence-badge shrink-0">2</span>
-                <span className="text-base font-black text-slate-900">业务目标（放行配比）</span>
+                <span className="text-base font-bold text-slate-900">业务目标（放行配比）</span>
               </div>
-              <p className="text-sm text-slate-700 leading-relaxed font-bold">
+              <p className="text-sm text-slate-600 leading-relaxed font-normal">
                 提升系统直出比例，让人工审核聚焦高风险订单。
               </p>
             </div>
             
-            <div className="grid grid-cols-2 gap-2">
-              <div className="business-flywheel-goal-metric flex flex-col items-center justify-center bg-white px-1 py-3 rounded border border-blue-100 text-center shadow-xs">
-                <span className="text-xs font-black text-slate-900 leading-tight whitespace-nowrap">系统审核率</span>
-                <div className="mt-1 flex items-baseline gap-1 whitespace-nowrap">
-                  <span className="text-slate-900 font-bold text-xs">45%</span>
-                  <span className="text-xs text-slate-900">→</span>
-                  <span className="text-lg font-black text-blue-700">80%</span>
+            <div className="grid grid-cols-2 gap-2 mt-auto">
+              <div className="business-flywheel-goal-metric flex flex-col items-center justify-center bg-slate-50 px-2 py-3 border border-slate-100 text-center">
+                <span className="text-xs sm:text-sm font-medium text-slate-600 leading-tight whitespace-nowrap">系统审核率</span>
+                <div className="mt-1 flex items-baseline gap-1.5 whitespace-nowrap">
+                  <span className="text-slate-500 font-medium text-xs sm:text-sm">45%</span>
+                  <span className="text-xs text-slate-400">→</span>
+                  <span className="text-lg sm:text-xl font-bold text-blue-700 font-mono">80%</span>
                 </div>
               </div>
               
-              <div className="business-flywheel-goal-metric flex flex-col items-center justify-center bg-white px-1 py-3 rounded border border-blue-100 text-center shadow-xs">
-                <span className="text-xs font-black text-slate-900 leading-tight whitespace-nowrap">人工审核率</span>
-                <div className="mt-1 flex items-baseline gap-1 whitespace-nowrap">
-                  <span className="text-slate-900 font-bold text-xs">55%</span>
-                  <span className="text-xs text-slate-900">→</span>
-                  <span className="text-lg font-black text-blue-700">20%</span>
+              <div className="business-flywheel-goal-metric flex flex-col items-center justify-center bg-slate-50 px-2 py-3 border border-slate-100 text-center">
+                <span className="text-xs sm:text-sm font-medium text-slate-600 leading-tight whitespace-nowrap">人工审核率</span>
+                <div className="mt-1 flex items-baseline gap-1.5 whitespace-nowrap">
+                  <span className="text-slate-500 font-medium text-xs sm:text-sm">55%</span>
+                  <span className="text-xs text-slate-400">→</span>
+                  <span className="text-lg sm:text-xl font-bold text-blue-700 font-mono">20%</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* 粗箭头 2 */}
+          {/* 箭头 2 */}
           <div className="business-flywheel-goal-arrow flex items-center justify-center shrink-0 py-1 lg:py-0 self-center">
-            <ArrowRight className="hidden lg:block w-7 h-7 text-blue-500 stroke-[3.5]" />
-            <ArrowDown className="lg:hidden w-7 h-7 text-blue-500 stroke-[3.5]" />
+            <ArrowRight className="hidden lg:block w-6 h-6 text-slate-400 stroke-[2.5]" />
+            <ArrowDown className="lg:hidden w-6 h-6 text-slate-400 stroke-[2.5]" />
           </div>
 
-          {/* 3. 管理目标（降本增效） - 终极演进终点 (最深) */}
-          <div className="business-flywheel-goal-stage business-flywheel-goal-stage--management flex-1 w-full bg-blue-100 border border-blue-300 rounded-xl p-5 flex flex-col justify-between">
-            <div className="space-y-1 mb-4">
+          {/* 3. 管理目标（降本增效） */}
+          <div className="report-dimension-card flex-1 w-full justify-between">
+            <div className="space-y-1.5 mb-2">
               <div className="flex items-center gap-2">
                 <span className="report-sequence-badge shrink-0">3</span>
-                <span className="text-base font-black text-slate-900">管理目标（降本增效）</span>
+                <span className="text-base font-bold text-slate-900">管理目标（降本增效）</span>
               </div>
-              <p className="text-sm text-slate-700 leading-relaxed font-bold">
+              <p className="text-sm text-slate-600 leading-relaxed font-normal">
                 优化资源结构，降低人力成本，提升审核时效。
               </p>
             </div>
             
-            <div className="grid grid-cols-2 gap-2">
-              <div className="business-flywheel-goal-metric flex flex-col items-center justify-center bg-white px-1 py-3 rounded border border-blue-200 text-center shadow-xs">
-                <span className="text-xs font-black text-slate-900 leading-tight whitespace-nowrap">人力成本</span>
-                <span className="text-lg font-black text-blue-800 tabular-nums mt-1">降低 ≥ -50%</span>
+            <div className="grid grid-cols-2 gap-2 mt-auto">
+              <div className="business-flywheel-goal-metric flex flex-col items-center justify-center bg-slate-50 px-2 py-3 border border-slate-100 text-center">
+                <span className="text-xs sm:text-sm font-medium text-slate-600 leading-tight whitespace-nowrap">人力成本</span>
+                <span className="text-lg sm:text-xl font-bold text-blue-800 font-mono mt-1">下降 ≥ 50%</span>
               </div>
               
-              <div className="business-flywheel-goal-metric flex flex-col items-center justify-center bg-white px-1 py-3 rounded border border-blue-200 text-center shadow-xs">
-                <span className="text-xs font-black text-slate-900 leading-tight whitespace-nowrap">审核时效</span>
-                <span className="text-lg font-black text-blue-800 tabular-nums mt-1">减少 ≥ -3min</span>
+              <div className="business-flywheel-goal-metric flex flex-col items-center justify-center bg-slate-50 px-2 py-3 border border-slate-100 text-center">
+                <span className="text-xs sm:text-sm font-medium text-slate-600 leading-tight whitespace-nowrap">审核时效</span>
+                <span className="text-lg sm:text-xl font-bold text-blue-800 font-mono mt-1">缩减 ≥ 3分钟</span>
               </div>
             </div>
           </div>
@@ -286,7 +284,7 @@ export const ZZOverview: React.FC = () => {
                     <Icon className={`business-flywheel-icon ${isHighlight ? "business-flywheel-icon-red" : ""}`} />
                     <div className="business-flywheel-card-copy space-y-0.5">
                       {step.desc.map((line) => (
-                        <p key={line} className="text-xs font-bold text-slate-900 m-0 leading-tight">
+                        <p key={line} className="text-xs font-normal text-slate-700 m-0 leading-normal">
                           • {line}
                         </p>
                       ))}
@@ -300,34 +298,34 @@ export const ZZOverview: React.FC = () => {
       </div>
     </div>
 
-      {/* 飞轮落地拆解过渡模块（独立的段落与核心方向卡片，不在框内） */}
-      <div className="space-y-3.5 pt-2">
-        <div className="flex items-center gap-2.5 text-slate-900 font-black text-base px-1">
-          <span className="w-2.5 h-2.5 rounded-xs bg-blue-600 shrink-0"></span>
+      {/* 飞轮落地拆解过渡模块 */}
+      <div className="space-y-4 pt-3">
+        <div className="flex items-center gap-2.5 text-slate-900 font-bold text-base px-1">
+          <span className="w-2 h-2 rounded-full bg-blue-600 shrink-0"></span>
           <span>为实现“质量效率飞轮”目标，将从以下核心方向进行拆解与落地：</span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div className="bg-white border border-slate-100 rounded-md p-4 flex flex-col justify-between">
-            <div className="flex items-center justify-between gap-2 mb-2">
-              <span className="text-xs font-bold text-slate-800 bg-slate-100 px-2 py-0.5 rounded">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="bg-white border border-slate-200 p-5 flex flex-col justify-between space-y-3">
+            <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-2.5">
+              <span className="text-xs sm:text-sm font-semibold text-slate-800 bg-slate-100 px-2.5 py-1 rounded">
                 系统审核能力
               </span>
-              <Cpu className="w-4 h-4 text-slate-700 shrink-0" />
+              <Cpu className="w-4 h-4 text-slate-600 shrink-0" />
             </div>
-            <p className="text-xs font-medium text-slate-700 leading-relaxed m-0">
+            <p className="text-sm sm:text-base text-slate-700 leading-relaxed m-0 font-normal">
               云盾闭环与量化决策模型，持续提升系统自动放行与直出占比（达 82.4%+）
             </p>
           </div>
 
-          <div className="bg-white border border-slate-100 rounded-md p-4 flex flex-col justify-between">
-            <div className="flex items-center justify-between gap-2 mb-2">
-              <span className="text-xs font-bold text-slate-800 bg-slate-100 px-2 py-0.5 rounded">
+          <div className="bg-white border border-slate-200 p-5 flex flex-col justify-between space-y-3">
+            <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-2.5">
+              <span className="text-xs sm:text-sm font-semibold text-slate-800 bg-slate-100 px-2.5 py-1 rounded">
                 人工审核质效
               </span>
-              <UserCheck className="w-4 h-4 text-slate-700 shrink-0" />
+              <UserCheck className="w-4 h-4 text-slate-600 shrink-0" />
             </div>
-            <p className="text-xs font-medium text-slate-700 leading-relaxed m-0">
+            <p className="text-sm sm:text-base text-slate-700 leading-relaxed m-0 font-normal">
               通过流程改造、绩效改革与工具支持，全面提升人工审核质效与安全合规
             </p>
           </div>

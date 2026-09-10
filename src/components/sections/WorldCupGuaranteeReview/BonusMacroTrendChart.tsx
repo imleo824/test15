@@ -9,17 +9,26 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { ReportChartCard, ReportPanel, ReportPanelHeader } from "../../ReportSections";
+import { SummaryBox, highlightNumbers } from "./utils";
+import { TrendingUp } from "lucide-react";
+import {
+  chartAxisTick,
+  chartColors,
+  chartLegendStyle,
+  chartMargins,
+  chartTooltipItemStyle,
+  chartTooltipStyle,
+} from "./chartStyles";
 
 export interface MacroTrendLeveragePoint {
   month: string;
-  // 图表 1：红利 撬动 存款 (倍) = 存款金额 ÷ 红利 (去返水)
-  normalDepLeverage: number; // 正常用户
-  riskDepLeverage: number;   // 风控用户
-  allDepLeverage: number;    // 全盘均值
-  // 图表 2：红利 撬动 盈利 (倍) = 平台净收益 ÷ 赠金总投入
-  normalProfitLeverage: number; // 正常用户
-  riskProfitLeverage: number;   // 风控用户
-  allProfitLeverage: number;    // 全盘均值
+  normalDepLeverage: number; // 正常用户·存款杠杆
+  riskDepLeverage: number;   // 风控用户·存款杠杆
+  allDepLeverage: number;    // 全盘均值·存款杠杆
+  normalProfitLeverage: number; // 正常用户·盈利杠杆
+  riskProfitLeverage: number;   // 风控用户·盈利杠杆
+  allProfitLeverage: number;    // 全盘均值·盈利杠杆
 }
 
 export const macroTrendLeverageData: MacroTrendLeveragePoint[] = [
@@ -108,188 +117,147 @@ export const macroTrendLeverageData: MacroTrendLeveragePoint[] = [
 
 export const BonusMacroTrendChart: React.FC = () => {
   return (
-    <div className="w-full bg-white">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
-        <div>
-          <h4 className="text-base font-black text-slate-900">
-            红利效能双杠杆走势透视
-          </h4>
-          <p className="text-xs text-slate-500 font-bold mt-0.5">
-            纯倍数时序演变走势对照：红利撬动存款（去除返水）与红利撬动盈利，并细分正常用户与风控用户对照
-          </p>
-        </div>
-      </div>
+    <ReportPanel className="report-panel-stack">
+      <ReportPanelHeader
+        icon={<TrendingUp className="h-5 w-5" />}
+        title="7.1 红利杠杆走势"
+      />
 
-      {/* 核心杠杆指标对照栏 */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5 p-3.5 bg-slate-50/80 rounded-md text-xs">
-        <div>
-          <span className="text-slate-500 font-bold block">正常用户·存款杠杆 (去返水)</span>
-          <span className="font-mono font-black text-emerald-700 text-sm">30.00x ➔ 16.10x</span>
-          <span className="text-[11px] text-slate-400 block mt-0.5 font-bold">充值意愿高，自然吸储沉淀</span>
-        </div>
-        <div>
-          <span className="text-slate-500 font-bold block">风控用户·存款杠杆 (去返水)</span>
-          <span className="font-mono font-black text-rose-600 text-sm">31.25x ➔ 12.80x</span>
-          <span className="text-[11px] text-slate-400 block mt-0.5 font-bold">达标流水后即刻发起提现</span>
-        </div>
-        <div>
-          <span className="text-slate-500 font-bold block">正常用户·盈利杠杆 (净利转化)</span>
-          <span className="font-mono font-black text-emerald-700 text-sm">2.02x ➔ 0.42x</span>
-          <span className="text-[11px] text-slate-400 block mt-0.5 font-bold">保持正向造血与利润贡献</span>
-        </div>
-        <div>
-          <span className="text-slate-500 font-bold block">风控用户·盈利杠杆 (净利转化)</span>
-          <span className="font-mono font-black text-rose-600 text-sm">0.67x ➔ 0.02x</span>
-          <span className="text-[11px] text-slate-400 block mt-0.5 font-bold">后期盈利杠杆几近归零</span>
-        </div>
-      </div>
+      <SummaryBox>
+        {highlightNumbers(
+          "正常用户[[盈利杠杆 0.42倍]]保持正向造血，而风控用户盈利杠杆从 [[0.67倍]] 暴跌至 [[0.02倍]] 几近归零，达标流水后即刻提现，呈现显著的套利洗水特征。"
+        )}
+      </SummaryBox>
 
-      {/* 纯倍数走势双图并列呈现 */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* 左图：图表 1：红利 撬动 存款 */}
-        <div className="rounded-md p-4 bg-slate-50/40 border border-slate-100">
-          <div className="flex items-center justify-between mb-2">
-            <h5 className="text-sm font-black text-slate-900 flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-violet-600 inline-block"></span>
-              <span>图表 1：红利 撬动 存款</span>
-            </h5>
-            <span className="text-xs font-mono font-medium text-slate-500 bg-slate-100/80 px-2 py-0.5 rounded">
-              杠杆 = 存款金额 ÷ 红利
-            </span>
-          </div>
-          <p className="text-xs text-slate-400 font-bold mb-3">
-            纯倍数走势：展示正常用户、风控用户及全盘均值的红利吸储杠杆演变
-          </p>
-          <div className="h-[280px] w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={macroTrendLeverageData} margin={{ top: 10, right: 15, left: -15, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" vertical={false} />
-                <XAxis 
-                  dataKey="month" 
-                  tick={{ fill: "#475569", fontSize: 11, fontWeight: 700 }}
-                  axisLine={{ stroke: "#cbd5e1" }}
-                />
-                <YAxis 
-                  tick={{ fill: "#475569", fontSize: 11, fontWeight: 700 }}
-                  axisLine={{ stroke: "#cbd5e1" }}
-                  unit="倍"
-                  domain={[10, 35]}
-                />
-                <Tooltip 
-                  contentStyle={{ 
-                    backgroundColor: "#0f172a", 
-                    borderRadius: "8px", 
-                    color: "#fff", 
-                    border: "none",
-                    fontSize: "12px",
-                    fontWeight: "bold"
-                  }}
-                  formatter={(value: any, name: any) => [`${value} 倍 (存款÷红利)`, name]}
-                />
-                <Legend wrapperStyle={{ paddingTop: "8px", fontSize: "11px", fontWeight: "bold" }} />
-                <Line 
-                  type="monotone" 
-                  dataKey="normalDepLeverage" 
-                  name="正常用户·存款杠杆" 
-                  stroke="#10b981" 
-                  strokeWidth={2.5} 
-                  dot={{ r: 3.5, fill: "#10b981", strokeWidth: 1.5, stroke: "#fff" }}
-                />
-                <Line 
-                  type="monotone" 
-                  dataKey="riskDepLeverage" 
-                  name="风控用户·存款杠杆" 
-                  stroke="#f43f5e" 
-                  strokeWidth={2.5} 
-                  strokeDasharray="5 2"
-                  dot={{ r: 3.5, fill: "#f43f5e", strokeWidth: 1.5, stroke: "#fff" }}
-                />
-                <Line 
-                  type="monotone" 
-                  dataKey="allDepLeverage" 
-                  name="全盘均值·存款杠杆" 
-                  stroke="#6366f1" 
-                  strokeWidth={2} 
-                  strokeDasharray="3 3"
-                  dot={{ r: 2.5, fill: "#6366f1", strokeWidth: 1, stroke: "#fff" }}
-                />
-              </LineChart>
-            </ResponsiveContainer>
+      {/* 核心双杠杆左右对比模版 */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
+        {/* 左侧：正常用户客群双杠杆 */}
+        <div className="border border-slate-200 border-t-2 border-t-emerald-700 bg-white p-4 space-y-3 h-full flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between border-b border-slate-200 pb-2">
+              <div className="flex items-center gap-2 text-slate-900 font-bold text-sm">
+                <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                <span>正常用户客群·红利效率</span>
+              </div>
+              <span className="text-xs font-mono font-semibold bg-emerald-50 text-emerald-800 px-2 py-0.5 border border-emerald-200">
+                正向收益沉淀
+              </span>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 mt-3">
+              {/* 存款杠杆 */}
+              <div className="bg-slate-50 p-3 border border-slate-200 space-y-1">
+                <div className="text-xs text-slate-600 font-medium">正常用户·存款杠杆</div>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-3xl font-black font-mono text-slate-900 tabular-nums">16.10</span>
+                  <span className="text-xs font-bold text-slate-600">倍</span>
+                </div>
+                <p className="text-xs text-slate-500 border-t border-slate-200 pt-1 mt-1">
+                  从 30.00倍 回落至 16.10倍
+                </p>
+              </div>
+
+              {/* 盈利杠杆 */}
+              <div className="bg-slate-50 p-3 border border-slate-200 space-y-1">
+                <div className="text-xs text-slate-600 font-medium">正常用户·盈利杠杆</div>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-3xl font-black font-mono text-slate-900 tabular-nums">0.42</span>
+                  <span className="text-xs font-bold text-slate-600">倍</span>
+                </div>
+                <p className="text-xs text-slate-500 border-t border-slate-200 pt-1 mt-1">
+                  保持正向造血与沉淀
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* 右图：图表 2：红利 撬动 盈利 */}
-        <div className="rounded-md p-4 bg-slate-50/40 border border-slate-100">
-          <div className="flex items-center justify-between mb-2">
-            <h5 className="text-sm font-black text-slate-900 flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-slate-900 inline-block"></span>
-              <span>图表 2：红利 撬动 盈利</span>
-            </h5>
-            <span className="text-xs font-mono font-medium text-slate-500 bg-slate-100/80 px-2 py-0.5 rounded">
-              杠杆 = 平台净收益 ÷ (红利+返水)
-            </span>
-          </div>
-          <p className="text-xs text-slate-400 font-bold mb-3">
-            纯倍数走势：展示正常用户、风控用户及全盘均值的红利净利润转化演变
-          </p>
-          <div className="h-[280px] w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={macroTrendLeverageData} margin={{ top: 10, right: 15, left: -15, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" vertical={false} />
-                <XAxis 
-                  dataKey="month" 
-                  tick={{ fill: "#475569", fontSize: 11, fontWeight: 700 }}
-                  axisLine={{ stroke: "#cbd5e1" }}
-                />
-                <YAxis 
-                  tick={{ fill: "#475569", fontSize: 11, fontWeight: 700 }}
-                  axisLine={{ stroke: "#cbd5e1" }}
-                  unit="倍"
-                  domain={[0, 2.3]}
-                />
-                <Tooltip 
-                  contentStyle={{ 
-                    backgroundColor: "#0f172a", 
-                    borderRadius: "8px", 
-                    color: "#fff", 
-                    border: "none",
-                    fontSize: "12px",
-                    fontWeight: "bold"
-                  }}
-                  formatter={(value: any, name: any) => [`${value} 倍 (净利÷赠金)`, name]}
-                />
-                <Legend wrapperStyle={{ paddingTop: "8px", fontSize: "11px", fontWeight: "bold" }} />
-                <Line 
-                  type="monotone" 
-                  dataKey="normalProfitLeverage" 
-                  name="正常用户·盈利杠杆" 
-                  stroke="#10b981" 
-                  strokeWidth={2.5} 
-                  dot={{ r: 3.5, fill: "#10b981", strokeWidth: 1.5, stroke: "#fff" }}
-                />
-                <Line 
-                  type="monotone" 
-                  dataKey="riskProfitLeverage" 
-                  name="风控用户·盈利杠杆" 
-                  stroke="#f43f5e" 
-                  strokeWidth={2.5} 
-                  strokeDasharray="5 2"
-                  dot={{ r: 3.5, fill: "#f43f5e", strokeWidth: 1.5, stroke: "#fff" }}
-                />
-                <Line 
-                  type="monotone" 
-                  dataKey="allProfitLeverage" 
-                  name="全盘均值·盈利杠杆" 
-                  stroke="#0f172a" 
-                  strokeWidth={2} 
-                  strokeDasharray="3 3"
-                  dot={{ r: 2.5, fill: "#0f172a", strokeWidth: 1, stroke: "#fff" }}
-                />
-              </LineChart>
-            </ResponsiveContainer>
+        {/* 右侧：风控套利客群双杠杆 */}
+        <div className="border border-slate-200 border-t-2 border-t-rose-700 bg-white p-4 space-y-3 h-full flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between border-b border-slate-200 pb-2">
+              <div className="flex items-center gap-2 text-slate-900 font-bold text-sm">
+                <span className="w-2 h-2 rounded-full bg-rose-600"></span>
+                <span>风控套利客群·红利效率</span>
+              </div>
+              <span className="text-xs font-mono font-semibold bg-rose-50 text-rose-800 px-2 py-0.5 border border-rose-200">
+                套利洗水预警
+              </span>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 mt-3">
+              {/* 存款杠杆 */}
+              <div className="bg-slate-50 p-3 border border-slate-200 space-y-1">
+                <div className="text-xs text-slate-600 font-medium">风控用户·存款杠杆</div>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-3xl font-black font-mono text-rose-700 tabular-nums">12.80</span>
+                  <span className="text-xs font-bold text-slate-600">倍</span>
+                </div>
+                <p className="text-xs text-slate-500 border-t border-slate-200 pt-1 mt-1">
+                  从 31.25倍 下滑至 12.80倍
+                </p>
+              </div>
+
+              {/* 盈利杠杆 */}
+              <div className="bg-slate-50 p-3 border border-slate-200 space-y-1">
+                <div className="text-xs text-slate-600 font-medium">风控用户·盈利杠杆</div>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-3xl font-black font-mono text-rose-700 tabular-nums">0.02</span>
+                  <span className="text-xs font-bold text-slate-600">倍</span>
+                </div>
+                <p className="text-xs text-slate-500 border-t border-slate-200 pt-1 mt-1">
+                  对打洗水导致利润几近归零
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+
+      {/* 走势图表：左右并排 - 统一图表深度结构 */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-2 items-stretch">
+        <ReportChartCard
+          title="红利撬动存款杠杆走势"
+          subtitle="2025.01 - 2025.09 月度跟踪"
+          value="存款 ÷ 红利"
+          description="正常用户存款杠杆由 30.00倍 逐步收敛至 16.10倍 健康水平；风控客群存款杠杆从 31.25倍 持续恶化至 12.80倍，充提套现意图显著。"
+          footnote="注：存款杠杆 = 周期内总存款额 ÷ 所获红利总额。"
+        >
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={macroTrendLeverageData} margin={chartMargins.compact}>
+              <CartesianGrid strokeDasharray="3 3" stroke={chartColors.grid} vertical={false} />
+              <XAxis dataKey="month" tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} />
+              <YAxis tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} domain={[10, 35]} unit="倍" />
+              <Tooltip contentStyle={chartTooltipStyle} itemStyle={chartTooltipItemStyle} formatter={(value: any, name: any) => [`${value} 倍`, name]} />
+              <Legend wrapperStyle={chartLegendStyle} />
+              <Line type="monotone" dataKey="normalDepLeverage" name="正常用户" stroke={chartColors.green} strokeWidth={2.5} dot={{ r: 3, fill: chartColors.green }} isAnimationActive={false} />
+              <Line type="monotone" dataKey="riskDepLeverage" name="风控用户" stroke={chartColors.red} strokeWidth={2.5} strokeDasharray="4 2" dot={{ r: 3, fill: chartColors.red }} isAnimationActive={false} />
+              <Line type="monotone" dataKey="allDepLeverage" name="全盘均值" stroke={chartColors.blue} strokeWidth={2} strokeDasharray="3 3" dot={{ r: 2.5, fill: chartColors.blue }} isAnimationActive={false} />
+            </LineChart>
+          </ResponsiveContainer>
+        </ReportChartCard>
+
+        <ReportChartCard
+          title="红利撬动盈利杠杆走势"
+          subtitle="2025.01 - 2025.09 真实造血跟踪"
+          value="输赢 ÷ 红利"
+          description="正常用户保持 0.42倍 正向造血产出；而风控套利群体断崖式下跌至 0.02倍 利润几近归零，暴露出达标流水即提现的洗水特征。"
+          footnote="注：盈利杠杆 = 周期内游戏输赢 ÷ 红利总投入（正值代表平台造血，趋近0代表套利侵蚀）。"
+        >
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={macroTrendLeverageData} margin={chartMargins.compact}>
+              <CartesianGrid strokeDasharray="3 3" stroke={chartColors.grid} vertical={false} />
+              <XAxis dataKey="month" tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} />
+              <YAxis tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} domain={[0, 2.3]} unit="倍" />
+              <Tooltip contentStyle={chartTooltipStyle} itemStyle={chartTooltipItemStyle} formatter={(value: any, name: any) => [`${value} 倍`, name]} />
+              <Legend wrapperStyle={chartLegendStyle} />
+              <Line type="monotone" dataKey="normalProfitLeverage" name="正常用户" stroke={chartColors.green} strokeWidth={2.5} dot={{ r: 3, fill: chartColors.green }} isAnimationActive={false} />
+              <Line type="monotone" dataKey="riskProfitLeverage" name="风控用户" stroke={chartColors.red} strokeWidth={2.5} strokeDasharray="4 2" dot={{ r: 3, fill: chartColors.red }} isAnimationActive={false} />
+              <Line type="monotone" dataKey="allProfitLeverage" name="全盘均值" stroke={chartColors.ink} strokeWidth={2} strokeDasharray="3 3" dot={{ r: 2.5, fill: chartColors.ink }} isAnimationActive={false} />
+            </LineChart>
+          </ResponsiveContainer>
+        </ReportChartCard>
+      </div>
+    </ReportPanel>
   );
 };

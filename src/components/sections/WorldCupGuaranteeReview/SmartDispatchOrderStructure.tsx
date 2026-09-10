@@ -11,16 +11,13 @@ import {
   ResponsiveContainer,
   LabelList,
 } from "recharts";
-import { SummaryBox, highlightNumbers, stripDisplayUnits } from "./utils";
-import { ReportPanel, ReportPanelHeader } from "../../ReportSections";
-import { BarChart3 } from "lucide-react";
+import { stripDisplayUnits } from "./utils";
+import { ReportChartCard } from "../../ReportSections";
 import {
   chartAxisTick,
   chartColors,
-  chartLabelStyle,
   chartBarRadius,
   chartBarSize,
-  chartBarGap,
   chartMargins,
   chartSeriesColors,
   chartTooltipItemStyle,
@@ -168,177 +165,141 @@ const renderOrderStructureLegend = () => (
 
 export const SmartDispatchOrderStructure: React.FC = () => {
   return (
-    <ReportPanel className="report-panel-stack">
-      {/* 头部标题 */}
-      <ReportPanelHeader
-        icon={<BarChart3 className="h-5 w-5" />}
-        title="一、订单结构"
-        badge="角色与质量分布"
-      />
+    <ReportChartCard
+      title="角色订单结构与审核质量月度趋势"
+      subtitle="4月 - 6月系统/总部/外包结构变迁"
+      value="系统 44.4% | 总部 48.1%"
+      description={
+        <span>
+          系统自动直出与总部承接成为绝对主力（合计占比 <span className="font-bold text-blue-700 font-mono">92.5%</span>），失误率仅 0.11%~0.69%；高差错率的外包占比大幅压降至 <span className="font-bold text-amber-700 font-mono">7.5%</span>，实现大幅提效与高风险控制双赢。
+        </span>
+      }
+      bodyHeight="h-[420px]"
+      footnote="注：左轴为各角色月度审单量（单位：万单），右轴为审核差错率（越低代表审核质量越优）。"
+    >
+      <ResponsiveContainer width="100%" height="100%">
+        <ComposedChart data={auditStructureData} barSize={chartBarSize.grouped} barGap={16} margin={chartMargins.standard}>
+          <CartesianGrid strokeDasharray="3 3" stroke={chartColors.grid} />
+          <XAxis dataKey="month" stroke={chartColors.ink} tick={chartAxisTick} />
+          
+          {/* 左Y轴：审核单量 */}
+          <YAxis 
+            yAxisId="left" 
+            stroke={chartColors.ink}
+            tick={chartAxisTick}
+            tickFormatter={(val) => `${(val / 10000).toFixed(0)}`}
+            domain={[0, 6500000]}
+            ticks={[0, 2000000, 4000000, 6000000]}
+          />
+          
+          {/* 右Y轴：审核质量（资金单量/总审核量 %） */}
+          <YAxis 
+            yAxisId="right" 
+            orientation="right" 
+            stroke={chartColors.ink}
+            domain={qualityMarkerBandDomain}
+            ticks={[0, 0.5, 1.0, 1.5, 2.0]}
+            tick={chartAxisTick}
+            tickFormatter={(val) => `${val}%`}
+          />
 
-      {/* 优化总结 */}
-      <SummaryBox>
-        {highlightNumbers(
-          "系统直出与总部承接为主力，外包审核占比持续下调（6月压降至 [[7.5%]]）；差错率上，系统自动审核稳定在 [[0.08%]]~[[0.12%]]，总部6月为 [[0.69%]]，明显低于外包 [[1.82%]]~[[1.92%]] 的高风险区间。",
-        )}
-      </SummaryBox>
+          <Tooltip 
+            contentStyle={chartTooltipStyle}
+            itemStyle={chartTooltipItemStyle}
+            formatter={(value: any, name: any, item: any) => {
+              if (name.includes("质量")) {
+                return [`${value}%`, name];
+              }
+              const payload = item?.payload;
+              if (name === "系统审核单量") {
+                return [stripDisplayUnits(`${Number(value).toLocaleString()} 单 (${payload.系统占比}%)`), name];
+              }
+              if (name === "总部审核单量") {
+                return [stripDisplayUnits(`${Number(value).toLocaleString()} 单 (${payload.总部占比}%)`), name];
+              }
+              if (name === "外包审核单量") {
+                return [stripDisplayUnits(`${Number(value).toLocaleString()} 单 (${payload.外包占比}%)`), name];
+              }
+              return [value, name];
+            }}
+          />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-        <div className="bg-blue-50/50 border border-blue-100 rounded-lg p-4 space-y-2">
-          <span className="flex items-center gap-2 font-black text-blue-900 text-xs">
-            <span className="report-sequence-badge">1</span>
-            系统自动审核
-          </span>
-          <p className="text-slate-900 font-bold leading-relaxed">
-            {highlightNumbers("单量从4月 [[229.9]] 提升至6月 [[280.3]]，差错率稳定在 [[0.08%]]~[[0.12%]] 的极低水平。")}
-          </p>
-        </div>
-        <div className="bg-blue-50/50 border border-blue-100 rounded-lg p-4 space-y-2">
-          <span className="flex items-center gap-2 font-black text-blue-900 text-xs">
-            <span className="report-sequence-badge">2</span>
-            外包规模压缩
-          </span>
-          <p className="text-slate-900 font-bold leading-relaxed">
-            {highlightNumbers("外包占比由 [[11.4%]] 逐月下调至 [[7.5%]]（[[47.3]]单），有效压降高差错率（[[1.82%]]~[[1.92%]]）业务风险。")}
-          </p>
-        </div>
-        <div className="bg-slate-50 rounded-lg p-4 space-y-2">
-          <span className="flex items-center gap-2 font-black text-slate-900 text-xs">
-            <span className="report-sequence-badge">3</span>
-            总部承接复杂单
-          </span>
-          <p className="text-slate-900 font-bold leading-relaxed">
-            {highlightNumbers("6月承接 [[304.1]] 单（占比 [[48.1%]]），差错率稳定在 [[0.69%]]，精准兜底高风险与复杂审核。")}
-          </p>
-        </div>
-      </div>
+          <Legend content={renderOrderStructureLegend} />
 
-      {/* 柱状图与折线图双轴组合图表 */}
-      <div className="h-[420px] w-full pt-2">
-        <ResponsiveContainer width="100%" height="100%">
-          <ComposedChart data={auditStructureData} barSize={chartBarSize.grouped} barGap={16} margin={chartMargins.standard}>
-            <CartesianGrid strokeDasharray="3 3" stroke={chartColors.grid} />
-            <XAxis dataKey="month" stroke={chartColors.ink} tick={chartAxisTick} />
-            
-            {/* 左Y轴：审核单量 */}
-            <YAxis 
-              yAxisId="left" 
-              stroke={chartColors.ink}
-              tick={chartAxisTick}
-              tickFormatter={(val) => `${(val / 10000).toFixed(0)}`}
-              domain={[0, 6500000]}
-              ticks={[0, 2000000, 4000000, 6000000]}
+          {/* 柱状图：各角色单量，柱顶标注【单量+占比】 */}
+          <Bar yAxisId="left" dataKey="系统单量" fill={chartSeriesColors.primary} name="系统审核单量" radius={chartBarRadius.standard} isAnimationActive={false}>
+            <LabelList 
+              dataKey="系统标签" 
+              content={renderAuditStructureLabel()}
             />
-            
-            {/* 右Y轴：审核质量（资金单量/总审核量 %） */}
-            <YAxis 
-              yAxisId="right" 
-              orientation="right" 
-              stroke={chartColors.ink}
-              domain={qualityMarkerBandDomain}
-              ticks={[0, 0.5, 1.0, 1.5, 2.0]}
-              tick={chartAxisTick}
-              tickFormatter={(val) => `${val}%`}
+          </Bar>
+          <Bar yAxisId="left" dataKey="总部单量" fill={chartSeriesColors.positive} name="总部审核单量" radius={chartBarRadius.standard} isAnimationActive={false}>
+            <LabelList 
+              dataKey="总部标签" 
+              content={renderAuditStructureLabel()}
             />
-
-            <Tooltip 
-              contentStyle={chartTooltipStyle}
-              itemStyle={chartTooltipItemStyle}
-              formatter={(value: any, name: any, item: any) => {
-                if (name.includes("质量")) {
-                  return [`${value}%`, name];
-                }
-                const payload = item?.payload;
-                if (name === "系统审核单量") {
-                  return [stripDisplayUnits(`${Number(value).toLocaleString()} 单 (${payload.系统占比}%)`), name];
-                }
-                if (name === "总部审核单量") {
-                  return [stripDisplayUnits(`${Number(value).toLocaleString()} 单 (${payload.总部占比}%)`), name];
-                }
-                if (name === "外包审核单量") {
-                  return [stripDisplayUnits(`${Number(value).toLocaleString()} 单 (${payload.外包占比}%)`), name];
-                }
-                return [value, name];
-              }}
+          </Bar>
+          <Bar yAxisId="left" dataKey="外包单量" fill={chartSeriesColors.secondary} name="外包审核单量" radius={chartBarRadius.standard} isAnimationActive={false}>
+            <LabelList 
+              dataKey="外包标签" 
+              content={renderAuditStructureLabel()}
             />
+          </Bar>
 
-            <Legend content={renderOrderStructureLegend} />
-
-            {/* 柱状图：各角色单量，柱顶标注【单量+占比】 */}
-            <Bar yAxisId="left" dataKey="系统单量" fill={chartSeriesColors.primary} name="系统审核单量" radius={chartBarRadius.standard} isAnimationActive={false}>
-              <LabelList 
-                dataKey="系统标签" 
-                content={renderAuditStructureLabel()}
-              />
-            </Bar>
-            <Bar yAxisId="left" dataKey="总部单量" fill={chartSeriesColors.positive} name="总部审核单量" radius={chartBarRadius.standard} isAnimationActive={false}>
-              <LabelList 
-                dataKey="总部标签" 
-                content={renderAuditStructureLabel()}
-              />
-            </Bar>
-            <Bar yAxisId="left" dataKey="外包单量" fill={chartSeriesColors.secondary} name="外包审核单量" radius={chartBarRadius.standard} isAnimationActive={false}>
-              <LabelList 
-                dataKey="外包标签" 
-                content={renderAuditStructureLabel()}
-              />
-            </Bar>
-
-            {/* 折线图：各角色审核质量，折线及节点对齐各自的单量柱子 */}
-            <Line 
-              yAxisId="right" 
-              type="monotone" 
+          {/* 折线图：各角色审核质量，折线及节点对齐各自的单量柱子 */}
+          <Line 
+            yAxisId="right" 
+            type="monotone" 
+            dataKey="系统质量" 
+            stroke="transparent" 
+            strokeWidth={0} 
+            legendType="circle"
+            name="系统质量" 
+            dot={{ r: 5, fill: chartSeriesColors.primary, strokeWidth: 2, stroke: "#ffffff" }}
+            isAnimationActive={false}
+            transform="translate(-36, 0)"
+          >
+            <LabelList 
               dataKey="系统质量" 
-              stroke="transparent" 
-              strokeWidth={0} 
-              legendType="circle"
-              name="系统质量" 
-              dot={{ r: 5, fill: chartSeriesColors.primary, strokeWidth: 2, stroke: "#ffffff" }}
-              isAnimationActive={false}
-              transform="translate(-36, 0)"
-            >
-              <LabelList 
-                dataKey="系统质量" 
-                content={renderQualityLabel(-36)}
-              />
-            </Line>
-            <Line 
-              yAxisId="right" 
-              type="monotone" 
+              content={renderQualityLabel(-36)}
+            />
+          </Line>
+          <Line 
+            yAxisId="right" 
+            type="monotone" 
+            dataKey="总部质量" 
+            stroke="transparent" 
+            strokeWidth={0} 
+            legendType="circle"
+            name="总部质量" 
+            dot={{ r: 5, fill: chartSeriesColors.positive, strokeWidth: 2, stroke: "#ffffff" }}
+            isAnimationActive={false}
+            transform="translate(0, 0)"
+          >
+            <LabelList 
               dataKey="总部质量" 
-              stroke="transparent" 
-              strokeWidth={0} 
-              legendType="circle"
-              name="总部质量" 
-              dot={{ r: 5, fill: chartSeriesColors.positive, strokeWidth: 2, stroke: "#ffffff" }}
-              isAnimationActive={false}
-              transform="translate(0, 0)"
-            >
-              <LabelList 
-                dataKey="总部质量" 
-                content={renderQualityLabel(0)}
-              />
-            </Line>
-            <Line 
-              yAxisId="right" 
-              type="monotone" 
+              content={renderQualityLabel(0)}
+            />
+          </Line>
+          <Line 
+            yAxisId="right" 
+            type="monotone" 
+            dataKey="外包质量" 
+            stroke="transparent" 
+            strokeWidth={0} 
+            legendType="circle"
+            name="外包质量" 
+            dot={{ r: 5, fill: chartSeriesColors.secondary, strokeWidth: 2, stroke: "#ffffff" }}
+            isAnimationActive={false}
+            transform="translate(36, 0)"
+          >
+            <LabelList 
               dataKey="外包质量" 
-              stroke="transparent" 
-              strokeWidth={0} 
-              legendType="circle"
-              name="外包质量" 
-              dot={{ r: 5, fill: chartSeriesColors.secondary, strokeWidth: 2, stroke: "#ffffff" }}
-              isAnimationActive={false}
-              transform="translate(36, 0)"
-            >
-              <LabelList 
-                dataKey="外包质量" 
-                content={renderQualityLabel(36)}
-              />
-            </Line>
-          </ComposedChart>
-        </ResponsiveContainer>
-      </div>
-    </ReportPanel>
+              content={renderQualityLabel(36)}
+            />
+          </Line>
+        </ComposedChart>
+      </ResponsiveContainer>
+    </ReportChartCard>
   );
 };

@@ -5,15 +5,15 @@ import { AuditOverviewAgentInterception } from "./AuditOverviewAgentInterception
 import { AuditOverviewSportsInterception } from "./AuditOverviewSportsInterception";
 import { AuditOverviewStudioInterception } from "./AuditOverviewStudioInterception";
 import { AuditOverviewHighVipDetail } from "./AuditOverviewHighVipDetail";
-import { ChapterTitle } from "../../ReportSections";
+import { ReportSectionHeader } from "../../ReportSections";
 
 export const AuditOverviewSection: React.FC = () => {
   return (
     <div className="space-y-14">
       {/* 2.1 风控审计 */}
       <div className="space-y-14">
-        {/* 2.1 风控审计 主模块卡片标题 */}
-        <ChapterTitle>2.1 风控数据</ChapterTitle>
+        {/* 2.1 风控审计 主模块小标题 */}
+        <ReportSectionHeader title="2.1 风控数据" />
 
         {/* 2.1.1 拦截金额与处理量 */}
         <AuditOverviewAmountAndEffort />

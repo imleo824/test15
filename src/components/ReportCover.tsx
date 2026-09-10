@@ -2,99 +2,40 @@ import React from "react";
 import { FA } from "../types";
 
 export const ReportCover: React.FC = () => {
-  const sections: {
-    id: string;
-    title: string;
-    paths: {
-      title: string;
-    }[];
-  }[] = [
-    {
-      id: "1.0",
-      title: "组织管理",
-      paths: [],
-    },
-    {
-      id: "2.0",
-      title: "数据概览",
-      paths: [
-        {
-          title: "2.1 风控数据",
-        },
-        {
-          title: "2.2 内控数据",
-        },
-      ],
-    },
-    {
-      id: "3.0",
-      title: "风控工单",
-      paths: [
-        {
-          title: "3.1 工单系统建设",
-        },
-        {
-          title: "3.2 工单流转全景",
-        },
-      ],
-    },
-    {
-      id: "4.0",
-      title: "系统审核",
-      paths: [
-        {
-          title: "4.1 审单比例结构演变 (系统 82.4% vs 人工 17.6%)",
-        },
-        {
-          title: "4.2 业务收益剖析 (2大直接收益 + 1大间接受益)",
-        },
-        {
-          title: "4.3 云盾体系 (从0到1打造智能化风控闭环体系)",
-        },
-      ],
-    },
-    {
-      id: "5.0",
-      title: "业务概览",
-      paths: [
-        {
-          title: "5.1 整体态势与人效",
-        },
-        {
-          title: "5.2 风险前置",
-        },
-        {
-          title: "5.3 智能派单",
-        },
-        {
-          title: "5.4 人工审核",
-        },
-        {
-          title: "5.5 特殊风控",
-        },
-      ],
-    },
-    {
-      id: "6.0",
-      title: "红利效率",
-      paths: [
-        {
-          title: "6.1 投放与杠杆崩塌走势",
-        },
-        {
-          title: "6.2 VIP能效与跨站对冲穿透",
-        },
-        {
-          title: "6.3 顶级精算专家深度评审",
-        },
-      ],
-    },
+  const sections = [
+    { id: "1.0", title: "组织管理", subtitle: "编制分布、外包治理与组织优化" },
+    { id: "2.0", title: "数据概览", subtitle: "拦截金额时效、类型结构与重点明细" },
+    { id: "3.0", title: "内控概览", subtitle: "违规事件处置、线索稽查与高危场景" },
+    { id: "4.0", title: "变革与工单", subtitle: "核心业务变革、线下群关停与工单化" },
+    { id: "5.0", title: "系统审核", subtitle: "审单模式翻转演变、人效与时效双突破" },
+    { id: "6.0", title: "业务概览", subtitle: "质量效率飞轮、支撑指标与专项攻坚" },
+    { id: "7.0", title: "套利指数", subtitle: "红利杠杆走势、跨站多账户与全新模型" },
   ];
+
+  const handleScrollToSection = (sectionId: string) => {
+    const el = document.getElementById(`section-${sectionId}`);
+    if (el) {
+      const topOffset = el.getBoundingClientRect().top + window.pageYOffset - 20;
+      window.scrollTo({
+        top: topOffset,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
     <div className="report-cover-page">
-      <div className="report-cover-title-block">
-        <h1>{FA.reportTitle}</h1>
+      {/* 报告主标题与元数据 */}
+      <div className="report-cover-title-block pt-2">
+        <div className="space-y-2">
+          <span className="text-xs font-mono font-bold text-slate-500 tracking-wider">
+            季度风险审计与运营效能管理全景报告
+          </span>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            {FA.reportTitle}
+          </h1>
+        </div>
+
         <div className="report-cover-meta">
           <div>
             <span>数据周期</span>
@@ -104,28 +45,52 @@ export const ReportCover: React.FC = () => {
             <span>报告日期</span>
             <strong>{FA.reportDate}</strong>
           </div>
+          <div>
+            <span>汇报范围</span>
+            <strong>全盘风控业务（1.0 至 7.0 章节）</strong>
+          </div>
         </div>
       </div>
 
       {/* 目录 */}
-      <div className="report-cover-directory">
-        {sections.map((section) => (
-          <div key={section.id} className="report-cover-section">
-            <div className="report-cover-section-title">
-              <span>{section.id}</span>
-              <strong>{section.title}</strong>
-            </div>
+      <div className="space-y-3 pt-2">
+        <div className="flex items-center justify-between border-b-2 border-slate-900 pb-2">
+          <span className="text-xs font-mono font-bold tracking-wider text-slate-900">
+            报告章节目录索引
+          </span>
+          <span className="text-xs text-slate-500">
+            点击章节可直接定位
+          </span>
+        </div>
 
-            <div className="report-cover-paths">
-              {section.paths.map((path) => (
-                <div key={path.title} className="report-cover-path">
-                  <div className="report-cover-path-title">{path.title}</div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2.5">
+          {sections.map((section) => (
+            <div
+              key={section.id}
+              onClick={() => handleScrollToSection(section.id)}
+              className="group flex items-baseline justify-between py-2 border-b border-slate-100 hover:border-slate-900 cursor-pointer transition-colors"
+            >
+              <div className="flex items-baseline gap-3 min-w-0 pr-2">
+                <span className="font-mono text-sm font-bold text-slate-900 group-hover:text-blue-700 shrink-0">
+                  {section.id}
+                </span>
+                <div className="min-w-0 truncate">
+                  <span className="text-sm font-bold text-slate-900 group-hover:text-blue-900 mr-2">
+                    {section.title}
+                  </span>
+                  <span className="text-xs text-slate-500 hidden sm:inline truncate">
+                    {section.subtitle}
+                  </span>
                 </div>
-              ))}
+              </div>
+              <span className="text-xs font-mono text-slate-400 group-hover:text-slate-900 shrink-0">
+                ➔
+              </span>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
 };
+

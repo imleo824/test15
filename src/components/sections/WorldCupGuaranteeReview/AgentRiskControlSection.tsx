@@ -2,7 +2,7 @@ import React from "react";
 import { AlertTriangle, Calculator, Shuffle } from "lucide-react";
 import { ExpectedRhythm, ModuleSubsectionTitle, SummaryBox, highlightNumbers } from "./utils";
 import { ModuleStatusCard } from "./ModuleStatusCard";
-import { ChapterTitle, ReportPanel, ReportTableFrame } from "../../ReportSections";
+import { ReportPanel, ReportSectionHeader, ReportTableFrame } from "../../ReportSections";
 
 export const AgentRiskControlSection: React.FC = () => {
   const yjTableData = [
@@ -53,7 +53,7 @@ export const AgentRiskControlSection: React.FC = () => {
 
   return (
     <div id="section-agent-risk-control" className="report-business-section">
-      <ChapterTitle>4.5 代理审核</ChapterTitle>
+      <ReportSectionHeader title="6.3 代理审核" />
 
       {/* 核心价值、核心目标、整体进度模块 */}
       <ModuleStatusCard
@@ -83,7 +83,7 @@ export const AgentRiskControlSection: React.FC = () => {
 
               <SummaryBox>
                 {highlightNumbers(
-                  "改由系统按月[[随机指派]]审核任务，彻底切断人为可控的固定审核关系，从根源上压缩[[内外勾结空间]]，"
+                  "改由系统按月[[随机指派]]审核任务，彻底切断人为可控的固定审核关系，从根源上压缩[[内外勾结空间]]。"
                 )}
               </SummaryBox>
 
@@ -158,27 +158,27 @@ export const AgentRiskControlSection: React.FC = () => {
 
               <ReportTableFrame>
                 <table className="report-dense-table">
-                  <thead className="bg-slate-100 text-slate-900 border-b border-slate-200">
+                  <thead className="bg-slate-50 text-slate-800 border-b-2 border-slate-900">
                     <tr>
-                      <th className="px-1 md:px-2 lg:px-3 py-2 text-left font-black">核算指标</th>
-                      <th className="px-1 md:px-2 lg:px-3 py-2 text-center font-black">原始数据</th>
-                      <th className="px-1 md:px-2 lg:px-3 py-2 text-center font-black">系统修正</th>
-                      <th className="px-1 md:px-2 lg:px-3 py-2 text-center font-black">人工核算</th>
+                      <th className="px-3 py-2 text-left font-bold text-slate-900">核算指标</th>
+                      <th className="px-3 py-2 text-center font-bold text-slate-900">原始数据</th>
+                      <th className="px-3 py-2 text-center font-bold text-blue-900">系统修正</th>
+                      <th className="px-3 py-2 text-center font-bold text-slate-900">人工核算</th>
                     </tr>
                   </thead>
-                  <tbody className="bg-white divide-y divide-slate-100 font-mono tabular-nums">
+                  <tbody className="bg-white divide-y divide-slate-100 font-mono tabular-nums text-xs">
                     {yjTableData.map((row, idx) => (
-                      <tr key={idx} className={idx % 2 === 0 ? "bg-white" : "bg-slate-50"}>
-                        <td className="px-1 md:px-2 lg:px-3 py-2 text-left">{row.metric}</td>
-                        <td className="px-1 md:px-2 lg:px-3 py-2 text-center">
+                      <tr key={idx} className={idx % 2 === 0 ? "bg-white" : "bg-slate-50/50"}>
+                        <td className="px-3 py-2 text-left font-sans text-slate-800">{row.metric}</td>
+                        <td className="px-3 py-2 text-center text-slate-500">
                           {row.metric === "净盈利" || row.metric === "应发佣金" ? (
                             <span className="line-through">{row.original}</span>
                           ) : (
                             row.original
                           )}
                         </td>
-                        <td className="px-1 md:px-2 lg:px-3 py-2 text-center text-blue-900 font-black">{row.sysFix}</td>
-                        <td className="px-1 md:px-2 lg:px-3 py-2 text-center">{row.manualCalc}</td>
+                        <td className="px-3 py-2 text-center text-blue-900 font-bold">{row.sysFix}</td>
+                        <td className="px-3 py-2 text-center text-slate-800">{row.manualCalc}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -200,28 +200,26 @@ export const AgentRiskControlSection: React.FC = () => {
                   }
                 />
 
-                <div className="p-3 bg-slate-50/80 border border-slate-100 rounded-md">
-                  <div className="grid grid-cols-3 gap-2.5 items-center text-center">
-                    {/* 左侧：人工录入 */}
-                    <div className="bg-white border border-slate-100 rounded-md p-3 space-y-1">
-                      <div className="text-xs font-bold text-slate-900">人工录入</div>
-                      <div className="text-xl md:text-2xl font-black text-slate-900 font-mono">45%</div>
-                    </div>
+                <div className="grid grid-cols-3 gap-3 items-stretch text-center">
+                  {/* 左侧：人工录入 */}
+                  <div className="bg-white border border-slate-200 border-t-2 border-t-slate-400 p-3 space-y-1">
+                    <div className="text-xs sm:text-sm font-bold text-slate-600">人工录入</div>
+                    <div className="text-xl md:text-2xl font-bold text-slate-900 font-mono">45%</div>
+                  </div>
 
-                    {/* 中间：对比差值 */}
-                    <div className="bg-amber-50/80 border border-amber-100/80 rounded-md p-3 space-y-1">
-                      <div className="text-xs font-bold text-slate-900">对比差值</div>
-                      <div className="text-xl md:text-2xl font-black text-rose-900 font-mono">+10%</div>
-                      <div className="text-xs font-bold text-slate-900 bg-amber-100/80 px-2 py-0.5 rounded inline-block">
-                        触发预警
-                      </div>
+                  {/* 中间：对比差值 */}
+                  <div className="bg-white border border-slate-200 border-t-2 border-t-rose-600 p-3 space-y-1">
+                    <div className="text-xs sm:text-sm font-bold text-slate-800">对比差值</div>
+                    <div className="text-xl md:text-2xl font-bold text-rose-600 font-mono">+10%</div>
+                    <div className="text-xs font-bold text-rose-700 bg-rose-50 px-2 py-0.5 border border-rose-200 inline-block">
+                      触发预警
                     </div>
+                  </div>
 
-                    {/* 右侧：系统标准 */}
-                    <div className="bg-blue-50/80 border border-blue-100/80 rounded-md p-3 space-y-1">
-                      <div className="text-xs font-bold text-blue-900">系统标准</div>
-                      <div className="text-xl md:text-2xl font-black text-blue-900 font-mono">35%</div>
-                    </div>
+                  {/* 右侧：系统标准 */}
+                  <div className="bg-white border border-slate-200 border-t-2 border-t-blue-600 p-3 space-y-1">
+                    <div className="text-xs sm:text-sm font-bold text-slate-800">系统标准</div>
+                    <div className="text-xl md:text-2xl font-bold text-blue-700 font-mono">35%</div>
                   </div>
                 </div>
               </div>
@@ -231,8 +229,8 @@ export const AgentRiskControlSection: React.FC = () => {
             <div className="report-module-footer">
               <ExpectedRhythm
                 items={[
-                  { month: "第一阶段已上线", tagColor: "emerald", title: "云盾分数", submitTime: "2025-10-22", status: "解决bug中" },
-                  { month: "第一阶段已上线", tagColor: "emerald", title: "云盾审核", submitTime: "2025-12-28", status: "解决bug中" },
+                  { month: "第一阶段已上线", tagColor: "emerald", title: "云盾分数", submitTime: "2025-10-22", status: "系统缺陷修复与联调中" },
+                  { month: "第一阶段已上线", tagColor: "emerald", title: "云盾审核", submitTime: "2025-12-28", status: "系统缺陷修复与联调中" },
                 ]}
               />
             </div>

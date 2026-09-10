@@ -1,128 +1,102 @@
 import React from "react";
-import { 
-  Calculator, 
-  Gem, 
-  Network,
-  BarChart3,
-} from "lucide-react";
-import { ReportPanel, ReportTableFrame } from "../../ReportSections";
+import { ReportSectionHeader } from "../../ReportSections";
 import { BonusMacroTrendChart } from "./BonusMacroTrendChart";
 import { BonusVipSpectrumChart } from "./BonusVipSpectrumChart";
 import { BonusCrossSiteChart } from "./BonusCrossSiteChart";
+import { NewBonusModelSection } from "./NewBonusModelSection";
 
 export const BonusEfficiencySection: React.FC = () => {
-  // 一、核心指标口径与定义说明
-  const metricFormulas = [
-    {
-      name: "净收益率",
-      formula: "(平台游戏输赢 - 红利 - 返水) ÷ 存款金额",
-      desc: "衡量充值转化为平台净收益的最终沉淀比例（扣除红利与返水后）",
-      benchmark: "全周期均值 6.00%（普通客群 7.25%，风控客群 0.18%）"
-    },
-    {
-      name: "红利存款杠杆",
-      formula: "存款金额 ÷ 红利",
-      desc: "衡量纯红利支出对玩家充值存款金额的撬动倍数（去除返水口径）",
-      benchmark: "全周期均值 18.50倍（普通客群 19.80倍，风控客群 14.50倍）"
-    },
-    {
-      name: "红利盈利杠杆",
-      formula: "(平台游戏输赢 - 红利 - 返水) ÷ (红利 + 返水)",
-      desc: "衡量赠金总支出转化为平台净利润的实际倍数",
-      benchmark: "全周期均值 0.80倍（普通客群 0.94倍，风控客群 0.15倍）"
-    }
-  ];
-
   return (
-    <div id="section-bonus-efficiency" className="report-business-section space-y-8">
-      {/* 一、核心指标口径与行业参考基准 */}
-      <ReportPanel padding="sm" className="report-panel-stack">
-        <div className="flex items-center gap-2 border-b border-slate-200 pb-3 mb-4">
-          <Calculator className="w-5 h-5 text-slate-900" />
-          <h3 className="text-lg font-black text-slate-900">一、指标口径</h3>
+    <div id="section-bonus-efficiency" className="report-business-section space-y-10">
+      {/* 章节核心战略提炼卡片 */}
+      <div className="bg-white border border-slate-200 border-t-2 border-t-slate-900 p-5 space-y-4">
+        {/* 标题与核心战略定位 */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-3">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-slate-900"></span>
+            <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight">
+              套利指数与红利风控战略提炼
+            </h3>
+          </div>
+          <span className="text-xs font-mono font-bold bg-slate-100 text-slate-800 px-2.5 py-1 border border-slate-200 self-start sm:self-auto">
+            平台利润率重构核心策略
+          </span>
         </div>
 
-        <ReportTableFrame>
-          <table className="report-standard-table w-full text-base">
-            <thead>
-              <tr className="bg-slate-50 border-b border-slate-200">
-                <th className="py-3.5 px-4 text-left font-black text-slate-900 w-48 text-[15px]">指标名称</th>
-                <th className="py-3.5 px-4 text-left font-black text-slate-900 text-[15px]">计算公式</th>
-                <th className="py-3.5 px-4 text-left font-black text-slate-900 w-72 text-[15px]">统计参考基准</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-100">
-              {metricFormulas.map((m, idx) => (
-                <tr key={idx} className="hover:bg-slate-50/40">
-                  <td className="py-4 px-4 font-black text-slate-900 text-[15px] flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-slate-800 shrink-0"></span>
-                    <span>{m.name}</span>
-                  </td>
-                  <td className="py-4 px-4 font-mono text-[14px] font-bold text-slate-800">
-                    <div className="bg-slate-50 px-3 py-1.5 rounded inline-block">
-                      {m.formula}
-                    </div>
-                    <p className="text-xs text-slate-500 mt-1 font-sans font-medium">{m.desc}</p>
-                  </td>
-                  <td className="py-4 px-4">
-                    <span className="inline-flex items-center px-2.5 py-1 rounded text-xs font-mono font-medium bg-slate-100/80 text-slate-800">
-                      {m.benchmark}
-                    </span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </ReportTableFrame>
-      </ReportPanel>
+        {/* 核心 2 大点结构化剖析 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
+          {/* 1. 影响利润率：最重要的大事 */}
+          <div className="bg-slate-50 border border-slate-200 p-4 space-y-2 h-full flex flex-col justify-between">
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 text-slate-900 font-bold text-sm">
+                <span className="w-5 h-5 bg-slate-200 text-slate-800 flex items-center justify-center text-xs font-mono font-bold">1</span>
+                <span>核心目标：直接重构与提升平台整体利润率</span>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                红利支出是直接侵蚀平台毛收益的最大变动成本。套利指数模型的落地，不仅是防范套利，更是在全局层面上<strong>直接决定平台的净利润率</strong>。控住无效红利流失，是提升全盘盈利能力核心事项。
+              </p>
+            </div>
+          </div>
 
-      {/* 维度一可视化：大盘投放与杠杆双轴趋势 */}
-      <ReportPanel padding="sm" className="report-panel-stack">
-        <div className="flex items-center gap-2 border-b border-slate-200 pb-3 mb-4">
-          <BarChart3 className="w-5 h-5 text-slate-900" />
-          <h3 className="text-lg font-black text-slate-900">红利杠杠</h3>
+          {/* 2. 发的合理：正常/少发/不发/多发（结构性调整） */}
+          <div className="bg-slate-50 border border-slate-200 p-4 space-y-2 h-full flex flex-col justify-between">
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 text-slate-900 font-bold text-sm">
+                <span className="w-5 h-5 bg-slate-200 text-slate-800 flex items-center justify-center text-xs font-mono font-bold">2</span>
+                <span>核心本质：精准结构性调整，发的合理 ≠ 盲目少发</span>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                “发的合理”绝非简单地一刀切盲目压低红利总额，而是通过套利指数算法输出<strong>【正常 / 少发 / 不发 / 多发】</strong>四大决策建议：
+              </p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-xs">
+              <div className="bg-white border border-slate-200 p-2 text-center">
+                <span className="font-bold block text-emerald-800 text-xs font-mono">【正常】</span>
+                <span className="text-[11px] text-slate-600 font-mono">指数处于 &lt; 30 区间</span>
+              </div>
+              <div className="bg-white border border-slate-200 p-2 text-center">
+                <span className="font-bold block text-amber-800 text-xs font-mono">【少发】</span>
+                <span className="text-[11px] text-slate-600 font-mono">指数处于 30~70 区间</span>
+              </div>
+              <div className="bg-white border border-slate-200 p-2 text-center">
+                <span className="font-bold block text-rose-800 text-xs font-mono">【不发】</span>
+                <span className="text-[11px] text-slate-600 font-mono">指数处于 ≥ 70 区间</span>
+              </div>
+              <div className="bg-white border border-slate-200 p-2 text-center">
+                <span className="font-bold block text-blue-900 text-xs font-mono">【多发】</span>
+                <span className="text-[11px] text-slate-600 font-mono">高等级且极低风险区间</span>
+              </div>
+            </div>
+          </div>
         </div>
+
+        {/* 底部逻辑闭环 */}
+        <div className="bg-slate-50 border border-slate-200 p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-700">
+          <div>
+            <strong>监控与执行体系：</strong>通过<span className="text-blue-900 font-bold">游戏输赢、存款杠杆、盈利杠杆</span>三维监控全盘能效，配合<span className="text-blue-900 font-bold">全量（自动/手动）套利指数模型</span>与<span className="text-rose-700 font-bold">隐性打标兜底</span>，实现最大化控本提效。
+          </div>
+        </div>
+      </div>
+
+      {/* 7.1 红利杠杆走势 */}
+      <div className="report-panel-stack border-t-2 border-slate-900 pt-5">
         <BonusMacroTrendChart />
-      </ReportPanel>
+      </div>
 
-      {/* 二、VIP 0 ~ VIP 10 全等级能效对比 */}
-      <ReportPanel padding="sm" className="report-panel-stack">
-        <div className="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
-          <div className="flex items-center gap-2">
-            <Gem className="w-5 h-5 text-indigo-700" />
-            <h3 className="text-lg font-black text-slate-900">二、等级对比</h3>
-          </div>
-          <span className="text-xs font-mono font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded">
-            VIP 梯度能效透视
-          </span>
-        </div>
-
-        {/* VIP 0 ~ VIP 10 双图可视化 */}
+      {/* 7.2 会员等级能效对比 */}
+      <div className="report-panel-stack border-t border-slate-200 pt-5">
         <BonusVipSpectrumChart />
-      </ReportPanel>
+      </div>
 
-      {/* 三、多站点“多面人”跨站套利数据模型透视（表格 + 可视化） */}
-      <ReportPanel padding="sm" className="report-panel-stack">
-        <div className="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
-          <div className="flex items-center gap-2">
-            <Network className="w-5 h-5 text-indigo-700" />
-            <h3 className="text-lg font-black text-slate-900">三、多账户</h3>
-          </div>
-          <span className="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md">
-            唯一 ID (手机号/设备指纹/USDT链上归集) 穿透
-          </span>
-        </div>
+      {/* 7.3 跨站多账户穿透对比 */}
+      <div className="report-panel-stack border-t border-slate-200 pt-5">
+        <BonusCrossSiteChart />
+      </div>
 
-        {/* 维度三可视化：账户维度 vs 真实单人合并维度 双图对比 */}
-        <div>
-          <BonusCrossSiteChart />
-        </div>
-        
-        <div className="mt-4 bg-slate-50/80 border-l-3 border-l-slate-800 rounded-r-md p-3.5 text-xs text-slate-700 font-medium leading-relaxed">
-          <span className="text-slate-900 font-bold">💡 跨站模型穿透审计结论：</span> 
-          按名义账户看，存款杠杆（14.17x）与盈利杠杆（0.50x）掩盖了套利侵蚀；一旦通过手机号/唯一ID穿透合并，真相立即显现——占人头 <strong>80%</strong> 的多账户群体单人多领了 <strong>3.5倍</strong> 的赠金，但由于跨站对冲洗水，其实际盈利杠杆从健康用户的 <strong>1.31倍</strong> 暴跌至 <strong>0.05倍</strong>，是红利预算被大量无效消耗的核心根源。
-        </div>
-      </ReportPanel>
+      {/* 7.4 全新的红利模型 */}
+      <div className="report-panel-stack border-t border-slate-200 pt-5">
+        <NewBonusModelSection />
+      </div>
     </div>
   );
 };
