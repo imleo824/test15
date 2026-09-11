@@ -231,10 +231,7 @@ export const ReportChartCard: React.FC<{
         {/* 头部：标题、副标题与关键数值/标签 */}
         <div className="report-chart-card-head pb-3 mb-3 border-b border-slate-200">
           <div className="min-w-0 pr-2">
-            <div className="text-[10px] font-mono font-bold tracking-wider text-slate-400">
-              专项图表分析
-            </div>
-            <span className="text-sm font-bold text-slate-900 block mt-0.5">{title}</span>
+            <span className="text-sm font-bold text-slate-900 block">{title}</span>
             {subtitle && <p className="text-xs text-slate-500 font-normal mt-0.5">{subtitle}</p>}
           </div>
           <div className="flex items-center gap-2 shrink-0">

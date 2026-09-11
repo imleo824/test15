@@ -89,16 +89,6 @@ const renderEfficiencyLabel =
       dataItem = efficiencyData[index];
     }
 
-    let displayLabel = value;
-    if (!displayLabel && dataItem) {
-      displayLabel = dataItem[labelKey] || (dataItem[metricKey] !== undefined ? `${dataItem[metricKey]} 单/小时` : "");
-    }
-    if (!displayLabel && typeof value === "number") {
-      displayLabel = `${value.toFixed(1)} 单/小时`;
-    }
-
-    if (!displayLabel) return null;
-
     const values =
       metricKey === "总部人员效率"
         ? hqEfficiencyValues
@@ -106,6 +96,9 @@ const renderEfficiencyLabel =
           ? outsourceEfficiencyValues
           : allHqEfficiencyValues;
     const numericValue = dataItem ? Number(dataItem[metricKey]) : Number(value);
+    const displayLabel = !isNaN(numericValue) ? numericValue.toFixed(1) : "";
+    if (!displayLabel) return null;
+
     const labelStyle = options.riskScenario ? chartLabelRiskStyle : getChartLabelStyle(numericValue, values);
     const className = options.riskScenario ? "chart-label-risk" : getChartLabelClassName(numericValue, values);
     return (

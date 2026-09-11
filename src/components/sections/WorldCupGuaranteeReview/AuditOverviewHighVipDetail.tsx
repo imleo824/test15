@@ -84,11 +84,11 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
               <span className="text-slate-900 font-bold">业务分析：</span>
               <ul className="mt-1.5 list-none space-y-1.5 pl-4 text-slate-600">
                 <li className="flex items-start gap-1.5">
-                  <span className="shrink-0 font-mono text-xs text-slate-400">a.</span>
+                  <span className="shrink-0 font-mono text-xs text-slate-500">（一）</span>
                   <span>{highlightNumbers("部分违规用户养号手段愈发成熟，导致[[发现延迟]]情况发生。")}</span>
                 </li>
                 <li className="flex items-start gap-1.5">
-                  <span className="shrink-0 font-mono text-xs text-slate-400">b.</span>
+                  <span className="shrink-0 font-mono text-xs text-slate-500">（二）</span>
                   <span>{highlightNumbers("高等级用户违规[[手法更隐蔽]]，对专员综合判断能力要求更高，同时需持续识别[[新型手法]]。")}</span>
                 </li>
               </ul>
@@ -100,11 +100,11 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
               <span className="text-slate-900 font-bold">持续优化：</span>
               <ul className="mt-1.5 list-none space-y-1.5 pl-4 text-slate-600">
                 <li className="flex items-start gap-1.5">
-                  <span className="shrink-0 font-mono text-xs text-slate-400">1.</span>
-                  <span>{highlightNumbers("[[高等级观察中用户]]超过 [[7天]] 未发现异常的，提交[[组长审核]]；超过 [[15天]] 未发现异常的，升级至[[主管审核]]。组长每日进行[[复审抽查]]，整体处理人数对比Q1减少约 [[20%]]。")}</span>
+                  <span className="shrink-0 font-mono text-xs text-slate-500">（1）</span>
+                  <span>{highlightNumbers("[[高等级观察中用户]]超过 [[7天]] 未发现异常的，提交[[组长审核]]；超过 [[15天]] 未发现异常的，升级至[[主管审核]]。组长每日进行[[复审抽查]]，整体处理人数对比一季度减少约 [[20%]]。")}</span>
                 </li>
                 <li className="flex items-start gap-1.5">
-                  <span className="shrink-0 font-mono text-xs text-slate-400">2.</span>
+                  <span className="shrink-0 font-mono text-xs text-slate-500">（2）</span>
                   <span>{highlightNumbers("对于[[高等级异常问题]]，[[提高向上反馈频率]]，[[一审]]或[[二审]]优先向[[组长]]反馈问题，并对[[高等级观察中用户]][[定期排查]]。")}</span>
                 </li>
               </ul>

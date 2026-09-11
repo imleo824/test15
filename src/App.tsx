@@ -28,9 +28,6 @@ export default function App() {
           {/* Report End Page */}
           <footer className="report-end-page print:hidden border-t-2 border-slate-900 mt-16 pt-12">
             <div className="report-end-content space-y-4 text-center">
-              <div className="text-xs font-mono font-bold text-slate-400 tracking-wider">
-                专项战略审计报告 · 汇报结语
-              </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
                 汇报结束 · 感谢审阅
               </h2>

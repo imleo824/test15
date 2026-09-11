@@ -11,9 +11,8 @@ import {
   Cell,
   LabelList,
 } from "recharts";
-import { ReportChartCard, ReportMetricCard, ReportMetricGrid, ReportPanel, ReportPanelHeader } from "../../ReportSections";
+import { ReportChartCard, ReportMetricCard, ReportMetricGrid, ReportSectionHeader } from "../../ReportSections";
 import { SummaryBox, highlightNumbers } from "./utils";
-import { Network } from "lucide-react";
 import {
   chartAxisTick,
   chartColors,
@@ -39,7 +38,7 @@ export const simpleComparisonData: SimpleCrossSiteDataPoint[] = [
     bonusPerEntity: "3,200元/人",
     depositLeverage: 15.00,
     profitLeverage: 1.31,
-    color: chartColors.green,
+    color: chartColors.blue,
     note: "真实娱乐沉淀，无跨站对冲洗水，盈利杠杆 1.31倍 健康造血",
   },
   {
@@ -55,11 +54,8 @@ export const simpleComparisonData: SimpleCrossSiteDataPoint[] = [
 
 export const BonusCrossSiteChart: React.FC = () => {
   return (
-    <ReportPanel className="report-panel-stack">
-      <ReportPanelHeader
-        icon={<Network className="h-5 w-5" />}
-        title="7.3 跨站多账户穿透对比"
-      />
+    <div className="space-y-4">
+      <ReportSectionHeader title="7.3 跨站多账户穿透对比" />
 
       <SummaryBox>
         {highlightNumbers(
@@ -112,9 +108,9 @@ export const BonusCrossSiteChart: React.FC = () => {
                 }}
               />
               <Bar dataKey="depositLeverage" name="存款杠杆" barSize={40} isAnimationActive={false}>
-                <Cell fill="#0f766e" />
-                <Cell fill="#e11d48" />
-                <LabelList dataKey="depositLeverage" position="top" formatter={(val: any) => `${val}倍`} style={{ fontSize: "12px", fill: "#334155", fontWeight: "bold" }} />
+                <Cell fill={chartColors.blue} />
+                <Cell fill={chartColors.red} />
+                <LabelList dataKey="depositLeverage" position="top" formatter={(val: any) => `${val}倍`} style={{ fontSize: "12px", fill: "#0f172a", fontWeight: "bold" }} />
               </Bar>
             </BarChart>
           </ResponsiveContainer>
@@ -142,14 +138,14 @@ export const BonusCrossSiteChart: React.FC = () => {
               />
               <ReferenceLine y={1.0} stroke="#475569" strokeDasharray="3 3" />
               <Bar dataKey="profitLeverage" name="盈利杠杆" barSize={40} isAnimationActive={false}>
-                <Cell fill="#0f766e" />
-                <Cell fill="#e11d48" />
+                <Cell fill={chartColors.blue} />
+                <Cell fill={chartColors.red} />
                 <LabelList dataKey="profitLeverage" position="top" formatter={(val: any) => `${val}倍`} style={{ fontSize: "12px", fill: "#0f172a", fontWeight: "bold" }} />
               </Bar>
             </BarChart>
           </ResponsiveContainer>
         </ReportChartCard>
       </div>
-    </ReportPanel>
+    </div>
   );
 };

@@ -1,11 +1,8 @@
 import React from "react";
-import { ManualTicketBriefSection } from "./ManualTicketBriefSection";
 import { PerformanceReformSection } from "./PerformanceReformSection";
 import { ModuleStatusCard } from "./ModuleStatusCard";
 import { ManualAuditEfficiencyChart } from "./ManualAuditEfficiencyChart";
-import { ReportSectionHeader, ReportStepCard, ReportStepGrid } from "../../ReportSections";
-import { highlightNumbers } from "./utils";
-import { Lightbulb } from "lucide-react";
+import { ReportSectionHeader } from "../../ReportSections";
 
 export const ManualAuditSection: React.FC = () => {
   return (
@@ -15,20 +12,19 @@ export const ManualAuditSection: React.FC = () => {
 
       {/* 6.2 核心价值、关键指标、当前状态与整体进度 */}
       <ModuleStatusCard
-        coreValue="解决长期[[依赖个人自觉性]]、[[小飞机群对接工作]]、[[绩效机制缺陷]]等，产生的[[违规操作]]、[[数据安全]]、[[影响效率]]等问题"
-        metricLabel="核心流程线上化率"
-        currentStatus="90%"
+        coreValue="解决长期[[依赖个人自觉性]]、[[绩效机制缺陷]]等问题，破除[[粗暴划档]]与[[经验断层]]，全面提升[[人工审核质效]]与[[团队自驱力]]"
+        metricLabel="考核机制升级覆盖率"
+        currentStatus="85%"
         keyMetrics="100%"
-        progress="90%"
-        estimatedTime="9月全部完成切换"
+        progress="85%"
+        estimatedTime="9月全量落地"
       />
 
       {/* 人均审核人均效能趋势 */}
       <ManualAuditEfficiencyChart />
 
-      {/* 6.2.1 风控工单、6.2.2 升级考核机制 */}
-      <div className="report-module-list">
-        <ManualTicketBriefSection />
+      {/* 6.2.1 升级考核机制 */}
+      <div className="report-module-list mt-6">
         <PerformanceReformSection />
       </div>
     </div>

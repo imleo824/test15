@@ -229,8 +229,8 @@ export const AgentRiskControlSection: React.FC = () => {
             <div className="report-module-footer">
               <ExpectedRhythm
                 items={[
-                  { month: "第一阶段已上线", tagColor: "emerald", title: "云盾分数", submitTime: "2025-10-22", status: "系统缺陷修复与联调中" },
-                  { month: "第一阶段已上线", tagColor: "emerald", title: "云盾审核", submitTime: "2025-12-28", status: "系统缺陷修复与联调中" },
+                  { month: "第一阶段已上线", tagColor: "blue", title: "云盾分数", submitTime: "2025-10-22", status: "系统缺陷修复与联调中" },
+                  { month: "第一阶段已上线", tagColor: "blue", title: "云盾审核", submitTime: "2025-12-28", status: "系统缺陷修复与联调中" },
                 ]}
               />
             </div>

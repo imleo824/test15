@@ -1,49 +1,49 @@
 export const chartColors = {
-  ink: "#243041",
-  blue: "#2d5f7e",
-  blueSoft: "#7f9bb8",
-  line: "#dfe7ee",
-  grid: "#e5ebf1",
-  green: "#2d6f4f",
-  amber: "#8e6728",
-  red: "#9a3f37",
+  ink: "#0f172a",
+  blue: "#1d4ed8",
+  blueSoft: "#334155",
+  line: "#94a3b8",
+  grid: "#e2e8f0",
+  green: "#1e3a8a",
+  amber: "#b45309",
+  red: "#b91c1c",
 };
 
 export const chartSeriesColors = {
-  primary: chartColors.ink,
-  secondary: chartColors.blue,
-  tertiary: chartColors.blueSoft,
-  manual: chartColors.amber,
-  positive: chartColors.green,
-  negative: chartColors.red,
-  trend: chartColors.ink,
+  primary: "#0f172a",
+  secondary: "#1d4ed8",
+  tertiary: "#475569",
+  manual: "#b45309",
+  positive: "#1e3a8a",
+  negative: "#b91c1c",
+  trend: "#0f172a",
 };
 
 export const chartAxisTick = {
-  fill: chartColors.ink,
-  fontWeight: 600,
-  fontSize: 14,
+  fill: "#0f172a",
+  fontWeight: 700,
+  fontSize: 12,
 };
 
 export const chartLabelStyle = {
-  fill: chartColors.ink,
-  fontWeight: 650,
-  fontSize: 14.5,
+  fill: "#0f172a",
+  fontWeight: 700,
+  fontSize: 12,
   paintOrder: "stroke",
   stroke: "#ffffff",
-  strokeWidth: 2,
+  strokeWidth: 2.5,
   strokeLinejoin: "round",
 };
 
 export const chartLabelEmphasisStyle = {
   ...chartLabelStyle,
-  fill: chartColors.blue,
+  fill: "#1d4ed8",
   fontWeight: 700,
 };
 
 export const chartLabelRiskStyle = {
   ...chartLabelStyle,
-  fill: chartColors.red,
+  fill: "#b91c1c",
   fontWeight: 700,
 };
 
@@ -108,10 +108,10 @@ export const chartLegendStyle = {
 };
 
 export const chartMargins = {
-  standard: { top: 42, right: 38, left: 16, bottom: 12 },
-  compact: { top: 36, right: 32, left: 12, bottom: 10 },
-  mini: { top: 36, right: 24, left: 0, bottom: 22 },
-  hiddenAxis: { top: 36, right: 12, left: -16, bottom: 0 },
+  standard: { top: 44, right: 38, left: 16, bottom: 12 },
+  compact: { top: 40, right: 32, left: 12, bottom: 10 },
+  mini: { top: 38, right: 24, left: 0, bottom: 22 },
+  hiddenAxis: { top: 40, right: 12, left: -16, bottom: 0 },
 };
 
 export const chartBarSize = {

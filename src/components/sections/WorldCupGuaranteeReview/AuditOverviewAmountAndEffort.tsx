@@ -64,12 +64,12 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
         <div className="space-y-3">
           <div className="text-sm md:text-base text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-               "[[Q2 总拦截金]]：累计为 [[2.72]]，6月达 [[1.046]]，[[世界杯期间]]有所提升，对比Q1下降 [[0.35]]，主要为[[批量团伙]]等力度增大，采用[[扣本金]]方式；随着对用户[[违规行为]]持续管控，已形成威慑力成效明显。",
+               "[[二季度总拦截金额]]：累计为 [[2.72]]，6月达 [[1.046]]，[[世界杯期间]]有所提升，对比一季度下降 [[0.35]]，主要为[[批量团伙]]等力度增大，采用[[扣本金]]方式；随着对用户[[违规行为]]持续管控，已形成威慑力成效明显。",
             )}
           </div>
           <div className="text-sm md:text-base text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "[[Q2 平均时长]]：经过近一年的对[[系统]]、[[流程]]、[[派单]]、[[人员]]等综合优化，Q2整体[[平均人工时长]]为 [[0:08:45]]，对比Q1提升明显；在[[世界杯期间]]单量增加背景下，[[时效]]仍完成度较高。",
+              "[[二季度平均时长]]：经过近一年的对[[系统]]、[[流程]]、[[派单]]、[[人员]]等综合优化，二季度整体[[平均人工时长]]为 [[0:08:45]]，对比一季度提升明显；在[[世界杯期间]]单量增加背景下，[[时效]]仍完成度较高。",
             )}
           </div>
         </div>
@@ -77,18 +77,18 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
 
       {/* 图表展示区 - 统一结构规范：标题 + 说明 + 图例 + 图表 + 备注 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-        {/* 左卡片: 26年Q2总拦截金额 */}
+        {/* 左卡片: 26年二季度总拦截金额 */}
         <ReportChartCard
-          title="Q2 拦截金额月度走势"
+          title="二季度拦截金额月度走势"
           subtitle="2026/1 - 2026/6 月度分布"
           value="2.72"
-          description="Q2累计拦截金额 2.72，6月受世界杯赛事驱动达到 1.046 峰值；通过强化对黑产批量团伙直接扣除本金，管控威慑效应显著增强。"
+          description="二季度累计拦截金额 2.72，6月受世界杯赛事驱动达到 1.046 峰值；通过强化对黑产批量团伙直接扣除本金，管控威慑效应显著增强。"
           footnote="注：统计口径包含体育、代理、红利等全类别风控拦截处置金额。"
         >
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={amountData} margin={chartMargins.hiddenAxis}>
                 <XAxis dataKey="month" tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} />
-                <YAxis hide domain={[0, 1.4]} />
+                <YAxis hide domain={[0, 1.5]} />
                 <Bar
                   dataKey="amount"
                   fill={chartSeriesColors.secondary}
@@ -101,12 +101,12 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
             </ResponsiveContainer>
         </ReportChartCard>
 
-        {/* 右卡片: 26年Q2平均审核时长 */}
+        {/* 右卡片: 26年二季度平均审核时长 */}
         <ReportChartCard
-          title="Q2 平均人工审核时长"
+          title="二季度平均人工审核时长"
           subtitle="时效与审单总量走势"
           value="0:08:45"
-          description="经系统派单分流与全流程优化，Q2整体平均人工审核时长稳固在 0:08:45；即使在6月单量激增至 300.77万单 背景下，时效依然平稳可控。"
+          description="经系统派单分流与全流程优化，二季度整体平均人工审核时长稳固在 0:08:45；即使在6月单量激增至 300.77万单 背景下，时效依然平稳可控。"
           legend={
             <ReportChartLegend
               items={[
@@ -121,7 +121,7 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
               <ComposedChart data={effortData} margin={chartMargins.hiddenAxis}>
                 <XAxis dataKey="month" tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} />
                 <YAxis yAxisId="volume" hide domain={[0, 900]} />
-                <YAxis yAxisId="duration" hide domain={[0, 11]} />
+                <YAxis yAxisId="duration" hide domain={[0, 13.5]} />
                 <Bar
                   yAxisId="volume"
                   dataKey="volume"
@@ -136,13 +136,13 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
                   type="monotone"
                   dataKey="durationVal"
                   stroke={chartSeriesColors.trend}
-                  strokeWidth={3}
+                  strokeWidth={2.5}
                   isAnimationActive={false}
-                  dot={{ r: 4, fill: chartSeriesColors.trend }}
+                  dot={{ r: 4, fill: "#ffffff", stroke: chartSeriesColors.trend, strokeWidth: 2 }}
                   label={({ x, y, index }) => (
                     <text
                       x={x}
-                      y={y - 12}
+                      y={y - 10}
                       textAnchor="middle"
                       className={getChartLabelClassName(effortData[index].durationVal, durationValues, { highlight: "min" })}
                       {...getChartLabelStyle(effortData[index].durationVal, durationValues, { highlight: "min" })}

@@ -155,7 +155,7 @@ export const InternalControlSection: React.FC = () => {
             </div>
             <div className="pt-3 space-y-1 border-t border-slate-200">
               <div className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 bg-emerald-600 rounded-full"></span>
+                <span className="w-1.5 h-1.5 bg-blue-700 rounded-full"></span>
                 <span>解决策略：</span>
               </div>
               <p className="text-xs text-slate-700 leading-relaxed font-normal">
@@ -177,7 +177,7 @@ export const InternalControlSection: React.FC = () => {
             </div>
             <div className="pt-3 space-y-1 border-t border-slate-200">
               <div className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 bg-emerald-600 rounded-full"></span>
+                <span className="w-1.5 h-1.5 bg-blue-700 rounded-full"></span>
                 <span>解决策略：</span>
               </div>
               <p className="text-xs text-slate-700 leading-relaxed font-normal">

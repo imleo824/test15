@@ -22,11 +22,11 @@ import {
 export const AuditOverviewSportsInterception: React.FC = () => {
   const renderComboLabel =
     (data: { comboLabel: string }[]) =>
-    ({ x, y, index }: any) => (
+    ({ x, index }: any) => (
       <g>
-        <rect x={x - 28} y={y - 48} width="56" height="24" rx="3" fill={chartColors.ink} />
-        <text x={x} y={y - 32} fill="#ffffff" fontSize={14} fontWeight="black" textAnchor="middle">
-          {data[index].comboLabel}
+        <rect x={x - 38} y={10} width="76" height="22" rx="3" fill="#ffffff" stroke="#334155" strokeWidth="1.2" />
+        <text x={x} y={25} fill="#0f172a" fontSize={11} fontWeight={700} textAnchor="middle">
+          综合 {data[index].comboLabel}
         </text>
       </g>
     );
@@ -90,7 +90,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
   // 4组明细表格数据
   const venueTables = [
     {
-      name: "IM 场馆",
+      name: "重点场馆",
       rows: [
         { quarter: "26年一季度", b: "6.22%", y: "5.69%", bw: "5.49%", total: "6.11%" },
         { quarter: "26年二季度", b: "6.22%", y: "6.34%", bw: "6.32%", total: "6.24%" },
@@ -307,7 +307,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
           footnote="注：左轴为各系别体育拦截率(%)，右轴为全盘综合拦截率(%)。"
         >
           <ResponsiveContainer width="100%" height="100%">
-            <ComposedChart data={siteSlData} margin={{ ...chartMargins.compact, top: 20 }} barSize={chartBarSize.grouped} barGap={14}>
+            <ComposedChart data={siteSlData} margin={{ ...chartMargins.compact, top: 40 }} barSize={chartBarSize.grouped} barGap={14}>
               <XAxis dataKey="quarter" tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} />
               <YAxis yAxisId="left" domain={[0, 10]} ticks={[0, 2.5, 5, 7.5, 10]} tick={chartAxisTick} axisLine={false} tickLine={false} />
               <YAxis yAxisId="right" orientation="right" domain={[3.0, 8.0]} ticks={[3.0, 4.0, 5.0, 6.0, 7.0, 8.0]} tick={chartAxisTick} axisLine={false} tickLine={false} />
@@ -323,11 +323,11 @@ export const AuditOverviewSportsInterception: React.FC = () => {
         <ReportChartCard
           title="各场馆体育拦截率趋势"
           subtitle="两季度场馆盘口监控对比"
-          description="熊猫场馆在二季度拦截率达 6.95% 居于首位；冠名与IM场馆维持在 4.5%~5.5% 常态化监控水平，盘口风控协同成效显著。"
+          description="熊猫场馆在二季度拦截率达 6.95% 居于首位；冠名与重点场馆维持在 4.5%~5.5% 常态化监控水平，盘口风控协同成效显著。"
           legend={
             <ReportChartLegend
               items={[
-                { label: "IM", color: chartSeriesColors.secondary, shape: "rect" },
+                { label: "重点场馆", color: chartSeriesColors.secondary, shape: "rect" },
                 { label: "冠名", color: chartSeriesColors.tertiary, shape: "rect" },
                 { label: "熊猫", color: chartSeriesColors.primary, shape: "rect" },
                 { label: "综合", color: "#0f172a", shape: "circle" },
@@ -337,7 +337,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
           footnote="注：左轴为各场馆体育拦截率(%)，右轴为全盘综合拦截率(%)。"
         >
           <ResponsiveContainer width="100%" height="100%">
-            <ComposedChart data={venueSlData} margin={{ ...chartMargins.compact, top: 20 }} barSize={chartBarSize.grouped} barGap={14}>
+            <ComposedChart data={venueSlData} margin={{ ...chartMargins.compact, top: 40 }} barSize={chartBarSize.grouped} barGap={14}>
               <XAxis dataKey="quarter" tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} />
               <YAxis yAxisId="left" domain={[0, 10]} ticks={[0, 2.5, 5, 7.5, 10]} tick={chartAxisTick} axisLine={false} tickLine={false} />
               <YAxis yAxisId="right" orientation="right" domain={[3.0, 8.0]} ticks={[3.0, 4.0, 5.0, 6.0, 7.0, 8.0]} tick={chartAxisTick} axisLine={false} tickLine={false} />

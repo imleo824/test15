@@ -18,8 +18,8 @@
     --report-soft: #f8fafc;
     --report-danger: #991b1b;
     --report-danger-soft: #fef2f2;
-    --report-ok: #15803d;
-    --report-ok-soft: #f0fdf4;
+    --report-ok: #0f172a;
+    --report-ok-soft: #f8fafc;
     --report-warn: #b45309;
     --report-warn-soft: #fffbeb;
     --report-radius-lg: 4px;
@@ -35,17 +35,17 @@
     --report-space-8: 44px;
     --report-space-9: 52px;
     --report-space-10: 64px;
-    --report-font-caption: 15px;
-    --report-font-small: 16.5px;
-    --report-font-body: 18px;
-    --report-font-emphasis: 20.5px;
-    --report-font-panel-title: 23px;
-    --report-font-section-title: 27px;
-    --report-font-chapter-title: 33px;
-    --report-font-cover-title: 46px;
+    --report-font-caption: 12px;
+    --report-font-small: 13px;
+    --report-font-body: 14px;
+    --report-font-emphasis: 15px;
+    --report-font-panel-title: 17px;
+    --report-font-section-title: 20px;
+    --report-font-chapter-title: 24px;
+    --report-font-cover-title: 32px;
     --report-weight-regular: 400;
     --report-weight-medium: 500;
-    --report-weight-semibold: 650;
+    --report-weight-semibold: 600;
     --report-weight-bold: 700;
     --report-chart-height: 290px;
     --report-panel-gap: 20px;
@@ -57,14 +57,14 @@
   html {
     background: #ffffff;
     scroll-behavior: auto;
-    font-size: var(--report-font-body);
+    font-size: 14px;
   }
 
   body {
     background: #ffffff;
     color: var(--report-ink);
-    font-size: var(--report-font-body);
-    line-height: 1.65;
+    font-size: 14px;
+    line-height: 1.6;
     font-variant-numeric: tabular-nums;
   }
 
@@ -83,45 +83,6 @@
 @layer utilities {
   .font-black {
     font-weight: 700 !important;
-  }
-  .text-\[9px\] {
-    font-size: 14px !important;
-  }
-  .text-\[10px\] {
-    font-size: 14.5px !important;
-  }
-  .text-\[11px\] {
-    font-size: 15px !important;
-  }
-  .text-\[12px\] {
-    font-size: 15.5px !important;
-  }
-  .text-\[13px\] {
-    font-size: var(--report-font-small) !important;
-  }
-  .text-xs {
-    font-size: var(--report-font-caption) !important;
-  }
-  .text-sm {
-    font-size: var(--report-font-small) !important;
-  }
-  .text-base {
-    font-size: var(--report-font-body) !important;
-  }
-  .text-lg {
-    font-size: var(--report-font-emphasis) !important;
-  }
-  .text-xl {
-    font-size: var(--report-font-panel-title) !important;
-  }
-  .text-2xl {
-    font-size: var(--report-font-section-title) !important;
-  }
-  .text-3xl {
-    font-size: 34px !important;
-  }
-  .text-4xl {
-    font-size: 42px !important;
   }
 }
 
@@ -156,18 +117,20 @@
     border-radius: var(--report-radius-md) !important;
   }
 
-  .report-shell .text-slate-400 {
-    color: #64748b !important;
+  .report-shell .text-slate-400,
+  .report-shell .text-gray-400 {
+    color: #334155 !important;
   }
 
-  .report-shell .text-slate-500 {
-    color: #475569 !important;
+  .report-shell .text-slate-500,
+  .report-shell .text-gray-500 {
+    color: #1e293b !important;
   }
 
   .report-shell .text-slate-600,
   .report-shell .text-slate-700,
   .report-shell .text-slate-800 {
-    color: #334155 !important;
+    color: #0f172a !important;
   }
 
   .report-shell .text-slate-900 {
@@ -1264,7 +1227,7 @@
   }
 
   .report-shell .report-number-safe {
-    color: var(--report-ok) !important;
+    color: #0f172a !important;
     font-weight: 700;
     background: transparent;
   }
@@ -4425,24 +4388,24 @@
 
   .report-shell [class*="text-emerald-"],
   .report-shell [class*="text-green-"] {
-    color: var(--report-ok) !important;
+    color: #0f172a !important;
   }
 
   .report-shell [class*="bg-emerald-"],
   .report-shell [class*="bg-green-"] {
-    background-color: var(--report-ok-soft) !important;
+    background-color: #f8fafc !important;
   }
 
   .report-shell [class*="border-emerald-"],
   .report-shell [class*="border-green-"] {
-    border-color: #bdd8c8 !important;
+    border-color: #cbd5e1 !important;
   }
 
   .report-shell .bg-emerald-600,
   .report-shell .bg-emerald-700,
   .report-shell .bg-green-600,
   .report-shell .bg-green-700 {
-    background-color: var(--report-ok) !important;
+    background-color: #0f172a !important;
     color: #ffffff !important;
   }
 
@@ -4531,22 +4494,23 @@
   .report-shell .recharts-label-list text,
   .report-shell .recharts-bar-label,
   .report-shell .recharts-line text {
-    fill: var(--report-ink) !important;
-    font-size: var(--report-font-caption) !important;
-    font-weight: 600 !important;
+    fill: #0f172a !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
     paint-order: stroke;
     stroke: #ffffff;
-    stroke-width: 1.6px;
+    stroke-width: 2.5px;
     stroke-linejoin: round;
   }
 
   .report-shell .order-structure-bar-label {
-    fill: #ffffff !important;
-    font-size: var(--report-font-caption) !important;
-    font-weight: 600 !important;
-    paint-order: normal;
-    stroke: transparent !important;
-    stroke-width: 0 !important;
+    fill: #0f172a !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    paint-order: stroke !important;
+    stroke: #ffffff !important;
+    stroke-width: 2.5px !important;
+    stroke-linejoin: round !important;
   }
 
   .report-shell .chart-label-normal {
@@ -4798,12 +4762,10 @@
     stroke: #e7edf2 !important;
   }
 
-  .report-shell .recharts-text,
   .report-shell .recharts-cartesian-axis-tick-value,
-  .report-shell .recharts-label,
   .report-shell .recharts-legend-item-text {
-    fill: #566579 !important;
-    color: #566579 !important;
+    fill: #334155 !important;
+    color: #334155 !important;
   }
 
 }

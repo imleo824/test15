@@ -9,9 +9,8 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { ReportChartCard, ReportPanel, ReportPanelHeader } from "../../ReportSections";
+import { ReportChartCard, ReportSectionHeader } from "../../ReportSections";
 import { SummaryBox, highlightNumbers } from "./utils";
-import { TrendingUp } from "lucide-react";
 import {
   chartAxisTick,
   chartColors,
@@ -117,11 +116,8 @@ export const macroTrendLeverageData: MacroTrendLeveragePoint[] = [
 
 export const BonusMacroTrendChart: React.FC = () => {
   return (
-    <ReportPanel className="report-panel-stack">
-      <ReportPanelHeader
-        icon={<TrendingUp className="h-5 w-5" />}
-        title="7.1 红利杠杆走势"
-      />
+    <div className="space-y-4">
+      <ReportSectionHeader title="7.1 红利杠杆走势" />
 
       <SummaryBox>
         {highlightNumbers(
@@ -132,14 +128,14 @@ export const BonusMacroTrendChart: React.FC = () => {
       {/* 核心双杠杆左右对比模版 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
         {/* 左侧：正常用户客群双杠杆 */}
-        <div className="border border-slate-200 border-t-2 border-t-emerald-700 bg-white p-4 space-y-3 h-full flex flex-col justify-between">
+        <div className="border border-slate-200 border-t-2 border-t-slate-900 bg-white p-4 space-y-3 h-full flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between border-b border-slate-200 pb-2">
               <div className="flex items-center gap-2 text-slate-900 font-bold text-sm">
-                <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                <span className="w-2 h-2 rounded-full bg-blue-700"></span>
                 <span>正常用户客群·红利效率</span>
               </div>
-              <span className="text-xs font-mono font-semibold bg-emerald-50 text-emerald-800 px-2 py-0.5 border border-emerald-200">
+              <span className="text-xs font-mono font-bold bg-slate-100 text-slate-900 px-2 py-0.5 border border-slate-300">
                 正向收益沉淀
               </span>
             </div>
@@ -147,24 +143,24 @@ export const BonusMacroTrendChart: React.FC = () => {
             <div className="grid grid-cols-2 gap-3 mt-3">
               {/* 存款杠杆 */}
               <div className="bg-slate-50 p-3 border border-slate-200 space-y-1">
-                <div className="text-xs text-slate-600 font-medium">正常用户·存款杠杆</div>
+                <div className="text-xs text-slate-800 font-bold">正常用户·存款杠杆</div>
                 <div className="flex items-baseline gap-1">
-                  <span className="text-3xl font-black font-mono text-slate-900 tabular-nums">16.10</span>
-                  <span className="text-xs font-bold text-slate-600">倍</span>
+                  <span className="text-3xl font-black font-mono text-slate-950 tabular-nums">16.10</span>
+                  <span className="text-xs font-bold text-slate-700">倍</span>
                 </div>
-                <p className="text-xs text-slate-500 border-t border-slate-200 pt-1 mt-1">
+                <p className="text-xs text-slate-700 font-medium border-t border-slate-200 pt-1 mt-1">
                   从 30.00倍 回落至 16.10倍
                 </p>
               </div>
 
               {/* 盈利杠杆 */}
               <div className="bg-slate-50 p-3 border border-slate-200 space-y-1">
-                <div className="text-xs text-slate-600 font-medium">正常用户·盈利杠杆</div>
+                <div className="text-xs text-slate-800 font-bold">正常用户·盈利杠杆</div>
                 <div className="flex items-baseline gap-1">
-                  <span className="text-3xl font-black font-mono text-slate-900 tabular-nums">0.42</span>
-                  <span className="text-xs font-bold text-slate-600">倍</span>
+                  <span className="text-3xl font-black font-mono text-slate-950 tabular-nums">0.42</span>
+                  <span className="text-xs font-bold text-slate-700">倍</span>
                 </div>
-                <p className="text-xs text-slate-500 border-t border-slate-200 pt-1 mt-1">
+                <p className="text-xs text-slate-700 font-medium border-t border-slate-200 pt-1 mt-1">
                   保持正向造血与沉淀
                 </p>
               </div>
@@ -173,14 +169,14 @@ export const BonusMacroTrendChart: React.FC = () => {
         </div>
 
         {/* 右侧：风控套利客群双杠杆 */}
-        <div className="border border-slate-200 border-t-2 border-t-rose-700 bg-white p-4 space-y-3 h-full flex flex-col justify-between">
+        <div className="border border-slate-200 border-t-2 border-t-rose-800 bg-white p-4 space-y-3 h-full flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between border-b border-slate-200 pb-2">
               <div className="flex items-center gap-2 text-slate-900 font-bold text-sm">
-                <span className="w-2 h-2 rounded-full bg-rose-600"></span>
+                <span className="w-2 h-2 rounded-full bg-rose-700"></span>
                 <span>风控套利客群·红利效率</span>
               </div>
-              <span className="text-xs font-mono font-semibold bg-rose-50 text-rose-800 px-2 py-0.5 border border-rose-200">
+              <span className="text-xs font-mono font-bold bg-rose-50 text-rose-900 px-2 py-0.5 border border-rose-200">
                 套利洗水预警
               </span>
             </div>
@@ -188,24 +184,24 @@ export const BonusMacroTrendChart: React.FC = () => {
             <div className="grid grid-cols-2 gap-3 mt-3">
               {/* 存款杠杆 */}
               <div className="bg-slate-50 p-3 border border-slate-200 space-y-1">
-                <div className="text-xs text-slate-600 font-medium">风控用户·存款杠杆</div>
+                <div className="text-xs text-slate-800 font-bold">风控用户·存款杠杆</div>
                 <div className="flex items-baseline gap-1">
-                  <span className="text-3xl font-black font-mono text-rose-700 tabular-nums">12.80</span>
-                  <span className="text-xs font-bold text-slate-600">倍</span>
+                  <span className="text-3xl font-black font-mono text-rose-800 tabular-nums">12.80</span>
+                  <span className="text-xs font-bold text-slate-700">倍</span>
                 </div>
-                <p className="text-xs text-slate-500 border-t border-slate-200 pt-1 mt-1">
+                <p className="text-xs text-slate-700 font-medium border-t border-slate-200 pt-1 mt-1">
                   从 31.25倍 下滑至 12.80倍
                 </p>
               </div>
 
               {/* 盈利杠杆 */}
               <div className="bg-slate-50 p-3 border border-slate-200 space-y-1">
-                <div className="text-xs text-slate-600 font-medium">风控用户·盈利杠杆</div>
+                <div className="text-xs text-slate-800 font-bold">风控用户·盈利杠杆</div>
                 <div className="flex items-baseline gap-1">
-                  <span className="text-3xl font-black font-mono text-rose-700 tabular-nums">0.02</span>
-                  <span className="text-xs font-bold text-slate-600">倍</span>
+                  <span className="text-3xl font-black font-mono text-rose-800 tabular-nums">0.02</span>
+                  <span className="text-xs font-bold text-slate-700">倍</span>
                 </div>
-                <p className="text-xs text-slate-500 border-t border-slate-200 pt-1 mt-1">
+                <p className="text-xs text-slate-700 font-medium border-t border-slate-200 pt-1 mt-1">
                   对打洗水导致利润几近归零
                 </p>
               </div>
@@ -258,6 +254,6 @@ export const BonusMacroTrendChart: React.FC = () => {
           </ResponsiveContainer>
         </ReportChartCard>
       </div>
-    </ReportPanel>
+    </div>
   );
 };

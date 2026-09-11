@@ -51,8 +51,8 @@ export const BonusEfficiencySection: React.FC = () => {
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-xs">
               <div className="bg-white border border-slate-200 p-2 text-center">
-                <span className="font-bold block text-emerald-800 text-xs font-mono">【正常】</span>
-                <span className="text-[11px] text-slate-600 font-mono">指数处于 &lt; 30 区间</span>
+                <span className="font-bold block text-slate-900 text-xs font-mono">【正常】</span>
+                <span className="text-[11px] text-slate-700 font-mono">指数处于 &lt; 30 区间</span>
               </div>
               <div className="bg-white border border-slate-200 p-2 text-center">
                 <span className="font-bold block text-amber-800 text-xs font-mono">【少发】</span>

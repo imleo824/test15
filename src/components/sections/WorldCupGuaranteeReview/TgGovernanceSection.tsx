@@ -1,6 +1,6 @@
 import React from "react";
 import { ArrowRight, Check, Clock } from "lucide-react";
-import { highlightNumbers, SummaryBox } from "./utils";
+import { highlightNumbers } from "./utils";
 import { ReportSectionHeader, ReportTableFrame } from "../../ReportSections";
 
 interface GovernanceItem {
@@ -82,159 +82,296 @@ export const TgGovernanceSection: React.FC = () => {
       id: "09",
       name: "资料审核流程",
       riskLevel: "含敏感数据",
-      status: "待排期",
+      status: "已处理",
       method: "系统替代",
       actionDetails: "升级多节点背靠背交叉核验流，实名证件及隐私资料由 3~4 人审批方可通过",
+    },
+    {
+      id: "10",
+      name: "场馆解锁流程",
+      riskLevel: "低风险",
+      status: "已处理",
+      method: "系统替代",
+      actionDetails: "针对在场馆玩内嵌游戏后输光不自动解锁进行彻底解决，输光也自动解锁",
     },
   ];
 
   return (
     <div className="space-y-8">
-      {/* 4.2 外部群治理与工单化 主模块小标题 */}
-      <ReportSectionHeader title="4.2 外部群治理与工单化" />
-
-      {/* 核心战略导语 */}
-      <SummaryBox variant="chapter">
-        <div className="space-y-1">
-          <h3 className="text-base font-bold text-slate-900">
-            彻底关停 48 个线下风控群，推动风控业务 100% 线上工单化与系统接口替代
-          </h3>
-          <p className="text-sm text-slate-700 leading-relaxed font-normal">
-            切断黑灰产与敏感数据泄露隐患，将出款复审、扣款、红利及黑名单判定全量收归管理后台系统，实现全链路 100% 审计留痕与零数据泄露。
-          </p>
-        </div>
-      </SummaryBox>
-
-      {/* 4.2.1 核心量化指标卡片 */}
+      {/* 4.1 分级治理架构 */}
       <div className="space-y-4">
-        <ReportSectionHeader title="4.2.1 成效量化指标" />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <ReportSectionHeader title="4.1 分级治理架构" />
+
+        {/* 4.1 分级治理架构：从左至右两阶段分析与治理路径 (列与列独立成卡、留有间距、纯白底色、高对比度) */}
+        <div className="space-y-3">
+          {/* 阶段划分顶部栏：从左至右两步走 (第一步 占 1/4，第二步 占 3/4) */}
+          <div className="grid grid-cols-1 xl:grid-cols-4 gap-4">
+            {/* 第一步 阶段标头 */}
+            <div className="border border-slate-300 bg-white px-3.5 py-2 flex items-center justify-between">
+              <div className="flex items-center gap-2 font-bold text-slate-950 text-xs sm:text-sm">
+                <span className="w-5 h-5 rounded bg-slate-900 text-white flex items-center justify-center text-xs font-mono font-bold shrink-0">
+                  1
+                </span>
+                <span>第一步：存在的必要性评估</span>
+              </div>
+              <span className="text-xs font-mono font-bold text-slate-800 px-1.5 py-0.5 border border-slate-300">
+                源头清零
+              </span>
+            </div>
+
+            {/* 第二步 阶段标头 (横跨右侧 3 列) */}
+            <div className="xl:col-span-3 border border-slate-300 bg-white px-3.5 py-2 flex items-center justify-between">
+              <div className="flex items-center gap-2 font-bold text-slate-950 text-xs sm:text-sm">
+                <span className="w-5 h-5 rounded bg-slate-900 text-white flex items-center justify-center text-xs font-mono font-bold shrink-0">
+                  2
+                </span>
+                <span>第二步：需存在的分级治理</span>
+              </div>
+              <span className="text-xs font-mono font-bold text-slate-800 px-2 py-0.5 border border-slate-300">
+                分级管控 · 闭环留痕
+              </span>
+            </div>
+          </div>
+
+          {/* 4 列主卡片：每列统一采用 三行结构 (标题 / 说明 / 处置方式)，严格横向对齐 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 items-stretch">
+            {/* 第 1 列：第一步 · 非必要群聊排查 */}
+            <div className="border border-slate-300 bg-white flex flex-col justify-between">
+              {/* 第 1 行：标题 */}
+              <div className="p-3.5 border-b border-slate-200 h-[86px] flex flex-col justify-between">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-mono font-bold text-slate-600">
+                    第一步 · 必要性评估
+                  </span>
+                  <span className="text-[10px] font-mono font-bold text-slate-900 px-1.5 py-0.2 border border-slate-300">
+                    源头清零
+                  </span>
+                </div>
+                <div className="text-xs sm:text-sm font-bold text-slate-950">
+                  非必要群聊排查
+                </div>
+              </div>
+
+              {/* 第 2 行：说明 */}
+              <div className="p-3.5 border-b border-slate-200 h-[126px] flex flex-col">
+                <div className="text-xs font-bold text-slate-950 mb-1.5 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 bg-slate-900"></span>
+                  <span>说明</span>
+                </div>
+                <p className="text-xs text-slate-800 leading-relaxed font-normal">
+                  逐一审查所有外部对接群聊，凡无实际业务支撑、临时项目已结束、跨团队职责重叠，或可通过现有后台系统直接替代的群聊。
+                </p>
+              </div>
+
+              {/* 第 3 行：处置方式 */}
+              <div className="p-3.5 flex-1">
+                <div className="text-xs font-bold text-slate-950 mb-1.5 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 bg-slate-900"></span>
+                  <span>处置方式</span>
+                </div>
+                <p className="text-xs text-slate-900 leading-relaxed font-normal">
+                  一律坚决裁撤注销。<strong className="text-slate-950 font-bold underline decoration-slate-400">已彻底清零关停 48 个线下风控对接群聊</strong>，从源头缩减安全暴露面与无痕操作漏洞。
+                </p>
+              </div>
+            </div>
+
+            {/* 第 2 列：第二步 · 第一类：日常沟通讨论群 */}
+            <div className="border border-slate-300 bg-white flex flex-col justify-between">
+              {/* 第 1 行：标题 */}
+              <div className="p-3.5 border-b border-slate-200 h-[86px] flex flex-col justify-between">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-mono font-bold text-slate-600">
+                    第二步 · 第一类
+                  </span>
+                  <span className="text-[10px] font-mono font-bold text-slate-800 px-1.5 py-0.2 border border-slate-300">
+                    事务沟通
+                  </span>
+                </div>
+                <div className="text-xs sm:text-sm font-bold text-slate-950">
+                  日常沟通讨论群
+                </div>
+              </div>
+
+              {/* 第 2 行：说明 */}
+              <div className="p-3.5 border-b border-slate-200 h-[126px] flex flex-col">
+                <div className="text-xs font-bold text-slate-950 mb-1.5 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 bg-slate-900"></span>
+                  <span>说明</span>
+                </div>
+                <p className="text-xs text-slate-800 leading-relaxed font-normal">
+                  仅保留核心业务对接人，严格管控在群人员编制，定位仅做日常事务同步与业务讨论，不具备任何单据流转与审批属性。
+                </p>
+              </div>
+
+              {/* 第 3 行：处置方式 */}
+              <div className="p-3.5 flex-1">
+                <div className="text-xs font-bold text-slate-950 mb-1.5 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 bg-slate-900"></span>
+                  <span>处置方式</span>
+                </div>
+                <p className="text-xs text-slate-900 leading-relaxed font-normal">
+                  严格限制进出权限，<strong className="text-slate-950 font-bold underline decoration-slate-400">严禁流转任何风控单据与审批凭证</strong>，杜绝一切群聊内部无痕业务操作。
+                </p>
+              </div>
+            </div>
+
+            {/* 第 3 列：第二步 · 第二类：高风险业务 */}
+            <div className="border border-slate-300 bg-white flex flex-col justify-between">
+              {/* 第 1 行：标题 */}
+              <div className="p-3.5 border-b border-slate-200 h-[86px] flex flex-col justify-between">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-mono font-bold text-slate-600">
+                    第二步 · 第二类（风控）
+                  </span>
+                  <span className="text-[10px] font-mono font-bold text-slate-900 px-1.5 py-0.2 border border-slate-300">
+                    最高优先级
+                  </span>
+                </div>
+                <div className="text-xs sm:text-sm font-bold text-slate-950">
+                  高风险审核业务
+                </div>
+              </div>
+
+              {/* 第 2 行：说明 */}
+              <div className="p-3.5 border-b border-slate-200 h-[126px] flex flex-col">
+                <div className="text-xs font-bold text-slate-950 mb-1.5 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 bg-slate-900"></span>
+                  <span>说明</span>
+                </div>
+                <p className="text-xs text-slate-800 leading-relaxed font-normal">
+                  涉及实名认证、充提流水审查、大额出款复审、扣款追缴及黑名单配置等强合规高危核心业务操作。
+                </p>
+              </div>
+
+              {/* 第 3 行：处置方式 */}
+              <div className="p-3.5 flex-1">
+                <div className="text-xs font-bold text-slate-950 mb-1.5 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 bg-slate-900"></span>
+                  <span>处置方式</span>
+                </div>
+                <p className="text-xs text-slate-900 leading-relaxed font-normal">
+                  <strong className="text-slate-950 font-bold underline decoration-slate-400">群聊 100% 物理注销</strong>，全面迁移至后台系统工单与标准 API 闭环流转，全流程留痕并强制双人复核。
+                </p>
+              </div>
+            </div>
+
+            {/* 第 4 列：第二步 · 第二类：低风险业务 */}
+            <div className="border border-slate-300 bg-white flex flex-col justify-between">
+              {/* 第 1 行：标题 */}
+              <div className="p-3.5 border-b border-slate-200 h-[86px] flex flex-col justify-between">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-mono font-bold text-slate-600">
+                    第二步 · 第二类（风控）
+                  </span>
+                  <span className="text-[10px] font-mono font-bold text-slate-800 px-1.5 py-0.2 border border-slate-300">
+                    次优先级
+                  </span>
+                </div>
+                <div className="text-xs sm:text-sm font-bold text-slate-950">
+                  低风险审核业务
+                </div>
+              </div>
+
+              {/* 第 2 行：说明 */}
+              <div className="p-3.5 border-b border-slate-200 h-[126px] flex flex-col">
+                <div className="text-xs font-bold text-slate-950 mb-1.5 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 bg-slate-900"></span>
+                  <span>说明</span>
+                </div>
+                <p className="text-xs text-slate-800 leading-relaxed font-normal">
+                  常规不含用户隐私信息的审核问询、规则答疑、轻量化状态核验与基础状态反馈。
+                </p>
+              </div>
+
+              {/* 第 3 行：处置方式 */}
+              <div className="p-3.5 flex-1">
+                <div className="text-xs font-bold text-slate-950 mb-1.5 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 bg-slate-900"></span>
+                  <span>处置方式</span>
+                </div>
+                <p className="text-xs text-slate-900 leading-relaxed font-normal">
+                  通过<strong className="text-slate-950 font-bold underline decoration-slate-400">风控自助查询工具与标准化工单</strong>持续承接改造，逐步全量线上替代，告别离线群聊催办。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 4.2 成效量化指标 (第二个位置) */}
+      <div className="space-y-4">
+        <ReportSectionHeader title="4.2 成效量化指标" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="border border-slate-200 bg-white p-4 flex flex-col justify-between space-y-3 border-t-2 border-t-slate-900">
-            <div className="flex items-center justify-between text-xs font-bold text-slate-600">
+            <div className="flex items-center justify-between text-xs font-bold text-slate-800">
               <span>风控审核群注销</span>
-              <span className="text-xs font-mono font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 border border-emerald-200">
+              <span className="text-xs font-mono font-bold text-slate-900 bg-slate-100 px-2 py-0.5 border border-slate-300">
                 关停率 100%
               </span>
             </div>
             <div className="flex items-baseline gap-2 py-1">
               <span className="text-3xl font-bold font-mono text-slate-900 tabular-nums">48</span>
-              <ArrowRight className="w-4 h-4 text-slate-400 shrink-0" />
-              <span className="text-3xl font-bold font-mono text-emerald-700 tabular-nums">0</span>
-              <span className="text-xs font-bold text-slate-500">个群</span>
+              <ArrowRight className="w-4 h-4 text-slate-700 shrink-0" />
+              <span className="text-3xl font-bold font-mono text-slate-950 tabular-nums">0</span>
+              <span className="text-xs font-bold text-slate-700">个群</span>
             </div>
-            <p className="text-xs text-slate-500 leading-normal">第二类风控审核群聊已全面关停清零</p>
-          </div>
-
-          <div className="border border-slate-200 bg-white p-4 flex flex-col justify-between space-y-3 border-t-2 border-t-blue-800">
-            <div className="flex items-center justify-between text-xs font-bold text-slate-600">
-              <span>核心流程线上工单化</span>
-              <span className="text-xs font-mono font-bold text-blue-700 bg-blue-50 px-2 py-0.5 border border-blue-200">
-                线上化率 89%
-              </span>
-            </div>
-            <div className="flex items-baseline gap-1 py-1">
-              <span className="text-3xl font-bold font-mono text-blue-800 tabular-nums">8</span>
-              <span className="text-sm font-bold text-slate-400">/ 9 项</span>
-            </div>
-            <p className="text-xs text-slate-500 leading-normal">8 项已上线运行，仅 1 项背靠背交叉核验排期中</p>
+            <p className="text-xs text-slate-700 font-medium leading-normal">第二类风控审核群聊已全面关停清零</p>
           </div>
 
           <div className="border border-slate-200 bg-white p-4 flex flex-col justify-between space-y-3 border-t-2 border-t-slate-900">
-            <div className="flex items-center justify-between text-xs font-bold text-slate-600">
+            <div className="flex items-center justify-between text-xs font-bold text-slate-800">
+              <span>核心流程线上工单化</span>
+              <span className="text-xs font-mono font-bold text-slate-900 bg-slate-100 px-2 py-0.5 border border-slate-300">
+                线上化率 100%
+              </span>
+            </div>
+            <div className="flex items-baseline gap-1 py-1">
+              <span className="text-3xl font-bold font-mono text-slate-950 tabular-nums">10</span>
+              <span className="text-sm font-bold text-slate-700">/ 10 项</span>
+            </div>
+            <p className="text-xs text-slate-700 font-medium leading-normal">10 项核心业务已全量上线运行，100% 线上工单闭环</p>
+          </div>
+
+          <div className="border border-slate-200 bg-white p-4 flex flex-col justify-between space-y-3 border-t-2 border-t-slate-900">
+            <div className="flex items-center justify-between text-xs font-bold text-slate-800">
+              <span>工单流转处置时效</span>
+              <span className="text-xs font-mono font-bold text-slate-900 bg-slate-100 px-2 py-0.5 border border-slate-300">
+                提效 72%
+              </span>
+            </div>
+            <div className="flex items-baseline gap-1.5 py-1">
+              <span className="text-3xl font-bold font-mono text-slate-900 tabular-nums">18</span>
+              <span className="text-xs font-bold text-slate-700">分</span>
+              <ArrowRight className="w-4 h-4 text-slate-700 shrink-0 mx-0.5" />
+              <span className="text-3xl font-bold font-mono text-slate-950 tabular-nums">5</span>
+              <span className="text-xs font-bold text-slate-700">分</span>
+            </div>
+            <p className="text-xs text-slate-700 font-medium leading-normal">标准化工单流转替代人工群聊催办，端到端处置大幅提速</p>
+          </div>
+
+          <div className="border border-slate-200 bg-white p-4 flex flex-col justify-between space-y-3 border-t-2 border-t-slate-900">
+            <div className="flex items-center justify-between text-xs font-bold text-slate-800">
               <span>敏感数据保护与留痕</span>
-              <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-2 py-0.5 border border-slate-200">
+              <span className="text-xs font-mono font-bold text-slate-900 bg-slate-100 px-2 py-0.5 border border-slate-300">
                 数据零外泄
               </span>
             </div>
             <div className="flex items-baseline gap-1 py-1">
               <span className="text-3xl font-bold font-mono text-slate-900 tabular-nums">100%</span>
-              <span className="text-xs font-bold text-slate-500">系统审计</span>
+              <span className="text-xs font-bold text-slate-700">系统审计</span>
             </div>
-            <p className="text-xs text-slate-500 leading-normal">出款、扣款、标签判定全量系统存证备查</p>
+            <p className="text-xs text-slate-700 font-medium leading-normal">出款、扣款、标签判定全量系统存证备查</p>
           </div>
         </div>
       </div>
 
-      {/* 4.2.2 分级治理架构 */}
-      <div className="space-y-4">
-        <ReportSectionHeader title="4.2.2 分级治理架构" />
-        <div className="border border-slate-200 bg-white p-4 sm:p-5 space-y-3">
-          <div className="space-y-3 text-xs">
-            {/* 第一行：日常沟通讨论 */}
-            <div className="border border-slate-200 bg-slate-50/70 p-4 space-y-2">
-              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/80 pb-2">
-                <div className="flex items-center gap-2">
-                  <span className="report-sequence-badge">1</span>
-                  <span className="font-bold text-sm sm:text-base text-slate-900">
-                    第一类：日常沟通讨论群
-                  </span>
-                </div>
-                <span className="text-xs font-semibold text-slate-700 bg-white border border-slate-200 px-2.5 py-0.5">
-                  治理策略：精简人员 · 权限严格管控
-                </span>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                用于跨部门日常事务沟通。严格管控进出权限与在群人员编制，仅保留核心沟通对象，严禁流转任何风控单据与出款凭证。
-              </p>
-            </div>
-
-            {/* 第二行：风控审核相关 */}
-            <div className="border border-slate-200 bg-white p-4 space-y-3">
-              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 pb-2">
-                <div className="flex items-center gap-2">
-                  <span className="report-sequence-badge">2</span>
-                  <span className="font-bold text-sm sm:text-base text-slate-900">
-                    第二类：风控审核相关群
-                  </span>
-                </div>
-                <span className="text-xs font-bold text-rose-700 bg-rose-50 border border-rose-200 px-2.5 py-0.5">
-                  治理策略：100% 物理注销关停 · 分级线上化
-                </span>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
-                <div className="bg-slate-50/80 border border-slate-200 p-3.5 space-y-1.5">
-                  <div className="flex items-center justify-between font-bold text-slate-900">
-                    <span className="flex items-center gap-1.5 text-sm">
-                      <span className="w-2 h-2 rounded-full bg-slate-600" />
-                      低风险业务
-                    </span>
-                    <span className="text-xs text-slate-600 bg-white border border-slate-200 px-2 py-0.5">
-                      流程剥离 & 自助秒查
-                    </span>
-                  </div>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                    常规流水咨询、入款真实性核验等不含隐私信息的业务，从风控群剥离，通过自助查询工具与标准化指引实现线上秒级响应。
-                  </p>
-                </div>
-
-                <div className="bg-slate-50/80 border border-slate-200 p-3.5 space-y-1.5">
-                  <div className="flex items-center justify-between font-bold text-slate-900">
-                    <span className="flex items-center gap-1.5 text-sm">
-                      <span className="w-2 h-2 rounded-full bg-rose-700" />
-                      含敏感数据（高风险业务）
-                    </span>
-                    <span className="text-xs text-rose-700 bg-white border border-rose-200 px-2 py-0.5 font-bold">
-                      100% 强工单闭环
-                    </span>
-                  </div>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                    实名证件、大额流水、扣款、复审及黑名单等高敏信息，100% 物理注销群聊，全面迁移至后台风控工单与系统接口自动化。
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* 4.2.3 表格：9项核心风控业务线上化与治理明细清单 */}
+      {/* 4.3 流程改造明细 (第三个位置) */}
       <div className="space-y-4">
         <ReportSectionHeader
-          title="4.2.3 流程改造明细"
+          title="4.3 流程改造明细"
           rightContent={
             <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-2 py-0.5 border border-slate-200">
-              已完成 8/9 项 · 线上化率 89%
+              已完成 10/10 项 · 线上化率 100%
             </span>
           }
         />
@@ -297,8 +434,8 @@ export const TgGovernanceSection: React.FC = () => {
                       <span
                         className={`inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 border ${
                           isCompleted
-                            ? "bg-emerald-50 text-emerald-800 border-emerald-200"
-                            : "bg-amber-50 text-amber-800 border-amber-200"
+                            ? "bg-slate-100 text-slate-900 border-slate-300 font-bold"
+                            : "bg-amber-50 text-amber-900 border-amber-200 font-bold"
                         }`}
                       >
                         {isCompleted ? (

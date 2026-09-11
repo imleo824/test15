@@ -90,21 +90,21 @@ export const MemberRiskSmartDispatch: React.FC = () => {
                     <span className="text-xs font-bold text-slate-900">维度 1</span>
                     <div className="flex items-center gap-1.5">
                       <span className="text-sm font-black text-slate-900">金额大小</span>
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                      <CheckCircle2 className="w-4 h-4 text-slate-800" />
                     </div>
                   </div>
                   <div className="bg-white px-3 py-2 rounded border border-slate-200 flex items-center justify-between shadow-2xs">
                     <span className="text-xs font-bold text-slate-900">维度 2</span>
                     <div className="flex items-center gap-1.5">
                       <span className="text-sm font-black text-slate-900">风险分数</span>
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                      <CheckCircle2 className="w-4 h-4 text-slate-800" />
                     </div>
                   </div>
                   <div className="bg-white px-3 py-2 rounded border border-slate-200 flex items-center justify-between shadow-2xs">
                     <span className="text-xs font-bold text-slate-900">维度 3</span>
                     <div className="flex items-center gap-1.5">
                       <span className="text-sm font-black text-slate-900">业务类型</span>
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                      <CheckCircle2 className="w-4 h-4 text-slate-800" />
                     </div>
                   </div>
                 </div>
@@ -139,21 +139,21 @@ export const MemberRiskSmartDispatch: React.FC = () => {
                   <div className="bg-white px-3 py-2 rounded border border-slate-200 flex items-center justify-between shadow-2xs">
                     <div className="flex items-center gap-1.5">
                       <span className="text-sm font-black text-slate-900">擅长业务领域</span>
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                      <CheckCircle2 className="w-4 h-4 text-slate-800" />
                     </div>
                     <span className="text-xs font-bold text-slate-900">标签 1</span>
                   </div>
                   <div className="bg-white px-3 py-2 rounded border border-slate-200 flex items-center justify-between shadow-2xs">
                     <div className="flex items-center gap-1.5">
                       <span className="text-sm font-black text-slate-900">人员历史绩效</span>
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                      <CheckCircle2 className="w-4 h-4 text-slate-800" />
                     </div>
                     <span className="text-xs font-bold text-slate-900">标签 2</span>
                   </div>
                   <div className="bg-white px-3 py-2 rounded border border-slate-200 flex items-center justify-between shadow-2xs">
                     <div className="flex items-center gap-1.5">
                       <span className="text-sm font-black text-slate-900">当前工作负载</span>
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                      <CheckCircle2 className="w-4 h-4 text-slate-800" />
                     </div>
                     <span className="text-xs font-bold text-slate-900">状态 3</span>
                   </div>

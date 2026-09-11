@@ -1,6 +1,6 @@
 {
-  "name": "Risk Control Quarterly Report",
-  "description": "Comprehensive risk control quarterly review and key event guarantee analysis.",
+  "name": "风控管理报告",
+  "description": "风控业务回顾与关键攻坚全景管理报告",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

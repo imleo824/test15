@@ -176,8 +176,8 @@ export const AuditOverviewInterceptionType: React.FC = () => {
           <thead>
             <tr>
               <th rowSpan={2} className="py-2.5 px-2 text-center">站点</th>
-              <th colSpan={2} className="py-2 px-2 text-center">Q1</th>
-              <th colSpan={2} className="py-2 px-2 text-center">Q2</th>
+              <th colSpan={2} className="py-2 px-2 text-center">一季度</th>
+              <th colSpan={2} className="py-2 px-2 text-center">二季度</th>
               <th colSpan={2} className="py-2 px-2 text-center">代理</th>
               <th colSpan={2} className="py-2 px-2 text-center">体育</th>
               <th colSpan={2} className="py-2 px-2 text-center">红利</th>

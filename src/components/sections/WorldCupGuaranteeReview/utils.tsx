@@ -5,11 +5,11 @@ import { ReportBadge, ReportHeading, ReportTableFrame } from "../../ReportSectio
 export const stripDisplayUnits = (value: string | number) => String(value);
 
 const summaryNumberClass =
-  "report-number text-blue-900 font-black font-mono tabular-nums";
+  "report-number text-slate-950 font-black font-mono tabular-nums";
 const summaryRiskNumberClass =
-  "report-number report-number-risk text-rose-700 font-black font-mono tabular-nums";
+  "report-number report-number-risk text-rose-800 font-black font-mono tabular-nums";
 const summarySafeNumberClass =
-  "report-number report-number-safe text-emerald-700 font-black font-mono tabular-nums";
+  "report-number report-number-safe text-slate-950 font-black font-mono tabular-nums";
 const summaryCoreClass =
   "report-core-underline";
 

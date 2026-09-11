@@ -11,9 +11,8 @@ import {
   Cell,
   LabelList,
 } from "recharts";
-import { ReportChartCard, ReportMetricCard, ReportMetricGrid, ReportPanel, ReportPanelHeader } from "../../ReportSections";
+import { ReportChartCard, ReportMetricCard, ReportMetricGrid, ReportSectionHeader } from "../../ReportSections";
 import { SummaryBox, highlightNumbers } from "./utils";
-import { Layers } from "lucide-react";
 import {
   chartAxisTick,
   chartColors,
@@ -48,13 +47,53 @@ export const vipSpectrumData: VipSpectrumDataPoint[] = [
   { vip: "10级", vipLabel: "10级", netRate: 14.50, profitLeverage: 2.52, depLeverage: 19.5, bonus: 32.0, rebate: 22.0, userCount: "60人", roleType: "核心顶梁柱" },
 ];
 
+const renderDepLeverageLabel = (props: any) => {
+  const { x, y, width, value } = props;
+  if (typeof x !== "number" || typeof y !== "number" || value === undefined || value === null) return null;
+  return (
+    <text
+      x={x + width / 2}
+      y={y - 6}
+      textAnchor="middle"
+      fill="#0f172a"
+      fontSize={10}
+      fontWeight={700}
+      paintOrder="stroke"
+      stroke="#ffffff"
+      strokeWidth={2}
+    >
+      {Number(value).toFixed(1)}倍
+    </text>
+  );
+};
+
+const renderProfitLeverageLabel = (props: any) => {
+  const { x, y, width, height, value } = props;
+  if (typeof x !== "number" || typeof y !== "number" || value === undefined || value === null) return null;
+  const num = Number(value);
+  const isNegative = num < 0;
+  const labelY = isNegative ? y + Math.abs(height) + 12 : y - 6;
+  return (
+    <text
+      x={x + width / 2}
+      y={labelY}
+      textAnchor="middle"
+      fill={isNegative ? "#b91c1c" : "#0f172a"}
+      fontSize={10}
+      fontWeight={700}
+      paintOrder="stroke"
+      stroke="#ffffff"
+      strokeWidth={2}
+    >
+      {num.toFixed(2)}倍
+    </text>
+  );
+};
+
 export const BonusVipSpectrumChart: React.FC = () => {
   return (
-    <ReportPanel className="report-panel-stack">
-      <ReportPanelHeader
-        icon={<Layers className="h-5 w-5" />}
-        title="7.2 会员等级能效对比"
-      />
+    <div className="space-y-4">
+      <ReportSectionHeader title="7.2 会员等级能效对比" />
 
       <SummaryBox>
         {highlightNumbers(
@@ -97,7 +136,7 @@ export const BonusVipSpectrumChart: React.FC = () => {
             <BarChart data={vipSpectrumData} margin={chartMargins.compact}>
               <CartesianGrid strokeDasharray="3 3" stroke={chartColors.grid} vertical={false} />
               <XAxis dataKey="vip" tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} />
-              <YAxis tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} domain={[8, 22]} unit="倍" />
+              <YAxis tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} domain={[6, 23]} unit="倍" />
               <Tooltip
                 contentStyle={chartTooltipStyle}
                 itemStyle={chartTooltipItemStyle}
@@ -112,7 +151,7 @@ export const BonusVipSpectrumChart: React.FC = () => {
                 {vipSpectrumData.map((entry, index) => (
                   <Cell key={`cell-dep-${index}`} fill={index >= 4 ? "#1e293b" : "#64748b"} />
                 ))}
-                <LabelList dataKey="depLeverage" position="top" formatter={(val: any) => `${val}倍`} style={{ fontSize: "10px", fill: "#0f172a", fontWeight: "bold" }} />
+                <LabelList dataKey="depLeverage" content={renderDepLeverageLabel} />
               </Bar>
             </BarChart>
           </ResponsiveContainer>
@@ -129,7 +168,7 @@ export const BonusVipSpectrumChart: React.FC = () => {
             <BarChart data={vipSpectrumData} margin={chartMargins.compact}>
               <CartesianGrid strokeDasharray="3 3" stroke={chartColors.grid} vertical={false} />
               <XAxis dataKey="vip" tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} />
-              <YAxis tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} domain={[-0.4, 3.0]} unit="倍" />
+              <YAxis tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} domain={[-0.6, 3.2]} unit="倍" />
               <Tooltip
                 contentStyle={chartTooltipStyle}
                 itemStyle={chartTooltipItemStyle}
@@ -148,16 +187,16 @@ export const BonusVipSpectrumChart: React.FC = () => {
                   return (
                     <Cell
                       key={`cell-profit-${index}`}
-                      fill={isNegative ? "#e11d48" : isLow ? "#d97706" : "#0f766e"}
+                      fill={isNegative ? "#b91c1c" : isLow ? "#475569" : "#1e293b"}
                     />
                   );
                 })}
-                <LabelList dataKey="profitLeverage" position="top" formatter={(val: any) => `${val}倍`} style={{ fontSize: "10px", fill: "#0f172a", fontWeight: "bold" }} />
+                <LabelList dataKey="profitLeverage" content={renderProfitLeverageLabel} />
               </Bar>
             </BarChart>
           </ResponsiveContainer>
         </ReportChartCard>
       </div>
-    </ReportPanel>
+    </div>
   );
 };

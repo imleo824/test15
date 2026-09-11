@@ -6,7 +6,6 @@ import { ZZOverview } from "./ZZOverview";
 import { PersonnelDistribution } from "./PersonnelDistribution";
 import { AuditOverviewSection } from "./AuditOverviewSection";
 import { InternalControlSection } from "./InternalControlSection";
-import { RiskControlTransformationSection } from "./RiskControlTransformationSection";
 import { RiskControlTicketSection } from "./RiskControlTicketSection";
 import { SystemAuditEvolutionSection } from "./SystemAuditEvolutionSection";
 import { ManualAuditSection } from "./ManualAuditSection";
@@ -33,11 +32,10 @@ export const WorldCupGuaranteeReview: React.FC = () => {
         <InternalControlSection />
       </section>
 
-      {/* 4.0 变革与工单 */}
+      {/* 4.0 风控工单 */}
       <section id="section-4.0" className="report-chapter-block scroll-mt-6">
-        <ChapterTitle>4.0 变革与工单</ChapterTitle>
+        <ChapterTitle>4.0 风控工单</ChapterTitle>
         <div className="report-chapter-content space-y-10">
-          <RiskControlTransformationSection />
           <RiskControlTicketSection />
         </div>
       </section>

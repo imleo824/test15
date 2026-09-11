@@ -13,13 +13,13 @@ export interface ReportConfig {
 
 export const FA: ReportConfig = {
   brandMark: "",
-  navTitle: "2026年Q3",
+  navTitle: "2026年三季度",
   reportTitle: "风控报告",
   pageTitle: "风控报告",
   printHeaderLeft: "风控报告",
   confidentiality: "内部机密",
   reportDateLabel: "汇报日期",
   reportDate: "2026.10",
-  pdfFileName: "F_202609.pdf",
+  pdfFileName: "风控报告_2026年三季度.pdf",
   pdfBackgroundColor: "#FFFFFF",
 };
