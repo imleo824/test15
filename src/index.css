@@ -35,21 +35,21 @@
     --report-space-8: 44px;
     --report-space-9: 52px;
     --report-space-10: 64px;
-    --report-font-caption: 12px;
-    --report-font-small: 13px;
-    --report-font-body: 14px;
-    --report-font-emphasis: 15px;
-    --report-font-panel-title: 17px;
-    --report-font-section-title: 20px;
-    --report-font-chapter-title: 24px;
-    --report-font-cover-title: 32px;
+    --report-font-caption: 13.5px;
+    --report-font-small: 15px;
+    --report-font-body: 16px;
+    --report-font-emphasis: 17.5px;
+    --report-font-panel-title: 20px;
+    --report-font-section-title: 24px;
+    --report-font-chapter-title: 28px;
+    --report-font-cover-title: 40px;
     --report-weight-regular: 400;
     --report-weight-medium: 500;
     --report-weight-semibold: 600;
     --report-weight-bold: 700;
-    --report-chart-height: 290px;
-    --report-panel-gap: 20px;
-    --report-panel-padding-y: 16px;
+    --report-chart-height: 300px;
+    --report-panel-gap: 22px;
+    --report-panel-padding-y: 18px;
     --report-panel-padding-x: 0px;
     --report-shadow-xs: none;
   }
@@ -57,14 +57,14 @@
   html {
     background: #ffffff;
     scroll-behavior: auto;
-    font-size: 14px;
+    font-size: 16px;
   }
 
   body {
     background: #ffffff;
     color: var(--report-ink);
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 16px;
+    line-height: 1.65;
     font-variant-numeric: tabular-nums;
   }
 
@@ -2439,7 +2439,7 @@
   .report-standard-table,
   .report-dense-table {
     font-size: var(--report-font-small) !important;
-    line-height: 1.4 !important;
+    line-height: 1.45 !important;
     word-break: normal !important;
     overflow-wrap: normal !important;
     width: 100%;
@@ -2451,7 +2451,7 @@
 
   .report-dense-table {
     table-layout: fixed;
-    font-size: 15.5px !important;
+    font-size: 15px !important;
   }
 
   .report-dense-table--site-detail th:first-child,
@@ -2465,7 +2465,7 @@
   .report-dense-table--sports-detail td:first-child {
     width: 94px !important;
     padding-inline: 5px !important;
-    font-size: 14.5px !important;
+    font-size: 15px !important;
     letter-spacing: -0.02em;
   }
 
@@ -2473,7 +2473,7 @@
   .report-standard-table td,
   .report-dense-table th,
   .report-dense-table td {
-    padding: 9px 10px !important;
+    padding: 10px 11px !important;
     vertical-align: middle;
     border-right: 0 !important;
     border-bottom: 1px solid var(--report-line-subtle);
@@ -2486,7 +2486,7 @@
 
   .report-dense-table th,
   .report-dense-table td {
-    padding: 8px 9px !important;
+    padding: 9px 10px !important;
   }
 
   .report-dense-table tr {
@@ -2561,19 +2561,19 @@
   }
 
   .governance-table-block .report-standard-table th:nth-child(1) { width: 40px; }
-  .governance-table-block .report-standard-table th:nth-child(2) { width: 109px; }
+  .governance-table-block .report-standard-table th:nth-child(2) { width: 115px; }
   .governance-table-block .report-standard-table th:nth-child(3) { width: 29%; }
-  .governance-table-block .report-standard-table th:nth-child(4) { width: 64px; }
-  .governance-table-block .report-standard-table th:nth-child(5) { width: 76px; }
-  .governance-table-block .report-standard-table th:nth-child(6) { width: 68px; }
-  .governance-table-block .report-standard-table th:nth-child(7) { width: 39%; }
+  .governance-table-block .report-standard-table th:nth-child(4) { width: 68px; }
+  .governance-table-block .report-standard-table th:nth-child(5) { width: 80px; }
+  .governance-table-block .report-standard-table th:nth-child(6) { width: 72px; }
+  .governance-table-block .report-standard-table th:nth-child(7) { width: 38%; }
 
   .governance-table-block .report-standard-table th,
   .governance-table-block .report-standard-table td {
-    padding: 7px 6px !important;
+    padding: 8px 8px !important;
     vertical-align: top;
-    font-size: 12.5px !important;
-    line-height: 1.34 !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
     overflow: visible !important;
     text-overflow: clip;
   }
@@ -2596,12 +2596,12 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    font-size: 12px !important;
+    font-size: 14px !important;
   }
 
   .governance-flow-index {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     flex: 0 0 auto;
     display: inline-flex;
     align-items: center;
@@ -2611,7 +2611,7 @@
     background: var(--report-blue-soft);
     color: var(--report-blue);
     font-family: var(--font-mono);
-    font-size: 13px;
+    font-size: 13.5px;
     line-height: 1;
     font-weight: var(--report-weight-semibold);
     font-variant-numeric: tabular-nums;
@@ -2620,8 +2620,8 @@
   .governance-description-cell,
   .governance-action-cell {
     color: var(--report-muted) !important;
-    font-size: 12px !important;
-    line-height: 1.34 !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
     white-space: normal !important;
     word-break: normal !important;
     overflow-wrap: break-word !important;
@@ -2630,7 +2630,7 @@
   }
 
   .governance-action-cell {
-    font-size: 12px !important;
+    font-size: 14px !important;
   }
 
   .governance-table-block .report-standard-table :is(th, td):nth-child(2),
@@ -2652,9 +2652,9 @@
 
   .governance-table-block .report-badge {
     gap: 5px;
-    min-height: 22px;
-    padding: 1px 6px;
-    font-size: 12px;
+    min-height: 24px;
+    padding: 2px 7px;
+    font-size: 13px;
     white-space: nowrap !important;
   }
 
@@ -2674,9 +2674,9 @@
 
   .system-example-table th,
   .system-example-table td {
-    padding: 6px 5px !important;
-    font-size: 12.5px !important;
-    line-height: 1.28 !important;
+    padding: 7px 6px !important;
+    font-size: 14px !important;
+    line-height: 1.35 !important;
   }
 
   .system-example-table th:not(:last-child),
@@ -4281,6 +4281,26 @@
     line-height: 1.65 !important;
   }
 
+  .report-shell .text-lg {
+    font-size: var(--report-font-emphasis) !important;
+    line-height: 1.45 !important;
+  }
+
+  .report-shell .text-xl {
+    font-size: var(--report-font-panel-title) !important;
+    line-height: 1.35 !important;
+  }
+
+  .report-shell .text-2xl {
+    font-size: var(--report-font-section-title) !important;
+    line-height: 1.25 !important;
+  }
+
+  .report-shell .text-3xl {
+    font-size: var(--report-font-chapter-title) !important;
+    line-height: 1.2 !important;
+  }
+
   .report-shell .shadow,
   .report-shell .shadow-sm,
   .report-shell .shadow-md,
@@ -4495,7 +4515,7 @@
   .report-shell .recharts-bar-label,
   .report-shell .recharts-line text {
     fill: #0f172a !important;
-    font-size: 11px !important;
+    font-size: 13px !important;
     font-weight: 700 !important;
     paint-order: stroke;
     stroke: #ffffff;
@@ -4505,7 +4525,7 @@
 
   .report-shell .order-structure-bar-label {
     fill: #0f172a !important;
-    font-size: 11px !important;
+    font-size: 13px !important;
     font-weight: 700 !important;
     paint-order: stroke !important;
     stroke: #ffffff !important;

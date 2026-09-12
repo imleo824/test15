@@ -132,28 +132,28 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
                 </tr>
                 {/* 二级表头 */}
                 <tr className="border-b-2 border-slate-900 text-slate-700 font-bold text-xs">
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">人</th>
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">%</th>
+                  <th className="px-2 py-2 border-r border-slate-200 text-center">人数</th>
+                  <th className="px-2 py-2 border-r border-slate-200 text-center">占比</th>
 
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">人</th>
+                  <th className="px-2 py-2 border-r border-slate-200 text-center">人数</th>
                   <th className="px-2 py-2 border-r border-slate-200 text-center">金额</th>
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">%</th>
+                  <th className="px-2 py-2 border-r border-slate-200 text-center">占比</th>
 
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">人</th>
+                  <th className="px-2 py-2 border-r border-slate-200 text-center">人数</th>
                   <th className="px-2 py-2 border-r border-slate-200 text-center">金额</th>
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">%</th>
+                  <th className="px-2 py-2 border-r border-slate-200 text-center">占比</th>
 
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">人</th>
+                  <th className="px-2 py-2 border-r border-slate-200 text-center">人数</th>
                   <th className="px-2 py-2 border-r border-slate-200 text-center">金额</th>
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">%</th>
+                  <th className="px-2 py-2 border-r border-slate-200 text-center">占比</th>
 
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">人</th>
+                  <th className="px-2 py-2 border-r border-slate-200 text-center">人数</th>
                   <th className="px-2 py-2 border-r border-slate-200 text-center">金额</th>
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">%</th>
+                  <th className="px-2 py-2 border-r border-slate-200 text-center">占比</th>
 
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">人</th>
+                  <th className="px-2 py-2 border-r border-slate-200 text-center">人数</th>
                   <th className="px-2 py-2 border-r border-slate-200 text-center">金额</th>
-                  <th className="px-2 py-2 text-center">%</th>
+                  <th className="px-2 py-2 text-center">占比</th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-slate-100 font-mono tabular-nums text-xs">

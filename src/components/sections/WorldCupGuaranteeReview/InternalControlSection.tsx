@@ -149,16 +149,16 @@ export const InternalControlSection: React.FC = () => {
                 <span className="report-sequence-badge report-sequence-badge--risk">1</span>
                 <span>外部通讯群聊风险</span>
               </div>
-              <p className="text-sm text-slate-700 leading-relaxed font-normal">
+              <p className="text-sm md:text-base text-slate-700 leading-relaxed font-normal">
                 {highlightNumbers("群内成员通过搜索关键信息即可轻易获取[[敏感信息]]，以此进行不当获利，对信息安全造成极大威胁。")}
               </p>
             </div>
-            <div className="pt-3 space-y-1 border-t border-slate-200">
-              <div className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 bg-blue-700 rounded-full"></span>
+            <div className="pt-3 space-y-1.5 border-t border-slate-200">
+              <div className="text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                <span className="w-2 h-2 bg-blue-700 rounded-full"></span>
                 <span>解决策略：</span>
               </div>
-              <p className="text-xs text-slate-700 leading-relaxed font-normal">
+              <p className="text-sm text-slate-700 leading-relaxed font-normal">
                 {highlightNumbers("针对敏感和核心业务对接，逐步全面[[关停外部通讯群聊]]，详情见第 4.0 章节说明。")}
               </p>
             </div>
@@ -171,16 +171,16 @@ export const InternalControlSection: React.FC = () => {
                 <span className="report-sequence-badge report-sequence-badge--risk">2</span>
                 <span>内部勾结风险</span>
               </div>
-              <p className="text-sm text-slate-700 leading-relaxed font-normal">
+              <p className="text-sm md:text-base text-slate-700 leading-relaxed font-normal">
                 {highlightNumbers("涉及[[身份验证审核]]、[[佣金审核]]、[[提款审核]]等多关键环节，极易形成上下游的内部链条合作。")}
               </p>
             </div>
-            <div className="pt-3 space-y-1 border-t border-slate-200">
-              <div className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 bg-blue-700 rounded-full"></span>
+            <div className="pt-3 space-y-1.5 border-t border-slate-200">
+              <div className="text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                <span className="w-2 h-2 bg-blue-700 rounded-full"></span>
                 <span>解决策略：</span>
               </div>
-              <p className="text-xs text-slate-700 leading-relaxed font-normal">
+              <p className="text-sm text-slate-700 leading-relaxed font-normal">
                 {highlightNumbers("核心环节启动[[随机分配且多层审批]]的流程；如身份验证、提款、佣金等，详情见后续章节说明。")}
               </p>
             </div>

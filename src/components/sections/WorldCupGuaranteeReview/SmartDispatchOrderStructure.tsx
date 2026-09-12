@@ -159,8 +159,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
   return (
     <ReportChartCard
       title="角色订单结构与审核质量月度趋势"
-      subtitle="4月 - 6月系统/总部/外包结构变迁"
-      value="系统 44.4% | 总部 48.1%"
+      value="系统 44.4% | 人工 48.1%"
       description={
         <span>
           系统自动直出与总部承接成为绝对主力（合计占比 <span className="font-bold text-blue-700 font-mono">92.5%</span>），失误率仅 0.11%~0.69%；高差错率的外包占比大幅压降至 <span className="font-bold text-amber-700 font-mono">7.5%</span>，实现大幅提效与高风险控制双赢。

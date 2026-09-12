@@ -11,18 +11,7 @@ export const BonusEfficiencySection: React.FC = () => {
       {/* 章节核心战略提炼卡片 */}
       <div className="bg-white border border-slate-200 border-t-2 border-t-slate-900 p-5 space-y-4">
         {/* 标题与核心战略定位 */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-3">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-slate-900"></span>
-            <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight">
-              套利指数与红利风控战略提炼
-            </h3>
-          </div>
-          <span className="text-xs font-mono font-bold bg-slate-100 text-slate-800 px-2.5 py-1 border border-slate-200 self-start sm:self-auto">
-            平台利润率重构核心策略
-          </span>
-        </div>
-
+       
         {/* 核心 2 大点结构化剖析 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
           {/* 1. 影响利润率：最重要的大事 */}
@@ -52,19 +41,19 @@ export const BonusEfficiencySection: React.FC = () => {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-xs">
               <div className="bg-white border border-slate-200 p-2 text-center">
                 <span className="font-bold block text-slate-900 text-xs font-mono">【正常】</span>
-                <span className="text-[11px] text-slate-700 font-mono">指数处于 &lt; 30 区间</span>
+                <span className="text-xs text-slate-700 font-mono">指数处于 &lt; 30 区间</span>
               </div>
               <div className="bg-white border border-slate-200 p-2 text-center">
                 <span className="font-bold block text-amber-800 text-xs font-mono">【少发】</span>
-                <span className="text-[11px] text-slate-600 font-mono">指数处于 30~70 区间</span>
+                <span className="text-xs text-slate-600 font-mono">指数处于 30~70 区间</span>
               </div>
               <div className="bg-white border border-slate-200 p-2 text-center">
                 <span className="font-bold block text-rose-800 text-xs font-mono">【不发】</span>
-                <span className="text-[11px] text-slate-600 font-mono">指数处于 ≥ 70 区间</span>
+                <span className="text-xs text-slate-600 font-mono">指数处于 ≥ 70 区间</span>
               </div>
               <div className="bg-white border border-slate-200 p-2 text-center">
                 <span className="font-bold block text-blue-900 text-xs font-mono">【多发】</span>
-                <span className="text-[11px] text-slate-600 font-mono">高等级且极低风险区间</span>
+                <span className="text-xs text-slate-600 font-mono">高等级且极低风险区间</span>
               </div>
             </div>
           </div>
