@@ -110,7 +110,7 @@ export const BonusCrossSiteChart: React.FC = () => {
               <Bar dataKey="depositLeverage" name="存款杠杆" barSize={40} isAnimationActive={false}>
                 <Cell fill={chartColors.blue} />
                 <Cell fill={chartColors.red} />
-                <LabelList dataKey="depositLeverage" position="top" formatter={(val: any) => `${val}倍`} style={{ fontSize: "12px", fill: "#0f172a", fontWeight: "bold" }} />
+                <LabelList dataKey="depositLeverage" position="top" formatter={(val: any) => `${val}倍`} style={{ fontSize: "13.5px", fill: "#0f172a", fontWeight: "bold" }} />
               </Bar>
             </BarChart>
           </ResponsiveContainer>
@@ -140,7 +140,7 @@ export const BonusCrossSiteChart: React.FC = () => {
               <Bar dataKey="profitLeverage" name="盈利杠杆" barSize={40} isAnimationActive={false}>
                 <Cell fill={chartColors.blue} />
                 <Cell fill={chartColors.red} />
-                <LabelList dataKey="profitLeverage" position="top" formatter={(val: any) => `${val}倍`} style={{ fontSize: "12px", fill: "#0f172a", fontWeight: "bold" }} />
+                <LabelList dataKey="profitLeverage" position="top" formatter={(val: any) => `${val}倍`} style={{ fontSize: "13.5px", fill: "#0f172a", fontWeight: "bold" }} />
               </Bar>
             </BarChart>
           </ResponsiveContainer>

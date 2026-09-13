@@ -56,7 +56,7 @@ const renderDepLeverageLabel = (props: any) => {
       y={y - 6}
       textAnchor="middle"
       fill="#0f172a"
-      fontSize={10}
+      fontSize={12}
       fontWeight={700}
       paintOrder="stroke"
       stroke="#ffffff"
@@ -79,7 +79,7 @@ const renderProfitLeverageLabel = (props: any) => {
       y={labelY}
       textAnchor="middle"
       fill={isNegative ? "#b91c1c" : "#0f172a"}
-      fontSize={10}
+      fontSize={12}
       fontWeight={700}
       paintOrder="stroke"
       stroke="#ffffff"

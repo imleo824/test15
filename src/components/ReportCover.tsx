@@ -3,13 +3,13 @@ import { FA } from "../types";
 
 export const ReportCover: React.FC = () => {
   const sections = [
-    { id: "1.0", title: "组织管理", subtitle: "编制分布、外包治理与组织优化" },
-    { id: "2.0", title: "数据概览", subtitle: "拦截金额时效、类型结构与重点明细" },
-    { id: "3.0", title: "内控概览", subtitle: "违规事件处置、线索稽查与高危场景" },
-    { id: "4.0", title: "风控工单", subtitle: "线下群注销、分级治理与全流程工单化" },
-    { id: "5.0", title: "系统审核", subtitle: "审单模式翻转演变、人效与时效双突破" },
-    { id: "6.0", title: "业务概览", subtitle: "质量效率飞轮、支撑指标与专项攻坚" },
-    { id: "7.0", title: "套利指数", subtitle: "红利杠杆走势、跨站多账户与全新模型" },
+    { id: "1.0", title: "组织管理"},
+    { id: "2.0", title: "数据概览"},
+    { id: "3.0", title: "内控概览"},
+    { id: "4.0", title: "风控工单"},
+    { id: "5.0", title: "系统审核"},
+    { id: "6.0", title: "业务概览"},
+    { id: "7.0", title: "套利指数"},
   ];
 
   const handleScrollToSection = (sectionId: string) => {

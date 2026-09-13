@@ -98,7 +98,7 @@ const renderAuditStructureLabel = () => ({ x, y, width, value }: any) => {
       y={y - 20}
       textAnchor="middle"
       fill="#0f172a"
-      fontSize={12}
+      fontSize={13}
       fontWeight={900}
       paintOrder="stroke"
       stroke="#ffffff"
@@ -126,7 +126,7 @@ const renderQualityLabel = (dx: number = 0) => ({ x, y, value }: any) => {
       y={y - 10}
       textAnchor="middle"
       fill="#0f172a"
-      fontSize={12}
+      fontSize={13}
       fontWeight={900}
       paintOrder="stroke"
       stroke="#ffffff"
