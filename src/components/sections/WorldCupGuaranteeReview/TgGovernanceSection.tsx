@@ -151,8 +151,8 @@ export const TgGovernanceSection: React.FC = () => {
                   <h4 className="text-base sm:text-lg font-extrabold text-slate-950 tracking-tight">
                     非必要群聊排查
                   </h4>
-                  <span className="text-sm font-extrabold text-white bg-emerald-600 border border-emerald-700 px-2.5 py-1 flex items-center gap-1.5 shadow-xs shrink-0">
-                    <Check className="w-4 h-4 text-white stroke-[3.5]" />
+                  <span className="text-sm font-bold text-slate-900 bg-slate-100 border border-slate-300 px-2.5 py-1 flex items-center gap-1.5 shrink-0">
+                    <Check className="w-4 h-4 text-slate-900 stroke-[3]" />
                     <span>100% 已清零</span>
                   </span>
                 </div>
@@ -189,8 +189,8 @@ export const TgGovernanceSection: React.FC = () => {
                   <h4 className="text-base sm:text-lg font-extrabold text-slate-950 tracking-tight">
                     日常沟通讨论群
                   </h4>
-                  <span className="text-sm font-extrabold text-white bg-emerald-600 border border-emerald-700 px-2.5 py-1 flex items-center gap-1.5 shadow-xs shrink-0">
-                    <Check className="w-4 h-4 text-white stroke-[3.5]" />
+                  <span className="text-sm font-bold text-slate-900 bg-slate-100 border border-slate-300 px-2.5 py-1 flex items-center gap-1.5 shrink-0">
+                    <Check className="w-4 h-4 text-slate-900 stroke-[3]" />
                     <span>100% 已收紧</span>
                   </span>
                 </div>
@@ -227,8 +227,8 @@ export const TgGovernanceSection: React.FC = () => {
                   <h4 className="text-base sm:text-lg font-extrabold text-slate-950 tracking-tight">
                     高风险审核业务
                   </h4>
-                  <span className="text-sm font-extrabold text-white bg-emerald-600 border border-emerald-700 px-2.5 py-1 flex items-center gap-1.5 shadow-xs shrink-0">
-                    <Check className="w-4 h-4 text-white stroke-[3.5]" />
+                  <span className="text-sm font-bold text-slate-900 bg-slate-100 border border-slate-300 px-2.5 py-1 flex items-center gap-1.5 shrink-0">
+                    <Check className="w-4 h-4 text-slate-900 stroke-[3]" />
                     <span>100% 已注销</span>
                   </span>
                 </div>
@@ -252,7 +252,7 @@ export const TgGovernanceSection: React.FC = () => {
                   <span>处置策略与成效</span>
                 </div>
                 <p className="text-sm text-slate-900 leading-relaxed font-normal">
-                  <strong className="text-slate-950 font-bold underline decoration-slate-400">群聊 100% 注销</strong>，全面迁移至后台系统工单与标准 API 闭环流转，全流程留痕并强制双人复核。
+                  <strong className="text-slate-950 font-bold underline decoration-slate-400">群聊 100% 注销</strong>，全面迁移至后台系统工单与标准 API 闭环流转，全流程留痕并强制多人复核。
                 </p>
               </div>
             </div>
@@ -265,7 +265,7 @@ export const TgGovernanceSection: React.FC = () => {
                   <h4 className="text-base sm:text-lg font-extrabold text-slate-950 tracking-tight">
                     低风险咨询业务
                   </h4>
-                  <span className="text-sm font-bold text-amber-950 bg-amber-100 border border-amber-400 px-2.5 py-1 flex items-center gap-1.5 shadow-2xs shrink-0">
+                  <span className="text-sm font-bold text-amber-900 bg-amber-50 border border-amber-300 px-2.5 py-1 flex items-center gap-1.5 shrink-0">
                     <Clock className="w-4 h-4 text-amber-700 stroke-[2.5]" />
                     <span>待协同切换</span>
                   </span>
@@ -303,7 +303,7 @@ export const TgGovernanceSection: React.FC = () => {
         <ReportSectionHeader title="4.2 阶段取得成效" />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="border border-slate-200 bg-white p-4 flex flex-col justify-between space-y-3 border-t-2 border-t-slate-900">
-            <div className="flex items-center justify-between text-xs font-bold text-slate-800">
+            <div className="flex items-center justify-between text-sm font-bold text-slate-900">
               <span>非必须群注销</span>
               <span className="text-xs font-mono font-bold text-slate-900 bg-slate-100 px-2 py-0.5 border border-slate-300">
                 关停率 100%
@@ -313,13 +313,13 @@ export const TgGovernanceSection: React.FC = () => {
               <span className="text-3xl font-bold font-mono text-slate-900 tabular-nums">48</span>
               <ArrowRight className="w-4 h-4 text-slate-700 shrink-0" />
               <span className="text-3xl font-bold font-mono text-slate-950 tabular-nums">0</span>
-              <span className="text-xs font-bold text-slate-700">个群</span>
+              <span className="text-sm font-bold text-slate-700">个群</span>
             </div>
-            <p className="text-xs text-slate-700 font-medium leading-normal">第二类风控审核群聊已全面关停清零</p>
+            <p className="text-sm text-slate-700 leading-normal font-normal">第二类风控审核群聊已全面关停清零</p>
           </div>
 
           <div className="border border-slate-200 bg-white p-4 flex flex-col justify-between space-y-3 border-t-2 border-t-slate-900">
-            <div className="flex items-center justify-between text-xs font-bold text-slate-800">
+            <div className="flex items-center justify-between text-sm font-bold text-slate-900">
               <span>核心流程工单</span>
               <span className="text-xs font-mono font-bold text-slate-900 bg-slate-100 px-2 py-0.5 border border-slate-300">
                 线上化率 100%
@@ -329,11 +329,11 @@ export const TgGovernanceSection: React.FC = () => {
               <span className="text-3xl font-bold font-mono text-slate-950 tabular-nums">10</span>
               <span className="text-sm font-bold text-slate-700">/ 10 项</span>
             </div>
-            <p className="text-xs text-slate-700 font-medium leading-normal">10 项核心业务已全量上线运行，100% 线上闭环</p>
+            <p className="text-sm text-slate-700 leading-normal font-normal">10 项核心业务已全量上线运行，100% 线上闭环</p>
           </div>
 
           <div className="border border-slate-200 bg-white p-4 flex flex-col justify-between space-y-3 border-t-2 border-t-slate-900">
-            <div className="flex items-center justify-between text-xs font-bold text-slate-800">
+            <div className="flex items-center justify-between text-sm font-bold text-slate-900">
               <span>提升处理时效</span>
               <span className="text-xs font-mono font-bold text-slate-900 bg-slate-100 px-2 py-0.5 border border-slate-300">
                 提效 50%
@@ -341,16 +341,16 @@ export const TgGovernanceSection: React.FC = () => {
             </div>
             <div className="flex items-baseline gap-1.5 py-1">
               <span className="text-3xl font-bold font-mono text-slate-900 tabular-nums">～10</span>
-              <span className="text-xs font-bold text-slate-700">分钟</span>
+              <span className="text-sm font-bold text-slate-700">分钟</span>
               <ArrowRight className="w-4 h-4 text-slate-700 shrink-0 mx-0.5" />
               <span className="text-3xl font-bold font-mono text-slate-950 tabular-nums">～5</span>
-              <span className="text-xs font-bold text-slate-700">分钟</span>
+              <span className="text-sm font-bold text-slate-700">分钟</span>
             </div>
-            <p className="text-xs text-slate-700 font-medium leading-normal">标准化工单流转替代人工群聊催办反复切换粘贴复制，端到端处置大幅提速</p>
+            <p className="text-sm text-slate-700 leading-normal font-normal">标准化工单流转替代人工群聊催办反复切换粘贴复制，端到端处置大幅提速</p>
           </div>
 
           <div className="border border-slate-200 bg-white p-4 flex flex-col justify-between space-y-3 border-t-2 border-t-slate-900">
-            <div className="flex items-center justify-between text-xs font-bold text-slate-800">
+            <div className="flex items-center justify-between text-sm font-bold text-slate-900">
               <span>审核多人审批</span>
               <span className="text-xs font-mono font-bold text-slate-900 bg-slate-100 px-2 py-0.5 border border-slate-300">
                 单人无法完成
@@ -358,9 +358,9 @@ export const TgGovernanceSection: React.FC = () => {
             </div>
             <div className="flex items-baseline gap-1 py-1">
               <span className="text-3xl font-bold font-mono text-slate-900 tabular-nums">100%</span>
-              <span className="text-xs font-bold text-slate-700">系统留痕</span>
+              <span className="text-sm font-bold text-slate-700">系统留痕</span>
             </div>
-            <p className="text-xs text-slate-700 font-medium leading-normal">上标、下标、备注、复审、资料、扣款等判定全量多节点审批、系统存证备查</p>
+            <p className="text-sm text-slate-700 leading-normal font-normal">上标、下标、备注、复审、资料、扣款等判定全量多节点审批、系统存证备查</p>
           </div>
         </div>
 
@@ -651,9 +651,9 @@ export const TgGovernanceSection: React.FC = () => {
           }
         />
         <ReportTableFrame>
-          <table className="w-full text-left border-collapse text-xs">
+          <table className="w-full text-left border-collapse report-dense-table">
             <thead>
-              <tr className="border-b-2 border-slate-900 bg-slate-50 text-slate-700 font-bold uppercase tracking-wider">
+              <tr className="border-b-2 border-slate-900 bg-slate-50 text-slate-700 font-bold uppercase tracking-wider text-xs">
                 <th className="py-2.5 px-3 w-14 font-mono text-center">序号</th>
                 <th className="py-2.5 px-3 w-32">流程</th>
                 <th className="py-2.5 px-3 w-32">部门</th>
@@ -663,7 +663,7 @@ export const TgGovernanceSection: React.FC = () => {
                 <th className="py-2.5 px-3 w-24 text-right">当前状态</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-200 border-b-2 border-slate-900 tabular-nums">
+            <tbody className="divide-y divide-slate-200 border-b-2 border-slate-900 tabular-nums text-sm">
               {governanceItems.map((item) => {
                 const isCompleted = item.status === "已处理";
                 return (

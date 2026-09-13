@@ -56,11 +56,11 @@ const renderDepLeverageLabel = (props: any) => {
       y={y - 6}
       textAnchor="middle"
       fill="#0f172a"
-      fontSize={12}
+      fontSize={13}
       fontWeight={700}
       paintOrder="stroke"
       stroke="#ffffff"
-      strokeWidth={2}
+      strokeWidth={2.5}
     >
       {Number(value).toFixed(1)}倍
     </text>
@@ -79,11 +79,11 @@ const renderProfitLeverageLabel = (props: any) => {
       y={labelY}
       textAnchor="middle"
       fill={isNegative ? "#b91c1c" : "#0f172a"}
-      fontSize={12}
+      fontSize={13}
       fontWeight={700}
       paintOrder="stroke"
       stroke="#ffffff"
-      strokeWidth={2}
+      strokeWidth={2.5}
     >
       {num.toFixed(2)}倍
     </text>

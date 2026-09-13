@@ -31,9 +31,6 @@ export default function App() {
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
                 汇报结束 · 感谢审阅
               </h2>
-              <p className="text-xs text-slate-500 max-w-md mx-auto leading-relaxed">
-                本报告内容包含核心风控业务数据与算法战略，属于内部高度机密资产，严禁对外复制、散发或流转。
-              </p>
               <div className="flex items-center justify-center gap-6 pt-2 text-xs font-mono text-slate-500">
                 <span>周期：{FA.navTitle}</span>
                 <span>•</span>

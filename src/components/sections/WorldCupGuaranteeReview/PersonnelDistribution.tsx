@@ -4,11 +4,22 @@ import { ReportSectionHeader } from "../../ReportSections";
 
 export const PersonnelDistribution: React.FC = () => {
   const policyItems = [
-    "[[远程取消]]：已完成[[取消远程工作制]]；",
-    "[[外包裁撤]]：由于[[质量低且风险高]]，将在8月进一步降低，直至[[完全取消]]；",
-    "[[场地分配]]：[[办公场地]]动态优化，[[各职场场地均匀调整]]；",
-    "[[优胜劣汰]]：深化[[考核机制]]，实现[[优胜劣汰]]，增加[[专业类人员]]；",
-    "[[流程优化]]：裁撤[[冗余的内外协作流程]]，全面[[提升执行效率]]与安全性。",
+    {
+      title: "人员优化",
+      content: "[[人员优化]]：全新云盾体系推全后逐步开始[[优化人员结构]]；",
+    },
+    {
+      title: "场地优化",
+      content: "[[场地分配]]：[[办公场地]]动态优化，[[各职场场地均匀调整]]；",
+    },
+    {
+      title: "考核机制",
+      content: "[[优胜劣汰]]：深化[[考核机制]]，实现[[优胜劣汰]]，增加[[专业类人员]]；",
+    },
+    {
+      title: "流程优化",
+      content: "[[流程优化]]：裁撤[[冗余的内外协作流程]]，全面[[提升执行效率]]与安全性。",
+    },
   ];
 
   return (
@@ -17,10 +28,10 @@ export const PersonnelDistribution: React.FC = () => {
       <SummaryBox variant="chapter">
         <div className="space-y-1">
           <h3 className="text-lg font-bold text-slate-900">
-            深化人员结构精细化管理，逐步清零外包，提升专业人效与风控安全
+            深化人员结构精细化管理，全新云盾体系推全后逐步优化人员结构，提升专业人效与风控安全
           </h3>
           <p className="text-sm md:text-base text-slate-700 leading-relaxed font-normal">
-            取消远程工作制、逐步裁撤高风险低质量外包、动态优化办公场地分配，实现优胜劣汰与专业化提质。
+            全新云盾体系推全后逐步开始优化人员结构、动态优化办公场地分配，实现优胜劣汰与专业化提质。
           </p>
         </div>
       </SummaryBox>
@@ -29,7 +40,7 @@ export const PersonnelDistribution: React.FC = () => {
       <div className="space-y-4">
         <ReportSectionHeader title="1.1 组织治理核心举措" />
         <div className="border border-slate-200 bg-white p-4 space-y-3">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-3 text-xs">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs">
             {policyItems.map((item, index) => (
               <div
                 key={index}
@@ -40,19 +51,11 @@ export const PersonnelDistribution: React.FC = () => {
                     {index + 1}
                   </span>
                   <span className="font-bold text-slate-900 text-sm">
-                    {index === 0
-                      ? "远程管理"
-                      : index === 1
-                      ? "外包治理"
-                      : index === 2
-                      ? "场地优化"
-                      : index === 3
-                      ? "考核机制"
-                      : "流程优化"}
+                    {item.title}
                   </span>
                 </div>
                 <p className="text-sm text-slate-700 leading-relaxed font-normal pt-0.5">
-                  {highlightNumbers(item)}
+                  {highlightNumbers(item.content)}
                 </p>
               </div>
             ))}
@@ -68,21 +71,21 @@ export const PersonnelDistribution: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto">
             {/* Card 1: CD */}
             <div className="border border-slate-200 border-t-2 border-t-slate-900 bg-slate-50/70 p-4 text-center space-y-1.5">
-              <span className="text-xs sm:text-sm font-bold text-slate-700 block tracking-wider">
+              <span className="text-sm font-bold text-slate-800 block tracking-wider">
                 在册编制总数（全员正式）
               </span>
               <div className="flex items-baseline justify-center gap-1.5 py-1">
                 <span className="font-mono text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight tabular-nums">
                   365
                 </span>
-                <span className="text-xs font-bold text-slate-600">人</span>
+                <span className="text-sm font-bold text-slate-600">人</span>
               </div>
-              <div className="text-xs text-slate-600 pt-0.5 font-medium">全员正式编制管控</div>
+              <div className="text-sm text-slate-600 pt-0.5 font-medium">全员正式编制管控</div>
             </div>
 
             {/* Card 2: WB */}
             <div className="border border-slate-200 border-t-2 border-t-slate-900 bg-slate-50/70 p-4 text-center space-y-1.5">
-              <span className="text-xs sm:text-sm font-bold text-slate-700 block tracking-wider">
+              <span className="text-sm font-bold text-slate-800 block tracking-wider">
                 外包协同编制（计划清零）
               </span>
               <div className="flex items-baseline justify-center gap-2 py-1">
@@ -92,9 +95,9 @@ export const PersonnelDistribution: React.FC = () => {
                 <span className="font-mono text-xs font-bold text-slate-700 bg-white px-2 py-0.5 border border-slate-300 tabular-nums">
                   -17
                 </span>
-                <span className="text-xs font-bold text-slate-600">人</span>
+                <span className="text-sm font-bold text-slate-600">人</span>
               </div>
-              <div className="text-xs text-slate-600 pt-0.5 font-medium">8月加速缩减直至完全清零</div>
+              <div className="text-sm text-slate-600 pt-0.5 font-medium">8月加速缩减直至完全清零</div>
             </div>
           </div>
 

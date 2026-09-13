@@ -143,24 +143,24 @@ export const BonusMacroTrendChart: React.FC = () => {
             <div className="grid grid-cols-2 gap-3 mt-3">
               {/* 存款杠杆 */}
               <div className="bg-slate-50 p-3 border border-slate-200 space-y-1">
-                <div className="text-xs text-slate-800 font-bold">正常用户·存款杠杆</div>
+                <div className="text-sm text-slate-800 font-bold">正常用户·存款杠杆</div>
                 <div className="flex items-baseline gap-1">
                   <span className="text-3xl font-black font-mono text-slate-950 tabular-nums">16.10</span>
-                  <span className="text-xs font-bold text-slate-700">倍</span>
+                  <span className="text-sm font-bold text-slate-700">倍</span>
                 </div>
-                <p className="text-xs text-slate-700 font-medium border-t border-slate-200 pt-1 mt-1">
+                <p className="text-sm text-slate-700 font-normal border-t border-slate-200 pt-1 mt-1">
                   从 30.00倍 回落至 16.10倍
                 </p>
               </div>
 
               {/* 盈利杠杆 */}
               <div className="bg-slate-50 p-3 border border-slate-200 space-y-1">
-                <div className="text-xs text-slate-800 font-bold">正常用户·盈利杠杆</div>
+                <div className="text-sm text-slate-800 font-bold">正常用户·盈利杠杆</div>
                 <div className="flex items-baseline gap-1">
                   <span className="text-3xl font-black font-mono text-slate-950 tabular-nums">0.42</span>
-                  <span className="text-xs font-bold text-slate-700">倍</span>
+                  <span className="text-sm font-bold text-slate-700">倍</span>
                 </div>
-                <p className="text-xs text-slate-700 font-medium border-t border-slate-200 pt-1 mt-1">
+                <p className="text-sm text-slate-700 font-normal border-t border-slate-200 pt-1 mt-1">
                   保持正向造血与沉淀
                 </p>
               </div>
@@ -184,24 +184,24 @@ export const BonusMacroTrendChart: React.FC = () => {
             <div className="grid grid-cols-2 gap-3 mt-3">
               {/* 存款杠杆 */}
               <div className="bg-slate-50 p-3 border border-slate-200 space-y-1">
-                <div className="text-xs text-slate-800 font-bold">风控用户·存款杠杆</div>
+                <div className="text-sm text-slate-800 font-bold">风控用户·存款杠杆</div>
                 <div className="flex items-baseline gap-1">
                   <span className="text-3xl font-black font-mono text-rose-800 tabular-nums">12.80</span>
-                  <span className="text-xs font-bold text-slate-700">倍</span>
+                  <span className="text-sm font-bold text-slate-700">倍</span>
                 </div>
-                <p className="text-xs text-slate-700 font-medium border-t border-slate-200 pt-1 mt-1">
+                <p className="text-sm text-slate-700 font-normal border-t border-slate-200 pt-1 mt-1">
                   从 31.25倍 下滑至 12.80倍
                 </p>
               </div>
 
               {/* 盈利杠杆 */}
               <div className="bg-slate-50 p-3 border border-slate-200 space-y-1">
-                <div className="text-xs text-slate-800 font-bold">风控用户·盈利杠杆</div>
+                <div className="text-sm text-slate-800 font-bold">风控用户·盈利杠杆</div>
                 <div className="flex items-baseline gap-1">
                   <span className="text-3xl font-black font-mono text-rose-800 tabular-nums">0.02</span>
-                  <span className="text-xs font-bold text-slate-700">倍</span>
+                  <span className="text-sm font-bold text-slate-700">倍</span>
                 </div>
-                <p className="text-xs text-slate-700 font-medium border-t border-slate-200 pt-1 mt-1">
+                <p className="text-sm text-slate-700 font-normal border-t border-slate-200 pt-1 mt-1">
                   对打洗水导致利润几近归零
                 </p>
               </div>
@@ -214,7 +214,6 @@ export const BonusMacroTrendChart: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-2 items-stretch">
         <ReportChartCard
           title="红利撬动存款杠杆走势"
-          subtitle="2025.01 - 2025.09 月度跟踪"
           value="存款 ÷ 红利"
           description="正常用户存款杠杆由 30.00倍 逐步收敛至 16.10倍 健康水平；风控客群存款杠杆从 31.25倍 持续恶化至 12.80倍，充提套现意图显著。"
           footnote="注：存款杠杆 = 周期内总存款额 ÷ 所获红利总额。"
@@ -235,7 +234,6 @@ export const BonusMacroTrendChart: React.FC = () => {
 
         <ReportChartCard
           title="红利撬动盈利杠杆走势"
-          subtitle="2025.01 - 2025.09 真实造血跟踪"
           value="输赢 ÷ 红利"
           description="正常用户保持 0.42倍 正向造血产出；而风控套利群体断崖式下跌至 0.02倍 利润几近归零，暴露出达标流水即提现的洗水特征。"
           footnote="注：盈利杠杆 = 周期内游戏输赢 ÷ 红利总投入（正值代表平台造血，趋近0代表套利侵蚀）。"

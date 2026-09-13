@@ -131,7 +131,7 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
                   <th colSpan={3} className="p-2 text-center">软件</th>
                 </tr>
                 {/* 二级表头 */}
-                <tr className="border-b-2 border-slate-900 text-slate-700 font-bold text-xs">
+                <tr className="border-b-2 border-slate-900 text-slate-700 font-bold text-xs sm:text-sm">
                   <th className="px-2 py-2 border-r border-slate-200 text-center">人数</th>
                   <th className="px-2 py-2 border-r border-slate-200 text-center">占比</th>
 
@@ -156,7 +156,7 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
                   <th className="px-2 py-2 text-center">占比</th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-slate-100 font-mono tabular-nums text-xs">
+              <tbody className="bg-white divide-y divide-slate-100 font-mono tabular-nums text-sm">
                 {vipDetailData.map((row, idx) => {
                   const isHighDensity = row.vip_level === "6级" || row.vip_level === "7级";
                   return (
@@ -190,7 +190,7 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
                   );
                 })}
               </tbody>
-              <tfoot className="border-t-2 border-b-2 border-slate-900 bg-slate-50 font-bold font-mono tabular-nums text-xs text-slate-900">
+              <tfoot className="border-t-2 border-b-2 border-slate-900 bg-slate-50 font-bold font-mono tabular-nums text-sm text-slate-900">
                 <tr>
                   <td className="px-2 py-2.5 text-center border-r border-slate-200 font-bold">总计</td>
                   <td className="px-2 py-2.5 text-center text-slate-900 font-bold">810</td>

@@ -35,14 +35,14 @@
     --report-space-8: 44px;
     --report-space-9: 52px;
     --report-space-10: 64px;
-    --report-font-caption: 13.5px;
-    --report-font-small: 15px;
-    --report-font-body: 16px;
-    --report-font-emphasis: 17.5px;
-    --report-font-panel-title: 20px;
-    --report-font-section-title: 24px;
-    --report-font-chapter-title: 28px;
-    --report-font-cover-title: 40px;
+    --report-font-caption: 14px;
+    --report-font-small: 15.5px;
+    --report-font-body: 16.5px;
+    --report-font-emphasis: 18px;
+    --report-font-panel-title: 21px;
+    --report-font-section-title: 25px;
+    --report-font-chapter-title: 30px;
+    --report-font-cover-title: 42px;
     --report-weight-regular: 400;
     --report-weight-medium: 500;
     --report-weight-semibold: 600;
@@ -124,15 +124,18 @@
 
   .report-shell .text-slate-500,
   .report-shell .text-gray-500 {
+    color: #475569 !important;
+  }
+
+  .report-shell .text-slate-600 {
+    color: #334155 !important;
+  }
+
+  .report-shell .text-slate-700 {
     color: #1e293b !important;
   }
 
-  .report-shell .text-slate-600,
-  .report-shell .text-slate-700,
-  .report-shell .text-slate-800 {
-    color: #0f172a !important;
-  }
-
+  .report-shell .text-slate-800,
   .report-shell .text-slate-900 {
     color: var(--report-ink) !important;
   }

@@ -368,14 +368,14 @@ export const AuditOverviewSportsInterception: React.FC = () => {
                   </th>
                 ))}
               </tr>
-              <tr className="border-b-2 border-slate-900 text-slate-700 font-bold text-xs">
+              <tr className="border-b-2 border-slate-900 text-slate-700 font-bold text-xs sm:text-sm">
                 {categoryDetailColumns.flatMap((_, index) => [
                   <th key={`${index}-amount`} className="text-center py-1.5">金额</th>,
                   <th key={`${index}-pct`} className={`text-center py-1.5 ${index < categoryDetailColumns.length - 1 ? "border-r border-slate-200" : ""}`}>占比</th>,
                 ])}
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-slate-100 font-mono tabular-nums text-xs">
+            <tbody className="bg-white divide-y divide-slate-100 font-mono tabular-nums text-xs sm:text-sm">
               {categoryDetailData.map((row, idx) => {
                 return (
                   <tr key={idx} className={idx % 2 === 0 ? "bg-white" : "bg-slate-50/50"}>
@@ -394,7 +394,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
                 );
               })}
             </tbody>
-            <tfoot className="border-t-2 border-b-2 border-slate-900 bg-slate-50 font-mono tabular-nums text-xs text-slate-900 font-bold">
+            <tfoot className="border-t-2 border-b-2 border-slate-900 bg-slate-50 font-mono tabular-nums text-xs sm:text-sm text-slate-900 font-bold">
               <tr className="border-b border-slate-200">
                 <td className="text-center font-bold border-r border-slate-200 py-2.5">小计</td>
                 <td className="text-center tabular-nums text-blue-900 font-bold border-r border-slate-200 py-2.5">{categoryDetailSubtotal.total}</td>

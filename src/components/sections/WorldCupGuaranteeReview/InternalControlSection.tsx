@@ -207,7 +207,7 @@ export const InternalControlSection: React.FC = () => {
                 </div>
                 <div className="pb-2">
                   <span className="font-bold text-slate-900 block text-sm mb-0.5">背景</span>
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+                  <p className="text-sm text-slate-700 leading-relaxed font-normal">
                     {highlightNumbers("外包团队审核质量长期未达预期，且日常审计已查实存在[[内部数据泄露]]风险案例；以此为契机，稽查于5月全面启动[[外包专项治理]]。")}
                   </p>
                 </div>
@@ -220,7 +220,7 @@ export const InternalControlSection: React.FC = () => {
                 </div>
                 <div className="pb-2">
                   <span className="font-bold text-slate-900 block text-sm mb-0.5">专项跟进与录屏分析</span>
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+                  <p className="text-sm text-slate-700 leading-relaxed font-normal">
                     {highlightNumbers("对全量外包账号展开深度跟进与录屏抽检。结果表明，审核环节中的[[不规范操作占比高达 33%]]，存在极大的安全隐患。")}
                   </p>
                 </div>
@@ -232,7 +232,7 @@ export const InternalControlSection: React.FC = () => {
                 </div>
                 <div>
                   <span className="font-bold text-slate-900 block text-sm mb-0.5">深度挖掘与处理情况</span>
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+                  <p className="text-sm text-slate-700 leading-relaxed font-normal">
                     {highlightNumbers("通过对外包相关责任人的专项监控，最终锁定并查实其涉嫌严重渎职、内外勾结违规操作，甚至利用职务便利进行[[不当获利]]的恶劣违规行为。")}
                   </p>
                 </div>
@@ -254,7 +254,7 @@ export const InternalControlSection: React.FC = () => {
                 </div>
                 <div className="pb-2">
                   <span className="font-bold text-slate-900 block text-sm mb-0.5">违规类型</span>
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+                  <p className="text-sm text-slate-700 leading-relaxed font-normal">
                     {highlightNumbers("[[业绩造假]]：员工通过伪造业务过程材料，虚构用户参与记录，以此违规完成个人业绩指标。")}
                   </p>
                 </div>
@@ -267,7 +267,7 @@ export const InternalControlSection: React.FC = () => {
                 </div>
                 <div className="pb-2">
                   <span className="font-bold text-slate-900 block text-sm mb-0.5">发现情况</span>
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+                  <p className="text-sm text-slate-700 leading-relaxed font-normal">
                     {highlightNumbers("用户中心多位员工利用[[图像合成工具]]伪造与用户的对话记录，伪装用户参与记录，造成业绩数据失真。")}
                   </p>
                 </div>
@@ -279,7 +279,7 @@ export const InternalControlSection: React.FC = () => {
                 </div>
                 <div>
                   <span className="font-bold text-slate-900 block text-sm mb-0.5">风险影响</span>
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+                  <p className="text-sm text-slate-700 leading-relaxed font-normal">
                     {highlightNumbers("该行为直接破坏[[业绩考核真实性]]与活动执行合规性，需纳入异常素材复核、聊天记录交叉验证和人员绩效审计范围。")}
                   </p>
                 </div>
