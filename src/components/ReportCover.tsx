@@ -13,9 +13,10 @@ export const ReportCover: React.FC = () => {
     { id: "2.0", title: "数据概览", subtitle: "审核时效与拦截分析" },
     { id: "3.0", title: "内控概览", subtitle: "质检合规与运营监控" },
     { id: "4.0", title: "风控工单", subtitle: "工单处理与流转时效" },
-    { id: "5.0", title: "系统审核", subtitle: "审单演变与智能直出" },
-    { id: "6.0", title: "业务概览", subtitle: "人效分析与专案防控" },
-    { id: "7.0", title: "套利指数", subtitle: "活动与跨站套利治理" },
+    { id: "5.0", title: "安全升级", subtitle: "敏感数据与高危操作管控" },
+    { id: "6.0", title: "系统审核", subtitle: "审单演变与智能直出" },
+    { id: "7.0", title: "业务概览", subtitle: "人效分析与专案防控" },
+    { id: "8.0", title: "套利指数", subtitle: "活动与跨站套利治理" },
   ];
 
   const handleScrollToSection = (sectionId: string) => {

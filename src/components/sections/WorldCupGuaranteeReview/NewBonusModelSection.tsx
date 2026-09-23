@@ -25,7 +25,7 @@ import { SummaryBox, highlightNumbers } from "./utils";
 export const NewBonusModelSection: React.FC = () => {
   return (
     <div className="space-y-6">
-      <ReportSectionHeader title="7.4 套利指数模型与机制升级" />
+      <ReportSectionHeader title="8.4 套利指数模型与机制升级" />
 
       {/* 核心理念说明：精准结构性调整，发的合理 ≠ 盲目少发 */}
       <div className="bg-white border border-slate-200 border-t-2 border-t-slate-900 p-4 sm:p-5 space-y-3.5">
@@ -106,19 +106,19 @@ export const NewBonusModelSection: React.FC = () => {
       <SummaryBox variant="module">
         <p className="text-sm md:text-base text-slate-700 leading-relaxed font-normal">
           {highlightNumbers(
-            "全面推行[[套利指数自动化与人工过检模型]]，覆盖全渠道红利发放场景。通过游戏输赢比、存提杠杆等多维特征[[动态计算综合风险分值]]，实现[[阶梯式精细处置与隐性打标兜底]]，彻底杜绝发奖套利漏洞。"
+            "推行[[套利指数自动化评估与人工复核机制]]，覆盖各类红利发放场景。通过游戏输赢比、存提杠杆等多维数据[[动态计算综合风险分值]]，实现[[分级精细调配与提款环节复核]]，有效防范活动套利漏洞。"
           )}
         </p>
       </SummaryBox>
 
-      {/* 升级前后机制变化对比 (严格参照【关键事项与能力跃迁】的呈现形式和结构) */}
+      {/* 升级前后机制变化对比 */}
       <div className="bg-slate-50 border border-slate-200 p-5 space-y-4">
         <div className="border-b border-slate-200 pb-3 space-y-1.5">
           <span className="text-base font-bold text-slate-900">
-            机制模式升级与能力跃迁
+            红利风控机制优化前后对比
           </span>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-            围绕红利全生命周期风险管控，从 <span className="font-semibold text-slate-900 font-mono">2025年四季度</span> 启动重构，历时三期迭代完成由“事后离线排查”向“事前事中实时量化防御与隐性兜底”的体系性跃迁。
+            围绕红利申请与发放流程，从 <span className="font-semibold text-slate-900 font-mono">2025年四季度</span> 开始持续优化，经过三期迭代，逐步实现从“事后离线排查”到“事前事中实时规则校验与分层处置”的转变。
           </p>
         </div>
 
@@ -144,13 +144,13 @@ export const NewBonusModelSection: React.FC = () => {
                   </span>
                 </div>
 
-                {/* 中间 跃迁升级 */}
+                {/* 中间 优化升级 */}
                 <div className="sm:col-span-2 flex flex-col items-center justify-center py-1 sm:py-0">
                   <div className="px-3 py-1 rounded bg-slate-900 text-white font-mono font-bold text-xs sm:text-sm whitespace-nowrap mb-1 tracking-tight">
                     100%全量覆盖
                   </div>
                   <span className="text-xs font-bold tracking-wider text-slate-700 select-none">
-                    跃迁升级
+                    优化升级
                   </span>
                 </div>
 
@@ -193,13 +193,13 @@ export const NewBonusModelSection: React.FC = () => {
                   </span>
                 </div>
 
-                {/* 中间 跃迁升级 */}
+                {/* 中间 优化升级 */}
                 <div className="sm:col-span-2 flex flex-col items-center justify-center py-1 sm:py-0">
                   <div className="px-3 py-1 rounded bg-slate-900 text-white font-mono font-bold text-xs sm:text-sm whitespace-nowrap mb-1 tracking-tight">
                     秒级实时决策
                   </div>
                   <span className="text-xs font-bold tracking-wider text-slate-700 select-none">
-                    跃迁升级
+                    优化升级
                   </span>
                 </div>
 
@@ -242,13 +242,13 @@ export const NewBonusModelSection: React.FC = () => {
                   </span>
                 </div>
 
-                {/* 中间 跃迁升级 */}
+                {/* 中间 优化升级 */}
                 <div className="sm:col-span-2 flex flex-col items-center justify-center py-1 sm:py-0">
                   <div className="px-3 py-1 rounded bg-slate-900 text-white font-mono font-bold text-xs sm:text-sm whitespace-nowrap mb-1 tracking-tight">
                     多维套利算法
                   </div>
                   <span className="text-xs font-bold tracking-wider text-slate-700 select-none">
-                    跃迁升级
+                    优化升级
                   </span>
                 </div>
 
@@ -291,13 +291,13 @@ export const NewBonusModelSection: React.FC = () => {
                   </span>
                 </div>
 
-                {/* 中间 跃迁升级 */}
+                {/* 中间 优化升级 */}
                 <div className="sm:col-span-2 flex flex-col items-center justify-center py-1 sm:py-0">
                   <div className="px-3 py-1 rounded bg-slate-900 text-white font-mono font-bold text-xs sm:text-sm whitespace-nowrap mb-1 tracking-tight">
-                    自动隐性打标
+                    自动风险标记
                   </div>
                   <span className="text-xs font-bold tracking-wider text-slate-700 select-none">
-                    跃迁升级
+                    优化升级
                   </span>
                 </div>
 
@@ -307,14 +307,14 @@ export const NewBonusModelSection: React.FC = () => {
                     现在
                   </span>
                   <span className="text-lg sm:text-xl font-bold text-blue-950 tracking-tight">
-                    隐性打标+出款联防兜底
+                    风险标记+提款联动复核
                   </span>
                 </div>
               </div>
 
               {/* 通俗大白话业务场景示例 */}
               <div className="pt-2.5 border-t border-slate-200 text-xs sm:text-sm text-slate-800 leading-relaxed font-normal bg-slate-100/70 p-2.5 border border-slate-200">
-                <strong className="text-slate-950 font-bold">【业务场景示例】</strong>原来手工派发绕过系统后彻底失控；现在如遇客诉或特邀产生<strong>人工强行特批</strong>，系统自动向账号注入隐性风险标签，前端正常到账不激发矛盾，后端提款环节直接触发严审，实现资金零流失。
+                <strong className="text-slate-950 font-bold">【业务场景示例】</strong>原来手工派发缺乏系统跟踪，容易出现遗漏；现在如因特殊情况需要人工审批派发，系统会自动附加风险关注标记，提款环节自动进行流水与注单复核，保障资金安全。
               </div>
             </div>
           </ReportDimensionCard>
@@ -418,7 +418,7 @@ export const NewBonusModelSection: React.FC = () => {
                     </div>
                     <div className="flex items-center justify-between pb-1 border-b border-slate-100">
                       <span className="font-bold text-slate-800">杠杆偏离</span>
-                      <span className="text-slate-600 font-mono text-[11px]">存款杠杆 / 盈利造血</span>
+                      <span className="text-slate-600 font-mono text-[11px]">存款杠杆 / 盈利贡献</span>
                     </div>
                     <div className="flex items-center justify-between pb-1 border-b border-slate-100">
                       <span className="font-bold text-slate-800">异常行为</span>

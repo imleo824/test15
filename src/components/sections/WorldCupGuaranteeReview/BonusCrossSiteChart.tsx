@@ -39,7 +39,7 @@ export const simpleComparisonData: SimpleCrossSiteDataPoint[] = [
     depositLeverage: 15.00,
     profitLeverage: 1.31,
     color: chartColors.blue,
-    note: "真实娱乐沉淀，无跨站对冲洗水，盈利杠杆 1.31倍 健康造血",
+    note: "真实娱乐沉淀，无跨站对冲洗水，盈利杠杆 1.31倍 正向贡献",
   },
   {
     dimension: "套利群体 (1人多号)",
@@ -55,7 +55,7 @@ export const simpleComparisonData: SimpleCrossSiteDataPoint[] = [
 export const BonusCrossSiteChart: React.FC = () => {
   return (
     <div className="space-y-4">
-      <ReportSectionHeader title="7.3 跨站多账户穿透对比" />
+      <ReportSectionHeader title="8.3 跨站多账户穿透对比" />
 
       <SummaryBox>
         {highlightNumbers(
@@ -118,10 +118,10 @@ export const BonusCrossSiteChart: React.FC = () => {
 
         <ReportChartCard
           title="跨站穿透·盈利杠杆对比"
-          subtitle="真实造血贡献穿透"
+          subtitle="实际盈利贡献穿透"
           value="输赢 ÷ 红利"
-          description="穿透后真实玩家贡献 1.31倍 健康造血；而套利群体单人多领 3.5倍 红利，真实盈利杠杆暴跌至 0.05倍，是预算无效流失核心根源。"
-          footnote="注：1.0倍 为基准造血线，低于 0.1倍 判定为严重套利消耗。"
+          description="穿透后真实玩家贡献 1.31倍 正向盈利；而套利群体单人多领 3.5倍 红利，真实盈利杠杆降至 0.05倍，是预算无效流失核心根源。"
+          footnote="注：1.0倍 为基准线，低于 0.1倍 判定为严重套利消耗。"
         >
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={simpleComparisonData} margin={chartMargins.compact}>

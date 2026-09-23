@@ -23,22 +23,22 @@ export const BonusEfficiencySection: React.FC = () => {
         </div>
       </div>
 
-      {/* 7.1 红利杠杆走势 */}
+      {/* 8.1 红利杠杆走势 */}
       <div className="report-panel-stack border-t-2 border-slate-900 pt-5">
         <BonusMacroTrendChart />
       </div>
 
-      {/* 7.2 会员等级能效对比 */}
+      {/* 8.2 会员等级能效对比 */}
       <div className="report-panel-stack border-t border-slate-200 pt-5">
         <BonusVipSpectrumChart />
       </div>
 
-      {/* 7.3 跨站多账户穿透对比 */}
+      {/* 8.3 跨站多账户穿透对比 */}
       <div className="report-panel-stack border-t border-slate-200 pt-5">
         <BonusCrossSiteChart />
       </div>
 
-      {/* 7.4 全新的红利模型 */}
+      {/* 8.4 全新的红利模型 */}
       <div className="report-panel-stack border-t border-slate-200 pt-5">
         <NewBonusModelSection />
       </div>

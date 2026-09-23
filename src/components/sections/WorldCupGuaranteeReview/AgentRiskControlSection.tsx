@@ -19,7 +19,7 @@ export const AgentRiskControlSection: React.FC = () => {
 
   return (
     <div id="section-agent-risk-control" className="report-business-section">
-      <ReportSectionHeader title="6.3 代理审核" />
+      <ReportSectionHeader title="7.3 代理审核" />
 
       {/* 核心价值、核心目标、整体进度模块 */}
       <ModuleStatusCard

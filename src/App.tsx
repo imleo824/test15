@@ -20,7 +20,7 @@ export default function App() {
             <ReportCover />
           </div>
 
-          {/* 世界杯 Guarantee Review (Chapters 1.0 - 7.0) */}
+          {/* 世界杯 Guarantee Review (Chapters 1.0 - 8.0) */}
           <div id="fk-world-cup-review" className="scroll-mt-14">
             <WorldCupGuaranteeReview />
           </div>

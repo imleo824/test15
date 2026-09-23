@@ -22,7 +22,7 @@ const flywheelSteps = [
     icon: BarChart3,
     tone: "blue",
     className: "business-flywheel-card-one",
-    tag: "破局点 / 切入点",
+    tag: "关键切入点",
   },
   {
     number: "2",
@@ -61,7 +61,7 @@ const flywheelSteps = [
 export const ZZOverview: React.FC = () => {
   return (
     <div className="space-y-6">
-      <ReportSectionHeader title="6.1 整体态势与人效" />
+      <ReportSectionHeader title="7.1 整体态势与人效" />
       <div className="report-card business-flywheel-shell p-6 overflow-hidden">
         <div className="business-flywheel">
         {/* 页眉标题 */}

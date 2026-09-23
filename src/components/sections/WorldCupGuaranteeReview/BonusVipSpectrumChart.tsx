@@ -36,9 +36,9 @@ export interface VipSpectrumDataPoint {
 export const vipSpectrumData: VipSpectrumDataPoint[] = [
   { vip: "0级", vipLabel: "0级", netRate: -1.45, profitLeverage: -0.14, depLeverage: 11.2, bonus: 18.2, rebate: 9.8, userCount: "14,500人", roleType: "黑产套利重灾区" },
   { vip: "1级", vipLabel: "1级", netRate: 1.85, profitLeverage: 0.28, depLeverage: 12.1, bonus: 42.0, rebate: 23.5, userCount: "8,900人", roleType: "浅度转化" },
-  { vip: "2级", vipLabel: "2级", netRate: 4.20, profitLeverage: 0.62, depLeverage: 13.5, bonus: 65.0, rebate: 36.0, userCount: "6,200人", roleType: "初具造血" },
+  { vip: "2级", vipLabel: "2级", netRate: 4.20, profitLeverage: 0.62, depLeverage: 13.5, bonus: 65.0, rebate: 36.0, userCount: "6,200人", roleType: "初具盈利贡献" },
   { vip: "3级", vipLabel: "3级", netRate: 6.50, profitLeverage: 0.95, depLeverage: 14.2, bonus: 78.0, rebate: 44.0, userCount: "4,500人", roleType: "健康基本盘" },
-  { vip: "4级", vipLabel: "4级", netRate: 8.80, profitLeverage: 1.25, depLeverage: 15.0, bonus: 85.0, rebate: 49.0, userCount: "3,100人", roleType: "高造血骨干" },
+  { vip: "4级", vipLabel: "4级", netRate: 8.80, profitLeverage: 1.25, depLeverage: 15.0, bonus: 85.0, rebate: 49.0, userCount: "3,100人", roleType: "高贡献客群" },
   { vip: "5级", vipLabel: "5级", netRate: 9.90, profitLeverage: 1.48, depLeverage: 15.6, bonus: 76.0, rebate: 45.0, userCount: "1,950人", roleType: "高粘性客群" },
   { vip: "6级", vipLabel: "6级", netRate: 10.80, profitLeverage: 1.68, depLeverage: 16.2, bonus: 68.0, rebate: 41.0, userCount: "1,120人", roleType: "核心利润源" },
   { vip: "7级", vipLabel: "7级", netRate: 11.60, profitLeverage: 1.85, depLeverage: 16.9, bonus: 58.0, rebate: 36.0, userCount: "620人", roleType: "高客单大户" },
@@ -93,11 +93,11 @@ const renderProfitLeverageLabel = (props: any) => {
 export const BonusVipSpectrumChart: React.FC = () => {
   return (
     <div className="space-y-4">
-      <ReportSectionHeader title="7.2 会员等级能效对比" />
+      <ReportSectionHeader title="8.2 会员等级能效对比" />
 
       <SummaryBox>
         {highlightNumbers(
-          "会员盈利杠杆呈现清晰的分水岭：[[0级会员呈现 -0.14倍 负杠杆倒挂]]（黑产套利集中），自 [[4级会员起跨入 1.25倍 健康造血区]]，至 [[10级会员攀升至 2.52倍]]，预算应严格向高等级倾斜。"
+          "会员盈利杠杆呈现清晰的分水岭：[[0级会员呈现 -0.14倍 负杠杆倒挂]]（黑产套利集中），自 [[4级会员起跨入 1.25倍 正向贡献区]]，至 [[10级会员攀升至 2.52倍]]，预算应严格向高等级倾斜。"
         )}
       </SummaryBox>
 
@@ -110,13 +110,13 @@ export const BonusVipSpectrumChart: React.FC = () => {
           detail="从 0级 至 10级 随会员等级阶梯上升"
         />
         <ReportMetricCard
-          title="盈利造血分水岭"
+          title="盈利贡献分水岭"
           value="-0.14 ➔ +2.52"
           unit="倍"
-          detail="0级倒挂亏损，4级及以上进入正向造血"
+          detail="0级倒挂亏损，4级及以上进入正向盈利区间"
         />
         <ReportMetricCard
-          title="高等级造血倍率"
+          title="高等级盈利倍率"
           value="+2.66"
           unit="倍"
           detail="10级较0级盈利杠杆提升，资源向中高阶倾斜"
@@ -159,10 +159,10 @@ export const BonusVipSpectrumChart: React.FC = () => {
 
         <ReportChartCard
           title="各会员等级盈利杠杆梯度"
-          subtitle="全等级造血与套利分水岭"
+          subtitle="全等级盈利贡献与套利分水岭"
           value="输赢 ÷ 红利"
-          description="0级会员出现 -0.14倍 严重负倒挂（首存套利重灾区）；自 4级会员跨入 1.25倍 健康造血区分水岭，至 10级会员攀升至 2.52倍 优质造血。"
-          footnote="注：0.0倍 为盈亏平衡线（实线），1.0倍 为优质造血分界线（虚线）。"
+          description="0级会员出现 -0.14倍 严重负倒挂（首存套利集中）；自 4级会员跨入 1.25倍 正向贡献区分水岭，至 10级会员攀升至 2.52倍 优质盈利贡献。"
+          footnote="注：0.0倍 为盈亏平衡线（实线），1.0倍 为健康贡献分界线（虚线）。"
         >
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={vipSpectrumData} margin={chartMargins.compact}>

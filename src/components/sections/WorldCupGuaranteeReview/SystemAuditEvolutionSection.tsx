@@ -21,14 +21,14 @@ import { SmartDispatchOrderStructure } from "./SmartDispatchOrderStructure";
 export const SystemAuditEvolutionSection: React.FC = () => {
   return (
     <div id="section-system-audit-evolution" className="space-y-8">
-      {/* 5.1 审单模式翻转 */}
+      {/* 6.1 审单模式翻转 */}
       <div className="space-y-4">
-        <ReportSectionHeader title="5.1 审单模式翻转" />
+        <ReportSectionHeader title="6.1 审单模式演进" />
 
         {/* 统一文字说明：一句话总结 */}
         <SummaryBox variant="module">
           {highlightNumbers(
-            "从 [[2025年四季度]] 开始规划，分步、拆期稳妥推进，历时近一年至 [[2026年三季度]] 最终完成了整个风控体系的深度重构。审单模式由“人工为主”向[[“系统自动为主、人工兜底”]]彻底翻转：系统审核占比从 [[45.0%]] 飙升至 [[80.0%]]（人工审核从 [[55.0%]] 降至 [[20.0%]]），驱动产生等效人力节省 [[63.6%]]（相当于替代 46 名人工审单员工作量）与出款时效提速 [[87.0%]]（由 18.5分 降至 2.4分）两大核心收益。"
+            "从 [[2025年四季度]] 开始规划，分步、拆期推进，至 [[2026年三季度]] 逐步完成了风控审核流程优化。审单模式由“人工为主”向[[“系统自动为主、人工复核为辅”]]转变：系统审核占比从 [[45.0%]] 提升至 [[80.0%]]（人工审核从 [[55.0%]] 降至 [[20.0%]]），带来等效人力节省 [[63.6%]]（相当于减少 46 名人工审单负荷）与出款时效提速 [[87.0%]]（由 18.5分 缩短至 2.4分）两大实际成效。"
           )}
         </SummaryBox>
 
@@ -112,9 +112,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
         </div>
       </div>
 
-      {/* 5.2 带来核心收益 */}
+      {/* 6.2 带来核心收益 */}
       <div className="space-y-4">
-        <ReportSectionHeader title="5.2 带来核心收益" />
+        <ReportSectionHeader title="6.2 带来核心收益" />
 
         {/* 核心收益一句话说明 */}
         <SummaryBox variant="module">
@@ -232,23 +232,23 @@ export const SystemAuditEvolutionSection: React.FC = () => {
         </div>
       </div>
 
-      {/* 5.3 智能风控体系架构 */}
+      {/* 6.3 智能风控体系架构 */}
       <div id="section-cloud-shield-system" className="space-y-4">
-        <ReportSectionHeader title="5.3 云盾风控体系" />
+        <ReportSectionHeader title="6.3 云盾风控体系" />
 
-        {/* 破局总结：直接说明机制与支撑 */}
+        {/* 机制与支撑说明 */}
           <div className="p-4 bg-slate-50 border border-slate-200 border-l-4 border-l-blue-700 text-sm sm:text-base font-medium text-slate-800 leading-relaxed">
-            <strong>底层支撑机制：</strong>前述模式翻转与效能跃迁由自建云盾闭环体系支撑。通过 <strong>策略矩阵校验 ➔ 风险评分 ➔ 动态决策 ➔ 效果反馈</strong> 四大环节，精确界定全自动放行与人工兜底边界，筑牢 80.0% 自动化底座。
+            <strong>支撑机制：</strong>前述审核模式优化由云盾风控系统支持。通过 <strong>策略矩阵校验 ➔ 风险评分 ➔ 动态决策 ➔ 效果反馈</strong> 四个环节，明确系统自动放行与人工复审的分工边界，支撑 80.0% 自动化放行目标。
           </div>
 
-          {/* 关键能力跃迁对比：原来 与 现在 */}
+          {/* 关键能力对比：原来 与 现在 */}
           <div className="bg-slate-50 border border-slate-200 p-5 space-y-4">
             <div className="border-b border-slate-200 pb-3 space-y-1.5">
               <span className="text-base font-bold text-slate-900">
-                关键事项与能力跃迁
+                关键机制优化前后对比
               </span>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                从 <span className="font-semibold text-slate-900 font-mono">2025年四季度</span> 开始规划，分步、拆期稳妥推进，历时近一年至 <span className="font-semibold text-slate-900 font-mono">2026年三季度</span> 最终完成了整个风控体系的深度重构。
+                从 <span className="font-semibold text-slate-900 font-mono">2025年四季度</span> 开始规划，分步推进，至 <span className="font-semibold text-slate-900 font-mono">2026年三季度</span> 逐步完成了风控审核机制的全面优化。
               </p>
             </div>
 
@@ -274,13 +274,13 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       </span>
                     </div>
 
-                    {/* 中间 跃迁升级 */}
+                    {/* 中间 优化升级 */}
                     <div className="sm:col-span-2 flex flex-col items-center justify-center py-1 sm:py-0">
                       <div className="px-3 py-1 rounded bg-slate-900 text-white font-mono font-bold text-xs sm:text-sm whitespace-nowrap mb-1 tracking-tight">
                         +29套利规则
                       </div>
                       <span className="text-xs font-bold tracking-wider text-slate-700 select-none">
-                        跃迁升级
+                        优化升级
                       </span>
                     </div>
 
@@ -323,13 +323,13 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       </span>
                     </div>
 
-                    {/* 中间 跃迁升级 */}
+                    {/* 中间 优化升级 */}
                     <div className="sm:col-span-2 flex flex-col items-center justify-center py-1 sm:py-0">
                       <div className="px-3 py-1 rounded bg-slate-900 text-white font-mono font-bold text-xs sm:text-sm whitespace-nowrap mb-1 tracking-tight">
                         毫秒级直连
                       </div>
                       <span className="text-xs font-bold tracking-wider text-slate-700 select-none">
-                        跃迁升级
+                        优化升级
                       </span>
                     </div>
 
@@ -372,13 +372,13 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       </span>
                     </div>
 
-                    {/* 中间 跃迁升级 */}
+                    {/* 中间 优化升级 */}
                     <div className="sm:col-span-2 flex flex-col items-center justify-center py-1 sm:py-0">
                       <div className="px-3 py-1 rounded bg-slate-900 text-white font-mono font-bold text-xs sm:text-sm whitespace-nowrap mb-1 tracking-tight">
                         动态量化分值
                       </div>
                       <span className="text-xs font-bold tracking-wider text-slate-700 select-none">
-                        跃迁升级
+                        优化升级
                       </span>
                     </div>
 
@@ -421,13 +421,13 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       </span>
                     </div>
 
-                    {/* 中间 跃迁升级 */}
+                    {/* 中间 优化升级 */}
                     <div className="sm:col-span-2 flex flex-col items-center justify-center py-1 sm:py-0">
                       <div className="px-3 py-1 rounded bg-slate-900 text-white font-mono font-bold text-xs sm:text-sm whitespace-nowrap mb-1 tracking-tight">
                         多因子匹配
                       </div>
                       <span className="text-xs font-bold tracking-wider text-slate-700 select-none">
-                        跃迁升级
+                        优化升级
                       </span>
                     </div>
 
@@ -470,13 +470,13 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       </span>
                     </div>
 
-                    {/* 中间 跃迁升级 */}
+                    {/* 中间 优化升级 */}
                     <div className="sm:col-span-2 flex flex-col items-center justify-center py-1 sm:py-0">
                       <div className="px-3 py-1 rounded bg-slate-900 text-white font-mono font-bold text-xs sm:text-sm whitespace-nowrap mb-1 tracking-tight">
                         一站式工具链
                       </div>
                       <span className="text-xs font-bold tracking-wider text-slate-700 select-none">
-                        跃迁升级
+                        优化升级
                       </span>
                     </div>
 

@@ -117,11 +117,11 @@ export const macroTrendLeverageData: MacroTrendLeveragePoint[] = [
 export const BonusMacroTrendChart: React.FC = () => {
   return (
     <div className="space-y-4">
-      <ReportSectionHeader title="7.1 红利杠杆走势" />
+      <ReportSectionHeader title="8.1 红利杠杆走势" />
 
       <SummaryBox>
         {highlightNumbers(
-          "正常用户[[盈利杠杆 0.42倍]]保持正向造血，而风控用户盈利杠杆从 [[0.67倍]] 暴跌至 [[0.02倍]] 几近归零，达标流水后即刻提现，呈现显著的套利洗水特征。"
+          "正常用户[[盈利杠杆 0.42倍]]保持正向盈利贡献，而风控用户盈利杠杆从 [[0.67倍]] 持续下滑至 [[0.02倍]] 几近归零，达标流水后即刻提现，呈现显著的套利洗水特征。"
         )}
       </SummaryBox>
 
@@ -161,7 +161,7 @@ export const BonusMacroTrendChart: React.FC = () => {
                   <span className="text-sm font-bold text-slate-700">倍</span>
                 </div>
                 <p className="text-sm text-slate-700 font-normal border-t border-slate-200 pt-1 mt-1">
-                  保持正向造血与沉淀
+                  保持正向盈利贡献
                 </p>
               </div>
             </div>
@@ -227,7 +227,7 @@ export const BonusMacroTrendChart: React.FC = () => {
               <Legend wrapperStyle={chartLegendStyle} />
               <Line type="monotone" dataKey="normalDepLeverage" name="正常用户" stroke={chartColors.green} strokeWidth={2.5} dot={{ r: 3, fill: chartColors.green }} isAnimationActive={false} />
               <Line type="monotone" dataKey="riskDepLeverage" name="风控用户" stroke={chartColors.red} strokeWidth={2.5} strokeDasharray="4 2" dot={{ r: 3, fill: chartColors.red }} isAnimationActive={false} />
-              <Line type="monotone" dataKey="allDepLeverage" name="全盘均值" stroke={chartColors.blue} strokeWidth={2} strokeDasharray="3 3" dot={{ r: 2.5, fill: chartColors.blue }} isAnimationActive={false} />
+              <Line type="monotone" dataKey="allDepLeverage" name="整体均值" stroke={chartColors.blue} strokeWidth={2} strokeDasharray="3 3" dot={{ r: 2.5, fill: chartColors.blue }} isAnimationActive={false} />
             </LineChart>
           </ResponsiveContainer>
         </ReportChartCard>
@@ -235,8 +235,8 @@ export const BonusMacroTrendChart: React.FC = () => {
         <ReportChartCard
           title="红利撬动盈利杠杆走势"
           value="输赢 ÷ 红利"
-          description="正常用户保持 0.42倍 正向造血产出；而风控套利群体断崖式下跌至 0.02倍 利润几近归零，暴露出达标流水即提现的洗水特征。"
-          footnote="注：盈利杠杆 = 周期内游戏输赢 ÷ 红利总投入（正值代表平台造血，趋近0代表套利侵蚀）。"
+          description="正常用户保持 0.42倍 正向盈利贡献；而风控套利群体断崖式下跌至 0.02倍 利润几近归零，暴露出达标流水即提现的洗水特征。"
+          footnote="注：盈利杠杆 = 周期内游戏输赢 ÷ 红利总投入（正值代表平台净收益贡献，趋近0代表套利侵蚀）。"
         >
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={macroTrendLeverageData} margin={chartMargins.compact}>
