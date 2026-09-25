@@ -154,7 +154,7 @@ export const AuditOverviewAgentInterception: React.FC = () => {
               <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-slate-700 shrink-0" />
               <span>
                 {highlightNumbers(
-                  "[[佣金]]：含基础及额外，总占比达 [[62.42%]]，核心为[[基础佣金]]与[[扶持降档]]",
+                  "[[佣金]]：含基础及额外，总占比达 [[62.42%]]，核心为[[基础佣金]]与[[扶持降档]]。",
                 )}
               </span>
             </li>

@@ -46,7 +46,7 @@ export const InternalControlSection: React.FC = () => {
     <div id="section-internal-control" className="space-y-12">
       <SummaryBox variant="chapter">
         {highlightNumbers(
-          "全方位监控内外勾结行为，聚焦[[红利发放]]、[[敏感参数]]、[[异常登录]]等高危场景。建立完整的行为追溯机制，确保所有内部管理动作有据可查，实现异常[[即时预警与快速处置]]。",
+          "聚焦[[红利发放]]、[[敏感参数]]与[[异常登录]]等高危场景，全方位稽查内外违规协作与数据泄露隐患。依托行为留痕与操作日志实现全链路可追溯，确保[[即时预警与快速处置]]。",
         )}
       </SummaryBox>
 
@@ -68,7 +68,7 @@ export const InternalControlSection: React.FC = () => {
         <ReportMetricGrid columns={3}>
           <ReportMetricCard
             title="红利类型派错"
-            value="1143"
+            value="1,143"
             unit="人"
             detail={highlightNumbers("通过[[每日复核机制]]查获并退回；涉及金额 [[36.69]]")}
           />
@@ -86,7 +86,7 @@ export const InternalControlSection: React.FC = () => {
           />
           <ReportMetricCard
             title="用户信息修改"
-            value="17166"
+            value="17,166"
             unit="条"
             detail={highlightNumbers("修改漏记/错记[[248条]]")}
           />

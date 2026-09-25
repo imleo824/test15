@@ -6,32 +6,32 @@ export const PersonnelDistribution: React.FC = () => {
   const policyItems = [
     {
       title: "人员优化",
-      content: "[[人员优化]]：全新云盾体系推全后逐步开始[[优化人员结构]]；",
+      content: "依托系统自动化推进[[编制集约化]]，持续优化在册人员技能与岗位结构；",
     },
     {
       title: "场地优化",
-      content: "[[场地分配]]：[[办公场地]]动态优化，[[各职场场地均匀调整]]；",
+      content: "结合各职场承载力[[动态平衡工位]]，保持各职场资源集约高效利用；",
     },
     {
       title: "考核机制",
-      content: "[[优胜劣汰]]：深化[[考核机制]]，实现[[优胜劣汰]]，增加[[专业类人员]]；",
+      content: "落实全流程量化考核与[[末位淘汰]]，编制向[[专业分析岗位]]实质倾斜；",
     },
     {
       title: "流程优化",
-      content: "[[流程优化]]：裁撤[[冗余的内外协作流程]]，全面[[提升执行效率]]与安全性。",
+      content: "裁撤跨部门[[冗余流转节点]]，压缩协同链路，全面[[提升执行效率]]与合规安全。",
     },
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       {/* 核心战略导语 */}
       <SummaryBox variant="chapter">
-        <div className="space-y-1">
-          <h3 className="text-lg font-bold text-slate-900">
-            深化人员结构精细化管理，全新云盾体系推全后逐步优化人员结构，提升专业人效与风控安全
+        <div className="space-y-1.5">
+          <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+            推进编制集约化管理，依托系统自动化优化队伍结构，提升专职风控人效
           </h3>
           <p className="text-sm md:text-base text-slate-700 leading-relaxed font-normal">
-            全新云盾体系推全后逐步开始优化人员结构、动态优化办公场地分配，实现优胜劣汰与专业化提质。
+            动态平衡职场场地配比，严格执行量化考核与优胜劣汰，稳妥推进外包剥离与专业化升级。
           </p>
         </div>
       </SummaryBox>
@@ -39,14 +39,14 @@ export const PersonnelDistribution: React.FC = () => {
       {/* 1.1 组织治理核心举措 (条形矩阵) */}
       <div className="space-y-4">
         <ReportSectionHeader title="1.1 组织治理核心举措" />
-        <div className="border border-slate-200 bg-white p-4 space-y-3">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs">
+        <div className="border border-slate-200 bg-white p-4 sm:p-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3.5 text-xs">
             {policyItems.map((item, index) => (
               <div
                 key={index}
-                className="border border-slate-200 bg-slate-50/70 p-3.5 flex flex-col justify-between space-y-2.5"
+                className="border border-slate-200 bg-slate-50/70 p-4 flex flex-col justify-between space-y-3"
               >
-                <div className="flex items-center gap-1.5 border-b border-slate-200/80 pb-2">
+                <div className="flex items-center gap-2 border-b border-slate-200 pb-2.5">
                   <span className="report-sequence-badge text-xs">
                     {index + 1}
                   </span>
@@ -54,7 +54,7 @@ export const PersonnelDistribution: React.FC = () => {
                     {item.title}
                   </span>
                 </div>
-                <p className="text-sm text-slate-700 leading-relaxed font-normal pt-0.5">
+                <p className="text-sm text-slate-700 leading-relaxed font-normal">
                   {highlightNumbers(item.content)}
                 </p>
               </div>

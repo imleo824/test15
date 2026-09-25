@@ -290,7 +290,7 @@ export const TgGovernanceSection: React.FC = () => {
                   <span>处置策略与成效</span>
                 </div>
                 <p className="text-sm text-slate-900 leading-relaxed font-normal">
-                  <strong className="text-slate-950 font-bold underline decoration-slate-400">需等待其他协同方工单流程建设完成后配合切换</strong>，需等待其他对接部门工单系统建设完成后，即可全量切换注销。
+                  <strong className="text-slate-950 font-bold underline decoration-slate-400">需协同各方工单建设就绪后统一切换</strong>，待对接部门工单流程闭环上线后，即可全量切换注销。
                 </p>
               </div>
             </div>
@@ -346,7 +346,7 @@ export const TgGovernanceSection: React.FC = () => {
               <span className="text-3xl font-bold font-mono text-slate-950 tabular-nums">～5</span>
               <span className="text-sm font-bold text-slate-700">分钟</span>
             </div>
-            <p className="text-sm text-slate-700 leading-normal font-normal">标准化工单流转替代人工群聊催办反复切换粘贴复制，端到端处置大幅提速</p>
+            <p className="text-sm text-slate-700 leading-normal font-normal">标准化工单流转替代群内人工催单与手动复制，端到端处置大幅提速</p>
           </div>
 
           <div className="border border-slate-200 bg-white p-4 flex flex-col justify-between space-y-3 border-t-2 border-t-slate-900">
@@ -393,7 +393,7 @@ export const TgGovernanceSection: React.FC = () => {
                   {/* 左列顶部标题栏 */}
                   <div className="flex items-center justify-between bg-rose-50/80 border border-rose-200 px-3.5 py-2">
                     <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-rose-600 animate-pulse shrink-0" />
+                      <span className="w-2 h-2 rounded-full bg-rose-600 shrink-0" />
                       <span className="text-xs sm:text-sm font-bold text-rose-950">治理前 · 线下群操作 (风险暴露)</span>
                     </div>
                     <span className="text-xs font-bold text-rose-700 bg-white px-2 py-0.5 border border-rose-200">
@@ -495,7 +495,7 @@ export const TgGovernanceSection: React.FC = () => {
                   <div className="bg-white rounded-full px-3 py-1.5 flex items-center gap-2 border border-[#dfe1e5] shadow-2xs">
                     <Search className="w-3.5 h-3.5 text-slate-400 shrink-0" />
                     <span className="font-normal text-slate-900 text-xs font-mono select-none">
-                      qweasd123<span className="animate-pulse text-sky-500 font-bold">|</span>
+                      qweasd123
                     </span>
                     <span className="ml-auto text-xs text-slate-400 cursor-pointer hover:text-slate-600">✕</span>
                   </div>
@@ -640,8 +640,8 @@ export const TgGovernanceSection: React.FC = () => {
         </div>
       </div>
 
-      {/* 4.3 流程改造明细 (第三个位置) */}
-      <div className="space-y-4">
+      {/* 4.3 流程改造明细 */}
+      <div className="space-y-6">
         <ReportSectionHeader
           title="4.3 流程改造明细"
           rightContent={
@@ -650,6 +650,134 @@ export const TgGovernanceSection: React.FC = () => {
             </span>
           }
         />
+
+        {/* 核心流程改造节点：极简一条线，提款为发起点，其余节点大对号表明改造完成 */}
+        <div className="border border-slate-200 bg-white p-5 sm:p-7 border-t-2 border-t-slate-900 space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-200 gap-2">
+            <div>
+              <h4 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span>核心流程闭环节点</span>
+                <span className="text-xs font-mono font-bold text-emerald-900 bg-emerald-50 px-2.5 py-0.5 border border-emerald-200">
+                  全链路闭环
+                </span>
+              </h4>
+            </div>
+            <p className="text-xs text-slate-500 font-normal">
+              以提款为发起点，审核、复审、挂起、扣款、禁用全环节实现系统化与合规审计留痕
+            </p>
+          </div>
+
+          {/* 流程管道主体：一条线上贯穿 6 个核心节点 */}
+          <div className="relative pt-3 pb-2 overflow-x-auto">
+            {/* 贯穿全流程的水平连接轴线 */}
+            <div className="hidden sm:block absolute top-[36px] left-[8%] right-[8%] h-[3px] bg-slate-900 -z-0" />
+
+            <div className="grid grid-cols-6 gap-2 relative z-10 min-w-[620px] sm:min-w-0">
+              {/* 节点 1：提款（发起点，无对号及其他多余信息） */}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-13 h-13 sm:w-16 sm:h-16 rounded-full bg-slate-100 text-slate-800 flex items-center justify-center border-4 border-white shadow-xs ring-2 ring-slate-400 mb-3.5">
+                  <span className="text-xs sm:text-sm font-bold text-slate-700">发起</span>
+                </div>
+                <div className="space-y-1">
+                  <span className="text-base sm:text-lg font-black text-slate-900 tracking-tight block">
+                    提款
+                  </span>
+                </div>
+              </div>
+
+              {/* 节点 2：审核 */}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-13 h-13 sm:w-16 sm:h-16 rounded-full bg-slate-900 text-white flex items-center justify-center border-4 border-white shadow-md ring-2 ring-slate-900 mb-3.5">
+                  <Check className="w-7 h-7 sm:w-9 sm:h-9 stroke-[3.5] text-white" />
+                </div>
+                <div className="space-y-1.5">
+                  <span className="text-base sm:text-lg font-black text-slate-900 tracking-tight block">
+                    审核
+                  </span>
+                  <div className="flex items-center justify-center">
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-mono font-bold text-emerald-900 bg-emerald-50 border border-emerald-200">
+                      <Check className="w-3 h-3 stroke-[2.5]" />
+                      <span>改造完成</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* 节点 3：复审 */}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-13 h-13 sm:w-16 sm:h-16 rounded-full bg-slate-900 text-white flex items-center justify-center border-4 border-white shadow-md ring-2 ring-slate-900 mb-3.5">
+                  <Check className="w-7 h-7 sm:w-9 sm:h-9 stroke-[3.5] text-white" />
+                </div>
+                <div className="space-y-1.5">
+                  <span className="text-base sm:text-lg font-black text-slate-900 tracking-tight block">
+                    复审
+                  </span>
+                  <div className="flex items-center justify-center">
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-mono font-bold text-emerald-900 bg-emerald-50 border border-emerald-200">
+                      <Check className="w-3 h-3 stroke-[2.5]" />
+                      <span>改造完成</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* 节点 4：挂起 */}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-13 h-13 sm:w-16 sm:h-16 rounded-full bg-slate-900 text-white flex items-center justify-center border-4 border-white shadow-md ring-2 ring-slate-900 mb-3.5">
+                  <Check className="w-7 h-7 sm:w-9 sm:h-9 stroke-[3.5] text-white" />
+                </div>
+                <div className="space-y-1.5">
+                  <span className="text-base sm:text-lg font-black text-slate-900 tracking-tight block">
+                    挂起
+                  </span>
+                  <div className="flex items-center justify-center">
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-mono font-bold text-emerald-900 bg-emerald-50 border border-emerald-200">
+                      <Check className="w-3 h-3 stroke-[2.5]" />
+                      <span>改造完成</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* 节点 5：扣款 */}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-13 h-13 sm:w-16 sm:h-16 rounded-full bg-slate-900 text-white flex items-center justify-center border-4 border-white shadow-md ring-2 ring-slate-900 mb-3.5">
+                  <Check className="w-7 h-7 sm:w-9 sm:h-9 stroke-[3.5] text-white" />
+                </div>
+                <div className="space-y-1.5">
+                  <span className="text-base sm:text-lg font-black text-slate-900 tracking-tight block">
+                    扣款
+                  </span>
+                  <div className="flex items-center justify-center">
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-mono font-bold text-emerald-900 bg-emerald-50 border border-emerald-200">
+                      <Check className="w-3 h-3 stroke-[2.5]" />
+                      <span>改造完成</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* 节点 6：禁用 */}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-13 h-13 sm:w-16 sm:h-16 rounded-full bg-slate-900 text-white flex items-center justify-center border-4 border-white shadow-md ring-2 ring-slate-900 mb-3.5">
+                  <Check className="w-7 h-7 sm:w-9 sm:h-9 stroke-[3.5] text-white" />
+                </div>
+                <div className="space-y-1.5">
+                  <span className="text-base sm:text-lg font-black text-slate-900 tracking-tight block">
+                    禁用
+                  </span>
+                  <div className="flex items-center justify-center">
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-mono font-bold text-emerald-900 bg-emerald-50 border border-emerald-200">
+                      <Check className="w-3 h-3 stroke-[2.5]" />
+                      <span>改造完成</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <ReportTableFrame>
           <table className="w-full text-left border-collapse report-dense-table">
             <thead>

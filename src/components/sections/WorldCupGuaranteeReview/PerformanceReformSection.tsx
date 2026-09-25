@@ -11,7 +11,7 @@ export const PerformanceReformSection: React.FC = () => {
         <div className="report-module-intro">
           <ModuleBlockHeader title={<><Trophy className="w-5 h-5 text-slate-900 shrink-0" /><span>7.2.1 升级考核机制</span></>} />
           <SummaryBox>
-            {highlightNumbers("打破传统单一关注[[粗暴划档绩效]]与[[个人孤立竞争]]的误区，重构[[绩效档次]]与[[老带动新机制]]，形成正向团队生态。")}
+            {highlightNumbers("转变传统[[固定区间粗放划档]]与[[个人孤立竞争]]考核模式，推行[[基于实际得分精细计提]]与[[组间竞争协同责任制]]，激发团队整体效能。")}
           </SummaryBox>
         </div>
 
@@ -20,36 +20,36 @@ export const PerformanceReformSection: React.FC = () => {
           {/* 维度一：绩效档次机制 */}
           <ReportDimensionCard
             index={1}
-            title={highlightNumbers("绩效档次机制：按[[实际得分]]")}
+            title={highlightNumbers("绩效档次机制：按[[实际得分精细计提]]")}
           >
             <BeforeAfter
               beforeTitle="传统老机制"
               beforeSubtitle="按[[固定区间划档]]"
-              before="如 [[40分]] 和 [[70分]] 都归为同一个[[绩效档次]]，挫伤[[多劳者积极性]]。"
+              before="如 [[40分]] 与 [[70分]] 归入同一[[绩效档次]]，难以体现多劳多得。"
               coreSpan="[[算法升级]]"
               coreStrong="[[精细计提]]"
               coreI="[[多劳多得]]"
               afterTitle="升级新机制"
               afterSubtitle="按[[实际得分精细计提]]"
-              after="基于[[实际得分]]计提，[[70分]] 一定比 [[40分]] 回报更高。"
+              after="基于[[实际得分]]直接计提，[[70分]] 获得更显著激励回报。"
             />
           </ReportDimensionCard>
 
           {/* 维度二：老带动新机制 */}
           <ReportDimensionCard
             index={2}
-            title={highlightNumbers("老带动新机制：按[[组间竞争]]")}
+            title={highlightNumbers("团队协同机制：按[[组间竞逐责任制]]")}
           >
             <BeforeAfter
               beforeTitle="传统老机制"
               beforeSubtitle="纯[[个人独立考核]]"
-              before="员工[[各自为战]]，新老竞争不愿传授经验，致[[经验断层]]。"
+              before="员工[[各自为战]]，缺乏经验传授意愿，易造成新人成长滞后。"
               coreSpan="[[模式升级]]"
               coreStrong="[[组间竞逐]]"
               coreI="[[责任制]]"
               afterTitle="升级新机制"
-              afterSubtitle="按[[组分配]]与[[组间竞争]]"
-              after="[[组间竞争]]、合作，[[按组考核]]倒逼组内[[主动辅导新人]]提升绩效。"
+              afterSubtitle="按[[组考核]]与[[组间竞争]]"
+              after="以[[组为考核单元]]激发组间竞逐，倒逼老员工[[主动辅导新人]]。"
             />
           </ReportDimensionCard>
         </div>

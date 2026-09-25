@@ -277,7 +277,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     {/* 中间 优化升级 */}
                     <div className="sm:col-span-2 flex flex-col items-center justify-center py-1 sm:py-0">
                       <div className="px-3 py-1 rounded bg-slate-900 text-white font-mono font-bold text-xs sm:text-sm whitespace-nowrap mb-1 tracking-tight">
-                        +29套利规则
+                        +29 项套利规则
                       </div>
                       <span className="text-xs font-bold tracking-wider text-slate-700 select-none">
                         优化升级

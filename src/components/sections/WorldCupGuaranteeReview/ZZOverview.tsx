@@ -86,7 +86,7 @@ export const ZZOverview: React.FC = () => {
                 <span className="text-base font-bold text-slate-900">质量指标（安全底线）</span>
               </div>
               <p className="text-sm text-slate-600 leading-relaxed font-normal">
-                指标需达到以下阈值是必要条件，下文会详细说明。
+                达成以下底线质量阈值是放行与自动化演进的前提条件。
               </p>
             </div>
 

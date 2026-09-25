@@ -10,7 +10,6 @@ import { RiskControlTicketSection } from "./RiskControlTicketSection";
 import { SecurityUpgradeSection } from "./SecurityUpgradeSection";
 import { SystemAuditEvolutionSection } from "./SystemAuditEvolutionSection";
 import { ManualAuditSection } from "./ManualAuditSection";
-import { SpecialRiskControlSection } from "./SpecialRiskControlSection";
 import { BonusEfficiencySection } from "./BonusEfficiencySection";
 
 export const WorldCupGuaranteeReview: React.FC = () => {
@@ -66,7 +65,6 @@ export const WorldCupGuaranteeReview: React.FC = () => {
         <div className="report-chapter-content">
           <ZZOverview />
           <ManualAuditSection />
-          <SpecialRiskControlSection />
         </div>
       </section>
 

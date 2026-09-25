@@ -61,15 +61,15 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
 
       {/* 文字总结区 */}
       <SummaryBox>
-        <div className="space-y-3">
+        <div className="space-y-2.5">
           <div className="text-sm md:text-base text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-               "[[二季度总拦截金额]]：累计为 [[2.72]]，6月达 [[1.046]]，[[世界杯期间]]有所提升，对比一季度下降 [[0.35]]，主要为[[批量团伙]]等力度增大，采用[[扣本金]]方式；随着对用户[[违规行为]]持续管控，已形成威慑力成效明显。",
+               "[[二季度总拦截金额]]：累计达 [[2.72]]，其中6月受[[世界杯期间]]赛事高峰驱动升至 [[1.046]]；受前序处置威慑及对[[批量团伙]]实施[[扣本金]]严管影响，环比一季度下降 [[0.35]]，违规管控威慑成效明显。",
             )}
           </div>
           <div className="text-sm md:text-base text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "[[二季度平均时长]]：经过近一年的对[[系统]]、[[流程]]、[[派单]]、[[人员]]等综合优化，二季度整体[[平均人工时长]]为 [[0:08:45]]，对比一季度提升明显；在[[世界杯期间]]单量增加背景下，[[时效]]仍完成度较高。",
+              "[[二季度平均时长]]：协同推进[[系统]]、[[流程]]、[[派单]]与[[人员]]专项治理，二季度[[平均人工时长]]降至 [[0:08:45]]；在[[世界杯期间]]单量大幅攀升下，[[时效]]仍保持高位达成。",
             )}
           </div>
         </div>
