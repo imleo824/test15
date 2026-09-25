@@ -364,18 +364,6 @@ export const ModuleBlockHeader = ({
   </ReportHeading>
 );
 
-export const ModuleSubsectionTitle = ({
-  title,
-  right,
-}: {
-  title: React.ReactNode;
-  right?: React.ReactNode;
-}) => (
-  <ReportHeading level="subsection" rightContent={right} className="report-subsection-head">
-    {title}
-  </ReportHeading>
-);
-
 export const ReportInfoGrid = ({
   title,
   icon,
@@ -407,14 +395,13 @@ export const ReportInfoGrid = ({
     <div className={`report-info-box ${className}`}>
       {!hideHeader && (
         <div className="report-info-head">
-          <ModuleSubsectionTitle
-            title={
-              <>
-                {icon}
-                <span>{title}</span>
-              </>
-            }
-          />
+          <ReportHeading
+            level="subsection"
+            className="report-subsection-head"
+          >
+            {icon}
+            <span>{title}</span>
+          </ReportHeading>
           {desc && <p>{desc}</p>}
         </div>
       )}

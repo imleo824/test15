@@ -1,5 +1,4 @@
 import React from "react";
-import { ReportSectionHeader } from "../../ReportSections";
 import { BonusMacroTrendChart } from "./BonusMacroTrendChart";
 import { BonusVipSpectrumChart } from "./BonusVipSpectrumChart";
 import { BonusCrossSiteChart } from "./BonusCrossSiteChart";

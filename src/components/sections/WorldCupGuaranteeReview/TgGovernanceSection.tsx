@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRight, Check, Clock, AlertTriangle, Search, Users, Pin, ShieldAlert, FileWarning } from "lucide-react";
+import { ArrowRight, Check, Clock, AlertTriangle, Search, ShieldAlert, FileWarning } from "lucide-react";
 import { highlightNumbers, SummaryBox } from "./utils";
 import { ReportSectionHeader, ReportTableFrame } from "../../ReportSections";
 

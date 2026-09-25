@@ -1,20 +1,7 @@
 import React from "react";
 import { 
-  CheckCircle2, 
-  XCircle, 
-  AlertTriangle,
-  Layers,
   ArrowRight,
-  ArrowDown,
-  Calculator,
-  Sliders,
-  ShieldCheck,
-  UserCheck,
-  EyeOff,
-  Lock,
   Workflow,
-  Sparkles,
-  ShieldAlert,
   User,
   Gift,
   Scale

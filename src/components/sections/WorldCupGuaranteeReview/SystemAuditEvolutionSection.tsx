@@ -1,12 +1,10 @@
 import React from "react";
 import {
-  ShieldCheck,
   ShieldAlert,
   ArrowRight,
   ArrowLeft,
   CheckCircle,
   RotateCcw,
-  Workflow,
   User,
   Scale,
   Users

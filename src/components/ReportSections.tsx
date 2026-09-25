@@ -74,19 +74,6 @@ export const ReportBadge: React.FC<{
   );
 };
 
-export const ReportPanelHeader: React.FC<{
-  title: React.ReactNode;
-  icon?: React.ReactNode;
-  rightContent?: React.ReactNode;
-  className?: string;
-}> = ({ title, icon, rightContent, className = "" }) => {
-  return (
-    <ReportHeading level="panel" icon={icon} rightContent={rightContent} className={`report-panel-header ${className}`}>
-      {title}
-    </ReportHeading>
-  );
-};
-
 export const ReportSectionHeader: React.FC<{
   title: React.ReactNode;
   rightContent?: React.ReactNode;
@@ -264,34 +251,6 @@ export const ReportChartCard: React.FC<{
           <span>{footnote}</span>
         </div>
       )}
-    </div>
-  );
-};
-
-export const ReportStepGrid: React.FC<{
-  children: React.ReactNode;
-  className?: string;
-}> = ({ children, className = "" }) => {
-  return (
-    <div className={`report-step-grid ${className}`}>
-      {children}
-    </div>
-  );
-};
-
-export const ReportStepCard: React.FC<{
-  index: number;
-  title: React.ReactNode;
-  children: React.ReactNode;
-  icon?: React.ReactNode;
-}> = ({ index, title, children, icon }) => {
-  return (
-    <div className="report-step-card">
-      <div className="report-step-card-head">
-        {icon ? <span className="report-step-card-icon">{icon}</span> : <span className="report-sequence-badge">{index}</span>}
-        <strong>{title}</strong>
-      </div>
-      <div className="report-step-card-body">{children}</div>
     </div>
   );
 };

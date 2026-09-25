@@ -25,7 +25,7 @@ export const chartAxisTick = {
   fontSize: 13.5,
 };
 
-export const chartLabelStyle = {
+const chartLabelStyle = {
   fill: "#0f172a",
   fontWeight: 700,
   fontSize: 13.5,
@@ -35,13 +35,13 @@ export const chartLabelStyle = {
   strokeLinejoin: "round",
 };
 
-export const chartLabelEmphasisStyle = {
+const chartLabelEmphasisStyle = {
   ...chartLabelStyle,
   fill: "#1d4ed8",
   fontWeight: 700,
 };
 
-export const chartLabelRiskStyle = {
+const chartLabelRiskStyle = {
   ...chartLabelStyle,
   fill: "#b91c1c",
   fontWeight: 700,
@@ -120,11 +120,6 @@ export const chartBarSize = {
   stacked: 28,
   horizontal: 24,
   delta: 16,
-};
-
-export const chartBarGap = {
-  grouped: 8,
-  stacked: 0,
 };
 
 export const chartBarRadius = {
