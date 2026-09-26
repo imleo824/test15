@@ -35,10 +35,10 @@
     --report-space-8: 44px;
     --report-space-9: 52px;
     --report-space-10: 64px;
-    --report-font-caption: 14.5px;
-    --report-font-small: 15.5px;
-    --report-font-body: 17px;
-    --report-font-emphasis: 19px;
+    --report-font-caption: 17px;
+    --report-font-small: 17px;
+    --report-font-body: 17.5px;
+    --report-font-emphasis: 19.5px;
     --report-font-panel-title: 23px;
     --report-font-section-title: 27px;
     --report-font-chapter-title: 32px;
@@ -57,14 +57,14 @@
   html {
     background: #f1f4f8;
     scroll-behavior: auto;
-    font-size: 16px;
+    font-size: 17px;
   }
 
   body {
     background: #f1f4f8;
     color: var(--report-ink);
-    font-size: 16px;
-    line-height: 1.65;
+    font-size: 17px;
+    line-height: 1.75;
     font-variant-numeric: tabular-nums;
   }
 
@@ -75,8 +75,10 @@
     line-height: 1.25;
   }
 
-  p {
+  p, li, dd, dt {
     margin: 0;
+    font-size: 17px;
+    line-height: 1.75;
   }
 }
 
@@ -91,8 +93,8 @@
     background: #ffffff;
     color: var(--report-ink);
     font-family: var(--font-sans);
-    font-size: var(--report-font-body);
-    line-height: 1.6;
+    font-size: 17.5px;
+    line-height: 1.75;
     text-rendering: geometricPrecision;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -140,24 +142,39 @@
     color: var(--report-ink) !important;
   }
 
-  /* 深度优化全局最小字体，保证报告任何注释与说明极度清晰 */
-  .report-shell .text-xs {
-    font-size: 0.875rem !important; /* 14px 提高微型字与标签可读性 */
-    line-height: 1.5 !important;
-  }
-
-  .report-shell .text-sm {
-    font-size: 1rem !important; /* 16px 提升说明与正文可读性 */
-    line-height: 1.65 !important;
-  }
-
-  .report-shell .text-base {
+  /* 深度优化全局段落、列表与说明文字字号统一提升至 17px 或更高，行高提升至 1.75 增强呼吸感 */
+  .report-shell p,
+  .report-shell li,
+  .report-shell dd,
+  .report-shell dt {
     font-size: 1.0625rem !important; /* 17px */
+    line-height: 1.75 !important;
+  }
+
+  .report-shell .text-xs,
+  .report-shell .text-\[9px\],
+  .report-shell .text-\[10px\],
+  .report-shell .text-\[11px\],
+  .report-shell .text-\[12px\],
+  .report-shell [class*="text-xs"] {
+    font-size: 1.0625rem !important; /* 统一提升至 17px */
     line-height: 1.7 !important;
   }
 
+  .report-shell .text-sm,
+  .report-shell [class*="text-sm"] {
+    font-size: 1.0625rem !important; /* 统一提升至 17px */
+    line-height: 1.75 !important;
+  }
+
+  .report-shell .text-base,
+  .report-shell [class*="text-base"] {
+    font-size: 1.125rem !important; /* 18px */
+    line-height: 1.75 !important;
+  }
+
   .report-shell .report-takeaway-block {
-    font-size: 1.0625rem !important;
+    font-size: 1.125rem !important;
     line-height: 1.75 !important;
   }
 
@@ -3080,37 +3097,37 @@
   .report-shell .text-\[12px\],
   .report-shell .text-xs {
     font-size: var(--report-font-caption) !important;
-    line-height: 1.45 !important;
+    line-height: 1.7 !important;
   }
 
   .report-shell .text-sm {
     font-size: var(--report-font-small) !important;
-    line-height: 1.55 !important;
+    line-height: 1.75 !important;
   }
 
   .report-shell .text-base {
     font-size: var(--report-font-body) !important;
-    line-height: 1.65 !important;
+    line-height: 1.75 !important;
   }
 
   .report-shell .text-lg {
     font-size: var(--report-font-emphasis) !important;
-    line-height: 1.45 !important;
+    line-height: 1.65 !important;
   }
 
   .report-shell .text-xl {
     font-size: var(--report-font-panel-title) !important;
-    line-height: 1.35 !important;
+    line-height: 1.45 !important;
   }
 
   .report-shell .text-2xl {
     font-size: var(--report-font-section-title) !important;
-    line-height: 1.25 !important;
+    line-height: 1.35 !important;
   }
 
   .report-shell .text-3xl {
     font-size: var(--report-font-chapter-title) !important;
-    line-height: 1.2 !important;
+    line-height: 1.25 !important;
   }
 
   .report-shell .shadow,
@@ -3133,12 +3150,12 @@
 
   .report-shell [class*="text-xs"] {
     font-size: var(--report-font-caption) !important;
-    line-height: 1.45 !important;
+    line-height: 1.7 !important;
   }
 
   .report-shell [class*="text-sm"] {
     font-size: var(--report-font-small) !important;
-    line-height: 1.55 !important;
+    line-height: 1.75 !important;
   }
 
   .report-shell [class*="bg-slate-900"],
