@@ -261,17 +261,14 @@ export const SmartDispatchOrderStructure: React.FC = () => {
           <div className="bg-slate-50 p-2.5 border border-slate-200 text-center">
             <div className="text-xs text-slate-800 font-bold">系统自动放行</div>
             <div className="text-sm font-bold text-slate-900 mt-0.5 font-mono">差错率 0.08% ~ 0.15%</div>
-            <div className="text-xs text-slate-700 font-semibold mt-0.5">极低失误 / 承担 44%~54% 主力</div>
           </div>
           <div className="bg-slate-50 p-2.5 border border-slate-200 text-center">
             <div className="text-xs text-slate-800 font-bold">总部人工审核</div>
             <div className="text-sm font-bold text-slate-900 mt-0.5 font-mono">差错率 0.69% ~ 0.78%</div>
-            <div className="text-xs text-blue-900 font-semibold mt-0.5">高危研判 / 质量稳固受控</div>
           </div>
           <div className="bg-slate-50 p-2.5 border border-slate-200 text-center">
             <div className="text-xs text-slate-800 font-bold">外包人工审核</div>
             <div className="text-sm font-bold text-slate-900 mt-0.5 font-mono">差错率 1.82% ~ 1.95%</div>
-            <div className="text-xs text-amber-900 font-semibold mt-0.5">高差错率 / 占比压降至 7.5%</div>
           </div>
         </div>
       </div>
