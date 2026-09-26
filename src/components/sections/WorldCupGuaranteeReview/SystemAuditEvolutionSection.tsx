@@ -639,54 +639,99 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             {/* 框架说明 */}
             <SummaryBox variant="module">
               {highlightNumbers(
-                "云盾系统构建了覆盖[[“策略校验 ➔ 风险评分 ➔ 分流处置 ➔ 派单匹配 ➔ 评估反馈”]]的端到端闭环：实现 [[80% 订单 1.8 秒全自动放行]]，大幅缩短出款耗时；同时针对 [[20% 风险订单实施精准阻断与专家动态派单人工复核]]，确保业务合规与资金安全。"
+                "云盾系统构建了覆盖[[“1.用户提款申请 ➔ 2.自动化策略扫描 ➔ 3.计算风险分数 ➔ 4.智能双轨分流 ➔ 5.派单动态匹配 ➔ 6.闭环反馈自进化”]]的端到端运行闭环：实现 [[80% 订单 1.8 秒全自动秒级直出]]，大幅缩短出款耗时；同时针对 [[20% 风险订单实施精准阻断与专家动态派单人工精审]]，确保业务合规与资金安全。"
               )}
             </SummaryBox>
 
-            {/* 全链路运转主流程指示条 */}
-            <div className="bg-slate-900 text-white p-3 sm:p-4">
+            {/* 全链路运转主流程指示条（含 6 ➔ 2 闭环支线） */}
+            <div className="bg-slate-900 text-white p-3.5 sm:p-4 border border-slate-800 space-y-2">
+              {/* 6 节点网格 */}
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-2.5 items-stretch text-center">
                 {/* 节点 1 */}
-                <div className="flex items-center justify-center gap-2 bg-slate-800/80 px-2.5 py-2">
-                  <User className="w-4 h-4 text-slate-300 shrink-0" />
-                  <span className="font-bold text-xs sm:text-sm text-white">1. 用户提款申请</span>
+                <div className="flex flex-col items-center justify-center gap-1 bg-slate-800/80 p-2.5 border border-slate-700/60 relative">
+                  <div className="flex items-center gap-1.5">
+                    <User className="w-4 h-4 text-slate-300 shrink-0" />
+                    <span className="font-bold text-xs sm:text-sm text-white">1. 用户提款申请</span>
+                  </div>
+                  <div className="hidden lg:block absolute -right-2 top-1/2 -translate-y-1/2 text-slate-500 z-10 font-bold text-xs">➔</div>
                 </div>
 
                 {/* 节点 2 */}
-                <div className="flex items-center justify-center gap-2 bg-slate-800/80 px-2.5 py-2">
-                  <Scale className="w-4 h-4 text-slate-300 shrink-0" />
-                  <span className="font-bold text-xs sm:text-sm text-white">2. 自动化策略扫描</span>
+                <div className="flex flex-col items-center justify-center gap-1 bg-slate-800/80 p-2.5 border border-slate-700/60 relative">
+                  <div className="flex items-center gap-1.5">
+                    <Scale className="w-4 h-4 text-slate-300 shrink-0" />
+                    <span className="font-bold text-xs sm:text-sm text-white">2. 自动化策略扫描</span>
+                  </div>
+                  <div className="hidden lg:block absolute -right-2 top-1/2 -translate-y-1/2 text-slate-500 z-10 font-bold text-xs">➔</div>
                 </div>
 
                 {/* 节点 3 */}
-                <div className="flex items-center justify-center gap-2 bg-slate-800/80 px-2.5 py-2">
-                  <Calculator className="w-4 h-4 text-slate-300 shrink-0" />
-                  <span className="font-bold text-xs sm:text-sm text-white">3. 计算风险分数</span>
+                <div className="flex flex-col items-center justify-center gap-1 bg-slate-800/80 p-2.5 border border-slate-700/60 relative">
+                  <div className="flex items-center gap-1.5">
+                    <Calculator className="w-4 h-4 text-slate-300 shrink-0" />
+                    <span className="font-bold text-xs sm:text-sm text-white">3. 计算风险分数</span>
+                  </div>
+                  <div className="hidden lg:block absolute -right-2 top-1/2 -translate-y-1/2 text-slate-500 z-10 font-bold text-xs">➔</div>
                 </div>
 
                 {/* 节点 4 */}
-                <div className="flex items-center justify-center gap-2 bg-slate-800/80 px-2.5 py-2">
-                  <Sliders className="w-4 h-4 text-slate-300 shrink-0" />
-                  <span className="font-bold text-xs sm:text-sm text-white">4. 智能双轨分流</span>
+                <div className="flex flex-col items-center justify-center gap-1 bg-slate-800/80 p-2.5 border border-slate-700/60 relative">
+                  <div className="flex items-center gap-1.5">
+                    <Sliders className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span className="font-bold text-xs sm:text-sm text-white">4. 智能双轨分流</span>
+                  </div>
+                  <div className="hidden lg:block absolute -right-2 top-1/2 -translate-y-1/2 text-slate-500 z-10 font-bold text-xs">➔</div>
                 </div>
 
                 {/* 节点 5 */}
-                <div className="flex items-center justify-center gap-2 bg-slate-800/80 px-2.5 py-2">
-                  <UserCheck className="w-4 h-4 text-slate-300 shrink-0" />
-                  <span className="font-bold text-xs sm:text-sm text-white">5. 派单动态匹配</span>
+                <div className="flex flex-col items-center justify-center gap-1 bg-slate-800/80 p-2.5 border border-slate-700/60 relative">
+                  <div className="flex items-center gap-1.5">
+                    <UserCheck className="w-4 h-4 text-slate-300 shrink-0" />
+                    <span className="font-bold text-xs sm:text-sm text-white">5. 派单动态匹配</span>
+                  </div>
+                  <div className="hidden lg:block absolute -right-2 top-1/2 -translate-y-1/2 text-slate-500 z-10 font-bold text-xs">➔</div>
                 </div>
 
                 {/* 节点 6 */}
-                <div className="flex items-center justify-center gap-2 bg-slate-800/80 px-2.5 py-2">
-                  <RotateCcw className="w-4 h-4 text-slate-300 shrink-0" />
-                  <span className="font-bold text-xs sm:text-sm text-white">6. 闭环反馈自进化</span>
+                <div className="flex flex-col items-center justify-center gap-1 bg-slate-800/80 p-2.5 border border-slate-700/60 relative">
+                  <div className="flex items-center gap-1.5">
+                    <RotateCcw className="w-4 h-4 text-sky-300 shrink-0" />
+                    <span className="font-bold text-xs sm:text-sm text-white">6. 闭环反馈自进化</span>
+                  </div>
                 </div>
+              </div>
+
+              {/* 仅保留简洁的 6 ➔ 2 支线回路 */}
+              <div className="hidden lg:block relative h-7 pt-1">
+                <svg className="w-full h-full" viewBox="0 0 1000 24" preserveAspectRatio="none">
+                  {/* 从第6列中心(917)引出，向左折返至第2列中心(250)，向上指向第2步 */}
+                  <path
+                    d="M 917 0 L 917 12 Q 917 18 905 18 L 262 18 Q 250 18 250 12 L 250 7"
+                    fill="none"
+                    stroke="#38bdf8"
+                    strokeWidth="2"
+                    strokeDasharray="5 4"
+                  />
+                  {/* 向上指向第2节点的箭头 */}
+                  <polygon points="246,7 254,7 250,1" fill="#38bdf8" />
+                </svg>
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <span className="text-[11px] font-mono text-sky-300 bg-slate-900 px-2.5 py-0.5 border border-sky-500/40">
+                    ⮐ 闭环反馈支线（反哺策略）
+                  </span>
+                </div>
+              </div>
+
+              {/* 移动端简洁支线文字 */}
+              <div className="lg:hidden flex items-center justify-center gap-1.5 text-xs text-sky-300 font-mono pt-1">
+                <RotateCcw className="w-3.5 h-3.5 text-sky-400" />
+                <span>6 ➔ 2 闭环反馈支线（反哺策略）</span>
               </div>
             </div>
 
-            {/* 3 大核心阶段矩阵卡片（纵深展开，呼吸感充足，不挤压破板） */}
+            {/* 6 大核心阶段矩阵卡片（与上方 1-6 流程节点严格一一对应） */}
             <div className="space-y-5">
-              {/* 阶段 1：全量系统自动化策略校验与风险评分（100% 覆盖） */}
+              {/* 阶段 1：对应上方【1. 用户提款申请】 */}
               <div className="bg-white p-5 sm:p-6 border border-slate-200 border-t-2 border-t-slate-900 space-y-4">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-200 gap-2">
                   <div className="flex items-center gap-2">
@@ -694,87 +739,38 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       01
                     </span>
                     <h6 className="text-base sm:text-lg font-bold text-slate-950">
-                      阶段一 · 全量系统自动化策略校验与风险评分（100% 覆盖）
+                      阶段一 · 用户提款申请（入站监听与前置上下文组装）
                     </h6>
                   </div>
                   <span className="text-xs sm:text-sm font-mono font-bold text-slate-700 bg-slate-100 px-2.5 py-0.5 border border-slate-300 self-start sm:self-auto">
-                    全量 100% 订单逐笔实时扫描
+                    全量 100% 订单实时监听受理
                   </span>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
-                  {/* 左栏：42 项策略矩阵校验 */}
-                  <div className="lg:col-span-7 bg-slate-50 p-4 space-y-3">
-                    <div className="flex items-center justify-between pb-2 border-b border-slate-200">
-                      <span className="font-bold text-slate-900 text-base">
-                        1.1 策略矩阵多维校验（共 42 项核心规则）
-                      </span>
-                      <span className="text-xs font-mono font-bold text-slate-900 bg-white px-2 py-0.5 border border-slate-300">
-                        实时并发
-                      </span>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-slate-50 p-4 space-y-2">
+                    <div className="flex items-center gap-2 font-bold text-slate-900 text-sm sm:text-base pb-2 border-b border-slate-200">
+                      <User className="w-4 h-4 text-slate-800 shrink-0" />
+                      <span>1.1 毫秒级入站监听与资格初检</span>
                     </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-                      {/* 防御型规则 */}
-                      <div className="bg-white p-3 space-y-1">
-                        <div className="flex items-center justify-between font-bold text-slate-900 text-sm">
-                          <span>防御型规则</span>
-                          <span className="font-mono text-slate-950 bg-slate-100 px-1.5 py-0.2">29 个</span>
-                        </div>
-                        <p className="text-xs sm:text-sm text-slate-600 leading-normal">
-                          模拟器、快进快出、高盈利、倍数异常等
-                        </p>
-                      </div>
-
-                      {/* 作弊型规则 */}
-                      <div className="bg-white p-3 space-y-1">
-                        <div className="flex items-center justify-between font-bold text-slate-900 text-sm">
-                          <span>作弊型规则</span>
-                          <span className="font-mono text-slate-950 bg-slate-100 px-1.5 py-0.2">10 个</span>
-                        </div>
-                        <p className="text-xs sm:text-sm text-slate-600 leading-normal">
-                          棋牌操盘全包对冲、活动特邀超额等
-                        </p>
-                      </div>
-
-                      {/* 场馆协同 */}
-                      <div className="bg-white p-3 space-y-1">
-                        <div className="flex items-center justify-between font-bold text-slate-900 text-sm">
-                          <span>场馆协同</span>
-                          <span className="font-mono text-slate-950 bg-slate-100 px-1.5 py-0.2">3 个</span>
-                        </div>
-                        <p className="text-xs sm:text-sm text-slate-600 leading-normal">
-                          体育/真人/电子风控接口实时对接
-                        </p>
-                      </div>
-                    </div>
+                    <p className="text-sm text-slate-700 leading-relaxed">
+                      用户端发起出款提单后，消息总线毫秒级捕获申请事件；系统在 <strong>30毫秒内</strong> 快速完成账户锁定状态、基础额度上下限与通道可用性等合法性前置初筛。
+                    </p>
                   </div>
 
-                  {/* 右栏：多维特征加权与风险评分 */}
-                  <div className="lg:col-span-5 bg-slate-50 p-4 space-y-3 flex flex-col justify-between">
-                    <div className="flex items-center justify-between pb-2 border-b border-slate-200">
-                      <span className="font-bold text-slate-900 text-base">
-                        1.2 多维特征加权综合评分
-                      </span>
-                      <span className="text-xs font-mono font-bold text-slate-900 bg-white px-2 py-0.5 border border-slate-300">
-                        评分引擎
-                      </span>
+                  <div className="bg-slate-50 p-4 space-y-2">
+                    <div className="flex items-center gap-2 font-bold text-slate-900 text-sm sm:text-base pb-2 border-b border-slate-200">
+                      <ShieldAlert className="w-4 h-4 text-slate-800 shrink-0" />
+                      <span>1.2 实时上下文快照动态构建</span>
                     </div>
-
-                    <div className="bg-white p-3.5 flex-1 flex flex-col justify-center space-y-2">
-                      <div className="flex items-center gap-2 font-bold text-slate-950 text-sm sm:text-base">
-                        <ShieldAlert className="w-4 h-4 text-slate-800 shrink-0" />
-                        <span>特征加权综合计算订单风险分</span>
-                      </div>
-                      <p className="text-sm text-slate-700 leading-relaxed">
-                        综合汇总设备指纹、注单时序、资金流向等特征，精准加权计算订单综合风险分，作为驱动后续智能分流的绝对依据。
-                      </p>
-                    </div>
+                    <p className="text-sm text-slate-700 leading-relaxed">
+                      同步拉取提款瞬时终端设备指纹、网络 IP 拓扑、当期有效流水倍数达成度与历史充提沉淀，毫秒级组装为风控标准上下文快照，即刻推入云盾检测流。
+                    </p>
                   </div>
                 </div>
               </div>
 
-              {/* 阶段 2：智能双轨分流与处置执行（80/20 明确分工） */}
+              {/* 阶段 2：对应上方【2. 自动化策略扫描】 */}
               <div className="bg-white p-5 sm:p-6 border border-slate-200 border-t-2 border-t-slate-900 space-y-4">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-200 gap-2">
                   <div className="flex items-center gap-2">
@@ -782,74 +778,51 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       02
                     </span>
                     <h6 className="text-base sm:text-lg font-bold text-slate-950">
-                      阶段二 · 智能双轨分流与处置执行（80% 秒级直出 vs 20% 人工精审）
+                      阶段二 · 自动化策略扫描（42 项策略矩阵多维实时并发校验）
                     </h6>
                   </div>
                   <span className="text-xs sm:text-sm font-mono font-bold text-slate-700 bg-slate-100 px-2.5 py-0.5 border border-slate-300 self-start sm:self-auto">
-                    自动化为主 · 人工复核为辅
+                    42 项核心规则实时并发
                   </span>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {/* 分流 A：80% 系统直接出单放行 */}
-                  <div className="bg-slate-50 p-4 sm:p-5 space-y-3 flex flex-col justify-between">
-                    <div className="space-y-2">
-                      <div className="flex items-center justify-between pb-2 border-b border-slate-200">
-                        <div className="flex items-center gap-2">
-                          <CheckCircle className="w-5 h-5 text-emerald-700 shrink-0" />
-                          <span className="font-bold text-base text-slate-950">
-                            2A. 系统直接出单放行（80% 订单）
-                          </span>
-                        </div>
-                        <span className="text-xs font-mono font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 border border-emerald-300">
-                          1.8 秒直出
-                        </span>
-                      </div>
-
-                      <div className="space-y-2 text-sm text-slate-800 leading-relaxed pt-1">
-                        <div className="flex items-start gap-2 bg-white p-3">
-                          <span className="font-bold text-slate-950 shrink-0">• 规则引擎放行：</span>
-                          <span>低风险订单 <strong>1.8 秒全自动秒级直出</strong>，全程 <strong>0 人工干预</strong>，支持大促万级高并发无卡顿出款。</span>
-                        </div>
-                        <div className="flex items-start gap-2 bg-white p-3">
-                          <span className="font-bold text-slate-950 shrink-0">• 体验大幅跃升：</span>
-                          <span>平均出款耗时从 18.5 分钟压降至 <strong>2.4 分钟</strong>（提速 87.0%），排队客诉率由 8.4% 降至 <strong>0.9%</strong>。</span>
-                        </div>
-                      </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {/* 防御型规则 */}
+                  <div className="bg-slate-50 p-4 space-y-2 border border-slate-200">
+                    <div className="flex items-center justify-between font-bold text-slate-900 text-sm pb-1.5 border-b border-slate-200">
+                      <span>防御型规则</span>
+                      <span className="font-mono text-slate-950 bg-white px-2 py-0.5 border border-slate-300">29 个</span>
                     </div>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      涵盖模拟器多开、快进快出套现、异常高盈利倍数、高频提款与黑名单库实时碰撞等基础防护。
+                    </p>
                   </div>
 
-                  {/* 分流 B：20% 人工兜底精审 */}
-                  <div className="bg-slate-50 p-4 sm:p-5 space-y-3 flex flex-col justify-between">
-                    <div className="space-y-2">
-                      <div className="flex items-center justify-between pb-2 border-b border-slate-200">
-                        <div className="flex items-center gap-2">
-                          <Users className="w-5 h-5 text-slate-800 shrink-0" />
-                          <span className="font-bold text-base text-slate-950">
-                            2B. 人工兜底复核精审（20% 订单）
-                          </span>
-                        </div>
-                        <span className="text-xs font-mono font-bold text-slate-900 bg-slate-200 px-2 py-0.5 border border-slate-300">
-                          风险拦截
-                        </span>
-                      </div>
-
-                      <div className="space-y-2 text-sm text-slate-800 leading-relaxed pt-1">
-                        <div className="flex items-start gap-2 bg-white p-3">
-                          <span className="font-bold text-slate-950 shrink-0">• 派单动态匹配：</span>
-                          <span>转入人工的订单，系统基于会员等级、风险类型标签（套利/对冲/作弊）与专员实时负荷，精准计算并动态派发给最合适的风控专员或专家组。</span>
-                        </div>
-                        <div className="flex items-start gap-2 bg-white p-3">
-                          <span className="font-bold text-slate-950 shrink-0">• 工具辅助裁决：</span>
-                          <span>依托多维日志关联图谱、设备核查、注单流水倍数比对工具，快速执行划扣放行或违规关停。</span>
-                        </div>
-                      </div>
+                  {/* 作弊型规则 */}
+                  <div className="bg-slate-50 p-4 space-y-2 border border-slate-200">
+                    <div className="flex items-center justify-between font-bold text-slate-900 text-sm pb-1.5 border-b border-slate-200">
+                      <span>作弊型规则</span>
+                      <span className="font-mono text-slate-950 bg-white px-2 py-0.5 border border-slate-300">10 个</span>
                     </div>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      棋牌操盘对打、多账号双向对冲、活动特邀多开冒领、洗水刷量等作弊行为特征矩阵深度穿透。
+                    </p>
+                  </div>
+
+                  {/* 场馆协同 */}
+                  <div className="bg-slate-50 p-4 space-y-2 border border-slate-200">
+                    <div className="flex items-center justify-between font-bold text-slate-900 text-sm pb-1.5 border-b border-slate-200">
+                      <span>场馆协同</span>
+                      <span className="font-mono text-slate-950 bg-white px-2 py-0.5 border border-slate-300">3 个</span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      体育、真人、电子等场馆风控接口实时联动，毫秒级跨系统校准注单时序与场馆返奖异常。
+                    </p>
                   </div>
                 </div>
               </div>
 
-              {/* 阶段 3：双向评估反馈与持续自进化（闭环驱动） */}
+              {/* 阶段 3：对应上方【3. 计算风险分数】 */}
               <div className="bg-white p-5 sm:p-6 border border-slate-200 border-t-2 border-t-slate-900 space-y-4">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-200 gap-2">
                   <div className="flex items-center gap-2">
@@ -857,7 +830,152 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       03
                     </span>
                     <h6 className="text-base sm:text-lg font-bold text-slate-950">
-                      阶段三 · 双向评估反馈与自进化机制（闭环驱动）
+                      阶段三 · 计算风险分数（多维特征加权综合评分引擎）
+                    </h6>
+                  </div>
+                  <span className="text-xs sm:text-sm font-mono font-bold text-slate-700 bg-slate-100 px-2.5 py-0.5 border border-slate-300 self-start sm:self-auto">
+                    动态加权量化评分标尺
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-slate-50 p-4 space-y-2">
+                    <div className="flex items-center gap-2 font-bold text-slate-900 text-sm sm:text-base pb-2 border-b border-slate-200">
+                      <Calculator className="w-4 h-4 text-slate-800 shrink-0" />
+                      <span>3.1 多维特征加权综合评分</span>
+                    </div>
+                    <p className="text-sm text-slate-700 leading-relaxed">
+                      汇聚设备环境、行为偏好、注单时序、资金流向及跨站图谱等上百个特征变量，通过评分引擎动态加权，为每笔提款订单输出精准的量化风险综合分值。
+                    </p>
+                  </div>
+
+                  <div className="bg-slate-50 p-4 space-y-2">
+                    <div className="flex items-center gap-2 font-bold text-slate-900 text-sm sm:text-base pb-2 border-b border-slate-200">
+                      <Sliders className="w-4 h-4 text-slate-800 shrink-0" />
+                      <span>3.2 刚性分级阈值锚定</span>
+                    </div>
+                    <p className="text-sm text-slate-700 leading-relaxed">
+                      依据风险分数划定清晰决策区间：<strong>极低风险区间</strong>（满足直出条件，直通自动出款通道）与 <strong>中高风险区间</strong>（触发预警，驱动后续动态派工人工精审）。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 阶段 4：对应上方【4. 智能双轨分流】 */}
+              <div className="bg-white p-5 sm:p-6 border border-slate-200 border-t-2 border-t-slate-900 space-y-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-200 gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="w-6 h-6 bg-slate-900 text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
+                      04
+                    </span>
+                    <h6 className="text-base sm:text-lg font-bold text-slate-950">
+                      阶段四 · 智能双轨分流（80% 自动化秒级直出放行）
+                    </h6>
+                  </div>
+                  <span className="text-xs font-mono font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 border border-emerald-300 self-start sm:self-auto">
+                    80% 订单 1.8 秒秒级直出
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-slate-50 p-4 sm:p-5 space-y-2">
+                    <div className="flex items-center justify-between pb-2 border-b border-slate-200">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-emerald-700 shrink-0" />
+                        <span className="font-bold text-base text-slate-950">
+                          4.1 规则引擎自动化秒级放行
+                        </span>
+                      </div>
+                      <span className="text-xs font-mono font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5">
+                        0 人工干预
+                      </span>
+                    </div>
+                    <p className="text-sm text-slate-700 leading-relaxed pt-1">
+                      命中极低风险区间的海量良性订单，直接由规则引擎执行 <strong>1.8 秒全自动直出放行</strong>，全程 <strong>0 人工干预</strong>，支持高峰期万级并发瞬间消化。
+                    </p>
+                  </div>
+
+                  <div className="bg-slate-50 p-4 sm:p-5 space-y-2">
+                    <div className="flex items-center justify-between pb-2 border-b border-slate-200">
+                      <div className="flex items-center gap-2">
+                        <Scale className="w-5 h-5 text-blue-800 shrink-0" />
+                        <span className="font-bold text-base text-slate-950">
+                          4.2 出款时效与客诉体验跃升
+                        </span>
+                      </div>
+                      <span className="text-xs font-mono font-bold text-blue-900 bg-blue-100 px-2 py-0.5">
+                        提速 87.0%
+                      </span>
+                    </div>
+                    <p className="text-sm text-slate-700 leading-relaxed pt-1">
+                      平均到账耗时从 18.5 分钟压降至 <strong>2.4 分钟</strong>，高峰排队积压率彻底归零，出款客诉率由 8.4% 压降至 <strong>0.9%</strong>，高价值用户充提体验显著提升。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 阶段 5：对应上方【5. 派单动态匹配】 */}
+              <div className="bg-white p-5 sm:p-6 border border-slate-200 border-t-2 border-t-slate-900 space-y-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-200 gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="w-6 h-6 bg-slate-900 text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
+                      05
+                    </span>
+                    <h6 className="text-base sm:text-lg font-bold text-slate-950">
+                      阶段五 · 派单动态匹配（20% 风险订单专家动态派发与人工精审）
+                    </h6>
+                  </div>
+                  <span className="text-xs sm:text-sm font-mono font-bold text-slate-900 bg-slate-100 px-2.5 py-0.5 border border-slate-300 self-start sm:self-auto">
+                    精准派工 · 工具赋能精审
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-slate-50 p-4 sm:p-5 space-y-2">
+                    <div className="flex items-center justify-between pb-2 border-b border-slate-200">
+                      <div className="flex items-center gap-2">
+                        <UserCheck className="w-5 h-5 text-slate-800 shrink-0" />
+                        <span className="font-bold text-base text-slate-950">
+                          5.1 智能派工与多维动态匹配
+                        </span>
+                      </div>
+                      <span className="text-xs font-mono font-bold text-slate-900 bg-white px-2 py-0.5 border border-slate-300">
+                        智能分派
+                      </span>
+                    </div>
+                    <p className="text-sm text-slate-700 leading-relaxed pt-1">
+                      转入人工的 20% 订单，依托智能派工算法，根据 <strong>会员 VIP 等级、风险类型标签（套利/对冲/作弊）与审单人员当前负荷及专长权重</strong>，毫秒级动态派发给最适宜的专员或专家组。
+                    </p>
+                  </div>
+
+                  <div className="bg-slate-50 p-4 sm:p-5 space-y-2">
+                    <div className="flex items-center justify-between pb-2 border-b border-slate-200">
+                      <div className="flex items-center gap-2">
+                        <Users className="w-5 h-5 text-slate-800 shrink-0" />
+                        <span className="font-bold text-base text-slate-950">
+                          5.2 工具赋能研判与精准拦截
+                        </span>
+                      </div>
+                      <span className="text-xs font-mono font-bold text-slate-900 bg-white px-2 py-0.5 border border-slate-300">
+                        高危精审
+                      </span>
+                    </div>
+                    <p className="text-sm text-slate-700 leading-relaxed pt-1">
+                      提供关联图谱、设备核查、注单流水比对等辅助工具；总部订单精减 100万+，外包单量压降至 7.5%，专职人员集中精力攻坚高危欺诈，实现精准拦截与月度止损 50万+ 元。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 阶段 6：对应上方【6. 闭环反馈自进化】 */}
+              <div className="bg-white p-5 sm:p-6 border border-slate-200 border-t-2 border-t-slate-900 space-y-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-200 gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="w-6 h-6 bg-slate-900 text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
+                      06
+                    </span>
+                    <h6 className="text-base sm:text-lg font-bold text-slate-950">
+                      阶段六 · 闭环反馈自进化（双向评估反馈与动态自进化机制）
                     </h6>
                   </div>
                   <span className="text-xs sm:text-sm font-mono font-bold text-slate-700 bg-slate-100 px-2.5 py-0.5 border border-slate-300 self-start sm:self-auto">

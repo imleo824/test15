@@ -103,12 +103,9 @@ export const SafetyArchitectureDiagram: React.FC = () => {
 
                 {/* 2. 右侧：核心管控手段与机制说明 (占 8 列) */}
                 <div className="lg:col-span-8 bg-slate-50 p-4 border border-slate-200 space-y-2.5">
-                  <div className="flex items-center justify-between border-b border-slate-200 pb-2">
+                  <div className="border-b border-slate-200 pb-2">
                     <span className="text-sm sm:text-base font-bold text-slate-900">
                       {tier.scope}
-                    </span>
-                    <span className="font-mono text-xs font-bold text-slate-600 bg-white px-2 py-0.5 border border-slate-200">
-                      关键管控抓手
                     </span>
                   </div>
                   <ul className="space-y-1.5 text-sm text-slate-700">
