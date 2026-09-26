@@ -1,6 +1,6 @@
 import React from "react";
 import { SummaryBox, highlightNumbers } from "./utils";
-import { ReportSectionHeader, ReportTableFrame } from "../../ReportSections";
+import { ReportSubsectionHeader, ReportTableFrame } from "../../ReportSections";
 
 export const AuditOverviewAgentInterception: React.FC = () => {
   const agentTableData = [
@@ -139,7 +139,7 @@ export const AuditOverviewAgentInterception: React.FC = () => {
   return (
     <div id="section-audit-agent-interception" className="space-y-8">
       {/* 模块小标题 - 统一规范 */}
-      <ReportSectionHeader title="2.1.3 代理数据" />
+      <ReportSubsectionHeader title="2.1.3 代理数据" />
 
       {/* 统一总结模块 */}
       <SummaryBox>

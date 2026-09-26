@@ -33,13 +33,15 @@ export const ChapterTitle: React.FC<{
   className?: string;
 }> = ({ children, eyebrow, className = "" }) => {
   return (
-    <div className={`report-chapter-title mb-8 pb-4 border-b-2 border-slate-900 ${className}`}>
+    <div className={`report-chapter-title border-t-2 border-slate-900 pt-8 pb-3 mb-6 ${className}`}>
       {eyebrow && (
-        <div className="flex items-center justify-between text-xs sm:text-sm font-mono font-bold tracking-widest text-slate-500 mb-1.5 uppercase">
-          <span>{eyebrow}</span>
+        <div className="text-xs sm:text-sm font-mono font-bold tracking-widest text-slate-500 mb-1.5 uppercase">
+          {eyebrow}
         </div>
       )}
-      <ReportHeading level="chapter">{children}</ReportHeading>
+      <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight">
+        {children}
+      </h2>
     </div>
   );
 };
@@ -80,9 +82,12 @@ export const ReportSectionHeader: React.FC<{
   className?: string;
 }> = ({ title, rightContent, className = "" }) => {
   return (
-    <ReportHeading level="section" rightContent={rightContent} className={`report-section-header mb-4 ${className}`}>
-      {title}
-    </ReportHeading>
+    <div className={`report-section-header flex items-center justify-between pb-2.5 border-b border-slate-300 mb-4 ${className}`}>
+      <h3 className="text-xl sm:text-2xl font-extrabold text-slate-950 tracking-tight flex items-center gap-2">
+        {title}
+      </h3>
+      {rightContent ? <div className="shrink-0">{rightContent}</div> : null}
+    </div>
   );
 };
 
@@ -92,9 +97,12 @@ export const ReportSubsectionHeader: React.FC<{
   className?: string;
 }> = ({ title, rightContent, className = "" }) => {
   return (
-    <ReportHeading level="panel" rightContent={rightContent} className={`report-panel-header mb-3 ${className}`}>
-      {title}
-    </ReportHeading>
+    <div className={`report-subsection-header flex items-center justify-between pb-2 border-b border-slate-200 mb-3.5 ${className}`}>
+      <h4 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
+        {title}
+      </h4>
+      {rightContent ? <div className="shrink-0">{rightContent}</div> : null}
+    </div>
   );
 };
 
@@ -103,7 +111,7 @@ export const ReportTableFrame: React.FC<{
   className?: string;
 }> = ({ children, className = "" }) => {
   return (
-    <div className={`report-table-frame border-t-2 border-b-2 border-slate-900 my-6 overflow-x-auto ${className}`}>
+    <div className={`report-table-frame border-t-2 border-b-2 border-slate-900 my-4 overflow-x-auto ${className}`}>
       {children}
     </div>
   );
@@ -115,7 +123,7 @@ export const ReportMetricGrid: React.FC<{
   className?: string;
 }> = ({ children, columns = 3, className = "" }) => {
   return (
-    <div className={`report-metric-grid report-metric-grid--${columns} gap-5 ${className}`}>
+    <div className={`report-metric-grid report-metric-grid--${columns} gap-4 sm:gap-5 ${className}`}>
       {children}
     </div>
   );
@@ -132,23 +140,23 @@ export const ReportMetricCard: React.FC<{
   const isDark = tone === "dark";
   return (
     <div
-      className={`report-metric-card border p-6 flex flex-col justify-between ${
+      className={`report-metric-card border p-5 flex flex-col justify-between ${
         isDark
           ? "bg-slate-900 border-slate-900 text-white"
-          : "bg-white border-slate-200 text-slate-900 border-t-4 border-t-slate-900"
+          : "bg-white border-slate-200 text-slate-900 border-t-2 border-t-slate-900"
       } ${className}`}
     >
-      <div className={`text-base font-bold ${isDark ? "text-slate-300" : "text-slate-700"}`}>{title}</div>
-      <div className="my-3 flex items-baseline gap-2">
-        <span className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold font-mono tabular-nums tracking-tight ${isDark ? "text-white" : "text-slate-900"}`}>
+      <div className={`text-sm sm:text-base font-bold ${isDark ? "text-slate-300" : "text-slate-700"}`}>{title}</div>
+      <div className="my-2.5 flex items-baseline gap-2">
+        <span className={`text-3xl sm:text-4xl font-extrabold font-mono tabular-nums tracking-tight ${isDark ? "text-white" : "text-slate-950"}`}>
           {value}
         </span>
         {unit && (
-          <span className={`text-base font-bold ${isDark ? "text-slate-400" : "text-slate-600"}`}>{unit}</span>
+          <span className={`text-sm sm:text-base font-bold ${isDark ? "text-slate-400" : "text-slate-600"}`}>{unit}</span>
         )}
       </div>
       {detail && (
-        <div className={`text-sm sm:text-base leading-relaxed font-medium ${isDark ? "text-slate-300" : "text-slate-600"}`}>
+        <div className={`text-sm sm:text-base leading-relaxed font-normal pt-2.5 border-t ${isDark ? "border-slate-800 text-slate-300" : "border-slate-200 text-slate-700"}`}>
           {detail}
         </div>
       )}
@@ -225,30 +233,30 @@ export const ReportChartCard: React.FC<{
   bodyHeight,
 }) => {
   return (
-    <div className={`report-chart-card bg-white border border-slate-200 p-6 md:p-7 flex flex-col justify-between ${className}`}>
+    <div className={`report-chart-card bg-white border border-slate-200 p-5 sm:p-6 flex flex-col justify-between ${className}`}>
       <div className="flex-1 flex flex-col min-h-0">
         {/* 头部：标题、副标题与关键数值/标签 */}
-        <div className="report-chart-card-head pb-4 mb-4 border-b border-slate-200">
+        <div className="report-chart-card-head pb-3 mb-3 border-b border-slate-200">
           <div className="min-w-0 pr-2">
             <span className="text-base sm:text-lg font-bold text-slate-900 block">{title}</span>
-            {subtitle && <p className="text-sm text-slate-600 font-medium mt-1">{subtitle}</p>}
+            {subtitle && <p className="text-xs sm:text-sm text-slate-600 font-medium mt-0.5">{subtitle}</p>}
           </div>
           <div className="flex items-center gap-2 shrink-0">
             {badge}
-            {value && <strong className="font-mono text-2xl sm:text-3xl text-slate-900 font-bold">{value}</strong>}
+            {value && <strong className="font-mono text-2xl sm:text-3xl text-slate-950 font-bold">{value}</strong>}
           </div>
         </div>
 
         {/* 一段文字说明 (Key Takeaway / 洞察分析) */}
         {description && (
-          <div className="text-sm sm:text-base text-slate-700 font-medium leading-relaxed bg-slate-50/90 px-4 py-3 border-l-4 border-slate-900 mb-4 min-h-[50px] flex items-center">
+          <div className="text-sm sm:text-base text-slate-800 font-medium leading-relaxed bg-slate-50 border-l-4 border-slate-900 px-4 py-3 mb-3.5 flex items-center">
             {description}
           </div>
         )}
 
         {/* 统一图例栏 */}
         {legend && (
-          <div className="flex items-center justify-end pb-3">
+          <div className="flex items-center justify-end pb-2.5">
             {legend}
           </div>
         )}
@@ -259,7 +267,7 @@ export const ReportChartCard: React.FC<{
 
       {/* 底部口径与备注说明 */}
       {footnote && (
-        <div className="mt-4 pt-3 border-t border-slate-100 text-xs sm:text-sm font-mono text-slate-500 flex items-center justify-between min-h-[26px]">
+        <div className="mt-3.5 pt-2.5 border-t border-slate-200 text-xs sm:text-sm font-mono text-slate-600 flex items-center justify-between">
           <span>{footnote}</span>
         </div>
       )}

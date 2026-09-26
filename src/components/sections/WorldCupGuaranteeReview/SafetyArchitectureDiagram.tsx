@@ -86,17 +86,17 @@ export const SafetyArchitectureDiagram: React.FC = () => {
 
         {/* 顶部清晰三级逻辑流 */}
         <div className="flex flex-wrap items-center gap-2 bg-slate-100 p-2 border border-slate-300 font-mono text-xs">
-          <div className="flex items-center gap-1.5 px-2.5 py-1 bg-white font-bold text-emerald-900 border border-emerald-300 shadow-2xs">
+          <div className="flex items-center gap-1.5 px-2.5 py-1 bg-white font-bold text-emerald-900 border border-emerald-300">
             <span className="w-2 h-2 bg-emerald-600 rounded-full"></span>
             <span>单点防作案</span>
           </div>
           <span className="text-slate-400 font-bold">→</span>
-          <div className="flex items-center gap-1.5 px-2.5 py-1 bg-white font-bold text-blue-900 border border-blue-300 shadow-2xs">
+          <div className="flex items-center gap-1.5 px-2.5 py-1 bg-white font-bold text-blue-900 border border-blue-300">
             <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
             <span>协同防无痕</span>
           </div>
           <span className="text-slate-400 font-bold">→</span>
-          <div className="flex items-center gap-1.5 px-2.5 py-1 bg-white font-bold text-purple-900 border border-purple-300 shadow-2xs">
+          <div className="flex items-center gap-1.5 px-2.5 py-1 bg-white font-bold text-purple-900 border border-purple-300">
             <span className="w-2 h-2 bg-purple-600 rounded-full"></span>
             <span>审计防遗漏</span>
           </div>
@@ -108,11 +108,11 @@ export const SafetyArchitectureDiagram: React.FC = () => {
         {tiers.map((tier, idx) => (
           <div key={tier.level} className="relative">
             {/* 单层主卡片 */}
-            <div className="border-2 border-slate-800 bg-slate-50/70 p-5 sm:p-6">
+            <div className="border border-slate-200 border-t-2 border-t-slate-900 bg-white p-5 sm:p-6">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                 {/* 1. 左侧：层级与模块标识 (占 4 列) */}
                 <div className="lg:col-span-4 flex items-center gap-4">
-                  <div className="p-3 bg-white border border-slate-300 shadow-2xs shrink-0">
+                  <div className="p-3 bg-white border border-slate-300 shrink-0">
                     {tier.icon}
                   </div>
 
@@ -136,16 +136,16 @@ export const SafetyArchitectureDiagram: React.FC = () => {
                 </div>
 
                 {/* 2. 右侧：核心管控手段与机制说明 (占 8 列，纯静态专业报告样式) */}
-                <div className="lg:col-span-8 bg-white p-4 sm:p-5 border border-slate-300 space-y-3 shadow-2xs">
+                <div className="lg:col-span-8 bg-slate-50/70 p-4 sm:p-5 border border-slate-200 space-y-3">
                   <div className="flex items-center justify-between border-b border-slate-200 pb-2">
-                    <span className="text-xs sm:text-sm font-bold text-slate-900">
+                    <span className="text-sm sm:text-base font-bold text-slate-900">
                       {tier.scope}
                     </span>
-                    <span className="font-mono text-[11px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 border border-slate-200">
+                    <span className="font-mono text-xs sm:text-sm font-bold text-slate-600 bg-slate-100 px-2.5 py-0.5 border border-slate-200">
                       关键管控抓手
                     </span>
                   </div>
-                  <ul className="space-y-1.5 text-xs sm:text-sm text-slate-700 font-medium">
+                  <ul className="space-y-2 text-sm sm:text-base text-slate-800 font-medium">
                     {tier.keyPoints.map((pt, pIdx) => (
                       <li key={pIdx} className="flex items-start gap-2.5">
                         <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
@@ -160,7 +160,7 @@ export const SafetyArchitectureDiagram: React.FC = () => {
             {/* 层级之间的衔接连线指示 */}
             {idx < tiers.length - 1 && (
               <div className="flex items-center justify-center my-2">
-                <div className="flex items-center gap-2 bg-slate-900 text-white text-xs font-mono font-bold px-3 py-1 border border-slate-800 shadow-2xs">
+                <div className="flex items-center gap-2 bg-slate-900 text-white text-xs font-mono font-bold px-3 py-1 border border-slate-800">
                   <ArrowDown className="w-3.5 h-3.5" />
                   <span>
                     {idx === 0

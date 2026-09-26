@@ -36,12 +36,12 @@
     --report-space-9: 52px;
     --report-space-10: 64px;
     --report-font-caption: 14.5px;
-    --report-font-small: 16px;
+    --report-font-small: 15.5px;
     --report-font-body: 17px;
     --report-font-emphasis: 19px;
     --report-font-panel-title: 23px;
-    --report-font-section-title: 28px;
-    --report-font-chapter-title: 34px;
+    --report-font-section-title: 27px;
+    --report-font-chapter-title: 32px;
     --report-font-cover-title: 48px;
     --report-weight-regular: 400;
     --report-weight-medium: 500;
@@ -138,6 +138,27 @@
   .report-shell .text-slate-800,
   .report-shell .text-slate-900 {
     color: var(--report-ink) !important;
+  }
+
+  /* 深度优化全局最小字体，保证报告任何注释与说明极度清晰 */
+  .report-shell .text-xs {
+    font-size: 0.875rem !important; /* 14px 提高微型字与标签可读性 */
+    line-height: 1.5 !important;
+  }
+
+  .report-shell .text-sm {
+    font-size: 1rem !important; /* 16px 提升说明与正文可读性 */
+    line-height: 1.65 !important;
+  }
+
+  .report-shell .text-base {
+    font-size: 1.0625rem !important; /* 17px */
+    line-height: 1.7 !important;
+  }
+
+  .report-shell .report-takeaway-block {
+    font-size: 1.0625rem !important;
+    line-height: 1.75 !important;
   }
 
   .report-shell .shadow-xs,
@@ -813,7 +834,7 @@
   .report-dimension-card {
     background: #ffffff;
     border: 1px solid var(--report-line);
-    border-top: 2px solid var(--report-blue);
+    border-top: 2px solid #0f172a;
     border-radius: var(--report-radius-md);
     padding: 18px 20px;
     display: flex;
@@ -2320,7 +2341,7 @@
     border-bottom: 2px solid var(--report-ink) !important;
     white-space: nowrap !important;
     color: var(--report-ink) !important;
-    font-size: 15px !important;
+    font-size: 15.5px !important;
     font-weight: 700;
   }
 
@@ -2337,10 +2358,14 @@
     background: #fbfcfd !important;
   }
 
-  .report-standard-table td {
+  .report-standard-table td,
+  .report-dense-table td {
     color: var(--report-ink);
-    font-size: var(--report-font-small);
+    font-size: 15px !important;
     font-weight: var(--report-weight-medium);
+  }
+
+  .report-standard-table td {
     text-align: left !important;
   }
 
@@ -2391,10 +2416,10 @@
 
   .governance-table-block .report-standard-table th,
   .governance-table-block .report-standard-table td {
-    padding: 8px 8px !important;
+    padding: 9px 8px !important;
     vertical-align: top;
-    font-size: 14px !important;
-    line-height: 1.4 !important;
+    font-size: 15px !important;
+    line-height: 1.45 !important;
     overflow: visible !important;
     text-overflow: clip;
   }

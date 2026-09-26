@@ -235,30 +235,30 @@ export const SecurityUpgradeSection: React.FC = () => {
                 <ReportTableFrame>
                   <table className="w-full text-left border-collapse min-w-[680px]">
                     <thead>
-                      <tr className="border-b border-slate-900 bg-slate-50 text-slate-700 font-bold text-xs uppercase tracking-wider">
+                      <tr className="border-b border-slate-900 bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm uppercase tracking-wider">
                         <th className="py-2.5 px-3 w-[18%]">业务场景</th>
                         <th className="py-2.5 px-3 w-[25%]">潜在隐患与风险</th>
                         <th className="py-2.5 px-3 w-[37%]">升级管控规范</th>
                         <th className="py-2.5 px-3 w-[20%]">管控成效指标</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-200 text-xs sm:text-sm">
+                    <tbody className="divide-y divide-slate-200 text-sm">
                       {cat.items.map((item, idx) => (
                         <tr
                           key={idx}
                           className="hover:bg-slate-50/70 transition-colors"
                         >
-                          <td className="py-2.5 px-3 font-bold text-slate-900 align-top">
+                          <td className="py-3 px-3 font-bold text-slate-900 align-top text-sm">
                             {item.name}
                           </td>
-                          <td className="py-2.5 px-3 text-slate-600 text-xs leading-relaxed align-top">
+                          <td className="py-3 px-3 text-slate-600 text-sm leading-relaxed align-top">
                             {item.risk}
                           </td>
-                          <td className="py-2.5 px-3 text-slate-800 text-xs leading-relaxed align-top">
+                          <td className="py-3 px-3 text-slate-800 text-sm leading-relaxed align-top">
                             {highlightNumbers(item.measure)}
                           </td>
-                          <td className="py-2.5 px-3 font-medium text-slate-900 text-xs leading-relaxed align-top">
-                            <span className="inline-block px-1.5 py-0.5 bg-slate-100 border border-slate-200 text-slate-800">
+                          <td className="py-3 px-3 font-medium text-slate-900 text-xs sm:text-sm leading-relaxed align-top">
+                            <span className="inline-block px-2 py-0.5 bg-slate-100 border border-slate-200 text-slate-800 font-medium">
                               {item.impact}
                             </span>
                           </td>

@@ -1,6 +1,6 @@
 import React from "react";
 import { SummaryBox, highlightNumbers } from "./utils";
-import { ReportSectionHeader, ReportTableFrame } from "../../ReportSections";
+import { ReportSubsectionHeader, ReportTableFrame } from "../../ReportSections";
 
 export const AuditOverviewStudioInterception: React.FC = () => {
   const studioData = [
@@ -109,7 +109,7 @@ export const AuditOverviewStudioInterception: React.FC = () => {
   return (
     <div id="section-audit-studio-interception" className="space-y-8">
       {/* 模块小标题 - 统一规范 */}
-      <ReportSectionHeader title="2.1.5 工作室数据" />
+      <ReportSubsectionHeader title="2.1.5 工作室数据" />
 
       {/* 统一总结模块 */}
       <SummaryBox>
@@ -136,7 +136,7 @@ export const AuditOverviewStudioInterception: React.FC = () => {
                 <th colSpan={2} className="py-2 px-2 text-center">其他（棋牌，娱乐）</th>
               </tr>
               {/* 二级表头 */}
-              <tr className="border-b-2 border-slate-900 text-slate-700 font-bold text-xs sm:text-sm">
+              <tr className="border-b-2 border-slate-900 text-slate-800 font-bold text-sm">
                 <th className="px-2 py-2 border-b border-slate-200 text-center">金额</th>
                 <th className="px-2 py-2 border-b border-slate-200 border-r border-slate-200 text-center">占比</th>
                 <th className="px-2 py-2 border-b border-slate-200 text-center">金额</th>

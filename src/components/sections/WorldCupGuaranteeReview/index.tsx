@@ -2,13 +2,10 @@ import React from "react";
 import { ChapterTitle } from "../../ReportSections";
 import { SummaryBox, highlightNumbers } from "./utils";
 
-import { ZZOverview } from "./ZZOverview";
 import { PersonnelDistribution } from "./PersonnelDistribution";
 import { AuditOverviewSection } from "./AuditOverviewSection";
 import { SafetyComplianceSection } from "./SafetyComplianceSection";
 import { SystemAuditEvolutionSection } from "./SystemAuditEvolutionSection";
-import { ManualAuditSection } from "./ManualAuditSection";
-import { BonusEfficiencySection } from "./BonusEfficiencySection";
 
 export const WorldCupGuaranteeReview: React.FC = () => {
   return (
@@ -40,34 +37,11 @@ export const WorldCupGuaranteeReview: React.FC = () => {
         </div>
       </section>
 
-      {/* 4.0 系统审核 (审单比例演变、收益测算与云盾系统) */}
+      {/* 4.0 云盾审核 (审单比例演变、收益测算与云盾系统) */}
       <section id="section-4.0" className="report-chapter-block scroll-mt-6">
-        <ChapterTitle>4.0 系统审核</ChapterTitle>
+        <ChapterTitle>4.0 云盾审核</ChapterTitle>
         <div className="report-chapter-content">
           <SystemAuditEvolutionSection />
-        </div>
-      </section>
-
-      {/* 5.0 业务概览 (人效飞轮与人工审核机制) */}
-      <section id="section-5.0" className="report-chapter-block scroll-mt-6">
-        <ChapterTitle>5.0 业务概览</ChapterTitle>
-        <SummaryBox variant="chapter">
-          {highlightNumbers(
-            "当前[[人均效能]]约 [[250,000/人]]，人均处理约 [[24单/时]]。纯粹扩充人力将稀释人效，核心解决路径在于提升[[系统直出与审核比例]]，以系统拦截取代人工排查，实现质量、时效与成本的持续优化。"
-          )}
-        </SummaryBox>
-
-        <div className="report-chapter-content">
-          <ZZOverview />
-          <ManualAuditSection />
-        </div>
-      </section>
-
-      {/* 6.0 套利指数 (红利宏观走势、等级能效、穿透与新模型) */}
-      <section id="section-6.0" className="report-chapter-block scroll-mt-6">
-        <ChapterTitle>6.0 套利指数</ChapterTitle>
-        <div className="report-chapter-content">
-          <BonusEfficiencySection />
         </div>
       </section>
     </div>

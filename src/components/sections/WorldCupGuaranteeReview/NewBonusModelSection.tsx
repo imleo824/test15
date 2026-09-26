@@ -153,8 +153,8 @@ export const NewBonusModelSection: React.FC = () => {
               </div>
 
               {/* 通俗大白话业务场景示例 */}
-              <div className="pt-2.5 border-t border-slate-200 text-xs sm:text-sm text-slate-800 leading-relaxed font-normal bg-slate-100/70 p-2.5 border border-slate-200">
-                <strong className="text-slate-950 font-bold">【业务场景示例】</strong>原来仅对特定大额或敏感活动人工抽检，常规返水与自动充惠未设前置防线；现在<strong>不论自动接口还是人工工单</strong>，所有红利发放前 100% 强制调用模型过检，无过检一律不可入账。
+              <div className="pt-3.5 border-t border-slate-200 text-base sm:text-[17px] text-slate-900 leading-[1.75] font-normal bg-slate-100/90 p-4 sm:p-5 border border-slate-200">
+                <strong className="text-slate-950 font-bold text-base sm:text-lg">【业务场景示例】</strong>原来仅对特定大额或敏感活动人工抽检，常规返水与自动充惠未设前置防线；现在<strong>不论自动接口还是人工工单</strong>，所有红利发放前 100% 强制调用模型过检，无过检一律不可入账。
               </div>
             </div>
           </ReportDimensionCard>
@@ -202,8 +202,8 @@ export const NewBonusModelSection: React.FC = () => {
               </div>
 
               {/* 通俗大白话业务场景示例 */}
-              <div className="pt-2.5 border-t border-slate-200 text-xs sm:text-sm text-slate-800 leading-relaxed font-normal bg-slate-100/70 p-2.5 border border-slate-200">
-                <strong className="text-slate-950 font-bold">【业务场景示例】</strong>原来是红利发放后再跑离线脚本，等发现异常时黑产早已套现提款出逃；现在系统在<strong>发放请求发起的毫秒级瞬间</strong>完成特征抽取与算法校验，决策延迟低于 1 秒。
+              <div className="pt-3.5 border-t border-slate-200 text-base sm:text-[17px] text-slate-900 leading-[1.75] font-normal bg-slate-100/90 p-4 sm:p-5 border border-slate-200">
+                <strong className="text-slate-950 font-bold text-base sm:text-lg">【业务场景示例】</strong>原来是红利发放后再跑离线脚本，等发现异常时黑产早已套现提款出逃；现在系统在<strong>发放请求发起的毫秒级瞬间</strong>完成特征抽取与算法校验，决策延迟低于 1 秒。
               </div>
             </div>
           </ReportDimensionCard>
@@ -251,8 +251,8 @@ export const NewBonusModelSection: React.FC = () => {
               </div>
 
               {/* 通俗大白话业务场景示例 */}
-              <div className="pt-2.5 border-t border-slate-200 text-xs sm:text-sm text-slate-800 leading-relaxed font-normal bg-slate-100/70 p-2.5 border border-slate-200">
-                <strong className="text-slate-950 font-bold">【业务场景示例】</strong>原来审批全凭专员肉眼与主观裁量，宽严不一且极易被黑产攻破；现在系统基于<strong>游戏输赢、存提杠杆、行为关联</strong>动态生成套利指数，自动化给出【正常、少发、不发、多发】精细化调配建议。
+              <div className="pt-3.5 border-t border-slate-200 text-base sm:text-[17px] text-slate-900 leading-[1.75] font-normal bg-slate-100/90 p-4 sm:p-5 border border-slate-200">
+                <strong className="text-slate-950 font-bold text-base sm:text-lg">【业务场景示例】</strong>原来审批全凭专员肉眼与主观裁量，宽严不一且极易被黑产攻破；现在系统基于<strong>游戏输赢、存提杠杆、行为关联</strong>动态生成套利指数，自动化给出【正常、少发、不发、多发】精细化调配建议。
               </div>
             </div>
           </ReportDimensionCard>
@@ -300,8 +300,8 @@ export const NewBonusModelSection: React.FC = () => {
               </div>
 
               {/* 通俗大白话业务场景示例 */}
-              <div className="pt-2.5 border-t border-slate-200 text-xs sm:text-sm text-slate-800 leading-relaxed font-normal bg-slate-100/70 p-2.5 border border-slate-200">
-                <strong className="text-slate-950 font-bold">【业务场景示例】</strong>原来手工派发缺乏系统跟踪，容易出现遗漏；现在如因特殊情况需要人工审批派发，系统会自动附加风险关注标记，提款环节自动进行流水与注单复核，保障资金安全。
+              <div className="pt-3.5 border-t border-slate-200 text-base sm:text-[17px] text-slate-900 leading-[1.75] font-normal bg-slate-100/90 p-4 sm:p-5 border border-slate-200">
+                <strong className="text-slate-950 font-bold text-base sm:text-lg">【业务场景示例】</strong>原来手工派发缺乏系统跟踪，容易出现遗漏；现在如因特殊情况需要人工审批派发，系统会自动附加风险关注标记，提款环节自动进行流水与注单复核，保障资金安全。
               </div>
             </div>
           </ReportDimensionCard>

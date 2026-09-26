@@ -1,6 +1,6 @@
 import React from "react";
 import { SummaryBox, highlightNumbers } from "./utils";
-import { ReportPanel, ReportSectionHeader, ReportTableFrame } from "../../ReportSections";
+import { ReportPanel, ReportSubsectionHeader, ReportTableFrame } from "../../ReportSections";
 
 export const AuditOverviewHighVipDetail: React.FC = () => {
   // 会员等级明细数据（最新数据）
@@ -60,7 +60,7 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
   return (
     <div id="section-audit-high-vip-detail" className="space-y-8">
       {/* 模块小标题 - 统一规范 */}
-      <ReportSectionHeader title="2.1.6 高等级会员" />
+      <ReportSubsectionHeader title="2.1.6 高等级会员" />
 
       {/* 统一总结模块 */}
       <SummaryBox>
@@ -131,7 +131,7 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
                   <th colSpan={3} className="p-2 text-center">软件</th>
                 </tr>
                 {/* 二级表头 */}
-                <tr className="border-b-2 border-slate-900 text-slate-700 font-bold text-xs sm:text-sm">
+                <tr className="border-b-2 border-slate-900 text-slate-800 font-bold text-sm">
                   <th className="px-2 py-2 border-r border-slate-200 text-center">人数</th>
                   <th className="px-2 py-2 border-r border-slate-200 text-center">占比</th>
 

@@ -66,7 +66,7 @@ export const PersonnelDistribution: React.FC = () => {
                     </span>
                   </div>
                   <span
-                    className={`font-mono text-[11px] font-bold px-1.5 py-0.5 border ${
+                    className={`font-mono text-xs sm:text-sm font-bold px-2 py-0.5 border ${
                       item.category === "降本增效"
                         ? "text-emerald-800 bg-emerald-50 border-emerald-200"
                         : "text-blue-800 bg-blue-50 border-blue-200"

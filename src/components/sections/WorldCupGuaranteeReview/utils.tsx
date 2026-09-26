@@ -241,7 +241,7 @@ export const SummaryBox = ({
               ) : variant === "note" ? (
                 <FileText className="w-4 h-4 text-slate-700 shrink-0 stroke-[2]" />
               ) : (
-                <Info className="w-4 h-4 text-blue-900 shrink-0 stroke-[2]" />
+                <Info className="w-4 h-4 text-slate-800 shrink-0 stroke-[2]" />
               )}
             </span>
           ) : null}

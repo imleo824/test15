@@ -15,7 +15,7 @@ import {
   ReportChartCard,
   ReportChartLegend,
   ReportPanel,
-  ReportSectionHeader,
+  ReportSubsectionHeader,
   ReportTableFrame
 } from "../../ReportSections";
 
@@ -258,7 +258,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
   return (
     <div id="section-audit-sports-interception" className="space-y-6">
       {/* 模块小标题 - 统一规范 */}
-      <ReportSectionHeader title="2.1.4 体育数据" />
+      <ReportSubsectionHeader title="2.1.4 体育数据" />
 
       {/* 统一总结模块 */}
       <SummaryBox>
@@ -368,10 +368,10 @@ export const AuditOverviewSportsInterception: React.FC = () => {
                   </th>
                 ))}
               </tr>
-              <tr className="border-b-2 border-slate-900 text-slate-700 font-bold text-xs sm:text-sm">
+              <tr className="border-b-2 border-slate-900 text-slate-700 font-bold text-sm">
                 {categoryDetailColumns.flatMap((_, index) => [
-                  <th key={`${index}-amount`} className="text-center py-1.5">金额</th>,
-                  <th key={`${index}-pct`} className={`text-center py-1.5 ${index < categoryDetailColumns.length - 1 ? "border-r border-slate-200" : ""}`}>占比</th>,
+                  <th key={`${index}-amount`} className="text-center py-2">金额</th>,
+                  <th key={`${index}-pct`} className={`text-center py-2 ${index < categoryDetailColumns.length - 1 ? "border-r border-slate-200" : ""}`}>占比</th>,
                 ])}
               </tr>
             </thead>

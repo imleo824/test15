@@ -282,9 +282,9 @@ export const ZZOverview: React.FC = () => {
 
                   <div className="business-flywheel-card-body">
                     <Icon className={`business-flywheel-icon ${isHighlight ? "business-flywheel-icon-red" : ""}`} />
-                    <div className="business-flywheel-card-copy space-y-0.5">
+                    <div className="business-flywheel-card-copy space-y-1">
                       {step.desc.map((line) => (
-                        <p key={line} className="text-xs font-normal text-slate-700 m-0 leading-normal">
+                        <p key={line} className="text-sm sm:text-base font-medium text-slate-800 m-0 leading-relaxed">
                           • {line}
                         </p>
                       ))}

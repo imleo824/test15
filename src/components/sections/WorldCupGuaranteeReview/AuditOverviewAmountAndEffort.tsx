@@ -1,7 +1,7 @@
 import React from "react";
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, ComposedChart, Line } from "recharts";
 import { SummaryBox, highlightNumbers } from "./utils";
-import { ReportChartCard, ReportChartLegend, ReportSectionHeader } from "../../ReportSections";
+import { ReportChartCard, ReportChartLegend, ReportSubsectionHeader } from "../../ReportSections";
 import {
   chartAxisTick,
   chartBarRadius,
@@ -57,7 +57,7 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
   return (
     <div id="section-audit-amount-effort" className="space-y-8">
       {/* 模块小标题 - 统一规范 */}
-      <ReportSectionHeader title="2.1.1 金额时效" />
+      <ReportSubsectionHeader title="2.1.1 金额时效" />
 
       {/* 文字总结区 */}
       <SummaryBox>
