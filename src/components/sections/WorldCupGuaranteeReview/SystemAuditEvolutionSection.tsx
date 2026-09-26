@@ -786,7 +786,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                           <span>高等级会员优先派给资深专家组；按套利、对冲、作弊等风险标签定点分派至对应专员。</span>
                         </div>
                         <div className="flex items-start gap-2 bg-white p-3">
-                          <span className="font-bold text-slate-950 shrink-0">• 工具链辅助裁决：</span>
+                          <span className="font-bold text-slate-950 shrink-0">• 工具辅助裁决：</span>
                           <span>依托多维日志关联图谱、设备核查、注单流水倍数比对工具，快速执行划扣放行或违规关停。</span>
                         </div>
                       </div>
@@ -876,7 +876,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             {/* 4 列防线矩阵卡片：去除外层嵌套大边框，采用扁平利落的卡片矩阵 */}
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 items-stretch">
               {/* 支柱 1：最小范围知晓与定期归档销毁 */}
-              <div className="bg-slate-50 p-5 border-t-2 border-t-slate-900 flex flex-col justify-between space-y-3">
+              <div className="bg-slate-50 p-5 border-t-2 border-t-slate-900 flex flex-col justify-between space-y-4">
                 <div className="space-y-2">
                   <span className="text-base font-bold text-slate-950 block">
                     1. 最小知晓与归档销毁
@@ -885,13 +885,18 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     所有底层风控规则、策略参数及评分权重严格执行<strong>“最小知晓范围”</strong>控制，严禁全员公示与跨部门扩散；策略版本推移后，历史实验规则与失效参数<strong>定期归档离线并物理销毁</strong>，从源头杜绝策略外泄与逆向分析。
                   </p>
                 </div>
-                <div className="pt-2 text-xs sm:text-sm font-mono text-slate-600 font-semibold">
-                  原则：按需授权 · 生命周期销毁
+                <div className="pt-3 border-t border-slate-200/90">
+                  <div className="inline-flex items-center gap-2 px-2.5 py-1.5 bg-white border border-slate-300 text-xs sm:text-sm font-mono text-slate-900 font-semibold shadow-xs">
+                    <span className="px-1.5 py-0.5 bg-slate-900 text-white text-[11px] font-bold leading-none uppercase tracking-wider">
+                      原则
+                    </span>
+                    <span className="text-slate-900">按需授权 · 生命周期销毁</span>
+                  </div>
                 </div>
               </div>
 
               {/* 支柱 2：多环节组合控制与防窥全貌 */}
-              <div className="bg-slate-50 p-5 border-t-2 border-t-slate-900 flex flex-col justify-between space-y-3">
+              <div className="bg-slate-50 p-5 border-t-2 border-t-slate-900 flex flex-col justify-between space-y-4">
                 <div className="space-y-2">
                   <span className="text-base font-bold text-slate-950 block">
                     2. 多环节组合受控
@@ -900,13 +905,18 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     整个体系的运行控制由特征工程、策略校验、风险评分、动态路由及辅助工具等<strong>多环节组合协同而成</strong>；各环节严格权限隔离，<strong>很难单个人看到运行全貌</strong>，极难通过单一行为试探反推整套风控拦截的全局边界。
                   </p>
                 </div>
-                <div className="pt-2 text-xs sm:text-sm font-mono text-slate-600 font-semibold">
-                  机制：链路解耦 · 盲盒防御
+                <div className="pt-3 border-t border-slate-200/90">
+                  <div className="inline-flex items-center gap-2 px-2.5 py-1.5 bg-white border border-slate-300 text-xs sm:text-sm font-mono text-slate-900 font-semibold shadow-xs">
+                    <span className="px-1.5 py-0.5 bg-slate-900 text-white text-[11px] font-bold leading-none uppercase tracking-wider">
+                      机制
+                    </span>
+                    <span className="text-slate-900">链路解耦 · 盲盒防御</span>
+                  </div>
                 </div>
               </div>
 
               {/* 支柱 3：上百个特征及参数周级别动态调整 */}
-              <div className="bg-slate-50 p-5 border-t-2 border-t-slate-900 flex flex-col justify-between space-y-3">
+              <div className="bg-slate-50 p-5 border-t-2 border-t-slate-900 flex flex-col justify-between space-y-4">
                 <div className="space-y-2">
                   <span className="text-base font-bold text-slate-950 block">
                     3. 上百特征周级调参
@@ -915,13 +925,18 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     云盾体系涵盖设备环境、注单时序、资金流向、行为偏好、跨站图谱等<strong>上百个特征及核心权重参数</strong>；风控策略组结合实盘样本执行<strong>周级别的例行指标校准与动态调参</strong>，打破静态规则规律，使外部对抗者始终面临不确定性。
                   </p>
                 </div>
-                <div className="pt-2 text-xs sm:text-sm font-mono text-slate-600 font-semibold">
-                  频率：100+ 特征 · 周级动态校准
+                <div className="pt-3 border-t border-slate-200/90">
+                  <div className="inline-flex items-center gap-2 px-2.5 py-1.5 bg-white border border-slate-300 text-xs sm:text-sm font-mono text-slate-900 font-semibold shadow-xs">
+                    <span className="px-1.5 py-0.5 bg-slate-900 text-white text-[11px] font-bold leading-none uppercase tracking-wider">
+                      频率
+                    </span>
+                    <span className="text-slate-900">100+特征 · 周级动态校准</span>
+                  </div>
                 </div>
               </div>
 
               {/* 支柱 4：评估反馈机制与自进化更新迭代 */}
-              <div className="bg-slate-50 p-5 border-t-2 border-t-slate-900 flex flex-col justify-between space-y-3">
+              <div className="bg-slate-50 p-5 border-t-2 border-t-slate-900 flex flex-col justify-between space-y-4">
                 <div className="space-y-2">
                   <span className="text-base font-bold text-slate-950 block">
                     4. 持续对抗与自进化
@@ -930,8 +945,13 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     灰黑产<strong>套利模式持续进行变异与升级</strong>，整个云盾体系时刻保持警惕，绝不固步自封。依托召回率与命中率双向闭环回溯，快速捕捉新型变异套利行为，驱动算法模型与拦截规则<strong>持续进行版本演进与更新迭代</strong>。
                   </p>
                 </div>
-                <div className="pt-2 text-xs sm:text-sm font-mono text-slate-600 font-semibold">
-                  态势：时刻警惕 · 闭环迭代更新
+                <div className="pt-3 border-t border-slate-200/90">
+                  <div className="inline-flex items-center gap-2 px-2.5 py-1.5 bg-white border border-slate-300 text-xs sm:text-sm font-mono text-slate-900 font-semibold shadow-xs">
+                    <span className="px-1.5 py-0.5 bg-slate-900 text-white text-[11px] font-bold leading-none uppercase tracking-wider">
+                      态势
+                    </span>
+                    <span className="text-slate-900">时刻警惕 · 闭环迭代更新</span>
+                  </div>
                 </div>
               </div>
             </div>
