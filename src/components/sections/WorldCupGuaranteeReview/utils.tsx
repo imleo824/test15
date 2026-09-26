@@ -266,20 +266,20 @@ export const ExpectedRhythm = ({
 
   if (hasDetails) {
     return (
-      <div className="report-rhythm p-4 space-y-5 mt-auto">
+      <div className="report-rhythm p-5 sm:p-6 space-y-4 mt-auto border border-slate-200 bg-white">
         <div className="report-rhythm-head">
-          <span className="font-black text-slate-900 text-sm md:text-base flex items-center gap-2">
-            <Clock className="w-4 h-4 text-blue-900 shrink-0" />
-            <span>预期节奏</span>
+          <span className="font-bold text-slate-900 text-base md:text-lg flex items-center gap-2">
+            <Clock className="w-5 h-5 text-blue-900 shrink-0" />
+            <span>预期节奏与排期</span>
           </span>
         </div>
         <ReportTableFrame>
           <table className="report-standard-table">
             <thead>
-              <tr className="bg-slate-100 text-slate-900 border-b border-slate-200 text-xs">
-                <th className="py-2 px-3 font-black">功能模块</th>
-                <th className="py-2 px-3 font-black w-36">需求时间</th>
-                <th className="py-2 px-3 font-black w-52">当前状态</th>
+              <tr className="bg-slate-100 text-slate-900 border-b-2 border-slate-900 text-sm">
+                <th className="py-3 px-4 font-bold text-left">功能模块</th>
+                <th className="py-3 px-4 font-bold text-left w-44">需求时间</th>
+                <th className="py-3 px-4 font-bold text-left w-56">当前状态</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 bg-white">
@@ -290,11 +290,11 @@ export const ExpectedRhythm = ({
                 if (step.tagColor === "slate") badgeTone = "slate";
 
                 return (
-                  <tr key={idx} className="hover:bg-slate-50">
-                    <td className="py-2.5 px-3 font-black text-slate-900">{step.title || step.desc}</td>
-                    <td className="py-2.5 px-3 font-mono text-blue-900">{step.submitTime || "-"}</td>
-                    <td className="py-2.5 px-3">
-                      <ReportBadge tone={badgeTone} className="report-status-badge">
+                  <tr key={idx} className="hover:bg-slate-50/70">
+                    <td className="py-3.5 px-4 font-bold text-slate-900 text-sm md:text-base">{step.title || step.desc}</td>
+                    <td className="py-3.5 px-4 font-mono font-bold text-blue-900 text-sm md:text-base">{step.submitTime || "-"}</td>
+                    <td className="py-3.5 px-4">
+                      <ReportBadge tone={badgeTone} className="report-status-badge text-xs sm:text-sm px-3 py-1">
                         {step.status || "-"}
                       </ReportBadge>
                     </td>

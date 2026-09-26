@@ -10,7 +10,7 @@ interface SectionItem {
 
 export const ReportCover: React.FC = () => {
   const sections: SectionItem[] = [
-    { id: "1.0", title: "组织管理", subtitle: "人员编制与架构分布" },
+    { id: "1.0", title: "组织管理", subtitle: "团队人数与岗位结构" },
     { id: "2.0", title: "数据概览", subtitle: "审核时效与拦截分析" },
     { id: "3.0", title: "内控概览", subtitle: "质检合规与运营监控" },
     { id: "4.0", title: "风控工单", subtitle: "工单处理与流转时效" },

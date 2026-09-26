@@ -418,7 +418,7 @@ export const NewBonusModelSection: React.FC = () => {
                   </div>
 
                   <div className="text-[11px] text-slate-500 leading-tight">
-                    基于全局数据湖实时计算，毫秒级输出综合套利偏离分。
+                    基于多维行为特征数据实时计算，毫秒级输出综合套利偏离分。
                   </div>
                 </div>
 

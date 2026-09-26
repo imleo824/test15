@@ -97,7 +97,7 @@ const renderAuditStructureLabel = () => ({ x, y, width, value }: any) => {
       y={y - 20}
       textAnchor="middle"
       fill="#0f172a"
-      fontSize={13}
+      fontSize={14.5}
       fontWeight={900}
       paintOrder="stroke"
       stroke="#ffffff"
@@ -106,7 +106,7 @@ const renderAuditStructureLabel = () => ({ x, y, width, value }: any) => {
     >
       <tspan x={centerX}>{displayAmount}</tspan>
       {displayRatio ? (
-        <tspan x={centerX} dy={14}>
+        <tspan x={centerX} dy={15}>
           {displayRatio}
         </tspan>
       ) : null}
@@ -125,7 +125,7 @@ const renderQualityLabel = (dx: number = 0) => ({ x, y, value }: any) => {
       y={y - 10}
       textAnchor="middle"
       fill="#0f172a"
-      fontSize={13}
+      fontSize={14.5}
       fontWeight={900}
       paintOrder="stroke"
       stroke="#ffffff"

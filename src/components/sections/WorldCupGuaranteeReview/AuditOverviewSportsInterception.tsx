@@ -24,8 +24,8 @@ export const AuditOverviewSportsInterception: React.FC = () => {
     (data: { comboLabel: string }[]) =>
     ({ x, index }: any) => (
       <g>
-        <rect x={x - 42} y={8} width="84" height="24" rx="3" fill="#ffffff" stroke="#334155" strokeWidth="1.2" />
-        <text x={x} y={24} fill="#0f172a" fontSize={12.5} fontWeight={700} textAnchor="middle">
+        <rect x={x - 48} y={6} width="96" height="26" rx="3" fill="#ffffff" stroke="#0f172a" strokeWidth="1.5" />
+        <text x={x} y={23} fill="#0f172a" fontSize={14} fontWeight={700} textAnchor="middle">
           综合 {data[index].comboLabel}
         </text>
       </g>

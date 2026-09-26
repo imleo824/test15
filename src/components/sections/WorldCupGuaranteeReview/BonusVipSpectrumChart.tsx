@@ -56,7 +56,7 @@ const renderDepLeverageLabel = (props: any) => {
       y={y - 6}
       textAnchor="middle"
       fill="#0f172a"
-      fontSize={13}
+      fontSize={14.5}
       fontWeight={700}
       paintOrder="stroke"
       stroke="#ffffff"
@@ -72,14 +72,14 @@ const renderProfitLeverageLabel = (props: any) => {
   if (typeof x !== "number" || typeof y !== "number" || value === undefined || value === null) return null;
   const num = Number(value);
   const isNegative = num < 0;
-  const labelY = isNegative ? y + Math.abs(height) + 12 : y - 6;
+  const labelY = isNegative ? y + Math.abs(height) + 14 : y - 6;
   return (
     <text
       x={x + width / 2}
       y={labelY}
       textAnchor="middle"
       fill={isNegative ? "#b91c1c" : "#0f172a"}
-      fontSize={13}
+      fontSize={14.5}
       fontWeight={700}
       paintOrder="stroke"
       stroke="#ffffff"

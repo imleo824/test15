@@ -92,7 +92,7 @@ export const BonusCrossSiteChart: React.FC = () => {
           subtitle="真实玩家 与 跨站套利群体对比"
           value="存款 ÷ 红利"
           description="套利群体通过跨站对打刷流水伪装，存款杠杆（14.10倍）表面与真实玩家（15.00倍）非常接近，具备极高隐蔽性。"
-          footnote="注：数据基于全局唯一设备与账号标识进行跨站聚合穿透统计。"
+          footnote="注：数据基于跨站唯一设备指纹与关联账号进行穿透聚合统计。"
         >
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={simpleComparisonData} margin={chartMargins.compact}>

@@ -35,33 +35,33 @@
     --report-space-8: 44px;
     --report-space-9: 52px;
     --report-space-10: 64px;
-    --report-font-caption: 14px;
-    --report-font-small: 15.5px;
-    --report-font-body: 16.5px;
-    --report-font-emphasis: 18px;
-    --report-font-panel-title: 21px;
-    --report-font-section-title: 25px;
-    --report-font-chapter-title: 30px;
-    --report-font-cover-title: 42px;
+    --report-font-caption: 14.5px;
+    --report-font-small: 16px;
+    --report-font-body: 17px;
+    --report-font-emphasis: 19px;
+    --report-font-panel-title: 23px;
+    --report-font-section-title: 28px;
+    --report-font-chapter-title: 34px;
+    --report-font-cover-title: 48px;
     --report-weight-regular: 400;
     --report-weight-medium: 500;
     --report-weight-semibold: 600;
     --report-weight-bold: 700;
-    --report-chart-height: 300px;
-    --report-panel-gap: 22px;
-    --report-panel-padding-y: 18px;
+    --report-chart-height: 320px;
+    --report-panel-gap: 28px;
+    --report-panel-padding-y: 20px;
     --report-panel-padding-x: 0px;
     --report-shadow-xs: none;
   }
 
   html {
-    background: #ffffff;
+    background: #f1f4f8;
     scroll-behavior: auto;
     font-size: 16px;
   }
 
   body {
-    background: #ffffff;
+    background: #f1f4f8;
     color: var(--report-ink);
     font-size: 16px;
     line-height: 1.65;
@@ -148,25 +148,11 @@
 
   .report-main {
     width: 100%;
-    max-width: 1400px;
     margin: 0 auto;
-    padding-inline: 48px;
-  }
-
-  @media (max-width: 1024px) {
-    .report-main {
-      padding-inline: 28px;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .report-main {
-      padding-inline: 16px;
-    }
   }
 
   .report-shell [id^="section-"] {
-    scroll-margin-top: 32px;
+    scroll-margin-top: 48px;
   }
 
   .report-heading {
@@ -2273,8 +2259,8 @@
 
   .report-standard-table,
   .report-dense-table {
-    font-size: var(--report-font-small) !important;
-    line-height: 1.45 !important;
+    font-size: 15.5px !important;
+    line-height: 1.55 !important;
     word-break: normal !important;
     overflow-wrap: normal !important;
     width: 100%;
@@ -2292,26 +2278,26 @@
   .report-dense-table--site-detail th:first-child,
   .report-dense-table--site-detail td:first-child {
     width: 8.5%;
-    padding-inline: 6px !important;
+    padding-inline: 8px !important;
     font-size: 15px !important;
   }
 
   .report-dense-table--sports-detail th:first-child,
   .report-dense-table--sports-detail td:first-child {
-    width: 94px !important;
-    padding-inline: 5px !important;
+    width: 96px !important;
+    padding-inline: 8px !important;
     font-size: 15px !important;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
   }
 
   .report-standard-table th,
   .report-standard-table td,
   .report-dense-table th,
   .report-dense-table td {
-    padding: 10px 11px !important;
+    padding: 12px 14px !important;
     vertical-align: middle;
     border-right: 0 !important;
-    border-bottom: 1px solid var(--report-line-subtle);
+    border-bottom: 1px solid var(--report-line);
     white-space: nowrap !important;
     word-break: keep-all !important;
     overflow-wrap: normal !important;
@@ -2321,7 +2307,7 @@
 
   .report-dense-table th,
   .report-dense-table td {
-    padding: 9px 10px !important;
+    padding: 10px 12px !important;
   }
 
   .report-dense-table tr {
@@ -2330,12 +2316,12 @@
 
   .report-standard-table thead th,
   .report-dense-table thead th {
-    background: #f4f7fa !important;
-    border-bottom: 1px solid var(--report-line-strong) !important;
+    background: #f1f5f9 !important;
+    border-bottom: 2px solid var(--report-ink) !important;
     white-space: nowrap !important;
     color: var(--report-ink) !important;
-    font-size: var(--report-font-small);
-    font-weight: 600;
+    font-size: 15px !important;
+    font-weight: 700;
   }
 
   .report-standard-table thead th {

@@ -6,19 +6,23 @@ export const PersonnelDistribution: React.FC = () => {
   const policyItems = [
     {
       title: "人员优化",
-      content: "依托系统自动化推进[[编制集约化]]，持续优化在册人员技能与岗位结构；",
-    },
-    {
-      title: "场地优化",
-      content: "结合各职场承载力[[动态平衡工位]]，保持各职场资源集约高效利用；",
+      category: "降本增效",
+      content: "依托[[系统自动化精简人工]]，持续优化人员技能与岗位结构，大幅提升单人人效；",
     },
     {
       title: "考核机制",
-      content: "落实全流程量化考核与[[末位淘汰]]，编制向[[专业分析岗位]]实质倾斜；",
+      category: "降本增效",
+      content: "落实全流程量化考核与[[末位淘汰]]，人力向[[专业分析与策略岗位]]倾斜，杜绝人员冗余；",
+    },
+    {
+      title: "场地优化",
+      category: "合规安全",
+      content: "结合各职场承载力[[动态平衡工位]]，优化各场地工位以控制组织风险与合规风险；",
     },
     {
       title: "流程优化",
-      content: "裁撤跨部门[[冗余流转节点]]，压缩协同链路，全面[[提升执行效率]]与合规安全。",
+      category: "合规安全",
+      content: "裁撤跨部门[[冗余流转节点]]，压缩协同链路，全面强化权限隔离与[[全链路合规安全]]。",
     },
   ];
 
@@ -26,19 +30,25 @@ export const PersonnelDistribution: React.FC = () => {
     <div className="space-y-8">
       {/* 核心战略导语 */}
       <SummaryBox variant="chapter">
-        <div className="space-y-1.5">
-          <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
-            推进编制集约化管理，依托系统自动化优化队伍结构，提升专职风控人效
-          </h3>
-          <p className="text-sm md:text-base text-slate-700 leading-relaxed font-normal">
-            动态平衡职场场地配比，严格执行量化考核与优胜劣汰，稳妥推进外包剥离与专业化升级。
-          </p>
+        <div className="text-sm md:text-base font-medium text-slate-900 leading-relaxed">
+          {highlightNumbers(
+            "依托[[系统自动化]]全面推进[[组织精简化]]与[[作业合规化]]，实质提升专职风控人效。"
+          )}
         </div>
       </SummaryBox>
 
       {/* 1.1 组织治理核心举措 (条形矩阵) */}
       <div className="space-y-4">
         <ReportSectionHeader title="1.1 组织治理核心举措" />
+
+        <SummaryBox variant="module">
+          <div className="text-sm md:text-base text-slate-700 font-normal leading-relaxed">
+            {highlightNumbers(
+              "[[人效]]是团队最核心的竞争力，坚决去除冗余岗位、低效人员；[[安全合规]]是业务稳健运行最核心的基础保障。"
+            )}
+          </div>
+        </SummaryBox>
+
         <div className="border border-slate-200 bg-white p-4 sm:p-5">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3.5 text-xs">
             {policyItems.map((item, index) => (
@@ -46,12 +56,23 @@ export const PersonnelDistribution: React.FC = () => {
                 key={index}
                 className="border border-slate-200 bg-slate-50/70 p-4 flex flex-col justify-between space-y-3"
               >
-                <div className="flex items-center gap-2 border-b border-slate-200 pb-2.5">
-                  <span className="report-sequence-badge text-xs">
-                    {index + 1}
-                  </span>
-                  <span className="font-bold text-slate-900 text-sm">
-                    {item.title}
+                <div className="flex items-center justify-between border-b border-slate-200 pb-2.5">
+                  <div className="flex items-center gap-2">
+                    <span className="report-sequence-badge text-xs">
+                      {index + 1}
+                    </span>
+                    <span className="font-bold text-slate-900 text-sm">
+                      {item.title}
+                    </span>
+                  </div>
+                  <span
+                    className={`font-mono text-[11px] font-bold px-1.5 py-0.5 border ${
+                      item.category === "降本增效"
+                        ? "text-emerald-800 bg-emerald-50 border-emerald-200"
+                        : "text-blue-800 bg-blue-50 border-blue-200"
+                    }`}
+                  >
+                    {item.category}
                   </span>
                 </div>
                 <p className="text-sm text-slate-700 leading-relaxed font-normal">
@@ -63,16 +84,25 @@ export const PersonnelDistribution: React.FC = () => {
         </div>
       </div>
 
-      {/* 1.2 岗位编制分布与变动明细 */}
+      {/* 1.2 各职场人员分布与变动明细 */}
       <div className="space-y-4">
-        <ReportSectionHeader title="1.2 岗位编制分布与变动明细" />
+        <ReportSectionHeader title="1.2 各职场人员分布与变动明细" />
+
+        <SummaryBox variant="module">
+          <div className="text-sm md:text-base text-slate-700 font-normal leading-relaxed">
+            {highlightNumbers(
+              "得益于[[系统自动化优化]]与智能审单流转，外包占比大幅降低 [[99%]]，全面实现全员正式在册与专职化运营管控。"
+            )}
+          </div>
+        </SummaryBox>
+
         <div className="border border-slate-200 bg-white p-5 space-y-6">
           {/* 第一层：CD 占比 & WB 外包 */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto">
             {/* Card 1: CD */}
             <div className="border border-slate-200 border-t-2 border-t-slate-900 bg-slate-50/70 p-4 text-center space-y-1.5">
               <span className="text-sm font-bold text-slate-800 block tracking-wider">
-                在册编制总数（全员正式）
+                在岗人数
               </span>
               <div className="flex items-baseline justify-center gap-1.5 py-1">
                 <span className="font-mono text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight tabular-nums">
@@ -80,13 +110,12 @@ export const PersonnelDistribution: React.FC = () => {
                 </span>
                 <span className="text-sm font-bold text-slate-600">人</span>
               </div>
-              <div className="text-sm text-slate-600 pt-0.5 font-medium">全员正式编制管控</div>
             </div>
 
             {/* Card 2: WB */}
             <div className="border border-slate-200 border-t-2 border-t-slate-900 bg-slate-50/70 p-4 text-center space-y-1.5">
               <span className="text-sm font-bold text-slate-800 block tracking-wider">
-                外包协同编制（计划清零）
+                外包人力
               </span>
               <div className="flex items-baseline justify-center gap-2 py-1">
                 <span className="font-mono text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight tabular-nums">
@@ -97,7 +126,6 @@ export const PersonnelDistribution: React.FC = () => {
                 </span>
                 <span className="text-sm font-bold text-slate-600">人</span>
               </div>
-              <div className="text-sm text-slate-600 pt-0.5 font-medium">8月加速缩减直至完全清零</div>
             </div>
           </div>
 

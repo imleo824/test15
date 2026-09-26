@@ -17,7 +17,7 @@ export const BonusEfficiencySection: React.FC = () => {
             <span>直接重构与提升平台整体利润率</span>
           </div>
           <p className="text-sm text-slate-700 leading-relaxed font-normal">
-            红利支出是直接侵蚀平台毛收益的最大变动成本。套利指数模型的落地，不仅是防范套利，更是在全局层面上<strong>直接决定平台的净利润率</strong>。控住无效红利流失，是提升全盘盈利能力的核心事项。
+            红利支出是直接侵蚀平台毛收益的最大变动成本。套利指数模型的落地，不仅是防范套利，更是<strong>直接决定平台的净利润率与真实回报</strong>。堵住无效红利套取漏洞，是守住业务经营利润的核心支柱。
           </p>
         </div>
       </div>

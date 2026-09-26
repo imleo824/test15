@@ -144,16 +144,22 @@ export const TgGovernanceSection: React.FC = () => {
           {/* 4 列主卡片：每列统一采用 结构化卡片 (头部 / 判定标准 / 处置策略与落地成效) */}
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 items-stretch">
             {/* 第 1 列：第一步 · 非必要群聊排查 */}
-            <div className="border border-slate-300 bg-white flex flex-col justify-between hover:border-slate-800 transition-colors shadow-xs">
-              {/* 卡片头部 */}
-              <div className="p-4 border-b border-slate-200 bg-slate-50/70">
-                <div className="flex items-center justify-between gap-2">
-                  <h4 className="text-base sm:text-lg font-extrabold text-slate-950 tracking-tight">
+            <div className="border border-slate-300 border-t-2 border-t-slate-900 bg-white flex flex-col justify-between hover:border-slate-800 transition-colors shadow-xs">
+              {/* 卡片头部：标题行 + 状态强背景行 */}
+              <div>
+                <div className="px-3.5 py-2.5 bg-slate-100/90 border-b border-slate-200 flex items-center gap-2">
+                  <span className="font-mono text-xs font-black text-white bg-slate-900 w-5 h-5 flex items-center justify-center shrink-0">
+                    1
+                  </span>
+                  <h4 className="text-sm sm:text-base font-black text-slate-950 tracking-tight truncate">
                     非必要群聊排查
                   </h4>
-                  <span className="text-sm font-bold text-slate-900 bg-slate-100 border border-slate-300 px-2.5 py-1 flex items-center gap-1.5 shrink-0">
-                    <Check className="w-4 h-4 text-slate-900 stroke-[3]" />
-                    <span>100% 已清零</span>
+                </div>
+                <div className="px-3.5 py-2 bg-emerald-600 text-white flex items-center justify-between text-xs sm:text-sm font-bold shadow-2xs">
+                  <span className="text-emerald-100 font-normal text-xs">治理现状</span>
+                  <span className="font-mono font-black text-white flex items-center gap-1.5 whitespace-nowrap">
+                    <Check className="w-4 h-4 stroke-[3]" />
+                    100% 已清零
                   </span>
                 </div>
               </div>
@@ -182,16 +188,22 @@ export const TgGovernanceSection: React.FC = () => {
             </div>
 
             {/* 第 2 列：第二步 · 第一类：日常沟通讨论群 */}
-            <div className="border border-slate-300 bg-white flex flex-col justify-between hover:border-slate-800 transition-colors shadow-xs">
-              {/* 卡片头部 */}
-              <div className="p-4 border-b border-slate-200 bg-slate-50/70">
-                <div className="flex items-center justify-between gap-2">
-                  <h4 className="text-base sm:text-lg font-extrabold text-slate-950 tracking-tight">
+            <div className="border border-slate-300 border-t-2 border-t-slate-900 bg-white flex flex-col justify-between hover:border-slate-800 transition-colors shadow-xs">
+              {/* 卡片头部：标题行 + 状态强背景行 */}
+              <div>
+                <div className="px-3.5 py-2.5 bg-slate-100/90 border-b border-slate-200 flex items-center gap-2">
+                  <span className="font-mono text-xs font-black text-white bg-slate-900 w-5 h-5 flex items-center justify-center shrink-0">
+                    2
+                  </span>
+                  <h4 className="text-sm sm:text-base font-black text-slate-950 tracking-tight truncate">
                     日常沟通讨论群
                   </h4>
-                  <span className="text-sm font-bold text-slate-900 bg-slate-100 border border-slate-300 px-2.5 py-1 flex items-center gap-1.5 shrink-0">
-                    <Check className="w-4 h-4 text-slate-900 stroke-[3]" />
-                    <span>100% 已收紧</span>
+                </div>
+                <div className="px-3.5 py-2 bg-blue-600 text-white flex items-center justify-between text-xs sm:text-sm font-bold shadow-2xs">
+                  <span className="text-blue-100 font-normal text-xs">权限管控</span>
+                  <span className="font-mono font-black text-white flex items-center gap-1.5 whitespace-nowrap">
+                    <Check className="w-4 h-4 stroke-[3]" />
+                    100% 已收紧
                   </span>
                 </div>
               </div>
@@ -203,7 +215,7 @@ export const TgGovernanceSection: React.FC = () => {
                   <span>排查范围</span>
                 </div>
                 <p className="text-sm text-slate-700 leading-relaxed font-normal">
-                  仅保留核心业务对接人，严格管控在群人员编制，定位仅做日常事务同步与业务讨论，不具备任何单据流转与审批属性。
+                  仅保留核心业务对接人，严格管控在群人员名单与权限，定位仅做日常事务同步与业务讨论，不具备任何单据流转与审批属性。
                 </p>
               </div>
 
@@ -220,16 +232,22 @@ export const TgGovernanceSection: React.FC = () => {
             </div>
 
             {/* 第 3 列：第二步 · 第二类：高风险业务 */}
-            <div className="border border-slate-300 bg-white flex flex-col justify-between hover:border-slate-800 transition-colors shadow-xs">
-              {/* 卡片头部 */}
-              <div className="p-4 border-b border-slate-200 bg-slate-50/70">
-                <div className="flex items-center justify-between gap-2">
-                  <h4 className="text-base sm:text-lg font-extrabold text-slate-950 tracking-tight">
+            <div className="border border-slate-300 border-t-2 border-t-slate-900 bg-white flex flex-col justify-between hover:border-slate-800 transition-colors shadow-xs">
+              {/* 卡片头部：标题行 + 状态强背景行 */}
+              <div>
+                <div className="px-3.5 py-2.5 bg-slate-100/90 border-b border-slate-200 flex items-center gap-2">
+                  <span className="font-mono text-xs font-black text-white bg-slate-900 w-5 h-5 flex items-center justify-center shrink-0">
+                    3
+                  </span>
+                  <h4 className="text-sm sm:text-base font-black text-slate-950 tracking-tight truncate">
                     高风险审核业务
                   </h4>
-                  <span className="text-sm font-bold text-slate-900 bg-slate-100 border border-slate-300 px-2.5 py-1 flex items-center gap-1.5 shrink-0">
-                    <Check className="w-4 h-4 text-slate-900 stroke-[3]" />
-                    <span>100% 已注销</span>
+                </div>
+                <div className="px-3.5 py-2 bg-slate-900 text-white flex items-center justify-between text-xs sm:text-sm font-bold shadow-2xs">
+                  <span className="text-slate-300 font-normal text-xs">处置结果</span>
+                  <span className="font-mono font-black text-white flex items-center gap-1.5 whitespace-nowrap">
+                    <Check className="w-4 h-4 text-emerald-400 stroke-[3]" />
+                    100% 已注销
                   </span>
                 </div>
               </div>
@@ -252,22 +270,28 @@ export const TgGovernanceSection: React.FC = () => {
                   <span>处置策略与成效</span>
                 </div>
                 <p className="text-sm text-slate-900 leading-relaxed font-normal">
-                  <strong className="text-slate-950 font-bold underline decoration-slate-400">群聊 100% 注销</strong>，全面迁移至后台系统工单与标准 API 闭环流转，全流程留痕并强制多人复核。
+                  <strong className="text-slate-950 font-bold underline decoration-slate-400">群聊 100% 注销</strong>，全面迁移至后台系统工单与标准 API 闭环流转，全流程留痕并强制多人复核，综合提效～50%。
                 </p>
               </div>
             </div>
 
             {/* 第 4 列：第二步 · 第二类：低风险业务 */}
-            <div className="border border-slate-300 bg-white flex flex-col justify-between hover:border-slate-800 transition-colors shadow-xs">
-              {/* 卡片头部 */}
-              <div className="p-4 border-b border-slate-200 bg-slate-50/70">
-                <div className="flex items-center justify-between gap-2">
-                  <h4 className="text-base sm:text-lg font-extrabold text-slate-950 tracking-tight">
+            <div className="border border-slate-300 border-t-2 border-t-slate-900 bg-white flex flex-col justify-between hover:border-slate-800 transition-colors shadow-xs">
+              {/* 卡片头部：标题行 + 状态强背景行 */}
+              <div>
+                <div className="px-3.5 py-2.5 bg-slate-100/90 border-b border-slate-200 flex items-center gap-2">
+                  <span className="font-mono text-xs font-black text-white bg-slate-900 w-5 h-5 flex items-center justify-center shrink-0">
+                    4
+                  </span>
+                  <h4 className="text-sm sm:text-base font-black text-slate-950 tracking-tight truncate">
                     低风险咨询业务
                   </h4>
-                  <span className="text-sm font-bold text-amber-900 bg-amber-50 border border-amber-300 px-2.5 py-1 flex items-center gap-1.5 shrink-0">
-                    <Clock className="w-4 h-4 text-amber-700 stroke-[2.5]" />
-                    <span>待协同切换</span>
+                </div>
+                <div className="px-3.5 py-2 bg-amber-500 text-amber-950 flex items-center justify-between text-xs sm:text-sm font-bold shadow-2xs">
+                  <span className="text-amber-900 font-normal text-xs">演进状态</span>
+                  <span className="font-mono font-black text-amber-950 flex items-center gap-1.5 whitespace-nowrap">
+                    <Clock className="w-4 h-4 stroke-[3]" />
+                    待协同切换
                   </span>
                 </div>
               </div>
@@ -298,74 +322,12 @@ export const TgGovernanceSection: React.FC = () => {
         </div>
       </div>
 
-      {/* 4.2 成效量化指标 (第二个位置) */}
-      <div className="space-y-4">
-        <ReportSectionHeader title="4.2 阶段取得成效" />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="border border-slate-200 bg-white p-4 flex flex-col justify-between space-y-3 border-t-2 border-t-slate-900">
-            <div className="flex items-center justify-between text-sm font-bold text-slate-900">
-              <span>非必须群注销</span>
-              <span className="text-xs font-mono font-bold text-slate-900 bg-slate-100 px-2 py-0.5 border border-slate-300">
-                关停率 100%
-              </span>
-            </div>
-            <div className="flex items-baseline gap-2 py-1">
-              <span className="text-3xl font-bold font-mono text-slate-900 tabular-nums">48</span>
-              <ArrowRight className="w-4 h-4 text-slate-700 shrink-0" />
-              <span className="text-3xl font-bold font-mono text-slate-950 tabular-nums">0</span>
-              <span className="text-sm font-bold text-slate-700">个群</span>
-            </div>
-            <p className="text-sm text-slate-700 leading-normal font-normal">第二类风控审核群聊已全面关停清零</p>
-          </div>
+      {/* 4.2 典型案例对比 (具象化案例剖析与治理对比) */}
+      <div className="space-y-6">
+        <ReportSectionHeader title="4.2 典型案例对比" />
 
-          <div className="border border-slate-200 bg-white p-4 flex flex-col justify-between space-y-3 border-t-2 border-t-slate-900">
-            <div className="flex items-center justify-between text-sm font-bold text-slate-900">
-              <span>核心流程工单</span>
-              <span className="text-xs font-mono font-bold text-slate-900 bg-slate-100 px-2 py-0.5 border border-slate-300">
-                线上化率 100%
-              </span>
-            </div>
-            <div className="flex items-baseline gap-1 py-1">
-              <span className="text-3xl font-bold font-mono text-slate-950 tabular-nums">10</span>
-              <span className="text-sm font-bold text-slate-700">/ 10 项</span>
-            </div>
-            <p className="text-sm text-slate-700 leading-normal font-normal">10 项核心业务已全量上线运行，100% 线上闭环</p>
-          </div>
-
-          <div className="border border-slate-200 bg-white p-4 flex flex-col justify-between space-y-3 border-t-2 border-t-slate-900">
-            <div className="flex items-center justify-between text-sm font-bold text-slate-900">
-              <span>提升处理时效</span>
-              <span className="text-xs font-mono font-bold text-slate-900 bg-slate-100 px-2 py-0.5 border border-slate-300">
-                提效 50%
-              </span>
-            </div>
-            <div className="flex items-baseline gap-1.5 py-1">
-              <span className="text-3xl font-bold font-mono text-slate-900 tabular-nums">～10</span>
-              <span className="text-sm font-bold text-slate-700">分钟</span>
-              <ArrowRight className="w-4 h-4 text-slate-700 shrink-0 mx-0.5" />
-              <span className="text-3xl font-bold font-mono text-slate-950 tabular-nums">～5</span>
-              <span className="text-sm font-bold text-slate-700">分钟</span>
-            </div>
-            <p className="text-sm text-slate-700 leading-normal font-normal">标准化工单流转替代群内人工催单与手动复制，端到端处置大幅提速</p>
-          </div>
-
-          <div className="border border-slate-200 bg-white p-4 flex flex-col justify-between space-y-3 border-t-2 border-t-slate-900">
-            <div className="flex items-center justify-between text-sm font-bold text-slate-900">
-              <span>审核多人审批</span>
-              <span className="text-xs font-mono font-bold text-slate-900 bg-slate-100 px-2 py-0.5 border border-slate-300">
-                单人无法完成
-              </span>
-            </div>
-            <div className="flex items-baseline gap-1 py-1">
-              <span className="text-3xl font-bold font-mono text-slate-900 tabular-nums">100%</span>
-              <span className="text-sm font-bold text-slate-700">系统留痕</span>
-            </div>
-            <p className="text-sm text-slate-700 leading-normal font-normal">上标、下标、备注、复审、资料、扣款等判定全量多节点审批、系统存证备查</p>
-          </div>
-        </div>
-
-        {/* 治理前 Telegram 线下群操作隐患与高风险场景剖析 (增加间距，具象化案例阐述) */}
-        <div className="mt-9 pt-6 border-t border-slate-200 space-y-6">
+        {/* 治理前 Telegram 线下群操作隐患与高风险场景剖析 (具象化案例阐述) */}
+        <div className="space-y-6">
           {/* 1. 治理前 vs 治理后 变化对比卡片 (置于截图上方：一列2行风险 vs 一列2行成效) */}
           <div className="space-y-4">
             <div className="space-y-1.5 border-b border-slate-200 pb-3">
@@ -381,7 +343,7 @@ export const TgGovernanceSection: React.FC = () => {
                 </div>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                以真实报单在全局检索穿透为例，具象化呈现从“线下群明文裸露、口头催单无痕”到“内部工单脱敏流转、100% 审计存证”的实质性收益与风险消除。
+                以真实报单跨群检索泄露为例，具象化呈现从“线下群明文裸露、口头催单无痕”到“内部工单脱敏流转、100% 审计存证”的实质性收益与风险消除。
               </p>
             </div>
 
@@ -453,7 +415,7 @@ export const TgGovernanceSection: React.FC = () => {
                       <span>成效 1：工单系统收口，敏感数据脱敏隔离</span>
                     </div>
                     <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-normal">
-                      彻底关闭所有线下业务报单群，全部 <strong>12 项业务 100% 迁移至内部风控工单系统</strong>。会员虚拟币地址与流水信息仅限授权角色在系统内加密脱敏调阅，杜绝全局检索与数据外泄。
+                      彻底关闭所有线下业务报单群，全部 <strong>12 项业务 100% 迁移至内部风控工单系统</strong>。会员虚拟币地址与流水信息仅限授权角色在系统内加密脱敏调阅，杜绝跨群检索与数据外泄。
                     </p>
                   </div>
 
@@ -503,7 +465,7 @@ export const TgGovernanceSection: React.FC = () => {
                   {/* 搜索命中汇总 (跨所有群聊检索) */}
                   <div className="flex items-center justify-between text-xs text-slate-500 px-1 font-normal">
                     <span>找到 4 条相关记录</span>
-                    <span className="text-xs text-slate-500">全部群聊（全局检索）</span>
+                    <span className="text-xs text-slate-500">所有历史群聊（跨群搜索）</span>
                   </div>
 
                   {/* 会话命中列表 (展示在不同业务大群中全部被搜索出该会员明文记录) */}
