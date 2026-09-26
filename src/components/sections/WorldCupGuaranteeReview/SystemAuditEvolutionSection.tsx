@@ -123,7 +123,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
         {/* 核心收益一句话说明 */}
         <SummaryBox variant="module">
           {highlightNumbers(
-            "智能化风控升级带来[[人效与时效双重大幅突破]]——相当于直接[[替代 46 名审核人力（人力消耗降低 67.6%）]]，并驱动订单平均到账耗时从 [[18.5 分钟缩短至 2.4 分钟（审核时效提速 87.0%）]]。"
+            "系统自动审核大幅提升人效与时效：相当于直接[[替代 46 名审核人力（人力消耗降低 67.6%）]]，并将平均到账耗时从 [[18.5 分钟缩短至 2.4 分钟（审核时效提速 87.0%）]]。"
           )}
         </SummaryBox>
 
@@ -580,24 +580,26 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             </div>
           </div>
 
-          {/* 云盾核心全链路闭环流程机制与安全保护框架 */}
-          <div className="space-y-4 pt-2">
-            <div className="border-b border-slate-300 pb-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="w-5 h-5 text-slate-900" />
+          {/* 维度一：云盾体系 · 运行闭环框架（说明框架架构与全链路流转） */}
+          <div className="space-y-4 pt-3">
+            <div className="border-b-2 border-slate-900 pb-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+              <div className="flex items-center gap-2.5">
+                <div className="p-1.5 bg-slate-900 text-white shrink-0">
+                  <ShieldCheck className="w-5 h-5" />
+                </div>
                 <h5 className="text-base sm:text-lg font-bold text-slate-950">
-                  云盾体系 · 运行闭环与核心安全框架
+                  云盾体系 · 运行闭环框架
                 </h5>
               </div>
-              <span className="text-xs font-mono font-bold text-slate-600 bg-slate-100 px-2 py-0.5 border border-slate-200 self-start sm:self-auto">
-                拦截 · 复核 · 反馈自进化 · 机制防护
+              <span className="text-xs sm:text-sm font-mono font-bold text-slate-700 bg-slate-100 px-2.5 py-0.5 border border-slate-300 self-start sm:self-auto">
+                架构机制 · 端到端全链路闭环
               </span>
             </div>
 
-            {/* 信息说明 */}
+            {/* 框架说明 */}
             <SummaryBox variant="module">
               {highlightNumbers(
-                "[[【云盾体系信息说明】]] 云盾体系是保障平台业务运行与资金安全的[[底层核心风控框架]]。系统构建了覆盖[[“策略校验 ➔ 风险评分 ➔ 分流处置 ➔ 评估反馈”]]的端到端自闭环，在实现 [[80% 订单 1.8 秒全自动秒级直出]]、极致压缩人工出款耗时的同时，针对 [[20% 风险订单实施毫秒级精准阻断与人工兜底精审]]。面对外部黑产与套利模式的高频变异，云盾体系通过严密的机制保护与多环节组合控制，确保安全水位持续领先。"
+                "云盾系统构建了覆盖[[“策略校验 ➔ 风险评分 ➔ 分流处置 ➔ 评估反馈”]]的端到端闭环：实现 [[80% 订单 1.8 秒全自动放行]]，大幅缩短出款耗时；同时针对 [[20% 风险订单实施精准阻断与人工兜底复核]]，确保业务合规与资金安全。"
               )}
             </SummaryBox>
 
@@ -840,45 +842,38 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               </div>
             </div>
 
-            {/* 云盾体系机制保护与安全核心框架 */}
-            <div className="border border-slate-200 bg-white p-5 sm:p-7 border-t-2 border-t-slate-900 space-y-6 mt-6">
-              {/* 头部标题栏 */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3.5 border-b border-slate-300 gap-2">
-                <div className="flex items-center gap-2.5">
-                  <div className="p-1.5 bg-slate-900 text-white shrink-0">
-                    <Lock className="w-5 h-5" />
-                  </div>
-                  <h6 className="text-lg sm:text-xl font-extrabold text-slate-950 tracking-tight">
-                    云盾体系机制保护与核心安全框架
-                  </h6>
+          {/* 维度二：云盾体系 · 机制保密与安全防护（说明如何做到保密防逆向） */}
+          <div className="space-y-4 pt-6 border-t border-slate-300">
+            {/* 头部标题栏 */}
+            <div className="border-b-2 border-slate-900 pb-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+              <div className="flex items-center gap-2.5">
+                <div className="p-1.5 bg-slate-900 text-white shrink-0">
+                  <Lock className="w-5 h-5" />
                 </div>
-                <span className="text-xs sm:text-sm font-mono font-bold text-slate-700 bg-slate-100 px-3 py-1 border border-slate-300 self-start sm:self-auto">
-                  防窥探 · 最小知晓 · 周级调参 · 动态抗衰减
-                </span>
+                <h5 className="text-base sm:text-lg font-bold text-slate-950">
+                  云盾体系 · 机制保密与安全防护
+                </h5>
               </div>
+              <span className="text-xs sm:text-sm font-mono font-bold text-slate-700 bg-slate-100 px-2.5 py-0.5 border border-slate-300 self-start sm:self-auto">
+                保密机制 · 深度防窥探与防逆向
+              </span>
+            </div>
 
-              {/* 【核心安全定位】置于顶部先导位置，加粗强化字号与醒目度 */}
-              <div className="bg-slate-900 text-white p-4 sm:p-5 border-l-4 border-l-emerald-500 shadow-xs">
-                <div className="flex items-start gap-3">
-                  <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
-                  <div className="text-sm sm:text-base leading-relaxed text-slate-100">
-                    <strong className="text-white font-extrabold tracking-wide mr-2 text-base sm:text-lg block sm:inline mb-1 sm:mb-0">
-                      【核心安全定位】
-                    </strong>
-                    云盾体系绝非单一审批流系统，而是一套集<strong>“深度防护、防窥逆向、动态调参、敏捷对抗”</strong>于一体的资金与业务安全核心框架，确保在高并发与高对抗环境下业务平稳运行。
-                  </div>
-                </div>
-              </div>
+            {/* 保密机制说明 */}
+            <SummaryBox variant="module">
+              {highlightNumbers(
+                "为防止底层风控规则被外部黑产窥探与逆向试探，云盾体系通过[[“最小范围知晓、链路解耦盲盒、百级特征周调、闭环自进化”]]四大核心保密机制，确保策略细节全流程严密受控与动态抗衰减。"
+              )}
+            </SummaryBox>
 
+            {/* 保密与安全防护矩阵卡片 */}
+            <div className="border border-slate-200 bg-white p-5 sm:p-7 border-t-2 border-t-slate-900 space-y-6">
               {/* 4 列防线矩阵卡片：字号放大至 text-sm，强化标题与对比 */}
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 items-stretch">
                 {/* 支柱 1：最小范围知晓与定期归档销毁 */}
                 <div className="border border-slate-300 bg-slate-50/80 p-5 flex flex-col justify-between space-y-4">
                   <div className="space-y-2.5">
-                    <div className="flex items-center gap-2 pb-2.5 border-b border-slate-200">
-                      <div className="p-1.5 bg-slate-900 text-white shrink-0">
-                        <Lock className="w-4 h-4" />
-                      </div>
+                    <div className="pb-2.5 border-b border-slate-200">
                       <span className="text-base font-bold text-slate-950">
                         1. 最小知晓与归档销毁
                       </span>
@@ -895,10 +890,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 {/* 支柱 2：多环节组合控制与防窥全貌 */}
                 <div className="border border-slate-300 bg-slate-50/80 p-5 flex flex-col justify-between space-y-4">
                   <div className="space-y-2.5">
-                    <div className="flex items-center gap-2 pb-2.5 border-b border-slate-200">
-                      <div className="p-1.5 bg-slate-900 text-white shrink-0">
-                        <EyeOff className="w-4 h-4" />
-                      </div>
+                    <div className="pb-2.5 border-b border-slate-200">
                       <span className="text-base font-bold text-slate-950">
                         2. 多环节组合受控
                       </span>
@@ -915,10 +907,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 {/* 支柱 3：上百个特征及参数周级别动态调整 */}
                 <div className="border border-slate-300 bg-slate-50/80 p-5 flex flex-col justify-between space-y-4">
                   <div className="space-y-2.5">
-                    <div className="flex items-center gap-2 pb-2.5 border-b border-slate-200">
-                      <div className="p-1.5 bg-slate-900 text-white shrink-0">
-                        <Sliders className="w-4 h-4" />
-                      </div>
+                    <div className="pb-2.5 border-b border-slate-200">
                       <span className="text-base font-bold text-slate-950">
                         3. 上百特征周级调参
                       </span>
@@ -935,10 +924,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 {/* 支柱 4：评估反馈机制与自进化更新迭代 */}
                 <div className="border border-slate-300 bg-slate-50/80 p-5 flex flex-col justify-between space-y-4">
                   <div className="space-y-2.5">
-                    <div className="flex items-center gap-2 pb-2.5 border-b border-slate-200">
-                      <div className="p-1.5 bg-slate-900 text-white shrink-0">
-                        <RefreshCw className="w-4 h-4" />
-                      </div>
+                    <div className="pb-2.5 border-b border-slate-200">
                       <span className="text-base font-bold text-slate-950">
                         4. 持续对抗与自进化
                       </span>
@@ -954,6 +940,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
       </div>
     </div>
   );

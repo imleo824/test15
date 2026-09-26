@@ -29,7 +29,7 @@ export const WorldCupGuaranteeReview: React.FC = () => {
         <ChapterTitle>3.0 安全合规</ChapterTitle>
         <SummaryBox variant="chapter">
           {highlightNumbers(
-            "安全合规聚焦日常运营与风控核心链路，以[[3.1 专职监督]]作为审计兜底，常态化稽查违规行为；以[[3.2 风控工单]]彻底关停线下群聊，实现业务全面收口与线上化流转；以[[3.3 安全机制]]在系统层面硬性限制敏感导出、背靠背双人复核与通道流水直连对账，筑牢风控防线。"
+            "安全合规聚焦日常运营与风控核心链路：以[[3.1 专职监督]]开展常态化审计与违规稽查；以[[3.2 风控工单]]关停线下群聊并实现业务线上化收口；以[[3.3 安全机制]]落实敏感导出管控、背靠背双人复核与通道直连对账。"
           )}
         </SummaryBox>
         <div className="report-chapter-content">

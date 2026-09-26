@@ -36,24 +36,30 @@ export const ReportCover: React.FC = () => {
           </h1>
         </div>
 
-        <div className="report-cover-meta">
-          <div>
-            <span>数据周期</span>
-            <strong>{FA.navTitle}</strong>
+        <div className="flex flex-wrap items-center gap-x-6 lg:gap-x-8 gap-y-3 py-4 border-t border-slate-200 text-sm">
+          <div className="flex items-center gap-2.5">
+            <span className="font-mono text-slate-500 font-medium text-xs sm:text-sm">数据周期</span>
+            <strong className="font-mono font-bold text-slate-900 text-sm sm:text-base">{FA.navTitle}</strong>
           </div>
-          <div>
-            <span>报告日期</span>
-            <strong>{FA.reportDate}</strong>
+
+          <span className="text-slate-300 hidden sm:inline" aria-hidden="true">•</span>
+
+          <div className="flex items-center gap-2.5">
+            <span className="font-mono text-slate-500 font-medium text-xs sm:text-sm">报告日期</span>
+            <strong className="font-mono font-bold text-slate-900 text-sm sm:text-base">{FA.reportDate}</strong>
           </div>
-          <div>
-            <span>核心关键词</span>
-            <div className="flex items-center gap-2 mt-1">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100 border border-slate-200 text-slate-800 font-bold text-xs sm:text-sm font-mono">
-                <ShieldCheck className="w-4 h-4 text-slate-700" />
+
+          <span className="text-slate-300 hidden sm:inline" aria-hidden="true">•</span>
+
+          <div className="flex items-center gap-2.5">
+            <span className="font-mono text-slate-500 font-medium text-xs sm:text-sm">核心关键词</span>
+            <div className="flex items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-slate-100 border border-slate-300 text-slate-800 font-bold text-xs font-mono">
+                <ShieldCheck className="w-3.5 h-3.5 text-slate-700" />
                 <span>安全合规</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100 border border-slate-200 text-slate-800 font-bold text-xs sm:text-sm font-mono">
-                <TrendingUp className="w-4 h-4 text-slate-700" />
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-slate-100 border border-slate-300 text-slate-800 font-bold text-xs font-mono">
+                <TrendingUp className="w-3.5 h-3.5 text-slate-700" />
                 <span>降本增效</span>
               </span>
             </div>

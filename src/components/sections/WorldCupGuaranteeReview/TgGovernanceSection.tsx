@@ -53,21 +53,21 @@ export const TgGovernanceSection: React.FC = () => {
     },
     {
       id: "05",
-      name: "审核扣款流程",
-      department: "运营",
-      riskLevel: "高风险",
-      status: "已处理",
-      method: "系统替代",
-      actionDetails: "风控判定与扣款动作由系统接口自动联动触发，彻底杜绝群内人工报单操作",
-    },
-    {
-      id: "06",
       name: "红利审核流程",
       department: "运营",
       riskLevel: "高风险",
       status: "已处理",
       method: "系统替代",
       actionDetails: "关停线下红利审核，全面迁移至后台风控工单系统，名单与额度自动校验流转",
+    },
+    {
+      id: "06",
+      name: "审核扣款流程",
+      department: "内部",
+      riskLevel: "高风险",
+      status: "已处理",
+      method: "系统替代",
+      actionDetails: "风控判定与扣款动作由系统接口自动联动触发，彻底杜绝群内人工报单操作",
     },
     {
       id: "07",
@@ -131,11 +131,17 @@ export const TgGovernanceSection: React.FC = () => {
       <div className="space-y-4">
         <ReportSubsectionHeader title="3.2.1 线下离线流程治理" />
 
-        <SummaryBox className="mb-2">
+        <SummaryBox className="mb-2 space-y-2">
           <p className="text-sm md:text-base text-slate-800 font-medium leading-relaxed">
             {highlightNumbers(
               "针对全部工作对接群，按照[[非必要群聊]]、[[日常沟通群]]、[[高风险审核业务]]、[[低风险咨询业务]]四种典型场景开展分级治理与处置，推行坚决清理、严控权限、迁移系统工单与协同切换。",
             )}
+          </p>
+          <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed border-t border-slate-200/80 pt-1.5 flex items-start sm:items-center gap-1.5">
+            <span className="font-bold text-amber-900 bg-amber-50 px-1.5 py-0.2 border border-amber-200 shrink-0 font-mono text-xs">
+              治理提示
+            </span>
+            <span>警惕将原本非必要、或可通过系统自动化直接消除的对接简单转为工单，避免冗余流程“形式化工单化”。</span>
           </p>
         </SummaryBox>
 
@@ -602,24 +608,20 @@ export const TgGovernanceSection: React.FC = () => {
         </div>
       </div>
 
-      {/* 3.2.3 风控工单业务改造明细 */}
-      <div className="space-y-6">
-        {/* 核心流程改造节点：极简一条线，提款为发起点，其余节点大对号表明改造完成 */}
-        <div className="border border-slate-200 bg-white p-5 sm:p-7 border-t-2 border-t-slate-900 space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-200 gap-2">
-            <div>
-              <h4 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
-                <span>核心流程闭环节点</span>
-                <span className="text-xs font-mono font-bold text-emerald-900 bg-emerald-50 px-2.5 py-0.5 border border-emerald-200">
-                  全链路闭环
-                </span>
-              </h4>
-            </div>
-            <p className="text-xs text-slate-500 font-normal">
-              以提款为发起点，审核、复审、挂起、扣款、禁用全环节实现系统化与合规审计留痕
-            </p>
-          </div>
+      {/* 3.2.3 核心流程闭环节点 */}
+      <div className="space-y-4">
+        <ReportSubsectionHeader title="3.2.3 核心流程闭环节点" />
 
+        <SummaryBox className="mb-2">
+          <p className="text-sm md:text-base text-slate-800 font-medium leading-relaxed">
+            {highlightNumbers(
+              "以[[提款]]为业务发起点，推动[[审核]]、[[复审]]、[[KYC]]、[[扣款]]、[[禁用]]等核心节点全面接入后台系统工单流转，实现全链路闭环与合规审计留痕。",
+            )}
+          </p>
+        </SummaryBox>
+
+        {/* 核心流程改造节点：极简一条线，提款为发起点，其余节点大对号表明改造完成 */}
+        <div className="border border-slate-200 bg-white p-5 sm:p-7 border-t-2 border-t-slate-900">
           {/* 流程管道主体：一条线上贯穿 6 个核心节点 */}
           <div className="relative pt-3 pb-2 overflow-x-auto">
             {/* 贯穿全流程的水平连接轴线 */}
@@ -674,14 +676,14 @@ export const TgGovernanceSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* 节点 4：挂起 */}
+              {/* 节点 4：KYC */}
               <div className="flex flex-col items-center text-center">
                 <div className="w-13 h-13 sm:w-16 sm:h-16 rounded-full bg-slate-900 text-white flex items-center justify-center border-4 border-white ring-2 ring-slate-900 mb-3.5">
                   <Check className="w-7 h-7 sm:w-9 sm:h-9 stroke-[3.5] text-white" />
                 </div>
                 <div className="space-y-1.5">
                   <span className="text-base sm:text-lg font-black text-slate-900 tracking-tight block">
-                    挂起
+                    KYC
                   </span>
                   <div className="flex items-center justify-center">
                     <span className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-mono font-bold text-emerald-900 bg-emerald-50 border border-emerald-200">

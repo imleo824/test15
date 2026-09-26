@@ -7,22 +7,22 @@ export const PersonnelDistribution: React.FC = () => {
     {
       title: "人员优化",
       category: "降本增效",
-      content: "依托[[系统自动化精简人工]]，持续优化人员技能与岗位结构，大幅提升单人人效；",
+      content: "依托[[系统自动化]]替代重复人工审核，持续精简岗位配置，提升单人人效；",
     },
     {
       title: "考核机制",
       category: "降本增效",
-      content: "落实全流程量化考核与[[末位淘汰]]，人力向[[专业分析与策略岗位]]倾斜，杜绝人员冗余；",
+      content: "落实全流程量化考核与[[末位淘汰]]，人力向[[策略与专业分析岗位]]倾斜，精简低效编制；",
     },
     {
       title: "场地优化",
       category: "合规安全",
-      content: "结合各职场承载力[[动态平衡工位]]，优化各场地工位以控制组织风险与合规风险；",
+      content: "结合各场地承载力[[动态调配工位]]，优化场地集中度以控制组织风险与合规风险；",
     },
     {
       title: "流程优化",
       category: "合规安全",
-      content: "裁撤跨部门[[冗余流转节点]]，压缩协同链路，全面强化权限隔离与[[全链路合规安全]]。",
+      content: "裁撤跨部门[[冗余流转节点]]，缩短协同链路，强化权限隔离与[[操作审计留痕]]。",
     },
   ];
 
@@ -32,7 +32,7 @@ export const PersonnelDistribution: React.FC = () => {
       <SummaryBox variant="chapter">
         <div className="text-sm md:text-base font-medium text-slate-900 leading-relaxed">
           {highlightNumbers(
-            "依托[[系统自动化]]全面推进[[组织精简化]]与[[作业合规化]]，实质提升专职风控人效。"
+            "依托[[系统自动化]]推进[[组织精简化]]与[[作业合规化]]，提升专职风控人效与风险拦截质量。"
           )}
         </div>
       </SummaryBox>
@@ -44,7 +44,7 @@ export const PersonnelDistribution: React.FC = () => {
         <SummaryBox variant="module">
           <div className="text-sm md:text-base text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "[[人效]]是团队最核心的竞争力，坚决去除冗余岗位、低效人员；[[安全合规]]是业务稳健运行最核心的基础保障。"
+              "坚持以[[人效提升]]与[[合规安全]]为导向，坚决清理低效岗位与冗余流程，保障风控作业规范高效。"
             )}
           </div>
         </SummaryBox>
@@ -91,7 +91,7 @@ export const PersonnelDistribution: React.FC = () => {
         <SummaryBox variant="module">
           <div className="text-sm md:text-base text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "得益于[[系统自动化优化]]与智能审单流转，外包占比大幅降低 [[99%]]，全面实现全员正式在册与专职化运营管控。"
+              "推进[[系统自动审单]]与流程收口，外包编制净减 [[17人]]，逐步实现专职化集中运营与在册管控。"
             )}
           </div>
         </SummaryBox>
