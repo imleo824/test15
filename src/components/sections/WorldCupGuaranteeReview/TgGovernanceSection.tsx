@@ -126,12 +126,12 @@ export const TgGovernanceSection: React.FC = () => {
   ];
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-14">
       {/* 3.2.1 线下离线流程治理 */}
-      <div className="space-y-4">
+      <div className="space-y-5">
         <ReportSubsectionHeader title="3.2.1 线下离线流程治理" />
 
-        <SummaryBox className="mb-2 space-y-2">
+        <SummaryBox className="mb-5 space-y-2">
           <p className="text-sm md:text-base text-slate-800 font-medium leading-relaxed">
             {highlightNumbers(
               "针对全部工作对接群，按照[[非必要群聊]]、[[日常沟通群]]、[[高风险审核业务]]、[[低风险咨询业务]]四种典型场景开展分级治理与处置，推行坚决清理、严控权限、迁移系统工单与协同切换。",
@@ -373,10 +373,10 @@ export const TgGovernanceSection: React.FC = () => {
                   <div className="border border-slate-200 bg-white p-4 sm:p-5 space-y-2.5 border-l-4 border-l-rose-600 flex-1 flex flex-col justify-start">
                     <div className="flex items-center gap-2 text-sm sm:text-base font-bold text-slate-900">
                       <AlertTriangle className="w-4.5 h-4.5 text-rose-600 shrink-0" />
-                      <span>风险 1：全域跨群明文检索，会员数据秒级穿透</span>
+                      <span>风险 1：跨群明文检索暴露，敏感记录缺乏隔离</span>
                     </div>
                     <p className="text-sm sm:text-base text-slate-800 leading-relaxed font-normal">
-                      在搜索栏中键入任一会员账号（如 <code className="bg-slate-100 px-1.5 py-0.5 font-mono font-bold text-slate-900 rounded">qweasd123</code>），将<strong>秒级穿透该账号在所有历史群、对接群、审核群中的全部敏感记录</strong>，导致会员核心资产与风控记录跨群全量裸露，极易被批量爬取或外泄。
+                      在搜索栏中键入任一会员账号（如 <code className="bg-slate-100 px-1.5 py-0.5 font-mono font-bold text-slate-900 rounded">qweasd123</code>），<strong>该账号在所有历史群、对接群中的敏感聊天记录将被一览无余</strong>，导致会员核心资产与风控判定信息跨群裸露，存在严重数据外泄隐患。
                     </p>
                   </div>
 

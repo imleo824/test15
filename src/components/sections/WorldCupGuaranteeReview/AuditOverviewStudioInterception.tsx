@@ -107,7 +107,7 @@ export const AuditOverviewStudioInterception: React.FC = () => {
   ];
 
   return (
-    <div id="section-audit-studio-interception" className="space-y-8">
+    <div id="section-audit-studio-interception" className="space-y-5">
       {/* 模块小标题 - 统一规范 */}
       <ReportSubsectionHeader title="2.1.5 工作室数据" />
 

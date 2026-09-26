@@ -256,7 +256,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
       .toFixed(2);
 
   return (
-    <div id="section-audit-sports-interception" className="space-y-6">
+    <div id="section-audit-sports-interception" className="space-y-5">
       {/* 模块小标题 - 统一规范 */}
       <ReportSubsectionHeader title="2.1.4 体育数据" />
 

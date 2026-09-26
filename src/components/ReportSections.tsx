@@ -33,7 +33,7 @@ export const ChapterTitle: React.FC<{
   className?: string;
 }> = ({ children, eyebrow, className = "" }) => {
   return (
-    <div className={`report-chapter-title border-t-2 border-slate-900 pt-8 pb-3 mb-6 ${className}`}>
+    <div className={`report-chapter-title border-t-2 border-slate-900 pt-8 pb-3.5 mb-5 ${className}`}>
       {eyebrow && (
         <div className="text-xs sm:text-sm font-mono font-bold tracking-widest text-slate-500 mb-1.5 uppercase">
           {eyebrow}
@@ -82,7 +82,7 @@ export const ReportSectionHeader: React.FC<{
   className?: string;
 }> = ({ title, rightContent, className = "" }) => {
   return (
-    <div className={`report-section-header flex items-center justify-between pb-2.5 border-b border-slate-300 mb-4 ${className}`}>
+    <div className={`report-section-header flex items-center justify-between pb-3 border-b border-slate-300 mb-5 ${className}`}>
       <h3 className="text-xl sm:text-2xl font-extrabold text-slate-950 tracking-tight flex items-center gap-2">
         {title}
       </h3>
@@ -97,7 +97,7 @@ export const ReportSubsectionHeader: React.FC<{
   className?: string;
 }> = ({ title, rightContent, className = "" }) => {
   return (
-    <div className={`report-subsection-header flex items-center justify-between pb-2 border-b border-slate-200 mb-3.5 ${className}`}>
+    <div className={`report-subsection-header flex items-center justify-between pb-2.5 border-b border-slate-200 mb-4 ${className}`}>
       <h4 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
         {title}
       </h4>
@@ -111,7 +111,7 @@ export const ReportTableFrame: React.FC<{
   className?: string;
 }> = ({ children, className = "" }) => {
   return (
-    <div className={`report-table-frame border-t-2 border-b-2 border-slate-900 my-4 overflow-x-auto ${className}`}>
+    <div className={`report-table-frame border-t-2 border-b-2 border-slate-900 my-5 overflow-x-auto ${className}`}>
       {children}
     </div>
   );

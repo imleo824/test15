@@ -35,14 +35,14 @@
     --report-space-8: 44px;
     --report-space-9: 52px;
     --report-space-10: 64px;
-    --report-font-caption: 17px;
-    --report-font-small: 17px;
-    --report-font-body: 17.5px;
-    --report-font-emphasis: 19.5px;
-    --report-font-panel-title: 23px;
-    --report-font-section-title: 27px;
-    --report-font-chapter-title: 32px;
-    --report-font-cover-title: 48px;
+    --report-font-caption: 12px;
+    --report-font-small: 14px;
+    --report-font-body: 16px;
+    --report-font-emphasis: 18px;
+    --report-font-panel-title: 21px;
+    --report-font-section-title: 25px;
+    --report-font-chapter-title: 30px;
+    --report-font-cover-title: 40px;
     --report-weight-regular: 400;
     --report-weight-medium: 500;
     --report-weight-semibold: 600;
@@ -57,28 +57,27 @@
   html {
     background: #f1f4f8;
     scroll-behavior: auto;
-    font-size: 17px;
+    font-size: 16px;
   }
 
   body {
     background: #f1f4f8;
     color: var(--report-ink);
-    font-size: 17px;
-    line-height: 1.75;
+    font-size: 16px;
+    line-height: 1.7;
     font-variant-numeric: tabular-nums;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-display;
     color: var(--report-ink);
-    letter-spacing: 0;
-    line-height: 1.25;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
   }
 
   p, li, dd, dt {
     margin: 0;
-    font-size: 17px;
-    line-height: 1.75;
+    line-height: 1.7;
   }
 }
 
@@ -93,8 +92,8 @@
     background: #ffffff;
     color: var(--report-ink);
     font-family: var(--font-sans);
-    font-size: 17.5px;
-    line-height: 1.75;
+    font-size: 16px;
+    line-height: 1.7;
     text-rendering: geometricPrecision;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -106,7 +105,6 @@
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;
-    letter-spacing: 0 !important;
   }
 
   .report-shell .rounded-xl,
@@ -121,7 +119,7 @@
 
   .report-shell .text-slate-400,
   .report-shell .text-gray-400 {
-    color: #334155 !important;
+    color: #475569 !important;
   }
 
   .report-shell .text-slate-500,
@@ -142,40 +140,17 @@
     color: var(--report-ink) !important;
   }
 
-  /* 深度优化全局段落、列表与说明文字字号统一提升至 17px 或更高，行高提升至 1.75 增强呼吸感 */
+  /* 精确的报告字号与行高层级系统 */
   .report-shell p,
   .report-shell li,
   .report-shell dd,
   .report-shell dt {
-    font-size: 1.0625rem !important; /* 17px */
-    line-height: 1.75 !important;
-  }
-
-  .report-shell .text-xs,
-  .report-shell .text-\[9px\],
-  .report-shell .text-\[10px\],
-  .report-shell .text-\[11px\],
-  .report-shell .text-\[12px\],
-  .report-shell [class*="text-xs"] {
-    font-size: 1.0625rem !important; /* 统一提升至 17px */
-    line-height: 1.7 !important;
-  }
-
-  .report-shell .text-sm,
-  .report-shell [class*="text-sm"] {
-    font-size: 1.0625rem !important; /* 统一提升至 17px */
-    line-height: 1.75 !important;
-  }
-
-  .report-shell .text-base,
-  .report-shell [class*="text-base"] {
-    font-size: 1.125rem !important; /* 18px */
-    line-height: 1.75 !important;
+    line-height: 1.7;
   }
 
   .report-shell .report-takeaway-block {
-    font-size: 1.125rem !important;
-    line-height: 1.75 !important;
+    font-size: 16px;
+    line-height: 1.7;
   }
 
   /* 选中文本与高级排版渲染细节优化 */
@@ -353,13 +328,13 @@
   .report-section-stack {
     display: flex;
     flex-direction: column;
-    gap: 64px;
+    gap: 88px;
   }
 
   .report-chapter-block {
     display: flex;
     flex-direction: column;
-    gap: var(--report-space-6);
+    gap: 24px;
   }
 
   .report-chapter-content {
@@ -927,12 +902,12 @@
     background: #ffffff;
     border: 0;
     border-radius: 0;
-    padding: 40px 0 36px;
+    padding: 32px 0 44px;
     display: flex;
     flex-direction: column;
     gap: 32px;
-    border-bottom: 2.5px solid #0f172a;
-    margin-bottom: 32px;
+    border-bottom: 2px solid #0f172a;
+    margin-bottom: 64px;
   }
 
   .report-cover-title-block {
@@ -3553,13 +3528,13 @@
   .report-note--module {
     background: #f8fafc;
     border: 1px solid #e2e8f0 !important;
-    border-left: 4px solid #1e40af !important;
+    border-left: 4px solid #334155 !important;
     border-radius: 0 !important;
     padding: 16px 20px !important;
   }
 
   .report-note--module .report-note-title {
-    color: #1e40af !important;
+    color: #0f172a !important;
     font-size: 13px !important;
     font-weight: 700 !important;
     margin-bottom: 6px;

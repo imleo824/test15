@@ -23,10 +23,40 @@ import {
   chartTooltipStyle,
 } from "./chartStyles";
 
-// 4, 5, 6月 角色订单结构与审核质量数据（根据最新数据更新）
+// 8月日均、9月日均 与 9月28日-30日 角色订单结构与审核质量数据
 const auditStructureData = [
   {
-    month: "4月",
+    date: "8月日均",
+    系统单量: 1350000,
+    系统占比: 32.1,
+    系统标签: "135.0 32.1%",
+    总部单量: 1850000,
+    总部占比: 44.0,
+    总部标签: "185.0 44.0%",
+    外包单量: 1000000,
+    外包占比: 23.9,
+    外包标签: "100.0 23.9%",
+    系统质量: 0.15,
+    总部质量: 0.78,
+    外包质量: 1.95,
+  },
+  {
+    date: "9月日均",
+    系统单量: 1950000,
+    系统占比: 43.3,
+    系统标签: "195.0 43.3%",
+    总部单量: 1800000,
+    总部占比: 40.0,
+    总部标签: "180.0 40.0%",
+    外包单量: 750000,
+    外包占比: 16.7,
+    外包标签: "75.0 16.7%",
+    系统质量: 0.12,
+    总部质量: 0.73,
+    外包质量: 1.88,
+  },
+  {
+    date: "9月28日",
     系统单量: 2299427,
     系统占比: 49.9,
     系统标签: "229.9 49.9%",
@@ -41,7 +71,7 @@ const auditStructureData = [
     外包质量: 1.82,
   },
   {
-    month: "5月",
+    date: "9月29日",
     系统单量: 2545059,
     系统占比: 53.9,
     系统标签: "254.5 53.9%",
@@ -56,7 +86,7 @@ const auditStructureData = [
     外包质量: 1.89,
   },
   {
-    month: "6月",
+    date: "9月30日",
     系统单量: 2803462,
     系统占比: 44.4,
     系统标签: "280.3 44.4%",
@@ -94,11 +124,11 @@ const renderAuditStructureLabel = () => ({ x, y, width, value }: any) => {
     <text
       className="order-structure-bar-label"
       x={centerX}
-      y={y - 20}
+      y={y - 18}
       textAnchor="middle"
       fill="#0f172a"
-      fontSize={14.5}
-      fontWeight={900}
+      fontSize={12}
+      fontWeight={800}
       paintOrder="stroke"
       stroke="#ffffff"
       strokeWidth={3}
@@ -106,7 +136,7 @@ const renderAuditStructureLabel = () => ({ x, y, width, value }: any) => {
     >
       <tspan x={centerX}>{displayAmount}</tspan>
       {displayRatio ? (
-        <tspan x={centerX} dy={15}>
+        <tspan x={centerX} dy={13}>
           {displayRatio}
         </tspan>
       ) : null}
@@ -157,22 +187,21 @@ const renderOrderStructureLegend = () => (
 export const SmartDispatchOrderStructure: React.FC = () => {
   return (
     <ReportChartCard
-      title="角色订单结构与审核质量月度趋势"
-      value="系统 44.4% | 人工 48.1%"
+      title="角色订单结构与审核质量趋势（8月日均、9月日均与9月28日-30日对比）"
       description={
         <span>
-          系统自动直出与总部承接成为绝对主力（合计占比 <span className="font-bold text-blue-700 font-mono">92.5%</span>），失误率仅 0.11%~0.69%；高差错率的外包占比大幅压降至 <span className="font-bold text-amber-700 font-mono">7.5%</span>，实现大幅提效与高风险控制双赢。
+          从 <strong>8月日均</strong>（系统 <span className="font-bold font-mono">135.0万</span> 占 32.1%、外包 <span className="font-bold font-mono text-amber-700">100.0万</span> 占 23.9%）到 <strong>9月30日</strong> 全量开启（系统 <span className="font-bold font-mono text-blue-700">280.3万</span> 占 44.4%、外包 <span className="font-bold font-mono text-emerald-700">47.3万</span> 占 7.5%）：系统替代规模实现倍增，将高差错率的外包业务深度压缩并释放人力，显著提升全盘审单质量。
         </span>
       }
-      bodyHeight="h-[400px]"
-      footnote="注：左轴为各角色月度审单量（单位：万单），下方为全周期审核差错率对比。"
+      bodyHeight="h-[430px]"
+      footnote="注：左轴为各角色每日审单量（单位：万单），柱顶为【单量(万) 占比(%)】，下方为全阶段审核差错率对比。"
     >
       <div className="flex flex-col h-full justify-between">
-        <div className="h-[280px]">
+        <div className="h-[290px]">
           <ResponsiveContainer width="100%" height="100%">
-            <ComposedChart data={auditStructureData} barSize={chartBarSize.grouped} barGap={16} margin={chartMargins.standard}>
+            <ComposedChart data={auditStructureData} barSize={18} barGap={3} margin={{ top: 48, right: 36, left: 16, bottom: 12 }}>
               <CartesianGrid strokeDasharray="3 3" stroke={chartColors.grid} />
-              <XAxis dataKey="month" stroke={chartColors.ink} tick={chartAxisTick} />
+              <XAxis dataKey="date" stroke={chartColors.ink} tick={chartAxisTick} />
               
               {/* 左Y轴：审核单量 */}
               <YAxis 
@@ -180,8 +209,8 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                 stroke={chartColors.ink}
                 tick={chartAxisTick}
                 tickFormatter={(val) => `${(val / 10000).toFixed(0)}万`}
-                domain={[0, 4000000]}
-                ticks={[0, 1000000, 2000000, 3000000, 4000000]}
+                domain={[0, 3600000]}
+                ticks={[0, 1000000, 2000000, 3000000]}
               />
 
               <Tooltip 
@@ -231,18 +260,18 @@ export const SmartDispatchOrderStructure: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-3 border-t border-slate-200">
           <div className="bg-slate-50 p-2.5 border border-slate-200 text-center">
             <div className="text-xs text-slate-800 font-bold">系统自动放行</div>
-            <div className="text-sm font-bold text-slate-900 mt-0.5 font-mono">差错率 0.08% ~ 0.12%</div>
-            <div className="text-xs text-slate-700 font-semibold mt-0.5">极低失误 / 主力支撑</div>
+            <div className="text-sm font-bold text-slate-900 mt-0.5 font-mono">差错率 0.08% ~ 0.15%</div>
+            <div className="text-xs text-slate-700 font-semibold mt-0.5">极低失误 / 承担 44%~54% 主力</div>
           </div>
           <div className="bg-slate-50 p-2.5 border border-slate-200 text-center">
             <div className="text-xs text-slate-800 font-bold">总部人工审核</div>
-            <div className="text-sm font-bold text-slate-900 mt-0.5 font-mono">差错率 0.69% ~ 0.74%</div>
-            <div className="text-xs text-blue-900 font-semibold mt-0.5">深度质检 / 质量稳固</div>
+            <div className="text-sm font-bold text-slate-900 mt-0.5 font-mono">差错率 0.69% ~ 0.78%</div>
+            <div className="text-xs text-blue-900 font-semibold mt-0.5">高危研判 / 质量稳固受控</div>
           </div>
           <div className="bg-slate-50 p-2.5 border border-slate-200 text-center">
             <div className="text-xs text-slate-800 font-bold">外包人工审核</div>
-            <div className="text-sm font-bold text-slate-900 mt-0.5 font-mono">差错率 1.82% ~ 1.92%</div>
-            <div className="text-xs text-amber-900 font-semibold mt-0.5">高差错率 / 占比压降至7.5%</div>
+            <div className="text-sm font-bold text-slate-900 mt-0.5 font-mono">差错率 1.82% ~ 1.95%</div>
+            <div className="text-xs text-amber-900 font-semibold mt-0.5">高差错率 / 占比压降至 7.5%</div>
           </div>
         </div>
       </div>

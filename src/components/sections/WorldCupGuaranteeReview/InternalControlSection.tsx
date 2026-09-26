@@ -43,7 +43,7 @@ const auditActionItems = [
 
 export const InternalControlSection: React.FC = () => {
   return (
-    <div id="section-internal-control" className="space-y-10">
+    <div id="section-internal-control" className="space-y-12">
       <SummaryBox variant="module">
         {highlightNumbers(
           "由独立专职监督角色统筹把关，重点监控[[红利发放]]、[[敏感参数变动]]与[[异常登录]]等高危行为。依托行为留痕与操作日志实现全链路可追溯，确保违规操作即时预警与责任查处。",
@@ -51,7 +51,7 @@ export const InternalControlSection: React.FC = () => {
       </SummaryBox>
 
       {/* 3.1.1 专职监督工作成果 */}
-      <div className="space-y-6">
+      <div className="space-y-5">
         <ReportSubsectionHeader title="3.1.1 违规查处与稽查成果" />
         
         <ReportMetricHero
@@ -106,10 +106,10 @@ export const InternalControlSection: React.FC = () => {
       </div>
 
       {/* 3.1.2 监督排查核心主线 */}
-      <div className="space-y-8">
+      <div className="space-y-5">
         <ReportSubsectionHeader title="3.1.2 监督排查核心主线" />
 
-        <SummaryBox className="mb-6">
+        <SummaryBox className="mb-5">
           <p className="text-sm md:text-base text-slate-800 font-medium leading-relaxed">
             {highlightNumbers(
               "内控稽查围绕[[线索发现]]与[[跟进处置]]两条主线开展：前端扩大信息触达面，后端通过日志、录屏、权限、流程和外部核验完成闭环追溯。",
@@ -117,7 +117,7 @@ export const InternalControlSection: React.FC = () => {
           </p>
         </SummaryBox>
         
-        <div className="space-y-6">
+        <div className="space-y-5">
           <ReportInfoGrid
             title="线索来源"
             icon={<Search className="w-4 h-4 text-slate-900 shrink-0" />}
@@ -138,7 +138,7 @@ export const InternalControlSection: React.FC = () => {
       </div>
 
       {/* 3.1.3 高危场景防范 */}
-      <div className="space-y-8">
+      <div className="space-y-5">
         <ReportSubsectionHeader title="3.1.3 高危场景防范" />
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -189,7 +189,7 @@ export const InternalControlSection: React.FC = () => {
       </div>
 
       {/* 3.1.4 典型违规案例剖析 */}
-      <div className="space-y-8">
+      <div className="space-y-5">
         <ReportSubsectionHeader title="3.1.4 典型案例剖析" />
         
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">

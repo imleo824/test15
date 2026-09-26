@@ -157,7 +157,7 @@ export const AuditOverviewInterceptionType: React.FC = () => {
   ];
 
   return (
-    <div id="section-audit-interception-type" className="space-y-8">
+    <div id="section-audit-interception-type" className="space-y-5">
       {/* 模块小标题 - 统一规范 */}
       <ReportSubsectionHeader title="2.1.2 类型数据" />
 

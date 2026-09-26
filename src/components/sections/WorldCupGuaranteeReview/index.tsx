@@ -19,6 +19,11 @@ export const WorldCupGuaranteeReview: React.FC = () => {
       {/* 2.0 数据概览 */}
       <section id="section-2.0" className="report-chapter-block scroll-mt-6">
         <ChapterTitle>2.0 数据概览</ChapterTitle>
+        <SummaryBox variant="chapter">
+          {highlightNumbers(
+            "围绕[[拦截金额]]、[[处理时效]]、[[业务类型]]与[[重点站点]]开展量化评估：二季度累计拦截 [[2.72]]，平均人工审核时长稳固在 [[0:08:45]]，高危业务与重点站点风险防守扎实有效。"
+          )}
+        </SummaryBox>
         <div className="report-chapter-content">
           <AuditOverviewSection />
         </div>
@@ -40,6 +45,11 @@ export const WorldCupGuaranteeReview: React.FC = () => {
       {/* 4.0 云盾审核 (审单比例演变、收益测算与云盾系统) */}
       <section id="section-4.0" className="report-chapter-block scroll-mt-6">
         <ChapterTitle>4.0 云盾审核</ChapterTitle>
+        <SummaryBox variant="chapter">
+          {highlightNumbers(
+            "从 [[2025年四季度]] 开始规划，分步、拆期推进，至 [[2026年三季度]] 逐步完成了风控审核流程优化；经过三季度调试，从 [[1个站]] 到 [[A+B等全站]] 于 [[9月28日]] 正式全量开启。"
+          )}
+        </SummaryBox>
         <div className="report-chapter-content">
           <SystemAuditEvolutionSection />
         </div>
