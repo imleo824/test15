@@ -81,21 +81,21 @@ export const ReportCover: React.FC = () => {
             <div
               key={section.id}
               onClick={() => handleScrollToSection(section.id)}
-              className="flex items-center justify-between px-5 py-4 hover:bg-slate-50 transition-colors cursor-pointer"
+              className="group flex items-center justify-between px-5 py-4 hover:bg-slate-50 border-l-2 border-l-transparent hover:border-l-slate-900 transition-colors cursor-pointer select-none"
             >
               <div className="flex items-center gap-4 min-w-0">
-                <span className="font-mono text-sm sm:text-base font-bold text-white bg-slate-900 px-3.5 py-1.5 shrink-0">
+                <span className="font-mono text-sm sm:text-base font-bold text-white bg-slate-900 px-3.5 py-1.5 shrink-0 group-hover:bg-slate-950">
                   {section.id}
                 </span>
-                <span className="text-lg sm:text-xl font-bold text-slate-950">
+                <span className="text-lg sm:text-xl font-bold text-slate-950 group-hover:text-slate-900">
                   {section.title}
                 </span>
               </div>
               <div className="flex items-center gap-3">
-                <span className="text-xs sm:text-sm font-mono font-medium text-slate-600">
+                <span className="text-xs sm:text-sm font-mono font-medium text-slate-500 group-hover:text-slate-700">
                   SECTION {section.id}
                 </span>
-                <ChevronRight className="w-4 h-4 text-slate-400 shrink-0" />
+                <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-slate-700 shrink-0" />
               </div>
             </div>
           ))}
