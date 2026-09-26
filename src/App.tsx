@@ -14,7 +14,7 @@ export default function App() {
       {/* Top Fixed / Print Header Metadata Bar */}
       <div className="w-full bg-slate-900 text-slate-300 py-2.5 px-6 sm:px-12 text-xs font-mono flex items-center justify-between border-b border-slate-800 print:hidden">
         <div className="flex items-center gap-3">
-          <span className="font-bold text-white tracking-widest uppercase">STRATEGIC AUDIT & GOVERNANCE REPORT</span>
+          <span className="font-bold text-white tracking-widest">集团风控与治理复盘报告</span>
           <span className="text-slate-500">|</span>
           <span className="text-slate-400">集团风控合规委员会 · 高管与董事会特呈审阅件</span>
         </div>
@@ -32,7 +32,7 @@ export default function App() {
           {/* Folio Top Classification Header */}
           <header className="report-folio-header px-8 sm:px-14 lg:px-20 pt-10 pb-6 border-b-2 border-slate-900 flex items-center justify-between text-xs sm:text-sm font-mono text-slate-600">
             <div className="flex items-center gap-3">
-              <span className="font-extrabold text-slate-900 text-sm sm:text-base tracking-wider">GROUP RISK MANAGEMENT</span>
+              <span className="font-extrabold text-slate-900 text-sm sm:text-base tracking-wider">集团风控合规管理</span>
               <span className="text-slate-300">/</span>
               <span className="font-medium text-slate-700">专项保障与人效治理复盘报告</span>
             </div>
@@ -51,7 +51,7 @@ export default function App() {
               <ReportCover />
             </div>
 
-            {/* 世界杯 Guarantee Review (Chapters 1.0 - 8.0) */}
+            {/* Strategic Risk & Governance Review (Chapters 1.0 - 6.0) */}
             <div id="fk-world-cup-review" className="scroll-mt-14">
               <WorldCupGuaranteeReview />
             </div>

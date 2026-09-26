@@ -12,7 +12,7 @@ import { SummaryBox, highlightNumbers } from "./utils";
 export const NewBonusModelSection: React.FC = () => {
   return (
     <div className="space-y-6">
-      <ReportSectionHeader title="8.4 套利指数模型与机制升级" />
+      <ReportSectionHeader title="6.4 套利指数模型与机制升级" />
 
       {/* 核心理念说明：精准结构性调整，发的合理 ≠ 盲目少发 */}
       <div className="bg-white border border-slate-200 border-t-2 border-t-slate-900 p-4 sm:p-5 space-y-3.5">

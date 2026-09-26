@@ -7,7 +7,7 @@ import {
 import {
   ReportMetricCard,
   ReportMetricGrid,
-  ReportSectionHeader,
+  ReportSubsectionHeader,
   ReportTableFrame,
 } from "../../ReportSections";
 import { highlightNumbers, SummaryBox } from "./utils";
@@ -153,10 +153,10 @@ export const SecurityUpgradeSection: React.FC = () => {
 
   return (
     <div id="section-security-upgrade" className="space-y-8">
-      {/* 5.0 章节核心导语 */}
-      <SummaryBox variant="chapter">
+      {/* 3.3 章节核心导语 */}
+      <SummaryBox variant="module">
         {highlightNumbers(
-          "规范日常管理与系统操作安全，建立以操作风险为核心的[[三大管控方向]]：对[[敏感操作类]]（涵盖复制、截图、导出、高频查询等敏感高危操作）收紧导出、限制复制截屏并全端加盖水印；对[[修改类]]实行双人背靠背审批与 24 小时提款冷却；对[[资金类]]强校验真实到账流水并按金额分级审批。用清晰规则与线上流程替代个人裁量，保障[[数据不外泄、身份不盗改、资金不流失]]。"
+          "建立以具体操作风险为核心的[[三大安全机制]]：针对[[敏感操作类]]收紧导出限制、禁止无条件模糊查询并全端加盖盲水印；针对[[信息修改类]]实行双人背靠背审批与 24 小时提款冷却；针对[[资金调账类]]强校验真实到账流水并直连通道 API 核对。用系统规则替代个人裁量，保障[[数据不外泄、信息不盗改、资金不流失]]。"
         )}
       </SummaryBox>
 
@@ -190,8 +190,8 @@ export const SecurityUpgradeSection: React.FC = () => {
 
       {/* 具体管控规范全览 (三大方向落地细则表) */}
       <div className="space-y-6">
-        <ReportSectionHeader
-          title="5.1 具体管控规范明细"
+        <ReportSubsectionHeader
+          title="3.3.1 三大安全机制落地细则"
           rightContent={
             <span className="text-xs font-mono text-slate-500">
               共 12 项关键操作防护细则

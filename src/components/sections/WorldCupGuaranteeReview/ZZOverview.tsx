@@ -61,7 +61,7 @@ const flywheelSteps = [
 export const ZZOverview: React.FC = () => {
   return (
     <div className="space-y-6">
-      <ReportSectionHeader title="7.1 整体态势与人效" />
+      <ReportSectionHeader title="5.1 整体态势与人效" />
       <div className="report-card business-flywheel-shell p-6 overflow-hidden">
         <div className="business-flywheel">
         {/* 页眉标题 */}

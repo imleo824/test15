@@ -1,7 +1,7 @@
 import React from "react";
 import { ArrowRight, Check, Clock, AlertTriangle, Search, ShieldAlert, FileWarning } from "lucide-react";
 import { highlightNumbers, SummaryBox } from "./utils";
-import { ReportSectionHeader, ReportTableFrame } from "../../ReportSections";
+import { ReportSubsectionHeader, ReportTableFrame } from "../../ReportSections";
 
 interface GovernanceItem {
   id: string;
@@ -127,9 +127,9 @@ export const TgGovernanceSection: React.FC = () => {
 
   return (
     <div className="space-y-8">
-      {/* 4.1 分级治理架构 */}
+      {/* 3.2.1 线下群聊治理与清零 */}
       <div className="space-y-4">
-        <ReportSectionHeader title="4.1 分级治理结构" />
+        <ReportSubsectionHeader title="3.2.1 线下群聊治理与清零" />
 
         <SummaryBox className="mb-2">
           <p className="text-sm md:text-base text-slate-800 font-medium leading-relaxed">
@@ -322,9 +322,9 @@ export const TgGovernanceSection: React.FC = () => {
         </div>
       </div>
 
-      {/* 4.2 典型案例对比 (具象化案例剖析与治理对比) */}
+      {/* 3.2.2 线下群 vs 工单流转对比 */}
       <div className="space-y-6">
-        <ReportSectionHeader title="4.2 典型案例对比" />
+        <ReportSubsectionHeader title="3.2.2 线下群 vs 工单流转对比" />
 
         {/* 治理前 Telegram 线下群操作隐患与高风险场景剖析 (具象化案例阐述) */}
         <div className="space-y-6">
@@ -602,10 +602,10 @@ export const TgGovernanceSection: React.FC = () => {
         </div>
       </div>
 
-      {/* 4.3 流程改造明细 */}
+      {/* 3.2.3 风控工单业务改造明细 */}
       <div className="space-y-6">
-        <ReportSectionHeader
-          title="4.3 流程改造明细"
+        <ReportSubsectionHeader
+          title="3.2.3 风控工单业务改造明细"
           rightContent={
             <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-2 py-0.5 border border-slate-200">
               已完成 12/12 项 · 线上化率 100%

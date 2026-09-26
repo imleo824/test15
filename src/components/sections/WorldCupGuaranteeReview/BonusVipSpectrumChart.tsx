@@ -93,7 +93,7 @@ const renderProfitLeverageLabel = (props: any) => {
 export const BonusVipSpectrumChart: React.FC = () => {
   return (
     <div className="space-y-4">
-      <ReportSectionHeader title="8.2 会员等级能效对比" />
+      <ReportSectionHeader title="6.2 会员等级能效对比" />
 
       <SummaryBox>
         {highlightNumbers(

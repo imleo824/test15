@@ -55,7 +55,7 @@ export const simpleComparisonData: SimpleCrossSiteDataPoint[] = [
 export const BonusCrossSiteChart: React.FC = () => {
   return (
     <div className="space-y-4">
-      <ReportSectionHeader title="8.3 跨站多账户穿透对比" />
+      <ReportSectionHeader title="6.3 跨站多账户穿透对比" />
 
       <SummaryBox>
         {highlightNumbers(

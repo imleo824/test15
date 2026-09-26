@@ -117,7 +117,7 @@ export const macroTrendLeverageData: MacroTrendLeveragePoint[] = [
 export const BonusMacroTrendChart: React.FC = () => {
   return (
     <div className="space-y-4">
-      <ReportSectionHeader title="8.1 红利杠杆走势" />
+      <ReportSectionHeader title="6.1 红利杠杆走势" />
 
       <SummaryBox>
         {highlightNumbers(

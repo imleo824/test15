@@ -19,9 +19,9 @@ import { SmartDispatchOrderStructure } from "./SmartDispatchOrderStructure";
 export const SystemAuditEvolutionSection: React.FC = () => {
   return (
     <div id="section-system-audit-evolution" className="space-y-8">
-      {/* 6.1 审单模式翻转 */}
+      {/* 4.1 审单模式翻转 */}
       <div className="space-y-4">
-        <ReportSectionHeader title="6.1 审单模式演进" />
+        <ReportSectionHeader title="4.1 审单模式演进" />
 
         {/* 统一文字说明：一句话总结 */}
         <SummaryBox variant="module">
@@ -110,9 +110,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
         </div>
       </div>
 
-      {/* 6.2 带来核心收益 */}
+      {/* 4.2 带来核心收益 */}
       <div className="space-y-4">
-        <ReportSectionHeader title="6.2 带来核心收益" />
+        <ReportSectionHeader title="4.2 带来核心收益" />
 
         {/* 核心收益一句话说明 */}
         <SummaryBox variant="module">
@@ -230,9 +230,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
         </div>
       </div>
 
-      {/* 6.3 智能风控体系架构 */}
+      {/* 4.3 智能风控体系架构 */}
       <div id="section-cloud-shield-system" className="space-y-4">
-        <ReportSectionHeader title="6.3 云盾风控体系" />
+        <ReportSectionHeader title="4.3 云盾风控体系" />
 
         {/* 机制与支撑说明 */}
           <div className="p-4 bg-slate-50 border border-slate-200 border-l-4 border-l-blue-700 text-sm sm:text-base font-medium text-slate-800 leading-relaxed">

@@ -1,7 +1,7 @@
 import React from "react";
 import { Search, Shield, ShieldCheck } from "lucide-react";
 import { ReportInfoGrid, SummaryBox, highlightNumbers } from "./utils";
-import { ReportMetricCard, ReportMetricGrid, ReportMetricHero, ReportSectionHeader } from "../../ReportSections";
+import { ReportMetricCard, ReportMetricGrid, ReportMetricHero, ReportSubsectionHeader } from "../../ReportSections";
 
 const clueSourceItems = [
   {
@@ -43,16 +43,16 @@ const auditActionItems = [
 
 export const InternalControlSection: React.FC = () => {
   return (
-    <div id="section-internal-control" className="space-y-12">
-      <SummaryBox variant="chapter">
+    <div id="section-internal-control" className="space-y-10">
+      <SummaryBox variant="module">
         {highlightNumbers(
-          "聚焦[[红利发放]]、[[敏感参数]]与[[异常登录]]等高危场景，全方位稽查内外违规协作与数据泄露隐患。依托行为留痕与操作日志实现全链路可追溯，确保[[即时预警与快速处置]]。",
+          "由独立专职监督角色统筹把关，重点监控[[红利发放]]、[[敏感参数变动]]与[[异常登录]]等高危行为。依托行为留痕与操作日志实现全链路可追溯，确保违规操作即时预警与责任查处。",
         )}
       </SummaryBox>
 
-      {/* 3.1 内控事件管理 */}
+      {/* 3.1.1 专职监督工作成果 */}
       <div className="space-y-6">
-        <ReportSectionHeader title="3.1 工作成果" />
+        <ReportSubsectionHeader title="3.1.1 违规查处与稽查成果" />
         
         <ReportMetricHero
           title="违规处理总计"
@@ -105,9 +105,9 @@ export const InternalControlSection: React.FC = () => {
         </ReportMetricGrid>
       </div>
 
-      {/* 3.2 核心规则内容 */}
+      {/* 3.1.2 监督排查核心主线 */}
       <div className="space-y-8">
-        <ReportSectionHeader title="3.2 工作内容" />
+        <ReportSubsectionHeader title="3.1.2 监督排查核心主线" />
 
         <SummaryBox className="mb-6">
           <p className="text-sm md:text-base text-slate-800 font-medium leading-relaxed">
@@ -137,9 +137,9 @@ export const InternalControlSection: React.FC = () => {
         </div>
       </div>
 
-      {/* 3.3 违规岗位场景 */}
+      {/* 3.1.3 高危场景防范 */}
       <div className="space-y-8">
-        <ReportSectionHeader title="3.3 高危场景" />
+        <ReportSubsectionHeader title="3.1.3 高危场景防范" />
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* 1. 外部通讯群信息 */}
@@ -159,7 +159,7 @@ export const InternalControlSection: React.FC = () => {
                 <span>解决策略：</span>
               </div>
               <p className="text-sm text-slate-700 leading-relaxed font-normal">
-                {highlightNumbers("针对敏感和核心业务对接，逐步全面[[关停外部通讯群聊]]，详情见第 4.0 章节说明。")}
+                {highlightNumbers("针对敏感和核心业务对接，全面[[关停外部通讯群聊]]，详情见 3.2 风控工单说明。")}
               </p>
             </div>
           </div>
@@ -181,16 +181,16 @@ export const InternalControlSection: React.FC = () => {
                 <span>解决策略：</span>
               </div>
               <p className="text-sm text-slate-700 leading-relaxed font-normal">
-                {highlightNumbers("核心环节启动[[随机分配且多层审批]]的流程；如身份验证、提款、佣金等，详情见后续章节说明。")}
+                {highlightNumbers("核心环节启动[[随机分配且多层审批]]的流程；如身份验证、提款、佣金等，详情见 3.2 风控工单与 3.3 安全机制说明。")}
               </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* 3.4 典型违规案例剖析 */}
+      {/* 3.1.4 典型违规案例剖析 */}
       <div className="space-y-8">
-        <ReportSectionHeader title="3.4 案例剖析" />
+        <ReportSubsectionHeader title="3.1.4 典型案例剖析" />
         
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
           <div className="border-t-2 border-slate-800 pt-4 space-y-4">

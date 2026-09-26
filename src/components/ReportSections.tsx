@@ -86,6 +86,18 @@ export const ReportSectionHeader: React.FC<{
   );
 };
 
+export const ReportSubsectionHeader: React.FC<{
+  title: React.ReactNode;
+  rightContent?: React.ReactNode;
+  className?: string;
+}> = ({ title, rightContent, className = "" }) => {
+  return (
+    <ReportHeading level="panel" rightContent={rightContent} className={`report-panel-header mb-3 ${className}`}>
+      {title}
+    </ReportHeading>
+  );
+};
+
 export const ReportTableFrame: React.FC<{
   children: React.ReactNode;
   className?: string;
