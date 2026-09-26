@@ -73,9 +73,6 @@ export const ReportCover: React.FC = () => {
           <span className="text-sm sm:text-base font-mono font-bold tracking-wider text-slate-900 uppercase">
             报告目录
           </span>
-          <span className="text-xs sm:text-sm font-mono text-slate-600 font-medium">
-            全篇共 4 个核心章节
-          </span>
         </div>
 
         {/* 竖向排列列表 */}

@@ -49,38 +49,36 @@ export const PersonnelDistribution: React.FC = () => {
           </div>
         </SummaryBox>
 
-        <div className="border border-slate-200 bg-white p-4 sm:p-5">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3.5 text-xs">
-            {policyItems.map((item, index) => (
-              <div
-                key={index}
-                className="border border-slate-200 bg-slate-50/70 p-4 flex flex-col justify-between space-y-3"
-              >
-                <div className="flex items-center justify-between border-b border-slate-200 pb-2.5">
-                  <div className="flex items-center gap-2">
-                    <span className="report-sequence-badge text-xs">
-                      {index + 1}
-                    </span>
-                    <span className="font-bold text-slate-900 text-sm">
-                      {item.title}
-                    </span>
-                  </div>
-                  <span
-                    className={`font-mono text-xs sm:text-sm font-bold px-2 py-0.5 border ${
-                      item.category === "降本增效"
-                        ? "text-emerald-800 bg-emerald-50 border-emerald-200"
-                        : "text-blue-800 bg-blue-50 border-blue-200"
-                    }`}
-                  >
-                    {item.category}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          {policyItems.map((item, index) => (
+            <div
+              key={index}
+              className="bg-slate-50 p-5 border-t-2 border-t-slate-900 flex flex-col justify-between space-y-3"
+            >
+              <div className="flex items-center justify-between pb-2 border-b border-slate-200">
+                <div className="flex items-center gap-2">
+                  <span className="report-sequence-badge text-xs">
+                    {index + 1}
+                  </span>
+                  <span className="font-bold text-slate-900 text-base">
+                    {item.title}
                   </span>
                 </div>
-                <p className="text-sm text-slate-700 leading-relaxed font-normal">
-                  {highlightNumbers(item.content)}
-                </p>
+                <span
+                  className={`font-mono text-xs font-bold px-2 py-0.5 border ${
+                    item.category === "降本增效"
+                      ? "text-emerald-800 bg-emerald-50 border-emerald-200"
+                      : "text-blue-800 bg-blue-50 border-blue-200"
+                  }`}
+                >
+                  {item.category}
+                </span>
               </div>
-            ))}
-          </div>
+              <p className="text-sm text-slate-700 leading-relaxed font-normal">
+                {highlightNumbers(item.content)}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
 

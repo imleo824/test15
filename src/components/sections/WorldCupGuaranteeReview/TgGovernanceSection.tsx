@@ -147,10 +147,10 @@ export const TgGovernanceSection: React.FC = () => {
 
         {/* 4.1 分级治理架构：从左至右两阶段分析与治理路径 */}
         <div className="space-y-4">
-          {/* 4 列主卡片：每列统一采用 结构化卡片 (头部 / 判定标准 / 处置策略与落地成效) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 items-stretch">
+          {/* 4 列主卡片：采用 subgrid 实现 100% 绝对水平对齐 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:grid-rows-[auto_1fr_1.1fr]">
             {/* 第 1 列：第一步 · 非必要群聊排查 */}
-            <div className="border border-slate-200 border-t-2 border-t-slate-900 bg-white flex flex-col justify-between">
+            <div className="border border-slate-200 border-t-2 border-t-slate-900 bg-white grid grid-rows-subgrid row-span-3">
               {/* 卡片头部：标题行 + 状态强背景行 */}
               <div>
                 <div className="px-3.5 py-2.5 bg-slate-100/90 border-b border-slate-200 flex items-center gap-2">
@@ -171,7 +171,7 @@ export const TgGovernanceSection: React.FC = () => {
               </div>
 
               {/* 判定标准 */}
-              <div className="p-4 flex-1 flex flex-col justify-start space-y-2">
+              <div className="p-4 flex flex-col justify-start space-y-2">
                 <div className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 bg-slate-400"></span>
                   <span>排查范围</span>
@@ -182,7 +182,7 @@ export const TgGovernanceSection: React.FC = () => {
               </div>
 
               {/* 处置策略与落地成效 */}
-              <div className="p-4 border-t border-slate-200 bg-slate-50/40 space-y-2">
+              <div className="p-4 border-t border-slate-200 bg-slate-50/40 flex flex-col justify-start space-y-2">
                 <div className="text-xs font-mono font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 bg-slate-900"></span>
                   <span>处置策略与成效</span>
@@ -194,7 +194,7 @@ export const TgGovernanceSection: React.FC = () => {
             </div>
 
             {/* 第 2 列：第二步 · 第一类：日常沟通讨论群 */}
-            <div className="border border-slate-200 border-t-2 border-t-slate-900 bg-white flex flex-col justify-between">
+            <div className="border border-slate-200 border-t-2 border-t-slate-900 bg-white grid grid-rows-subgrid row-span-3">
               {/* 卡片头部：标题行 + 状态强背景行 */}
               <div>
                 <div className="px-3.5 py-2.5 bg-slate-100/90 border-b border-slate-200 flex items-center gap-2">
@@ -215,7 +215,7 @@ export const TgGovernanceSection: React.FC = () => {
               </div>
 
               {/* 判定标准 */}
-              <div className="p-4 flex-1 flex flex-col justify-start space-y-2">
+              <div className="p-4 flex flex-col justify-start space-y-2">
                 <div className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 bg-slate-400"></span>
                   <span>排查范围</span>
@@ -226,7 +226,7 @@ export const TgGovernanceSection: React.FC = () => {
               </div>
 
               {/* 处置策略与落地成效 */}
-              <div className="p-4 border-t border-slate-200 bg-slate-50/40 space-y-2">
+              <div className="p-4 border-t border-slate-200 bg-slate-50/40 flex flex-col justify-start space-y-2">
                 <div className="text-xs font-mono font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 bg-slate-900"></span>
                   <span>处置策略与成效</span>
@@ -238,7 +238,7 @@ export const TgGovernanceSection: React.FC = () => {
             </div>
 
             {/* 第 3 列：第二步 · 第二类：高风险业务 */}
-            <div className="border border-slate-200 border-t-2 border-t-slate-900 bg-white flex flex-col justify-between">
+            <div className="border border-slate-200 border-t-2 border-t-slate-900 bg-white grid grid-rows-subgrid row-span-3">
               {/* 卡片头部：标题行 + 状态强背景行 */}
               <div>
                 <div className="px-3.5 py-2.5 bg-slate-100/90 border-b border-slate-200 flex items-center gap-2">
@@ -259,7 +259,7 @@ export const TgGovernanceSection: React.FC = () => {
               </div>
 
               {/* 判定标准 */}
-              <div className="p-4 flex-1 flex flex-col justify-start space-y-2">
+              <div className="p-4 flex flex-col justify-start space-y-2">
                 <div className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 bg-slate-400"></span>
                   <span>排查范围</span>
@@ -270,7 +270,7 @@ export const TgGovernanceSection: React.FC = () => {
               </div>
 
               {/* 处置策略与落地成效 */}
-              <div className="p-4 border-t border-slate-200 bg-slate-50/40 space-y-2">
+              <div className="p-4 border-t border-slate-200 bg-slate-50/40 flex flex-col justify-start space-y-2">
                 <div className="text-xs font-mono font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 bg-slate-900"></span>
                   <span>处置策略与成效</span>
@@ -282,7 +282,7 @@ export const TgGovernanceSection: React.FC = () => {
             </div>
 
             {/* 第 4 列：第二步 · 第二类：低风险业务 */}
-            <div className="border border-slate-200 border-t-2 border-t-slate-900 bg-white flex flex-col justify-between">
+            <div className="border border-slate-200 border-t-2 border-t-slate-900 bg-white grid grid-rows-subgrid row-span-3">
               {/* 卡片头部：标题行 + 状态强背景行 */}
               <div>
                 <div className="px-3.5 py-2.5 bg-slate-100/90 border-b border-slate-200 flex items-center gap-2">
@@ -303,7 +303,7 @@ export const TgGovernanceSection: React.FC = () => {
               </div>
 
               {/* 判定标准 */}
-              <div className="p-4 flex-1 flex flex-col justify-start space-y-2">
+              <div className="p-4 flex flex-col justify-start space-y-2">
                 <div className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 bg-slate-400"></span>
                   <span>排查范围</span>
@@ -314,7 +314,7 @@ export const TgGovernanceSection: React.FC = () => {
               </div>
 
               {/* 处置策略与落地成效 */}
-              <div className="p-4 border-t border-slate-200 bg-slate-50/40 space-y-2">
+              <div className="p-4 border-t border-slate-200 bg-slate-50/40 flex flex-col justify-start space-y-2">
                 <div className="text-xs font-mono font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 bg-slate-900"></span>
                   <span>处置策略与成效</span>
