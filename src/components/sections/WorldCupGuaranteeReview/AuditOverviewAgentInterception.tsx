@@ -151,7 +151,7 @@ export const AuditOverviewAgentInterception: React.FC = () => {
           </div>
           <ul className="space-y-2 text-slate-700">
             <li className="flex items-start gap-2 text-sm text-slate-700 leading-relaxed">
-              <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-slate-700 shrink-0" />
+              <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
               <span>
                 {highlightNumbers(
                   "[[佣金]]：含基础及额外，总占比达 [[62.42%]]，核心为[[基础佣金]]与[[扶持降档]]。",
@@ -159,7 +159,7 @@ export const AuditOverviewAgentInterception: React.FC = () => {
               </span>
             </li>
             <li className="flex items-start gap-2 text-sm text-slate-700 leading-relaxed">
-              <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-slate-700 shrink-0" />
+              <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
               <span>
                 {highlightNumbers(
                   "[[活动]]：以[[奖励活动]]（[[4.35%]]）与[[新增冲刺]]（[[12.02%]]）为主，两者合计占整体的 [[16.37%]]。若叠加[[用户首复存]]，三项合计金额为 [[2,932.8]]，占整体约 [[33.15%]]。",
@@ -167,7 +167,7 @@ export const AuditOverviewAgentInterception: React.FC = () => {
               </span>
             </li>
             <li className="flex items-start gap-2 text-sm text-slate-700 leading-relaxed">
-              <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-slate-700 shrink-0" />
+              <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
               <span>
                 {highlightNumbers(
                   "[[存款]]：针对[[用户首复存活动套利]]，整体拦截占比约为 [[16.77%]]。",

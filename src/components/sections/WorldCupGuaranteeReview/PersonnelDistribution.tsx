@@ -44,7 +44,7 @@ export const PersonnelDistribution: React.FC = () => {
         <SummaryBox variant="module">
           <div className="text-sm md:text-base text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "坚持以[[人效提升]]与[[合规安全]]为导向，坚决清理低效岗位与冗余流程，保障风控作业规范高效。"
+              "围绕[[人效提升]]与[[合规安全]]优化组织配置：强化策略分析岗位、压降重复性人工审核，优化多职场布局并压降外包编制。"
             )}
           </div>
         </SummaryBox>

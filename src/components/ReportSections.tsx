@@ -198,7 +198,7 @@ export const ReportChartLegend: React.FC<{
           {item.shape === "line" ? (
             <span className="w-5 h-1 inline-block shrink-0" style={{ backgroundColor: item.color }} />
           ) : item.shape === "circle" ? (
-            <span className="w-3 h-3 rounded-full inline-block shrink-0" style={{ backgroundColor: item.color }} />
+            <span className="w-2.5 h-2.5 border border-slate-900 inline-block shrink-0" style={{ backgroundColor: item.color }} />
           ) : (
             <span className="w-3.5 h-3.5 inline-block shrink-0" style={{ backgroundColor: item.color }} />
           )}

@@ -21,7 +21,7 @@ export const WorldCupGuaranteeReview: React.FC = () => {
         <ChapterTitle>2.0 数据概览</ChapterTitle>
         <SummaryBox variant="chapter">
           {highlightNumbers(
-            "围绕[[拦截金额]]、[[处理时效]]、[[业务类型]]与[[重点站点]]开展量化评估：二季度累计拦截 [[2.72]]，平均人工审核时长稳固在 [[0:08:45]]，高危业务与重点站点风险防守扎实有效。"
+            "围绕[[拦截金额]]、[[处理时效]]、[[业务类型]]与[[重点站点]]开展量化评估：二季度累计拦截 [[2.72]]，平均人工审核时长稳固在 [[0:08:45]]；高危业务与重点站点风险拦截平稳受控。"
           )}
         </SummaryBox>
         <div className="report-chapter-content">

@@ -28,11 +28,6 @@ export const SafetyComplianceSection: React.FC = () => {
       <section id="section-3.2" className="report-panel-stack border-t-2 border-slate-900 pt-8 space-y-6 scroll-mt-10">
         <ReportSectionHeader
           title="3.2 风控工单"
-          rightContent={
-            <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-2.5 py-1 border border-slate-200">
-              流程统一收口 · 线下群清零与工单流转
-            </span>
-          }
         />
         <TgGovernanceSection />
       </section>

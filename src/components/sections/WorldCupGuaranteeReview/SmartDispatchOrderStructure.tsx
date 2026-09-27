@@ -190,7 +190,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
       title="角色订单结构与审核质量趋势（8月日均、9月日均与9月28日-30日对比）"
       description={
         <span>
-          从 <strong>8月日均</strong>（系统 <span className="font-bold font-mono">135.0万</span> 占 32.1%、外包 <span className="font-bold font-mono text-amber-700">100.0万</span> 占 23.9%）到 <strong>9月30日</strong> 全量开启（系统 <span className="font-bold font-mono text-blue-700">280.3万</span> 占 44.4%、外包 <span className="font-bold font-mono text-emerald-700">47.3万</span> 占 7.5%）：系统替代规模实现倍增，将高差错率的外包业务深度压缩并释放人力，显著提升全盘审单质量。
+          从 <strong>8月日均</strong>（系统 <span className="font-bold font-mono">135.0万</span> 占 32.1%、外包 <span className="font-bold font-mono text-amber-700">100.0万</span> 占 23.9%）到 <strong>9月30日</strong> 全量开启（系统 <span className="font-bold font-mono text-blue-700">280.3万</span> 占 44.4%、外包 <span className="font-bold font-mono text-emerald-700">47.3万</span> 占 7.5%）：系统替代单量实现倍增，高差错率外包单量占比由 23.9% 压降至 7.5%，全盘审单质量与人效显著改善。
         </span>
       }
       bodyHeight="h-[430px]"

@@ -71,7 +71,7 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
         </p>
         <ul className="mt-4 space-y-3 text-slate-700">
           <li className="flex items-start gap-2 text-sm text-slate-700">
-            <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-slate-700 shrink-0" />
+            <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
             <span className="leading-relaxed">
               {highlightNumbers(
                 "[[核心分布]]：主要集中在 [[6级及7级高等级会员]] 部分，占比总计达 [[79.50%]]；[[异常类型]]主要以[[体育打水]]、[[红利套利]]为主，总计人数占比达 [[70.86%]]（金额占比达 [[71.44%]]）。",
@@ -79,23 +79,23 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
             </span>
           </li>
           <li className="flex items-start gap-2 text-sm text-slate-700">
-            <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-slate-700 shrink-0" />
+            <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
             <div className="flex-1">
               <span className="text-slate-900 font-bold">业务分析：</span>
               <ul className="mt-1.5 list-none space-y-1.5 pl-4 text-slate-600">
                 <li className="flex items-start gap-1.5">
                   <span className="shrink-0 font-mono text-xs text-slate-500">（一）</span>
-                  <span>{highlightNumbers("部分违规用户养号手段愈发成熟，导致[[发现延迟]]情况发生。")}</span>
+                  <span>{highlightNumbers("违规用户养号周期拉长且行为伪装度高，致使常规规则识别存在[[发现延迟]]。")}</span>
                 </li>
                 <li className="flex items-start gap-1.5">
                   <span className="shrink-0 font-mono text-xs text-slate-500">（二）</span>
-                  <span>{highlightNumbers("高等级用户违规[[手法更隐蔽]]，对专员综合判断能力要求更高，同时需持续识别[[新型手法]]。")}</span>
+                  <span>{highlightNumbers("高等级账号异常行为[[隐蔽性更强]]，需结合多维业务链条综合判定并敏捷捕捉[[新型手法]]。")}</span>
                 </li>
               </ul>
             </div>
           </li>
           <li className="flex items-start gap-2 text-sm text-slate-700">
-            <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-slate-700 shrink-0" />
+            <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
             <div className="flex-1">
               <span className="text-slate-900 font-bold">持续优化：</span>
               <ul className="mt-1.5 list-none space-y-1.5 pl-4 text-slate-600">

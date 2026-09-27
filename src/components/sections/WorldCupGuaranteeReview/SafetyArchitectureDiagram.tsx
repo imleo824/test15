@@ -127,7 +127,7 @@ export const SafetyArchitectureDiagram: React.FC = () => {
                   <ArrowDown className="w-3.5 h-3.5 text-slate-500" />
                   <span>
                     {idx === 0
-                      ? "顶层监督审计溯源 · 守护业务合规底线"
+                      ? "顶层监督审计溯源 · 覆盖业务全流程"
                       : "中层流转标准化 · 固化全流程留痕证据链"}
                   </span>
                   <ArrowUp className="w-3.5 h-3.5 text-slate-500" />

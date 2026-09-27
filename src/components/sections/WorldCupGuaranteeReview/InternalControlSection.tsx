@@ -150,12 +150,12 @@ export const InternalControlSection: React.FC = () => {
                 <span>外部通讯群聊风险</span>
               </div>
               <p className="text-sm md:text-base text-slate-700 leading-relaxed font-normal">
-                {highlightNumbers("群内成员通过搜索关键信息即可轻易获取[[敏感信息]]，以此进行不当获利，对信息安全造成极大威胁。")}
+                {highlightNumbers("群聊信息检索门槛低，易导致[[敏感数据暴露]]与非受控扩散，存在重大信息泄露与违规套利隐患。")}
               </p>
             </div>
             <div className="pt-3 space-y-1.5 border-t border-slate-200">
               <div className="text-sm font-bold text-slate-900 flex items-center gap-1.5">
-                <span className="w-2 h-2 bg-blue-700 rounded-full"></span>
+                <span className="w-1.5 h-1.5 bg-blue-700 shrink-0"></span>
                 <span>解决策略：</span>
               </div>
               <p className="text-sm text-slate-700 leading-relaxed font-normal">
@@ -172,12 +172,12 @@ export const InternalControlSection: React.FC = () => {
                 <span>内部勾结风险</span>
               </div>
               <p className="text-sm md:text-base text-slate-700 leading-relaxed font-normal">
-                {highlightNumbers("涉及[[身份验证审核]]、[[佣金审核]]、[[提款审核]]等多关键环节，极易形成上下游的内部链条合作。")}
+                {highlightNumbers("涉及[[身份验证]]、[[佣金结算]]与[[提款审核]]等关键环节，若缺乏随机隔离与交叉复核，易形成上下游链条式协同违规。")}
               </p>
             </div>
             <div className="pt-3 space-y-1.5 border-t border-slate-200">
               <div className="text-sm font-bold text-slate-900 flex items-center gap-1.5">
-                <span className="w-2 h-2 bg-blue-700 rounded-full"></span>
+                <span className="w-1.5 h-1.5 bg-blue-700 shrink-0"></span>
                 <span>解决策略：</span>
               </div>
               <p className="text-sm text-slate-700 leading-relaxed font-normal">
@@ -233,7 +233,7 @@ export const InternalControlSection: React.FC = () => {
                 <div>
                   <span className="font-bold text-slate-900 block text-sm mb-0.5">深度挖掘与处理情况</span>
                   <p className="text-sm text-slate-700 leading-relaxed font-normal">
-                    {highlightNumbers("通过对外包相关责任人的专项监控，最终锁定并查实其涉嫌严重渎职、内外勾结违规操作，甚至利用职务便利进行[[不当获利]]的恶劣违规行为。")}
+                    {highlightNumbers("对相关责任人开展专项溯源与证据固定，最终查实其利用审核职务便利进行违规放单与[[不当获利]]，已依规严肃问责处置。")}
                   </p>
                 </div>
               </div>

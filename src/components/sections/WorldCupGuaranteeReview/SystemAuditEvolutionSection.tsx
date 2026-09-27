@@ -174,7 +174,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             {/* 核心解释说明 */}
             <div className="text-base sm:text-[17.5px] text-slate-800 font-normal leading-[1.75] flex flex-col gap-3 mt-2 bg-slate-50 p-4 sm:p-5 border-l-4 border-slate-900">
               <div className="flex items-start gap-2.5">
-                <span className="w-2 h-2 rounded-full bg-slate-950 shrink-0 mt-2.5"></span>
+                <span className="w-1.5 h-1.5 bg-slate-950 shrink-0 mt-3"></span>
                 <div className="text-base sm:text-[17.5px] leading-[1.75]">
                   <strong className="text-slate-950 font-bold text-base sm:text-lg">替代规模跃升：</strong>
                   <span>伴随系统优化与全量开启，云盾系统替代人工审单的业务规模从 </span>
@@ -183,7 +183,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 </div>
               </div>
               <div className="flex items-start gap-2.5">
-                <span className="w-2 h-2 rounded-full bg-slate-950 shrink-0 mt-2.5"></span>
+                <span className="w-1.5 h-1.5 bg-slate-950 shrink-0 mt-3"></span>
                 <div className="text-base sm:text-[17.5px] leading-[1.75] space-y-2.5 flex-1">
                   <div>
                     <strong className="text-slate-950 font-bold text-base sm:text-lg">减负降本与质量止损：</strong>
@@ -284,14 +284,14 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             {/* 核心解释说明 */}
             <div className="text-base sm:text-[17.5px] text-slate-800 font-normal leading-[1.75] flex flex-col gap-3 mt-2 bg-slate-50 p-4 sm:p-5 border-l-4 border-slate-900">
               <div className="flex items-start gap-2.5">
-                <span className="w-2 h-2 rounded-full bg-slate-950 shrink-0 mt-2.5"></span>
+                <span className="w-1.5 h-1.5 bg-slate-950 shrink-0 mt-3"></span>
                 <div className="text-base sm:text-[17.5px] leading-[1.75]">
                   <strong className="text-slate-950 font-bold text-base sm:text-lg">系统秒级直出：</strong>
                   <strong className="text-slate-950 font-bold">80.0% 订单由引擎 1.8 秒全自动放行直出</strong>，平均到账耗时由 18.5 分钟骤降至 2.4 分钟。
                 </div>
               </div>
               <div className="flex items-start gap-2.5">
-                <span className="w-2 h-2 rounded-full bg-slate-950 shrink-0 mt-2.5"></span>
+                <span className="w-1.5 h-1.5 bg-slate-950 shrink-0 mt-3"></span>
                 <div className="text-base sm:text-[17.5px] leading-[1.75]">
                   <strong className="text-slate-950 font-bold text-base sm:text-lg">高峰排队消除：</strong>
                   <span>比赛高峰排队积压率由 42.6% 降至 1.2%，出款客诉率由 8.4% 压降至 0.9%，大客户复充提升 18.2%。</span>
@@ -365,9 +365,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* 通俗大白话示例 */}
+                  {/* 业务场景说明 */}
                   <div className="text-base sm:text-[17px] text-slate-900 leading-[1.75] font-normal bg-slate-50 p-4 sm:p-5 border-l-4 border-slate-900">
-                    <strong className="text-slate-950 font-bold text-base sm:text-lg">【业务场景示例】</strong>原来是盈利 &gt; 5,000 就一刀切转人工审核；现在系统额外自动识别<strong>是否全包、打水、多号关联、跨场馆对打</strong>等套利行为，精准拦截套利，正常玩家极速放行。
+                    <strong className="text-slate-950 font-bold text-base sm:text-lg">【业务场景】</strong>原来是盈利 &gt; 5,000 就一刀切转人工审核；现在系统额外自动识别<strong>是否全包、打水、多号关联、跨场馆对打</strong>等套利行为，精准拦截套利，正常玩家极速放行。
                   </div>
                 </div>
               </ReportDimensionCard>
@@ -414,9 +414,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* 通俗大白话示例 */}
+                  {/* 业务场景说明 */}
                   <div className="text-base sm:text-[17px] text-slate-900 leading-[1.75] font-normal bg-slate-50 p-4 sm:p-5 border-l-4 border-slate-900">
-                    <strong className="text-slate-950 font-bold text-base sm:text-lg">【业务场景示例】</strong>原来审核需要专员手动切换到各个三方游戏场馆和支付后台逐笔查单；现在后台与各场馆及支付系统<strong>接口毫秒级直连</strong>，注单与资金流水全由系统自动秒级拉取比对。
+                    <strong className="text-slate-950 font-bold text-base sm:text-lg">【业务场景】</strong>原来审核需要专员手动切换到各个三方游戏场馆和支付后台逐笔查单；现在后台与各场馆及支付系统<strong>接口毫秒级直连</strong>，注单与资金流水全由系统自动秒级拉取比对。
                   </div>
                 </div>
               </ReportDimensionCard>
@@ -463,9 +463,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* 通俗大白话示例 */}
+                  {/* 业务场景说明 */}
                   <div className="text-base sm:text-[17px] text-slate-900 leading-[1.75] font-normal bg-slate-50 p-4 sm:p-5 border-l-4 border-slate-900">
-                    <strong className="text-slate-950 font-bold text-base sm:text-lg">【业务场景示例】</strong>原来新老用户全凭审核专员经验主观判定，尺度易漂移；现在系统结合历史行为特征<strong>实时计算动态风险分</strong>，低风险单系统秒级自动放行，高风险单才精准触发人工复核。
+                    <strong className="text-slate-950 font-bold text-base sm:text-lg">【业务场景】</strong>原来新老用户全凭审核专员经验主观判定，尺度易漂移；现在系统结合历史行为特征<strong>实时计算动态风险分</strong>，低风险单系统秒级自动放行，高风险单才精准触发人工复核。
                   </div>
                 </div>
               </ReportDimensionCard>
@@ -512,9 +512,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* 通俗大白话示例 */}
+                  {/* 业务场景说明 */}
                   <div className="text-base sm:text-[17px] text-slate-900 leading-[1.75] font-normal bg-slate-50 p-4 sm:p-5 border-l-4 border-slate-900">
-                    <strong className="text-slate-950 font-bold text-base sm:text-lg">【业务场景示例】</strong>原来工单像发扑克牌一样按顺序机械式平均分配；现在系统根据<strong>工单风险等级、业务类型与审核员专长技能</strong>智能派单（如复杂的体育套利单直派资深专家，新手只处理基础常规单）。
+                    <strong className="text-slate-950 font-bold text-base sm:text-lg">【业务场景】</strong>原来工单像发扑克牌一样按顺序机械式平均分配；现在系统根据<strong>工单风险等级、业务类型与审核员专长技能</strong>智能派单（如复杂的体育套利单直派资深专家，新手只处理基础常规单）。
                   </div>
                 </div>
               </ReportDimensionCard>
@@ -561,9 +561,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* 通俗大白话示例 */}
+                  {/* 业务场景说明 */}
                   <div className="text-base sm:text-[17px] text-slate-900 leading-[1.75] font-normal bg-slate-50 p-4 sm:p-5 border-l-4 border-slate-900">
-                    <strong className="text-slate-950 font-bold text-base sm:text-lg">【业务场景示例】</strong>原来排查关联异常需要开多个后台网页逐个肉眼核对 IP 与设备；现在系统一键生成<strong>关联图谱与玩家全景画像</strong>，设备共用、同 IP 聚集等异常由系统秒级高亮标记辅助快速决议。
+                    <strong className="text-slate-950 font-bold text-base sm:text-lg">【业务场景】</strong>原来排查关联异常需要开多个后台网页逐个肉眼核对 IP 与设备；现在系统一键生成<strong>关联图谱与玩家全景画像</strong>，设备共用、同 IP 聚集等异常由系统秒级高亮标记辅助快速决议。
                   </div>
                 </div>
               </ReportDimensionCard>
@@ -610,9 +610,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* 通俗大白话示例 */}
+                  {/* 业务场景说明 */}
                   <div className="text-base sm:text-[17px] text-slate-900 leading-[1.75] font-normal bg-slate-50 p-4 sm:p-5 border-l-4 border-slate-900">
-                    <strong className="text-slate-950 font-bold text-base sm:text-lg">【业务场景示例】</strong>原来在<strong>系统审核环节完全不具备跨站关联分析能力</strong>，各站点数据彼此孤立；然而从实盘风控历史数据来看，<strong>存在跨账号/跨站关联且最终被风控拦截处置的比例至少在 50% 以上</strong>，这一能力在系统审核环节的缺位导致了重大防御盲区。现在系统在自动化审核直出前直接实现<strong>跨站关联风险特征实时识别与比对</strong>（涵盖跨站同设备、同资金链路、多站对冲套利等），能够直接识别并拦截具备跨站关联风险的订单，彻底解决了系统审核环节的这一关键缺失。
+                    <strong className="text-slate-950 font-bold text-base sm:text-lg">【业务场景】</strong>原来在<strong>系统审核环节完全不具备跨站关联分析能力</strong>，各站点数据彼此孤立；然而从实盘风控历史数据来看，<strong>存在跨账号/跨站关联且最终被风控拦截处置的比例至少在 50% 以上</strong>，这一能力在系统审核环节的缺位导致了重大防御盲区。现在系统在自动化审核直出前直接实现<strong>跨站关联风险特征实时识别与比对</strong>（涵盖跨站同设备、同资金链路、多站对冲套利等），能够直接识别并拦截具备跨站关联风险的订单，彻底解决了系统审核环节的这一关键缺失。
                   </div>
                 </div>
               </ReportDimensionCard>
@@ -722,7 +722,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
 
             {/* 5 大核心阶段矩阵卡片（与上方 1-5 流程节点严格一一对应） */}
             <div className="space-y-5">
-              {/* 阶段 1：对应上方【1. 自动化策略扫描】 */}
+              {/* 阶段 1：对应上方【1. 提款策略扫描】 */}
               <div className="bg-white p-5 sm:p-6 border border-slate-200 border-t-2 border-t-slate-900 space-y-4">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-200 gap-2">
                   <div className="flex items-center gap-2">
@@ -730,7 +730,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       01
                     </span>
                     <h6 className="text-base sm:text-lg font-bold text-slate-950">
-                      阶段一 · 自动化策略扫描（42 项策略矩阵多维实时并发校验）
+                      阶段一 · 提款策略扫描（42 项策略矩阵多维实时并发校验）
                     </h6>
                   </div>
                   <span className="text-xs sm:text-sm font-mono font-bold text-slate-700 bg-slate-100 px-2.5 py-0.5 border border-slate-300 self-start sm:self-auto">
@@ -993,7 +993,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             {/* 保密机制说明 */}
             <SummaryBox variant="module">
               {highlightNumbers(
-                "为防止底层风控规则被外部对抗与逆向试探，云盾体系通过[[“最小知晓范围、链路环节解耦、百项特征周调、闭环自进化”]]四大核心保密机制，确保策略细节全流程严密受控与动态有效。"
+                "为防止底层风控规则被外部对抗与逆向试探，云盾体系通过[[“最小知晓范围、链路环节解耦、百项特征周调、闭环自进化”]]等机制，确保策略细节全流程严密受控与动态有效。"
               )}
             </SummaryBox>
 
@@ -1026,7 +1026,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     2. 多环节组合受控
                   </span>
                   <p className="text-sm text-slate-800 leading-relaxed">
-                    整个体系的运行控制由特征工程、策略校验、风险评分、动态路由及辅助工具等<strong>多环节组合协同而成</strong>；各环节严格权限隔离，<strong>很难单个人看到运行全貌</strong>，极难通过单一行为试探反推整套风控拦截的全局边界。
+                    整个体系由特征工程、策略校验、风险评分、动态路由及辅助工具等多环节组合协同；各环节严格实行权限解耦与链路隔离，<strong>单一岗位无法窥探全链路判定逻辑</strong>，杜绝通过单点样本试探反推全局拦截规则的可能。
                   </p>
                 </div>
                 <div className="pt-3 border-t border-slate-200/90">
@@ -1046,7 +1046,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     3. 上百特征周级调参
                   </span>
                   <p className="text-sm text-slate-800 leading-relaxed">
-                    云盾体系涵盖设备环境、注单时序、资金流向、行为偏好、跨站图谱等<strong>上百个特征及核心权重参数</strong>；风控策略组结合实盘样本执行<strong>周级别的例行指标校准与动态调参</strong>，打破静态规则规律，使外部对抗者始终面临不确定性。
+                    云盾体系涵盖设备环境、注单时序、资金流向、行为偏好、跨站图谱等<strong>上百个特征及核心权重参数</strong>；风控策略组结合实盘样本执行<strong>周级别的例行指标校准与动态调参</strong>，打破静态规则规律，保持对抗维度的动态不确定性。
                   </p>
                 </div>
                 <div className="pt-3 border-t border-slate-200/90">
@@ -1066,7 +1066,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     4. 持续对抗与自进化
                   </span>
                   <p className="text-sm text-slate-800 leading-relaxed">
-                    灰黑产<strong>套利模式持续进行变异与升级</strong>，整个云盾体系时刻保持警惕，绝不固步自封。依托召回率与命中率双向闭环回溯，快速捕捉新型变异套利行为，驱动算法模型与拦截规则<strong>持续进行版本演进与更新迭代</strong>。
+                    针对灰黑产对抗模式的快速变异升级，依托召回率动态回溯与命中率周级精修，构建实盘推演与双向反馈机制，驱动策略模型持续版本迭代与抗衰减演化。
                   </p>
                 </div>
                 <div className="pt-3 border-t border-slate-200/90">
@@ -1074,7 +1074,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <span className="px-1.5 py-0.5 bg-slate-900 text-white text-[11px] font-bold leading-none uppercase tracking-wider">
                       态势
                     </span>
-                    <span className="text-slate-900">时刻警惕 · 闭环迭代更新</span>
+                    <span className="text-slate-900">实盘推演 · 策略抗衰减</span>
                   </div>
                 </div>
               </div>

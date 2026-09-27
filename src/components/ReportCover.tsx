@@ -92,8 +92,8 @@ export const ReportCover: React.FC = () => {
                 </span>
               </div>
               <div className="flex items-center gap-3">
-                <span className="text-xs sm:text-sm font-mono font-medium text-slate-500 group-hover:text-slate-700">
-                  SECTION {section.id}
+                <span className="text-xs sm:text-sm font-mono font-medium text-slate-500 group-hover:text-slate-800">
+                  第 {section.id} 章节
                 </span>
                 <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-slate-700 shrink-0" />
               </div>
