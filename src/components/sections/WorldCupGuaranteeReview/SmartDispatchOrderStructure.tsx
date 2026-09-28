@@ -138,18 +138,18 @@ export const SmartDispatchOrderStructure: React.FC = () => {
     >
       <div className="flex flex-col h-full justify-between">
         {/* 审核质量/差错率对比卡片 - 置于图表上方 */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pb-3 border-b border-slate-200">
-          <div className="bg-slate-50 p-2.5 border border-slate-200 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pb-3 border-b border-[#e2e8f0]">
+          <div className="bg-slate-50 p-2.5 border border-[#e2e8f0] text-center">
             <div className="text-xs text-slate-800 font-bold">外包人工审核</div>
             <div className="text-sm font-bold text-slate-900 mt-0.5 font-mono">差错率 1.82% ~ 1.95%</div>
             <div className="text-xs text-emerald-700 font-bold mt-0.5 font-mono">占比 23.9% ➔ 7.5%（大幅压降）</div>
           </div>
-          <div className="bg-slate-50 p-2.5 border border-slate-200 text-center">
+          <div className="bg-slate-50 p-2.5 border border-[#e2e8f0] text-center">
             <div className="text-xs text-slate-800 font-bold">总部人工审核</div>
             <div className="text-sm font-bold text-slate-900 mt-0.5 font-mono">差错率 0.69% ~ 0.78%</div>
             <div className="text-xs text-slate-600 font-bold mt-0.5 font-mono">占比 44.0% ➔ 48.1%（稳定承接）</div>
           </div>
-          <div className="bg-slate-50 p-2.5 border border-slate-200 text-center">
+          <div className="bg-slate-50 p-2.5 border border-[#e2e8f0] text-center">
             <div className="text-xs text-slate-800 font-bold">系统自动放行</div>
             <div className="text-sm font-bold text-slate-900 mt-0.5 font-mono">差错率 0.08% ~ 0.15%</div>
             <div className="text-xs text-blue-700 font-bold mt-0.5 font-mono">占比 32.1% ➔ 44.4%（倍增跃升）</div>

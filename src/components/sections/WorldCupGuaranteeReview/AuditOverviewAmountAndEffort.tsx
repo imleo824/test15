@@ -64,12 +64,12 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
         <div className="space-y-2.5">
           <div className="text-sm md:text-base text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-               "[[二季度总拦截金额]]：累计拦截 [[2.72]]，其中6月受[[世界杯期间]]赛事高峰驱动回升至 [[1.046]]；受前期严管及对[[批量团伙]]实施[[扣本金]]影响，二季度整体环比一季度下降 [[0.35]]。",
+               "[[二季度总拦截金额]]：累计拦截 [[2.72]]；6月受[[世界杯赛事]]驱动回升至 [[1.046]]。受前期严管及对[[批量团伙]]直接[[扣除本金]]威慑影响，二季度环比一季度下降 [[0.35]]。",
             )}
           </div>
           <div className="text-sm md:text-base text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "[[二季度平均审核时长]]：推进[[系统分流]]、[[流程优化]]与[[智能派单]]，二季度[[平均人工审核时长]]稳定在 [[0:08:45]]；在6月单量激增至 [[300.77w单]] 背景下，审核时效保持平稳。",
+              "[[二季度平均审核时长]]：依托[[系统分流]]与[[智能派单]]，二季度[[平均人工审核时长]]稳定在 [[0:08:45]]；6月单量达 [[300.77w单]] 峰值下，审核时效平稳可控。",
             )}
           </div>
         </div>
@@ -81,7 +81,7 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
         <ReportChartCard
           title="二季度拦截金额月度走势"
           value="2.72"
-          description="二季度累计拦截金额 2.72，6月受世界杯赛事驱动达到 1.046 峰值；通过强化对黑产批量团伙直接扣除本金，管控威慑效应显著增强。"
+          description="二季度累计拦截金额 2.72，6月受世界杯赛事驱动达到 1.046 峰值；强化对批量黑产直接扣除本金，威慑效应显著。"
         >
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={amountData} margin={chartMargins.hiddenAxis}>
@@ -103,7 +103,7 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
         <ReportChartCard
           title="二季度平均人工审核时长"
           value="0:08:45"
-          description="经系统派单分流与全流程优化，二季度整体平均人工审核时长稳固在 0:08:45；即使在6月单量激增至 300.77万单 背景下，时效依然平稳可控。"
+          description="依托系统派单分流，平均人工审核时长稳定在 0:08:45；6月单量达 300.77万单，时效依然平稳可控。"
           legend={
             <ReportChartLegend
               items={[

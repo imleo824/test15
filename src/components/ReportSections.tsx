@@ -143,7 +143,7 @@ export const ReportMetricCard: React.FC<{
       className={`report-metric-card border p-5 sm:p-5.5 flex flex-col justify-between ${
         isDark
           ? "bg-slate-900 border-slate-900 text-white"
-          : "bg-white border-slate-200 text-slate-900 border-t-2 border-t-slate-900 shadow-2xs"
+          : "bg-white border-[#e2e8f0] text-slate-900"
       } ${className}`}
     >
       <div className={`text-sm sm:text-[14.5px] font-bold tracking-wide uppercase ${isDark ? "text-slate-300" : "text-slate-700"}`}>{title}</div>
@@ -156,7 +156,7 @@ export const ReportMetricCard: React.FC<{
         )}
       </div>
       {detail && (
-        <div className={`text-sm sm:text-[14.5px] leading-relaxed font-normal pt-2.5 border-t ${isDark ? "border-slate-800 text-slate-300" : "border-slate-200 text-slate-700"}`}>
+        <div className={`text-sm sm:text-[14.5px] leading-relaxed font-normal pt-2.5 border-t ${isDark ? "border-slate-800 text-slate-300" : "border-[#e2e8f0] text-slate-700"}`}>
           {detail}
         </div>
       )}
@@ -233,10 +233,10 @@ export const ReportChartCard: React.FC<{
   bodyHeight,
 }) => {
   return (
-    <div className={`report-chart-card bg-white border border-slate-200 p-5 sm:p-6 flex flex-col justify-between ${className}`}>
+    <div className={`report-chart-card bg-white border border-[#e2e8f0] p-5 sm:p-6 flex flex-col justify-between ${className}`}>
       <div className="flex-1 flex flex-col min-h-0">
         {/* 头部：标题、副标题与关键数值/标签 */}
-        <div className="report-chart-card-head pb-3 mb-3.5 border-b border-slate-200">
+        <div className="report-chart-card-head pb-3 mb-3.5 border-b border-[#e2e8f0]">
           <div className="min-w-0 pr-2">
             <span className="text-lg sm:text-xl font-bold text-slate-900 block">{title}</span>
             {subtitle && <p className="text-sm text-slate-600 font-medium mt-0.5">{subtitle}</p>}
@@ -249,7 +249,7 @@ export const ReportChartCard: React.FC<{
 
         {/* 一段文字说明 (Key Takeaway / 洞察分析) */}
         {description && (
-          <div className="text-sm sm:text-[15.5px] text-slate-800 font-normal leading-relaxed bg-slate-50/80 border-l-4 border-slate-900 px-4 py-3 mb-3.5 flex items-center border border-slate-200/60">
+          <div className="text-sm sm:text-[15.5px] text-slate-800 font-normal leading-relaxed bg-slate-50/80 border border-[#e2e8f0] px-4 py-3 mb-3.5 flex items-center">
             {description}
           </div>
         )}
@@ -267,7 +267,7 @@ export const ReportChartCard: React.FC<{
 
       {/* 底部口径与备注说明 */}
       {footnote && (
-        <div className="mt-4 pt-3 border-t border-slate-200 text-xs sm:text-sm font-mono text-slate-600 flex items-center justify-between">
+        <div className="mt-4 pt-3 border-t border-[#e2e8f0] text-xs sm:text-sm font-mono text-slate-600 flex items-center justify-between">
           <span>{footnote}</span>
         </div>
       )}

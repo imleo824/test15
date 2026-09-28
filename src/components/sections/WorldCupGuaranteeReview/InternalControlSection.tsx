@@ -6,38 +6,38 @@ import { ReportMetricCard, ReportMetricGrid, ReportMetricHero, ReportSubsectionH
 const clueSourceItems = [
   {
     title: "渠道与行业信息",
-    desc: "持续覆盖[[公开及私密群组频道]]、外部渠道与相关工作室信息，掌握黑产动向、异常订单、市场一手动态及外部合作风险线索。",
+    desc: "监测[[公开及私密群组]]、外部渠道与工作室动态，掌握黑产动向与风险线索。",
   },
   {
     title: "系统预警与参数变动",
-    desc: "通过后台预警发现[[返水比例]]、[[查控费率]]、[[代理方案]]等敏感配置变化，并纳入专项核查。",
+    desc: "实时预警[[返水比例]]、[[查控费率]]、[[代理方案]]等敏感配置变更，纳入专项核查。",
   },
   {
     title: "审核异常",
-    desc: "从审核与查控流程中识别[[非审核人员强行代审]]、[[多人流转异常]]、[[被同人多次审核]]等高危动作。",
+    desc: "识别[[非审核人员代审]]、[[多人流转异常]]、[[同人多次审核]]等高危动作。",
   },
   {
     title: "匿名举报与行为留痕",
-    desc: "结合[[匿名举报渠道]]、核心管理页面录屏、查控操作录屏、登录日志与操作日志，补充内部及外部异常操作线索。",
+    desc: "结合[[匿名举报]]、管理页面与查控录屏、登录与操作日志，补充异常操作线索。",
   },
 ];
 
 const auditActionItems = [
   {
     title: "归集线索并建立排查节奏",
-    desc: "对渠道信息、系统预警、举报与录屏线索统一归档，建立[[定期排查机制]]，按线索类型、风险等级和涉及岗位分层跟进。",
+    desc: "对渠道信息、系统预警、举报与录屏线索统一归档，建立[[定期排查机制]]，分层分级跟进。",
   },
   {
     title: "复核流程与重点场景",
-    desc: "针对新入职员工、高风险岗位、审核查控链路及预警命中的核心风险场景开展[[专项抽查]]，核验是否存在违规操作、异常流转行为。",
+    desc: "针对新员工、高风险岗位及核心预警场景开展[[专项抽查]]，核验违规与异常流转。",
   },
   {
     title: "追溯行为与权限链路",
-    desc: "对[[虚拟机员工日常办公操作]]、核心页面访问、查控操作、账号权限、工单流转及敏感数据查看进行全流程追溯，定位异常登录、越权访问和非业务必要操作。",
+    desc: "追溯[[虚拟机办公操作]]、核心页面访问、权限变更与敏感数据查看，定位异常登录与越权操作。",
   },
   {
     title: "核验外部勾结并回流规则",
-    desc: "在合规授权范围内接触外部渠道及相关工作室，核验内外勾结、利益输送和违规协作风险；将确认的问题沉淀为[[预警规则]]和处置依据，持续扩大信息收集面。",
+    desc: "排查内外勾结与利益输送风险，确认的问题沉淀为[[预警规则]]与处置依据。",
   },
 ];
 
@@ -46,7 +46,7 @@ export const InternalControlSection: React.FC = () => {
     <div id="section-internal-control" className="space-y-12">
       <SummaryBox variant="module">
         {highlightNumbers(
-          "由独立专职监督角色统筹把关，重点监控[[红利发放]]、[[敏感参数变动]]与[[异常登录]]等高危行为。依托行为留痕与操作日志实现全链路可追溯，确保违规操作即时预警与责任查处。",
+          "由专职监督独立把关，重点监控[[红利发放]]、[[敏感参数变动]]与[[异常登录]]；依托行为留痕与操作日志实现全链路可溯，违规操作即时预警与查处。",
         )}
       </SummaryBox>
 
@@ -143,45 +143,45 @@ export const InternalControlSection: React.FC = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* 1. 外部通讯群信息 */}
-          <div className="border-t-2 border-slate-900 pt-4 flex flex-col justify-between space-y-3 bg-white p-5 border border-slate-200">
+          <div className="pt-4 flex flex-col justify-between space-y-3 bg-white p-5 border border-[#e2e8f0]">
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-slate-900 font-bold text-base sm:text-lg">
                 <span className="report-sequence-badge report-sequence-badge--risk">1</span>
                 <span>外部通讯群聊风险</span>
               </div>
               <p className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal">
-                {highlightNumbers("群聊信息检索门槛低，易导致[[敏感数据暴露]]与非受控扩散，存在重大信息泄露与违规套利隐患。")}
+                {highlightNumbers("群聊信息易被全局检索，导致[[敏感数据暴露]]与非受控扩散，存在严重信息泄露隐患。")}
               </p>
             </div>
-            <div className="pt-3 space-y-1.5 border-t border-slate-200">
+            <div className="pt-3 space-y-1.5 border-t border-[#e2e8f0]">
               <div className="text-sm sm:text-base font-bold text-slate-900 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 bg-blue-700 shrink-0"></span>
                 <span>解决策略：</span>
               </div>
               <p className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal">
-                {highlightNumbers("针对敏感和核心业务对接，全面[[关停外部通讯群聊]]，详情见 3.2 风控工单说明。")}
+                {highlightNumbers("全面[[关停外部通讯群聊]]，收拢至系统工单流转（详见 3.2 节）。")}
               </p>
             </div>
           </div>
 
           {/* 2. 内部勾结查控 */}
-          <div className="border-t-2 border-slate-900 pt-4 flex flex-col justify-between space-y-3 bg-white p-5 border border-slate-200">
+          <div className="pt-4 flex flex-col justify-between space-y-3 bg-white p-5 border border-[#e2e8f0]">
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-slate-900 font-bold text-base sm:text-lg">
                 <span className="report-sequence-badge report-sequence-badge--risk">2</span>
                 <span>内部勾结风险</span>
               </div>
               <p className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal">
-                {highlightNumbers("涉及[[身份验证]]、[[佣金结算]]与[[提款审核]]等关键环节，若缺乏随机隔离与交叉复核，易形成上下游链条式协同违规。")}
+                {highlightNumbers("涉及[[身份验证]]、[[佣金结算]]与[[提款审核]]等环节，若缺乏随机隔离与交叉复核，易产生协同违规。")}
               </p>
             </div>
-            <div className="pt-3 space-y-1.5 border-t border-slate-200">
+            <div className="pt-3 space-y-1.5 border-t border-[#e2e8f0]">
               <div className="text-sm sm:text-base font-bold text-slate-900 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 bg-blue-700 shrink-0"></span>
                 <span>解决策略：</span>
               </div>
               <p className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal">
-                {highlightNumbers("核心环节启动[[随机分配且多层审批]]的流程；如身份验证、提款、佣金等，详情见 3.2 风控工单与 3.3 安全机制说明。")}
+                {highlightNumbers("核心环节实行[[随机派单与多层审批]]，强化权限隔离（详见 3.2 与 3.3 节）。")}
               </p>
             </div>
           </div>
@@ -193,8 +193,8 @@ export const InternalControlSection: React.FC = () => {
         <ReportSubsectionHeader title="3.1.4 典型案例剖析" />
         
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
-          <div className="border-t-2 border-slate-900 pt-4 space-y-4 bg-white p-5 border border-slate-200">
-            <div className="flex items-center gap-2 text-slate-900 font-bold text-base sm:text-lg pb-1.5 border-b border-slate-200">
+          <div className="pt-4 space-y-4 bg-white p-5 border border-[#e2e8f0]">
+            <div className="flex items-center gap-2 text-slate-900 font-bold text-base sm:text-lg pb-1.5 border-b border-[#e2e8f0]">
               <Shield className="w-5 h-5 text-blue-800 shrink-0" />
               <span>外包审核违规案例</span>
             </div>
@@ -208,7 +208,7 @@ export const InternalControlSection: React.FC = () => {
                 <div className="pb-2">
                   <span className="font-bold text-slate-900 block text-sm sm:text-base mb-0.5">背景</span>
                   <p className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal">
-                    {highlightNumbers("外包团队审核质量长期未达预期，且日常审计已查实存在[[内部数据泄露]]风险案例；以此为契机，稽查于5月全面启动[[外包专项治理]]。")}
+                    {highlightNumbers("外包审核存在数据外泄风险且差错率偏高，5月启动[[外包专项治理]]。")}
                   </p>
                 </div>
               </div>
@@ -221,7 +221,7 @@ export const InternalControlSection: React.FC = () => {
                 <div className="pb-2">
                   <span className="font-bold text-slate-900 block text-sm sm:text-base mb-0.5">专项跟进与录屏分析</span>
                   <p className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal">
-                    {highlightNumbers("对全量外包账号展开深度跟进与录屏抽检。结果表明，审核环节中的[[不规范操作占比高达 33%]]，存在极大的安全隐患。")}
+                    {highlightNumbers("对全量外包账号录屏抽检，查出[[不规范操作占比达 33%]]，安全隐患突出。")}
                   </p>
                 </div>
               </div>
@@ -233,15 +233,15 @@ export const InternalControlSection: React.FC = () => {
                 <div>
                   <span className="font-bold text-slate-900 block text-sm sm:text-base mb-0.5">深度挖掘与处理情况</span>
                   <p className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal">
-                    {highlightNumbers("对相关责任人开展专项溯源与证据固定，最终查实其利用审核职务便利进行违规放单与[[不当获利]]，已依规严肃问责处置。")}
+                    {highlightNumbers("锁定责任人利用职务便利违规放单与[[不当获利]]，已固定证据并严肃问责处置。")}
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="border-t-2 border-slate-800 pt-4 space-y-4">
-            <div className="flex items-center gap-2 text-slate-900 font-bold text-base pb-1 border-b border-slate-200">
+          <div className="pt-4 space-y-4 bg-white p-5 border border-[#e2e8f0]">
+            <div className="flex items-center gap-2 text-slate-900 font-bold text-base sm:text-lg pb-1.5 border-b border-[#e2e8f0]">
               <Shield className="w-5 h-5 text-blue-800 shrink-0" />
               <span>业绩造假违规案例</span>
             </div>
@@ -255,7 +255,7 @@ export const InternalControlSection: React.FC = () => {
                 <div className="pb-2">
                   <span className="font-bold text-slate-900 block text-sm mb-0.5">违规类型</span>
                   <p className="text-sm text-slate-700 leading-relaxed font-normal">
-                    {highlightNumbers("[[业绩造假]]：员工通过伪造业务过程材料，虚构用户参与记录，以此违规完成个人业绩指标。")}
+                    {highlightNumbers("[[业绩造假]]：伪造业务过程材料与用户参与记录，虚增个人业绩。")}
                   </p>
                 </div>
               </div>
@@ -268,7 +268,7 @@ export const InternalControlSection: React.FC = () => {
                 <div className="pb-2">
                   <span className="font-bold text-slate-900 block text-sm mb-0.5">发现情况</span>
                   <p className="text-sm text-slate-700 leading-relaxed font-normal">
-                    {highlightNumbers("用户中心多位员工利用[[图像合成工具]]伪造与用户的对话记录，伪装用户参与记录，造成业绩数据失真。")}
+                    {highlightNumbers("多名员工利用[[图像合成工具]]伪造用户对话记录，导致业绩数据失真。")}
                   </p>
                 </div>
               </div>
@@ -280,7 +280,7 @@ export const InternalControlSection: React.FC = () => {
                 <div>
                   <span className="font-bold text-slate-900 block text-sm mb-0.5">风险影响</span>
                   <p className="text-sm text-slate-700 leading-relaxed font-normal">
-                    {highlightNumbers("该行为直接破坏[[业绩考核真实性]]与活动执行合规性，需纳入异常素材复核、聊天记录交叉验证和人员绩效审计范围。")}
+                    {highlightNumbers("破坏[[考核真实性]]与合规性，已纳入素材复核、交叉验证与绩效审计。")}
                   </p>
                 </div>
               </div>

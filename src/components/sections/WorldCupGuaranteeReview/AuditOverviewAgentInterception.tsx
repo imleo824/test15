@@ -146,7 +146,7 @@ export const AuditOverviewAgentInterception: React.FC = () => {
         <div className="space-y-3">
           <div className="text-sm md:text-base text-slate-800 font-medium leading-relaxed">
             {highlightNumbers(
-              "代理以[[佣金]]为主体，[[活动类]]与[[用户首复存]]共同构成主要补充。"
+              "代理拦截以[[佣金]]为主体，[[活动类]]与[[首复存]]为主要补充。"
             )}
           </div>
           <ul className="space-y-2 text-slate-700">
@@ -154,7 +154,7 @@ export const AuditOverviewAgentInterception: React.FC = () => {
               <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
               <span>
                 {highlightNumbers(
-                  "[[佣金]]：含基础及额外，总占比达 [[62.42%]]，核心为[[基础佣金]]与[[扶持降档]]。",
+                  "[[佣金]]：含基础与额外佣金，占比达 [[62.42%]]，核心为[[基础佣金]]与[[扶持降档]]。",
                 )}
               </span>
             </li>
@@ -162,7 +162,7 @@ export const AuditOverviewAgentInterception: React.FC = () => {
               <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
               <span>
                 {highlightNumbers(
-                  "[[活动]]：以[[奖励活动]]（[[4.35%]]）与[[新增冲刺]]（[[12.02%]]）为主，两者合计占整体的 [[16.37%]]。若叠加[[用户首复存]]，三项合计金额为 [[2,932.8]]，占整体约 [[33.15%]]。",
+                  "[[活动]]：以[[奖励活动]]（[[4.35%]]）与[[新增冲刺]]（[[12.02%]]）为主，合计占比 [[16.37%]]；叠加[[首复存]]后金额达 [[2,932.8]]，占比 [[33.15%]]。",
                 )}
               </span>
             </li>
@@ -170,7 +170,7 @@ export const AuditOverviewAgentInterception: React.FC = () => {
               <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
               <span>
                 {highlightNumbers(
-                  "[[存款]]：针对[[用户首复存活动套利]]，整体拦截占比约为 [[16.77%]]。",
+                  "[[存款]]：针对[[用户首复存套利]]，拦截占比约为 [[16.77%]]。",
                 )}
               </span>
             </li>

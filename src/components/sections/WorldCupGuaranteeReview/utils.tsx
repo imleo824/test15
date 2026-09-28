@@ -266,7 +266,7 @@ export const ExpectedRhythm = ({
 
   if (hasDetails) {
     return (
-      <div className="report-rhythm p-5 sm:p-6 space-y-4 mt-auto border border-slate-200 bg-white">
+      <div className="report-rhythm p-5 sm:p-6 space-y-4 mt-auto border border-[#e2e8f0] bg-white">
         <div className="report-rhythm-head">
           <span className="font-bold text-slate-900 text-base md:text-lg flex items-center gap-2">
             <Clock className="w-5 h-5 text-blue-900 shrink-0" />

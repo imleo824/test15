@@ -272,7 +272,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
             <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2" />
             <span>
               {highlightNumbers(
-                "[[推动盘口协同]]：深化[[商户操盘协同机制]]，推动[[赔率联动]]覆盖 [[90%]] 以上进球类玩法，在保障用户体验的同时锁定合理[[盈利率]]。",
+                "[[盘口协同]]：深化[[商户操盘协同机制]]，推动[[赔率联动]]覆盖 [[90%]] 以上进球类玩法，锁定合理[[盈利率]]。",
               )}
             </span>
           </li>
@@ -280,7 +280,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
             <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2" />
             <span>
               {highlightNumbers(
-                "[[会员端风控闭环]]：落地标准化流程，包含[[系统预警]]（专人 [[15分钟]] 内跟进异常）、[[系统初审]]（自动标记分流）、[[智能分单]]（[[专项派发至 34人体育组]]）及[[工具复审]]（利用跨站排查、关联分析复核）。实现高危订单的[[精准拦截]]与[[分级处置]]（警告、降水、扣除及终止）。",
+                "[[处置闭环]]：建立标准化流程，含[[系统预警]]（[[15分钟]] 内跟进）、[[系统初审]]（自动分流）、[[智能分单]]（[[派发至 34人体育组]]）及[[工具复审]]（跨站关联排查），实现高危订单[[精准拦截与分级处置]]。",
               )}
             </span>
           </li>
@@ -292,7 +292,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
         {/* 图表 1: 各系别体育拦截率趋势 */}
         <ReportChartCard
           title="各系别体育拦截率趋势"
-          description="二季度全盘综合体育拦截率为 6.50%，各系别拦截率集中在 5.8%~6.6% 区间，整体防守态势平稳。"
+          description="二季度综合体育拦截率 6.50%，各系别集中在 5.8%~6.6%，防守态势平稳。"
           legend={
             <ReportChartLegend
               items={[
@@ -321,7 +321,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
         {/* 图表 2: 各场馆体育拦截率趋势 */}
         <ReportChartCard
           title="各场馆体育拦截率趋势"
-          description="二季度各场馆体育拦截率维持在 5.6%~6.6% 区间，各场馆与平台保持常态化盘口风控协同。"
+          description="各场馆体育拦截率维持在 5.6%~6.6%，与平台保持常态化盘口协同。"
           legend={
             <ReportChartLegend
               items={[

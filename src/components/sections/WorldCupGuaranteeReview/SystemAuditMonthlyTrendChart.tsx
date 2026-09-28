@@ -172,9 +172,9 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
     >
       <div className="flex flex-col h-full justify-between">
         {/* 核心指标看板：2 大核心数据点 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pb-3 border-b border-slate-200">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pb-3 border-b border-[#e2e8f0]">
           {/* 指标 1：系统出单比例 */}
-          <div className="bg-blue-50/60 p-2.5 sm:p-3 border border-blue-200 flex items-center justify-between">
+          <div className="bg-blue-50/60 p-2.5 sm:p-3 border border-[#e2e8f0] flex items-center justify-between">
             <div>
               <div className="text-xs font-bold text-blue-900">系统出单比例</div>
               <div className="text-xs text-blue-800/80 mt-0.5">从 28.5% 提升至 64.2%（全量达 80.0%）</div>
@@ -186,7 +186,7 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
           </div>
 
           {/* 指标 2：系统错误率 */}
-          <div className="bg-slate-50 p-2.5 sm:p-3 border border-slate-200 flex items-center justify-between">
+          <div className="bg-slate-50 p-2.5 sm:p-3 border border-[#e2e8f0] flex items-center justify-between">
             <div>
               <div className="text-xs font-bold text-slate-800">系统错误率（差错率）</div>
               <div className="text-xs text-slate-600 mt-0.5">从 0.14% 持续收敛至 0.08%</div>

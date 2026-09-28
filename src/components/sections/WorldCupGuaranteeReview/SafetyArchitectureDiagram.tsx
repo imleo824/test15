@@ -16,9 +16,9 @@ const tiers: ArchTier[] = [
     status: "进行中",
     icon: <Eye className="w-4 h-4 text-slate-900" />,
     keyPoints: [
-      "全量操作日志常态巡检与异常行为回溯分析",
-      "敏感参数变动与异常红利发放实时监测预警",
-      "高危代审与越权操作立案核查与违规问责机制",
+      "全量操作日志常态巡检，异常行为及时溯源",
+      "敏感参数变动与异常红利发放实时预警",
+      "高危代审与越权操作立案核查、严肃问责",
     ],
   },
   {
@@ -27,9 +27,9 @@ const tiers: ArchTier[] = [
     status: "进行中",
     icon: <Users className="w-4 h-4 text-slate-900" />,
     keyPoints: [
-      "清理关停线下非受控沟通渠道，消除私下交接漏洞",
-      "各项审核与业务对接全面收拢为后台工单标准化流转",
-      "跨部门交接与多人审批全流程线上存证、证据链完整",
+      "关停线下非受控沟通渠道，消除私下交接漏洞",
+      "审核与业务对接全面收拢至后台工单流转",
+      "跨部门审批全流程线上存证、证据链完整",
     ],
   },
   {
@@ -38,18 +38,18 @@ const tiers: ArchTier[] = [
     status: "待加强",
     icon: <Lock className="w-4 h-4 text-slate-900" />,
     keyPoints: [
-      "敏感数据导出频次额度限制，全端加盖动态追踪盲水印",
-      "敏感信息修改实行双人背靠背复核与提款风险冷却期",
-      "资金调账直连三方通道对账核实，强校验真实银行到账流水",
+      "敏感数据导出限额限频，全端加盖动态追踪盲水印",
+      "敏感信息修改实行双人背靠背复核与24小时提款冷却",
+      "资金调账直连三方通道对账，强校验真实到账流水",
     ],
   },
 ];
 
 export const SafetyArchitectureDiagram: React.FC = () => {
   return (
-    <div className="w-full bg-white border border-slate-300 border-t-2 border-t-slate-900 p-4 sm:p-5 space-y-4">
+    <div className="w-full bg-white border border-[#e2e8f0] p-4 sm:p-5 space-y-4">
       {/* 头部标题栏：紧凑高能级 */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#e2e8f0] pb-3">
         <div className="flex items-center gap-2.5">
           <div className="w-2.5 h-6 bg-slate-900 shrink-0"></div>
           <div>
@@ -60,7 +60,7 @@ export const SafetyArchitectureDiagram: React.FC = () => {
         </div>
 
         {/* 顶部逻辑流标识 */}
-        <div className="flex items-center gap-1.5 bg-slate-100 px-2.5 py-1 border border-slate-200 text-xs font-mono shrink-0 self-start sm:self-auto">
+        <div className="flex items-center gap-1.5 bg-slate-100 px-2.5 py-1 border border-[#e2e8f0] text-xs font-mono shrink-0 self-start sm:self-auto">
           <span className="font-bold text-slate-900">L1 系统硬控</span>
           <span className="text-slate-400">➔</span>
           <span className="font-bold text-slate-900">L2 协同流转</span>
@@ -70,9 +70,9 @@ export const SafetyArchitectureDiagram: React.FC = () => {
       </div>
 
       {/* 架构主体：精简无沉淀干净矩阵 */}
-      <div className="border border-slate-300 bg-white divide-y divide-slate-200">
+      <div className="border border-[#e2e8f0] bg-white divide-y divide-[#e2e8f0]">
         {/* 表格列头指示（大屏显示） */}
-        <div className="hidden lg:grid grid-cols-12 gap-3 bg-slate-100/90 px-4 py-2 text-xs font-bold text-slate-700 uppercase tracking-wider border-b border-slate-300">
+        <div className="hidden lg:grid grid-cols-12 gap-3 bg-slate-100/90 px-4 py-2 text-xs font-bold text-slate-700 uppercase tracking-wider border-b border-[#e2e8f0]">
           <div className="col-span-3">防御层级</div>
           <div className="col-span-2 text-center">治理状态</div>
           <div className="col-span-7">核心防护举措与落地要求</div>
@@ -85,7 +85,7 @@ export const SafetyArchitectureDiagram: React.FC = () => {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-3.5 items-center">
                 {/* 1. 防御层级 (col-span-3) */}
                 <div className="lg:col-span-3 flex items-center gap-2.5">
-                  <div className="p-2 bg-slate-100 border border-slate-200 shrink-0">
+                  <div className="p-2 bg-slate-100 border border-[#e2e8f0] shrink-0">
                     {tier.icon}
                   </div>
                   <div className="space-y-1">
@@ -103,12 +103,12 @@ export const SafetyArchitectureDiagram: React.FC = () => {
                 {/* 2. 治理状态 (col-span-2) */}
                 <div className="lg:col-span-2 flex items-center justify-start lg:justify-center">
                   {tier.status === "进行中" ? (
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-blue-50 border border-blue-300 text-blue-900 font-bold text-xs font-mono shrink-0">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-blue-50 border border-[#e2e8f0] text-blue-900 font-bold text-xs font-mono shrink-0">
                       <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
                       <span>进行中</span>
                     </span>
                   ) : (
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-amber-50 border border-amber-300 text-amber-900 font-bold text-xs font-mono shrink-0">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-amber-50 border border-[#e2e8f0] text-amber-900 font-bold text-xs font-mono shrink-0">
                       <span className="w-1.5 h-1.5 rounded-full bg-amber-600"></span>
                       <span>待加强</span>
                     </span>
@@ -131,7 +131,7 @@ export const SafetyArchitectureDiagram: React.FC = () => {
 
             {/* 层级之间的衔接指示条 */}
             {idx < tiers.length - 1 && (
-              <div className="bg-slate-100/80 px-4 py-1 text-center border-t border-b border-slate-200 flex items-center justify-center gap-2 text-[11px] font-mono text-slate-600 font-medium">
+              <div className="bg-slate-100/80 px-4 py-1 text-center border-t border-b border-[#e2e8f0] flex items-center justify-center gap-2 text-[11px] font-mono text-slate-600 font-medium">
                 <ArrowDown className="w-3 h-3 text-slate-700" />
                 <span>
                   {idx === 0

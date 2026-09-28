@@ -7,17 +7,17 @@ export const PersonnelDistribution: React.FC = () => {
     {
       title: "人员优化",
       category: "降本增效",
-      content: "依托[[系统自动化]]替代重复人工审核，持续精简岗位配置，提升单人人效；",
+      content: "以[[系统自动化]]替代重复审核，精简岗位配置，提升单人人效；",
     },
     {
       title: "考核机制",
       category: "降本增效",
-      content: "落实全流程量化考核与[[末位淘汰]]，人力向[[策略与专业分析岗位]]倾斜，精简低效编制；",
+      content: "落实量化考核与[[末位淘汰]]，人力向[[策略与专业分析岗位]]倾斜，精简低效编制；",
     },
     {
       title: "场地优化",
       category: "合规安全",
-      content: "结合各场地承载力[[动态调配工位]]，优化场地集中度以控制组织风险与合规风险；",
+      content: "结合各职场承载力[[动态调配工位]]，分散集中度以控制合规与组织风险；",
     },
     {
       title: "流程优化",
@@ -32,7 +32,7 @@ export const PersonnelDistribution: React.FC = () => {
       <SummaryBox variant="chapter">
         <div className="text-sm md:text-base font-medium text-slate-900 leading-relaxed">
           {highlightNumbers(
-            "依托[[系统自动化]]推进[[组织精简化]]与[[作业合规化]]，提升专职风控人效与风险拦截质量。"
+            "依托[[系统自动化]]推进[[组织精简]]与[[作业合规]]，提升风控人效与拦截质效。"
           )}
         </div>
       </SummaryBox>
@@ -44,7 +44,7 @@ export const PersonnelDistribution: React.FC = () => {
         <SummaryBox variant="module">
           <div className="text-sm md:text-base text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "围绕[[人效提升]]与[[合规安全]]优化组织配置：强化策略分析岗位、压降重复性人工审核，优化多场地分配并压降外包编制。"
+              "聚焦[[人效提升]]与[[合规安全]]：强化策略分析岗位，压降重复人工审核与外包编制，优化职场配置。"
             )}
           </div>
         </SummaryBox>
@@ -53,7 +53,7 @@ export const PersonnelDistribution: React.FC = () => {
           {policyItems.map((item, index) => (
             <div
               key={index}
-              className="bg-white p-5 sm:p-5.5 border border-slate-200 border-t-2 border-t-slate-900 flex flex-col justify-between space-y-3.5 shadow-2xs"
+              className="bg-white p-5 sm:p-5.5 border border-[#e2e8f0] flex flex-col justify-between space-y-3.5"
             >
               <div className="flex items-center justify-between pb-3 border-b border-slate-200">
                 <div className="flex items-center gap-2">
@@ -67,8 +67,8 @@ export const PersonnelDistribution: React.FC = () => {
                 <span
                   className={`font-mono text-xs font-bold px-2 py-0.5 border ${
                     item.category === "降本增效"
-                      ? "text-emerald-800 bg-emerald-50 border-emerald-300"
-                      : "text-blue-900 bg-blue-50 border-blue-300"
+                      ? "text-emerald-800 bg-emerald-50 border-[#e2e8f0]"
+                      : "text-blue-900 bg-blue-50 border-[#e2e8f0]"
                   }`}
                 >
                   {item.category}
@@ -98,7 +98,7 @@ export const PersonnelDistribution: React.FC = () => {
           {/* 第一层：在岗人数 & 外包人力 */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto">
             {/* Card 1: 在岗人数 */}
-            <div className="border border-slate-200 border-t-2 border-t-slate-900 bg-slate-50/70 p-4 text-center space-y-1">
+            <div className="border border-[#e2e8f0] bg-slate-50/70 p-4 text-center space-y-1">
               <span className="text-xs sm:text-sm font-bold text-slate-600 block uppercase tracking-wider">
                 在岗人数
               </span>
@@ -111,7 +111,7 @@ export const PersonnelDistribution: React.FC = () => {
             </div>
 
             {/* Card 2: 外包人力 */}
-            <div className="border border-slate-200 border-t-2 border-t-slate-900 bg-slate-50/70 p-4 text-center space-y-1">
+            <div className="border border-[#e2e8f0] bg-slate-50/70 p-4 text-center space-y-1">
               <span className="text-xs sm:text-sm font-bold text-slate-600 block uppercase tracking-wider">
                 外包人力
               </span>
@@ -119,7 +119,7 @@ export const PersonnelDistribution: React.FC = () => {
                 <span className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight tabular-nums">
                   119
                 </span>
-                <span className="text-xs font-bold text-emerald-800 bg-emerald-50 px-1.5 py-0.5 border border-emerald-300 tabular-nums">
+                <span className="text-xs font-bold text-emerald-800 bg-emerald-50 px-1.5 py-0.5 border border-[#e2e8f0] tabular-nums">
                   -17
                 </span>
                 <span className="text-xs sm:text-sm font-bold text-slate-500">人</span>
@@ -156,7 +156,7 @@ export const PersonnelDistribution: React.FC = () => {
             ].map((item) => (
               <div
                 key={item.label}
-                className="border border-slate-200 bg-white p-3.5 sm:p-4 text-center flex flex-col items-center justify-between space-y-1.5 shadow-2xs"
+                className="border border-[#e2e8f0] bg-white p-3.5 sm:p-4 text-center flex flex-col items-center justify-between space-y-1.5"
               >
                 <div className="text-sm font-bold text-slate-800 tracking-wide">
                   {item.label}

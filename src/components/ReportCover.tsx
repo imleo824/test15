@@ -36,7 +36,7 @@ export const ReportCover: React.FC = () => {
           </h1>
         </div>
 
-        <div className="flex flex-wrap items-center gap-x-6 lg:gap-x-8 gap-y-3 py-4 border-t border-slate-200 text-sm">
+        <div className="flex flex-wrap items-center gap-x-6 lg:gap-x-8 gap-y-3 py-4 border-t border-[#e2e8f0] text-sm">
           <div className="flex items-center gap-2.5">
             <span className="font-mono text-slate-500 font-medium text-xs sm:text-sm">数据周期</span>
             <strong className="font-mono font-bold text-slate-900 text-sm sm:text-base">{FA.navTitle}</strong>
@@ -54,11 +54,11 @@ export const ReportCover: React.FC = () => {
           <div className="flex items-center gap-2.5">
             <span className="font-mono text-slate-500 font-medium text-xs sm:text-sm">关键词</span>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-slate-100 border border-slate-300 text-slate-800 font-bold text-xs font-mono">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-slate-100 border border-[#e2e8f0] text-slate-800 font-bold text-xs font-mono">
                 <ShieldCheck className="w-3.5 h-3.5 text-slate-700" />
                 <span>安全合规</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-slate-100 border border-slate-300 text-slate-800 font-bold text-xs font-mono">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-slate-100 border border-[#e2e8f0] text-slate-800 font-bold text-xs font-mono">
                 <TrendingUp className="w-3.5 h-3.5 text-slate-700" />
                 <span>降本增效</span>
               </span>
@@ -76,12 +76,12 @@ export const ReportCover: React.FC = () => {
         </div>
 
         {/* 竖向排列列表 */}
-        <div className="flex flex-col border border-slate-200 divide-y divide-slate-200 bg-white">
+        <div className="flex flex-col border border-[#e2e8f0] divide-y divide-[#e2e8f0] bg-white">
           {sections.map((section) => (
             <div
               key={section.id}
               onClick={() => handleScrollToSection(section.id)}
-              className="group flex items-center justify-between px-5 py-4 hover:bg-slate-50 border-l-2 border-l-transparent hover:border-l-slate-900 transition-colors cursor-pointer select-none"
+              className="group flex items-center justify-between px-5 py-4 hover:bg-slate-50 transition-colors cursor-pointer select-none"
             >
               <div className="flex items-center gap-4 min-w-0">
                 <span className="font-mono text-sm sm:text-base font-bold text-white bg-slate-900 px-3.5 py-1.5 shrink-0 group-hover:bg-slate-950">

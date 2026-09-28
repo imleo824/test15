@@ -14,7 +14,7 @@ export default function App() {
       {/* Document Workspace Center Desk */}
       <div className="flex-1 flex justify-center w-full py-8 md:py-12 px-3 sm:px-6 lg:px-10 print:p-0">
         {/* Executive Binder Folio Page */}
-        <article className="report-folio w-full max-w-[1440px] bg-white shadow-xl shadow-slate-300/50 border border-slate-200/90 print:shadow-none print:border-none print:max-w-none print:w-full flex flex-col">
+        <article className="report-folio w-full max-w-[1440px] bg-white border border-[#e2e8f0] print:border-none print:max-w-none print:w-full flex flex-col">
           {/* Main Content Area */}
           <main className="report-main flex-1 w-full px-6 sm:px-12 lg:px-16 xl:px-20 py-10 lg:py-14 space-y-16 lg:space-y-24 print:px-0 print:py-0 print:space-y-16 text-[16px] sm:text-[17px] leading-relaxed">
             {/* Cover & Directory */}

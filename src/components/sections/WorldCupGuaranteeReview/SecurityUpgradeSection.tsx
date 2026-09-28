@@ -156,7 +156,7 @@ export const SecurityUpgradeSection: React.FC = () => {
       {/* 3.3 章节核心导语 */}
       <SummaryBox variant="module">
         {highlightNumbers(
-          "建立以具体操作风险为核心的[[三大安全机制]]：针对[[敏感操作类]]收紧导出限制、禁止无条件模糊查询并全端加盖盲水印；针对[[信息修改类]]实行双人背靠背审批与 24 小时提款冷却；针对[[资金调账类]]强校验真实到账流水并直连通道 API 核验。以系统硬性规则约束一线自由裁量，全流程防控数据泄露、账户盗改与资金亏空风险。"
+          "建立以操作风险为核心的[[三大安全机制]]：针对[[敏感操作类]]收紧导出权限、禁用无条件模糊查询并加盖盲水印；针对[[信息修改类]]实行双人背靠背审批与 24 小时提款冷却；针对[[资金调账类]]强校验真实到账流水并直连通道核验。以系统硬规则约束一线裁量，防控数据泄露、账户盗改与资金风险。"
         )}
       </SummaryBox>
 
@@ -205,10 +205,10 @@ export const SecurityUpgradeSection: React.FC = () => {
             return (
               <div
                 key={cat.key}
-                className="border border-slate-300 bg-white p-4 sm:p-5 border-t-2 border-t-slate-900 space-y-3"
+                className="border border-[#e2e8f0] bg-white p-4 sm:p-5 space-y-3"
               >
                 {/* 模块标题与核心原则 */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2.5 border-b border-slate-200 gap-2">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2.5 border-b border-[#e2e8f0] gap-2">
                   <div className="flex items-center gap-2.5">
                     <div className="w-7 h-7 bg-slate-900 text-white flex items-center justify-center shrink-0">
                       <Icon className="w-4 h-4" />

@@ -188,7 +188,13 @@
 
   .report-shell .shadow-xs,
   .report-shell .shadow-2xs,
-  .report-shell [class*="shadow-"] {
+  .report-shell .shadow-sm,
+  .report-shell .shadow-md,
+  .report-shell .shadow-lg,
+  .report-shell .shadow-xl,
+  .report-shell .shadow-2xl,
+  .report-shell .shadow,
+  .report-shell [class*="shadow"] {
     box-shadow: none !important;
   }
 
@@ -3488,24 +3494,25 @@
   .report-module-surface,
   .report-chart-card,
   .report-status-segment,
-  .report-metric-card {
-    border-color: #eef2f6;
-    box-shadow: none !important;
-  }
-
-  /* Anti-nested border: flatten inner layers so boxes don't nest inside boxes */
-  .report-shell :is(.border, .border-2, .border-slate-100, .border-slate-200, .border-slate-300, .border-blue-100, .border-emerald-200) :is(.border, .border-2, .border-slate-100, .border-slate-200, .border-slate-300, .border-blue-100, .border-emerald-200) {
-    border-color: #f1f5f9 !important;
-    box-shadow: none !important;
-  }
-
-  .report-shell :is(.border, .border-2, .border-slate-100, .border-slate-200) :is(.border, .border-2, .border-slate-100, .border-slate-200) :is(.border, .border-2, .border-slate-100, .border-slate-200) {
-    border-color: transparent !important;
-    box-shadow: none !important;
-  }
-
-  .report-shell :is(.border-2, .border-3, .border-4):not(.border-b-2):not(.border-t-2):not(.border-l-2):not(.border-l-3):not(.border-l-4) {
+  .report-metric-card,
+  .report-dimension-card,
+  .report-info-box,
+  .report-info-item,
+  .report-rhythm,
+  .report-rhythm-item,
+  .agent-dispatch-panel {
+    border-color: #e2e8f0 !important;
     border-width: 1px !important;
+    box-shadow: none !important;
+  }
+
+  /* Unify container border colors across the report */
+  .report-shell :is(.border-slate-200, .border-slate-300, .border-blue-200, .border-rose-200, .border-amber-200, .border-emerald-200) {
+    border-color: #e2e8f0;
+  }
+
+  .report-shell * {
+    box-shadow: none !important;
   }
 
   .report-card-soft,
@@ -3541,7 +3548,6 @@
   .report-note--chapter {
     background: #f8fafc;
     border: 1px solid #e2e8f0 !important;
-    border-left: 4px solid #0f172a !important;
     border-radius: 0 !important;
     padding: 18px 22px !important;
   }
@@ -3557,7 +3563,6 @@
   .report-note--module {
     background: #f8fafc;
     border: 1px solid #e2e8f0 !important;
-    border-left: 4px solid #334155 !important;
     border-radius: 0 !important;
     padding: 16px 20px !important;
   }
@@ -3572,7 +3577,6 @@
   .report-note--note {
     background: #f8fafc;
     border: 1px solid #e2e8f0 !important;
-    border-left: 3.5px solid #64748b !important;
     border-radius: 0 !important;
     padding: 14px 18px !important;
   }
