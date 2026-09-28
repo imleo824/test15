@@ -1101,14 +1101,14 @@
 
   .report-note {
     background: #f8fafc;
-    border: none;
-    border-left: 3.5px solid var(--report-blue);
+    border: 1px solid #e2e8f0;
+    border-left: 3.5px solid #0f172a;
     border-radius: 0;
     color: var(--report-ink);
     font-size: var(--report-font-small);
     line-height: 1.65;
     font-weight: 500;
-    padding: 16px 20px;
+    padding: 14px 18px;
   }
 
   .report-note > .flex {
@@ -1119,8 +1119,8 @@
     min-width: 0;
     flex: 1;
     color: var(--report-ink);
-    font-size: var(--report-font-body);
-    line-height: 1.65;
+    font-size: 14.5px;
+    line-height: 1.68;
     font-weight: var(--report-weight-medium);
   }
 
@@ -1130,7 +1130,7 @@
     gap: var(--report-space-1);
     min-width: 0;
     margin-bottom: var(--report-space-2);
-    color: var(--report-blue);
+    color: #0f172a;
     font-size: var(--report-font-small);
     line-height: 1.35;
     font-weight: var(--report-weight-semibold);
@@ -1150,23 +1150,23 @@
     border: 1px solid #e2e8f0;
     border-left: 4px solid #0f172a;
     border-radius: 0;
-    padding: 18px 22px;
+    padding: 16px 20px;
   }
 
   .report-note--module {
     background: #f8fafc;
     border: 1px solid #e2e8f0;
-    border-left: 4px solid var(--report-blue);
+    border-left: 4px solid #1e3a8a;
     border-radius: 0;
-    padding: 16px 20px;
+    padding: 14px 18px;
   }
 
   .report-note--note {
     background: #fafcfd;
     border: 1px solid #e2e8f0;
-    border-left: 3.5px solid var(--report-muted);
+    border-left: 3.5px solid #64748b;
     border-radius: 0;
-    padding: 14px 18px;
+    padding: 12px 16px;
   }
 
   .report-inline-note {

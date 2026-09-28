@@ -52,7 +52,7 @@ export const ReportCover: React.FC = () => {
           <span className="text-slate-300 hidden sm:inline" aria-hidden="true">•</span>
 
           <div className="flex items-center gap-2.5">
-            <span className="font-mono text-slate-500 font-medium text-xs sm:text-sm">核心关键词</span>
+            <span className="font-mono text-slate-500 font-medium text-xs sm:text-sm">关键词</span>
             <div className="flex items-center gap-2">
               <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-slate-100 border border-slate-300 text-slate-800 font-bold text-xs font-mono">
                 <ShieldCheck className="w-3.5 h-3.5 text-slate-700" />

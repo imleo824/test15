@@ -107,7 +107,7 @@ const renderBarLabel = (isHighlight: boolean = false) => ({ x, y, width, value }
 const timelineLegendItems = [
   { label: "8月日均占比（参考）", color: timelineColors.august, isBold: false },
   { label: "9月日均占比（参考）", color: timelineColors.september, isBold: false },
-  { label: "9月30日全量开启占比（核心）", color: timelineColors.sept30, isBold: true },
+  { label: "9月30日占比（全量）", color: timelineColors.sept30, isBold: true },
 ];
 
 const renderTimelineLegend = () => (

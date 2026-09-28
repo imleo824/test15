@@ -140,23 +140,23 @@ export const ReportMetricCard: React.FC<{
   const isDark = tone === "dark";
   return (
     <div
-      className={`report-metric-card border p-5 flex flex-col justify-between ${
+      className={`report-metric-card border p-4.5 sm:p-5 flex flex-col justify-between ${
         isDark
           ? "bg-slate-900 border-slate-900 text-white"
-          : "bg-white border-slate-200 text-slate-900 border-t-2 border-t-slate-900"
+          : "bg-white border-slate-200 text-slate-900 border-t-2 border-t-slate-900 shadow-2xs"
       } ${className}`}
     >
-      <div className={`text-sm sm:text-base font-bold ${isDark ? "text-slate-300" : "text-slate-700"}`}>{title}</div>
-      <div className="my-2.5 flex items-baseline gap-2">
-        <span className={`text-3xl sm:text-4xl font-extrabold font-mono tabular-nums tracking-tight ${isDark ? "text-white" : "text-slate-950"}`}>
+      <div className={`text-xs sm:text-[13px] font-bold tracking-wide uppercase ${isDark ? "text-slate-400" : "text-slate-600"}`}>{title}</div>
+      <div className="my-2 flex items-baseline gap-1.5 font-mono">
+        <span className={`text-2xl sm:text-3xl font-black tabular-nums tracking-tight ${isDark ? "text-white" : "text-slate-950"}`}>
           {value}
         </span>
         {unit && (
-          <span className={`text-sm sm:text-base font-bold ${isDark ? "text-slate-400" : "text-slate-600"}`}>{unit}</span>
+          <span className={`text-xs sm:text-sm font-bold ${isDark ? "text-slate-400" : "text-slate-500"}`}>{unit}</span>
         )}
       </div>
       {detail && (
-        <div className={`text-sm sm:text-base leading-relaxed font-normal pt-2.5 border-t ${isDark ? "border-slate-800 text-slate-300" : "border-slate-200 text-slate-700"}`}>
+        <div className={`text-xs sm:text-[13px] leading-relaxed font-normal pt-2.5 border-t ${isDark ? "border-slate-800 text-slate-400" : "border-slate-200/80 text-slate-600"}`}>
           {detail}
         </div>
       )}
@@ -249,7 +249,7 @@ export const ReportChartCard: React.FC<{
 
         {/* 一段文字说明 (Key Takeaway / 洞察分析) */}
         {description && (
-          <div className="text-sm sm:text-base text-slate-800 font-medium leading-relaxed bg-slate-50 border-l-4 border-slate-900 px-4 py-3 mb-3.5 flex items-center">
+          <div className="text-xs sm:text-[13.5px] text-slate-700 font-normal leading-relaxed bg-slate-50/80 border-l-4 border-slate-900 px-3.5 py-2.5 mb-3 flex items-center border border-slate-200/60">
             {description}
           </div>
         )}

@@ -44,7 +44,7 @@ export const PersonnelDistribution: React.FC = () => {
         <SummaryBox variant="module">
           <div className="text-sm md:text-base text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "围绕[[人效提升]]与[[合规安全]]优化组织配置：强化策略分析岗位、压降重复性人工审核，优化多职场布局并压降外包编制。"
+              "围绕[[人效提升]]与[[合规安全]]优化组织配置：强化策略分析岗位、压降重复性人工审核，优化多场地分配并压降外包编制。"
             )}
           </div>
         </SummaryBox>
@@ -53,28 +53,28 @@ export const PersonnelDistribution: React.FC = () => {
           {policyItems.map((item, index) => (
             <div
               key={index}
-              className="bg-slate-50 p-5 border-t-2 border-t-slate-900 flex flex-col justify-between space-y-3"
+              className="bg-white p-4.5 sm:p-5 border border-slate-200 border-t-2 border-t-slate-900 flex flex-col justify-between space-y-3 shadow-2xs"
             >
-              <div className="flex items-center justify-between pb-2 border-b border-slate-200">
+              <div className="flex items-center justify-between pb-2.5 border-b border-slate-200">
                 <div className="flex items-center gap-2">
                   <span className="report-sequence-badge text-xs">
                     {index + 1}
                   </span>
-                  <span className="font-bold text-slate-900 text-base">
+                  <span className="font-bold text-slate-950 text-base">
                     {item.title}
                   </span>
                 </div>
                 <span
-                  className={`font-mono text-xs font-bold px-2 py-0.5 border ${
+                  className={`font-mono text-[11px] font-bold px-2 py-0.5 border ${
                     item.category === "降本增效"
-                      ? "text-emerald-800 bg-emerald-50 border-emerald-200"
-                      : "text-blue-800 bg-blue-50 border-blue-200"
+                      ? "text-emerald-800 bg-emerald-50 border-emerald-300"
+                      : "text-blue-900 bg-blue-50 border-blue-300"
                   }`}
                 >
                   {item.category}
                 </span>
               </div>
-              <p className="text-sm text-slate-700 leading-relaxed font-normal">
+              <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal">
                 {highlightNumbers(item.content)}
               </p>
             </div>
@@ -94,35 +94,35 @@ export const PersonnelDistribution: React.FC = () => {
           </div>
         </SummaryBox>
 
-        <div className="border border-slate-200 bg-white p-5 space-y-6">
-          {/* 第一层：CD 占比 & WB 外包 */}
+        <div className="border border-slate-200 bg-white p-5 sm:p-6 space-y-6">
+          {/* 第一层：在岗人数 & 外包人力 */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto">
-            {/* Card 1: CD */}
-            <div className="border border-slate-200 border-t-2 border-t-slate-900 bg-slate-50/70 p-4 text-center space-y-1.5">
-              <span className="text-sm font-bold text-slate-800 block tracking-wider">
+            {/* Card 1: 在岗人数 */}
+            <div className="border border-slate-200 border-t-2 border-t-slate-900 bg-slate-50/70 p-4 text-center space-y-1">
+              <span className="text-xs font-bold text-slate-600 block uppercase tracking-wider">
                 在岗人数
               </span>
-              <div className="flex items-baseline justify-center gap-1.5 py-1">
-                <span className="font-mono text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight tabular-nums">
+              <div className="flex items-baseline justify-center gap-1 py-1 font-mono">
+                <span className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight tabular-nums">
                   365
                 </span>
-                <span className="text-sm font-bold text-slate-600">人</span>
+                <span className="text-xs font-bold text-slate-500">人</span>
               </div>
             </div>
 
-            {/* Card 2: WB */}
-            <div className="border border-slate-200 border-t-2 border-t-slate-900 bg-slate-50/70 p-4 text-center space-y-1.5">
-              <span className="text-sm font-bold text-slate-800 block tracking-wider">
+            {/* Card 2: 外包人力 */}
+            <div className="border border-slate-200 border-t-2 border-t-slate-900 bg-slate-50/70 p-4 text-center space-y-1">
+              <span className="text-xs font-bold text-slate-600 block uppercase tracking-wider">
                 外包人力
               </span>
-              <div className="flex items-baseline justify-center gap-2 py-1">
-                <span className="font-mono text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight tabular-nums">
+              <div className="flex items-baseline justify-center gap-1.5 py-1 font-mono">
+                <span className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight tabular-nums">
                   119
                 </span>
-                <span className="font-mono text-xs font-bold text-slate-700 bg-white px-2 py-0.5 border border-slate-300 tabular-nums">
+                <span className="text-xs font-bold text-emerald-800 bg-emerald-50 px-1.5 py-0.5 border border-emerald-300 tabular-nums">
                   -17
                 </span>
-                <span className="text-sm font-bold text-slate-600">人</span>
+                <span className="text-xs font-bold text-slate-500">人</span>
               </div>
             </div>
           </div>

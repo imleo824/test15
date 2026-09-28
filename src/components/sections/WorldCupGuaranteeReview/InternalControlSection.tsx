@@ -56,12 +56,12 @@ export const InternalControlSection: React.FC = () => {
         
         <ReportMetricHero
           title="违规处理总计"
-          desc="通过渠道稽查与敏感监控精准定位"
+          desc="通过渠道稽查与敏感操作全链路监控精准定位"
           metrics={
-            <>
-              <span className="text-3xl md:text-4xl text-slate-900 font-black">225<small className="ml-1 text-sm text-slate-700 font-bold font-sans">人</small></span>
-              <span className="text-2xl md:text-3xl text-blue-700 font-black">178,140 <small className="text-sm font-sans font-bold">泰达币</small></span>
-            </>
+            <div className="flex items-baseline gap-4 font-mono">
+              <span className="text-3xl md:text-4xl text-slate-950 font-black tracking-tight">225<small className="ml-1 text-xs text-slate-500 font-bold font-sans">人</small></span>
+              <span className="text-2xl md:text-3xl text-blue-900 font-black tracking-tight">178,140 <small className="text-xs font-sans font-bold text-blue-700">泰达币</small></span>
+            </div>
           }
         />
 
