@@ -35,18 +35,18 @@
     --report-space-8: 44px;
     --report-space-9: 52px;
     --report-space-10: 64px;
-    --report-font-caption: 12px;
-    --report-font-small: 14px;
-    --report-font-body: 16px;
-    --report-font-emphasis: 18px;
-    --report-font-panel-title: 21px;
-    --report-font-section-title: 25px;
-    --report-font-chapter-title: 30px;
-    --report-font-cover-title: 40px;
+    --report-font-caption: 13px;
+    --report-font-small: 15px;
+    --report-font-body: 16.5px;
+    --report-font-emphasis: 19px;
+    --report-font-panel-title: 22px;
+    --report-font-section-title: 26px;
+    --report-font-chapter-title: 32px;
+    --report-font-cover-title: 42px;
     --report-weight-regular: 400;
     --report-weight-medium: 500;
-    --report-weight-semibold: 600;
-    --report-weight-bold: 700;
+    --report-weight-semibold: 700;
+    --report-weight-bold: 800;
     --report-chart-height: 320px;
     --report-panel-gap: 28px;
     --report-panel-padding-y: 20px;
@@ -57,14 +57,14 @@
   html {
     background: #f1f4f8;
     scroll-behavior: auto;
-    font-size: 16px;
+    font-size: 16.5px;
   }
 
   body {
     background: #f1f4f8;
     color: var(--report-ink);
-    font-size: 16px;
-    line-height: 1.7;
+    font-size: 16.5px;
+    line-height: 1.75;
     font-variant-numeric: tabular-nums;
   }
 
@@ -1184,48 +1184,60 @@
   .report-note p,
   .report-note li {
     color: var(--report-ink) !important;
-    font-size: var(--report-font-small);
-    line-height: 1.6;
+    font-size: 16px !important;
+    line-height: 1.75 !important;
     font-weight: 500;
   }
 
   .report-core-underline {
-    color: var(--report-blue) !important;
-    border-bottom: 0;
-    padding-bottom: 0;
+    color: #0f172a !important;
+    font-weight: 750 !important;
+    background: rgba(224, 236, 255, 0.75) !important;
+    border-bottom: 0 !important;
+    text-decoration: none !important;
+    padding: 0.1em 0.35em !important;
+    border-radius: 2px !important;
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
-    font-weight: 600;
     line-height: inherit;
-    margin: 0 1px;
+    margin: 0 1.5px;
+    display: inline;
   }
 
   .report-shell .report-number {
-    color: var(--report-blue) !important;
+    color: #0f172a !important;
     font-family: var(--font-mono);
     font-variant-numeric: tabular-nums;
-    font-size: 0.98em;
+    font-size: 1.02em;
     line-height: 1;
     vertical-align: baseline;
-    letter-spacing: -0.005em;
-    font-weight: 700;
-    background: transparent;
+    letter-spacing: -0.01em;
+    font-weight: 800 !important;
+    background: rgba(241, 245, 249, 0.9);
+    border-bottom: 0;
+    text-decoration: none !important;
+    padding: 0.08em 0.3em;
+    border-radius: 2px;
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
-    padding: 0;
-    margin: 0 2px;
+    margin: 0 1.5px;
+    display: inline;
   }
 
   .report-shell .report-number-risk {
     color: var(--report-danger) !important;
-    font-weight: 700;
-    background: transparent;
+    font-weight: 800 !important;
+    background: rgba(254, 242, 242, 0.9) !important;
+    border-bottom: 0 !important;
+    text-decoration: none !important;
   }
 
   .report-shell .report-number-safe {
     color: #0f172a !important;
-    font-weight: 700;
-    background: transparent;
+    font-weight: 800 !important;
+    background: rgba(240, 253, 244, 0.9) !important;
+    border-bottom: 0 !important;
+    text-decoration: none !important;
   }
 
   .report-status-card {
@@ -3397,24 +3409,30 @@
   /* Final projection-report calibration: make hierarchy legible without turning
      every explanatory sentence into a visual heading.  These rules sit on the
      shared report primitives so the same treatment is inherited by each chapter. */
+  /* Unified hierarchy & emphasis for executive report readability */
   .report-shell :is(p, li, td, .report-panel-description, .report-note-content) {
+    font-size: 15.5px;
+    line-height: 1.72;
     font-weight: var(--report-weight-medium);
   }
 
   .report-shell :is(p, li, td) strong {
-    font-weight: var(--report-weight-semibold);
+    font-weight: 750 !important;
+    color: #0f172a !important;
   }
 
-  .report-shell :is(p, li).font-bold,
-  .report-shell :is(p, li).font-black,
-  .report-shell .report-panel-description.font-bold,
-  .report-shell .report-panel-description.font-black {
-    font-weight: var(--report-weight-medium) !important;
-  }
-
-  .report-shell :is(p, li).font-bold strong,
-  .report-shell :is(p, li).font-black strong {
-    font-weight: var(--report-weight-semibold) !important;
+  /* Unified highlight styling for emphasized keywords and core phrases in body copy */
+  .report-shell :is(p, li, .report-note-content) strong:not([class*="font-mono"]):not([class*="text-2xl"]):not([class*="text-3xl"]):not([class*="text-4xl"]):not([class*="text-5xl"]):not(.report-number):not(.report-sequence-badge):not(.report-badge) {
+    color: #0f172a !important;
+    font-weight: 750 !important;
+    background: rgba(224, 236, 255, 0.75) !important;
+    border-bottom: 0 !important;
+    text-decoration: none !important;
+    padding: 0.1em 0.35em !important;
+    border-radius: 2px !important;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    display: inline;
   }
 
   .report-surface {

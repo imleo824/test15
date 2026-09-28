@@ -130,8 +130,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
 
                 {/* 管理结论：置于标题正下方 */}
                 <div className="p-3.5 bg-white border-l-4 border-slate-950 text-xs sm:text-[13.5px] text-slate-700 leading-relaxed shadow-xs">
-                  <strong className="text-slate-950 font-bold text-sm">管理结论：</strong>
-                  剩余 <strong className="text-slate-950 font-bold font-mono">30%~35%</strong> 的人工审核是基于<strong>“多账号高风险拦截（15%~20%）+ 历史存量标签兜底（约15%）”</strong>的刚性风控边界；当前 <strong>60%~65%</strong> 的系统出单水平已高度贴近 <strong>70%</strong> 的安全物理极限。
+                  剩余 <strong className="text-slate-950 font-bold font-mono">30%~35%</strong> 的人工审核是基于<strong>“多账号风险拦截（15%~20%）+ 历史存量标签兜底（约15%）”</strong>的刚性风控边界；当前 <strong>60%~65%</strong> 的系统出单水平已高度贴近 <strong>70%</strong> 的安全物理极限。
                 </div>
 
                 {/* 核心数据突出展示对比区：左侧当前(60%~65%) ➔ 箭头过渡 ➔ 右侧极限(70%)，突出趋势与逼近感 */}
@@ -163,7 +162,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   {/* 中间：趋势演进与逼近连接体 */}
                   <div className="flex md:flex-col items-center justify-center gap-1 px-2 py-1 md:py-0 text-slate-400 font-mono shrink-0">
                     <div className="hidden md:block w-px h-3 bg-slate-300"></div>
-                    <div className="flex items-center gap-1 px-2.5 py-1 bg-slate-200/80 rounded-full text-slate-800 text-xs font-bold font-mono">
+                    <div className="flex items-center gap-1 px-2 py-0.5 bg-slate-200 text-slate-800 text-xs font-bold font-mono border border-slate-300">
                       <span>逼近空间仅 5%~10%</span>
                       <span className="text-base leading-none">➔</span>
                     </div>
@@ -261,7 +260,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 <span className="text-lg sm:text-xl font-extrabold text-slate-950 tracking-tight">
                   替代订单规模
                 </span>
-                <span className="hidden sm:inline-block w-1.5 h-1.5 bg-slate-300 rounded-full" />
+                <span className="text-slate-300 hidden sm:inline" aria-hidden="true">•</span>
                 <span className="text-xs sm:text-sm font-bold text-slate-600 font-mono">
                   全量替代 300w单 / 月增 100w单
                 </span>
@@ -310,11 +309,11 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             </div>
 
             {/* 核心解释说明 */}
-            <div className="text-sm sm:text-[15px] text-slate-800 font-normal leading-relaxed flex flex-col gap-2.5 mt-2 bg-slate-50 p-4 sm:p-4.5 border-l-4 border-slate-900 border border-slate-200/60">
+            <div className="text-sm sm:text-[15.5px] text-slate-800 font-normal leading-relaxed flex flex-col gap-2.5 mt-2 bg-slate-50/80 p-4 border-l-4 border-slate-900 border border-slate-200/60">
               <div className="flex items-start gap-2.5">
                 <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                 <div className="leading-relaxed">
-                  <strong className="text-slate-950 font-bold text-sm sm:text-base">自动化规模跃升：</strong>
+                  <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">自动化规模跃升：</strong>
                   <span>云盾系统替代人工审单规模由 </span>
                   <strong className="text-slate-950 font-bold font-mono">200w单 提升至 300w单</strong>
                   <span className="text-slate-700">，净替代增加 100w单（增幅 +50.0%）。</span>
@@ -323,7 +322,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               <div className="flex items-start gap-2.5">
                 <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                 <div className="leading-relaxed">
-                  <strong className="text-slate-950 font-bold text-sm sm:text-base">人力减负与差错止损：</strong>
+                  <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">人力减负与差错止损：</strong>
                   <span>替代外包 </span>
                   <strong className="text-slate-950 font-bold font-mono">50万+ 订单</strong>
                   <span>，直接释放外包 </span>
@@ -355,7 +354,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 <span className="text-lg sm:text-xl font-extrabold text-slate-950 tracking-tight">
                   提升审核时效
                 </span>
-                <span className="hidden sm:inline-block w-1.5 h-1.5 bg-slate-300 rounded-full" />
+                <span className="text-slate-300 hidden sm:inline" aria-hidden="true">•</span>
                 <span className="text-xs sm:text-sm font-bold text-slate-600 font-mono">
                   耗时从 18.5分 骤降至 2.4分
                 </span>
@@ -404,11 +403,11 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             </div>
 
             {/* 核心解释说明 */}
-            <div className="text-sm sm:text-[15px] text-slate-800 font-normal leading-relaxed flex flex-col gap-2.5 mt-2 bg-slate-50 p-4 sm:p-4.5 border-l-4 border-slate-900 border border-slate-200/60">
+            <div className="text-sm sm:text-[15.5px] text-slate-800 font-normal leading-relaxed flex flex-col gap-2.5 mt-2 bg-slate-50/80 p-4 border-l-4 border-slate-900 border border-slate-200/60">
               <div className="flex items-start gap-2.5">
                 <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                 <div className="leading-relaxed">
-                  <strong className="text-slate-950 font-bold text-sm sm:text-base">审核时长骤降：</strong>
+                  <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">审核时长骤降：</strong>
                   <span>系统自动出单单均仅需 </span>
                   <strong className="text-slate-950 font-bold font-mono">15 秒</strong>
                   <span className="text-slate-700">（原人工审核平均需 8 分钟），全局平均停留时间从 </span>
@@ -418,7 +417,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               <div className="flex items-start gap-2.5">
                 <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                 <div className="leading-relaxed">
-                  <strong className="text-slate-950 font-bold text-sm sm:text-base">提款体验跃升：</strong>
+                  <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">提款体验跃升：</strong>
                   <span>占总量 </span>
                   <strong className="text-slate-950 font-bold font-mono">80% 的低风险订单</strong>
                   <span>彻底摆脱人工队列排队，实现秒级自动放行，端到端出款体感与客诉指标显著改善。</span>
@@ -434,14 +433,14 @@ export const SystemAuditEvolutionSection: React.FC = () => {
         <ReportSectionHeader title="4.3 云盾风控体系" />
 
         {/* 机制与支撑说明 */}
-          <div className="p-4 bg-slate-50 border-l-4 border-l-blue-700 text-sm sm:text-base font-medium text-slate-800 leading-relaxed">
+          <div className="p-3.5 sm:p-4 bg-slate-50/80 border-l-4 border-slate-900 border border-slate-200/60 text-xs sm:text-[13.5px] font-normal text-slate-700 leading-relaxed">
             审核模式优化由<strong>云盾风控系统</strong>支持。通过 <strong>策略矩阵校验 ➔ 风险评分 ➔ 动态决策 ➔ 效果反馈</strong> 四个环节，明确系统自动放行与人工复审的分工边界，支撑 80.0% 自动化放行目标。
           </div>
 
           {/* 关键能力对比：原来 与 现在 */}
           <div className="space-y-4">
             <div className="border-b border-slate-200 pb-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
-              <span className="text-base font-bold text-slate-900">
+              <span className="text-base font-bold text-slate-950">
                 关键机制优化前后对比
               </span>
               <p className="text-xs sm:text-sm text-slate-600 font-normal">
@@ -493,8 +492,8 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   </div>
 
                   {/* 业务场景说明 */}
-                  <div className="text-sm sm:text-[15px] text-slate-800 leading-relaxed font-normal bg-slate-50 p-3.5 sm:p-4 border-l-4 border-slate-900 border border-slate-200/60">
-                    <strong className="text-slate-950 font-bold text-sm sm:text-base">【业务场景】</strong>原来是盈利 &gt; 5,000 就一刀切转人工审核；现在系统额外自动识别<strong>全包、打水、关联、睡眠、快进快出、租卖号等</strong>等套利行为，精准拦截套利，正常玩家极速放行。
+                  <div className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal bg-slate-50/80 p-4 border-l-4 border-slate-900 border border-slate-200/60">
+                    <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">【场景举例】</strong>原来是盈利 &gt; 5,000 就一刀切转人工审核；现在系统额外自动识别<strong>全包、对打、打水、关联、睡眠、快进快出、租卖号等</strong>等套利行为，精准拦截套利，正常玩家极速放行。
                   </div>
                 </div>
               </ReportDimensionCard>
@@ -542,8 +541,8 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   </div>
 
                   {/* 业务场景说明 */}
-                  <div className="text-sm sm:text-[15px] text-slate-800 leading-relaxed font-normal bg-slate-50 p-3.5 sm:p-4 border-l-4 border-slate-900 border border-slate-200/60">
-                    <strong className="text-slate-950 font-bold text-sm sm:text-base">【业务场景】</strong>原来审核需要专员手动切换到各个三方游戏场馆和支付后台逐笔查单；现在后台与各场馆及支付系统<strong>接口毫秒级直连</strong>，注单与资金流水全由系统自动秒级拉取比对。
+                  <div className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal bg-slate-50/80 p-4 border-l-4 border-slate-900 border border-slate-200/60">
+                    <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">【场景举例】</strong>原来审核需要专员手动切换到各个三方游戏场馆和支付后台逐笔查单；现在后台与各场馆及支付系统<strong>接口毫秒级直连</strong>，注单与资金流水全由系统自动秒级拉取比对。
                   </div>
                 </div>
               </ReportDimensionCard>
@@ -591,8 +590,8 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   </div>
 
                   {/* 业务场景说明 */}
-                  <div className="text-sm sm:text-[15px] text-slate-800 leading-relaxed font-normal bg-slate-50 p-3.5 sm:p-4 border-l-4 border-slate-900 border border-slate-200/60">
-                    <strong className="text-slate-950 font-bold text-sm sm:text-base">【业务场景】</strong>原来新老用户全凭审核专员经验主观判定，尺度易漂移；现在系统结合历史行为特征<strong>实时计算动态风险分</strong>，低风险单系统秒级自动放行，高风险单才精准触发人工复核。
+                  <div className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal bg-slate-50/80 p-4 border-l-4 border-slate-900 border border-slate-200/60">
+                    <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">【场景举例】</strong>原来新老用户全凭审核专员经验主观判定，尺度易漂移；现在系统结合历史行为特征<strong>实时计算动态风险分</strong>，低风险单系统秒级自动放行，高风险单才精准触发人工复核。
                   </div>
                 </div>
               </ReportDimensionCard>
@@ -640,8 +639,8 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   </div>
 
                   {/* 业务场景说明 */}
-                  <div className="text-sm sm:text-[15px] text-slate-800 leading-relaxed font-normal bg-slate-50 p-3.5 sm:p-4 border-l-4 border-slate-900 border border-slate-200/60">
-                    <strong className="text-slate-950 font-bold text-sm sm:text-base">【业务场景】</strong>原来工单像发扑克牌一样按顺序机械式平均分配；现在系统根据<strong>工单风险等级、业务类型与审核员专长技能</strong>智能派单（如复杂的体育套利单直派资深专家，新手只处理基础常规单）。
+                  <div className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal bg-slate-50/80 p-4 border-l-4 border-slate-900 border border-slate-200/60">
+                    <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">【场景举例】</strong>原来工单像发扑克牌一样按顺序机械式平均分配；现在系统根据<strong>工单风险等级、业务类型与审核员专长技能</strong>智能派单（如复杂的体育套利单直派资深专家，新手只处理基础常规单）。
                   </div>
                 </div>
               </ReportDimensionCard>
@@ -689,8 +688,8 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   </div>
 
                   {/* 业务场景说明 */}
-                  <div className="text-sm sm:text-[15px] text-slate-800 leading-relaxed font-normal bg-slate-50 p-3.5 sm:p-4 border-l-4 border-slate-900 border border-slate-200/60">
-                    <strong className="text-slate-950 font-bold text-sm sm:text-base">【业务场景】</strong>原来排查关联异常需要开多个后台网页逐个肉眼核对 IP 与设备；现在系统一键生成<strong>关联图谱与玩家全景画像</strong>，设备共用、同 IP 聚集等异常由系统秒级高亮标记辅助快速决议。
+                  <div className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal bg-slate-50/80 p-4 border-l-4 border-slate-900 border border-slate-200/60">
+                    <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">【场景举例】</strong>原来排查关联异常需要开多个后台网页逐个肉眼核对 IP 与设备；现在系统一键生成<strong>关联图谱与玩家全景画像</strong>，设备共用、同 IP 聚集等异常由系统秒级高亮标记辅助快速决议。
                   </div>
                 </div>
               </ReportDimensionCard>
@@ -738,8 +737,8 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   </div>
 
                   {/* 业务场景说明 */}
-                  <div className="text-sm sm:text-[15px] text-slate-800 leading-relaxed font-normal bg-slate-50 p-3.5 sm:p-4 border-l-4 border-slate-900 border border-slate-200/60">
-                    <strong className="text-slate-950 font-bold text-sm sm:text-base">【业务场景】</strong>原来在<strong>系统审核环节完全不具备跨站关联分析能力</strong>，各站点数据彼此孤立；然而从实盘风控历史数据来看，<strong>存在跨账号/跨站关联且最终被风控拦截处置的比例至少在 50% 以上</strong>，这一能力在系统审核环节的缺位导致了重大防御盲区。现在系统在自动化审核直出前直接实现<strong>跨站关联风险特征实时识别与比对</strong>（涵盖跨站同设备、同资金链路、多站对冲套利等），能够直接识别并拦截具备跨站关联风险的订单，彻底解决了系统审核环节的这一关键缺失。
+                  <div className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal bg-slate-50/80 p-4 border-l-4 border-slate-900 border border-slate-200/60">
+                    <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">【场景举例】</strong>原来在<strong>系统审核环节完全不具备跨站关联分析能力</strong>；从风控历史数据来看，<strong>存在跨账号/跨站关联且最终被风控拦截处置的比例至少在 50% 以上</strong>，这一能力在系统审核环节的缺位导致了重大防御盲区。现在系统在自动化审核直出前直接实现<strong>跨站关联风险特征实时识别与比对</strong>（涵盖跨站同设备、同资金链路、多站对冲套利等），能够直接识别并拦截具备跨站关联风险的订单，彻底解决了系统审核环节的这一关键缺失。
                   </div>
                 </div>
               </ReportDimensionCard>
@@ -1130,11 +1129,10 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       <div className="w-16 h-16 bg-sky-950 text-white flex flex-col items-center justify-center border-2 border-sky-800 shadow-xs">
                         <span className="text-xl font-mono font-black text-sky-200 leading-none">05</span>
                       </div>
-                      
                     </div>
                     {/* 移动端辅助显示阶段名 */}
                     <span className="md:hidden text-xs font-bold font-mono px-2 py-0.5 bg-sky-50 text-sky-900 border border-sky-300">
-                      STEP 5 ⮐ 反哺 01
+                      阶段 05 · 闭环自进化
                     </span>
                   </div>
 
@@ -1219,38 +1217,38 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             {/* 4 列防线矩阵卡片：去除外层嵌套大边框，采用扁平利落的卡片矩阵 */}
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 items-stretch">
               {/* 支柱 1：最小范围知晓与定期归档销毁 */}
-              <div className="bg-slate-50 p-5 border-t-2 border-t-slate-900 flex flex-col justify-between space-y-4">
+              <div className="bg-slate-50/80 p-4 sm:p-5 border border-slate-200 border-t-2 border-t-slate-900 flex flex-col justify-between space-y-3.5 shadow-2xs">
                 <div className="space-y-2">
-                  <span className="text-base font-bold text-slate-950 block">
+                  <span className="text-sm sm:text-base font-bold text-slate-950 block">
                     1. 最小知晓与归档销毁
                   </span>
-                  <p className="text-sm text-slate-800 leading-relaxed">
+                  <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal">
                     所有底层风控规则、策略参数及评分权重严格执行<strong>“最小知晓范围”</strong>控制，严禁全员公示与跨部门扩散；策略版本推移后，历史实验规则与失效参数<strong>定期归档离线并物理销毁</strong>，从源头杜绝策略外泄与逆向分析。
                   </p>
                 </div>
-                <div className="pt-3 border-t border-slate-200/90">
-                  <div className="inline-flex items-center gap-2 px-2.5 py-1.5 bg-white border border-slate-300 text-xs sm:text-sm font-mono text-slate-900 font-semibold shadow-xs">
-                    <span className="px-1.5 py-0.5 bg-slate-900 text-white text-[11px] font-bold leading-none uppercase tracking-wider">
+                <div className="pt-2.5 border-t border-slate-200">
+                  <div className="inline-flex items-center gap-2 px-2.5 py-1.5 bg-white border border-slate-300 text-xs font-mono text-slate-900 font-semibold shadow-2xs">
+                    <span className="px-1.5 py-0.5 bg-slate-900 text-white text-[10.5px] font-bold leading-none uppercase tracking-wider">
                       原则
                     </span>
-                    <span className="text-slate-900">按需授权 · 生命周期销毁</span>
+                    <span className="text-slate-900">按需授权 · 周期销毁</span>
                   </div>
                 </div>
               </div>
 
               {/* 支柱 2：多环节组合控制与防窥全貌 */}
-              <div className="bg-slate-50 p-5 border-t-2 border-t-slate-900 flex flex-col justify-between space-y-4">
+              <div className="bg-slate-50/80 p-4 sm:p-5 border border-slate-200 border-t-2 border-t-slate-900 flex flex-col justify-between space-y-3.5 shadow-2xs">
                 <div className="space-y-2">
-                  <span className="text-base font-bold text-slate-950 block">
+                  <span className="text-sm sm:text-base font-bold text-slate-950 block">
                     2. 多环节组合受控
                   </span>
-                  <p className="text-sm text-slate-800 leading-relaxed">
+                  <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal">
                     整个体系由特征工程、策略校验、风险评分、动态路由及辅助工具等多环节组合协同；各环节严格实行权限解耦与链路隔离，<strong>单一岗位无法窥探全链路判定逻辑</strong>，杜绝通过单点样本试探反推全局拦截规则的可能。
                   </p>
                 </div>
-                <div className="pt-3 border-t border-slate-200/90">
-                  <div className="inline-flex items-center gap-2 px-2.5 py-1.5 bg-white border border-slate-300 text-xs sm:text-sm font-mono text-slate-900 font-semibold shadow-xs">
-                    <span className="px-1.5 py-0.5 bg-slate-900 text-white text-[11px] font-bold leading-none uppercase tracking-wider">
+                <div className="pt-2.5 border-t border-slate-200">
+                  <div className="inline-flex items-center gap-2 px-2.5 py-1.5 bg-white border border-slate-300 text-xs font-mono text-slate-900 font-semibold shadow-2xs">
+                    <span className="px-1.5 py-0.5 bg-slate-900 text-white text-[10.5px] font-bold leading-none uppercase tracking-wider">
                       机制
                     </span>
                     <span className="text-slate-900">链路解耦 · 权限隔离</span>
@@ -1259,38 +1257,38 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               </div>
 
               {/* 支柱 3：上百个特征及参数周级别动态调整 */}
-              <div className="bg-slate-50 p-5 border-t-2 border-t-slate-900 flex flex-col justify-between space-y-4">
+              <div className="bg-slate-50/80 p-4 sm:p-5 border border-slate-200 border-t-2 border-t-slate-900 flex flex-col justify-between space-y-3.5 shadow-2xs">
                 <div className="space-y-2">
-                  <span className="text-base font-bold text-slate-950 block">
+                  <span className="text-sm sm:text-base font-bold text-slate-950 block">
                     3. 上百特征周级调参
                   </span>
-                  <p className="text-sm text-slate-800 leading-relaxed">
+                  <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal">
                     云盾体系涵盖设备环境、注单时序、资金流向、行为偏好、跨站图谱等<strong>上百个特征及核心权重参数</strong>；风控策略组结合实盘样本执行<strong>周级别的例行指标校准与动态调参</strong>，打破静态规则规律，保持对抗维度的动态不确定性。
                   </p>
                 </div>
-                <div className="pt-3 border-t border-slate-200/90">
-                  <div className="inline-flex items-center gap-2 px-2.5 py-1.5 bg-white border border-slate-300 text-xs sm:text-sm font-mono text-slate-900 font-semibold shadow-xs">
-                    <span className="px-1.5 py-0.5 bg-slate-900 text-white text-[11px] font-bold leading-none uppercase tracking-wider">
+                <div className="pt-2.5 border-t border-slate-200">
+                  <div className="inline-flex items-center gap-2 px-2.5 py-1.5 bg-white border border-slate-300 text-xs font-mono text-slate-900 font-semibold shadow-2xs">
+                    <span className="px-1.5 py-0.5 bg-slate-900 text-white text-[10.5px] font-bold leading-none uppercase tracking-wider">
                       频率
                     </span>
-                    <span className="text-slate-900">100+特征 · 周级动态校准</span>
+                    <span className="text-slate-900">100+特征 · 周级校准</span>
                   </div>
                 </div>
               </div>
 
               {/* 支柱 4：评估反馈机制与自进化更新迭代 */}
-              <div className="bg-slate-50 p-5 border-t-2 border-t-slate-900 flex flex-col justify-between space-y-4">
+              <div className="bg-slate-50/80 p-4 sm:p-5 border border-slate-200 border-t-2 border-t-slate-900 flex flex-col justify-between space-y-3.5 shadow-2xs">
                 <div className="space-y-2">
-                  <span className="text-base font-bold text-slate-950 block">
+                  <span className="text-sm sm:text-base font-bold text-slate-950 block">
                     4. 持续对抗与自进化
                   </span>
-                  <p className="text-sm text-slate-800 leading-relaxed">
+                  <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal">
                     针对灰黑产对抗模式的快速变异升级，依托召回率动态回溯与命中率周级精修，构建实盘推演与双向反馈机制，驱动策略模型持续版本迭代与抗衰减演化。
                   </p>
                 </div>
-                <div className="pt-3 border-t border-slate-200/90">
-                  <div className="inline-flex items-center gap-2 px-2.5 py-1.5 bg-white border border-slate-300 text-xs sm:text-sm font-mono text-slate-900 font-semibold shadow-xs">
-                    <span className="px-1.5 py-0.5 bg-slate-900 text-white text-[11px] font-bold leading-none uppercase tracking-wider">
+                <div className="pt-2.5 border-t border-slate-200">
+                  <div className="inline-flex items-center gap-2 px-2.5 py-1.5 bg-white border border-slate-300 text-xs font-mono text-slate-900 font-semibold shadow-2xs">
+                    <span className="px-1.5 py-0.5 bg-slate-900 text-white text-[10.5px] font-bold leading-none uppercase tracking-wider">
                       态势
                     </span>
                     <span className="text-slate-900">实盘推演 · 策略抗衰减</span>

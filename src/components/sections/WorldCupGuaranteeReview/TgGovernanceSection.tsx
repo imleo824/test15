@@ -155,56 +155,74 @@ export const TgGovernanceSection: React.FC = () => {
             </span>
           </div>
 
-          <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal">
+          <p className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal">
             推进群聊治理向系统化收口的过程中，需高度警惕<strong>将原本非必要、或可通过系统自动化直接消除的诉求简单包装为内部工单</strong>。工单是刚性审批与审计存证的工具，不能成为承接交互缺陷与系统计算错误的“缓冲区”；凡能在用户前端自主闭环、或底层系统能够根治消除的诉求，必须从源头彻底消灭，杜绝冗余流程形式化工单化。
           </p>
 
-          {/* 典型场景举例：2 列卡片对比 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+          {/* 典型场景举例：3 列卡片 */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3.5 pt-1">
             {/* 场景 1：用户自主前端闭环（杜绝人工窗口中转） */}
-            <div className="bg-slate-50/80 p-3.5 border border-slate-200 space-y-2">
+            <div className="bg-slate-50/80 p-4 border border-slate-200 space-y-2.5 flex flex-col justify-between">
               <div className="flex items-center justify-between pb-1.5 border-b border-slate-200">
-                <div className="flex items-center gap-1.5 font-bold text-slate-950 text-xs sm:text-sm">
+                <div className="flex items-center gap-1.5 font-bold text-slate-950 text-sm sm:text-base">
                   <span className="w-1.5 h-1.5 bg-slate-900"></span>
-                  <span>场景一 · 用户前端自主发起（免人工窗口中转）</span>
+                  <span>举例一 · 用户前端自主发起（免人工中转）</span>
                 </div>
-                <span className="text-[11px] font-mono font-bold text-emerald-800 bg-emerald-50 px-1.5 py-0.5 border border-emerald-200">
-                  前端自助化
-                </span>
+                
               </div>
-              <div className="space-y-1.5 text-xs sm:text-[13px] text-slate-700 leading-relaxed">
+              <div className="space-y-2 text-sm sm:text-[15px] text-slate-700 leading-relaxed">
                 <div>
-                  <strong className="text-slate-900 font-semibold">【典型案例 · 取消提款】：</strong>
-                  完全应当做成用户在<strong>客户端前端一键自主撤销与即时资金回滚</strong>。
+                  <strong className="text-slate-950 font-semibold mr-1">【典型案例 · 取消提款】：</strong>
+                  完全应当做成用户在<strong>客户端前端一键自主撤销</strong>。
                 </div>
                 <div className="text-slate-600">
-                  <strong className="text-slate-900 font-medium">传统弊端：</strong>用户取消提款需联系客服，客服再提报内部工单流转至风控退单，链条冗长且徒增人工负荷；
+                  <strong className="text-slate-950 font-medium">传统弊端：</strong>用户取消提款需联系客服，客服再提报内部工单流转至风控退单，链条冗长且徒增人工负荷；
                   <br />
-                  <strong className="text-slate-900 font-medium">源头治理：</strong>开放前端自助撤销能力后，直接砍断客服与风控的无效流转，从源头归零此类工单。
+                  <strong className="text-slate-950 font-medium">源头治理：</strong>开放前端自助撤销能力后，直接砍断客服与风控的无效流转，从源头归零此类工单。
                 </div>
               </div>
             </div>
 
             {/* 场景 2：底层系统根治缺陷（杜绝系统缺陷派生工单） */}
-            <div className="bg-slate-50/80 p-3.5 border border-slate-200 space-y-2">
+            <div className="bg-slate-50/80 p-4 border border-slate-200 space-y-2.5 flex flex-col justify-between">
               <div className="flex items-center justify-between pb-1.5 border-b border-slate-200">
-                <div className="flex items-center gap-1.5 font-bold text-slate-950 text-xs sm:text-sm">
+                <div className="flex items-center gap-1.5 font-bold text-slate-950 text-sm sm:text-base">
                   <span className="w-1.5 h-1.5 bg-slate-900"></span>
-                  <span>场景二 · 底层系统根治缺陷（免计算错误派生工单）</span>
+                  <span>举例二 · 底层系统根治缺陷（免计算错误）</span>
                 </div>
-                <span className="text-[11px] font-mono font-bold text-blue-900 bg-blue-50 px-1.5 py-0.5 border border-blue-200">
-                  系统技术根治
-                </span>
+               
               </div>
-              <div className="space-y-1.5 text-xs sm:text-[13px] text-slate-700 leading-relaxed">
+              <div className="space-y-2 text-sm sm:text-[15px] text-slate-700 leading-relaxed">
                 <div>
-                  <strong className="text-slate-900 font-semibold">【典型案例 · 流水查询与核对】：</strong>
-                  核心在于<strong>从技术根源彻底修复当前系统流水计算逻辑的错误与账目口径偏差</strong>。
+                  <strong className="text-slate-950 font-semibold mr-1">【典型案例 · 流水查询与核对】：</strong>
+                  核心在于<strong>从技术根源彻底修复当前系统流水计算逻辑的错误</strong>。
                 </div>
                 <div className="text-slate-600">
-                  <strong className="text-slate-900 font-medium">传统弊端：</strong>因系统流水计算不准导致玩家频繁咨询客服，客服提报风控工单复核，本末倒置；
+                  <strong className="text-slate-950 font-medium">传统弊端：</strong>因系统流水计算不准导致玩家频繁咨询客服，客服提报风控工单复核，本末倒置；
                   <br />
-                  <strong className="text-slate-900 font-medium">源头治理：</strong>彻底校准流水计算并对用户透明呈现，自然彻底消除工单滋生土壤。
+                  <strong className="text-slate-950 font-medium">源头治理：</strong>彻底校准流水计算并对用户透明呈现，自然彻底消除工单滋生土壤。
+                </div>
+              </div>
+            </div>
+
+            {/* 场景 3：场馆状态自动判定（免人工核验申请解锁） */}
+            <div className="bg-slate-50/80 p-4 border border-slate-200 space-y-2.5 flex flex-col justify-between">
+              <div className="flex items-center justify-between pb-1.5 border-b border-slate-200">
+                <div className="flex items-center gap-1.5 font-bold text-slate-950 text-sm sm:text-base">
+                  <span className="w-1.5 h-1.5 bg-slate-900"></span>
+                  <span>举例三 · 场馆状态自动判定（免人工解锁）</span>
+                </div>
+              
+              </div>
+              <div className="space-y-2 text-sm sm:text-[15px] text-slate-700 leading-relaxed">
+                <div>
+                  <strong className="text-slate-950 font-semibold mr-1">【典型案例 · 体育内嵌场馆玩非体育输光不解锁】：</strong>
+                  针对场馆内嵌游戏输光未自动解锁问题，<strong>上线底层自动识别与即时解锁机制</strong>。
+                </div>
+                <div className="text-slate-600">
+                  <strong className="text-slate-950 font-medium">传统弊端：</strong>用户在体育场馆玩内嵌非体育游戏输光后未自动解锁，导致频繁咨询客服并流转风控人工解锁；
+                  <br />
+                  <strong className="text-slate-950 font-medium">源头治理：</strong>由底层系统识别输光状态后自动触发解锁，<strong>减少风控约 15%~20% 的无效咨询与流转</strong>。
                 </div>
               </div>
             </div>
@@ -254,7 +272,7 @@ export const TgGovernanceSection: React.FC = () => {
                   <span>处置策略与成效</span>
                 </div>
                 <p className="text-sm text-slate-900 leading-relaxed font-normal">
-                  一律坚决裁撤注销。<strong className="text-slate-950 font-bold underline decoration-slate-400">已彻底清零关停冗余的线下风控对接群聊</strong>，从源头缩减安全暴露面与无痕操作漏洞。
+                  一律坚决裁撤注销。<strong className="text-slate-950 font-bold">已彻底清零关停冗余的线下风控对接群聊</strong>，从源头缩减安全暴露面与无痕操作漏洞。
                 </p>
               </div>
             </div>
@@ -298,7 +316,7 @@ export const TgGovernanceSection: React.FC = () => {
                   <span>处置策略与成效</span>
                 </div>
                 <p className="text-sm text-slate-900 leading-relaxed font-normal">
-                  严格限制进出权限、记录最小时间清理，<strong className="text-slate-950 font-bold underline decoration-slate-400">严禁流转任何风控单据</strong>，杜绝一切群聊内部无痕业务操作。
+                  严格限制进出权限、记录最小时间清理，<strong className="text-slate-950 font-bold">严禁流转任何风控单据</strong>，杜绝一切群聊内部无痕业务操作。
                 </p>
               </div>
             </div>
@@ -342,7 +360,7 @@ export const TgGovernanceSection: React.FC = () => {
                   <span>处置策略与成效</span>
                 </div>
                 <p className="text-sm text-slate-900 leading-relaxed font-normal">
-                  <strong className="text-slate-950 font-bold underline decoration-slate-400">群聊 100% 注销</strong>，全面迁移至后台系统工单与标准 API 闭环流转，全流程留痕并强制多人复核，综合提效～50%。
+                  <strong className="text-slate-950 font-bold">群聊 100% 注销</strong>，全面迁移至后台系统工单与标准 API 闭环流转，全流程留痕并强制多人复核，综合提效～50%。
                 </p>
               </div>
             </div>
@@ -386,7 +404,7 @@ export const TgGovernanceSection: React.FC = () => {
                   <span>处置策略与成效</span>
                 </div>
                 <p className="text-sm text-slate-900 leading-relaxed font-normal">
-                  <strong className="text-slate-950 font-bold underline decoration-slate-400">需协同各方工单建设就绪后统一切换</strong>，待对接部门工单流程闭环上线后，即可全量切换注销。
+                  <strong className="text-slate-950 font-bold">需协同各方工单建设就绪后统一切换</strong>，待对接部门工单流程闭环上线后，即可全量切换注销。
                 </p>
               </div>
             </div>
@@ -436,23 +454,23 @@ export const TgGovernanceSection: React.FC = () => {
                   </div>
 
                   {/* 左列卡片 1 (风险 1) */}
-                  <div className="border border-slate-200 bg-white p-4 sm:p-4.5 space-y-2 border-l-4 border-l-rose-600 flex-1 flex flex-col justify-start">
-                    <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-900">
-                      <AlertTriangle className="w-4 h-4 text-rose-600 shrink-0" />
+                  <div className="border border-slate-200 bg-white p-4 sm:p-5 space-y-2.5 border-l-4 border-l-rose-600 flex-1 flex flex-col justify-start">
+                    <div className="flex items-center gap-2 text-sm sm:text-base font-bold text-slate-950">
+                      <AlertTriangle className="w-4.5 h-4.5 text-rose-600 shrink-0" />
                       <span>风险 1：跨群明文检索暴露，敏感记录缺乏隔离</span>
                     </div>
-                    <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal">
+                    <p className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal">
                       在搜索栏中键入任一会员账号（如 <code className="bg-slate-100 px-1.5 py-0.5 font-mono font-bold text-slate-900 rounded">qweasd123</code>），<strong>该账号在所有历史群、对接群中的敏感聊天记录将被一览无余</strong>，导致会员核心资产与风控判定信息跨群裸露，存在严重数据外泄隐患。
                     </p>
                   </div>
 
                   {/* 左列卡片 2 (风险 2) */}
-                  <div className="border border-slate-200 bg-white p-4 sm:p-4.5 space-y-2 border-l-4 border-l-amber-600 flex-1 flex flex-col justify-start">
-                    <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-900">
-                      <FileWarning className="w-4 h-4 text-amber-600 shrink-0" />
+                  <div className="border border-slate-200 bg-white p-4 sm:p-5 space-y-2.5 border-l-4 border-l-amber-600 flex-1 flex flex-col justify-start">
+                    <div className="flex items-center gap-2 text-sm sm:text-base font-bold text-slate-950">
+                      <FileWarning className="w-4.5 h-4.5 text-amber-600 shrink-0" />
                       <span>风险 2：口头催单报单，缺乏审计留痕</span>
                     </div>
-                    <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal">
+                    <p className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal">
                       群内人工发消息催单、上标报单极易被刷屏遗漏，且缺乏正规的系统审批权限隔离与操作审计流水，容易滋生人情操作与私下协调。
                     </p>
                   </div>
@@ -481,23 +499,23 @@ export const TgGovernanceSection: React.FC = () => {
                   </div>
 
                   {/* 右列卡片 1 (成效 1) */}
-                  <div className="border border-blue-200 bg-blue-50/30 p-4 sm:p-4.5 space-y-2 border-l-4 border-l-blue-600 flex-1 flex flex-col justify-start">
-                    <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-blue-950">
-                      <Check className="w-4 h-4 text-blue-600 shrink-0 stroke-[3]" />
+                  <div className="border border-blue-200 bg-blue-50/30 p-4 sm:p-5 space-y-2.5 border-l-4 border-l-blue-600 flex-1 flex flex-col justify-start">
+                    <div className="flex items-center gap-2 text-sm sm:text-base font-bold text-blue-950">
+                      <Check className="w-4.5 h-4.5 text-blue-600 shrink-0 stroke-[3]" />
                       <span>成效 1：工单系统收口，敏感数据脱敏隔离</span>
                     </div>
-                    <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal">
+                    <p className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal">
                       彻底关闭所有线下业务报单群，全部 <strong>12 项业务 100% 迁移至内部风控工单系统</strong>。会员虚拟币地址与流水信息仅限授权角色在系统内加密脱敏调阅，杜绝跨群检索与数据外泄。
                     </p>
                   </div>
 
                   {/* 右列卡片 2 (成效 2) */}
-                  <div className="border border-blue-200 bg-blue-50/30 p-4 sm:p-4.5 space-y-2 border-l-4 border-l-blue-600 flex-1 flex flex-col justify-start">
-                    <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-blue-950">
-                      <Check className="w-4 h-4 text-blue-600 shrink-0 stroke-[3]" />
+                  <div className="border border-blue-200 bg-blue-50/30 p-4 sm:p-5 space-y-2.5 border-l-4 border-l-blue-600 flex-1 flex flex-col justify-start">
+                    <div className="flex items-center gap-2 text-sm sm:text-base font-bold text-blue-950">
+                      <Check className="w-4.5 h-4.5 text-blue-600 shrink-0 stroke-[3]" />
                       <span>成效 2：标准化审批流，100% 审计存证溯源</span>
                     </div>
-                    <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal">
+                    <p className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal">
                       所有催单、上标与复审全流程嵌入工单流转，实行<strong>多级权限管控与不可篡改的系统日志审计存证</strong>，杜绝口头人情单与沟通遗漏。
                     </p>
                   </div>
