@@ -127,7 +127,7 @@ const renderTimelineLegend = () => (
 export const SmartDispatchOrderStructure: React.FC = () => {
   return (
     <ReportChartCard
-      title="各角色订单结构自身演进趋势对比（8月日均 vs 9月日均 vs 9月30日全量）"
+      title="出单结构趋势对比"
       description={
         <span>
           聚焦各角色自身纵向对比：<strong>外包人工审核</strong> 占比从 <strong>23.9% 持续压降至 7.5%</strong>（高差错率审单基本退出）；<strong>系统自动放行</strong> 占比从 <strong>32.1% 强劲拉升至 44.4%</strong>（替代主力成型）；<strong>总部人工审核</strong> 由 44.0% 平移至 48.1%，人均专注承接复杂核心单。

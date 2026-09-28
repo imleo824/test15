@@ -292,7 +292,6 @@ export const AuditOverviewSportsInterception: React.FC = () => {
         {/* 图表 1: 各系别体育拦截率趋势 */}
         <ReportChartCard
           title="各系别体育拦截率趋势"
-          subtitle="一季度与二季度走势对比"
           description="二季度全盘综合体育拦截率为 6.50%，各系别拦截率集中在 5.8%~6.6% 区间，整体防守态势平稳。"
           legend={
             <ReportChartLegend
@@ -322,7 +321,6 @@ export const AuditOverviewSportsInterception: React.FC = () => {
         {/* 图表 2: 各场馆体育拦截率趋势 */}
         <ReportChartCard
           title="各场馆体育拦截率趋势"
-          subtitle="两季度场馆盘口监控对比"
           description="二季度各场馆体育拦截率维持在 5.6%~6.6% 区间，各场馆与平台保持常态化盘口风控协同。"
           legend={
             <ReportChartLegend

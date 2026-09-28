@@ -143,7 +143,6 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                           <span className="w-2 h-2 rounded-full bg-slate-900"></span>
                           订单总量 (100%)
                         </span>
-                        <span className="font-mono text-slate-500 text-xs">容量标尺</span>
                       </div>
 
                       {/* 3 大分段立柱 + 左右大括号体系 */}
@@ -331,9 +330,6 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   <span className="text-lg sm:text-xl font-extrabold text-slate-950 tracking-tight">
                     替代订单规模
                   </span>
-                  <span className="text-xs sm:text-sm font-bold text-slate-500 font-mono">
-                    全量替代 300w单 / 月增 100w单
-                  </span>
                 </div>
               </div>
             }
@@ -384,15 +380,6 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   <span className="text-[11px] sm:text-xs text-blue-900 font-medium">替代订单规模</span>
                 </div>
               </div>
-
-              {/* 变化指示条 */}
-              <div className="flex items-center justify-between px-3 py-1.5 bg-slate-900 text-white font-mono font-bold text-xs sm:text-sm tracking-tight border border-slate-800">
-                <span className="text-slate-300 text-xs font-normal">规模演进</span>
-                <div className="flex items-center gap-1.5">
-                  <span className="text-emerald-400 font-black">+100w单 (+50.0%)</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
-                </div>
-              </div>
             </div>
 
             {/* 模块 2：核心解释说明（左右等高对齐） */}
@@ -436,9 +423,6 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
                   <span className="text-lg sm:text-xl font-extrabold text-slate-950 tracking-tight">
                     提升审核时效
-                  </span>
-                  <span className="text-xs sm:text-sm font-bold text-slate-500 font-mono">
-                    耗时从 18.5分 骤降至 2.4分
                   </span>
                 </div>
               </div>
@@ -488,15 +472,6 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     </div>
                   </div>
                   <span className="text-[11px] sm:text-xs text-blue-900 font-medium">平均停留时间</span>
-                </div>
-              </div>
-
-              {/* 变化指示条 */}
-              <div className="flex items-center justify-between px-3 py-1.5 bg-slate-900 text-white font-mono font-bold text-xs sm:text-sm tracking-tight border border-slate-800">
-                <span className="text-slate-300 text-xs font-normal">时效演进</span>
-                <div className="flex items-center gap-1.5">
-                  <span className="text-emerald-400 font-black">-16.1 分 (-87.0%)</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
                 </div>
               </div>
             </div>
@@ -631,7 +606,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     {/* 中间 优化升级 */}
                     <div className="sm:col-span-2 flex flex-col items-center justify-center py-1 sm:py-0">
                       <div className="px-3 py-1 bg-slate-900 text-white font-mono font-bold text-xs sm:text-sm whitespace-nowrap mb-1 tracking-tight">
-                        毫秒级直连
+                        秒级直连
                       </div>
                       <span className="text-[11px] font-bold tracking-wider text-slate-500 uppercase select-none">
                         优化升级
@@ -874,7 +849,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             {/* 框架说明 */}
             <SummaryBox variant="module">
               {highlightNumbers(
-                "云盾系统构建了覆盖[[“1.提款策略扫描 ➔ 2.计算风险分数 ➔ 3.智能双轨分流 ➔ 4.派单动态匹配 ➔ 5.闭环反馈自进化”]]的端到端运行闭环：实现 [[80% 订单 1.8 秒全自动秒级直出]]，大幅缩短出款耗时；同时针对 [[20% 风险订单实施精准阻断与专家动态派单人工精审]]，确保业务合规与资金安全。"
+                "云盾系统构建了覆盖[[“1.提款策略扫描 ➔ 2.计算风险分数 ➔ 3.智能双轨分流 ➔ 4.派单动态匹配 ➔ 5.闭环反馈自进化”]]的端到端运行闭环：形成了一套以[[数据、特征、策略、评分、流程]]等为底层机制的风控理念，实现系统自动化放行与人工精准复审的高效协同。"
               )}
             </SummaryBox>
 
@@ -1024,7 +999,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                           <span className="font-mono text-slate-950 bg-white px-2 py-0.5 border border-slate-300">3 个</span>
                         </div>
                         <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                          体育、真人、电子等场馆风控接口实时联动，毫秒级跨系统校准注单时序与场馆返奖异常。
+                          体育、真人、电子等场馆风控接口实时联动，秒级跨系统对接。
                         </p>
                       </div>
                     </div>

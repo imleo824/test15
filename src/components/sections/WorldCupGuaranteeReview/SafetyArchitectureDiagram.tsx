@@ -1,10 +1,11 @@
 import React from "react";
-import { ArrowDown, ArrowUp, Eye, Users, Lock } from "lucide-react";
+import { ArrowDown, Eye, Users, Lock } from "lucide-react";
 
 interface ArchTier {
   level: string;
   name: string;
   attribute: "独立审计" | "协同流转" | "系统硬控";
+  status: "进行中" | "待加强";
   icon: React.ReactNode;
   scope: string;
   keyPoints: string[];
@@ -15,7 +16,8 @@ const tiers: ArchTier[] = [
     level: "L3 顶层",
     name: "专职监督",
     attribute: "独立审计",
-    icon: <Eye className="w-5 h-5 text-slate-800" />,
+    status: "进行中",
+    icon: <Eye className="w-4 h-4 text-slate-900" />,
     scope: "独立常态化巡检 · 违规溯源问责",
     keyPoints: [
       "全量操作日志常态巡检与异常行为回溯分析",
@@ -27,7 +29,8 @@ const tiers: ArchTier[] = [
     level: "L2 中层",
     name: "风控工单",
     attribute: "协同流转",
-    icon: <Users className="w-5 h-5 text-slate-800" />,
+    status: "进行中",
+    icon: <Users className="w-4 h-4 text-slate-900" />,
     scope: "业务系统收口 · 杜绝私下非受控交接",
     keyPoints: [
       "清理关停线下非受控沟通渠道，消除私下交接漏洞",
@@ -39,7 +42,8 @@ const tiers: ArchTier[] = [
     level: "L1 底层",
     name: "安全机制",
     attribute: "系统硬控",
-    icon: <Lock className="w-5 h-5 text-slate-800" />,
+    status: "待加强",
+    icon: <Lock className="w-4 h-4 text-slate-900" />,
     scope: "关键操作权限硬约束 · 规范自由裁量",
     keyPoints: [
       "敏感数据导出频次额度限制，全端加盖动态追踪盲水印",
@@ -51,20 +55,20 @@ const tiers: ArchTier[] = [
 
 export const SafetyArchitectureDiagram: React.FC = () => {
   return (
-    <div className="w-full bg-white border border-slate-300 border-t-2 border-t-slate-900 p-6 sm:p-7 space-y-6">
-      {/* 头部标题与逻辑导向 */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-slate-200 pb-4">
-        <div className="space-y-1">
-          <h3 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight">
-            安全合规分层防御架构
-          </h3>
-          <p className="text-xs sm:text-sm text-slate-600">
-            涵盖单点操作、协同流转与独立审计的三层合规防护体系
-          </p>
+    <div className="w-full bg-white border border-slate-300 border-t-2 border-t-slate-900 p-4 sm:p-5 space-y-4">
+      {/* 头部标题栏：紧凑高能级 */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-3">
+        <div className="flex items-center gap-2.5">
+          <div className="w-2.5 h-6 bg-slate-900 shrink-0"></div>
+          <div>
+            <h3 className="text-lg sm:text-xl font-bold text-slate-950 tracking-tight leading-none">
+              安全合规分层防御架构
+            </h3>
+          </div>
         </div>
 
-        {/* 顶部清晰三级逻辑流 */}
-        <div className="flex items-center gap-2 bg-slate-50 px-3 py-1.5 border border-slate-200 text-xs font-mono">
+        {/* 顶部逻辑流标识 */}
+        <div className="flex items-center gap-1.5 bg-slate-100 px-2.5 py-1 border border-slate-200 text-xs font-mono shrink-0 self-start sm:self-auto">
           <span className="font-bold text-slate-900">L1 系统硬控</span>
           <span className="text-slate-400">➔</span>
           <span className="font-bold text-slate-900">L2 协同流转</span>
@@ -73,46 +77,70 @@ export const SafetyArchitectureDiagram: React.FC = () => {
         </div>
       </div>
 
-      {/* 架构主体：三层递进报告卡片 */}
-      <div className="space-y-3.5">
+      {/* 架构主体：优化宽度的表格式结构化矩阵 */}
+      <div className="border border-slate-300 bg-white divide-y divide-slate-200">
+        {/* 表格列头指示（大屏显示） */}
+        <div className="hidden lg:grid grid-cols-12 gap-3 bg-slate-100/90 px-4 py-2 text-xs font-bold text-slate-700 uppercase tracking-wider border-b border-slate-300">
+          <div className="col-span-2">防御层级</div>
+          <div className="col-span-1 text-center">治理状态</div>
+          <div className="col-span-3">管控定位与职责范围</div>
+          <div className="col-span-6">核心防护举措与落地要求</div>
+        </div>
+
         {tiers.map((tier, idx) => (
-          <div key={tier.level} className="space-y-2">
-            {/* 单层主卡片 */}
-            <div className="border border-slate-200 bg-white p-5 sm:p-6 hover:border-slate-300 transition-colors">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
-                {/* 1. 左侧：层级与模块标识 (占 4 列) */}
-                <div className="lg:col-span-4 flex items-center gap-3.5">
-                  <div className="p-3 bg-slate-50 border border-slate-200 shrink-0 text-slate-800">
+          <React.Fragment key={tier.level}>
+            {/* 单层行：按 2 : 1 : 3 : 6 分配列宽，右侧充足宽裕 */}
+            <div className="p-3.5 sm:p-4 hover:bg-slate-50/60 transition-colors">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-3.5 items-center">
+                {/* 1. 防御层级 (col-span-2) */}
+                <div className="lg:col-span-2 flex items-center gap-2.5">
+                  <div className="p-1.5 bg-slate-100 border border-slate-200 shrink-0">
                     {tier.icon}
                   </div>
-
-                  <div className="space-y-1.5">
-                    <div className="flex items-center gap-2">
-                      <span className="font-mono text-xs font-bold px-2 py-0.5 bg-slate-900 text-white">
+                  <div className="space-y-0.5">
+                    <div className="flex items-center gap-1">
+                      <span className="font-mono text-[11px] font-bold px-1.5 py-0.5 bg-slate-900 text-white leading-none">
                         {tier.level}
                       </span>
-                      <span className="text-xs font-bold font-mono px-2 py-0.5 bg-slate-100 text-slate-700 border border-slate-200">
+                      <span className="text-[10px] font-bold font-mono px-1 py-0.5 bg-slate-100 text-slate-800 border border-slate-300 leading-none">
                         {tier.attribute}
                       </span>
                     </div>
-                    <h4 className="text-lg sm:text-xl font-bold text-slate-950 tracking-tight">
+                    <div className="text-sm sm:text-base font-bold text-slate-950 tracking-tight leading-tight">
                       {tier.name}
-                    </h4>
+                    </div>
                   </div>
                 </div>
 
-                {/* 2. 右侧：核心管控手段与机制说明 (占 8 列) */}
-                <div className="lg:col-span-8 bg-slate-50 p-4 border border-slate-200 space-y-2.5">
-                  <div className="border-b border-slate-200 pb-2">
-                    <span className="text-sm sm:text-base font-bold text-slate-900">
-                      {tier.scope}
+                {/* 2. 治理状态 (col-span-1) */}
+                <div className="lg:col-span-1 flex items-center justify-start lg:justify-center">
+                  {tier.status === "进行中" ? (
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-blue-50 border border-blue-300 text-blue-900 font-bold text-xs font-mono shrink-0">
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                      <span>进行中</span>
                     </span>
-                  </div>
-                  <ul className="space-y-1.5 text-sm text-slate-700">
+                  ) : (
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-amber-50 border border-amber-300 text-amber-900 font-bold text-xs font-mono shrink-0">
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-600"></span>
+                      <span>待加强</span>
+                    </span>
+                  )}
+                </div>
+
+                {/* 3. 管控定位 (col-span-3) */}
+                <div className="lg:col-span-3 bg-slate-50 p-2.5 border-l-2 border-l-slate-900 border border-slate-200">
+                  <span className="text-xs sm:text-sm font-bold text-slate-900 leading-relaxed block">
+                    {tier.scope}
+                  </span>
+                </div>
+
+                {/* 4. 核心防护举措 (col-span-6: 独占50%宽度，舒展不拥挤) */}
+                <div className="lg:col-span-6 pl-0 lg:pl-1">
+                  <ul className="space-y-1.5 text-xs sm:text-sm text-slate-800">
                     {tier.keyPoints.map((pt, pIdx) => (
                       <li key={pIdx} className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
-                        <span className="leading-relaxed">{pt}</span>
+                        <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-1.5"></span>
+                        <span className="leading-relaxed font-normal">{pt}</span>
                       </li>
                     ))}
                   </ul>
@@ -120,23 +148,22 @@ export const SafetyArchitectureDiagram: React.FC = () => {
               </div>
             </div>
 
-            {/* 层级之间的衔接连线指示 */}
+            {/* 层级之间的衔接指示条 (紧密嵌入矩阵内) */}
             {idx < tiers.length - 1 && (
-              <div className="flex items-center justify-center py-1">
-                <div className="flex items-center gap-2 bg-slate-100 text-slate-700 text-xs font-mono font-medium px-3 py-1 border border-slate-200">
-                  <ArrowDown className="w-3.5 h-3.5 text-slate-500" />
-                  <span>
-                    {idx === 0
-                      ? "顶层监督审计溯源 · 覆盖业务全流程"
-                      : "中层流转标准化 · 固化全流程留痕证据链"}
-                  </span>
-                  <ArrowUp className="w-3.5 h-3.5 text-slate-500" />
-                </div>
+              <div className="bg-slate-100/80 px-4 py-1 text-center border-t border-b border-slate-200 flex items-center justify-center gap-2 text-[11px] font-mono text-slate-600 font-medium">
+                <ArrowDown className="w-3 h-3 text-slate-700" />
+                <span>
+                  {idx === 0
+                    ? "顶层监督审计溯源 · 覆盖业务全流程"
+                    : "中层流转标准化 · 固化全流程留痕证据链"}
+                </span>
               </div>
             )}
-          </div>
+          </React.Fragment>
         ))}
       </div>
     </div>
   );
 };
+
+export default SafetyArchitectureDiagram;

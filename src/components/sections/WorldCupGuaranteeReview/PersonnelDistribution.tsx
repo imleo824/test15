@@ -39,7 +39,7 @@ export const PersonnelDistribution: React.FC = () => {
 
       {/* 1.1 组织治理核心举措 (条形矩阵) */}
       <div className="space-y-5">
-        <ReportSectionHeader title="1.1 组织治理核心举措" />
+        <ReportSectionHeader title="1.1 组织优化" />
 
         <SummaryBox variant="module">
           <div className="text-sm md:text-base text-slate-700 font-normal leading-relaxed">
@@ -84,7 +84,7 @@ export const PersonnelDistribution: React.FC = () => {
 
       {/* 1.2 各职场人员分布与变动明细 */}
       <div className="space-y-5">
-        <ReportSectionHeader title="1.2 各职场人员分布与变动明细" />
+        <ReportSectionHeader title="1.2 人员分布" />
 
         <SummaryBox variant="module">
           <div className="text-sm md:text-base text-slate-700 font-normal leading-relaxed">

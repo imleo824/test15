@@ -80,10 +80,8 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
         {/* 左卡片: 26年二季度总拦截金额 */}
         <ReportChartCard
           title="二季度拦截金额月度走势"
-          subtitle="2026/1 - 2026/6 月度分布"
           value="2.72"
           description="二季度累计拦截金额 2.72，6月受世界杯赛事驱动达到 1.046 峰值；通过强化对黑产批量团伙直接扣除本金，管控威慑效应显著增强。"
-          footnote="注：统计口径包含体育、代理、红利等全类别风控拦截处置金额。"
         >
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={amountData} margin={chartMargins.hiddenAxis}>
@@ -104,7 +102,6 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
         {/* 右卡片: 26年二季度平均审核时长 */}
         <ReportChartCard
           title="二季度平均人工审核时长"
-          subtitle="时效与审单总量走势"
           value="0:08:45"
           description="经系统派单分流与全流程优化，二季度整体平均人工审核时长稳固在 0:08:45；即使在6月单量激增至 300.77万单 背景下，时效依然平稳可控。"
           legend={
@@ -115,7 +112,6 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
               ]}
             />
           }
-          footnote="注：柱状图代表月度人工审单总量，折线为工单接单至完成审核平均时长。"
         >
             <ResponsiveContainer width="100%" height="100%">
               <ComposedChart data={effortData} margin={chartMargins.hiddenAxis}>

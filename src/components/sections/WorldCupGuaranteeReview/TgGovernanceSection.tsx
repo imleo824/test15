@@ -159,38 +159,15 @@ export const TgGovernanceSection: React.FC = () => {
             推进群聊治理向系统化收口的过程中，需高度警惕<strong>将原本非必要、或可通过系统自动化直接消除的诉求简单包装为内部工单</strong>。工单是刚性审批与审计存证的工具，不能成为承接交互缺陷与系统计算错误的“缓冲区”；凡能在用户前端自主闭环、或底层系统能够根治消除的诉求，必须从源头彻底消灭，杜绝冗余流程形式化工单化。
           </p>
 
-          {/* 典型场景举例：3 列卡片 */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3.5 pt-1">
-            {/* 场景 1：用户自主前端闭环（杜绝人工窗口中转） */}
+          {/* 典型场景举例：2 列卡片 */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3.5 pt-1">
+            {/* 场景 1：底层系统根治缺陷（杜绝系统缺陷派生工单） */}
             <div className="bg-slate-50/80 p-4 border border-slate-200 space-y-2.5 flex flex-col justify-between">
               <div className="flex items-center justify-between pb-1.5 border-b border-slate-200">
                 <div className="flex items-center gap-1.5 font-bold text-slate-950 text-sm sm:text-base">
                   <span className="w-1.5 h-1.5 bg-slate-900"></span>
-                  <span>举例一 · 用户前端自主发起（免人工中转）</span>
+                  <span>举例一 · 底层系统根治缺陷（免计算错误）</span>
                 </div>
-                
-              </div>
-              <div className="space-y-2 text-sm sm:text-[15px] text-slate-700 leading-relaxed">
-                <div>
-                  <strong className="text-slate-950 font-semibold mr-1">【典型案例 · 取消提款】：</strong>
-                  完全应当做成用户在<strong>客户端前端一键自主撤销</strong>。
-                </div>
-                <div className="text-slate-600">
-                  <strong className="text-slate-950 font-medium">传统弊端：</strong>用户取消提款需联系客服，客服再提报内部工单流转至风控退单，链条冗长且徒增人工负荷；
-                  <br />
-                  <strong className="text-slate-950 font-medium">源头治理：</strong>开放前端自助撤销能力后，直接砍断客服与风控的无效流转，从源头归零此类工单。
-                </div>
-              </div>
-            </div>
-
-            {/* 场景 2：底层系统根治缺陷（杜绝系统缺陷派生工单） */}
-            <div className="bg-slate-50/80 p-4 border border-slate-200 space-y-2.5 flex flex-col justify-between">
-              <div className="flex items-center justify-between pb-1.5 border-b border-slate-200">
-                <div className="flex items-center gap-1.5 font-bold text-slate-950 text-sm sm:text-base">
-                  <span className="w-1.5 h-1.5 bg-slate-900"></span>
-                  <span>举例二 · 底层系统根治缺陷（免计算错误）</span>
-                </div>
-               
               </div>
               <div className="space-y-2 text-sm sm:text-[15px] text-slate-700 leading-relaxed">
                 <div>
@@ -205,14 +182,13 @@ export const TgGovernanceSection: React.FC = () => {
               </div>
             </div>
 
-            {/* 场景 3：场馆状态自动判定（免人工核验申请解锁） */}
+            {/* 场景 2：场馆状态自动判定（免人工核验申请解锁） */}
             <div className="bg-slate-50/80 p-4 border border-slate-200 space-y-2.5 flex flex-col justify-between">
               <div className="flex items-center justify-between pb-1.5 border-b border-slate-200">
                 <div className="flex items-center gap-1.5 font-bold text-slate-950 text-sm sm:text-base">
                   <span className="w-1.5 h-1.5 bg-slate-900"></span>
-                  <span>举例三 · 场馆状态自动判定（免人工解锁）</span>
+                  <span>举例二 · 场馆状态自动判定（免人工解锁）</span>
                 </div>
-              
               </div>
               <div className="space-y-2 text-sm sm:text-[15px] text-slate-700 leading-relaxed">
                 <div>
