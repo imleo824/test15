@@ -156,19 +156,13 @@ export const TgGovernanceSection: React.FC = () => {
           </div>
 
           <p className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal">
-            推进群聊治理向系统化收口的过程中，需高度警惕<strong>将原本非必要、或可通过系统自动化直接消除的诉求简单包装为内部工单</strong>。工单是刚性审批与审计存证的工具，不能成为承接交互缺陷与系统计算错误的“缓冲区”；凡能在用户前端自主闭环、或底层系统能够根治消除的诉求，必须从源头彻底消灭，杜绝冗余流程形式化工单化。
+            推进群聊治理向系统化收口的过程中，需高度警惕<strong>将原本非必要、或可通过系统自动化直接消除的诉求简单包装为内部工单</strong>。凡能在用户前端自主闭环、或底层系统能够根治消除的诉求，必须从源头彻底消灭；同时，对于确需人工介入的诉求，<strong>支持由用户自主发起并直连路由至最终承接部门，严禁经过客服等多重冗余角色与多部门中转</strong>，从源头杜绝低效流转与形式化工单化。
           </p>
 
           {/* 典型场景举例：2 列卡片 */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-3.5 pt-1">
-            {/* 场景 1：底层系统根治缺陷（杜绝系统缺陷派生工单） */}
-            <div className="bg-slate-50/80 p-4 border border-slate-200 space-y-2.5 flex flex-col justify-between">
-              <div className="flex items-center justify-between pb-1.5 border-b border-slate-200">
-                <div className="flex items-center gap-1.5 font-bold text-slate-950 text-sm sm:text-base">
-                  <span className="w-1.5 h-1.5 bg-slate-900"></span>
-                  <span>举例一 · 底层系统根治缺陷（免计算错误）</span>
-                </div>
-              </div>
+            {/* 场景 1：流水查询与核对 */}
+            <div className="bg-slate-50/80 p-4 border border-slate-200 space-y-2 flex flex-col justify-between">
               <div className="space-y-2 text-sm sm:text-[15px] text-slate-700 leading-relaxed">
                 <div>
                   <strong className="text-slate-950 font-semibold mr-1">【典型案例 · 流水查询与核对】：</strong>
@@ -177,19 +171,13 @@ export const TgGovernanceSection: React.FC = () => {
                 <div className="text-slate-600">
                   <strong className="text-slate-950 font-medium">传统弊端：</strong>因系统流水计算不准导致玩家频繁咨询客服，客服提报风控工单复核，本末倒置；
                   <br />
-                  <strong className="text-slate-950 font-medium">源头治理：</strong>彻底校准流水计算并对用户透明呈现，自然彻底消除工单滋生土壤。
+                  <strong className="text-slate-950 font-medium">源头治理：</strong>彻底校准流水计算并对用户透明呈现，自然彻底消除工单滋生土壤。<strong>减少风控约 30% 的无效咨询与流转</strong>。
                 </div>
               </div>
             </div>
 
-            {/* 场景 2：场馆状态自动判定（免人工核验申请解锁） */}
-            <div className="bg-slate-50/80 p-4 border border-slate-200 space-y-2.5 flex flex-col justify-between">
-              <div className="flex items-center justify-between pb-1.5 border-b border-slate-200">
-                <div className="flex items-center gap-1.5 font-bold text-slate-950 text-sm sm:text-base">
-                  <span className="w-1.5 h-1.5 bg-slate-900"></span>
-                  <span>举例二 · 场馆状态自动判定（免人工解锁）</span>
-                </div>
-              </div>
+            {/* 场景 2：体育内嵌场馆玩非体育输光不解锁 */}
+            <div className="bg-slate-50/80 p-4 border border-slate-200 space-y-2 flex flex-col justify-between">
               <div className="space-y-2 text-sm sm:text-[15px] text-slate-700 leading-relaxed">
                 <div>
                   <strong className="text-slate-950 font-semibold mr-1">【典型案例 · 体育内嵌场馆玩非体育输光不解锁】：</strong>
