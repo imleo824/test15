@@ -156,19 +156,19 @@ export const PersonnelDistribution: React.FC = () => {
             ].map((item) => (
               <div
                 key={item.label}
-                className="border border-slate-200 bg-white p-3.5 text-center flex flex-col items-center justify-between space-y-2"
+                className="border border-slate-200 bg-white p-3.5 text-center flex flex-col items-center justify-between space-y-1.5 shadow-2xs"
               >
-                <div className="text-sm font-bold text-slate-800">
+                <div className="text-xs font-bold text-slate-700 tracking-wide">
                   {item.label}
                 </div>
-                <div className="font-mono text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight tabular-nums">
+                <div className="font-mono text-2xl sm:text-3xl font-black text-slate-950 tracking-tight tabular-nums py-0.5">
                   {item.count}
                 </div>
                 <div
-                  className={`font-mono text-xs font-bold px-2 py-0.5 border tabular-nums ${
+                  className={`font-mono text-[11px] font-bold px-2 py-0.5 border tabular-nums ${
                     item.isIncrease
                       ? "text-blue-900 bg-blue-50 border-blue-200"
-                      : "text-slate-700 bg-slate-100 border-slate-200"
+                      : "text-slate-600 bg-slate-50 border-slate-200"
                   }`}
                 >
                   {item.change}

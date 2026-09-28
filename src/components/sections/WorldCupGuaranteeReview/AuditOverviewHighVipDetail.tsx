@@ -64,25 +64,25 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
 
       {/* 统一总结模块 */}
       <SummaryBox>
-        <p className="text-base text-slate-900 font-bold leading-relaxed mb-3">
+        <p className="text-sm sm:text-[14.5px] text-slate-950 font-bold leading-relaxed mb-2.5">
           {highlightNumbers(
             "[[高等级会员处理]]达[[5,790.60]]（占总[[21.26%]]），共涉及[[810人]]：",
           )}
         </p>
-        <ul className="mt-4 space-y-3 text-slate-700">
-          <li className="flex items-start gap-2 text-sm text-slate-700">
-            <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
+        <ul className="mt-3 space-y-2.5 text-slate-700">
+          <li className="flex items-start gap-2 text-xs sm:text-[13.5px] text-slate-700">
+            <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2" />
             <span className="leading-relaxed">
               {highlightNumbers(
                 "[[核心分布]]：主要集中在 [[6级及7级高等级会员]] 部分，占比总计达 [[79.50%]]；[[异常类型]]主要以[[体育打水]]、[[红利套利]]为主，总计人数占比达 [[70.86%]]（金额占比达 [[71.44%]]）。",
               )}
             </span>
           </li>
-          <li className="flex items-start gap-2 text-sm text-slate-700">
-            <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
+          <li className="flex items-start gap-2 text-xs sm:text-[13.5px] text-slate-700">
+            <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2" />
             <div className="flex-1">
-              <span className="text-slate-900 font-bold">业务分析：</span>
-              <ul className="mt-1.5 list-none space-y-1.5 pl-4 text-slate-600">
+              <span className="text-slate-950 font-bold">业务分析：</span>
+              <ul className="mt-1 list-none space-y-1 pl-3 text-slate-600">
                 <li className="flex items-start gap-1.5">
                   <span className="shrink-0 font-mono text-xs text-slate-500">（一）</span>
                   <span>{highlightNumbers("违规用户养号周期拉长且行为伪装度高，致使常规规则识别存在[[发现延迟]]。")}</span>
@@ -94,11 +94,11 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
               </ul>
             </div>
           </li>
-          <li className="flex items-start gap-2 text-sm text-slate-700">
-            <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
+          <li className="flex items-start gap-2 text-xs sm:text-[13.5px] text-slate-700">
+            <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2" />
             <div className="flex-1">
-              <span className="text-slate-900 font-bold">持续优化：</span>
-              <ul className="mt-1.5 list-none space-y-1.5 pl-4 text-slate-600">
+              <span className="text-slate-950 font-bold">持续优化：</span>
+              <ul className="mt-1 list-none space-y-1 pl-3 text-slate-600">
                 <li className="flex items-start gap-1.5">
                   <span className="shrink-0 font-mono text-xs text-slate-500">（1）</span>
                   <span>{highlightNumbers("[[高等级观察中用户]]超过 [[7天]] 未发现异常的，提交[[组长审核]]；超过 [[15天]] 未发现异常的，升级至[[主管审核]]。组长每日进行[[复审抽查]]，整体处理人数对比一季度减少约 [[20%]]。")}</span>

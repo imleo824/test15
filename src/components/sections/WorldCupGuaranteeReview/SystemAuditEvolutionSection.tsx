@@ -1130,10 +1130,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       <div className="w-16 h-16 bg-sky-950 text-white flex flex-col items-center justify-center border-2 border-sky-800 shadow-xs">
                         <span className="text-xl font-mono font-black text-sky-200 leading-none">05</span>
                       </div>
-                      <div className="hidden md:flex flex-col items-center mt-3 text-sky-500 font-mono text-[10px] text-center">
-                        <RotateCcw className="w-4 h-4 text-sky-500" />
-                        <span className="scale-90 tracking-tight">⮐ 反哺</span>
-                      </div>
+                      
                     </div>
                     {/* 移动端辅助显示阶段名 */}
                     <span className="md:hidden text-xs font-bold font-mono px-2 py-0.5 bg-sky-50 text-sky-900 border border-sky-300">

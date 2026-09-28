@@ -262,22 +262,22 @@ export const AuditOverviewSportsInterception: React.FC = () => {
 
       {/* 统一总结模块 */}
       <SummaryBox>
-        <p className="text-base text-slate-900 font-bold leading-relaxed mb-3">
+        <p className="text-sm sm:text-[14.5px] text-slate-950 font-bold leading-relaxed mb-2.5">
           {highlightNumbers(
             "[[体育总计]] [[15248.39]]，其中[[体育打水]]为主体，金额 [[10827.21]]、占比 [[71.01%]]；其次为[[批量打水]] [[1730.97]]、占比 [[11.35%]]，[[出货]] [[1379.37]]、占比 [[9.05%]]。站点分布中[[4站]]合计金额最集中，合计 [[5242.16]]；其中[[体育打水]] [[4065.38]]、该类占比 [[37.55%]]，[[其他类]] [[630.30]]、该类占比 [[64.95%]]。",
           )}
         </p>
-        <ul className="mt-4 space-y-2.5 text-slate-700">
-          <li className="flex items-start gap-2 text-sm text-slate-700 leading-relaxed">
-            <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
+        <ul className="mt-3 space-y-2 text-slate-700">
+          <li className="flex items-start gap-2 text-xs sm:text-[13.5px] text-slate-700 leading-relaxed">
+            <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2" />
             <span>
               {highlightNumbers(
                 "[[推动盘口协同]]：深化[[商户操盘协同机制]]，推动[[赔率联动]]覆盖 [[90%]] 以上进球类玩法，在保障用户体验的同时锁定合理[[盈利率]]。",
               )}
             </span>
           </li>
-          <li className="flex items-start gap-2 text-sm text-slate-700 leading-relaxed">
-            <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
+          <li className="flex items-start gap-2 text-xs sm:text-[13.5px] text-slate-700 leading-relaxed">
+            <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2" />
             <span>
               {highlightNumbers(
                 "[[会员端风控闭环]]：落地标准化流程，包含[[系统预警]]（专人 [[15分钟]] 内跟进异常）、[[系统初审]]（自动标记分流）、[[智能分单]]（[[专项派发至 34人体育组]]）及[[工具复审]]（利用跨站排查、关联分析复核）。实现高危订单的[[精准拦截]]与[[分级处置]]（警告、降水、扣除及终止）。",
