@@ -53,19 +53,19 @@ export const PersonnelDistribution: React.FC = () => {
           {policyItems.map((item, index) => (
             <div
               key={index}
-              className="bg-white p-4.5 sm:p-5 border border-slate-200 border-t-2 border-t-slate-900 flex flex-col justify-between space-y-3 shadow-2xs"
+              className="bg-white p-5 sm:p-5.5 border border-slate-200 border-t-2 border-t-slate-900 flex flex-col justify-between space-y-3.5 shadow-2xs"
             >
-              <div className="flex items-center justify-between pb-2.5 border-b border-slate-200">
+              <div className="flex items-center justify-between pb-3 border-b border-slate-200">
                 <div className="flex items-center gap-2">
                   <span className="report-sequence-badge text-xs">
                     {index + 1}
                   </span>
-                  <span className="font-bold text-slate-950 text-base">
+                  <span className="font-bold text-slate-950 text-base sm:text-lg">
                     {item.title}
                   </span>
                 </div>
                 <span
-                  className={`font-mono text-[11px] font-bold px-2 py-0.5 border ${
+                  className={`font-mono text-xs font-bold px-2 py-0.5 border ${
                     item.category === "降本增效"
                       ? "text-emerald-800 bg-emerald-50 border-emerald-300"
                       : "text-blue-900 bg-blue-50 border-blue-300"
@@ -74,7 +74,7 @@ export const PersonnelDistribution: React.FC = () => {
                   {item.category}
                 </span>
               </div>
-              <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal">
+              <p className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal">
                 {highlightNumbers(item.content)}
               </p>
             </div>
@@ -99,20 +99,20 @@ export const PersonnelDistribution: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto">
             {/* Card 1: 在岗人数 */}
             <div className="border border-slate-200 border-t-2 border-t-slate-900 bg-slate-50/70 p-4 text-center space-y-1">
-              <span className="text-xs font-bold text-slate-600 block uppercase tracking-wider">
+              <span className="text-xs sm:text-sm font-bold text-slate-600 block uppercase tracking-wider">
                 在岗人数
               </span>
               <div className="flex items-baseline justify-center gap-1 py-1 font-mono">
                 <span className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight tabular-nums">
                   365
                 </span>
-                <span className="text-xs font-bold text-slate-500">人</span>
+                <span className="text-xs sm:text-sm font-bold text-slate-500">人</span>
               </div>
             </div>
 
             {/* Card 2: 外包人力 */}
             <div className="border border-slate-200 border-t-2 border-t-slate-900 bg-slate-50/70 p-4 text-center space-y-1">
-              <span className="text-xs font-bold text-slate-600 block uppercase tracking-wider">
+              <span className="text-xs sm:text-sm font-bold text-slate-600 block uppercase tracking-wider">
                 外包人力
               </span>
               <div className="flex items-baseline justify-center gap-1.5 py-1 font-mono">
@@ -122,7 +122,7 @@ export const PersonnelDistribution: React.FC = () => {
                 <span className="text-xs font-bold text-emerald-800 bg-emerald-50 px-1.5 py-0.5 border border-emerald-300 tabular-nums">
                   -17
                 </span>
-                <span className="text-xs font-bold text-slate-500">人</span>
+                <span className="text-xs sm:text-sm font-bold text-slate-500">人</span>
               </div>
             </div>
           </div>
@@ -156,16 +156,16 @@ export const PersonnelDistribution: React.FC = () => {
             ].map((item) => (
               <div
                 key={item.label}
-                className="border border-slate-200 bg-white p-3.5 text-center flex flex-col items-center justify-between space-y-1.5 shadow-2xs"
+                className="border border-slate-200 bg-white p-3.5 sm:p-4 text-center flex flex-col items-center justify-between space-y-1.5 shadow-2xs"
               >
-                <div className="text-xs font-bold text-slate-700 tracking-wide">
+                <div className="text-sm font-bold text-slate-800 tracking-wide">
                   {item.label}
                 </div>
                 <div className="font-mono text-2xl sm:text-3xl font-black text-slate-950 tracking-tight tabular-nums py-0.5">
                   {item.count}
                 </div>
                 <div
-                  className={`font-mono text-[11px] font-bold px-2 py-0.5 border tabular-nums ${
+                  className={`font-mono text-xs font-bold px-2 py-0.5 border tabular-nums ${
                     item.isIncrease
                       ? "text-blue-900 bg-blue-50 border-blue-200"
                       : "text-slate-600 bg-slate-50 border-slate-200"

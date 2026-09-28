@@ -23,6 +23,7 @@ import {
 } from "../../ReportSections";
 import { highlightNumbers, SummaryBox } from "./utils";
 import { SmartDispatchOrderStructure } from "./SmartDispatchOrderStructure";
+import { SystemAuditMonthlyTrendChart } from "./SystemAuditMonthlyTrendChart";
 
 export const SystemAuditEvolutionSection: React.FC = () => {
   return (
@@ -120,76 +121,145 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 bg-blue-700"></span>
                     <h4 className="text-base sm:text-lg font-bold text-slate-950 tracking-tight">
-                      系统出单比例理论上限与瓶颈成因剖析
+                      系统出单比例理论上限
                     </h4>
                   </div>
-                  <span className="text-xs font-mono font-bold px-2 py-0.5 bg-slate-900 text-white">
-                    已逼近安全物理天花板
-                  </span>
+ 
                 </div>
 
                 {/* 管理结论：置于标题正下方 */}
-                <div className="p-3.5 bg-white border-l-4 border-slate-950 text-xs sm:text-[13.5px] text-slate-700 leading-relaxed shadow-xs">
-                  剩余 <strong className="text-slate-950 font-bold font-mono">30%~35%</strong> 的人工审核是基于<strong>“多账号风险拦截（15%~20%）+ 历史存量标签兜底（约15%）”</strong>的刚性风控边界；当前 <strong>60%~65%</strong> 的系统出单水平已高度贴近 <strong>70%</strong> 的安全物理极限。
+                <div className="p-4 bg-white border-l-4 border-slate-950 text-sm sm:text-base text-slate-800 leading-relaxed shadow-xs">
+                  剩余 <strong className="text-slate-950 font-bold font-mono">30%</strong> 的人工审核是基于<strong>“多账号风险拦截（约15%）+ 历史存量标签兜底（约15%）”</strong>的刚性风控边界；当前 <strong>60%~65%</strong> 的系统出单水平已高度贴近 <strong>70%</strong> 的安全物理极限。
                 </div>
 
-                {/* 核心数据突出展示对比区：左侧当前(60%~65%) ➔ 箭头过渡 ➔ 右侧极限(70%)，突出趋势与逼近感 */}
-                <div className="flex flex-col md:flex-row items-stretch gap-3">
-                  {/* 左侧：当前实际水平 60% ~ 65% */}
-                  <div className="flex-1 bg-white p-4 sm:p-4.5 border-2 border-blue-900 flex flex-col justify-between shadow-xs">
-                    <div className="flex items-center justify-between text-xs text-slate-600 font-bold uppercase tracking-wider">
-                      <span className="flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-blue-600"></span>
-                        当前常态运行水平
-                      </span>
-                      <span className="px-2 py-0.5 bg-blue-50 text-blue-950 font-mono text-[11px] font-bold border border-blue-200">
-                        现状基线
-                      </span>
-                    </div>
-                    <div className="flex items-baseline justify-between mt-3 pt-1">
-                      <div>
-                        <div className="text-xs text-slate-500 font-bold">实际系统出单比例</div>
-                        <div className="text-xs text-blue-900 font-bold mt-0.5">已释放 85%~92% 潜能</div>
-                      </div>
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-3xl sm:text-4xl font-mono font-black text-blue-950 tracking-tight">
-                          60% ~ 65%
+                {/* 核心数据呈现：左柱右文 1:1 严格对齐 + 左侧 70% 安全极限精确大括号 */}
+                <div className="bg-white border border-slate-200 p-4 sm:p-5 shadow-2xs">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-stretch">
+                    {/* 左侧：独立分段立柱区域（左侧清晰包含 70% 安全极限大括号 + 柱体 + 右向引线） */}
+                    <div className="lg:col-span-5 bg-slate-50/70 p-3.5 sm:p-4 border border-slate-200 flex flex-col justify-between">
+                      {/* 柱顶标头 */}
+                      <div className="flex items-center justify-between pb-2 border-b border-slate-200 text-xs sm:text-sm font-bold text-slate-800">
+                        <span className="flex items-center gap-1.5">
+                          <span className="w-2 h-2 rounded-full bg-slate-900"></span>
+                          订单总量 (100%)
                         </span>
+                        <span className="font-mono text-slate-500 text-xs">容量标尺</span>
+                      </div>
+
+                      {/* 3 大分段立柱 + 左右大括号体系 */}
+                      <div className="w-full my-auto py-2.5 space-y-3 sm:space-y-3.5">
+                        {/* 1. 顶部柱段：30% 人工防线 */}
+                        <div className="flex items-center justify-end">
+                          {/* 左侧占位（保持柱体垂直对齐） */}
+                          <div className="w-28 sm:w-32 shrink-0"></div>
+
+                          {/* 柱段 */}
+                          <div className="w-24 sm:w-28 h-16 bg-slate-200/90 border-2 border-slate-300 flex items-center justify-center shadow-2xs shrink-0">
+                            <span className="text-xs sm:text-sm font-mono font-bold text-slate-700">
+                              30%
+                            </span>
+                          </div>
+
+                          {/* 右侧大括号引线 */}
+                          <div className="w-6 flex items-center text-slate-500 font-mono text-xs shrink-0 pl-1">
+                            <div className="h-9 border-r-2 border-t-2 border-b-2 border-slate-400 w-2 relative flex items-center">
+                              <span className="absolute -right-2 text-xs font-black">▶</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* 2 & 3. 组合柱段：被「70% 安全极限」大括号精确包含 */}
+                        <div className="flex items-stretch justify-end">
+                          {/* 左侧大括号区域：包含标签与精确开向右侧的方括号 */}
+                          <div className="w-28 sm:w-32 flex items-center justify-end pr-1.5 shrink-0 select-none">
+                            <span className="text-[11px] sm:text-xs font-mono font-bold text-amber-950 bg-amber-100 px-1.5 py-1 border border-amber-300 shadow-2xs whitespace-nowrap mr-1">
+                              70% 安全极限
+                            </span>
+                            {/* 精确包裹 5%~10% 与 60%~65% 的右向开口方括号 */}
+                            <div className="h-full w-2.5 border-l-2 border-t-2 border-b-2 border-amber-500 shrink-0"></div>
+                          </div>
+
+                          {/* 柱段垂直堆叠 */}
+                          <div className="flex flex-col space-y-3 sm:space-y-3.5 shrink-0">
+                            {/* 2. 中部柱段：5%~10% 潜能空间 */}
+                            <div className="flex items-center">
+                              <div className="w-24 sm:w-28 h-14 bg-amber-100/90 border-2 border-amber-300 flex items-center justify-center shadow-2xs shrink-0">
+                                <span className="text-xs sm:text-sm font-mono font-black text-amber-950">
+                                  5%~10%
+                                </span>
+                              </div>
+                              {/* 右侧引线 */}
+                              <div className="w-6 flex items-center text-amber-600 font-mono text-xs shrink-0 pl-1">
+                                <div className="h-8 border-r-2 border-t-2 border-b-2 border-amber-500 w-2 relative flex items-center">
+                                  <span className="absolute -right-2 text-xs font-black">▶</span>
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* 3. 底部柱段：60%~65% 系统出单 */}
+                            <div className="flex items-center">
+                              <div className="w-24 sm:w-28 h-20 bg-blue-600 border-2 border-blue-700 flex items-center justify-center text-white shadow-xs shrink-0">
+                                <span className="text-base sm:text-lg font-mono font-black tracking-tight">
+                                  60%~65%
+                                </span>
+                              </div>
+                              {/* 右侧引线 */}
+                              <div className="w-6 flex items-center text-blue-600 font-mono text-xs shrink-0 pl-1">
+                                <div className="h-12 border-r-2 border-t-2 border-b-2 border-blue-600 w-2 relative flex items-center">
+                                  <span className="absolute -right-2 text-xs font-black">▶</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* 中间：趋势演进与逼近连接体 */}
-                  <div className="flex md:flex-col items-center justify-center gap-1 px-2 py-1 md:py-0 text-slate-400 font-mono shrink-0">
-                    <div className="hidden md:block w-px h-3 bg-slate-300"></div>
-                    <div className="flex items-center gap-1 px-2 py-0.5 bg-slate-200 text-slate-800 text-xs font-bold font-mono border border-slate-300">
-                      <span>逼近空间仅 5%~10%</span>
-                      <span className="text-base leading-none">➔</span>
-                    </div>
-                    <div className="hidden md:block w-px h-3 bg-slate-300"></div>
-                  </div>
-
-                  {/* 右侧：理论物理极限 70% */}
-                  <div className="flex-1 bg-slate-900 text-white p-4 sm:p-4.5 border border-slate-950 flex flex-col justify-between relative overflow-hidden shadow-xs">
-                    <div className="flex items-center justify-between text-xs text-slate-300 font-bold uppercase tracking-wider">
-                      <span className="flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-amber-400"></span>
-                        安全风控约束下的绝对上限
-                      </span>
-                      <span className="px-2 py-0.5 bg-amber-400/20 text-amber-300 font-mono text-[11px] font-bold border border-amber-400/40">
-                        理论极限
-                      </span>
-                    </div>
-                    <div className="flex items-baseline justify-between mt-3 pt-1">
-                      <div>
-                        <div className="text-xs text-slate-300 font-bold">系统出单理论极限</div>
-                        <div className="text-xs text-amber-300/80 mt-0.5">再高穿透安全红线</div>
+                    {/* 右侧：3 大分段严格 1:1 垂直对齐解析卡片 */}
+                    <div className="lg:col-span-7 flex flex-col justify-between space-y-3 sm:space-y-3.5 my-auto">
+                      {/* 卡片 1：对齐 30% 刚性人工防线 */}
+                      <div className="min-h-16 p-3.5 sm:p-4 bg-slate-50 border-l-4 border-slate-700 border border-slate-200 flex flex-col justify-center shadow-2xs">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm sm:text-base font-bold text-slate-900">
+                            刚性人工审核比例
+                          </span>
+                          <span className="text-xs font-mono font-bold px-1.5 py-0.5 bg-slate-200 text-slate-800 border border-slate-300">
+                            约 30% • 安全极限
+                          </span>
+                        </div>
+                        <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                          多账号高危关联（约15%）与存量风险标签兜底（约15%），必须由人工严格把关以阻断穿透。
+                        </p>
                       </div>
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-4xl sm:text-5xl font-mono font-black text-amber-400 tracking-tight">
-                          70%
-                        </span>
-                        <span className="text-xs text-amber-300 font-bold font-mono">MAX</span>
+
+                      {/* 卡片 2：对齐 5%~10% 潜能空间 */}
+                      <div className="min-h-14 p-3.5 sm:p-4 bg-amber-50/70 border-l-4 border-amber-500 border border-amber-200 flex flex-col justify-center shadow-2xs">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm sm:text-base font-bold text-amber-950">
+                            逼近系统出单极限
+                          </span>
+                          <span className="text-xs font-mono font-bold px-1.5 py-0.5 bg-amber-100 text-amber-900 border border-amber-300">
+                            5% ~ 10% • 剩余潜能
+                          </span>
+                        </div>
+                        <p className="text-xs sm:text-sm text-slate-800 mt-1 leading-relaxed">
+                          还有 <strong className="text-amber-950 font-bold font-mono">5% ~ 10%</strong> 到达系统出单比例安全极限（70%）。
+                        </p>
+                      </div>
+
+                      {/* 卡片 3：对齐 60%~65% 现状基线 */}
+                      <div className="min-h-20 p-3.5 sm:p-4 bg-blue-50/70 border-l-4 border-blue-600 border border-blue-200 flex flex-col justify-center shadow-2xs">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm sm:text-base font-bold text-blue-950">
+                            当前系统运行水平
+                          </span>
+                          <span className="text-xs font-mono font-bold px-1.5 py-0.5 bg-blue-600 text-white">
+                            60% ~ 65% • 全量常态
+                          </span>
+                        </div>
+                        <p className="text-xs sm:text-sm text-blue-950/85 mt-1 leading-relaxed">
+                          低风险订单全自动秒级放行，覆盖绝大部分常态业务场景，已释放理论自动化潜能的 85%~92%。
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -197,34 +267,34 @@ export const SystemAuditEvolutionSection: React.FC = () => {
 
                 {/* 为什么存在 30% 刚性人工拦截？深度拆解 */}
                 <div className="space-y-2.5 pt-1">
-                  <div className="text-xs sm:text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                  <div className="text-sm sm:text-base font-bold text-slate-900 flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 bg-slate-950"></span>
                     <span>成因剖析：为什么必须保留约 30% 的人工审核？</span>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {/* 成因 1：平台运营特点与多账号关联 */}
-                    <div className="bg-white p-3 sm:p-3.5 border border-slate-200 space-y-1.5">
+                    <div className="bg-white p-3.5 sm:p-4 border border-slate-200 space-y-1.5">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-slate-900">平台运营特征：多账号关联高发</span>
+                        <span className="text-xs sm:text-sm font-bold text-slate-900">平台运营特征：多账号关联高发</span>
                         <span className="text-xs font-mono font-bold px-1.5 py-0.5 bg-amber-50 text-amber-900 border border-amber-200">
-                          高风险拦截 15% ~ 20%
+                          高风险拦截约 15%
                         </span>
                       </div>
-                      <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
-                        受业务模式与活动运营特点影响，平台<strong className="text-slate-950 font-semibold">多账号关联占比高达 80% 左右</strong>；其中经策略矩阵深度识别后，<strong className="text-slate-950 font-semibold">高风险群体占比约 15% ~ 20%</strong>，该部分订单必须转入人工复审进行资产核验与风险阻断，无法由系统直接放行。
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                        受业务模式与活动运营特点影响，平台<strong className="text-slate-950 font-semibold">多账号关联占比高达 80% 左右</strong>；其中经策略矩阵深度识别后，<strong className="text-slate-950 font-semibold">高风险关联占比约 15% </strong>，该部分订单必须转入人工复审进行资产核验与风险阻断，无法由系统直接放行。
                       </p>
                     </div>
 
                     {/* 成因 2：存量风控标签历史残留 */}
-                    <div className="bg-white p-3 sm:p-3.5 border border-slate-200 space-y-1.5">
+                    <div className="bg-white p-3.5 sm:p-4 border border-slate-200 space-y-1.5">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-slate-900">历史存量沉淀：存量风控标签留存</span>
+                        <span className="text-xs sm:text-sm font-bold text-slate-900">历史存量沉淀：存量风控标签留存</span>
                         <span className="text-xs font-mono font-bold px-1.5 py-0.5 bg-slate-100 text-slate-900 border border-slate-200">
                           标签残留约 15%
                         </span>
                       </div>
-                      <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                         平台历史沉淀了大量被打上风控标签的存量用户；在经历多轮策略去重与标签清理后，<strong className="text-slate-950 font-semibold">带标存量用户依然占整体单量的 15% 左右</strong>。触发历史标签的订单仍需人工校验兜底，构成了系统自动化向 70% 以上渗透的核心硬约束。
                       </p>
                     </div>
@@ -247,23 +317,24 @@ export const SystemAuditEvolutionSection: React.FC = () => {
           )}
         </SummaryBox>
 
-        {/* 2 个衍生受益指标卡片阵列（单列布局：一行一个） */}
-        <div className="grid grid-cols-1 gap-4">
+        {/* 2 个衍生受益指标卡片阵列（左右 2 列布局，严格水平对齐） */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-stretch">
           {/* 受益 1：替代订单规模 */}
           <ReportDimensionCard
             className="border-t-4 border-t-slate-950 shadow-xs"
             title={
-              <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 py-0.5">
+              <div className="flex items-center gap-2.5">
                 <span className="inline-flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 bg-slate-950 text-white font-mono font-bold text-xs sm:text-sm tracking-tight shrink-0">
                   01
                 </span>
-                <span className="text-lg sm:text-xl font-extrabold text-slate-950 tracking-tight">
-                  替代订单规模
-                </span>
-                <span className="text-slate-300 hidden sm:inline" aria-hidden="true">•</span>
-                <span className="text-xs sm:text-sm font-bold text-slate-600 font-mono">
-                  全量替代 300w单 / 月增 100w单
-                </span>
+                <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                  <span className="text-lg sm:text-xl font-extrabold text-slate-950 tracking-tight">
+                    替代订单规模
+                  </span>
+                  <span className="text-xs sm:text-sm font-bold text-slate-500 font-mono">
+                    全量替代 300w单 / 月增 100w单
+                  </span>
+                </div>
               </div>
             }
             badge={
@@ -273,43 +344,59 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               </span>
             }
           >
-            {/* 统一通用向心对比结构 */}
-            <div className="bg-slate-50/70 p-3 sm:p-4 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4 my-1 border border-slate-200/80">
-              {/* 原来：200 万单 */}
-              <div className="flex-1 flex items-center justify-between bg-white px-4 sm:px-5 py-3 border border-slate-200 w-full md:w-auto">
-                <div className="flex flex-col">
-                  <span className="text-[11px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider">原来（基线）</span>
-                  <span className="text-sm sm:text-base font-bold text-slate-900">替代订单规模</span>
+            {/* 模块 1：左右向心对比结构（严格对称 VS 强化对比样式，固定高度对齐） */}
+            <div className="bg-slate-50/70 p-3 sm:p-3.5 border border-slate-200/80 space-y-2.5">
+              <div className="relative grid grid-cols-2 gap-3 items-stretch">
+                {/* 原来：200 万单 */}
+                <div className="bg-white p-3 sm:p-3.5 border border-slate-200 flex flex-col items-center justify-between text-center shadow-2xs relative">
+                  <div className="flex items-center justify-center gap-1.5 w-full">
+                    <span className="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                    <span className="text-[11px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider">原来（基线）</span>
+                  </div>
+                  <div className="my-1.5">
+                    <div className="flex items-baseline justify-center gap-0.5 font-mono">
+                      <span className="text-2xl sm:text-3xl font-black text-slate-800 tracking-tight">200</span>
+                      <span className="text-xs sm:text-sm font-bold text-slate-500">w单</span>
+                    </div>
+                  </div>
+                  <span className="text-[11px] sm:text-xs text-slate-500 font-medium">替代订单规模</span>
                 </div>
-                <div className="flex items-baseline gap-0.5 font-mono">
-                  <span className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">200</span>
-                  <span className="text-sm font-bold text-slate-500">w单</span>
+
+                {/* 中心浮动 VS 勋章 */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none">
+                  <span className="inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-slate-950 text-white font-mono font-black text-[11px] sm:text-xs tracking-tight border-2 border-white shadow-sm">
+                    VS
+                  </span>
+                </div>
+
+                {/* 现在：300 万单 */}
+                <div className="bg-blue-50/70 p-3 sm:p-3.5 border border-blue-200 flex flex-col items-center justify-between text-center shadow-2xs relative">
+                  <div className="flex items-center justify-center gap-1.5 w-full">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                    <span className="text-[11px] sm:text-xs font-bold text-blue-900 uppercase tracking-wider">现在（全量开启）</span>
+                  </div>
+                  <div className="my-1.5">
+                    <div className="flex items-baseline justify-center gap-0.5 font-mono">
+                      <span className="text-2xl sm:text-3xl font-black text-blue-950 tracking-tight">300</span>
+                      <span className="text-xs sm:text-sm font-bold text-blue-800">w单</span>
+                    </div>
+                  </div>
+                  <span className="text-[11px] sm:text-xs text-blue-900 font-medium">替代订单规模</span>
                 </div>
               </div>
 
-              {/* 中间指向与变化数字：+100万单 (+50.0%) */}
-              <div className="flex flex-col items-center justify-center shrink-0 px-2 py-0.5">
-                <div className="flex items-center gap-2 px-3.5 py-1.5 bg-slate-900 text-white font-mono font-bold text-xs sm:text-sm tracking-tight border border-slate-800">
-                  <span>+100w单 (+50.0%)</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-slate-300" />
-                </div>
-              </div>
-
-              {/* 现在：300 万单 */}
-              <div className="flex-1 flex items-center justify-between bg-blue-50/70 px-4 sm:px-5 py-3 border border-blue-200 w-full md:w-auto">
-                <div className="flex items-baseline gap-0.5 font-mono">
-                  <span className="text-3xl sm:text-4xl font-black text-blue-950 tracking-tight">300</span>
-                  <span className="text-sm font-bold text-blue-800">w单</span>
-                </div>
-                <div className="flex flex-col text-right">
-                  <span className="text-[11px] sm:text-xs font-bold text-blue-800 uppercase tracking-wider">现在（全量开启）</span>
-                  <span className="text-sm sm:text-base font-bold text-blue-950">替代订单规模</span>
+              {/* 变化指示条 */}
+              <div className="flex items-center justify-between px-3 py-1.5 bg-slate-900 text-white font-mono font-bold text-xs sm:text-sm tracking-tight border border-slate-800">
+                <span className="text-slate-300 text-xs font-normal">规模演进</span>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-emerald-400 font-black">+100w单 (+50.0%)</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
                 </div>
               </div>
             </div>
 
-            {/* 核心解释说明 */}
-            <div className="text-sm sm:text-[15.5px] text-slate-800 font-normal leading-relaxed flex flex-col gap-2.5 mt-2 bg-slate-50/80 p-4 border-l-4 border-slate-900 border border-slate-200/60">
+            {/* 模块 2：核心解释说明（左右等高对齐） */}
+            <div className="text-sm sm:text-[15.5px] text-slate-800 font-normal leading-relaxed flex flex-col justify-between gap-3 bg-slate-50/80 p-4 border-l-4 border-slate-900 border border-slate-200/60 flex-1">
               <div className="flex items-start gap-2.5">
                 <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                 <div className="leading-relaxed">
@@ -336,28 +423,24 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 </div>
               </div>
             </div>
-
-            {/* 角色订单结构与审核质量趋势（8月日均、9月日均与9月28日-30日对比） */}
-            <div className="pt-2">
-              <SmartDispatchOrderStructure />
-            </div>
           </ReportDimensionCard>
 
           {/* 受益 2：提升审核时效 */}
           <ReportDimensionCard
             className="border-t-4 border-t-slate-950 shadow-xs"
             title={
-              <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 py-0.5">
+              <div className="flex items-center gap-2.5">
                 <span className="inline-flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 bg-slate-950 text-white font-mono font-bold text-xs sm:text-sm tracking-tight shrink-0">
                   02
                 </span>
-                <span className="text-lg sm:text-xl font-extrabold text-slate-950 tracking-tight">
-                  提升审核时效
-                </span>
-                <span className="text-slate-300 hidden sm:inline" aria-hidden="true">•</span>
-                <span className="text-xs sm:text-sm font-bold text-slate-600 font-mono">
-                  耗时从 18.5分 骤降至 2.4分
-                </span>
+                <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                  <span className="text-lg sm:text-xl font-extrabold text-slate-950 tracking-tight">
+                    提升审核时效
+                  </span>
+                  <span className="text-xs sm:text-sm font-bold text-slate-500 font-mono">
+                    耗时从 18.5分 骤降至 2.4分
+                  </span>
+                </div>
               </div>
             }
             badge={
@@ -367,43 +450,59 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               </span>
             }
           >
-            {/* 统一通用向心对比结构 */}
-            <div className="bg-slate-50/70 p-3 sm:p-4 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4 my-1 border border-slate-200/80">
-              {/* 原来：18.5 分钟 */}
-              <div className="flex-1 flex items-center justify-between bg-white px-4 sm:px-5 py-3 border border-slate-200 w-full md:w-auto">
-                <div className="flex flex-col">
-                  <span className="text-[11px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider">原来（基线）</span>
-                  <span className="text-sm sm:text-base font-bold text-slate-900">平均停留时间</span>
+            {/* 模块 1：左右向心对比结构（严格对称 VS 强化对比样式，固定高度对齐） */}
+            <div className="bg-slate-50/70 p-3 sm:p-3.5 border border-slate-200/80 space-y-2.5">
+              <div className="relative grid grid-cols-2 gap-3 items-stretch">
+                {/* 原来：18.5 分钟 */}
+                <div className="bg-white p-3 sm:p-3.5 border border-slate-200 flex flex-col items-center justify-between text-center shadow-2xs relative">
+                  <div className="flex items-center justify-center gap-1.5 w-full">
+                    <span className="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                    <span className="text-[11px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider">原来（基线）</span>
+                  </div>
+                  <div className="my-1.5">
+                    <div className="flex items-baseline justify-center gap-0.5 font-mono">
+                      <span className="text-2xl sm:text-3xl font-black text-slate-800 tracking-tight">18.5</span>
+                      <span className="text-xs sm:text-sm font-bold text-slate-500">分</span>
+                    </div>
+                  </div>
+                  <span className="text-[11px] sm:text-xs text-slate-500 font-medium">平均停留时间</span>
                 </div>
-                <div className="flex items-baseline gap-0.5 font-mono">
-                  <span className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">18.5</span>
-                  <span className="text-sm font-bold text-slate-500">分</span>
+
+                {/* 中心浮动 VS 勋章 */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none">
+                  <span className="inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-slate-950 text-white font-mono font-black text-[11px] sm:text-xs tracking-tight border-2 border-white shadow-sm">
+                    VS
+                  </span>
+                </div>
+
+                {/* 现在：2.4 分钟 */}
+                <div className="bg-blue-50/70 p-3 sm:p-3.5 border border-blue-200 flex flex-col items-center justify-between text-center shadow-2xs relative">
+                  <div className="flex items-center justify-center gap-1.5 w-full">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                    <span className="text-[11px] sm:text-xs font-bold text-blue-900 uppercase tracking-wider">现在（全量开启）</span>
+                  </div>
+                  <div className="my-1.5">
+                    <div className="flex items-baseline justify-center gap-0.5 font-mono">
+                      <span className="text-2xl sm:text-3xl font-black text-blue-950 tracking-tight">2.4</span>
+                      <span className="text-xs sm:text-sm font-bold text-blue-800">分</span>
+                    </div>
+                  </div>
+                  <span className="text-[11px] sm:text-xs text-blue-900 font-medium">平均停留时间</span>
                 </div>
               </div>
 
-              {/* 中间指向与变化数字：-16.1 分 (-87.0%) */}
-              <div className="flex flex-col items-center justify-center shrink-0 px-2 py-0.5">
-                <div className="flex items-center gap-2 px-3.5 py-1.5 bg-slate-900 text-white font-mono font-bold text-xs sm:text-sm tracking-tight border border-slate-800">
-                  <span>-16.1 分 (-87.0%)</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-slate-300" />
-                </div>
-              </div>
-
-              {/* 现在：2.4 分钟 */}
-              <div className="flex-1 flex items-center justify-between bg-blue-50/70 px-4 sm:px-5 py-3 border border-blue-200 w-full md:w-auto">
-                <div className="flex items-baseline gap-0.5 font-mono">
-                  <span className="text-3xl sm:text-4xl font-black text-blue-950 tracking-tight">2.4</span>
-                  <span className="text-sm font-bold text-blue-800">分</span>
-                </div>
-                <div className="flex flex-col text-right">
-                  <span className="text-[11px] sm:text-xs font-bold text-blue-800 uppercase tracking-wider">现在（全量开启）</span>
-                  <span className="text-sm sm:text-base font-bold text-blue-950">平均停留时间</span>
+              {/* 变化指示条 */}
+              <div className="flex items-center justify-between px-3 py-1.5 bg-slate-900 text-white font-mono font-bold text-xs sm:text-sm tracking-tight border border-slate-800">
+                <span className="text-slate-300 text-xs font-normal">时效演进</span>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-emerald-400 font-black">-16.1 分 (-87.0%)</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
                 </div>
               </div>
             </div>
 
-            {/* 核心解释说明 */}
-            <div className="text-sm sm:text-[15.5px] text-slate-800 font-normal leading-relaxed flex flex-col gap-2.5 mt-2 bg-slate-50/80 p-4 border-l-4 border-slate-900 border border-slate-200/60">
+            {/* 模块 2：核心解释说明（左右等高对齐） */}
+            <div className="text-sm sm:text-[15.5px] text-slate-800 font-normal leading-relaxed flex flex-col justify-between gap-3 bg-slate-50/80 p-4 border-l-4 border-slate-900 border border-slate-200/60 flex-1">
               <div className="flex items-start gap-2.5">
                 <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                 <div className="leading-relaxed">
@@ -425,6 +524,16 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               </div>
             </div>
           </ReportDimensionCard>
+        </div>
+
+        {/* 各角色订单结构自身演进趋势对比（8月日均 vs 9月日均 vs 9月30日全量） */}
+        <div className="pt-1">
+          <SmartDispatchOrderStructure />
+        </div>
+
+        {/* 系统出单趋势对比（2026.01 ~ 2026.09） */}
+        <div className="pt-1">
+          <SystemAuditMonthlyTrendChart />
         </div>
       </div>
 
@@ -542,7 +651,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
 
                   {/* 业务场景说明 */}
                   <div className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal bg-slate-50/80 p-4 border-l-4 border-slate-900 border border-slate-200/60">
-                    <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">【场景举例】</strong>原来审核需要专员手动切换到各个三方游戏场馆和支付后台逐笔查单；现在后台与各场馆及支付系统<strong>接口毫秒级直连</strong>，注单与资金流水全由系统自动秒级拉取比对。
+                    <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">【场景举例】</strong>原来审核需要专员手动切换到各个三方游戏场馆和支付后台逐笔查单；现在后台与各场馆及支付系统<strong>接口秒级直连</strong>，注单与资金流水全由系统自动秒级拉取比对。
                   </div>
                 </div>
               </ReportDimensionCard>

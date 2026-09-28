@@ -64,13 +64,13 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
 
       {/* 统一总结模块 */}
       <SummaryBox>
-        <p className="text-sm sm:text-[14.5px] text-slate-950 font-bold leading-relaxed mb-2.5">
+        <p className="text-sm sm:text-base text-slate-950 font-bold leading-relaxed mb-2.5">
           {highlightNumbers(
             "[[高等级会员处理]]达[[5,790.60]]（占总[[21.26%]]），共涉及[[810人]]：",
           )}
         </p>
         <ul className="mt-3 space-y-2.5 text-slate-700">
-          <li className="flex items-start gap-2 text-xs sm:text-[13.5px] text-slate-700">
+          <li className="flex items-start gap-2 text-sm sm:text-[15px] text-slate-800">
             <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2" />
             <span className="leading-relaxed">
               {highlightNumbers(
@@ -78,33 +78,33 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
               )}
             </span>
           </li>
-          <li className="flex items-start gap-2 text-xs sm:text-[13.5px] text-slate-700">
+          <li className="flex items-start gap-2 text-sm sm:text-[15px] text-slate-800">
             <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2" />
             <div className="flex-1">
               <span className="text-slate-950 font-bold">业务分析：</span>
-              <ul className="mt-1 list-none space-y-1 pl-3 text-slate-600">
+              <ul className="mt-1.5 list-none space-y-1.5 pl-3 text-slate-700">
                 <li className="flex items-start gap-1.5">
-                  <span className="shrink-0 font-mono text-xs text-slate-500">（一）</span>
+                  <span className="shrink-0 font-mono text-sm text-slate-500">（一）</span>
                   <span>{highlightNumbers("违规用户养号周期拉长且行为伪装度高，致使常规规则识别存在[[发现延迟]]。")}</span>
                 </li>
                 <li className="flex items-start gap-1.5">
-                  <span className="shrink-0 font-mono text-xs text-slate-500">（二）</span>
+                  <span className="shrink-0 font-mono text-sm text-slate-500">（二）</span>
                   <span>{highlightNumbers("高等级账号异常行为[[隐蔽性更强]]，需结合多维业务链条综合判定并敏捷捕捉[[新型手法]]。")}</span>
                 </li>
               </ul>
             </div>
           </li>
-          <li className="flex items-start gap-2 text-xs sm:text-[13.5px] text-slate-700">
+          <li className="flex items-start gap-2 text-sm sm:text-[15px] text-slate-800">
             <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2" />
             <div className="flex-1">
               <span className="text-slate-950 font-bold">持续优化：</span>
-              <ul className="mt-1 list-none space-y-1 pl-3 text-slate-600">
+              <ul className="mt-1.5 list-none space-y-1.5 pl-3 text-slate-700">
                 <li className="flex items-start gap-1.5">
-                  <span className="shrink-0 font-mono text-xs text-slate-500">（1）</span>
+                  <span className="shrink-0 font-mono text-sm text-slate-500">（1）</span>
                   <span>{highlightNumbers("[[高等级观察中用户]]超过 [[7天]] 未发现异常的，提交[[组长审核]]；超过 [[15天]] 未发现异常的，升级至[[主管审核]]。组长每日进行[[复审抽查]]，整体处理人数对比一季度减少约 [[20%]]。")}</span>
                 </li>
                 <li className="flex items-start gap-1.5">
-                  <span className="shrink-0 font-mono text-xs text-slate-500">（2）</span>
+                  <span className="shrink-0 font-mono text-sm text-slate-500">（2）</span>
                   <span>{highlightNumbers("对于[[高等级异常问题]]，[[提高向上反馈频率]]，[[一审]]或[[二审]]优先向[[组长]]反馈问题，并对[[高等级观察中用户]][[定期排查]]。")}</span>
                 </li>
               </ul>

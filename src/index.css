@@ -4,6 +4,17 @@
   --font-sans: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "DIN Alternate", "PingFang SC", "Microsoft YaHei", ui-monospace, SFMono-Regular, monospace;
   --font-display: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", ui-sans-serif, system-ui, sans-serif;
+
+  /* 全局提升字体梯队，彻底改善密集数据与说明卡片的易读性 */
+  --text-2xs: 0.8125rem; /* 13px */
+  --text-xs: 0.875rem;   /* 14px */
+  --text-sm: 0.96875rem; /* 15.5px */
+  --text-base: 1.0625rem;/* 17px */
+  --text-lg: 1.1875rem;  /* 19px */
+  --text-xl: 1.375rem;   /* 22px */
+  --text-2xl: 1.625rem;  /* 26px */
+  --text-3xl: 2rem;      /* 32px */
+  --text-4xl: 2.5rem;    /* 40px */
 }
 
 @layer base {
@@ -35,19 +46,19 @@
     --report-space-8: 44px;
     --report-space-9: 52px;
     --report-space-10: 64px;
-    --report-font-caption: 13px;
-    --report-font-small: 15px;
-    --report-font-body: 16.5px;
-    --report-font-emphasis: 19px;
-    --report-font-panel-title: 22px;
-    --report-font-section-title: 26px;
-    --report-font-chapter-title: 32px;
-    --report-font-cover-title: 42px;
+    --report-font-caption: 14.5px;
+    --report-font-small: 16px;
+    --report-font-body: 17.5px;
+    --report-font-emphasis: 20px;
+    --report-font-panel-title: 24px;
+    --report-font-section-title: 28px;
+    --report-font-chapter-title: 34px;
+    --report-font-cover-title: 44px;
     --report-weight-regular: 400;
     --report-weight-medium: 500;
     --report-weight-semibold: 700;
     --report-weight-bold: 800;
-    --report-chart-height: 320px;
+    --report-chart-height: 340px;
     --report-panel-gap: 28px;
     --report-panel-padding-y: 20px;
     --report-panel-padding-x: 0px;
@@ -57,13 +68,13 @@
   html {
     background: #f1f4f8;
     scroll-behavior: auto;
-    font-size: 16.5px;
+    font-size: 17px;
   }
 
   body {
     background: #f1f4f8;
     color: var(--report-ink);
-    font-size: 16.5px;
+    font-size: 17px;
     line-height: 1.75;
     font-variant-numeric: tabular-nums;
   }
@@ -77,7 +88,7 @@
 
   p, li, dd, dt {
     margin: 0;
-    line-height: 1.7;
+    line-height: 1.75;
   }
 }
 
@@ -92,8 +103,8 @@
     background: #ffffff;
     color: var(--report-ink);
     font-family: var(--font-sans);
-    font-size: 16px;
-    line-height: 1.7;
+    font-size: 17px;
+    line-height: 1.75;
     text-rendering: geometricPrecision;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
