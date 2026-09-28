@@ -34,7 +34,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
         {/* 统一文字说明：一句话总结 */}
         <SummaryBox variant="module">
           {highlightNumbers(
-            "审单模式由“人工为主”向[[“系统自动为主、人工复核为辅”]]转变：系统审核占比从 [[45.0%]] 提升至 [[80.0%]]（人工审核从 [[55.0%]] 降至 [[20.0%]]），带来等效人力节省 [[63.6%]]（相当于减少 46 名人工审单负荷）与出款时效提速 [[87.0%]]（由 18.5分 缩短至 2.4分）两大实际成效。"
+            "审单模式由“人工为主”向[[“系统自动为主、人工复核为辅”]]转变：系统审核占比从 [[45.0%]] 提升至 [[80.0%]]（人工审核从 [[55.0%]] 降至 [[20.0%]]）。"
           )}
         </SummaryBox>
 
@@ -111,6 +111,61 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 </div>
               </div>
             </div>
+
+            {/* 系统出单比例极限与业务瓶颈深度剖析 */}
+            <div className="mt-4 pt-4 border-t border-slate-200">
+              <div className="bg-slate-50 border border-slate-200 p-4 sm:p-4.5 space-y-3">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 pb-2.5">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 bg-blue-700"></span>
+                    <span className="text-sm sm:text-base font-bold text-slate-950">
+                      系统出单比例理论上限与瓶颈成因剖析
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3 text-xs font-mono font-bold">
+                    <span className="text-slate-600">当前实际：<strong className="text-blue-900 font-bold">60% ~ 65%</strong></span>
+                    <span className="text-slate-300">|</span>
+                    <span className="text-slate-900">理论极限：<strong className="text-slate-950 font-black">70.0%</strong></span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+                  {/* 成因 1：平台运营特点与多账号关联 */}
+                  <div className="bg-white p-3 border border-slate-200 space-y-1.5">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold text-slate-800">平台运营特征：多账号关联高发</span>
+                      <span className="text-xs font-mono font-bold px-1.5 py-0.5 bg-slate-100 text-slate-800 border border-slate-200">
+                        高风险拦截 ~20%
+                      </span>
+                    </div>
+                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
+                      受业务模式与活动运营特点影响，平台<strong className="text-slate-900 font-semibold">多账号关联占比高达 80% 左右</strong>；其中经策略矩阵深度识别后，<strong className="text-slate-900 font-semibold">高风险群体占比约 15% ~ 20%</strong>，该部分订单必须转入人工复审进行资产核验与风险阻断，无法由系统直接放行。
+                    </p>
+                  </div>
+
+                  {/* 成因 2：存量风控标签历史残留 */}
+                  <div className="bg-white p-3 border border-slate-200 space-y-1.5">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold text-slate-800">历史存量沉淀：存量风控标签留存</span>
+                      <span className="text-xs font-mono font-bold px-1.5 py-0.5 bg-slate-100 text-slate-800 border border-slate-200">
+                        标签残留 ~15%
+                      </span>
+                    </div>
+                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
+                      平台历史沉淀了大量被打上风控标签的存量用户；在经历多轮策略去重与标签清理后，<strong className="text-slate-900 font-semibold">带标存量用户依然占整体单量的 15% 左右</strong>。触发历史标签的订单仍需人工校验兜底，构成了系统自动化向 70% 以上渗透的核心硬约束。
+                    </p>
+                  </div>
+                </div>
+
+                {/* 底部业务定论 */}
+                <div className="pt-1.5 flex items-start gap-2 text-xs sm:text-[13px] text-slate-600 leading-relaxed">
+                  <span className="font-bold text-slate-950 shrink-0">结论：</span>
+                  <span>
+                    剩余 <strong className="text-slate-950 font-bold font-mono">30%~35%</strong> 的人工审核是基于<strong>“多账号高风险拦截（15%~20%）+ 历史存量标签兜底（约15%）”</strong>的刚性风控边界，目前 <strong>60%~65%</strong> 的出单水平已高度贴近 <strong>70%</strong> 的安全物理极限。
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -122,7 +177,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
         {/* 核心收益一句话说明 */}
         <SummaryBox variant="module">
           {highlightNumbers(
-            "系统自动审核大幅提升处理规模与出款时效：系统替代订单规模从 [[200万单]] 扩大至 [[300万单（增加了 100万单）]]，同时将平均到账耗时从 [[18.5 分钟缩短至 2.4 分钟（审核时效提速 87.0%）]]。"
+            "系统自动审核大幅提升处理规模与出款时效：系统替代订单规模从 [[200w单]] 扩大至 [[300万单（增加了 100w）]]，同时将风控阶段单均耗时从 [[18.5 分钟缩短至 2.4 分钟（审核时效提速 87.0%）]]。"
           )}
         </SummaryBox>
 
@@ -130,10 +185,26 @@ export const SystemAuditEvolutionSection: React.FC = () => {
         <div className="grid grid-cols-1 gap-4">
           {/* 受益 1：替代订单规模 */}
           <ReportDimensionCard
+            className="border-t-4 border-t-slate-950 shadow-xs"
             title={
-              <div className="flex items-center gap-2">
-                <span>① 替代订单规模</span>
+              <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 py-0.5">
+                <span className="inline-flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 bg-slate-950 text-white font-mono font-bold text-xs sm:text-sm tracking-tight shrink-0">
+                  01
+                </span>
+                <span className="text-lg sm:text-xl font-extrabold text-slate-950 tracking-tight">
+                  替代订单规模
+                </span>
+                <span className="hidden sm:inline-block w-1.5 h-1.5 bg-slate-300 rounded-full" />
+                <span className="text-xs sm:text-sm font-bold text-slate-600 font-mono">
+                  全量替代 300w单 / 月增 100w单
+                </span>
               </div>
+            }
+            badge={
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-slate-900 text-white text-xs sm:text-sm font-mono font-bold tracking-tight">
+                <span>规模增幅</span>
+                <span className="text-emerald-400 font-black">+50.0%</span>
+              </span>
             }
           >
             {/* 统一通用向心对比结构 */}
@@ -146,14 +217,14 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 </div>
                 <div className="flex items-baseline gap-0.5">
                   <span className="text-3xl sm:text-4xl font-mono font-bold text-slate-950 tracking-tight">200</span>
-                  <span className="text-sm sm:text-base font-bold text-slate-700">万单</span>
+                  <span className="text-sm sm:text-base font-bold text-slate-700">w单</span>
                 </div>
               </div>
 
               {/* 中间指向与变化数字：+100万单 (+50.0%) */}
               <div className="flex flex-col items-center justify-center shrink-0 px-2 py-1 md:py-0">
                 <div className="flex items-center gap-2 px-3.5 py-1.5 bg-slate-900 text-white font-mono font-bold text-sm tracking-tight border border-slate-800">
-                  <span>+100万单 (+50.0%)</span>
+                  <span>+100w单 (+50.0%)</span>
                   <ArrowRight className="w-4 h-4 text-slate-300" />
                 </div>
               </div>
@@ -162,7 +233,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               <div className="flex-1 flex items-center justify-between bg-blue-50/80 px-4 sm:px-5 py-3.5 border border-blue-200 w-full md:w-auto">
                 <div className="flex items-baseline gap-0.5">
                   <span className="text-3xl sm:text-4xl font-mono font-bold text-blue-950 tracking-tight">300</span>
-                  <span className="text-sm sm:text-base font-bold text-blue-900">万单</span>
+                  <span className="text-sm sm:text-base font-bold text-blue-900">w单</span>
                 </div>
                 <div className="flex flex-col text-right">
                   <span className="text-xs sm:text-sm font-bold text-blue-900 uppercase tracking-wider">现在（全量开启后）</span>
@@ -176,10 +247,10 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               <div className="flex items-start gap-2.5">
                 <span className="w-1.5 h-1.5 bg-slate-950 shrink-0 mt-3"></span>
                 <div className="text-base sm:text-[17.5px] leading-[1.75]">
-                  <strong className="text-slate-950 font-bold text-base sm:text-lg">替代规模跃升：</strong>
+                  <strong className="text-slate-950 font-bold text-base sm:text-lg">系统出单大规模提升：</strong>
                   <span>伴随系统优化与全量开启，云盾系统替代人工审单的业务规模从 </span>
-                  <strong className="text-slate-950 font-bold">200万单 提升至 300万单</strong>
-                  <span className="text-slate-700">，净增替代了 100万单（规模增幅 +50.0%）。</span>
+                  <strong className="text-slate-950 font-bold">200w单 提升至 300w单</strong>
+                  <span className="text-slate-700">，净增替代了 100w单（规模增幅 +50.0%）。</span>
                 </div>
               </div>
               <div className="flex items-start gap-2.5">
@@ -192,42 +263,12 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <span>，直接</span>
                     <strong className="text-slate-950 font-bold">释放外包 100+ 人力</strong>
                     <span>，外包出错金额实现</span>
-                    <strong className="text-slate-950 font-bold">月度止损 50万+ 元</strong>
+                    <strong className="text-slate-950 font-bold">月度止损 50万+ /月</strong>
                     <span>；同时</span>
-                    <strong className="text-slate-950 font-bold">总部审单减少 100万+ 单</strong>
-                    <span>，显著释放总部审核压力；结合人力削减、差错止损与时效提速，</span>
+                    <strong className="text-slate-950 font-bold">总部审单减少 50万+ 单</strong>
+                    <span>，显著释放总部审核压力；结合人力削减、差错止损，</span>
                     <strong className="text-slate-950 font-bold">全量开启后月度综合收益约 300万/月</strong>。
-                  </div>
-
-                  {/* 3 大核心量化维度速览条 */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-0.5">
-                    <div className="bg-white p-2.5 border border-slate-200 flex flex-col justify-between">
-                      <span className="text-xs text-slate-500 font-bold">人力释放</span>
-                      <div className="flex items-baseline gap-1 mt-0.5">
-                        <span className="text-lg font-mono font-bold text-slate-950">100+</span>
-                        <span className="text-xs text-slate-700 font-bold">人（外包替代）</span>
-                      </div>
-                      <span className="text-xs text-slate-600 mt-0.5">总部单量减少 100万+</span>
-                    </div>
-
-                    <div className="bg-white p-2.5 border border-slate-200 flex flex-col justify-between">
-                      <span className="text-xs text-slate-500 font-bold">质量与止损</span>
-                      <div className="flex items-baseline gap-1 mt-0.5">
-                        <span className="text-lg font-mono font-bold text-emerald-700">50万+</span>
-                        <span className="text-xs text-emerald-800 font-bold">元/月</span>
-                      </div>
-                      <span className="text-xs text-slate-600 mt-0.5">阻断外包高差错出款</span>
-                    </div>
-
-                    <div className="bg-white p-2.5 border border-slate-200 flex flex-col justify-between">
-                      <span className="text-xs text-slate-500 font-bold">月度综合收益</span>
-                      <div className="flex items-baseline gap-1 mt-0.5">
-                        <span className="text-lg font-mono font-bold text-blue-900">300万</span>
-                        <span className="text-xs text-blue-900 font-bold">/月</span>
-                      </div>
-                      <span className="text-xs text-slate-600 mt-0.5">人力+止损+人效总价值</span>
-                    </div>
-                  </div>
+                  </div>       
                 </div>
               </div>
             </div>
@@ -240,10 +281,26 @@ export const SystemAuditEvolutionSection: React.FC = () => {
 
           {/* 受益 2：提升审核时效 */}
           <ReportDimensionCard
+            className="border-t-4 border-t-slate-950 shadow-xs"
             title={
-              <div className="flex items-center gap-2">
-                <span>② 提升审核时效</span>
+              <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 py-0.5">
+                <span className="inline-flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 bg-slate-950 text-white font-mono font-bold text-xs sm:text-sm tracking-tight shrink-0">
+                  02
+                </span>
+                <span className="text-lg sm:text-xl font-extrabold text-slate-950 tracking-tight">
+                  提升审核时效
+                </span>
+                <span className="hidden sm:inline-block w-1.5 h-1.5 bg-slate-300 rounded-full" />
+                <span className="text-xs sm:text-sm font-bold text-slate-600 font-mono">
+                  耗时从 18.5分 骤降至 2.4分
+                </span>
               </div>
+            }
+            badge={
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-slate-900 text-white text-xs sm:text-sm font-mono font-bold tracking-tight">
+                <span>时效提速</span>
+                <span className="text-emerald-400 font-black">+87.0%</span>
+              </span>
             }
           >
             {/* 统一通用向心对比结构 */}
@@ -251,8 +308,8 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               {/* 原来：18.5 分钟 */}
               <div className="flex-1 flex items-center justify-between bg-white px-4 sm:px-5 py-3.5 border border-slate-200 w-full md:w-auto">
                 <div className="flex flex-col">
-                  <span className="text-xs sm:text-sm font-bold text-slate-700 uppercase tracking-wider">原来（基线）</span>
-                  <span className="text-sm sm:text-base font-bold text-slate-900">平均到账耗时</span>
+                  <span className="text-xs sm:text-sm font-bold text-slate-700 uppercase tracking-wider">原来</span>
+                  <span className="text-sm sm:text-base font-bold text-slate-900">平均停留时间</span>
                 </div>
                 <div className="flex items-baseline gap-0.5">
                   <span className="text-3xl sm:text-4xl font-mono font-bold text-slate-950 tracking-tight">18.5</span>
@@ -275,8 +332,8 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   <span className="text-sm sm:text-base font-bold text-blue-900">分</span>
                 </div>
                 <div className="flex flex-col text-right">
-                  <span className="text-xs sm:text-sm font-bold text-blue-900 uppercase tracking-wider">现在（秒级放行）</span>
-                  <span className="text-sm sm:text-base font-bold text-blue-950">平均到账耗时</span>
+                  <span className="text-xs sm:text-sm font-bold text-blue-900 uppercase tracking-wider">现在</span>
+                  <span className="text-sm sm:text-base font-bold text-blue-950">平均停留时间</span>
                 </div>
               </div>
             </div>
@@ -286,15 +343,15 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               <div className="flex items-start gap-2.5">
                 <span className="w-1.5 h-1.5 bg-slate-950 shrink-0 mt-3"></span>
                 <div className="text-base sm:text-[17.5px] leading-[1.75]">
-                  <strong className="text-slate-950 font-bold text-base sm:text-lg">系统秒级直出：</strong>
-                  <strong className="text-slate-950 font-bold">80.0% 订单由引擎 1.8 秒全自动放行直出</strong>，平均到账耗时由 18.5 分钟骤降至 2.4 分钟。
+                  <strong className="text-slate-950 font-bold text-base sm:text-lg">风控时长大幅缩短：</strong>
+                  <strong className="text-slate-950 font-bold">系统自动出单时间仅需 15 秒</strong>（原人工审核平均需 8 分钟），平均停留时间由 18.5 分钟骤降至 2.4 分钟。
                 </div>
               </div>
               <div className="flex items-start gap-2.5">
                 <span className="w-1.5 h-1.5 bg-slate-950 shrink-0 mt-3"></span>
                 <div className="text-base sm:text-[17.5px] leading-[1.75]">
-                  <strong className="text-slate-950 font-bold text-base sm:text-lg">高峰排队消除：</strong>
-                  <span>比赛高峰排队积压率由 42.6% 降至 1.2%，出款客诉率由 8.4% 压降至 0.9%，大客户复充提升 18.2%。</span>
+                  <strong className="text-slate-950 font-bold text-base sm:text-lg">用户体验显著提升：</strong>
+                  <span>针对绝大部分低风险玩家，出款流转由人工排队审核转为系统极速秒级放行，用户端在提款与到账环节能明显感受到出款速度更快、体验大幅跃升。</span>
                 </div>
               </div>
             </div>
@@ -308,7 +365,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
 
         {/* 机制与支撑说明 */}
           <div className="p-4 bg-slate-50 border-l-4 border-l-blue-700 text-sm sm:text-base font-medium text-slate-800 leading-relaxed">
-            <strong>支撑机制：</strong>前述审核模式优化由云盾风控系统支持。通过 <strong>策略矩阵校验 ➔ 风险评分 ➔ 动态决策 ➔ 效果反馈</strong> 四个环节，明确系统自动放行与人工复审的分工边界，支撑 80.0% 自动化放行目标。
+            审核模式优化由<strong>云盾风控系统</strong>支持。通过 <strong>策略矩阵校验 ➔ 风险评分 ➔ 动态决策 ➔ 效果反馈</strong> 四个环节，明确系统自动放行与人工复审的分工边界，支撑 80.0% 自动化放行目标。
           </div>
 
           {/* 关键能力对比：原来 与 现在 */}

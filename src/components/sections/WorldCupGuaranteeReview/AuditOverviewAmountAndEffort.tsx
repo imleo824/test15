@@ -69,7 +69,7 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
           </div>
           <div className="text-sm md:text-base text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "[[二季度平均审核时长]]：推进[[系统分流]]、[[流程优化]]与[[智能派单]]，二季度[[平均人工审核时长]]稳定在 [[0:08:45]]；在6月单量激增至 [[300.77万单]] 背景下，审核时效保持平稳。",
+              "[[二季度平均审核时长]]：推进[[系统分流]]、[[流程优化]]与[[智能派单]]，二季度[[平均人工审核时长]]稳定在 [[0:08:45]]；在6月单量激增至 [[300.77w单]] 背景下，审核时效保持平稳。",
             )}
           </div>
         </div>
