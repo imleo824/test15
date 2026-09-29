@@ -3438,17 +3438,15 @@
     color: #0f172a !important;
   }
 
-  /* Unified highlight styling for emphasized keywords and core phrases in body copy */
+  /* Clean, authoritative executive typography for bold phrases */
   .report-shell :is(p, li, .report-note-content) strong:not([class*="font-mono"]):not([class*="text-2xl"]):not([class*="text-3xl"]):not([class*="text-4xl"]):not([class*="text-5xl"]):not(.report-number):not(.report-sequence-badge):not(.report-badge) {
     color: #0f172a !important;
     font-weight: 750 !important;
-    background: rgba(224, 236, 255, 0.75) !important;
+    background: transparent !important;
     border-bottom: 0 !important;
     text-decoration: none !important;
-    padding: 0.1em 0.35em !important;
-    border-radius: 2px !important;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
+    padding: 0 !important;
+    border-radius: 0 !important;
     display: inline;
   }
 
@@ -3542,7 +3540,8 @@
   .report-note,
   .report-inline-note {
     color: var(--report-ink);
-    line-height: 1.65;
+    line-height: 1.7;
+    font-size: 15.5px;
   }
 
   .report-note--chapter {
@@ -3550,11 +3549,12 @@
     border: 1px solid #e2e8f0 !important;
     border-radius: 0 !important;
     padding: 18px 22px !important;
+    font-size: 16px !important;
   }
 
   .report-note--chapter .report-note-title {
     color: #0f172a !important;
-    font-size: 14px !important;
+    font-size: 15px !important;
     font-weight: 700 !important;
     letter-spacing: -0.01em;
     margin-bottom: 8px;
@@ -3565,11 +3565,12 @@
     border: 1px solid #e2e8f0 !important;
     border-radius: 0 !important;
     padding: 16px 20px !important;
+    font-size: 15.5px !important;
   }
 
   .report-note--module .report-note-title {
     color: #0f172a !important;
-    font-size: 13px !important;
+    font-size: 14.5px !important;
     font-weight: 700 !important;
     margin-bottom: 6px;
   }
@@ -3579,25 +3580,33 @@
     border: 1px solid #e2e8f0 !important;
     border-radius: 0 !important;
     padding: 14px 18px !important;
+    font-size: 15px !important;
   }
 
   .report-note--note .report-note-title {
     color: #475569 !important;
-    font-size: 12.5px !important;
+    font-size: 13.5px !important;
     font-weight: 600 !important;
     margin-bottom: 4px;
+  }
+
+  .report-summary-copy {
+    font-size: 15.5px !important;
+    line-height: 1.75 !important;
   }
 
   .report-summary-copy > p,
   .report-summary-copy > ul,
   .report-summary-copy > ol,
   .report-summary-copy li,
-  .report-summary-copy li > span {
+  .report-summary-copy li > span,
+  .report-summary-copy div {
+    font-size: 15.5px !important;
     font-weight: var(--report-weight-medium) !important;
   }
 
   .report-summary-copy > p {
-    line-height: 1.7 !important;
+    line-height: 1.75 !important;
   }
 
   .report-summary-copy :is(strong, b) {

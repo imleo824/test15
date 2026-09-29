@@ -64,12 +64,12 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
         <div className="space-y-2.5">
           <div className="text-sm md:text-base text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-               "[[二季度总拦截金额]]：累计拦截 [[2.72]]；6月受[[世界杯赛事]]驱动回升至 [[1.046]]。受前期严管及对[[批量团伙]]直接[[扣除本金]]威慑影响，二季度环比一季度下降 [[0.35]]。",
+               "[[三季度总拦截金额]]：累计拦截 [[2.72]]；峰值月度受赛事与活动驱动达 [[1.046]]。强化对[[批量黑产]]直接[[扣除本金]]处置，威慑效应显著，拦截趋势保持平稳可控。",
             )}
           </div>
           <div className="text-sm md:text-base text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "[[二季度平均审核时长]]：依托[[系统分流]]与[[智能派单]]，二季度[[平均人工审核时长]]稳定在 [[0:08:45]]；6月单量达 [[300.77w单]] 峰值下，审核时效平稳可控。",
+              "[[三季度平均审核时长]]：依托[[系统分流]]与[[智能派单]]，三季度[[平均人工审核时长]]稳定在 [[0:08:45]]；在单量达 [[300.77w单]] 峰值承压下，审核时效全线达标。",
             )}
           </div>
         </div>
@@ -77,11 +77,11 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
 
       {/* 图表展示区 - 统一结构规范：标题 + 说明 + 图例 + 图表 + 备注 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-        {/* 左卡片: 26年二季度总拦截金额 */}
+        {/* 左卡片: 26年三季度总拦截金额 */}
         <ReportChartCard
-          title="二季度拦截金额月度走势"
+          title="三季度拦截金额月度走势"
           value="2.72"
-          description="二季度累计拦截金额 2.72，6月受世界杯赛事驱动达到 1.046 峰值；强化对批量黑产直接扣除本金，威慑效应显著。"
+          description="三季度累计拦截金额 2.72，峰值达 1.046；强化对批量黑产直接扣除本金，威慑效应显著。"
         >
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={amountData} margin={chartMargins.hiddenAxis}>
@@ -99,11 +99,11 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
             </ResponsiveContainer>
         </ReportChartCard>
 
-        {/* 右卡片: 26年二季度平均审核时长 */}
+        {/* 右卡片: 26年三季度平均审核时长 */}
         <ReportChartCard
-          title="二季度平均人工审核时长"
+          title="三季度平均人工审核时长"
           value="0:08:45"
-          description="依托系统派单分流，平均人工审核时长稳定在 0:08:45；6月单量达 300.77万单，时效依然平稳可控。"
+          description="依托系统派单分流，平均人工审核时长稳定在 0:08:45；单量峰值达 300.77万单，时效依然平稳可控。"
           legend={
             <ReportChartLegend
               items={[

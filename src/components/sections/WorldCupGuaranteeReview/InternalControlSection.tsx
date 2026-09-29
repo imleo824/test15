@@ -43,7 +43,7 @@ const auditActionItems = [
 
 export const InternalControlSection: React.FC = () => {
   return (
-    <div id="section-internal-control" className="space-y-12">
+    <div id="section-internal-control" className="space-y-8">
       <SummaryBox variant="module">
         {highlightNumbers(
           "由专职监督独立把关，重点监控[[红利发放]]、[[敏感参数变动]]与[[异常登录]]；依托行为留痕与操作日志实现全链路可溯，违规操作即时预警与查处。",
@@ -51,7 +51,7 @@ export const InternalControlSection: React.FC = () => {
       </SummaryBox>
 
       {/* 3.1.1 专职监督工作成果 */}
-      <div className="space-y-5">
+      <div className="space-y-4">
         <ReportSubsectionHeader title="3.1.1 违规查处与稽查成果" />
         
         <ReportMetricHero
@@ -106,10 +106,10 @@ export const InternalControlSection: React.FC = () => {
       </div>
 
       {/* 3.1.2 监督排查核心主线 */}
-      <div className="space-y-5">
+      <div className="space-y-4">
         <ReportSubsectionHeader title="3.1.2 监督排查核心主线" />
 
-        <SummaryBox className="mb-5">
+        <SummaryBox>
           <p className="text-sm md:text-base text-slate-800 font-medium leading-relaxed">
             {highlightNumbers(
               "内控稽查围绕[[线索发现]]与[[跟进处置]]两条主线开展：前端扩大信息触达面，后端通过日志、录屏、权限、流程和外部核验完成闭环追溯。",
@@ -117,7 +117,7 @@ export const InternalControlSection: React.FC = () => {
           </p>
         </SummaryBox>
         
-        <div className="space-y-5">
+        <div className="space-y-4">
           <ReportInfoGrid
             title="线索来源"
             icon={<Search className="w-4 h-4 text-slate-900 shrink-0" />}
@@ -138,12 +138,12 @@ export const InternalControlSection: React.FC = () => {
       </div>
 
       {/* 3.1.3 高危场景防范 */}
-      <div className="space-y-5">
+      <div className="space-y-4">
         <ReportSubsectionHeader title="3.1.3 高危场景防范" />
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* 1. 外部通讯群信息 */}
-          <div className="pt-4 flex flex-col justify-between space-y-3 bg-white p-5 border border-[#e2e8f0]">
+          <div className="flex flex-col justify-between space-y-3 bg-white p-4 sm:p-5 border border-[#e2e8f0]">
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-slate-900 font-bold text-base sm:text-lg">
                 <span className="report-sequence-badge report-sequence-badge--risk">1</span>
@@ -165,7 +165,7 @@ export const InternalControlSection: React.FC = () => {
           </div>
 
           {/* 2. 内部勾结查控 */}
-          <div className="pt-4 flex flex-col justify-between space-y-3 bg-white p-5 border border-[#e2e8f0]">
+          <div className="flex flex-col justify-between space-y-3 bg-white p-4 sm:p-5 border border-[#e2e8f0]">
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-slate-900 font-bold text-base sm:text-lg">
                 <span className="report-sequence-badge report-sequence-badge--risk">2</span>
@@ -189,12 +189,12 @@ export const InternalControlSection: React.FC = () => {
       </div>
 
       {/* 3.1.4 典型违规案例剖析 */}
-      <div className="space-y-5">
+      <div className="space-y-4">
         <ReportSubsectionHeader title="3.1.4 典型案例剖析" />
         
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
-          <div className="pt-4 space-y-4 bg-white p-5 border border-[#e2e8f0]">
-            <div className="flex items-center gap-2 text-slate-900 font-bold text-base sm:text-lg pb-1.5 border-b border-[#e2e8f0]">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+          <div className="space-y-4 bg-white p-4 sm:p-5 border border-[#e2e8f0]">
+            <div className="flex items-center gap-2 text-slate-900 font-bold text-base sm:text-lg pb-2 border-b border-[#e2e8f0]">
               <Shield className="w-5 h-5 text-blue-800 shrink-0" />
               <span>外包审核违规案例</span>
             </div>
@@ -240,8 +240,8 @@ export const InternalControlSection: React.FC = () => {
             </div>
           </div>
 
-          <div className="pt-4 space-y-4 bg-white p-5 border border-[#e2e8f0]">
-            <div className="flex items-center gap-2 text-slate-900 font-bold text-base sm:text-lg pb-1.5 border-b border-[#e2e8f0]">
+          <div className="space-y-4 bg-white p-4 sm:p-5 border border-[#e2e8f0]">
+            <div className="flex items-center gap-2 text-slate-900 font-bold text-base sm:text-lg pb-2 border-b border-[#e2e8f0]">
               <Shield className="w-5 h-5 text-blue-800 shrink-0" />
               <span>业绩造假违规案例</span>
             </div>

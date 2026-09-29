@@ -249,7 +249,7 @@ export const ReportChartCard: React.FC<{
 
         {/* 一段文字说明 (Key Takeaway / 洞察分析) */}
         {description && (
-          <div className="text-sm sm:text-[15.5px] text-slate-800 font-normal leading-relaxed bg-slate-50/80 border border-[#e2e8f0] px-4 py-3 mb-3.5 flex items-center">
+          <div className="text-sm sm:text-[15.5px] text-slate-800 font-normal leading-relaxed bg-slate-50/70 border-l-2 border-slate-900 px-4 py-2.5 mb-4 flex items-center">
             {description}
           </div>
         )}

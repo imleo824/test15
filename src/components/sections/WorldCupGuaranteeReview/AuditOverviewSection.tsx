@@ -15,7 +15,7 @@ export const AuditOverviewSection: React.FC = () => {
         title="2.1 风控数据"
         rightContent={
           <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-2.5 py-1 border border-slate-200">
-            2026年二季度 · 核心拦截与时效全景
+            2026年第三季度 · 核心拦截与时效全景
           </span>
         }
       />

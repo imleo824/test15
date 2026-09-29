@@ -290,7 +290,7 @@ export const ExpectedRhythm = ({
                 if (step.tagColor === "slate") badgeTone = "slate";
 
                 return (
-                  <tr key={idx} className="hover:bg-slate-50/70">
+                  <tr key={idx}>
                     <td className="py-3.5 px-4 font-bold text-slate-900 text-sm md:text-base">{step.title || step.desc}</td>
                     <td className="py-3.5 px-4 font-mono font-bold text-blue-900 text-sm md:text-base">{step.submitTime || "-"}</td>
                     <td className="py-3.5 px-4">

@@ -126,12 +126,12 @@ export const TgGovernanceSection: React.FC = () => {
   ];
 
   return (
-    <div className="space-y-14">
+    <div className="space-y-8">
       {/* 3.2.1 线下离线流程治理 */}
-      <div className="space-y-5">
+      <div className="space-y-4">
         <ReportSubsectionHeader title="3.2.1 线下离线流程治理" />
 
-        <SummaryBox className="mb-4 space-y-2">
+        <SummaryBox className="space-y-2">
           <p className="text-sm md:text-base text-slate-800 font-medium leading-relaxed">
             {highlightNumbers(
               "全部工作对接群按[[非必要群聊]]、[[日常沟通群]]、[[高风险审核业务]]、[[低风险咨询业务]]四类分级处置，落实清理、控权、工单迁移与协同切换。",
@@ -156,17 +156,16 @@ export const TgGovernanceSection: React.FC = () => {
           </div>
 
           <p className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal">
-            推进群聊治理向系统化收口的过程中，<strong>严防将可通过系统自动化解决的诉求形式化包装为内部工单</strong>。凡用户前端可自主闭环或底层系统可根治的诉求，从源头彻底消除；确需人工介入的诉求，<strong>支持用户自主发起并直连路由至承接部门，严禁客服等多重冗余中转</strong>，实现极简高效流转。
+            推进群聊治理向系统化收口的过程中，<strong>严防将可通过系统自动化解决的诉求形式化包装为内部工单</strong>。凡<strong>用户前端可自主闭环</strong>或<strong>底层系统可根治</strong>的诉求，必须<strong>从源头彻底消除</strong>；确需人工介入的诉求，<strong>支持用户自主发起并直连路由至承接部门</strong>，<strong>减少多重冗余角色中转</strong>，实现<strong>极简高效流转</strong>。
           </p>
 
           {/* 典型场景举例：2 列卡片 */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-3.5 pt-1">
             {/* 场景 1：流水查询与核对 */}
-            <div className="bg-slate-50/80 p-4 border border-slate-200 space-y-2 flex flex-col justify-between">
+            <div className="bg-slate-50/80 p-4 space-y-2 flex flex-col justify-between border-l-2 border-slate-700">
               <div className="space-y-2 text-sm sm:text-[15px] text-slate-700 leading-relaxed">
                 <div>
-                  <strong className="text-slate-950 font-semibold mr-1">【典型案例 · 流水查询与核对】：</strong>
-                  从技术根源校准系统流水计算逻辑。
+                  <strong className="text-slate-950 font-semibold mr-1">【典型案例 · 提款流水咨询】</strong>
                 </div>
                 <div className="text-slate-600">
                   <strong className="text-slate-950 font-medium">传统弊端：</strong>流水计算不准引发频繁咨询，客服转提工单复核；
@@ -177,11 +176,10 @@ export const TgGovernanceSection: React.FC = () => {
             </div>
 
             {/* 场景 2：体育内嵌场馆玩非体育输光不解锁 */}
-            <div className="bg-slate-50/80 p-4 border border-slate-200 space-y-2 flex flex-col justify-between">
+            <div className="bg-slate-50/80 p-4 space-y-2 flex flex-col justify-between border-l-2 border-slate-700">
               <div className="space-y-2 text-sm sm:text-[15px] text-slate-700 leading-relaxed">
                 <div>
-                  <strong className="text-slate-950 font-semibold mr-1">【典型案例 · 体育内嵌场馆玩非体育输光不解锁】：</strong>
-                  针对场馆内嵌游戏输光未自动解锁问题，<strong>上线底层自动识别与即时解锁机制</strong>。
+                  <strong className="text-slate-950 font-semibold mr-1">【典型案例 · 体育内嵌玩非体育输光不解锁】</strong>
                 </div>
                 <div className="text-slate-600">
                   <strong className="text-slate-950 font-medium">传统弊端：</strong>内嵌游戏输光未自动解锁，导致频繁咨询与人工介入；
@@ -513,7 +511,7 @@ export const TgGovernanceSection: React.FC = () => {
                     <span className="font-normal text-slate-900 text-xs font-mono select-none">
                       qweasd123
                     </span>
-                    <span className="ml-auto text-xs text-slate-400 cursor-pointer hover:text-slate-600">✕</span>
+                    <span className="ml-auto text-xs text-slate-400 select-none">✕</span>
                   </div>
 
                   {/* 搜索命中汇总 (跨所有群聊检索) */}
@@ -543,7 +541,7 @@ export const TgGovernanceSection: React.FC = () => {
                     </div>
 
                     {/* 命中群 2: 对接群 */}
-                    <div className="bg-white hover:bg-slate-100/70 p-2 rounded-lg border border-[#e2e8f0] cursor-pointer space-y-0.5 transition-colors">
+                    <div className="bg-white p-2 rounded-lg border border-[#e2e8f0] space-y-0.5">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-1.5">
                           <span className="w-6 h-6 rounded-full bg-[#f58c38] text-white font-bold flex items-center justify-center text-xs shrink-0">
@@ -561,7 +559,7 @@ export const TgGovernanceSection: React.FC = () => {
                     </div>
 
                     {/* 命中群 3: 异常复核群 */}
-                    <div className="bg-white hover:bg-slate-100/70 p-2 rounded-lg border border-[#e2e8f0] cursor-pointer space-y-0.5 transition-colors">
+                    <div className="bg-white p-2 rounded-lg border border-[#e2e8f0] space-y-0.5">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-1.5">
                           <span className="w-6 h-6 rounded-full bg-[#27c93f] text-white font-bold flex items-center justify-center text-xs shrink-0">
@@ -579,7 +577,7 @@ export const TgGovernanceSection: React.FC = () => {
                     </div>
 
                     {/* 命中群 4: 客服出款群 */}
-                    <div className="bg-white hover:bg-slate-100/70 p-2 rounded-lg border border-[#e2e8f0] cursor-pointer space-y-0.5 transition-colors">
+                    <div className="bg-white p-2 rounded-lg border border-[#e2e8f0] space-y-0.5">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-1.5">
                           <span className="w-6 h-6 rounded-full bg-[#8e44ad] text-white font-bold flex items-center justify-center text-xs shrink-0">
@@ -608,7 +606,7 @@ export const TgGovernanceSection: React.FC = () => {
                     <div className="text-xs text-slate-500">466 位成员</div>
                   </div>
                   <div className="flex items-center gap-3 text-slate-500">
-                    <Search className="w-4 h-4 cursor-pointer hover:text-slate-800" />
+                    <Search className="w-4 h-4 text-slate-500" />
                     <div className="w-4 h-4 flex items-center justify-center border border-slate-400 rounded-xs text-xs font-bold">
                       ◫
                     </div>
@@ -660,7 +658,7 @@ export const TgGovernanceSection: React.FC = () => {
       <div className="space-y-4">
         <ReportSubsectionHeader title="3.2.3 核心流程闭环节点" />
 
-        <SummaryBox className="mb-2">
+        <SummaryBox>
           <p className="text-sm md:text-base text-slate-800 font-medium leading-relaxed">
             {highlightNumbers(
               "以[[提款]]为发起点，推动[[审核]]、[[复审]]、[[KYC]]、[[扣款]]、[[禁用]]全面接入系统工单，实现闭环流转与审计留痕。",
@@ -800,9 +798,7 @@ export const TgGovernanceSection: React.FC = () => {
                 return (
                   <tr
                     key={item.id}
-                    className={`hover:bg-slate-50/80 transition-colors ${
-                      !isCompleted ? "bg-amber-50/20" : ""
-                    }`}
+                    className={!isCompleted ? "bg-amber-50/20" : ""}
                   >
                     <td className="py-3 px-3 text-center font-mono font-bold text-slate-500">
                       {item.id}
@@ -839,7 +835,7 @@ export const TgGovernanceSection: React.FC = () => {
                         {item.method}
                       </span>
                     </td>
-                    <td className="py-3 px-3 text-slate-700 leading-relaxed text-xs sm:text-sm font-normal">
+                    <td className="py-3 px-3 text-slate-800 leading-relaxed text-sm sm:text-[14.5px] font-normal">
                       {highlightNumbers(item.actionDetails)}
                     </td>
                     <td className="py-3 px-3 text-right whitespace-nowrap">

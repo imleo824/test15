@@ -16,9 +16,9 @@ const tiers: ArchTier[] = [
     status: "进行中",
     icon: <Eye className="w-4 h-4 text-slate-900" />,
     keyPoints: [
-      "全量操作日志常态巡检，异常行为及时溯源",
-      "敏感参数变动与异常红利发放实时预警",
-      "高危代审与越权操作立案核查、严肃问责",
+      "操作日志常态巡检",
+      "敏感参数变动预警",
+      "违规操作常态稽查",
     ],
   },
   {
@@ -38,9 +38,10 @@ const tiers: ArchTier[] = [
     status: "待加强",
     icon: <Lock className="w-4 h-4 text-slate-900" />,
     keyPoints: [
-      "敏感数据导出限额限频，全端加盖动态追踪盲水印",
-      "敏感信息修改实行双人背靠背复核与24小时提款冷却",
-      "资金调账直连三方通道对账，强校验真实到账流水",
+      "敏感信息集中收口与字典维护",
+      "复制/截屏/导出等按工种严控",
+      "敏感信息修改双人背靠背审批",
+      "长期/临时/凭单三级权限结构",
     ],
   },
 ];
@@ -78,69 +79,54 @@ export const SafetyArchitectureDiagram: React.FC = () => {
           <div className="col-span-7">核心防护举措与落地要求</div>
         </div>
 
-        {tiers.map((tier, idx) => (
-          <React.Fragment key={tier.level}>
-            {/* 单层行 */}
-            <div className="p-3.5 sm:p-4 hover:bg-slate-50/60 transition-colors">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-3.5 items-center">
-                {/* 1. 防御层级 (col-span-3) */}
-                <div className="lg:col-span-3 flex items-center gap-2.5">
-                  <div className="p-2 bg-slate-100 border border-[#e2e8f0] shrink-0">
-                    {tier.icon}
+        {tiers.map((tier) => (
+          <div key={tier.level} className="p-4 sm:p-5">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
+              {/* 1. 防御层级 (col-span-3) */}
+              <div className="lg:col-span-3 flex items-center gap-3">
+                <div className="p-2.5 bg-slate-100 border border-[#e2e8f0] shrink-0">
+                  {tier.icon}
+                </div>
+                <div className="space-y-1">
+                  <div>
+                    <span className="font-mono text-xs font-bold px-1.5 py-0.5 bg-slate-900 text-white leading-none">
+                      {tier.level}
+                    </span>
                   </div>
-                  <div className="space-y-1">
-                    <div>
-                      <span className="font-mono text-xs font-bold px-1.5 py-0.5 bg-slate-900 text-white leading-none">
-                        {tier.level}
-                      </span>
-                    </div>
-                    <div className="text-base font-bold text-slate-950 tracking-tight leading-tight">
-                      {tier.name}
-                    </div>
+                  <div className="text-base sm:text-lg font-bold text-slate-950 tracking-tight leading-tight">
+                    {tier.name}
                   </div>
                 </div>
+              </div>
 
-                {/* 2. 治理状态 (col-span-2) */}
-                <div className="lg:col-span-2 flex items-center justify-start lg:justify-center">
-                  {tier.status === "进行中" ? (
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-blue-50 border border-[#e2e8f0] text-blue-900 font-bold text-xs font-mono shrink-0">
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
-                      <span>进行中</span>
-                    </span>
-                  ) : (
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-amber-50 border border-[#e2e8f0] text-amber-900 font-bold text-xs font-mono shrink-0">
-                      <span className="w-1.5 h-1.5 rounded-full bg-amber-600"></span>
-                      <span>待加强</span>
-                    </span>
-                  )}
-                </div>
+              {/* 2. 治理状态 (col-span-2) */}
+              <div className="lg:col-span-2 flex items-center justify-start lg:justify-center">
+                {tier.status === "进行中" ? (
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-blue-50 border border-blue-200 text-blue-900 font-bold text-xs sm:text-sm font-mono shrink-0">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                    <span>进行中</span>
+                  </span>
+                ) : (
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-amber-50 border border-amber-200 text-amber-900 font-bold text-xs sm:text-sm font-mono shrink-0">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-600"></span>
+                    <span>待加强</span>
+                  </span>
+                )}
+              </div>
 
-                {/* 3. 核心防护举措 (col-span-7) */}
-                <div className="lg:col-span-7 pl-0 lg:pl-1">
-                  <ul className="space-y-1.5 text-xs sm:text-sm text-slate-800">
-                    {tier.keyPoints.map((pt, pIdx) => (
-                      <li key={pIdx} className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-1.5"></span>
-                        <span className="leading-relaxed font-normal">{pt}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              {/* 3. 核心防护举措 (col-span-7) */}
+              <div className="lg:col-span-7 pl-0 lg:pl-1">
+                <ul className="space-y-2 text-sm sm:text-[15px] text-slate-800">
+                  {tier.keyPoints.map((pt, pIdx) => (
+                    <li key={pIdx} className="flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
+                      <span className="leading-relaxed font-normal">{pt}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
-
-            {/* 层级之间的衔接指示条 */}
-            {idx < tiers.length - 1 && (
-              <div className="bg-slate-100/80 px-4 py-1 text-center border-t border-b border-[#e2e8f0] flex items-center justify-center gap-2 text-[11px] font-mono text-slate-600 font-medium">
-                <ArrowDown className="w-3 h-3 text-slate-700" />
-                <span>
-                  {idx === 0
-                    ? "顶层监督审计溯源 · 覆盖业务全流程"
-                    : "中层流转标准化 · 固化全流程留痕证据链"}
-                </span>
-              </div>
-            )}
-          </React.Fragment>
+          </div>
         ))}
       </div>
     </div>

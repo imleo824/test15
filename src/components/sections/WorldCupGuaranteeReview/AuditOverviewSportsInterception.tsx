@@ -34,7 +34,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
   // Chart 1
   const siteSlData = [
     {
-      quarter: "26年一季度",
+      quarter: "26年二季度",
       b_sys: 6.63,
       y_sys: 5.78,
       bw_sys: 5.39,
@@ -42,7 +42,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
       comboLabel: "6.45%",
     },
     {
-      quarter: "26年二季度",
+      quarter: "26年三季度",
       b_sys: 6.61,
       y_sys: 5.97,
       bw_sys: 5.89,
@@ -54,7 +54,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
   // Chart 2
   const venueSlData = [
     {
-      quarter: "26年一季度",
+      quarter: "26年二季度",
       im_venue: 6.11,
       title_venue: 6.57,
       panda_venue: 5.42,
@@ -62,7 +62,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
       comboLabel: "6.45%",
     },
     {
-      quarter: "26年二季度",
+      quarter: "26年三季度",
       im_venue: 6.24,
       title_venue: 6.59,
       panda_venue: 5.68,
@@ -92,32 +92,32 @@ export const AuditOverviewSportsInterception: React.FC = () => {
     {
       name: "重点场馆",
       rows: [
-        { quarter: "26年一季度", b: "6.22%", y: "5.69%", bw: "5.49%", total: "6.11%" },
-        { quarter: "26年二季度", b: "6.22%", y: "6.34%", bw: "6.32%", total: "6.24%" },
+        { quarter: "26年二季度", b: "6.22%", y: "5.69%", bw: "5.49%", total: "6.11%" },
+        { quarter: "26年三季度", b: "6.22%", y: "6.34%", bw: "6.32%", total: "6.24%" },
         { quarter: "上个季度对比", b: "0.00%", y: "0.65%", bw: "0.84%", total: "0.13%", isDiff: true },
       ],
     },
     {
       name: "冠名 场馆",
       rows: [
-        { quarter: "26年一季度", b: "6.74%", y: "5.91%", bw: "5.33%", total: "6.57%" },
-        { quarter: "26年二季度", b: "6.70%", y: "6.00%", bw: "5.92%", total: "6.59%" },
+        { quarter: "26年二季度", b: "6.74%", y: "5.91%", bw: "5.33%", total: "6.57%" },
+        { quarter: "26年三季度", b: "6.70%", y: "6.00%", bw: "5.92%", total: "6.59%" },
         { quarter: "上个季度对比", b: "-0.04%", y: "0.08%", bw: "0.59%", total: "0.02%", isDiff: true },
       ],
     },
     {
       name: "熊猫 场馆",
       rows: [
-        { quarter: "26年一季度", b: "5.63%", y: "4.00%", bw: "5.78%", total: "5.42%" },
-        { quarter: "26年二季度", b: "5.84%", y: "4.67%", bw: "5.14%", total: "5.68%" },
+        { quarter: "26年二季度", b: "5.63%", y: "4.00%", bw: "5.78%", total: "5.42%" },
+        { quarter: "26年三季度", b: "5.84%", y: "4.67%", bw: "5.14%", total: "5.68%" },
         { quarter: "上个季度对比", b: "0.21%", y: "0.66%", bw: "-0.65%", total: "0.26%", isDiff: true },
       ],
     },
     {
       name: "整体季度",
       rows: [
-        { quarter: "26年一季度", b: "6.63%", y: "5.78%", bw: "5.39%", total: "6.45%" },
-        { quarter: "26年二季度", b: "6.61%", y: "5.97%", bw: "5.89%", total: "6.50%" },
+        { quarter: "26年二季度", b: "6.63%", y: "5.78%", bw: "5.39%", total: "6.45%" },
+        { quarter: "26年三季度", b: "6.61%", y: "5.97%", bw: "5.89%", total: "6.50%" },
         { quarter: "上个季度对比", b: "-0.02%", y: "0.19%", bw: "0.50%", total: "0.05%", isDiff: true },
       ],
     },
@@ -267,8 +267,8 @@ export const AuditOverviewSportsInterception: React.FC = () => {
             "[[体育总计]] [[15248.39]]，其中[[体育打水]]为主体，金额 [[10827.21]]、占比 [[71.01%]]；其次为[[批量打水]] [[1730.97]]、占比 [[11.35%]]，[[出货]] [[1379.37]]、占比 [[9.05%]]。站点分布中[[4站]]合计金额最集中，合计 [[5242.16]]；其中[[体育打水]] [[4065.38]]、该类占比 [[37.55%]]，[[其他类]] [[630.30]]、该类占比 [[64.95%]]。",
           )}
         </p>
-        <ul className="mt-3 space-y-2 text-slate-700">
-          <li className="flex items-start gap-2 text-xs sm:text-[13.5px] text-slate-700 leading-relaxed">
+        <ul className="mt-3 space-y-2.5 text-slate-700">
+          <li className="flex items-start gap-2.5 text-sm sm:text-[15px] text-slate-800 leading-relaxed">
             <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2" />
             <span>
               {highlightNumbers(
@@ -276,7 +276,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
               )}
             </span>
           </li>
-          <li className="flex items-start gap-2 text-xs sm:text-[13.5px] text-slate-700 leading-relaxed">
+          <li className="flex items-start gap-2.5 text-sm sm:text-[15px] text-slate-800 leading-relaxed">
             <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2" />
             <span>
               {highlightNumbers(
@@ -292,7 +292,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
         {/* 图表 1: 各系别体育拦截率趋势 */}
         <ReportChartCard
           title="各系别体育拦截率趋势"
-          description="二季度综合体育拦截率 6.50%，各系别集中在 5.8%~6.6%，防守态势平稳。"
+          description="三季度综合体育拦截率 6.50%，各系别集中在 5.8%~6.6%，防守态势平稳。"
           legend={
             <ReportChartLegend
               items={[
