@@ -248,7 +248,7 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
                 <th className="w-8 py-2.5 text-slate-400 font-mono"></th>
                 <th className="py-2.5 px-4 font-bold text-slate-700 text-sm sm:text-base">8月 (攻坚阶段)</th>
                 <th className="w-8 py-2.5 text-slate-400 font-mono"></th>
-                <th className="py-2.5 px-4 font-bold text-blue-950 bg-blue-50/70 text-sm sm:text-base">9月 (突破成效)</th>
+                <th className="py-2.5 px-4 font-bold text-blue-950 bg-blue-50/70 text-sm sm:text-base">9月 (推全成效)</th>
                 <th className="py-2.5 px-4 text-right font-bold text-slate-700 text-xs sm:text-sm">演进趋势与核心成效</th>
               </tr>
             </thead>

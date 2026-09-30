@@ -347,7 +347,7 @@ export const SecurityUpgradeSection: React.FC = () => {
 
                 {/* 场景4 内嵌：敏感权限三级架构模型卡片（长期权限 / 临时权限 / 凭单查询） */}
                 {isScenario4 && (
-                  <div className="bg-slate-50/70 p-4 sm:p-5 space-y-3 border-l-4 border-slate-900">
+                  <div className="bg-slate-50/70 p-4 sm:p-5 space-y-3 border-l-[3px] border-slate-900">
                     <div className="flex items-center justify-between pb-2 border-b border-slate-200">
                       <div className="flex items-center gap-2">
                         <Layers className="w-4 h-4 text-slate-900" />

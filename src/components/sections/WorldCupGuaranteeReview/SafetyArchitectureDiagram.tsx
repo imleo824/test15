@@ -4,6 +4,7 @@ import { ArrowDown, Eye, Users, Lock } from "lucide-react";
 interface ArchTier {
   level: string;
   name: string;
+  controlScene: string;
   status: "进行中" | "可加强";
   icon: React.ReactNode;
   keyPoints: string[];
@@ -13,6 +14,7 @@ const tiers: ArchTier[] = [
   {
     level: "L3 顶层",
     name: "专职监督",
+    controlScene: "审计管控",
     status: "进行中",
     icon: <Eye className="w-4 h-4 text-slate-900" />,
     keyPoints: [
@@ -24,6 +26,7 @@ const tiers: ArchTier[] = [
   {
     level: "L2 中层",
     name: "风控工单",
+    controlScene: "流转管控",
     status: "进行中",
     icon: <Users className="w-4 h-4 text-slate-900" />,
     keyPoints: [
@@ -35,6 +38,7 @@ const tiers: ArchTier[] = [
   {
     level: "L1 底层",
     name: "安全机制",
+    controlScene: "单点管控",
     status: "可加强",
     icon: <Lock className="w-4 h-4 text-slate-900" />,
     keyPoints: [
@@ -74,8 +78,9 @@ export const SafetyArchitectureDiagram: React.FC = () => {
         {/* 表格列头指示（大屏显示） */}
         <div className="hidden lg:grid grid-cols-12 gap-3 bg-slate-50 px-4 py-2.5 text-xs font-bold text-slate-800 uppercase tracking-wider border-b border-slate-900">
           <div className="col-span-3">防御层级</div>
+          <div className="col-span-2 text-center">管控场景</div>
           <div className="col-span-2 text-center">治理状态</div>
-          <div className="col-span-7">核心防护举措与落地要求</div>
+          <div className="col-span-5">防护举措</div>
         </div>
 
         {tiers.map((tier) => (
@@ -98,7 +103,14 @@ export const SafetyArchitectureDiagram: React.FC = () => {
                 </div>
               </div>
 
-              {/* 2. 治理状态 (col-span-2) */}
+              {/* 2. 管控场景 (col-span-2) */}
+              <div className="lg:col-span-2 flex items-center justify-start lg:justify-center">
+                <span className="font-bold text-xs sm:text-sm text-slate-900 font-mono">
+                  {tier.controlScene}
+                </span>
+              </div>
+
+              {/* 3. 治理状态 (col-span-2) */}
               <div className="lg:col-span-2 flex items-center justify-start lg:justify-center">
                 {tier.status === "进行中" ? (
                   <span className="inline-flex items-center gap-1.5 text-blue-900 font-bold text-xs sm:text-sm font-mono shrink-0">
@@ -113,8 +125,8 @@ export const SafetyArchitectureDiagram: React.FC = () => {
                 )}
               </div>
 
-              {/* 3. 核心防护举措 (col-span-7) */}
-              <div className="lg:col-span-7 pl-0 lg:pl-1">
+              {/* 4. 核心防护举措 (col-span-5) */}
+              <div className="lg:col-span-5 pl-0 lg:pl-1">
                 <ul className="space-y-2 text-sm sm:text-[15px] text-slate-800">
                   {tier.keyPoints.map((pt, pIdx) => (
                     <li key={pIdx} className="flex items-start gap-2">

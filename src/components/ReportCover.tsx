@@ -13,6 +13,7 @@ export const ReportCover: React.FC = () => {
     { id: "2.0", title: "数据概览" },
     { id: "3.0", title: "安全合规" },
     { id: "4.0", title: "云盾审核" },
+    { id: "5.0", title: "后续计划" },
   ];
 
   const handleScrollToSection = (sectionId: string) => {

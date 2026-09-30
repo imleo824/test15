@@ -6,6 +6,7 @@ import { PersonnelDistribution } from "./PersonnelDistribution";
 import { AuditOverviewSection } from "./AuditOverviewSection";
 import { SafetyComplianceSection } from "./SafetyComplianceSection";
 import { SystemAuditEvolutionSection } from "./SystemAuditEvolutionSection";
+import { FuturePlansSection } from "./FuturePlansSection";
 
 export const WorldCupGuaranteeReview: React.FC = () => {
   return (
@@ -34,7 +35,7 @@ export const WorldCupGuaranteeReview: React.FC = () => {
         <ChapterTitle>3.0 安全合规</ChapterTitle>
         <SummaryBox variant="chapter">
           {highlightNumbers(
-            "构建[[安全合规分层防御架构]]：以[[专职监督底线兜底]]、[[风控工单线上闭环]]、[[底层安全机制硬控]]，彻底消除私下流转与操作盲区。"
+            "安全合规不仅仅是单点优化，是需要从多维度和多角度进行全面解决，长期来看希望构建[[安全合规分层防御架构]]：以[[专职监督底线兜底]]、[[风控工单线上闭环]]、[[底层安全机制硬控]]，彻底消除私下流转与操作盲区。"
           )}
         </SummaryBox>
         <div className="report-chapter-content">
@@ -47,6 +48,14 @@ export const WorldCupGuaranteeReview: React.FC = () => {
         <ChapterTitle>4.0 云盾审核</ChapterTitle>
         <div className="report-chapter-content">
           <SystemAuditEvolutionSection />
+        </div>
+      </section>
+
+      {/* 5.0 后续计划 (优化会员云盾审核、启动代理云盾审核、继续推进安全合规) */}
+      <section id="section-5.0" className="report-chapter-block scroll-mt-6">
+        <ChapterTitle>5.0 后续计划</ChapterTitle>
+        <div className="report-chapter-content">
+          <FuturePlansSection />
         </div>
       </section>
     </div>
