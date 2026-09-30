@@ -33,9 +33,9 @@ export const ChapterTitle: React.FC<{
   className?: string;
 }> = ({ children, eyebrow, className = "" }) => {
   return (
-    <div className={`report-chapter-title border-t-2 border-slate-900 pt-8 pb-3.5 mb-6 ${className}`}>
+    <div className={`report-chapter-title border-t-2 border-slate-900 pt-10 pb-4 mb-8 ${className}`}>
       {eyebrow && (
-        <div className="text-xs sm:text-sm font-mono font-bold tracking-widest text-slate-500 mb-1.5 uppercase">
+        <div className="text-xs sm:text-sm font-mono font-bold tracking-widest text-slate-500 mb-2 uppercase">
           {eyebrow}
         </div>
       )}
@@ -82,7 +82,7 @@ export const ReportSectionHeader: React.FC<{
   className?: string;
 }> = ({ title, rightContent, className = "" }) => {
   return (
-    <div className={`report-section-header flex items-center justify-between pb-3.5 border-b-2 border-slate-900 mb-6 ${className}`}>
+    <div className={`report-section-header flex items-center justify-between pb-4 border-b-2 border-slate-900 mb-8 ${className}`}>
       <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight flex items-center gap-2.5">
         {title}
       </h3>
@@ -97,7 +97,7 @@ export const ReportSubsectionHeader: React.FC<{
   className?: string;
 }> = ({ title, rightContent, className = "" }) => {
   return (
-    <div className={`report-subsection-header flex items-center justify-between pb-2.5 border-b border-slate-300 mb-4.5 ${className}`}>
+    <div className={`report-subsection-header flex items-center justify-between pb-3 border-b border-slate-300 mb-6 ${className}`}>
       <h4 className="text-lg sm:text-xl font-bold text-slate-950 tracking-tight flex items-center gap-2">
         {title}
       </h4>
@@ -111,7 +111,7 @@ export const ReportTableFrame: React.FC<{
   className?: string;
 }> = ({ children, className = "" }) => {
   return (
-    <div className={`report-table-frame border-t-2 border-b-2 border-slate-900 my-5 overflow-x-auto ${className}`}>
+    <div className={`report-table-frame border-t-2 border-b-2 border-slate-900 my-6 sm:my-7 overflow-x-auto ${className}`}>
       {children}
     </div>
   );
@@ -140,14 +140,14 @@ export const ReportMetricCard: React.FC<{
   const isDark = tone === "dark";
   return (
     <div
-      className={`report-metric-card border p-5 sm:p-5.5 flex flex-col justify-between ${
+      className={`report-metric-card border p-6 sm:p-7 flex flex-col justify-between ${
         isDark
           ? "bg-slate-900 border-slate-900 text-white"
           : "bg-white border-[#e2e8f0] text-slate-900"
       } ${className}`}
     >
       <div className={`text-sm sm:text-[14.5px] font-bold tracking-wide uppercase ${isDark ? "text-slate-300" : "text-slate-700"}`}>{title}</div>
-      <div className="my-2.5 flex items-baseline gap-1.5 font-mono">
+      <div className="my-3 flex items-baseline gap-1.5 font-mono">
         <span className={`text-3xl sm:text-4xl font-black tabular-nums tracking-tight ${isDark ? "text-white" : "text-slate-950"}`}>
           {value}
         </span>
@@ -156,7 +156,7 @@ export const ReportMetricCard: React.FC<{
         )}
       </div>
       {detail && (
-        <div className={`text-sm sm:text-[14.5px] leading-relaxed font-normal pt-2.5 border-t ${isDark ? "border-slate-800 text-slate-300" : "border-[#e2e8f0] text-slate-700"}`}>
+        <div className={`text-sm sm:text-[14.5px] leading-relaxed font-normal pt-3 border-t ${isDark ? "border-slate-800 text-slate-300" : "border-[#e2e8f0] text-slate-700"}`}>
           {detail}
         </div>
       )}
@@ -233,10 +233,10 @@ export const ReportChartCard: React.FC<{
   bodyHeight,
 }) => {
   return (
-    <div className={`report-chart-card bg-white border border-[#e2e8f0] p-5 sm:p-6 flex flex-col justify-between ${className}`}>
+    <div className={`report-chart-card bg-white border border-[#e2e8f0] p-6 sm:p-7 flex flex-col justify-between h-full ${className}`}>
       <div className="flex-1 flex flex-col min-h-0">
         {/* 头部：标题、副标题与关键数值/标签 */}
-        <div className="report-chart-card-head pb-3 mb-3.5 border-b border-[#e2e8f0]">
+        <div className="report-chart-card-head pb-3.5 mb-4 border-b border-[#e2e8f0] min-h-[52px]">
           <div className="min-w-0 pr-2">
             <span className="text-lg sm:text-xl font-bold text-slate-900 block">{title}</span>
             {subtitle && <p className="text-sm text-slate-600 font-medium mt-0.5">{subtitle}</p>}
@@ -249,14 +249,14 @@ export const ReportChartCard: React.FC<{
 
         {/* 一段文字说明 (Key Takeaway / 洞察分析) */}
         {description && (
-          <div className="text-sm sm:text-[15.5px] text-slate-800 font-normal leading-relaxed bg-slate-50/70 border-l-2 border-slate-900 px-4 py-2.5 mb-4 flex items-center">
+          <div className="text-sm sm:text-[15.5px] text-slate-800 font-normal leading-relaxed bg-slate-50/70 border-l-2 border-slate-900 px-4 py-3 mb-5 flex items-center">
             {description}
           </div>
         )}
 
         {/* 统一图例栏 */}
         {legend && (
-          <div className="flex items-center justify-end pb-3">
+          <div className="flex items-center justify-end pb-3.5 mb-2">
             {legend}
           </div>
         )}
@@ -267,7 +267,7 @@ export const ReportChartCard: React.FC<{
 
       {/* 底部口径与备注说明 */}
       {footnote && (
-        <div className="mt-4 pt-3 border-t border-[#e2e8f0] text-xs sm:text-sm font-mono text-slate-600 flex items-center justify-between">
+        <div className="mt-5 pt-3.5 border-t border-[#e2e8f0] text-xs sm:text-sm font-mono text-slate-600 flex items-center justify-between">
           <span>{footnote}</span>
         </div>
       )}
@@ -284,15 +284,15 @@ export const ReportDimensionCard: React.FC<{
   contentClassName?: string;
 }> = ({ index, title, badge, children, className = "", contentClassName = "" }) => {
   return (
-    <div className={`report-dimension-card flex flex-col justify-between h-full ${className}`}>
-      <div className="report-dimension-card-head min-h-[48px] flex items-center justify-between gap-3">
+    <div className={`report-dimension-card bg-white border border-[#e2e8f0] p-6 sm:p-7 flex flex-col justify-between h-full ${className}`}>
+      <div className="report-dimension-card-head min-h-[48px] pb-3 border-b border-[#e2e8f0] mb-4 flex items-center justify-between gap-3">
         <div className="report-dimension-card-title flex-1 min-w-0">
           {index !== undefined && <span className="report-sequence-badge">{index}</span>}
           <span>{title}</span>
         </div>
         {badge && <div className="shrink-0">{badge}</div>}
       </div>
-      <div className={`space-y-3 flex-1 flex flex-col justify-between ${contentClassName}`}>{children}</div>
+      <div className={`space-y-4 flex-1 flex flex-col justify-between ${contentClassName}`}>{children}</div>
     </div>
   );
 };

@@ -76,12 +76,19 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
       </SummaryBox>
 
       {/* 图表展示区 - 统一结构规范：标题 + 说明 + 图例 + 图表 + 备注 */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
         {/* 左卡片: 26年三季度总拦截金额 */}
         <ReportChartCard
           title="三季度拦截金额月度走势"
           value="2.72"
           description="三季度累计拦截金额 2.72，峰值达 1.046；强化对批量黑产直接扣除本金，威慑效应显著。"
+          legend={
+            <ReportChartLegend
+              items={[
+                { label: "月度拦截金额", color: chartSeriesColors.secondary, shape: "rect" },
+              ]}
+            />
+          }
         >
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={amountData} margin={chartMargins.hiddenAxis}>

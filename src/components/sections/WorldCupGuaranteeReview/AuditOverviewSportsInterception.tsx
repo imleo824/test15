@@ -288,7 +288,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
       </SummaryBox>
 
       {/* 图表展示区 - 统一结构规范：标题 + 说明 + 图例 + 图表 + 口径 */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
         {/* 图表 1: 各系别体育拦截率趋势 */}
         <ReportChartCard
           title="各系别体育拦截率趋势"

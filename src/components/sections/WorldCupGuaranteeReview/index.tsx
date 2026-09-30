@@ -47,7 +47,7 @@ export const WorldCupGuaranteeReview: React.FC = () => {
         <ChapterTitle>4.0 云盾审核</ChapterTitle>
         <SummaryBox variant="chapter">
           {highlightNumbers(
-            "从25年开始，历经多轮迭代后在26年9月灰度验证，于 [[9月28日]] 正式全量上线，实现审单模式向系统自动化的根本性重构。"
+            "从25年开始，历经多轮迭代后在26年9月开始灰度验证，于 [[9月28日]] 正式全量上线，实现审单模式向系统自动化的根本性重构。"
           )}
         </SummaryBox>
         <div className="report-chapter-content">

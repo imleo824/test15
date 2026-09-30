@@ -7,12 +7,12 @@ import { SafetyArchitectureDiagram } from "./SafetyArchitectureDiagram";
 
 export const SafetyComplianceSection: React.FC = () => {
   return (
-    <div id="section-safety-compliance" className="space-y-10">
+    <div id="section-safety-compliance" className="space-y-18 lg:space-y-22">
       {/* 3.0 章节开头：安全合规分层防御架构 */}
       <SafetyArchitectureDiagram />
 
       {/* 3.1 专职监督模块 */}
-      <section id="section-3.1" className="scroll-mt-6 space-y-6">
+      <section id="section-3.1" className="scroll-mt-6 space-y-8">
         <ReportSectionHeader
           title="3.1 专职监督"
           rightContent={
@@ -25,7 +25,7 @@ export const SafetyComplianceSection: React.FC = () => {
       </section>
 
       {/* 3.2 风控工单模块 */}
-      <section id="section-3.2" className="scroll-mt-6 space-y-6">
+      <section id="section-3.2" className="scroll-mt-6 space-y-8">
         <ReportSectionHeader
           title="3.2 风控工单"
           rightContent={
@@ -38,7 +38,7 @@ export const SafetyComplianceSection: React.FC = () => {
       </section>
 
       {/* 3.3 安全机制模块 */}
-      <section id="section-3.3" className="scroll-mt-6 space-y-6">
+      <section id="section-3.3" className="scroll-mt-6 space-y-8">
         <ReportSectionHeader
           title="3.3 安全机制"
           rightContent={

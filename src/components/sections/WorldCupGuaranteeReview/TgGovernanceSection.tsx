@@ -126,9 +126,9 @@ export const TgGovernanceSection: React.FC = () => {
   ];
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-12 lg:space-y-16">
       {/* 3.2.1 线下离线流程治理 */}
-      <div className="space-y-4">
+      <div className="space-y-6 sm:space-y-8">
         <ReportSubsectionHeader title="3.2.1 线下离线流程治理" />
 
         <SummaryBox className="space-y-2">

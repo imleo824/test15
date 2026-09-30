@@ -345,19 +345,19 @@
   .report-section-stack {
     display: flex;
     flex-direction: column;
-    gap: 88px;
+    gap: 104px;
   }
 
   .report-chapter-block {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 32px;
   }
 
   .report-chapter-content {
     display: flex;
     flex-direction: column;
-    gap: 48px;
+    gap: 64px;
   }
 
   .report-business-section {
@@ -3534,7 +3534,13 @@
 
   .report-module-surface,
   .report-chart-card {
-    padding: 18px 20px;
+    padding: 24px 26px;
+  }
+  @media (min-width: 640px) {
+    .report-module-surface,
+    .report-chart-card {
+      padding: 26px 30px;
+    }
   }
 
   .report-note,

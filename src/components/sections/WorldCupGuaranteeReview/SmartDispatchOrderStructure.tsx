@@ -225,7 +225,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
           <strong>三大审核主体（外包 / 总部 / 系统）出单结构与质量演进：</strong>
           <strong>外包审核</strong> 占比从 1月的 <strong>28.5%</strong> 持续压降至 9.30全量的 <strong>7.5%</strong>（高差错率审单基本退出）；
           <strong>总部审核</strong> 稳定在 <strong>40.0% ~ 48.1%</strong> 专注承接高危与复杂核心单；
-          <strong>系统自动审单</strong> 从 1月的 <strong>28.5%</strong> 强劲跃升至 <strong>44.4%</strong>（替代主力全面成型）。
+          <strong>系统自动审单</strong> 强劲跃升至 <strong>55.00%</strong>（主力放量全面成型）。
         </span>
       }
       bodyHeight="h-[510px]"

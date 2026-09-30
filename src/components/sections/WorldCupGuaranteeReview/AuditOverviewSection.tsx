@@ -9,7 +9,7 @@ import { ReportSectionHeader } from "../../ReportSections";
 
 export const AuditOverviewSection: React.FC = () => {
   return (
-    <div className="space-y-16">
+    <div className="space-y-18 lg:space-y-20">
       {/* 2.1 风控数据 主模块标题 */}
       <ReportSectionHeader
         title="2.1 风控数据"

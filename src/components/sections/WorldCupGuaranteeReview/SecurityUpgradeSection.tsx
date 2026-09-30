@@ -186,7 +186,7 @@ export const SecurityUpgradeSection: React.FC = () => {
   ];
 
   return (
-    <div id="section-security-upgrade" className="space-y-8">
+    <div id="section-security-upgrade" className="space-y-12 lg:space-y-16">
       {/* 3.3 章节核心导语 */}
       <SummaryBox variant="module">
         <div className="space-y-2.5">
@@ -199,10 +199,10 @@ export const SecurityUpgradeSection: React.FC = () => {
       </SummaryBox>
 
       {/* 核心四大场景摘要说明卡片（2x2 网格） */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 items-stretch">
         {/* 场景 1：敏感信息维护 */}
-        <div className="border border-[#e2e8f0] bg-white p-4 sm:p-5 flex flex-col justify-between space-y-2.5">
-          <div className="flex items-center gap-2 pb-2 border-b border-slate-200">
+        <div className="border border-[#e2e8f0] bg-white p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
+          <div className="flex items-center gap-2 pb-2.5 border-b border-slate-200">
             <span className="w-5 h-5 bg-slate-900 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0">
               1
             </span>
@@ -211,7 +211,7 @@ export const SecurityUpgradeSection: React.FC = () => {
               统一字典收口
             </span>
           </div>
-          <div className="text-xs sm:text-[14.5px] text-slate-700 leading-relaxed font-normal space-y-1.5">
+          <div className="text-xs sm:text-[14.5px] text-slate-700 leading-relaxed font-normal space-y-2 flex-1">
             <p>
               <strong className="text-slate-950 font-medium">现状痛点：</strong>
               很多敏感信息散落在太多的模块内，导致收口和更新、维护都很麻烦，且还存在漏的问题。
@@ -224,8 +224,8 @@ export const SecurityUpgradeSection: React.FC = () => {
         </div>
 
         {/* 场景 2：敏感异常操作 */}
-        <div className="border border-[#e2e8f0] bg-white p-4 sm:p-5 flex flex-col justify-between space-y-2.5">
-          <div className="flex items-center gap-2 pb-2 border-b border-slate-200">
+        <div className="border border-[#e2e8f0] bg-white p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
+          <div className="flex items-center gap-2 pb-2.5 border-b border-slate-200">
             <span className="w-5 h-5 bg-slate-900 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0">
               2
             </span>
@@ -234,7 +234,7 @@ export const SecurityUpgradeSection: React.FC = () => {
               工种控权收紧
             </span>
           </div>
-          <div className="text-xs sm:text-[14.5px] text-slate-700 leading-relaxed font-normal space-y-1.5">
+          <div className="text-xs sm:text-[14.5px] text-slate-700 leading-relaxed font-normal space-y-2 flex-1">
             <p>
               <strong className="text-slate-950 font-medium">现状痛点：</strong>
               复制、截屏、导出、批量查询等高危操作权限泛滥，未按实际工种必要性进行严格控制。
@@ -247,8 +247,8 @@ export const SecurityUpgradeSection: React.FC = () => {
         </div>
 
         {/* 场景 3：敏感信息修改 */}
-        <div className="border border-[#e2e8f0] bg-white p-4 sm:p-5 flex flex-col justify-between space-y-2.5">
-          <div className="flex items-center gap-2 pb-2 border-b border-slate-200">
+        <div className="border border-[#e2e8f0] bg-white p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
+          <div className="flex items-center gap-2 pb-2.5 border-b border-slate-200">
             <span className="w-5 h-5 bg-slate-900 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0">
               3
             </span>
@@ -257,7 +257,7 @@ export const SecurityUpgradeSection: React.FC = () => {
               双人背靠背审批
             </span>
           </div>
-          <div className="text-xs sm:text-[14.5px] text-slate-700 leading-relaxed font-normal space-y-1.5">
+          <div className="text-xs sm:text-[14.5px] text-slate-700 leading-relaxed font-normal space-y-2 flex-1">
             <p>
               <strong className="text-slate-950 font-medium">现状痛点：</strong>
               有权限的人可以单人完成修改，缺乏背靠背交叉核验，风险较大且易发生单点内部作案。
@@ -270,8 +270,8 @@ export const SecurityUpgradeSection: React.FC = () => {
         </div>
 
         {/* 场景 4：敏感权限结构 */}
-        <div className="border border-[#e2e8f0] bg-white p-4 sm:p-5 flex flex-col justify-between space-y-2.5">
-          <div className="flex items-center gap-2 pb-2 border-b border-slate-200">
+        <div className="border border-[#e2e8f0] bg-white p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
+          <div className="flex items-center gap-2 pb-2.5 border-b border-slate-200">
             <span className="w-5 h-5 bg-slate-900 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0">
               4
             </span>
@@ -280,7 +280,7 @@ export const SecurityUpgradeSection: React.FC = () => {
               任务驱动分层
             </span>
           </div>
-          <div className="text-xs sm:text-[14.5px] text-slate-700 leading-relaxed font-normal space-y-1.5">
+          <div className="text-xs sm:text-[14.5px] text-slate-700 leading-relaxed font-normal space-y-2 flex-1">
             <p>
               <strong className="text-slate-950 font-medium">现状痛点：</strong>
               主动查会员信息场景极少，无工单任务无故查询属于高风险操作，缺乏严格的任务约束。
@@ -294,7 +294,7 @@ export const SecurityUpgradeSection: React.FC = () => {
       </div>
 
       {/* 四大核心场景落地管控规范全览 (落地细则表) */}
-      <div className="space-y-6">
+      <div className="space-y-6 sm:space-y-8">
         <ReportSubsectionHeader
           title="3.3.1 四大安全机制落地细则"
           rightContent={
