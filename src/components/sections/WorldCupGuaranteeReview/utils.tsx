@@ -11,7 +11,7 @@ const summaryRiskNumberClass =
 const summarySafeNumberClass =
   "report-number report-number-safe text-slate-950 font-black font-mono tabular-nums";
 const summaryCoreClass =
-  "report-core-underline";
+  "report-core-underline font-bold text-slate-950";
 
 const numericPattern =
   String.raw`[<>≤≥~～]?\s*[+\-]?\d+(?:[.,:：]\d+)*(?:\+)?(?:\s*(?:%|人/小时|单/月|/月|w/月|W/月|人|场|项|倍|E|W|w|万|亿|万元|亿元|元|h|ms|min|k|个|单|条|站|分|分钟|秒|天|月|年))?(?:\s*[-~～]\s*\d+(?:[.,:：]\d+)*(?:\+)?(?:\s*(?:%|人/小时|单/月|/月|w/月|W/月|人|场|项|倍|E|W|w|万|亿|万元|亿元|元|h|ms|min|k|个|单|条|站|分|分钟|秒|天|月|年))?)?`;
@@ -266,7 +266,7 @@ export const ExpectedRhythm = ({
 
   if (hasDetails) {
     return (
-      <div className="report-rhythm p-5 sm:p-6 space-y-4 mt-auto border border-[#e2e8f0] bg-white">
+      <div className="report-rhythm p-4 sm:p-5 space-y-3 mt-auto bg-slate-50/50">
         <div className="report-rhythm-head">
           <span className="font-bold text-slate-900 text-base md:text-lg flex items-center gap-2">
             <Clock className="w-5 h-5 text-blue-900 shrink-0" />

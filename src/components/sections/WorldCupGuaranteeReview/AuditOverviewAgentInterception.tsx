@@ -137,7 +137,7 @@ export const AuditOverviewAgentInterception: React.FC = () => {
   const safePercent = (val, total) => total > 0 ? ((val / total) * 100).toFixed(2) + "%" : "0.00%";
 
   return (
-    <div id="section-audit-agent-interception" className="space-y-5">
+    <div id="section-audit-agent-interception" className="space-y-6 sm:space-y-8">
       {/* 模块小标题 - 统一规范 */}
       <ReportSubsectionHeader title="2.1.3 代理数据" />
 
@@ -180,34 +180,34 @@ export const AuditOverviewAgentInterception: React.FC = () => {
 
       {/* 表格 */}
       <ReportTableFrame>
-        <table className="report-dense-table">
+        <table className="report-dense-table w-full">
           <thead className="bg-slate-50 text-slate-800">
             <tr className="border-b border-slate-200 font-bold text-slate-900">
-              <th rowSpan={2} className="py-2 px-2 border-r border-slate-200 text-center">时间</th>
-              <th rowSpan={2} className="py-2 px-2 border-r border-slate-200 text-center">合计</th>
-              <th colSpan={2} className="py-2 px-2 border-r border-slate-200 text-center">基础拦截</th>
-              <th colSpan={2} className="py-2 px-2 border-r border-slate-200 text-center">额外拦截金额</th>
-              <th colSpan={2} className="py-2 px-2 border-r border-slate-200 text-center">人头费拦截</th>
-              <th colSpan={2} className="py-2 px-2 border-r border-slate-200 text-center">首复存</th>
-              <th colSpan={2} className="py-2 px-2 border-r border-slate-200 text-center">奖励活动</th>
-              <th colSpan={2} className="py-2 px-2 border-r border-slate-200 text-center">新增冲刺</th>
+              <th rowSpan={2} className="py-2.5 px-2 text-center">时间</th>
+              <th rowSpan={2} className="py-2.5 px-2 text-center">合计</th>
+              <th colSpan={2} className="py-2 px-2 text-center">基础拦截</th>
+              <th colSpan={2} className="py-2 px-2 text-center">额外拦截金额</th>
+              <th colSpan={2} className="py-2 px-2 text-center">人头费拦截</th>
+              <th colSpan={2} className="py-2 px-2 text-center">首复存</th>
+              <th colSpan={2} className="py-2 px-2 text-center">奖励活动</th>
+              <th colSpan={2} className="py-2 px-2 text-center">新增冲刺</th>
               <th colSpan={2} className="py-2 px-2 text-center">其他</th>
             </tr>
             <tr className="border-b-2 border-slate-900 text-slate-700 font-bold text-xs sm:text-sm">
-              <th className="px-2 py-2 border-b border-slate-200 text-center">金额</th>
-              <th className="px-2 py-2 border-b border-slate-200 border-r border-slate-200 text-center">占比</th>
-              <th className="px-2 py-2 border-b border-slate-200 text-center">金额</th>
-              <th className="px-2 py-2 border-b border-slate-200 border-r border-slate-200 text-center">占比</th>
-              <th className="px-2 py-2 border-b border-slate-200 text-center">金额</th>
-              <th className="px-2 py-2 border-b border-slate-200 border-r border-slate-200 text-center">占比</th>
-              <th className="px-2 py-2 border-b border-slate-200 text-center">金额</th>
-              <th className="px-2 py-2 border-b border-slate-200 border-r border-slate-200 text-center">占比</th>
-              <th className="px-2 py-2 border-b border-slate-200 text-center">金额</th>
-              <th className="px-2 py-2 border-b border-slate-200 border-r border-slate-200 text-center">占比</th>
-              <th className="px-2 py-2 border-b border-slate-200 text-center">金额</th>
-              <th className="px-2 py-2 border-b border-slate-200 border-r border-slate-200 text-center">占比</th>
-              <th className="px-2 py-2 border-b border-slate-200 text-center">金额</th>
-              <th className="px-2 py-2 border-b border-slate-200 text-center">占比</th>
+              <th className="px-2 py-2 text-center">金额</th>
+              <th className="px-2 py-2 text-center">占比</th>
+              <th className="px-2 py-2 text-center">金额</th>
+              <th className="px-2 py-2 text-center">占比</th>
+              <th className="px-2 py-2 text-center">金额</th>
+              <th className="px-2 py-2 text-center">占比</th>
+              <th className="px-2 py-2 text-center">金额</th>
+              <th className="px-2 py-2 text-center">占比</th>
+              <th className="px-2 py-2 text-center">金额</th>
+              <th className="px-2 py-2 text-center">占比</th>
+              <th className="px-2 py-2 text-center">金额</th>
+              <th className="px-2 py-2 text-center">占比</th>
+              <th className="px-2 py-2 text-center">金额</th>
+              <th className="px-2 py-2 text-center">占比</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-slate-100 font-mono tabular-nums text-xs sm:text-sm">
@@ -215,20 +215,20 @@ export const AuditOverviewAgentInterception: React.FC = () => {
               const isMay = row.month === "5月";
               return (
                 <tr key={idx} className={idx % 2 === 0 ? "bg-white" : "bg-slate-50/50"}>
-                  <td className="px-2 py-2 text-center font-bold text-slate-900 border-r border-slate-200">{row.month}</td>
-                  <td className="px-2 py-2 text-center font-bold text-blue-900 border-r border-slate-200">{row.total_amt}</td>
+                  <td className="px-2 py-2 text-center font-bold text-slate-900">{row.month}</td>
+                  <td className="px-2 py-2 text-center font-bold text-blue-900">{row.total_amt}</td>
                   <td className="px-2 py-2 text-center text-slate-700">{row.base_amt}</td>
-                  <td className="px-2 py-2 text-center border-r border-slate-200 text-slate-700">{row.base_pct}</td>
+                  <td className="px-2 py-2 text-center text-slate-700">{row.base_pct}</td>
                   <td className={`px-2 py-2 text-center ${isMay ? "text-blue-900 font-bold bg-blue-50/40" : "text-slate-800"}`}>{row.extra_amt}</td>
-                  <td className={`px-2 py-2 text-center border-r border-slate-200 ${isMay ? "text-blue-900 font-bold bg-blue-50/40" : "text-slate-700"}`}>{row.extra_pct}</td>
+                  <td className={`px-2 py-2 text-center ${isMay ? "text-blue-900 font-bold bg-blue-50/40" : "text-slate-700"}`}>{row.extra_pct}</td>
                   <td className="px-2 py-2 text-center text-slate-700">{row.head_amt}</td>
-                  <td className="px-2 py-2 text-center border-r border-slate-200 text-slate-700">{row.head_pct}</td>
+                  <td className="px-2 py-2 text-center text-slate-700">{row.head_pct}</td>
                   <td className="px-2 py-2 text-center text-slate-700">{row.first_dep_amt}</td>
-                  <td className="px-2 py-2 text-center border-r border-slate-200 text-slate-700">{row.first_dep_pct}</td>
+                  <td className="px-2 py-2 text-center text-slate-700">{row.first_dep_pct}</td>
                   <td className="px-2 py-2 text-center text-slate-700">{row.reward1_amt}</td>
-                  <td className="px-2 py-2 text-center border-r border-slate-200 text-slate-700">{row.reward1_pct}</td>
+                  <td className="px-2 py-2 text-center text-slate-700">{row.reward1_pct}</td>
                   <td className="px-2 py-2 text-center text-slate-700">{row.sprint_amt}</td>
-                  <td className="px-2 py-2 text-center border-r border-slate-200 text-slate-700">{row.sprint_pct}</td>
+                  <td className="px-2 py-2 text-center text-slate-700">{row.sprint_pct}</td>
                   <td className="px-2 py-2 text-center text-slate-700">{row.other_amt}</td>
                   <td className="px-2 py-2 text-center text-slate-700">{row.other_pct}</td>
                 </tr>
@@ -237,20 +237,20 @@ export const AuditOverviewAgentInterception: React.FC = () => {
           </tbody>
           <tfoot className="border-t-2 border-b-2 border-slate-900 bg-slate-50 font-mono tabular-nums text-xs sm:text-sm text-slate-900 font-bold">
             <tr>
-              <td className="px-2 py-2.5 text-center font-bold border-r border-slate-200">总计</td>
-              <td className="px-2 py-2.5 text-center font-bold text-blue-900 border-r border-slate-200">{totals.total_amt.toFixed(1)}</td>
+              <td className="px-2 py-2.5 text-center font-bold">总计</td>
+              <td className="px-2 py-2.5 text-center font-bold text-blue-900">{totals.total_amt.toFixed(1)}</td>
               <td className="px-2 py-2.5 text-center text-slate-800">{totals.base_amt.toFixed(1)}</td>
-              <td className="px-2 py-2.5 text-center border-r border-slate-200 text-slate-700">{safePercent(totals.base_amt, totals.total_amt)}</td>
+              <td className="px-2 py-2.5 text-center text-slate-700">{safePercent(totals.base_amt, totals.total_amt)}</td>
               <td className="px-2 py-2.5 text-center text-blue-900 font-bold">{totals.extra_amt.toFixed(1)}</td>
-              <td className="px-2 py-2.5 text-center border-r border-slate-200 text-blue-900 font-bold">{safePercent(totals.extra_amt, totals.total_amt)}</td>
+              <td className="px-2 py-2.5 text-center text-blue-900 font-bold">{safePercent(totals.extra_amt, totals.total_amt)}</td>
               <td className="px-2 py-2.5 text-center text-slate-800">{totals.head_amt.toFixed(1)}</td>
-              <td className="px-2 py-2.5 text-center border-r border-slate-200 text-slate-700">{safePercent(totals.head_amt, totals.total_amt)}</td>
+              <td className="px-2 py-2.5 text-center text-slate-700">{safePercent(totals.head_amt, totals.total_amt)}</td>
               <td className="px-2 py-2.5 text-center text-slate-800">{totals.first_dep_amt.toFixed(1)}</td>
-              <td className="px-2 py-2.5 text-center border-r border-slate-200 text-slate-700">{safePercent(totals.first_dep_amt, totals.total_amt)}</td>
+              <td className="px-2 py-2.5 text-center text-slate-700">{safePercent(totals.first_dep_amt, totals.total_amt)}</td>
               <td className="px-2 py-2.5 text-center text-slate-800">{totals.reward1_amt.toFixed(1)}</td>
-              <td className="px-2 py-2.5 text-center border-r border-slate-200 text-slate-700">{safePercent(totals.reward1_amt, totals.total_amt)}</td>
+              <td className="px-2 py-2.5 text-center text-slate-700">{safePercent(totals.reward1_amt, totals.total_amt)}</td>
               <td className="px-2 py-2.5 text-center text-slate-800">{totals.sprint_amt.toFixed(1)}</td>
-              <td className="px-2 py-2.5 text-center border-r border-slate-200 text-slate-700">{safePercent(totals.sprint_amt, totals.total_amt)}</td>
+              <td className="px-2 py-2.5 text-center text-slate-700">{safePercent(totals.sprint_amt, totals.total_amt)}</td>
               <td className="px-2 py-2.5 text-center text-slate-800">{totals.other_amt.toFixed(1)}</td>
               <td className="px-2 py-2.5 text-center text-slate-700">{safePercent(totals.other_amt, totals.total_amt)}</td>
             </tr>

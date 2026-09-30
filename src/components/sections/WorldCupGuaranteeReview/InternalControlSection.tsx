@@ -106,7 +106,7 @@ export const InternalControlSection: React.FC = () => {
       </div>
 
       {/* 3.1.2 监督排查核心主线 */}
-      <div className="space-y-4">
+      <div className="space-y-6 sm:space-y-8">
         <ReportSubsectionHeader title="3.1.2 监督排查核心主线" />
 
         <SummaryBox>
@@ -117,7 +117,7 @@ export const InternalControlSection: React.FC = () => {
           </p>
         </SummaryBox>
         
-        <div className="space-y-4">
+        <div className="space-y-6">
           <ReportInfoGrid
             title="线索来源"
             icon={<Search className="w-4 h-4 text-slate-900 shrink-0" />}
@@ -143,7 +143,7 @@ export const InternalControlSection: React.FC = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 items-stretch">
           {/* 1. 外部通讯群信息 */}
-          <div className="flex flex-col justify-between space-y-4 bg-white p-5 sm:p-6 border border-[#e2e8f0] h-full">
+          <div className="flex flex-col justify-between space-y-4 bg-slate-50/70 p-5 sm:p-6 border-l-4 border-slate-900 h-full">
             <div className="space-y-2.5">
               <div className="flex items-center gap-2 text-slate-900 font-bold text-base sm:text-lg">
                 <span className="report-sequence-badge report-sequence-badge--risk">1</span>
@@ -153,7 +153,7 @@ export const InternalControlSection: React.FC = () => {
                 {highlightNumbers("群聊信息易被全局检索，导致[[敏感数据暴露]]与非受控扩散，存在严重信息泄露隐患。")}
               </p>
             </div>
-            <div className="pt-3.5 space-y-2 border-t border-[#e2e8f0]">
+            <div className="pt-3 space-y-1.5 border-t border-slate-200">
               <div className="text-sm sm:text-base font-bold text-slate-900 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 bg-blue-700 shrink-0"></span>
                 <span>解决策略：</span>
@@ -165,7 +165,7 @@ export const InternalControlSection: React.FC = () => {
           </div>
 
           {/* 2. 内部勾结查控 */}
-          <div className="flex flex-col justify-between space-y-4 bg-white p-5 sm:p-6 border border-[#e2e8f0] h-full">
+          <div className="flex flex-col justify-between space-y-4 bg-slate-50/70 p-5 sm:p-6 border-l-4 border-slate-900 h-full">
             <div className="space-y-2.5">
               <div className="flex items-center gap-2 text-slate-900 font-bold text-base sm:text-lg">
                 <span className="report-sequence-badge report-sequence-badge--risk">2</span>
@@ -175,7 +175,7 @@ export const InternalControlSection: React.FC = () => {
                 {highlightNumbers("涉及[[身份验证]]、[[佣金结算]]与[[提款审核]]等环节，若缺乏随机隔离与交叉复核，易产生协同违规。")}
               </p>
             </div>
-            <div className="pt-3.5 space-y-2 border-t border-[#e2e8f0]">
+            <div className="pt-3 space-y-1.5 border-t border-slate-200">
               <div className="text-sm sm:text-base font-bold text-slate-900 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 bg-blue-700 shrink-0"></span>
                 <span>解决策略：</span>
@@ -193,8 +193,8 @@ export const InternalControlSection: React.FC = () => {
         <ReportSubsectionHeader title="3.1.4 典型案例剖析" />
         
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-5 sm:gap-6 items-stretch">
-          <div className="space-y-4 bg-white p-5 sm:p-6 border border-[#e2e8f0] flex flex-col justify-between h-full">
-            <div className="flex items-center gap-2 text-slate-900 font-bold text-base sm:text-lg pb-2 border-b border-[#e2e8f0]">
+          <div className="space-y-4 bg-slate-50/70 p-5 sm:p-6 border-t-2 border-slate-900 flex flex-col justify-between h-full">
+            <div className="flex items-center gap-2 text-slate-900 font-bold text-base sm:text-lg pb-2 border-b border-slate-200">
               <Shield className="w-5 h-5 text-blue-800 shrink-0" />
               <span>外包审核违规案例</span>
             </div>
@@ -240,8 +240,8 @@ export const InternalControlSection: React.FC = () => {
             </div>
           </div>
 
-          <div className="space-y-4 bg-white p-4 sm:p-5 border border-[#e2e8f0]">
-            <div className="flex items-center gap-2 text-slate-900 font-bold text-base sm:text-lg pb-2 border-b border-[#e2e8f0]">
+          <div className="space-y-4 bg-slate-50/70 p-5 sm:p-6 border-t-2 border-slate-900 flex flex-col justify-between h-full">
+            <div className="flex items-center gap-2 text-slate-900 font-bold text-base sm:text-lg pb-2 border-b border-slate-200">
               <Shield className="w-5 h-5 text-blue-800 shrink-0" />
               <span>业绩造假违规案例</span>
             </div>
@@ -253,8 +253,8 @@ export const InternalControlSection: React.FC = () => {
                   <div className="w-0.5 flex-1 bg-slate-200 my-1"></div>
                 </div>
                 <div className="pb-2">
-                  <span className="font-bold text-slate-900 block text-sm mb-0.5">违规类型</span>
-                  <p className="text-sm text-slate-700 leading-relaxed font-normal">
+                  <span className="font-bold text-slate-900 block text-sm sm:text-base mb-0.5">违规类型</span>
+                  <p className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal">
                     {highlightNumbers("[[业绩造假]]：伪造业务过程材料与用户参与记录，虚增个人业绩。")}
                   </p>
                 </div>
@@ -266,8 +266,8 @@ export const InternalControlSection: React.FC = () => {
                   <div className="w-0.5 flex-1 bg-slate-200 my-1"></div>
                 </div>
                 <div className="pb-2">
-                  <span className="font-bold text-slate-900 block text-sm mb-0.5">发现情况</span>
-                  <p className="text-sm text-slate-700 leading-relaxed font-normal">
+                  <span className="font-bold text-slate-900 block text-sm sm:text-base mb-0.5">发现情况</span>
+                  <p className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal">
                     {highlightNumbers("多名员工利用[[图像合成工具]]伪造用户对话记录，导致业绩数据失真。")}
                   </p>
                 </div>
@@ -278,8 +278,8 @@ export const InternalControlSection: React.FC = () => {
                   <div className="report-sequence-badge">3</div>
                 </div>
                 <div>
-                  <span className="font-bold text-slate-900 block text-sm mb-0.5">风险影响</span>
-                  <p className="text-sm text-slate-700 leading-relaxed font-normal">
+                  <span className="font-bold text-slate-900 block text-sm sm:text-base mb-0.5">风险影响</span>
+                  <p className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal">
                     {highlightNumbers("破坏[[考核真实性]]与合规性，已纳入素材复核、交叉验证与绩效审计。")}
                   </p>
                 </div>

@@ -63,33 +63,33 @@ export const ReportCover: React.FC = () => {
       </div>
 
       {/* 目录 (高阶报告目录架构) */}
-      <div className="space-y-4 pt-2">
-        <div className="flex items-center justify-between border-b-2 border-slate-900 pb-3">
+      <div className="space-y-3 pt-2">
+        <div className="flex items-center justify-between pb-2.5 border-b border-slate-900">
           <span className="text-sm sm:text-base font-mono font-bold tracking-wider text-slate-900 uppercase">
             报告目录
           </span>
           <span className="text-xs font-mono text-slate-500">共 4 个核心章节</span>
         </div>
 
-        {/* 目录列表 */}
-        <div className="border-t-2 border-b-2 border-slate-900 divide-y divide-[#e2e8f0] bg-white">
+        {/* 目录列表：单线清爽分割 */}
+        <div className="divide-y divide-slate-200 bg-white">
           {sections.map((section) => (
             <div
               key={section.id}
               onClick={() => handleScrollToSection(section.id)}
-              className="flex items-center justify-between px-6 py-4.5 bg-white select-none"
+              className="flex items-center justify-between px-3 sm:px-4 py-3.5 bg-white select-none cursor-pointer hover:bg-slate-50 transition-colors"
             >
-              <div className="flex items-center gap-5 min-w-0">
-                <span className="font-mono text-sm sm:text-base font-black text-white bg-slate-900 px-3.5 py-1 shrink-0 tracking-tight">
+              <div className="flex items-center gap-4 sm:gap-5 min-w-0">
+                <span className="font-mono text-sm sm:text-base font-bold text-white bg-slate-900 px-3 py-0.5 shrink-0 tracking-tight">
                   {section.id}
                 </span>
-                <span className="text-lg sm:text-xl font-bold text-slate-950">
+                <span className="text-base sm:text-lg font-bold text-slate-950">
                   {section.title}
                 </span>
               </div>
               <div className="flex items-center gap-3 shrink-0">
-                <span className="text-xs sm:text-sm font-mono font-bold text-slate-500 tracking-wider uppercase">
-                  SECTION {section.id}
+                <span className="text-xs sm:text-sm font-mono font-medium text-slate-500 tracking-wider">
+                  第 {section.id} 章
                 </span>
               </div>
             </div>

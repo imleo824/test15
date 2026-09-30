@@ -141,7 +141,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
       <div style={chartTooltipStyle} className="p-3 space-y-2 min-w-[240px]">
         <div className="flex items-center justify-between border-b border-slate-200 pb-1.5">
           <span className="font-bold text-slate-900 text-sm">{label}审核 · 月度演进明细</span>
-          <span className="text-[11px] px-1.5 py-0.5 bg-slate-100 text-slate-800 font-mono font-bold border border-slate-200">
+          <span className="text-[11px] px-1.5 py-0.5 bg-slate-100 text-slate-800 font-mono font-bold">
             {roleItem?.tag}
           </span>
         </div>
@@ -208,7 +208,7 @@ const renderLegend = () => (
           className={`h-2.5 w-2.5 rounded-xs shrink-0 ${cfg.hasBorder ? "border border-slate-300" : ""}`}
           style={{ backgroundColor: cfg.color }}
         />
-        <span className={cfg.isKey ? "font-bold text-blue-900 bg-blue-50 px-1 py-0.2 border border-blue-200" : "text-slate-600"}>
+        <span className={cfg.isKey ? "font-bold text-blue-900 bg-blue-50 px-1 py-0.2" : "text-slate-600"}>
           {cfg.name}
         </span>
       </div>

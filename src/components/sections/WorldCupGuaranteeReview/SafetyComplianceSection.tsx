@@ -16,7 +16,7 @@ export const SafetyComplianceSection: React.FC = () => {
         <ReportSectionHeader
           title="3.1 专职监督"
           rightContent={
-            <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-2.5 py-1 border border-slate-200">
+            <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-2.5 py-1">
               底线审计兜底 · 违规稽查与行为追溯
             </span>
           }
@@ -29,7 +29,7 @@ export const SafetyComplianceSection: React.FC = () => {
         <ReportSectionHeader
           title="3.2 风控工单"
           rightContent={
-            <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-2.5 py-1 border border-slate-200">
+            <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-2.5 py-1">
               全链路闭环流转 · 彻底取缔线下群聊
             </span>
           }
@@ -42,7 +42,7 @@ export const SafetyComplianceSection: React.FC = () => {
         <ReportSectionHeader
           title="3.3 安全机制"
           rightContent={
-            <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-2.5 py-1 border border-slate-200">
+            <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-2.5 py-1">
               系统硬性防线 · 信息维护/异常操作/信息修改/权限结构
             </span>
           }

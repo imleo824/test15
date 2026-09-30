@@ -48,9 +48,9 @@ const tiers: ArchTier[] = [
 
 export const SafetyArchitectureDiagram: React.FC = () => {
   return (
-    <div className="w-full bg-white border border-[#e2e8f0] p-4 sm:p-5 space-y-4">
+    <div className="w-full bg-white space-y-4">
       {/* 头部标题栏：紧凑高能级 */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#e2e8f0] pb-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b-2 border-slate-900 pb-3">
         <div className="flex items-center gap-2.5">
           <div className="w-2.5 h-6 bg-slate-900 shrink-0"></div>
           <div>
@@ -61,7 +61,7 @@ export const SafetyArchitectureDiagram: React.FC = () => {
         </div>
 
         {/* 顶部逻辑流标识 */}
-        <div className="flex items-center gap-1.5 bg-slate-100 px-2.5 py-1 border border-[#e2e8f0] text-xs font-mono shrink-0 self-start sm:self-auto">
+        <div className="flex items-center gap-1.5 bg-slate-100 px-2.5 py-1 text-xs font-mono shrink-0 self-start sm:self-auto">
           <span className="font-bold text-slate-900">L1 系统硬控</span>
           <span className="text-slate-400">➔</span>
           <span className="font-bold text-slate-900">L2 协同流转</span>
@@ -70,10 +70,10 @@ export const SafetyArchitectureDiagram: React.FC = () => {
         </div>
       </div>
 
-      {/* 架构主体：精简无沉淀干净矩阵 */}
-      <div className="border border-[#e2e8f0] bg-white divide-y divide-[#e2e8f0]">
+      {/* 架构主体：极简专业审计风格分层表格 */}
+      <div className="border-t border-b border-slate-900 bg-white divide-y divide-slate-200">
         {/* 表格列头指示（大屏显示） */}
-        <div className="hidden lg:grid grid-cols-12 gap-3 bg-slate-100/90 px-4 py-2 text-xs font-bold text-slate-700 uppercase tracking-wider border-b border-[#e2e8f0]">
+        <div className="hidden lg:grid grid-cols-12 gap-3 bg-slate-50 px-4 py-2.5 text-xs font-bold text-slate-800 uppercase tracking-wider border-b border-slate-900">
           <div className="col-span-3">防御层级</div>
           <div className="col-span-2 text-center">治理状态</div>
           <div className="col-span-7">核心防护举措与落地要求</div>
@@ -84,7 +84,7 @@ export const SafetyArchitectureDiagram: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
               {/* 1. 防御层级 (col-span-3) */}
               <div className="lg:col-span-3 flex items-center gap-3">
-                <div className="p-2.5 bg-slate-100 border border-[#e2e8f0] shrink-0">
+                <div className="p-2.5 bg-slate-100 shrink-0">
                   {tier.icon}
                 </div>
                 <div className="space-y-1">
@@ -102,13 +102,13 @@ export const SafetyArchitectureDiagram: React.FC = () => {
               {/* 2. 治理状态 (col-span-2) */}
               <div className="lg:col-span-2 flex items-center justify-start lg:justify-center">
                 {tier.status === "进行中" ? (
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-blue-50 border border-blue-200 text-blue-900 font-bold text-xs sm:text-sm font-mono shrink-0">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                  <span className="inline-flex items-center gap-1.5 text-blue-900 font-bold text-xs sm:text-sm font-mono shrink-0">
+                    <span className="w-2 h-2 rounded-[1px] bg-blue-600"></span>
                     <span>进行中</span>
                   </span>
                 ) : (
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-amber-50 border border-amber-200 text-amber-900 font-bold text-xs sm:text-sm font-mono shrink-0">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-600"></span>
+                  <span className="inline-flex items-center gap-1.5 text-amber-900 font-bold text-xs sm:text-sm font-mono shrink-0">
+                    <span className="w-2 h-2 rounded-[1px] bg-amber-600"></span>
                     <span>待加强</span>
                   </span>
                 )}

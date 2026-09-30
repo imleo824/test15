@@ -58,7 +58,7 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
   ];
 
   return (
-    <div id="section-audit-high-vip-detail" className="space-y-5">
+    <div id="section-audit-high-vip-detail" className="space-y-6 sm:space-y-8">
       {/* 模块小标题 - 统一规范 */}
       <ReportSubsectionHeader title="2.1.6 高等级会员" />
 
@@ -116,111 +116,108 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
       {/* 布局：VIP等级与违规拦截金大表（全宽），下方补充类型统计 */}
       <div className="space-y-6">
         {/* VIP等级与违法类型金额明细表 */}
-        <ReportPanel padding="none" className="overflow-hidden space-y-3">
-          <ReportTableFrame>
-            <table className="report-dense-table">
-              <thead className="bg-slate-50 text-slate-800">
-                {/* 一级表头 */}
-                <tr className="border-b border-slate-200 font-bold text-slate-900">
-                  <th rowSpan={2} className="p-2 border-r border-slate-200 text-center">等级</th>
-                  <th colSpan={2} className="p-2 border-r border-slate-200 text-center">总人数</th>
-                  <th colSpan={3} className="p-2 border-r border-slate-200 text-center">体育</th>
-                  <th colSpan={3} className="p-2 border-r border-slate-200 text-center">电竞</th>
-                  <th colSpan={3} className="p-2 border-r border-slate-200 text-center">租卖</th>
-                  <th colSpan={3} className="p-2 border-r border-slate-200 text-center">红利</th>
-                  <th colSpan={3} className="p-2 text-center">软件</th>
-                </tr>
-                {/* 二级表头 */}
-                <tr className="border-b-2 border-slate-900 text-slate-800 font-bold text-sm">
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">人数</th>
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">占比</th>
+        <ReportTableFrame>
+          <table className="report-dense-table w-full">
+            <thead className="bg-slate-50 text-slate-800">
+              {/* 一级表头 */}
+              <tr className="border-b border-slate-200 font-bold text-slate-900">
+                <th rowSpan={2} className="p-2.5 text-center">等级</th>
+                <th colSpan={2} className="p-2 text-center">总人数</th>
+                <th colSpan={3} className="p-2 text-center">体育</th>
+                <th colSpan={3} className="p-2 text-center">电竞</th>
+                <th colSpan={3} className="p-2 text-center">租卖</th>
+                <th colSpan={3} className="p-2 text-center">红利</th>
+                <th colSpan={3} className="p-2 text-center">软件</th>
+              </tr>
+              {/* 二级表头 */}
+              <tr className="border-b-2 border-slate-900 text-slate-800 font-bold text-sm">
+                <th className="px-2 py-2 text-center">人数</th>
+                <th className="px-2 py-2 text-center">占比</th>
 
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">人数</th>
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">金额</th>
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">占比</th>
+                <th className="px-2 py-2 text-center">人数</th>
+                <th className="px-2 py-2 text-center">金额</th>
+                <th className="px-2 py-2 text-center">占比</th>
 
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">人数</th>
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">金额</th>
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">占比</th>
+                <th className="px-2 py-2 text-center">人数</th>
+                <th className="px-2 py-2 text-center">金额</th>
+                <th className="px-2 py-2 text-center">占比</th>
 
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">人数</th>
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">金额</th>
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">占比</th>
+                <th className="px-2 py-2 text-center">人数</th>
+                <th className="px-2 py-2 text-center">金额</th>
+                <th className="px-2 py-2 text-center">占比</th>
 
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">人数</th>
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">金额</th>
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">占比</th>
+                <th className="px-2 py-2 text-center">人数</th>
+                <th className="px-2 py-2 text-center">金额</th>
+                <th className="px-2 py-2 text-center">占比</th>
 
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">人数</th>
-                  <th className="px-2 py-2 border-r border-slate-200 text-center">金额</th>
-                  <th className="px-2 py-2 text-center">占比</th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-slate-100 font-mono tabular-nums text-sm">
-                {vipDetailData.map((row, idx) => {
-                  const isHighDensity = row.vip_level === "6级" || row.vip_level === "7级";
-                  return (
-                    <tr key={idx} className={isHighDensity ? "bg-blue-50/30" : idx % 2 === 0 ? "bg-white" : "bg-slate-50/50"}>
-                      <td className={`px-2 py-2.5 text-center font-bold border-r border-slate-200 ${isHighDensity ? "text-blue-900" : "text-slate-900"}`}>
-                        {row.vip_level}
-                      </td>
-                      <td className={`px-2 py-2.5 text-center font-mono ${isHighDensity ? "text-blue-900 font-bold" : "text-slate-700"}`}>{row.total_people}</td>
-                      <td className={`px-2 py-2.5 text-center font-mono border-r border-slate-200 ${isHighDensity ? "text-blue-900 font-bold bg-blue-50/50" : "text-slate-700"}`}>{row.vip_people_pct}</td>
+                <th className="px-2 py-2 text-center">人数</th>
+                <th className="px-2 py-2 text-center">金额</th>
+                <th className="px-2 py-2 text-center">占比</th>
+              </tr>
+            </thead>
+            <tbody className="bg-white divide-y divide-slate-100 font-mono tabular-nums text-sm">
+              {vipDetailData.map((row, idx) => {
+                const isHighDensity = row.vip_level === "6级" || row.vip_level === "7级";
+                return (
+                  <tr key={idx} className={isHighDensity ? "bg-blue-50/30" : idx % 2 === 0 ? "bg-white" : "bg-slate-50/50"}>
+                    <td className={`px-2 py-2.5 text-center font-bold ${isHighDensity ? "text-blue-900" : "text-slate-900"}`}>
+                      {row.vip_level}
+                    </td>
+                    <td className={`px-2 py-2.5 text-center font-mono ${isHighDensity ? "text-blue-900 font-bold" : "text-slate-700"}`}>{row.total_people}</td>
+                    <td className={`px-2 py-2.5 text-center font-mono ${isHighDensity ? "text-blue-900 font-bold bg-blue-50/50" : "text-slate-700"}`}>{row.vip_people_pct}</td>
 
-                      <td className="px-2 py-2.5 text-center font-mono text-slate-700">{row.sports_people}</td>
-                      <td className={`px-2 py-2.5 text-center font-mono ${isHighDensity ? "text-blue-900 font-bold" : "text-slate-700"}`}>{row.sports_amt}</td>
-                      <td className={`px-2 py-2.5 text-center font-mono border-r border-slate-200 ${isHighDensity ? "text-blue-900 font-bold" : "text-slate-700"}`}>{row.sports_pct}</td>
+                    <td className="px-2 py-2.5 text-center font-mono text-slate-700">{row.sports_people}</td>
+                    <td className={`px-2 py-2.5 text-center font-mono ${isHighDensity ? "text-blue-900 font-bold" : "text-slate-700"}`}>{row.sports_amt}</td>
+                    <td className={`px-2 py-2.5 text-center font-mono ${isHighDensity ? "text-blue-900 font-bold" : "text-slate-700"}`}>{row.sports_pct}</td>
 
-                      <td className="px-2 py-2.5 text-center font-mono text-slate-700">{row.esports_people}</td>
-                      <td className="px-2 py-2.5 text-center font-mono text-slate-700">{row.esports_amt}</td>
-                      <td className="px-2 py-2.5 text-center font-mono border-r border-slate-200 text-slate-700">{row.esports_pct}</td>
+                    <td className="px-2 py-2.5 text-center font-mono text-slate-700">{row.esports_people}</td>
+                    <td className="px-2 py-2.5 text-center font-mono text-slate-700">{row.esports_amt}</td>
+                    <td className="px-2 py-2.5 text-center font-mono text-slate-700">{row.esports_pct}</td>
 
-                      <td className="px-2 py-2.5 text-center font-mono text-slate-700">{row.rent_people}</td>
-                      <td className="px-2 py-2.5 text-center font-mono text-slate-700">{row.rent_amt}</td>
-                      <td className="px-2 py-2.5 text-center font-mono border-r border-slate-200 text-slate-700">{row.rent_pct}</td>
+                    <td className="px-2 py-2.5 text-center font-mono text-slate-700">{row.rent_people}</td>
+                    <td className="px-2 py-2.5 text-center font-mono text-slate-700">{row.rent_amt}</td>
+                    <td className="px-2 py-2.5 text-center font-mono text-slate-700">{row.rent_pct}</td>
 
-                      <td className="px-2 py-2.5 text-center font-mono text-slate-700">{row.bonus_people}</td>
-                      <td className="px-2 py-2.5 text-center font-mono text-slate-700">{row.bonus_amt}</td>
-                      <td className="px-2 py-2.5 text-center font-mono border-r border-slate-200 text-slate-700">{row.bonus_pct}</td>
+                    <td className="px-2 py-2.5 text-center font-mono text-slate-700">{row.bonus_people}</td>
+                    <td className="px-2 py-2.5 text-center font-mono text-slate-700">{row.bonus_amt}</td>
+                    <td className="px-2 py-2.5 text-center font-mono text-slate-700">{row.bonus_pct}</td>
 
-                      <td className="px-2 py-2.5 text-center font-mono text-slate-700">{row.software_people}</td>
-                      <td className="px-2 py-2.5 text-center font-mono text-slate-700">{row.software_amt}</td>
-                      <td className="px-2 py-2.5 text-center font-mono text-slate-700">{row.software_pct}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-              <tfoot className="border-t-2 border-b-2 border-slate-900 bg-slate-50 font-bold font-mono tabular-nums text-sm text-slate-900">
-                <tr>
-                  <td className="px-2 py-2.5 text-center border-r border-slate-200 font-bold">总计</td>
-                  <td className="px-2 py-2.5 text-center text-slate-900 font-bold">810</td>
-                  <td className="px-2 py-2.5 text-center border-r border-slate-200 text-slate-900 font-bold">100.00%</td>
+                    <td className="px-2 py-2.5 text-center font-mono text-slate-700">{row.software_people}</td>
+                    <td className="px-2 py-2.5 text-center font-mono text-slate-700">{row.software_amt}</td>
+                    <td className="px-2 py-2.5 text-center font-mono text-slate-700">{row.software_pct}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+            <tfoot className="border-t-2 border-b-2 border-slate-900 bg-slate-50 font-bold font-mono tabular-nums text-sm text-slate-900">
+              <tr>
+                <td className="px-2 py-2.5 text-center font-bold">总计</td>
+                <td className="px-2 py-2.5 text-center text-slate-900 font-bold">810</td>
+                <td className="px-2 py-2.5 text-center text-slate-900 font-bold">100.00%</td>
 
-                  <td className="px-2 py-2.5 text-center text-slate-900">371</td>
-                  <td className="px-2 py-2.5 text-center text-blue-900 font-bold">3,097.93</td>
-                  <td className="px-2 py-2.5 text-center border-r border-slate-200 text-blue-900 font-bold">53.50%</td>
+                <td className="px-2 py-2.5 text-center text-slate-900">371</td>
+                <td className="px-2 py-2.5 text-center text-blue-900 font-bold">3,097.93</td>
+                <td className="px-2 py-2.5 text-center text-blue-900 font-bold">53.50%</td>
 
-                  <td className="px-2 py-2.5 text-center">112</td>
-                  <td className="px-2 py-2.5 text-center text-slate-800">834.66</td>
-                  <td className="px-2 py-2.5 text-center border-r border-slate-200 text-slate-800">14.41%</td>
+                <td className="px-2 py-2.5 text-center">112</td>
+                <td className="px-2 py-2.5 text-center text-slate-800">834.66</td>
+                <td className="px-2 py-2.5 text-center text-slate-800">14.41%</td>
 
-                  <td className="px-2 py-2.5 text-center">81</td>
-                  <td className="px-2 py-2.5 text-center text-slate-800">651.78</td>
-                  <td className="px-2 py-2.5 text-center border-r border-slate-200 text-slate-800">11.26%</td>
+                <td className="px-2 py-2.5 text-center">81</td>
+                <td className="px-2 py-2.5 text-center text-slate-800">651.78</td>
+                <td className="px-2 py-2.5 text-center text-slate-800">11.26%</td>
 
-                  <td className="px-2 py-2.5 text-center">203</td>
-                  <td className="px-2 py-2.5 text-center text-slate-800">1,038.85</td>
-                  <td className="px-2 py-2.5 text-center border-r border-slate-200 text-slate-800">17.94%</td>
+                <td className="px-2 py-2.5 text-center">203</td>
+                <td className="px-2 py-2.5 text-center text-slate-800">1,038.85</td>
+                <td className="px-2 py-2.5 text-center text-slate-800">17.94%</td>
 
-                  <td className="px-2 py-2.5 text-center">43</td>
-                  <td className="px-2 py-2.5 text-center text-slate-900">167.38</td>
-                  <td className="px-2 py-2.5 text-center text-slate-900">2.89%</td>
-                </tr>
-              </tfoot>
-            </table>
-          </ReportTableFrame>
-        </ReportPanel>
-
+                <td className="px-2 py-2.5 text-center">43</td>
+                <td className="px-2 py-2.5 text-center text-slate-900">167.38</td>
+                <td className="px-2 py-2.5 text-center text-slate-900">2.89%</td>
+              </tr>
+            </tfoot>
+          </table>
+        </ReportTableFrame>
       </div>
     </div>
   );

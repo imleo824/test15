@@ -111,7 +111,7 @@ export const ReportTableFrame: React.FC<{
   className?: string;
 }> = ({ children, className = "" }) => {
   return (
-    <div className={`report-table-frame border-t-2 border-b-2 border-slate-900 my-6 sm:my-7 overflow-x-auto ${className}`}>
+    <div className={`report-table-frame border-t border-b border-slate-900 my-6 sm:my-7 overflow-x-auto ${className}`}>
       {children}
     </div>
   );
@@ -284,9 +284,9 @@ export const ReportDimensionCard: React.FC<{
   contentClassName?: string;
 }> = ({ index, title, badge, children, className = "", contentClassName = "" }) => {
   return (
-    <div className={`report-dimension-card bg-white border border-[#e2e8f0] p-6 sm:p-7 flex flex-col justify-between h-full ${className}`}>
-      <div className="report-dimension-card-head min-h-[48px] pb-3 border-b border-[#e2e8f0] mb-4 flex items-center justify-between gap-3">
-        <div className="report-dimension-card-title flex-1 min-w-0">
+    <div className={`report-dimension-card bg-slate-50/60 border-t-2 border-slate-900 p-6 sm:p-7 flex flex-col justify-between h-full ${className}`}>
+      <div className="report-dimension-card-head min-h-[44px] pb-3 border-b border-slate-200 mb-4 flex items-center justify-between gap-3">
+        <div className="report-dimension-card-title flex-1 min-w-0 font-bold text-slate-950">
           {index !== undefined && <span className="report-sequence-badge">{index}</span>}
           <span>{title}</span>
         </div>

@@ -201,13 +201,13 @@ export const SecurityUpgradeSection: React.FC = () => {
       {/* 核心四大场景摘要说明卡片（2x2 网格） */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 items-stretch">
         {/* 场景 1：敏感信息维护 */}
-        <div className="border border-[#e2e8f0] bg-white p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
+        <div className="bg-slate-50/70 border-t-2 border-slate-900 p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
           <div className="flex items-center gap-2 pb-2.5 border-b border-slate-200">
             <span className="w-5 h-5 bg-slate-900 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0">
               1
             </span>
             <h4 className="text-base font-bold text-slate-950">敏感信息维护</h4>
-            <span className="text-xs font-mono font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 border border-emerald-200 ml-auto">
+            <span className="text-xs font-mono font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 ml-auto">
               统一字典收口
             </span>
           </div>
@@ -224,13 +224,13 @@ export const SecurityUpgradeSection: React.FC = () => {
         </div>
 
         {/* 场景 2：敏感异常操作 */}
-        <div className="border border-[#e2e8f0] bg-white p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
+        <div className="bg-slate-50/70 border-t-2 border-slate-900 p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
           <div className="flex items-center gap-2 pb-2.5 border-b border-slate-200">
             <span className="w-5 h-5 bg-slate-900 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0">
               2
             </span>
             <h4 className="text-base font-bold text-slate-950">敏感异常操作</h4>
-            <span className="text-xs font-mono font-bold text-blue-800 bg-blue-50 px-2 py-0.5 border border-blue-200 ml-auto">
+            <span className="text-xs font-mono font-bold text-blue-900 bg-blue-100/80 px-2 py-0.5 ml-auto">
               工种控权收紧
             </span>
           </div>
@@ -247,13 +247,13 @@ export const SecurityUpgradeSection: React.FC = () => {
         </div>
 
         {/* 场景 3：敏感信息修改 */}
-        <div className="border border-[#e2e8f0] bg-white p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
+        <div className="bg-slate-50/70 border-t-2 border-slate-900 p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
           <div className="flex items-center gap-2 pb-2.5 border-b border-slate-200">
             <span className="w-5 h-5 bg-slate-900 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0">
               3
             </span>
             <h4 className="text-base font-bold text-slate-950">敏感信息修改</h4>
-            <span className="text-xs font-mono font-bold text-indigo-800 bg-indigo-50 px-2 py-0.5 border border-indigo-200 ml-auto">
+            <span className="text-xs font-mono font-bold text-indigo-900 bg-indigo-100/80 px-2 py-0.5 ml-auto">
               双人背靠背审批
             </span>
           </div>
@@ -264,19 +264,19 @@ export const SecurityUpgradeSection: React.FC = () => {
             </p>
             <p className="text-slate-600">
               <strong className="text-slate-950 font-medium">应对措施：</strong>
-              取消单人直接修改入口，全面改由经办与复核双人背靠背审批，关键修改强制绑定 24h 提款冷却。
+              取消单人直接修改入口，全面改由经办与复核双人背靠背审批，关键修改强制绑定 24 小时提款冷却。
             </p>
           </div>
         </div>
 
         {/* 场景 4：敏感权限结构 */}
-        <div className="border border-[#e2e8f0] bg-white p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
+        <div className="bg-slate-50/70 border-t-2 border-slate-900 p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
           <div className="flex items-center gap-2 pb-2.5 border-b border-slate-200">
             <span className="w-5 h-5 bg-slate-900 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0">
               4
             </span>
             <h4 className="text-base font-bold text-slate-950">敏感权限结构</h4>
-            <span className="text-xs font-mono font-bold text-slate-800 bg-slate-100 px-2 py-0.5 border border-slate-300 ml-auto">
+            <span className="text-xs font-mono font-bold text-slate-800 bg-slate-200 px-2 py-0.5 ml-auto">
               任务驱动分层
             </span>
           </div>
@@ -304,7 +304,7 @@ export const SecurityUpgradeSection: React.FC = () => {
           }
         />
 
-        <div className="space-y-6">
+        <div className="space-y-8">
           {securityCategories.map((cat) => {
             const Icon = cat.icon;
             const isScenario4 = cat.key === "sensitive_permissions";
@@ -312,28 +312,28 @@ export const SecurityUpgradeSection: React.FC = () => {
             return (
               <div
                 key={cat.key}
-                className="border border-[#e2e8f0] bg-white p-4 sm:p-5 space-y-4"
+                className="bg-white space-y-4"
               >
                 {/* 模块标题、核心痛点与管控原则 */}
-                <div className="flex flex-col sm:flex-row sm:items-start justify-between pb-3 border-b border-[#e2e8f0] gap-3">
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between pb-3 border-b-2 border-slate-900 gap-3">
                   <div className="flex items-center gap-2.5">
                     <div className="w-7 h-7 bg-slate-900 text-white flex items-center justify-center shrink-0">
                       <Icon className="w-4 h-4" />
                     </div>
                     <div>
-                      <h4 className="text-base font-bold text-slate-950 flex items-center gap-2">
+                      <h4 className="text-base sm:text-lg font-bold text-slate-950 flex items-center gap-2">
                         <span>
                           【{cat.direction}】{cat.categoryName}
                         </span>
                         <span
-                          className={`text-xs px-2 py-0.5 font-bold border ${cat.tagBg} ${cat.tagText}`}
+                          className={`text-xs px-2 py-0.5 font-bold ${cat.tagBg} ${cat.tagText}`}
                         >
                           {cat.categoryTag}
                         </span>
                       </h4>
                     </div>
                   </div>
-                  <div className="text-xs text-slate-600 sm:max-w-xl font-normal space-y-1 sm:text-right">
+                  <div className="text-xs sm:text-[13px] text-slate-600 sm:max-w-xl font-normal space-y-1 sm:text-right">
                     <div>
                       <span className="font-bold text-slate-900">核心痛点：</span>
                       {cat.coreIssue}
@@ -347,11 +347,11 @@ export const SecurityUpgradeSection: React.FC = () => {
 
                 {/* 场景4 内嵌：敏感权限三级架构模型卡片（长期权限 / 临时权限 / 凭单查询） */}
                 {isScenario4 && (
-                  <div className="bg-slate-50/70 p-4 space-y-3">
+                  <div className="bg-slate-50/70 p-4 sm:p-5 space-y-3 border-l-4 border-slate-900">
                     <div className="flex items-center justify-between pb-2 border-b border-slate-200">
                       <div className="flex items-center gap-2">
                         <Layers className="w-4 h-4 text-slate-900" />
-                        <span className="text-sm font-bold text-slate-950">
+                        <span className="text-sm sm:text-base font-bold text-slate-950">
                           三级权限架构运转逻辑（长期权限 · 临时权限 · 凭单查询）
                         </span>
                       </div>
@@ -361,18 +361,18 @@ export const SecurityUpgradeSection: React.FC = () => {
                     </div>
 
                     {/* 3 列权限类型架构对比 */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1">
                       {/* 1. 长期权限 */}
-                      <div className="bg-white p-3.5 flex flex-col justify-between space-y-2.5 border-t-2 border-slate-800">
+                      <div className="bg-white p-4 flex flex-col justify-between space-y-2.5 border-t-2 border-slate-900">
                         <div className="space-y-1.5">
                           <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-1.5 text-slate-950 font-bold text-sm">
+                            <div className="flex items-center gap-1.5 text-slate-950 font-bold text-sm sm:text-base">
                               <span className="w-4.5 h-4.5 bg-slate-900 text-white text-xs font-mono font-bold flex items-center justify-center shrink-0">
                                 1
                               </span>
                               <span>长期权限</span>
                             </div>
-                            <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-1.5 py-0.5 border border-slate-200">
+                            <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-1.5 py-0.5">
                               少数特权工种
                             </span>
                           </div>
@@ -390,16 +390,16 @@ export const SecurityUpgradeSection: React.FC = () => {
                       </div>
 
                       {/* 2. 临时权限 */}
-                      <div className="bg-white p-3.5 flex flex-col justify-between space-y-2.5 border-t-2 border-indigo-700">
+                      <div className="bg-white p-4 flex flex-col justify-between space-y-2.5 border-t-2 border-indigo-700">
                         <div className="space-y-1.5">
                           <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-1.5 text-indigo-950 font-bold text-sm">
+                            <div className="flex items-center gap-1.5 text-indigo-950 font-bold text-sm sm:text-base">
                               <span className="w-4.5 h-4.5 bg-indigo-800 text-white text-xs font-mono font-bold flex items-center justify-center shrink-0">
                                 2
                               </span>
                               <span>临时权限</span>
                             </div>
-                            <span className="text-xs font-mono font-bold text-indigo-900 bg-indigo-50 px-1.5 py-0.5 border border-indigo-200">
+                            <span className="text-xs font-mono font-bold text-indigo-900 bg-indigo-50 px-1.5 py-0.5">
                               限时审批生效
                             </span>
                           </div>
@@ -417,16 +417,16 @@ export const SecurityUpgradeSection: React.FC = () => {
                       </div>
 
                       {/* 3. 凭单查询 */}
-                      <div className="bg-white p-3.5 flex flex-col justify-between space-y-2.5 border-t-2 border-blue-700">
+                      <div className="bg-white p-4 flex flex-col justify-between space-y-2.5 border-t-2 border-blue-700">
                         <div className="space-y-1.5">
                           <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-1.5 text-blue-950 font-bold text-sm">
+                            <div className="flex items-center gap-1.5 text-blue-950 font-bold text-sm sm:text-base">
                               <span className="w-4.5 h-4.5 bg-blue-800 text-white text-xs font-mono font-bold flex items-center justify-center shrink-0">
                                 3
                               </span>
                               <span>凭单查询</span>
                             </div>
-                            <span className="text-xs font-mono font-bold text-blue-900 bg-blue-50 px-1.5 py-0.5 border border-blue-200">
+                            <span className="text-xs font-mono font-bold text-blue-900 bg-blue-50 px-1.5 py-0.5">
                               任务动态解锁
                             </span>
                           </div>
@@ -472,7 +472,7 @@ export const SecurityUpgradeSection: React.FC = () => {
                             {highlightNumbers(item.measure)}
                           </td>
                           <td className="py-3 px-3 font-medium text-slate-900 text-xs sm:text-sm leading-relaxed align-top">
-                            <span className="inline-block px-2 py-0.5 bg-slate-100 border border-slate-200 text-slate-800 font-medium">
+                            <span className="inline-block px-2 py-0.5 bg-slate-100 text-slate-800 font-medium">
                               {item.impact}
                             </span>
                           </td>

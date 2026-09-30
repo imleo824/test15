@@ -49,32 +49,32 @@ export const PersonnelDistribution: React.FC = () => {
           </div>
         </SummaryBox>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 items-stretch">
           {policyItems.map((item, index) => (
             <div
               key={index}
-              className="bg-white p-6 sm:p-7 border border-[#e2e8f0] flex flex-col justify-between space-y-4 h-full"
+              className="bg-white p-5 sm:p-6 border-t-2 border-slate-900 bg-slate-50/50 flex flex-col justify-between space-y-3 h-full"
             >
-              <div className="flex items-center justify-between pb-3.5 border-b border-slate-200">
+              <div className="flex items-center justify-between pb-3 border-b border-slate-200">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs font-black text-white bg-slate-900 w-5 h-5 flex items-center justify-center shrink-0">
+                  <span className="font-mono text-xs font-bold text-white bg-slate-900 w-5 h-5 flex items-center justify-center shrink-0">
                     {index + 1}
                   </span>
-                  <span className="font-bold text-slate-950 text-base sm:text-lg">
+                  <span className="font-bold text-slate-950 text-base">
                     {item.title}
                   </span>
                 </div>
                 <span
-                  className={`font-mono text-xs font-bold px-2 py-0.5 border ${
+                  className={`font-mono text-xs font-bold px-2 py-0.5 ${
                     item.category === "降本增效"
-                      ? "text-emerald-800 bg-emerald-50 border-emerald-200"
-                      : "text-blue-900 bg-blue-50 border-blue-200"
+                      ? "text-emerald-800 bg-emerald-50"
+                      : "text-blue-900 bg-blue-50"
                   }`}
                 >
                   {item.category}
                 </span>
               </div>
-              <p className="text-sm sm:text-[15.5px] text-slate-700 leading-relaxed font-normal flex-1">
+              <p className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal flex-1">
                 {highlightNumbers(item.content)}
               </p>
             </div>
@@ -94,11 +94,11 @@ export const PersonnelDistribution: React.FC = () => {
           </div>
         </SummaryBox>
 
-        <div className="space-y-8 pt-2">
+        <div className="space-y-6 pt-2">
           {/* 第一层：在岗人数 & 外包人力 */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-xl mx-auto items-stretch">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-xl mx-auto items-stretch">
             {/* Card 1: 在岗人数 */}
-            <div className="border border-[#e2e8f0] bg-white p-6 text-center space-y-1.5 flex flex-col justify-between">
+            <div className="bg-slate-50 border-t-2 border-slate-900 p-6 text-center space-y-1 flex flex-col justify-between">
               <span className="text-xs sm:text-sm font-bold text-slate-600 block uppercase tracking-wider">
                 在岗人数
               </span>
@@ -111,7 +111,7 @@ export const PersonnelDistribution: React.FC = () => {
             </div>
 
             {/* Card 2: 外包人力 */}
-            <div className="border border-[#e2e8f0] bg-white p-6 text-center space-y-1.5 flex flex-col justify-between">
+            <div className="bg-slate-50 border-t-2 border-slate-900 p-6 text-center space-y-1 flex flex-col justify-between">
               <span className="text-xs sm:text-sm font-bold text-slate-600 block uppercase tracking-wider">
                 外包人力
               </span>
@@ -119,7 +119,7 @@ export const PersonnelDistribution: React.FC = () => {
                 <span className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight tabular-nums">
                   119
                 </span>
-                <span className="text-xs font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 border border-emerald-200 tabular-nums">
+                <span className="text-xs font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 tabular-nums">
                   -17
                 </span>
                 <span className="text-sm font-bold text-slate-600">人</span>
@@ -128,24 +128,24 @@ export const PersonnelDistribution: React.FC = () => {
           </div>
 
           {/* 树状连接线 (仅在中大屏幕显示) */}
-          <div className="hidden md:block my-3">
+          <div className="hidden md:block my-2">
             {/* 垂直主干线 */}
-            <div className="w-px h-6 bg-slate-300 mx-auto" />
+            <div className="w-px h-5 bg-slate-300 mx-auto" />
 
             {/* 水平分支线 */}
             <div className="w-[83.33%] mx-auto h-px bg-slate-300 relative">
               {/* 6个下降触点 */}
-              <div className="absolute top-0 left-[0%] -translate-x-1/2 w-px h-6 bg-slate-300" />
-              <div className="absolute top-0 left-[20%] -translate-x-1/2 w-px h-6 bg-slate-300" />
-              <div className="absolute top-0 left-[40%] -translate-x-1/2 w-px h-6 bg-slate-300" />
-              <div className="absolute top-0 left-[60%] -translate-x-1/2 w-px h-6 bg-slate-300" />
-              <div className="absolute top-0 left-[80%] -translate-x-1/2 w-px h-6 bg-slate-300" />
-              <div className="absolute top-0 left-[100%] -translate-x-1/2 w-px h-6 bg-slate-300" />
+              <div className="absolute top-0 left-[0%] -translate-x-1/2 w-px h-5 bg-slate-300" />
+              <div className="absolute top-0 left-[20%] -translate-x-1/2 w-px h-5 bg-slate-300" />
+              <div className="absolute top-0 left-[40%] -translate-x-1/2 w-px h-5 bg-slate-300" />
+              <div className="absolute top-0 left-[60%] -translate-x-1/2 w-px h-5 bg-slate-300" />
+              <div className="absolute top-0 left-[80%] -translate-x-1/2 w-px h-5 bg-slate-300" />
+              <div className="absolute top-0 left-[100%] -translate-x-1/2 w-px h-5 bg-slate-300" />
             </div>
           </div>
 
           {/* 第二层：6个细分岗位卡片 */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5 items-stretch">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 items-stretch">
             {[
               { label: "T场地", count: "3", change: "↓ -18", isReduction: true },
               { label: "D场地", count: "71", change: "↓ -5", isReduction: true },
@@ -156,19 +156,19 @@ export const PersonnelDistribution: React.FC = () => {
             ].map((item) => (
               <div
                 key={item.label}
-                className="border border-[#e2e8f0] bg-white p-5 text-center flex flex-col items-center justify-between space-y-2.5 h-full"
+                className="bg-slate-50/70 p-4 text-center flex flex-col items-center justify-between space-y-2 h-full"
               >
-                <div className="text-sm font-bold text-slate-800 tracking-wide">
+                <div className="text-xs sm:text-sm font-bold text-slate-700 tracking-wide">
                   {item.label}
                 </div>
-                <div className="font-mono text-2xl sm:text-3xl font-black text-slate-950 tracking-tight tabular-nums py-0.5">
+                <div className="font-mono text-2xl sm:text-3xl font-black text-slate-950 tracking-tight tabular-nums">
                   {item.count}
                 </div>
                 <div
-                  className={`font-mono text-xs font-bold px-2 py-0.5 border tabular-nums ${
+                  className={`font-mono text-xs font-bold px-2 py-0.5 tabular-nums ${
                     item.isIncrease
-                      ? "text-blue-900 bg-blue-50 border-blue-200"
-                      : "text-slate-600 bg-slate-50 border-slate-200"
+                      ? "text-blue-900 bg-blue-50"
+                      : "text-slate-600 bg-slate-100"
                   }`}
                 >
                   {item.change}

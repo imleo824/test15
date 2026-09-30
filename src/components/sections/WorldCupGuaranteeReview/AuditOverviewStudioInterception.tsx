@@ -107,7 +107,7 @@ export const AuditOverviewStudioInterception: React.FC = () => {
   ];
 
   return (
-    <div id="section-audit-studio-interception" className="space-y-5">
+    <div id="section-audit-studio-interception" className="space-y-6 sm:space-y-8">
       {/* 模块小标题 - 统一规范 */}
       <ReportSubsectionHeader title="2.1.5 工作室数据" />
 
@@ -122,93 +122,93 @@ export const AuditOverviewStudioInterception: React.FC = () => {
 
       {/* 工作室拦截明细表格 */}
       <ReportTableFrame>
-          <table className="report-dense-table studio-data-table">
-            <thead className="bg-slate-50 text-slate-800">
-              {/* 一级表头 */}
-              <tr className="border-b border-slate-200 font-bold text-slate-900">
-                <th rowSpan={2} className="py-2 px-2 border-r border-slate-200 text-center">分类</th>
-                <th colSpan={2} className="py-2 px-2 border-r border-slate-200 text-center">4-6月总计(万)</th>
-                <th colSpan={2} className="py-2 px-2 border-r border-slate-200 text-center">体育批量</th>
-                <th colSpan={2} className="py-2 px-2 border-r border-slate-200 text-center">彩票批量</th>
-                <th colSpan={2} className="py-2 px-2 border-r border-slate-200 text-center">真人批量</th>
-                <th colSpan={2} className="py-2 px-2 border-r border-slate-200 text-center">电子批量</th>
-                <th colSpan={2} className="py-2 px-2 border-r border-slate-200 text-center">电竞批量</th>
-                <th colSpan={2} className="py-2 px-2 text-center">其他（棋牌，娱乐）</th>
-              </tr>
-              {/* 二级表头 */}
-              <tr className="border-b-2 border-slate-900 text-slate-800 font-bold text-sm">
-                <th className="px-2 py-2 border-b border-slate-200 text-center">金额</th>
-                <th className="px-2 py-2 border-b border-slate-200 border-r border-slate-200 text-center">占比</th>
-                <th className="px-2 py-2 border-b border-slate-200 text-center">金额</th>
-                <th className="px-2 py-2 border-b border-slate-200 border-r border-slate-200 text-center">占比</th>
-                <th className="px-2 py-2 border-b border-slate-200 text-center">金额</th>
-                <th className="px-2 py-2 border-b border-slate-200 border-r border-slate-200 text-center">占比</th>
-                <th className="px-2 py-2 border-b border-slate-200 text-center">金额</th>
-                <th className="px-2 py-2 border-b border-slate-200 border-r border-slate-200 text-center">占比</th>
-                <th className="px-2 py-2 border-b border-slate-200 text-center">金额</th>
-                <th className="px-2 py-2 border-b border-slate-200 border-r border-slate-200 text-center">占比</th>
-                <th className="px-2 py-2 border-b border-slate-200 text-center">金额</th>
-                <th className="px-2 py-2 border-b border-slate-200 border-r border-slate-200 text-center">占比</th>
-                <th className="px-2 py-2 border-b border-slate-200 text-center">金额</th>
-                <th className="px-2 py-2 border-b border-slate-200 text-center">占比</th>
-              </tr>
-            </thead>
-            <tbody className="bg-white divide-y divide-slate-100 font-mono tabular-nums text-xs sm:text-sm">
-              {studioData.map((row, idx) => {
-                const isSite4 = row.site === "4";
-                return (
-                  <tr key={idx} className={isSite4 ? "bg-blue-50/40" : idx % 2 === 0 ? "bg-white" : "bg-slate-50/50"}>
-                    <td className="px-2 py-2 text-center font-bold text-slate-900 border-r border-slate-200">{row.site}</td>
-                    <td className={`px-2 py-2 text-center ${isSite4 ? "text-blue-900 font-bold" : "text-slate-800 font-medium"}`}>{row.total_amt}</td>
-                    <td className={`px-2 py-2 text-center border-r border-slate-200 ${isSite4 ? "text-blue-900 font-bold" : "text-slate-700"}`}>{row.total_pct}</td>
-                    <td className={`px-2 py-2 text-center ${isSite4 ? "text-blue-900 font-bold" : "text-slate-700"}`}>{row.sports_amt}</td>
-                    <td className={`px-2 py-2 text-center border-r border-slate-200 ${isSite4 ? "text-blue-900 font-bold" : "text-slate-700"}`}>{row.sports_pct}</td>
-                    <td className="px-2 py-2 text-center text-slate-700">{row.lottery_amt}</td>
-                    <td className="px-2 py-2 text-center border-r border-slate-200 text-slate-700">{row.lottery_pct}</td>
-                    <td className="px-2 py-2 text-center text-slate-700">{row.live_amt}</td>
-                    <td className="px-2 py-2 text-center border-r border-slate-200 text-slate-700">{row.live_pct}</td>
-                    <td className="px-2 py-2 text-center text-slate-700">{row.slot_amt}</td>
-                    <td className="px-2 py-2 text-center border-r border-slate-200 text-slate-700">{row.slot_pct}</td>
-                    <td className="px-2 py-2 text-center text-slate-700">{row.esports_amt}</td>
-                    <td className="px-2 py-2 text-center border-r border-slate-200 text-slate-700">{row.esports_pct}</td>
-                    <td className="px-2 py-2 text-center text-slate-700">{row.other_amt}</td>
-                    <td className="px-2 py-2 text-center text-slate-700">{row.other_pct}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-            <tfoot className="border-t-2 border-b-2 border-slate-900 bg-slate-50 font-mono tabular-nums text-xs sm:text-sm text-slate-900 font-bold">
-              <tr className="border-b border-slate-200">
-                <td className="px-2 py-2.5 text-center font-bold border-r border-slate-200">小计</td>
-                <td className="px-2 py-2.5 text-center">-</td>
-                <td className="px-2 py-2.5 text-center border-r border-slate-200">-</td>
-                <td className="px-2 py-2.5 text-center text-blue-900 font-bold">2,051.09</td>
-                <td className="px-2 py-2.5 text-center border-r border-slate-200 text-blue-900 font-bold">100%</td>
-                <td className="px-2 py-2.5 text-center text-slate-800">774.11</td>
-                <td className="px-2 py-2.5 text-center border-r border-slate-200 text-slate-800">100%</td>
-                <td className="px-2 py-2.5 text-center text-slate-800">849.46</td>
-                <td className="px-2 py-2.5 text-center border-r border-slate-200 text-slate-800">100%</td>
-                <td className="px-2 py-2.5 text-center text-slate-800">502.31</td>
-                <td className="px-2 py-2.5 text-center border-r border-slate-200 text-slate-800">100%</td>
-                <td className="px-2 py-2.5 text-center text-slate-800">166.91</td>
-                <td className="px-2 py-2.5 text-center border-r border-slate-200 text-slate-800">100%</td>
-                <td className="px-2 py-2.5 text-center text-slate-800">475.58</td>
-                <td className="px-2 py-2.5 text-center text-slate-800">100%</td>
-              </tr>
-              <tr className="bg-slate-100 font-bold">
-                <td className="px-2 py-2.5 text-center font-bold border-r border-slate-200">总计</td>
-                <td colSpan={2} className="px-2 py-2.5 border-r border-slate-200 text-center text-blue-900 font-bold">
-                  4,819.44
-                </td>
-                <td colSpan={2} className="px-2 py-2.5 border-r border-slate-200 text-center text-blue-900 font-bold">42.56%</td>
-                <td colSpan={2} className="px-2 py-2.5 border-r border-slate-200 text-center text-slate-800">16.06%</td>
-                <td colSpan={2} className="px-2 py-2.5 border-r border-slate-200 text-center text-slate-800">17.63%</td>
-                <td colSpan={2} className="px-2 py-2.5 border-r border-slate-200 text-center text-slate-800">10.42%</td>
-                <td colSpan={2} className="px-2 py-2.5 border-r border-slate-200 text-center text-slate-800">3.46%</td>
-                <td colSpan={2} className="px-2 py-2.5 text-center text-slate-800">9.87%</td>
-              </tr>
-            </tfoot>
-          </table>
+        <table className="report-dense-table studio-data-table w-full">
+          <thead className="bg-slate-50 text-slate-800">
+            {/* 一级表头 */}
+            <tr className="border-b border-slate-200 font-bold text-slate-900">
+              <th rowSpan={2} className="py-2.5 px-2 text-center">分类</th>
+              <th colSpan={2} className="py-2 px-2 text-center">4-6月总计(万)</th>
+              <th colSpan={2} className="py-2 px-2 text-center">体育批量</th>
+              <th colSpan={2} className="py-2 px-2 text-center">彩票批量</th>
+              <th colSpan={2} className="py-2 px-2 text-center">真人批量</th>
+              <th colSpan={2} className="py-2 px-2 text-center">电子批量</th>
+              <th colSpan={2} className="py-2 px-2 text-center">电竞批量</th>
+              <th colSpan={2} className="py-2 px-2 text-center">其他（棋牌，娱乐）</th>
+            </tr>
+            {/* 二级表头 */}
+            <tr className="border-b-2 border-slate-900 text-slate-800 font-bold text-sm">
+              <th className="px-2 py-2 text-center">金额</th>
+              <th className="px-2 py-2 text-center">占比</th>
+              <th className="px-2 py-2 text-center">金额</th>
+              <th className="px-2 py-2 text-center">占比</th>
+              <th className="px-2 py-2 text-center">金额</th>
+              <th className="px-2 py-2 text-center">占比</th>
+              <th className="px-2 py-2 text-center">金额</th>
+              <th className="px-2 py-2 text-center">占比</th>
+              <th className="px-2 py-2 text-center">金额</th>
+              <th className="px-2 py-2 text-center">占比</th>
+              <th className="px-2 py-2 text-center">金额</th>
+              <th className="px-2 py-2 text-center">占比</th>
+              <th className="px-2 py-2 text-center">金额</th>
+              <th className="px-2 py-2 text-center">占比</th>
+            </tr>
+          </thead>
+          <tbody className="bg-white divide-y divide-slate-100 font-mono tabular-nums text-xs sm:text-sm">
+            {studioData.map((row, idx) => {
+              const isSite4 = row.site === "4";
+              return (
+                <tr key={idx} className={isSite4 ? "bg-blue-50/40" : idx % 2 === 0 ? "bg-white" : "bg-slate-50/50"}>
+                  <td className="px-2 py-2 text-center font-bold text-slate-900">{row.site}</td>
+                  <td className={`px-2 py-2 text-center font-bold ${isSite4 ? "text-blue-900 font-bold" : "text-slate-800 font-medium"}`}>{row.total_amt}</td>
+                  <td className={`px-2 py-2 text-center ${isSite4 ? "text-blue-900 font-bold" : "text-slate-700"}`}>{row.total_pct}</td>
+                  <td className={`px-2 py-2 text-center ${isSite4 ? "text-blue-900 font-bold" : "text-slate-700"}`}>{row.sports_amt}</td>
+                  <td className={`px-2 py-2 text-center ${isSite4 ? "text-blue-900 font-bold" : "text-slate-700"}`}>{row.sports_pct}</td>
+                  <td className="px-2 py-2 text-center text-slate-700">{row.lottery_amt}</td>
+                  <td className="px-2 py-2 text-center text-slate-700">{row.lottery_pct}</td>
+                  <td className="px-2 py-2 text-center text-slate-700">{row.live_amt}</td>
+                  <td className="px-2 py-2 text-center text-slate-700">{row.live_pct}</td>
+                  <td className="px-2 py-2 text-center text-slate-700">{row.slot_amt}</td>
+                  <td className="px-2 py-2 text-center text-slate-700">{row.slot_pct}</td>
+                  <td className="px-2 py-2 text-center text-slate-700">{row.esports_amt}</td>
+                  <td className="px-2 py-2 text-center text-slate-700">{row.esports_pct}</td>
+                  <td className="px-2 py-2 text-center text-slate-700">{row.other_amt}</td>
+                  <td className="px-2 py-2 text-center text-slate-700">{row.other_pct}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+          <tfoot className="border-t-2 border-b-2 border-slate-900 bg-slate-50 font-mono tabular-nums text-xs sm:text-sm text-slate-900 font-bold">
+            <tr className="border-b border-slate-200">
+              <td className="px-2 py-2.5 text-center font-bold">小计</td>
+              <td className="px-2 py-2.5 text-center">-</td>
+              <td className="px-2 py-2.5 text-center">-</td>
+              <td className="px-2 py-2.5 text-center text-blue-900 font-bold">2,051.09</td>
+              <td className="px-2 py-2.5 text-center text-blue-900 font-bold">100%</td>
+              <td className="px-2 py-2.5 text-center text-slate-800">774.11</td>
+              <td className="px-2 py-2.5 text-center text-slate-800">100%</td>
+              <td className="px-2 py-2.5 text-center text-slate-800">849.46</td>
+              <td className="px-2 py-2.5 text-center text-slate-800">100%</td>
+              <td className="px-2 py-2.5 text-center text-slate-800">502.31</td>
+              <td className="px-2 py-2.5 text-center text-slate-800">100%</td>
+              <td className="px-2 py-2.5 text-center text-slate-800">166.91</td>
+              <td className="px-2 py-2.5 text-center text-slate-800">100%</td>
+              <td className="px-2 py-2.5 text-center text-slate-800">475.58</td>
+              <td className="px-2 py-2.5 text-center text-slate-800">100%</td>
+            </tr>
+            <tr className="bg-slate-100 font-bold">
+              <td className="px-2 py-2.5 text-center font-bold">总计</td>
+              <td colSpan={2} className="px-2 py-2.5 text-center text-blue-900 font-bold">
+                4,819.44
+              </td>
+              <td colSpan={2} className="px-2 py-2.5 text-center text-blue-900 font-bold">42.56%</td>
+              <td colSpan={2} className="px-2 py-2.5 text-center text-slate-800">16.06%</td>
+              <td colSpan={2} className="px-2 py-2.5 text-center text-slate-800">17.63%</td>
+              <td colSpan={2} className="px-2 py-2.5 text-center text-slate-800">10.42%</td>
+              <td colSpan={2} className="px-2 py-2.5 text-center text-slate-800">3.46%</td>
+              <td colSpan={2} className="px-2 py-2.5 text-center text-slate-800">9.87%</td>
+            </tr>
+          </tfoot>
+        </table>
       </ReportTableFrame>
     </div>
   );
