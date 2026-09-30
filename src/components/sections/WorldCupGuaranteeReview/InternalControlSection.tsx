@@ -60,7 +60,7 @@ export const InternalControlSection: React.FC = () => {
           metrics={
             <div className="flex items-baseline gap-4 font-mono">
               <span className="text-3xl md:text-4xl text-slate-950 font-black tracking-tight">225<small className="ml-1 text-xs text-slate-500 font-bold font-sans">人</small></span>
-              <span className="text-2xl md:text-3xl text-blue-900 font-black tracking-tight">178,140 <small className="text-xs font-sans font-bold text-blue-700">泰达币</small></span>
+              <span className="text-2xl md:text-3xl text-blue-900 font-black tracking-tight">178,140</span>
             </div>
           }
         />
@@ -70,13 +70,13 @@ export const InternalControlSection: React.FC = () => {
             title="红利类型派错"
             value="1,143"
             unit="人"
-            detail={highlightNumbers("通过[[每日复核机制]]查获并退回；涉及金额 [[36.69]]")}
+            detail={highlightNumbers("通过[[每日复核机制]]查获并退回；涉及金额 [[36.69w]]")}
           />
           <ReportMetricCard
             title="红利流水派错"
             value="465"
             unit="人"
-            detail={highlightNumbers("通过[[每日复核机制]]查获并修正；涉及金额 [[6.79]]")}
+            detail={highlightNumbers("通过[[每日复核机制]]查获并修正；涉及金额 [[6.79w]]")}
           />
           <ReportMetricCard
             title="平台参数修改"

@@ -115,7 +115,7 @@ export const AuditOverviewStudioInterception: React.FC = () => {
       <SummaryBox>
         <p className="text-sm md:text-base text-slate-800 font-medium leading-relaxed">
           {highlightNumbers(
-            "[[4-6月工作室总计]]达 [[4,819.44]]。[[游戏分类]]中[[体育批量]]占据主导，达 [[2,051.09]]（占比 [[42.56%]]）；其次为[[真人批量]]（[[849.46]]，[[17.63%]]）与[[彩票批量]]（[[774.11]]，[[16.06%]]）。[[站点分布]]中[[4站]]金额最高，达 [[1,224.53]]（占比 [[25.41%]]）。",
+            "[[4-6月工作室总计]]达 [[4,819.44w]]。[[游戏分类]]中[[体育批量]]占据主导，达 [[2,051.09w]]（占比 [[42.56%]]）；其次为[[真人批量]]（[[849.46w]]，[[17.63%]]）与[[彩票批量]]（[[774.11w]]，[[16.06%]]）。[[站点分布]]中[[4站]]金额最高，达 [[1,224.53w]]（占比 [[25.41%]]）。",
           )}
         </p>
       </SummaryBox>
@@ -127,7 +127,7 @@ export const AuditOverviewStudioInterception: React.FC = () => {
             {/* 一级表头 */}
             <tr className="border-b border-slate-200 font-bold text-slate-900">
               <th rowSpan={2} className="py-2.5 px-2 text-center">分类</th>
-              <th colSpan={2} className="py-2 px-2 text-center">4-6月总计(万)</th>
+              <th colSpan={2} className="py-2 px-2 text-center">4-6月总计(w)</th>
               <th colSpan={2} className="py-2 px-2 text-center">体育批量</th>
               <th colSpan={2} className="py-2 px-2 text-center">彩票批量</th>
               <th colSpan={2} className="py-2 px-2 text-center">真人批量</th>

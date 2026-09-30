@@ -58,14 +58,14 @@ export const SafetyArchitectureDiagram: React.FC = () => {
         <div className="flex items-center gap-2.5">
           <div>
             <h3 className="text-lg sm:text-xl font-bold text-slate-950 tracking-tight leading-none">
-              安全合规分层防御架构
+              安全合规分层防御
             </h3>
           </div>
         </div>
 
         {/* 顶部逻辑流标识 */}
         <div className="flex items-center gap-1.5 bg-slate-100 px-2.5 py-1 text-xs font-mono shrink-0 self-start sm:self-auto">
-          <span className="font-bold text-slate-900">L1 系统硬控</span>
+          <span className="font-bold text-slate-900">L1 安全机制</span>
           <span className="text-slate-400">➔</span>
           <span className="font-bold text-slate-900">L2 协同流转</span>
           <span className="text-slate-400">➔</span>

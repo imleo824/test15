@@ -64,12 +64,12 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
         <div className="space-y-2.5">
           <div className="text-sm md:text-base text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-               "[[三季度总拦截金额]]：累计拦截 [[2.72]]；峰值月度受赛事与活动驱动达 [[1.046]]。强化对[[批量黑产]]直接[[扣除本金]]处置，威慑效应显著，拦截趋势保持平稳可控。",
+               "[[三季度整体拦截金额]]：累计拦截 [[2.72e]]；峰值月度受赛事与活动驱动达 [[1.046e]]。强化对[[批量黑产]]直接[[扣除本金]]处置，威慑效应显著，拦截趋势保持平稳可控。",
             )}
           </div>
           <div className="text-sm md:text-base text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "[[三季度平均审核时长]]：依托[[系统分流]]与[[智能派单]]，三季度[[平均人工审核时长]]稳定在 [[0:08:45]]；在单量达 [[300.77 万单]] 峰值承压下，审核时效全线达标。",
+              "[[三季度平均审核时长]]：依托[[系统分流]]与[[智能派单]]，三季度[[平均人工审核时长]]稳定在 [[0:08:45]]；在单量达 [[300.77 w单]] 峰值承压下，审核时效全线达标。",
             )}
           </div>
         </div>
@@ -80,8 +80,8 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
         {/* 左卡片: 26年三季度总拦截金额 */}
         <ReportChartCard
           title="三季度拦截金额月度走势"
-          value="2.72"
-          description="三季度累计拦截金额 2.72，峰值达 1.046；强化对批量黑产直接扣除本金，威慑效应显著。"
+          value="2.72e"
+          description="三季度累计拦截金额 2.72e，峰值达 1.046e；强化对批量黑产直接扣除本金，威慑效应显著。"
           legend={
             <ReportChartLegend
               items={[
@@ -110,11 +110,11 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
         <ReportChartCard
           title="三季度平均人工审核时长"
           value="0:08:45"
-          description="依托系统派单分流，平均人工审核时长稳定在 0:08:45；单量峰值达 300.77万单，时效依然平稳可控。"
+          description="依托系统派单分流，平均人工审核时长稳定在 0:08:45；单量峰值达 300.77w单，时效依然平稳可控。"
           legend={
             <ReportChartLegend
               items={[
-                { label: "人工审单量 (万单)", color: chartSeriesColors.secondary, shape: "rect" },
+                { label: "人工审单量 (w单)", color: chartSeriesColors.secondary, shape: "rect" },
                 { label: "平均审核时长 (分:秒)", color: chartSeriesColors.trend, shape: "line" },
               ]}
             />

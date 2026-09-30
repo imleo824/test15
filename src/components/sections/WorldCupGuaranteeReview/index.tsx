@@ -20,11 +20,6 @@ export const WorldCupGuaranteeReview: React.FC = () => {
       {/* 2.0 数据概览 */}
       <section id="section-2.0" className="report-chapter-block scroll-mt-6">
         <ChapterTitle>2.0 数据概览</ChapterTitle>
-        <SummaryBox variant="chapter">
-          {highlightNumbers(
-            "三季度累计拦截金额 [[2.72]]，平均审核时长稳定在 [[0:08:45]]；[[体育类]]为核心拦截业务（占比 55.99%），[[重点防守站点]]平稳可控。"
-          )}
-        </SummaryBox>
         <div className="report-chapter-content">
           <AuditOverviewSection />
         </div>

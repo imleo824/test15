@@ -156,7 +156,7 @@ export const TgGovernanceSection: React.FC = () => {
           </div>
 
           <p className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal">
-            推进群聊治理向系统化收口的过程中，<strong>严防将可通过系统自动化解决的诉求形式化包装为内部工单</strong>。凡<strong>用户前端可自主闭环</strong>或<strong>底层系统可根治</strong>的诉求，必须<strong>从源头彻底消除</strong>；确需人工介入的诉求，<strong>支持用户自主发起并直连路由至承接部门</strong>，<strong>减少多重冗余角色中转</strong>，实现<strong>极简高效流转</strong>。
+            推进线下离线流程治理向系统化收口的过程中，<strong>严防将可通过系统自动化解决的诉求形式化包装为内部工单</strong>。凡<strong>用户前端可自主闭环</strong>或<strong>底层系统可根治</strong>的诉求，必须<strong>从源头彻底消除</strong>；确需人工介入的诉求，<strong>支持用户自主发起并直连路由至承接部门</strong>，<strong>减少多重冗余角色中转</strong>，实现<strong>极简高效流转</strong>。
           </p>
 
           {/* 典型场景举例：2 列卡片 */}
@@ -784,8 +784,7 @@ export const TgGovernanceSection: React.FC = () => {
             <thead>
               <tr className="border-b border-slate-900 bg-slate-50 text-slate-800 font-bold uppercase tracking-wider text-xs sm:text-sm">
                 <th className="py-2.5 px-3 w-14 font-mono text-center">序号</th>
-                <th className="py-2.5 px-3 w-32">流程</th>
-                <th className="py-2.5 px-3 w-32">部门</th>
+                <th className="py-2.5 px-3 w-36">流程</th>
                 <th className="py-2.5 px-3 w-28 text-center">等级</th>
                 <th className="py-2.5 px-3 w-28 text-center">治理模式</th>
                 <th className="py-2.5 px-3">治理动作</th>
@@ -805,11 +804,6 @@ export const TgGovernanceSection: React.FC = () => {
                     </td>
                     <td className="py-3 px-3 font-bold text-slate-900 whitespace-nowrap">
                       {item.name}
-                    </td>
-                    <td className="py-3 px-3 font-medium text-slate-700 whitespace-nowrap">
-                      <span className="inline-block font-medium text-xs sm:text-sm text-slate-800">
-                        {item.department}
-                      </span>
                     </td>
                     <td className="py-3 px-3 text-center whitespace-nowrap">
                       <span

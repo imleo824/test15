@@ -54,15 +54,15 @@ export const SecurityUpgradeSection: React.FC = () => {
       items: [
         {
           name: "多模块分散维护",
-          risk: "手机号、姓名、银行卡、加密钱包、IP 等敏感字段散落在数十个业务子模块，各模块独立更新维护导致遗漏与口径脱节",
-          measure: "建立统一的【敏感信息数据字典与中台收口中心】，所有业务模块禁止直连底库，统一调用中台脱敏接口",
-          impact: "100% 收拢至统一字典，消除分散维护死角",
+          risk: "散落在各后台系统及历史旧页面，[[手机、银行、邮箱、姓名、微信、支付宝、开户名、标签、输赢、等级、代理]]等敏感字段定义模糊且散乱外泄",
+          measure: "明确定义监管敏感字段，清理收敛散落入口，[[非必显页面一律关闭]]，[[必显默认全掩码脱敏]]，站点名称与商户标识统一代号替换",
+          impact: "展示入口全面收拢，默认脱敏率 100%",
         },
         {
           name: "敏感信息更新脱节",
-          risk: "某一模块更新了脱敏规则或字段遮蔽逻辑，其他遗留模块未能联动同步，导致敏感信息在老旧界面裸露",
-          measure: "实行【一处配置、全端联动生效】机制，中台规则变更秒级推送到所有微服务与前端渲染组件",
-          impact: "规则同步延迟由数天缩短至秒级，杜绝更新遗漏",
+          risk: "局部老旧后台遗留，导致数据脱敏、防复制、访问控制及监控熔断等升级功能未能联动，形成安全盲区",
+          measure: "安全改造必须[[全平台所有系统同步生效]]，覆盖所有独立子后台与微服务，统一版本同步上线，杜绝局部老旧系统被遗漏",
+          impact: "100% 覆盖全平台独立系统，消除版本差",
         },
         {
           name: "未纳管接口与盲区",
@@ -93,9 +93,9 @@ export const SecurityUpgradeSection: React.FC = () => {
         },
         {
           name: "高频与批量查询",
-          risk: "全库通配符翻页爬取或高频刷单，批量提取会员信息沉淀为离线库",
-          measure: "关闭无条件模糊检索，强制带精确条件（单号/账号）；API 限频 60 秒超 30 次自动阻断",
-          impact: "单次拉取量下降 95%，异常爬取即时拦截",
+          risk: "通过短时间内高频调阅、连续大批量翻页或异常时段调阅等行为批量提取敏感数据，安全预警缺失",
+          measure: "建立[[调阅行为异常监控与自动熔断机制]]，设定监控预警规则，异常行为自动告警并[[立即强制中断当前会话]]",
+          impact: "高危异常查询秒级熔断阻断率 100%",
         },
         {
           name: "界面划选与复制",
@@ -314,34 +314,32 @@ export const SecurityUpgradeSection: React.FC = () => {
                 key={cat.key}
                 className="bg-white space-y-4"
               >
-                {/* 模块标题、核心痛点与管控原则 */}
-                <div className="flex flex-col sm:flex-row sm:items-start justify-between pb-3 border-b-2 border-slate-900 gap-3">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-7 h-7 bg-slate-900 text-white flex items-center justify-center shrink-0">
-                      <Icon className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <h4 className="text-base sm:text-lg font-bold text-slate-950 flex items-center gap-2">
-                        <span>
-                          【{cat.direction}】{cat.categoryName}
-                        </span>
-                        <span
-                          className={`text-xs px-2 py-0.5 font-bold ${cat.tagBg} ${cat.tagText}`}
-                        >
-                          {cat.categoryTag}
-                        </span>
-                      </h4>
-                    </div>
+                {/* 对应模块的标题栏 */}
+                <div className="flex items-center gap-2.5 pb-2.5 border-b border-slate-200">
+                  <div className="w-7 h-7 bg-slate-900 text-white flex items-center justify-center shrink-0">
+                    <Icon className="w-4 h-4" />
                   </div>
-                  <div className="text-xs sm:text-[13px] text-slate-600 sm:max-w-xl font-normal space-y-1 sm:text-right">
-                    <div>
-                      <span className="font-bold text-slate-900">核心痛点：</span>
-                      {cat.coreIssue}
-                    </div>
-                    <div className="text-slate-500">
-                      <span className="font-bold text-slate-700">治理原则：</span>
-                      {cat.principle}
-                    </div>
+                  <h4 className="text-base sm:text-lg font-bold text-slate-950 flex items-center gap-2">
+                    <span>
+                      【{cat.direction}】{cat.categoryName}
+                    </span>
+                    <span
+                      className={`text-xs px-2 py-0.5 font-bold ${cat.tagBg} ${cat.tagText}`}
+                    >
+                      {cat.categoryTag}
+                    </span>
+                  </h4>
+                </div>
+
+                {/* 对应模块的标题下方：核心痛点与治理原则 */}
+                <div className="bg-slate-50/70 p-4 border-l-2 border-slate-700 text-sm sm:text-[14.5px] space-y-2 font-normal">
+                  <div className="text-slate-950 leading-relaxed">
+                    <span className="font-bold text-slate-950">核心痛点：</span>
+                    {highlightNumbers(cat.coreIssue)}
+                  </div>
+                  <div className="text-slate-700 leading-relaxed">
+                    <span className="font-bold text-slate-950">治理原则：</span>
+                    {highlightNumbers(cat.principle)}
                   </div>
                 </div>
 
@@ -446,15 +444,14 @@ export const SecurityUpgradeSection: React.FC = () => {
                   </div>
                 )}
 
-                {/* 4 列规范明细表：场景 / 潜在隐患 / 升级管控规范 / 落地成效 */}
+                {/* 3 列规范明细表：场景 / 潜在隐患 / 升级管控规范 */}
                 <ReportTableFrame>
                   <table className="w-full text-left border-collapse min-w-[680px]">
                     <thead>
                       <tr className="border-b border-slate-900 bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm uppercase tracking-wider">
-                        <th className="py-2.5 px-3 w-[18%]">防护场景</th>
-                        <th className="py-2.5 px-3 w-[26%]">潜在隐患与风险</th>
-                        <th className="py-2.5 px-3 w-[36%]">升级管控规范</th>
-                        <th className="py-2.5 px-3 w-[20%]">管控成效指标</th>
+                        <th className="py-2.5 px-3 w-[22%]">防护场景</th>
+                        <th className="py-2.5 px-3 w-[38%]">潜在隐患与风险</th>
+                        <th className="py-2.5 px-3 w-[40%]">升级管控规范</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-200 text-sm">
@@ -466,15 +463,10 @@ export const SecurityUpgradeSection: React.FC = () => {
                             {item.name}
                           </td>
                           <td className="py-3 px-3 text-slate-600 text-sm sm:text-[14.5px] leading-relaxed align-top">
-                            {item.risk}
+                            {highlightNumbers(item.risk)}
                           </td>
                           <td className="py-3 px-3 text-slate-800 text-sm sm:text-[14.5px] leading-relaxed align-top">
                             {highlightNumbers(item.measure)}
-                          </td>
-                          <td className="py-3 px-3 font-medium text-slate-900 text-xs sm:text-sm leading-relaxed align-top">
-                            <span className="inline-block font-semibold text-slate-900">
-                              {item.impact}
-                            </span>
                           </td>
                         </tr>
                       ))}

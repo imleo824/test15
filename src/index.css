@@ -49,11 +49,11 @@
     --report-font-caption: 14.5px;
     --report-font-small: 16px;
     --report-font-body: 17.5px;
-    --report-font-emphasis: 20px;
-    --report-font-panel-title: 24px;
-    --report-font-section-title: 28px;
-    --report-font-chapter-title: 34px;
-    --report-font-cover-title: 44px;
+    --report-font-emphasis: 21px;
+    --report-font-panel-title: 25px;
+    --report-font-section-title: 31px;
+    --report-font-chapter-title: 38px;
+    --report-font-cover-title: 48px;
     --report-weight-regular: 400;
     --report-weight-medium: 500;
     --report-weight-semibold: 700;
@@ -254,23 +254,27 @@
 
   .report-heading--chapter .report-heading-main > h2 {
     font-size: var(--report-font-chapter-title);
-    line-height: 1.18;
+    line-height: 1.20;
+    font-weight: 800 !important;
   }
 
   .report-heading--section .report-heading-main > h3 {
     font-size: var(--report-font-section-title);
-    line-height: 1.25;
+    line-height: 1.22;
+    font-weight: 800 !important;
   }
 
   .report-heading--panel .report-heading-main > h3,
   .report-heading--module .report-heading-main > h4 {
     font-size: var(--report-font-panel-title);
-    line-height: 1.26;
+    line-height: 1.25;
+    font-weight: 800 !important;
   }
 
   .report-heading--subsection .report-heading-main > h4 {
     font-size: var(--report-font-emphasis);
-    line-height: 1.3;
+    line-height: 1.28;
+    font-weight: 700 !important;
   }
 
   .report-heading-icon {
@@ -510,10 +514,10 @@
 
   .report-chapter-title h2 {
     color: #0f172a;
-    font-size: 26px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    line-height: 1.25;
+    font-size: var(--report-font-chapter-title) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.015em;
+    line-height: 1.20 !important;
   }
 
   .report-card {
@@ -895,6 +899,20 @@
     margin-bottom: var(--report-space-4);
   }
 
+  .report-section-header h3 {
+    font-size: var(--report-font-section-title) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.015em;
+    line-height: 1.22 !important;
+  }
+
+  .report-subsection-header h4 {
+    font-size: var(--report-font-emphasis) !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.01em;
+    line-height: 1.28 !important;
+  }
+
   .report-panel-header {
     min-height: 44px;
   }
@@ -1129,10 +1147,11 @@
   }
 
   .report-note strong,
-  .report-summary-copy strong,
-  .report-core-underline {
-    font-weight: 750 !important;
-    color: #0f172a !important;
+  .report-summary-copy strong {
+    font-weight: 850 !important;
+    color: #050b1a !important;
+    margin-left: 0.18em !important;
+    margin-right: 0.18em !important;
   }
 
   .report-note > .flex {
@@ -1214,41 +1233,42 @@
   }
 
   .report-core-underline {
-    color: #0f172a !important;
-    font-weight: 700 !important;
-    background: transparent !important;
-    border: none !important;
-    border-bottom: 0 !important;
-    text-decoration: none !important;
-    padding: 0 !important;
+    color: #050b1a !important; /* Extremely high contrast dark slate */
+    font-weight: 850 !important; /* Distinctive bold weight */
+    background-color: transparent !important; /* No background as requested */
+    border-bottom: 1.5px solid #0f172a !important; /* Elegant solid underline */
+    padding: 0 1px 1.5px 1px !important; /* Tight clean padding */
     border-radius: 0 !important;
+    display: inline !important; /* Standard inline rendering */
+    box-decoration-break: clone !important; /* Standard wrapping decoration preservation */
+    -webkit-box-decoration-break: clone !important;
     line-height: inherit;
-    margin: 0 !important;
-    display: inline;
+    margin-left: 0.18em !important;
+    margin-right: 0.18em !important;
   }
 
   .report-shell .report-number {
-    color: #0f172a !important;
+    color: #050b1a !important;
     font-family: var(--font-mono);
     font-variant-numeric: tabular-nums;
     font-size: 1.02em;
     line-height: inherit;
     vertical-align: baseline;
     letter-spacing: -0.01em;
-    font-weight: 700 !important;
+    font-weight: 850 !important;
     background: transparent !important;
     border: none !important;
     border-bottom: 0 !important;
     text-decoration: none !important;
     padding: 0 !important;
     border-radius: 0 !important;
-    margin: 0 1px;
+    margin: 0 0.18em !important;
     display: inline;
   }
 
   .report-shell .report-number-risk {
     color: var(--report-danger) !important;
-    font-weight: 700 !important;
+    font-weight: 850 !important;
     background: transparent !important;
     border: none !important;
     border-bottom: 0 !important;
@@ -1258,7 +1278,7 @@
 
   .report-shell .report-number-safe {
     color: #047857 !important;
-    font-weight: 700 !important;
+    font-weight: 850 !important;
     background: transparent !important;
     border: none !important;
     border-bottom: 0 !important;
@@ -3443,20 +3463,24 @@
   }
 
   .report-shell :is(p, li, td) strong {
-    font-weight: 750 !important;
-    color: #0f172a !important;
+    font-weight: 850 !important;
+    color: #050b1a !important;
+    margin-left: 0.18em !important;
+    margin-right: 0.18em !important;
   }
 
   /* Clean, authoritative executive typography for bold phrases */
   .report-shell :is(p, li, .report-note-content) strong:not([class*="font-mono"]):not([class*="text-2xl"]):not([class*="text-3xl"]):not([class*="text-4xl"]):not([class*="text-5xl"]):not(.report-number):not(.report-sequence-badge):not(.report-badge) {
-    color: #0f172a !important;
-    font-weight: 750 !important;
+    color: #050b1a !important;
+    font-weight: 850 !important;
     background: transparent !important;
     border-bottom: 0 !important;
     text-decoration: none !important;
     padding: 0 !important;
     border-radius: 0 !important;
     display: inline;
+    margin-left: 0.18em !important;
+    margin-right: 0.18em !important;
   }
 
   .report-surface {
@@ -3643,7 +3667,10 @@
   }
 
   .report-summary-copy :is(strong, b) {
-    font-weight: var(--report-weight-semibold) !important;
+    font-weight: 850 !important;
+    color: #050b1a !important;
+    margin-left: 0.18em !important;
+    margin-right: 0.18em !important;
   }
 
   .report-metric-card {

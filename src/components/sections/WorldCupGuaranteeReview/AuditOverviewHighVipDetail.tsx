@@ -66,7 +66,7 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
       <SummaryBox>
         <p className="text-sm sm:text-base text-slate-950 font-bold leading-relaxed mb-2.5">
           {highlightNumbers(
-            "[[高等级会员处理]]共 [[810人]]，金额 [[5,790.60]]（占比 [[21.26%]]）：",
+            "[[高等级会员处理]]共 [[810人]]，金额 [[5,790.60w]]（占比 [[21.26%]]）：",
           )}
         </p>
         <ul className="mt-3 space-y-2.5 text-slate-700">

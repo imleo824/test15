@@ -12,12 +12,12 @@ export const PersonnelDistribution: React.FC = () => {
     {
       title: "考核优化",
       category: "降本增效",
-      content: "落实量化考核与[[末位淘汰]]，人力向[[策略与专业分析岗位]]倾斜，精简低效编制；",
+      content: "落实量化考核与[[末位淘汰]]，精简低效编制；",
     },
     {
       title: "场地优化",
       category: "合规安全",
-      content: "结合各职场承载力[[动态调配工位]]，分散集中度以控制属地与合规风险；",
+      content: "结合各职场承载力[[动态调配]]，分散集中度以控制属地与合规风险；",
     },
     {
       title: "流程优化",

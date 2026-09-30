@@ -14,11 +14,11 @@ export const FuturePlansSection: React.FC = () => {
       highlights: [
         {
           title: "规则周级校准",
-          desc: "结合常态数据与复盘案例，周级校准特征与规则，防止策略衰减。"
+          desc: "结合常态数据与复盘案例，[[周级校准]]特征与规则，防止策略衰减。"
         },
         {
           title: "释放出单潜能",
-          desc: "在 30% 人工防线硬性约束下，优化特征权重，争取向 70% 出单极限靠拢。"
+          desc: "在 [[30%]] 人工防线硬性约束下，优化特征权重，争取向 [[70%]] [[出单极限]]靠拢。"
         }
       ]
     },
@@ -32,11 +32,11 @@ export const FuturePlansSection: React.FC = () => {
       highlights: [
         {
           title: "上线佣金自动审核",
-          desc: "将云盾能力延伸至代理佣金场景，构建代理专属风控模型。"
+          desc: "将云盾能力延伸至[[代理佣金自动审核]]场景，构建[[代理专属风控模型]]。"
         },
         {
           title: "动态随机派单",
-          desc: "人工审核落实动态随机派单，消除长期绑定审核关系的合规隐患。"
+          desc: "人工审核落实[[动态随机派单]]，消除长期绑定审核关系的合规隐患。"
         }
       ]
     },
@@ -50,11 +50,11 @@ export const FuturePlansSection: React.FC = () => {
       highlights: [
         {
           title: "工单线上闭环",
-          desc: "全面收拢至后台工单线上流转，杜绝线下交接，保持审计留痕完整。"
+          desc: "全面收拢至[[后台工单线上流转]]，杜绝线下交接，保持[[审计留痕]]完整。"
         },
         {
           title: "权限与改单管控",
-          desc: "敏感信息修改实行双人背靠背审批，导出/截屏按岗位严格限权。"
+          desc: "敏感信息修改实行[[双人背靠背审批]]，导出与截屏按岗位[[严格限权]]。"
         }
       ]
     }
@@ -109,7 +109,7 @@ export const FuturePlansSection: React.FC = () => {
                         {item.title}
                       </h4>
                       <p className="text-xs text-slate-600 leading-relaxed">
-                        {item.desc}
+                        {highlightNumbers(item.desc)}
                       </p>
                     </div>
                   </div>
