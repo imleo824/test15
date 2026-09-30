@@ -109,12 +109,10 @@ export const InternalControlSection: React.FC = () => {
       <div className="space-y-6 sm:space-y-8">
         <ReportSubsectionHeader title="3.1.2 监督排查核心主线" />
 
-        <SummaryBox>
-          <p className="text-sm md:text-base text-slate-800 font-medium leading-relaxed">
-            {highlightNumbers(
-              "内控稽查围绕[[线索发现]]与[[跟进处置]]两条主线开展：前端扩大信息触达面，后端通过日志、录屏、权限、流程和外部核验完成闭环追溯。",
-            )}
-          </p>
+        <SummaryBox variant="module">
+          {highlightNumbers(
+            "内控稽查围绕[[线索发现]]与[[跟进处置]]两条主线开展：前端扩大信息触达面，后端通过日志、录屏、权限、流程和外部核验完成闭环追溯。",
+          )}
         </SummaryBox>
         
         <div className="space-y-6">

@@ -6,7 +6,6 @@ import { ReportSubsectionHeader, ReportTableFrame } from "../../ReportSections";
 interface GovernanceItem {
   id: string;
   name: string;
-  department: string;
   riskLevel: "高风险" | "低风险";
   status: "已处理" | "待排期" | "持续中";
   method: "系统替代" | "脱敏简化" | "彻底取消";
@@ -18,7 +17,6 @@ export const TgGovernanceSection: React.FC = () => {
     {
       id: "01",
       name: "到账核实流程",
-      department: "财务",
       riskLevel: "低风险",
       status: "已处理",
       method: "彻底取消",
@@ -27,7 +25,6 @@ export const TgGovernanceSection: React.FC = () => {
     {
       id: "02",
       name: "大额代存核实",
-      department: "代理",
       riskLevel: "低风险",
       status: "已处理",
       method: "彻底取消",
@@ -36,7 +33,6 @@ export const TgGovernanceSection: React.FC = () => {
     {
       id: "03",
       name: "代存性质核实",
-      department: "代理",
       riskLevel: "低风险",
       status: "已处理",
       method: "彻底取消",
@@ -45,7 +41,6 @@ export const TgGovernanceSection: React.FC = () => {
     {
       id: "04",
       name: "流水咨询流程",
-      department: "维护",
       riskLevel: "低风险",
       status: "已处理",
       method: "系统替代",
@@ -54,7 +49,6 @@ export const TgGovernanceSection: React.FC = () => {
     {
       id: "05",
       name: "红利审核流程",
-      department: "运营",
       riskLevel: "高风险",
       status: "已处理",
       method: "系统替代",
@@ -63,7 +57,6 @@ export const TgGovernanceSection: React.FC = () => {
     {
       id: "06",
       name: "审核扣款流程",
-      department: "内部",
       riskLevel: "高风险",
       status: "已处理",
       method: "系统替代",
@@ -72,7 +65,6 @@ export const TgGovernanceSection: React.FC = () => {
     {
       id: "07",
       name: "审核复审流程",
-      department: "风控",
       riskLevel: "高风险",
       status: "已处理",
       method: "系统替代",
@@ -81,7 +73,6 @@ export const TgGovernanceSection: React.FC = () => {
     {
       id: "08",
       name: "上标下标流程",
-      department: "内部",
       riskLevel: "高风险",
       status: "已处理",
       method: "系统替代",
@@ -90,7 +81,6 @@ export const TgGovernanceSection: React.FC = () => {
     {
       id: "09",
       name: "备注审核流程",
-      department: "内部",
       riskLevel: "高风险",
       status: "已处理",
       method: "系统替代",
@@ -99,7 +89,6 @@ export const TgGovernanceSection: React.FC = () => {
     {
       id: "10",
       name: "资料审核流程",
-      department: "内部",
       riskLevel: "高风险",
       status: "已处理",
       method: "系统替代",
@@ -108,7 +97,6 @@ export const TgGovernanceSection: React.FC = () => {
     {
       id: "11",
       name: "会员禁用流程",
-      department: "内部",
       riskLevel: "高风险",
       status: "已处理",
       method: "系统替代",
@@ -117,7 +105,6 @@ export const TgGovernanceSection: React.FC = () => {
     {
       id: "12",
       name: "场馆解锁流程",
-      department: "维护",
       riskLevel: "低风险",
       status: "已处理",
       method: "系统替代",

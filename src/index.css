@@ -90,6 +90,54 @@
     margin: 0;
     line-height: 1.75;
   }
+
+  /* ==========================================================================
+     全局弱化线条与边框最佳实践：将粗重线条统一弱化为 1px 极细精巧线条，并采用软灰度配色
+     ========================================================================== */
+  .border-t-2 {
+    border-top-width: 1px !important;
+  }
+  .border-b-2 {
+    border-bottom-width: 1px !important;
+  }
+  .border-l-2 {
+    border-left-width: 1px !important;
+  }
+  .border-r-2 {
+    border-right-width: 1px !important;
+  }
+  .border-t-4 {
+    border-top-width: 2px !important;
+  }
+  .border-b-4 {
+    border-bottom-width: 2px !important;
+  }
+  .border-l-4 {
+    border-left-width: 2px !important;
+  }
+
+  /* 全局重彩与深重背景边框，柔化为高端哑光浅灰色 #e2e8f0 */
+  .border-slate-900,
+  .border-slate-850,
+  .border-slate-800,
+  .border-slate-700,
+  .border-slate-600,
+  .border-black {
+    border-color: #e2e8f0 !important;
+  }
+
+  /* 极致弱化各类数据表格内部的纵横线段 */
+  table, th, td, tr {
+    border-color: #f1f5f9 !important;
+  }
+  
+  thead tr, 
+  thead th,
+  tr[class*="border-b-2"],
+  tr[class*="border-slate-900"] {
+    border-bottom-width: 1px !important;
+    border-bottom-color: #cbd5e1 !important;
+  }
 }
 
 @layer utilities {
@@ -138,17 +186,20 @@
     color: #475569 !important;
   }
 
-  .report-shell .text-slate-600 {
+  .report-shell .text-slate-600,
+  .report-shell .text-slate-700,
+  .report-shell .text-slate-800,
+  .report-shell .text-gray-600,
+  .report-shell .text-gray-700,
+  .report-shell .text-gray-800 {
     color: #334155 !important;
   }
 
-  .report-shell .text-slate-700 {
-    color: #1e293b !important;
-  }
-
-  .report-shell .text-slate-800,
-  .report-shell .text-slate-900 {
-    color: var(--report-ink) !important;
+  .report-shell .text-slate-900,
+  .report-shell .text-slate-950,
+  .report-shell .text-black,
+  .report-shell .text-gray-900 {
+    color: #020617 !important;
   }
 
   /* 精确的报告字号与行高层级系统 */
@@ -1148,10 +1199,9 @@
 
   .report-note strong,
   .report-summary-copy strong {
-    font-weight: 850 !important;
-    color: #050b1a !important;
-    margin-left: 0.18em !important;
-    margin-right: 0.18em !important;
+    font-weight: 600 !important;
+    color: #020617 !important;
+    margin: 0 !important;
   }
 
   .report-note > .flex {
@@ -1226,64 +1276,69 @@
 
   .report-note p,
   .report-note li {
-    color: var(--report-ink) !important;
-    font-size: 16px !important;
+    color: #334155 !important; /* Soft, readable slate-700 color */
+    font-size: 15.5px !important; /* Standardize on the requested 15.5px */
     line-height: 1.75 !important;
-    font-weight: 500;
+    font-weight: 400 !important; /* Regular weight so bold highlights pop */
   }
 
   .report-core-underline {
-    color: #050b1a !important; /* Extremely high contrast dark slate */
-    font-weight: 850 !important; /* Distinctive bold weight */
-    background-color: transparent !important; /* No background as requested */
-    border-bottom: 1.5px solid #0f172a !important; /* Elegant solid underline */
-    padding: 0 1px 1.5px 1px !important; /* Tight clean padding */
+    color: #020617 !important; /* Deep, sharp slate-950 color */
+    font-weight: 600 !important; /* SemiBold matching font-semibold */
+    background-color: transparent !important; /* No background */
+    border-bottom: none !important; /* No underline as requested */
+    padding: 0 !important; /* Zero padding */
     border-radius: 0 !important;
     display: inline !important; /* Standard inline rendering */
-    box-decoration-break: clone !important; /* Standard wrapping decoration preservation */
+    box-decoration-break: clone !important;
     -webkit-box-decoration-break: clone !important;
     line-height: inherit;
-    margin-left: 0.18em !important;
-    margin-right: 0.18em !important;
+    margin: 0 !important; /* Zero margin */
   }
 
   .report-shell .report-number {
-    color: #050b1a !important;
-    font-family: var(--font-mono);
+    color: #020617 !important; /* Deep, sharp slate-950 color */
+    font-family: var(--font-sans) !important; /* Use sans-serif for clean editorial numbers */
     font-variant-numeric: tabular-nums;
-    font-size: 1.02em;
+    font-size: 1em;
     line-height: inherit;
     vertical-align: baseline;
     letter-spacing: -0.01em;
-    font-weight: 850 !important;
+    font-weight: 600 !important; /* SemiBold matching font-semibold */
     background: transparent !important;
     border: none !important;
     border-bottom: 0 !important;
     text-decoration: none !important;
     padding: 0 !important;
     border-radius: 0 !important;
-    margin: 0 0.18em !important;
+    margin: 0 !important;
     display: inline;
   }
 
   .report-shell .report-number-risk {
-    color: var(--report-danger) !important;
-    font-weight: 850 !important;
+    color: #b91c1c !important; /* Darker soft red for readability */
+    font-family: var(--font-sans) !important;
+    font-weight: 600 !important;
     background: transparent !important;
     border: none !important;
     border-bottom: 0 !important;
     text-decoration: none !important;
     padding: 0 !important;
+    margin: 0 !important;
+    display: inline;
   }
 
   .report-shell .report-number-safe {
-    color: #047857 !important;
-    font-weight: 850 !important;
+    color: #047857 !important; /* Darker soft emerald green */
+    font-family: var(--font-sans) !important;
+    font-weight: 600 !important;
     background: transparent !important;
     border: none !important;
     border-bottom: 0 !important;
     text-decoration: none !important;
     padding: 0 !important;
+    margin: 0 !important;
+    display: inline;
   }
 
   .report-status-card {
@@ -3457,30 +3512,29 @@
      shared report primitives so the same treatment is inherited by each chapter. */
   /* Unified hierarchy & emphasis for executive report readability */
   .report-shell :is(p, li, td, .report-panel-description, .report-note-content) {
-    font-size: 15.5px;
-    line-height: 1.72;
-    font-weight: var(--report-weight-medium);
+    font-size: 15.5px !important;
+    line-height: 1.72 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
   }
 
   .report-shell :is(p, li, td) strong {
-    font-weight: 850 !important;
-    color: #050b1a !important;
-    margin-left: 0.18em !important;
-    margin-right: 0.18em !important;
+    font-weight: 600 !important;
+    color: #020617 !important;
+    margin: 0 !important;
   }
 
   /* Clean, authoritative executive typography for bold phrases */
   .report-shell :is(p, li, .report-note-content) strong:not([class*="font-mono"]):not([class*="text-2xl"]):not([class*="text-3xl"]):not([class*="text-4xl"]):not([class*="text-5xl"]):not(.report-number):not(.report-sequence-badge):not(.report-badge) {
-    color: #050b1a !important;
-    font-weight: 850 !important;
+    color: #020617 !important;
+    font-weight: 600 !important;
     background: transparent !important;
     border-bottom: 0 !important;
     text-decoration: none !important;
     padding: 0 !important;
     border-radius: 0 !important;
     display: inline;
-    margin-left: 0.18em !important;
-    margin-right: 0.18em !important;
+    margin: 0 !important;
   }
 
   .report-surface {
@@ -3600,8 +3654,8 @@
 
   .report-note--chapter {
     background: #f8fafc;
-    border: none !important;
-    border-left: 3px solid #0f172a !important;
+    border: 1px solid #e2e8f0 !important;
+    border-left: 1.5px solid #94a3b8 !important;
     border-radius: 0 !important;
     padding: 16px 20px !important;
     font-size: 16px !important;
@@ -3617,8 +3671,8 @@
 
   .report-note--module {
     background: #f8fafc;
-    border: none !important;
-    border-left: 3px solid #0f172a !important;
+    border: 1px solid #e2e8f0 !important;
+    border-left: 1.5px solid #94a3b8 !important;
     border-radius: 0 !important;
     padding: 14px 18px !important;
     font-size: 15.5px !important;
@@ -3633,8 +3687,8 @@
 
   .report-note--note {
     background: #f8fafc;
-    border: none !important;
-    border-left: 3px solid #0f172a !important;
+    border: 1px solid #e2e8f0 !important;
+    border-left: 1.5px solid #94a3b8 !important;
     border-radius: 0 !important;
     padding: 12px 16px !important;
     font-size: 15px !important;
@@ -3662,15 +3716,25 @@
     font-weight: var(--report-weight-medium) !important;
   }
 
-  .report-summary-copy > p {
+  /* 强力规范“一句话总结”及重点备注模块的正文文本与高亮加粗词汇 */
+  .report-summary-copy,
+  .report-summary-copy p,
+  .report-summary-copy li,
+  .report-note-content,
+  .report-note-content p,
+  .report-note-content li {
+    font-size: 15.5px !important;
     line-height: 1.75 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
   }
 
-  .report-summary-copy :is(strong, b) {
-    font-weight: 850 !important;
-    color: #050b1a !important;
-    margin-left: 0.18em !important;
-    margin-right: 0.18em !important;
+  .report-summary-copy :is(strong, b, .font-bold, .font-semibold, .font-black),
+  .report-note-content :is(strong, b, .font-bold, .font-semibold, .font-black) {
+    font-weight: 600 !important;
+    color: #020617 !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   .report-metric-card {

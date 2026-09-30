@@ -5,7 +5,7 @@ interface ArchTier {
   level: string;
   name: string;
   controlScene: string;
-  status: "进行中" | "可加强";
+  status: "执行中" | "可加强";
   icon: React.ReactNode;
   keyPoints: string[];
 }
@@ -15,7 +15,7 @@ const tiers: ArchTier[] = [
     level: "L3 顶层",
     name: "专职监督",
     controlScene: "审计管控",
-    status: "进行中",
+    status: "执行中",
     icon: <Eye className="w-4 h-4 text-slate-900" />,
     keyPoints: [
       "操作日志常态巡检",
@@ -27,7 +27,7 @@ const tiers: ArchTier[] = [
     level: "L2 中层",
     name: "风控工单",
     controlScene: "流转管控",
-    status: "进行中",
+    status: "执行中",
     icon: <Users className="w-4 h-4 text-slate-900" />,
     keyPoints: [
       "关停线下非受控沟通渠道，消除私下交接漏洞",
@@ -88,18 +88,16 @@ export const SafetyArchitectureDiagram: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
               {/* 1. 防御层级 (col-span-3) */}
               <div className="lg:col-span-3 flex items-center gap-3">
-                <div className="p-2.5 bg-slate-100 shrink-0">
+                <div className="p-2.5 bg-slate-100 shrink-0 flex items-center justify-center">
                   {tier.icon}
                 </div>
-                <div className="space-y-1">
-                  <div>
-                    <span className="font-mono text-xs font-bold px-1.5 py-0.5 bg-slate-900 text-white leading-none">
-                      {tier.level}
-                    </span>
-                  </div>
-                  <div className="text-base sm:text-lg font-bold text-slate-950 tracking-tight leading-tight">
+                <div className="flex items-center gap-2 whitespace-nowrap">
+                  <span className="font-mono text-xs font-bold px-1.5 py-0.5 bg-slate-900 text-white leading-none shrink-0">
+                    {tier.level}
+                  </span>
+                  <span className="text-base sm:text-lg font-bold text-slate-950 tracking-tight leading-none shrink-0">
                     {tier.name}
-                  </div>
+                  </span>
                 </div>
               </div>
 
@@ -112,10 +110,10 @@ export const SafetyArchitectureDiagram: React.FC = () => {
 
               {/* 3. 治理状态 (col-span-2) */}
               <div className="lg:col-span-2 flex items-center justify-start lg:justify-center">
-                {tier.status === "进行中" ? (
+                {tier.status === "执行中" ? (
                   <span className="inline-flex items-center gap-1.5 text-blue-900 font-bold text-xs sm:text-sm font-mono shrink-0">
                     <span className="w-2 h-2 rounded-[1px] bg-blue-600"></span>
-                    <span>进行中</span>
+                    <span>执行中</span>
                   </span>
                 ) : (
                   <span className="inline-flex items-center gap-1.5 text-amber-900 font-bold text-xs sm:text-sm font-mono shrink-0">

@@ -154,12 +154,6 @@ export const highlightNumbers = (
       const isNumber = numericOnlyPattern.test(phrase);
       const context = text.slice(Math.max(0, match.index - 18), Math.min(text.length, highlightPattern.lastIndex + 18));
 
-      // 默认前后增加空格，如果前面已有空格或在开头则不添加
-      const hasSpaceBefore = match.index > 0 && /\s/.test(text[match.index - 1]);
-      if (match.index > 0 && !hasSpaceBefore) {
-        result.push(" ");
-      }
-
       if (
         isNumber &&
         (phrase.startsWith("-") || parseFloat(numericValue) < 0) &&
@@ -189,12 +183,6 @@ export const highlightNumbers = (
           </span>,
         );
       }
-
-      // 默认前后增加空格，如果后面已有空格或在结尾则不添加
-      const hasSpaceAfter = highlightPattern.lastIndex < text.length && /\s/.test(text[highlightPattern.lastIndex]);
-      if (highlightPattern.lastIndex < text.length && !hasSpaceAfter) {
-        result.push(" ");
-      }
     } else if (match[3]) {
       const phrase = match[3];
       const context = text.slice(Math.max(0, match.index - 18), Math.min(text.length, highlightPattern.lastIndex + 18));
@@ -204,23 +192,11 @@ export const highlightNumbers = (
         continue;
       }
 
-      // 默认前后增加空格，如果前面已有空格或在开头则不添加
-      const hasSpaceBefore = match.index > 0 && /\s/.test(text[match.index - 1]);
-      if (match.index > 0 && !hasSpaceBefore) {
-        result.push(" ");
-      }
-
       result.push(
         <span key={match.index} className={getNumberToneClass(phrase, context, colorClass)}>
           {phrase}
         </span>,
       );
-
-      // 默认前后增加空格，如果后面已有空格或在结尾则不添加
-      const hasSpaceAfter = highlightPattern.lastIndex < text.length && /\s/.test(text[highlightPattern.lastIndex]);
-      if (highlightPattern.lastIndex < text.length && !hasSpaceAfter) {
-        result.push(" ");
-      }
     }
 
     lastIndex = highlightPattern.lastIndex;

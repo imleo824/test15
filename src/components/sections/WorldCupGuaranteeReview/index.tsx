@@ -30,7 +30,7 @@ export const WorldCupGuaranteeReview: React.FC = () => {
         <ChapterTitle>3.0 安全合规</ChapterTitle>
         <SummaryBox variant="chapter">
           {highlightNumbers(
-            "安全合规不仅仅是单点优化，是需要从多维度和多角度进行全面解决，长期来看希望构建[[安全合规分层防御架构]]：以[[专职监督底线兜底]]、[[风控工单线上闭环]]、[[底层安全机制硬控]]，彻底消除私下流转与操作盲区。"
+            "安全合规不仅仅是[[单点]]优化，是需要从[[多维度]]和[[多角度]]进行[[全面解决]]，长期来看希望构建[[安全合规分层防御架构]]：以[[专职监督底线兜底]]、[[风控工单线上闭环]]、[[底层安全机制硬控]]，彻底消除私下流转与操作盲区。"
           )}
         </SummaryBox>
         <div className="report-chapter-content">
