@@ -25,17 +25,17 @@ const monthlyTrendData = [
   {
     month: "2026-01",
     monthLabel: "1月",
-    autoRate: 50.71,
-    autoRateLabel: "50.71%",
-    errorRate: 0.35,
-    errorRateLabel: "0.350%",
+    autoRate: 52.66,
+    autoRateLabel: "52.66%",
+    errorRate: 0.324,
+    errorRateLabel: "0.324%",
     isSeptember: false,
   },
   {
     month: "2026-02",
     monthLabel: "2月",
-    autoRate: 45.63,
-    autoRateLabel: "45.63%",
+    autoRate: 45.61,
+    autoRateLabel: "45.61%",
     errorRate: 0.157,
     errorRateLabel: "0.157%",
     isSeptember: false,
@@ -45,53 +45,53 @@ const monthlyTrendData = [
     monthLabel: "3月",
     autoRate: 50.47,
     autoRateLabel: "50.47%",
-    errorRate: 0.134,
-    errorRateLabel: "0.134%",
+    errorRate: 0.135,
+    errorRateLabel: "0.135%",
     isSeptember: false,
   },
   {
     month: "2026-04",
     monthLabel: "4月",
-    autoRate: 49.87,
-    autoRateLabel: "49.87%",
-    errorRate: 0.121,
-    errorRateLabel: "0.121%",
+    autoRate: 50.33,
+    autoRateLabel: "50.33%",
+    errorRate: 0.122,
+    errorRateLabel: "0.122%",
     isSeptember: false,
   },
   {
     month: "2026-05",
     monthLabel: "5月",
-    autoRate: 53.87,
-    autoRateLabel: "53.87%",
-    errorRate: 0.08,
-    errorRateLabel: "0.080%",
+    autoRate: 54.47,
+    autoRateLabel: "54.47%",
+    errorRate: 0.082,
+    errorRateLabel: "0.082%",
     isSeptember: false,
   },
   {
     month: "2026-06",
     monthLabel: "6月",
-    autoRate: 44.37,
-    autoRateLabel: "44.37%",
-    errorRate: 0.107,
-    errorRateLabel: "0.107%",
+    autoRate: 48.25,
+    autoRateLabel: "48.25%",
+    errorRate: 0.111,
+    errorRateLabel: "0.111%",
     isSeptember: false,
   },
   {
     month: "2026-07",
     monthLabel: "7月",
-    autoRate: 46.84,
-    autoRateLabel: "46.84%",
-    errorRate: 0.101,
-    errorRateLabel: "0.101%",
+    autoRate: 48.01,
+    autoRateLabel: "48.01%",
+    errorRate: 0.094,
+    errorRateLabel: "0.094%",
     isSeptember: false,
   },
   {
     month: "2026-08",
     monthLabel: "8月",
-    autoRate: 45.96,
-    autoRateLabel: "45.96%",
-    errorRate: 0.108,
-    errorRateLabel: "0.108%",
+    autoRate: 48.37,
+    autoRateLabel: "48.37%",
+    errorRate: 0.104,
+    errorRateLabel: "0.104%",
     isSeptember: false,
   },
   {
@@ -209,18 +209,18 @@ const renderCustomDot = (props: any) => {
 };
 
 const renderCustomLegend = () => (
-  <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 pt-3 text-sm text-slate-800">
+  <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 pt-3 text-xs sm:text-sm text-slate-800">
     <div className="flex items-center gap-2 font-bold text-blue-900">
       <span className="h-3 w-3 rounded-xs bg-[#2563eb]" />
       <span>1~8月 出单比例 (%)</span>
     </div>
     <div className="flex items-center gap-2 font-bold text-emerald-800">
       <span className="h-3 w-3 rounded-xs bg-[#059669]" />
-      <span>9月 出单比例（专属高亮）</span>
+      <span>9月 出单比例</span>
     </div>
     <div className="flex items-center gap-2 font-bold text-red-700">
       <span className="h-2.5 w-5 bg-red-600 rounded-full inline-block" />
-      <span>系统错误率 (%)</span>
+      <span>系统质检率 (%)</span>
     </div>
   </div>
 );
@@ -231,22 +231,20 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
       title="系统出单趋势对比"
       description={
         <span>
-          2026年1月至9月，<strong>系统出单比例</strong>由 <strong>50.71% 稳健攀升至 55.00%</strong>；同时 <strong>系统错误率从 1月的 0.350% 持续大幅压降并收敛至 0.060% 极低安全水平</strong>，<strong>实现了“出单比例提升，出单质量不降反升”的兼顾。</strong>
+          2026年1月至9月，<strong>系统出单比例</strong>由 1~8月均值的 <strong>49.77% 稳健攀升至 55.00%</strong>；同时 <strong>系统质检率由 1~8月均值的 0.141%（1月峰值 0.324%）持续大幅压降并收敛至 0.060% 极低安全水平</strong>，<strong>实现了“出单比例提升，出单质量不降反升”的兼顾。</strong>
         </span>
       }
       bodyHeight="h-[510px]"
-      footnote="注：数据周期为 2026年1月至2026年9月。左 Y 轴出单比例采用高敏感度聚焦区间（40%~58%），显著拉开 44.37% ➔ 55.00% 的突破性放量视觉差距；右 Y 轴错误率采用非零基线高敏感区间（0.03%~0.36%），显著强化 8月 0.108% ➔ 9月 0.060% 的断崖式质量改善落差。"
+      footnote="注：数据周期为 2026年1月至2026年9月。左 Y 轴出单比例采用高敏感度聚焦区间（40%~58%），展示系统出单放量趋势；右 Y 轴质检率展示质量持续改善与收敛落差。"
     >
       <div className="flex flex-col h-full justify-between">
-        {/* 顶部：系统自身出单与错误率演进对比看板 (聚焦系统本身：出单比例上升、出错率下降) */}
+        {/* 顶部：系统自身出单与质检率演进对比看板 (聚焦系统本身：出单比例上升、质检率下降) */}
         <div className="overflow-x-auto my-1.5">
           <table className="w-full text-sm sm:text-base text-center border-collapse">
             <thead>
               <tr className="border-b border-slate-200 text-slate-800">
                 <th className="py-2.5 px-3 text-left font-bold text-slate-500 text-xs sm:text-sm w-32">系统核心指标</th>
-                <th className="py-2.5 px-4 font-bold text-slate-700 text-sm sm:text-base">1月 (年初基线)</th>
-                <th className="w-8 py-2.5 text-slate-400 font-mono"></th>
-                <th className="py-2.5 px-4 font-bold text-slate-700 text-sm sm:text-base">8月 (攻坚阶段)</th>
+                <th className="py-2.5 px-4 font-bold text-slate-700 text-sm sm:text-base">1~8月均值 (基线)</th>
                 <th className="w-8 py-2.5 text-slate-400 font-mono"></th>
                 <th className="py-2.5 px-4 font-bold text-blue-950 bg-blue-50/70 text-sm sm:text-base">9月 (推全成效)</th>
                 <th className="py-2.5 px-4 text-right font-bold text-slate-700 text-xs sm:text-sm">演进趋势与核心成效</th>
@@ -259,47 +257,35 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
                   系统出单比例
                 </td>
                 <td className="py-3 px-4 font-bold text-slate-700 text-sm sm:text-base">
-                  50.71%
-                </td>
-                <td className="py-3 text-center font-black text-blue-600 text-base sm:text-lg">
-                  ➔
-                </td>
-                <td className="py-3 px-4 font-bold text-slate-700 text-sm sm:text-base">
-                  45.96%
+                  49.77%
                 </td>
                 <td className="py-3 text-center font-black text-blue-600 text-base sm:text-lg">
                   ➔
                 </td>
                 <td className="py-3 px-4 font-black text-blue-950 bg-blue-50/30 text-sm sm:text-base">
-                  55.00% <span className="text-xs text-emerald-700 font-semibold ml-1">(+4.29%)</span>
+                  55.00% <span className="text-xs text-emerald-700 font-semibold ml-1">(+5.23%)</span>
                 </td>
                 <td className="py-3 px-4 text-right font-sans font-bold text-blue-900 text-xs sm:text-sm">
-                  出单比例上升
+                  出单比例放量上升
                 </td>
               </tr>
 
-              {/* 行 2：系统错误率 (出错率下降) */}
+              {/* 行 2：系统质检率 (质检率下降) */}
               <tr>
                 <td className="py-3 px-3 text-left font-sans font-bold text-slate-800 text-xs sm:text-sm">
-                  系统错误率
+                  系统质检率
                 </td>
                 <td className="py-3 px-4 font-bold text-red-700 text-sm sm:text-base">
-                  0.350%
-                </td>
-                <td className="py-3 text-center font-black text-red-600 text-base sm:text-lg">
-                  ➔
-                </td>
-                <td className="py-3 px-4 font-bold text-slate-800 text-sm sm:text-base">
-                  0.108%
+                  0.141% <span className="text-xs text-slate-500 font-normal">(1月0.324%)</span>
                 </td>
                 <td className="py-3 text-center font-black text-red-600 text-base sm:text-lg">
                   ➔
                 </td>
                 <td className="py-3 px-4 font-black text-emerald-700 bg-blue-50/30 text-sm sm:text-base">
-                  0.060% <span className="text-xs text-emerald-800 font-semibold ml-1">(-82.9%)</span>
+                  0.060% <span className="text-xs text-emerald-800 font-semibold ml-1">(-57.4%)</span>
                 </td>
                 <td className="py-3 px-4 text-right font-sans font-bold text-emerald-800 text-xs sm:text-sm">
-                  错误大幅下降
+                  质检率大幅收敛
                 </td>
               </tr>
             </tbody>
@@ -331,7 +317,7 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
                 ticks={[40, 45, 50, 55, 58]}
               />
 
-              {/* 右 Y 轴：系统错误率 (%) - 采用高敏感度区间 [0.03, 0.36]，大幅拉开 0.108% 与 0.060% 的视觉落差 */}
+              {/* 右 Y 轴：系统质检率 (%) - 采用高敏感度区间 [0.03, 0.36]，大幅拉开 0.108% 与 0.060% 的视觉落差 */}
               <YAxis
                 yAxisId="right"
                 orientation="right"
@@ -342,19 +328,10 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
                 ticks={[0.03, 0.06, 0.10, 0.15, 0.20, 0.28, 0.36]}
               />
 
-              {/* 9月 0.060% 目标基准参考线 */}
-              <ReferenceLine
-                y={0.06}
-                yAxisId="right"
-                stroke="#059669"
-                strokeDasharray="4 3"
-                strokeWidth={1.5}
-              />
-
               <Tooltip
                 formatter={(val: any, name: string) => {
                   if (name === "系统出单比例") return [`${val}%`, "系统出单比例"];
-                  if (name === "系统错误率") return [`${val}%`, "系统错误率"];
+                  if (name === "系统质检率" || name === "系统错误率") return [`${val}%`, "系统质检率"];
                   return [val, name];
                 }}
                 labelFormatter={(label) => `2026年 ${label}`}
@@ -379,12 +356,22 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
                 <LabelList dataKey="autoRateLabel" content={renderBarLabel} />
               </Bar>
 
-              {/* 折线图：系统错误率 */}
+              {/* 9月 0.060% 目标基准参考线 */}
+              <ReferenceLine
+                y={0.06}
+                yAxisId="right"
+                stroke="#059669"
+                strokeDasharray="4 3"
+                strokeWidth={1.5}
+                isFront={true}
+              />
+
+              {/* 折线图：系统质检率 */}
               <Line
                 yAxisId="right"
                 type="monotone"
                 dataKey="errorRate"
-                name="系统错误率"
+                name="系统质检率"
                 stroke="#b91c1c"
                 strokeWidth={3.5}
                 dot={renderCustomDot}

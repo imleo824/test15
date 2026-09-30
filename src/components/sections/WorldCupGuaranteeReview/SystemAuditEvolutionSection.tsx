@@ -913,16 +913,21 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     </span>
                   </div>
 
-                  {/* 右侧阶段说明内容卡片 */}
-                  <div className="flex-1 bg-white p-5 sm:p-6 border border-slate-200/80 space-y-4">
+                  {/* 右侧阶段说明内容 */}
+                  <div className="flex-1 space-y-4">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2.5 border-b border-slate-200 gap-2">
                       <div className="flex items-center gap-2">
                         <h6 className="text-base sm:text-lg font-bold text-slate-950">
                           阶段一 · 提款策略扫描
                         </h6>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <span className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-slate-800 bg-white px-2.5 py-0.5">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="inline-flex items-center gap-2 text-xs font-mono font-bold text-slate-800 bg-slate-50 border border-slate-200 px-3 py-1">
+                          <span className="text-slate-600 font-normal">(45 正常 / <strong className="text-rose-600 font-bold">5 异常</strong>)</span>
+                          <span className="text-slate-300">·</span>
+                          <span>总得分：<strong className="text-rose-700 font-bold text-sm">105分</strong></span>
+                        </span>
+                        <span className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-slate-800 bg-slate-50 border border-slate-200 px-2.5 py-1">
                           <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
                           50+ 项策略探针穿透
                         </span>
@@ -934,20 +939,17 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       <table className="w-full text-left border-collapse bg-white">
                         <thead>
                           <tr className="bg-slate-100 text-slate-900 text-xs font-mono font-bold border-b border-slate-200">
-                            <th className="py-2.5 px-3 w-[18%]">分类</th>
-                            <th className="py-2.5 px-3 w-[42%]">子项策略名称</th>
-                            <th className="py-2.5 px-3 w-[16%] text-center">风险分数</th>
-                            <th className="py-2.5 px-3 w-[24%] text-center">
-                              <span className="inline-flex items-center gap-1">
-                                扫描结果 <span className="text-[11px] text-slate-500 font-normal">(45 正常 / <span className="text-rose-600 font-bold">5 异常</span>)</span>
-                              </span>
-                            </th>
+                            <th className="py-2.5 px-3 w-[16%]">分类</th>
+                            <th className="py-2.5 px-3 w-[46%]">子项策略名称</th>
+                            <th className="py-2.5 px-3 w-[18%] text-center">风险分数</th>
+                            <th className="py-2.5 px-3 w-[20%] text-center">扫描结果</th>
                           </tr>
                         </thead>
                         <tbody className="divide-y divide-slate-100 text-xs sm:text-[13px]">
                           {[
                             {
                               category: "账户",
+                              tagColor: "bg-slate-100 text-slate-800 border-slate-200",
                               items: [
                                 { name: "存在关联账号", score: "0分", isError: false },
                                 { name: "新绑提款账户后首提", score: "0分", isError: false },
@@ -961,6 +963,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                             },
                             {
                               category: "环境",
+                              tagColor: "bg-blue-50 text-blue-800 border-blue-200",
                               items: [
                                 { name: "使用新设备IP首提", score: "+15分", isError: true },
                                 { name: "银行卡为海南地区", score: "0分", isError: false },
@@ -971,6 +974,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                             },
                             {
                               category: "内控",
+                              tagColor: "bg-orange-50 text-orange-800 border-orange-200",
                               items: [
                                 { name: "特殊上分类型", score: "0分", isError: false },
                                 { name: "N次提款未过人工审核", score: "0分", isError: false },
@@ -983,6 +987,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                             },
                             {
                               category: "红利",
+                              tagColor: "bg-rose-50 text-rose-800 border-rose-200",
                               items: [
                                 { name: "领取特邀红利超额", score: "+30分", isError: true },
                                 { name: "高红利占比", score: "0分", isError: false },
@@ -992,6 +997,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                             },
                             {
                               category: "新手",
+                              tagColor: "bg-teal-50 text-teal-800 border-teal-200",
                               items: [
                                 { name: "前N次提款", score: "0分", isError: false },
                                 { name: "红利超过限定额度", score: "0分", isError: false },
@@ -1001,6 +1007,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                             },
                             {
                               category: "行为",
+                              tagColor: "bg-amber-50 text-amber-800 border-amber-200",
                               items: [
                                 { name: "命中多个套利特征", score: "0分", isError: false },
                                 { name: "睡眠账号", score: "0分", isError: false },
@@ -1014,6 +1021,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                             },
                             {
                               category: "盈利",
+                              tagColor: "bg-cyan-50 text-cyan-800 border-cyan-200",
                               items: [
                                 { name: "高盈利率", score: "0分", isError: false },
                                 { name: "高盈利审核挂起", score: "0分", isError: false },
@@ -1024,23 +1032,24 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                             },
                             {
                               category: "游戏",
+                              tagColor: "bg-purple-50 text-purple-800 border-purple-200",
                               items: [
-                                { tag: "体育", tagColor: "bg-sky-50 text-sky-800", name: "低赔率注单占比高", score: "0分", isError: false },
-                                { tag: "体育", tagColor: "bg-sky-50 text-sky-800", name: "有二次结算注单", score: "0分", isError: false },
-                                { tag: "体育", tagColor: "bg-sky-50 text-sky-800", name: "B端-下注行为异常", score: "0分", isError: false },
-                                { tag: "真人", tagColor: "bg-purple-50 text-purple-800", name: "B端-下注行为异常", score: "0分", isError: false },
-                                { tag: "棋牌", tagColor: "bg-amber-50 text-amber-800", name: "命中多个套利特征", score: "0分", isError: false },
-                                { tag: "棋牌", tagColor: "bg-amber-50 text-amber-800", name: "全包", score: "0分", isError: false },
-                                { tag: "彩票", tagColor: "bg-emerald-50 text-emerald-800", name: "全包", score: "0分", isError: false },
-                                { tag: "彩票", tagColor: "bg-emerald-50 text-emerald-800", name: "高盈利额", score: "0分", isError: false },
-                                { tag: "电子", tagColor: "bg-indigo-50 text-indigo-800", name: "卡免费", score: "0分", isError: false },
-                                { tag: "电子", tagColor: "bg-indigo-50 text-indigo-800", name: "B端-下注行为异常", score: "0分", isError: false },
+                                { tag: "体育", tagColor: "bg-sky-50 text-sky-800 border-sky-200", name: "低赔率注单占比高", score: "0分", isError: false },
+                                { tag: "体育", tagColor: "bg-sky-50 text-sky-800 border-sky-200", name: "有二次结算注单", score: "0分", isError: false },
+                                { tag: "体育", tagColor: "bg-sky-50 text-sky-800 border-sky-200", name: "B端-下注行为异常", score: "0分", isError: false },
+                                { tag: "真人", tagColor: "bg-purple-50 text-purple-800 border-purple-200", name: "B端-下注行为异常", score: "0分", isError: false },
+                                { tag: "棋牌", tagColor: "bg-amber-50 text-amber-800 border-amber-200", name: "命中多个套利特征", score: "0分", isError: false },
+                                { tag: "棋牌", tagColor: "bg-amber-50 text-amber-800 border-amber-200", name: "全包", score: "0分", isError: false },
+                                { tag: "彩票", tagColor: "bg-emerald-50 text-emerald-800 border-emerald-200", name: "全包", score: "0分", isError: false },
+                                { tag: "彩票", tagColor: "bg-emerald-50 text-emerald-800 border-emerald-200", name: "高盈利额", score: "0分", isError: false },
+                                { tag: "电子", tagColor: "bg-indigo-50 text-indigo-800 border-indigo-200", name: "卡免费", score: "0分", isError: false },
+                                { tag: "电子", tagColor: "bg-indigo-50 text-indigo-800 border-indigo-200", name: "B端-下注行为异常", score: "0分", isError: false },
                                 { name: "……", score: "-", isError: false }
                               ]
                             }
                           ].map((group, groupIdx) => (
                             <React.Fragment key={groupIdx}>
-                              {group.items.map((sub, itemIdx) => {
+                              {group.items.map((sub: any, itemIdx) => {
                                 const gameBgClass = sub.tag === "体育"
                                   ? "bg-sky-50/50"
                                   : sub.tag === "真人"
@@ -1054,6 +1063,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                                   : sub.isError
                                   ? "bg-rose-50/40"
                                   : "bg-white";
+
+                                const displayTag = sub.tag || group.category;
+                                const displayTagColor = sub.tagColor || group.tagColor || "bg-slate-100 text-slate-800 border-slate-200";
 
                                 const maskStrategyName = (name: string): string => {
                                   if (name === "……") return "……";
@@ -1089,9 +1101,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                                       : "text-slate-800 font-medium"
                                   }`}>
                                     <div className="flex items-center gap-1.5">
-                                      {sub.tag && (
-                                        <span className={`px-1.5 py-0.2 font-bold text-[10px] shrink-0 ${sub.tagColor}`}>
-                                          【{sub.tag}】
+                                      {sub.name !== "……" && (
+                                        <span className={`px-1.5 py-0.2 font-bold text-[10px] shrink-0 border ${displayTagColor}`}>
+                                          【{displayTag}】
                                         </span>
                                       )}
                                       <span className="font-mono tracking-tight">
@@ -1129,6 +1141,19 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                             </React.Fragment>
                           ))}
                         </tbody>
+                        <tfoot>
+                          <tr className="bg-slate-50 border-t border-slate-200 text-xs font-mono font-bold">
+                            <td className="py-2.5 px-3 font-bold text-slate-900" colSpan={2}>
+                              合计扫描结果（50+ 项策略探针）
+                            </td>
+                            <td className="py-2.5 px-3 text-center text-rose-700 font-bold text-sm">
+                              +105分
+                            </td>
+                            <td className="py-2.5 px-3 text-center text-rose-700 font-bold">
+                              5 异常 / 45 正常
+                            </td>
+                          </tr>
+                        </tfoot>
                       </table>
                     </div>
                   </div>
@@ -1152,8 +1177,8 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     </span>
                   </div>
 
-                  {/* 右侧阶段说明内容卡片：简版量化决策流程示意 */}
-                  <div className="flex-1 bg-white p-5 sm:p-6 border border-slate-200/80 space-y-4">
+                  {/* 右侧阶段说明内容：简版量化决策流程示意 */}
+                  <div className="flex-1 space-y-4">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-200 gap-2">
                       <div className="flex items-center gap-2">
                         <h6 className="text-base sm:text-lg font-bold text-slate-950">
@@ -1256,8 +1281,8 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     </span>
                   </div>
 
-                  {/* 右侧阶段说明内容卡片 */}
-                  <div className="flex-1 bg-white p-5 sm:p-6 border border-slate-200/80 space-y-5">
+                  {/* 右侧阶段说明内容 */}
+                  <div className="flex-1 space-y-5">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-200 gap-2">
                       <div className="flex items-center gap-2">
                         <h6 className="text-base sm:text-lg font-bold text-slate-950">
@@ -1352,7 +1377,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       <div className="flex items-center justify-between pb-1.5 border-b border-slate-200">
                         <span className="text-xs sm:text-sm font-bold text-slate-950 flex items-center gap-1.5">
                           <span className="w-2 h-2 bg-slate-950"></span>
-                          典型派单匹配场景与决策示例
+                          派单匹配场景决策示例
                         </span>
                         <span className="text-xs font-mono font-bold text-slate-600">精准派发机制</span>
                       </div>
@@ -1473,8 +1498,8 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     </span>
                   </div>
 
-                  {/* 右侧阶段说明内容卡片 */}
-                  <div className="flex-1 bg-white p-5 sm:p-6 border border-slate-200/80 space-y-4">
+                  {/* 右侧阶段说明内容 */}
+                  <div className="flex-1 space-y-4">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-200 gap-2">
                       <div className="flex items-center gap-2">
                         <h6 className="text-base sm:text-lg font-bold text-slate-950">

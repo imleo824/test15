@@ -206,7 +206,7 @@ export const InternalControlSection: React.FC = () => {
                 <div className="pb-2">
                   <span className="font-bold text-slate-900 block text-sm sm:text-base mb-0.5">背景</span>
                   <p className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal">
-                    {highlightNumbers("外包审核存在数据外泄风险且差错率偏高，5月启动[[外包专项治理]]。")}
+                    {highlightNumbers("外包审核存在数据外泄风险且质检率偏高，5月启动[[外包专项治理]]。")}
                   </p>
                 </div>
               </div>

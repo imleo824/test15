@@ -47,23 +47,23 @@ export interface RoleMonthlyData {
 export const roleGroupedData: RoleMonthlyData[] = [
   {
     role: "外包",
-    tag: "差错率 1.82%~1.95%",
-    m1: 28.5,
-    m1Label: "28.5%",
-    m2: 28.1,
-    m2Label: "28.1%",
-    m3: 27.6,
-    m3Label: "27.6%",
-    m4: 27.0,
-    m4Label: "27.0%",
-    m5: 26.3,
-    m5Label: "26.3%",
-    m6: 25.4,
-    m6Label: "25.4%",
-    m7: 24.5,
-    m7Label: "24.5%",
-    m8: 23.9,
-    m8Label: "23.9%",
+    tag: "1~8月均质检率 1.91%",
+    m1: 9.80,
+    m1Label: "9.80%",
+    m2: 9.04,
+    m2Label: "9.04%",
+    m3: 11.93,
+    m3Label: "11.93%",
+    m4: 11.03,
+    m4Label: "11.03%",
+    m5: 10.39,
+    m5Label: "10.39%",
+    m6: 7.73,
+    m6Label: "7.73%",
+    m7: 9.14,
+    m7Label: "9.14%",
+    m8: 11.92,
+    m8Label: "11.92%",
     m9: 16.7,
     m9Label: "16.7%",
     m9_30: 7.5,
@@ -71,23 +71,23 @@ export const roleGroupedData: RoleMonthlyData[] = [
   },
   {
     role: "总部",
-    tag: "差错率 0.69%~0.78%",
-    m1: 43.0,
-    m1Label: "43.0%",
-    m2: 43.2,
-    m2Label: "43.2%",
-    m3: 43.0,
-    m3Label: "43.0%",
-    m4: 42.8,
-    m4Label: "42.8%",
-    m5: 42.5,
-    m5Label: "42.5%",
-    m6: 43.1,
-    m6Label: "43.1%",
-    m7: 43.5,
-    m7Label: "43.5%",
-    m8: 44.0,
-    m8Label: "44.0%",
+    tag: "1~8月均质检率 0.85%",
+    m1: 37.55,
+    m1Label: "37.55%",
+    m2: 45.36,
+    m2Label: "45.36%",
+    m3: 37.60,
+    m3Label: "37.60%",
+    m4: 38.64,
+    m4Label: "38.64%",
+    m5: 35.14,
+    m5Label: "35.14%",
+    m6: 44.02,
+    m6Label: "44.02%",
+    m7: 42.85,
+    m7Label: "42.85%",
+    m8: 39.71,
+    m8Label: "39.71%",
     m9: 40.0,
     m9Label: "40.0%",
     m9_30: 48.1,
@@ -95,23 +95,23 @@ export const roleGroupedData: RoleMonthlyData[] = [
   },
   {
     role: "系统",
-    tag: "差错率 0.08%~0.15%",
-    m1: 28.5,
-    m1Label: "28.5%",
-    m2: 28.7,
-    m2Label: "28.7%",
-    m3: 29.4,
-    m3Label: "29.4%",
-    m4: 30.2,
-    m4Label: "30.2%",
-    m5: 31.2,
-    m5Label: "31.2%",
-    m6: 31.5,
-    m6Label: "31.5%",
-    m7: 32.0,
-    m7Label: "32.0%",
-    m8: 32.1,
-    m8Label: "32.1%",
+    tag: "1~8月均质检率 0.14%",
+    m1: 52.66,
+    m1Label: "52.66%",
+    m2: 45.61,
+    m2Label: "45.61%",
+    m3: 50.47,
+    m3Label: "50.47%",
+    m4: 50.33,
+    m4Label: "50.33%",
+    m5: 54.47,
+    m5Label: "54.47%",
+    m6: 48.25,
+    m6Label: "48.25%",
+    m7: 48.01,
+    m7Label: "48.01%",
+    m8: 48.37,
+    m8Label: "48.37%",
     m9: 43.3,
     m9Label: "43.3%",
     m9_30: 44.4,
@@ -148,6 +148,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
         <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-xs">
           {payload.map((item: any) => {
             const isSpecial = item.dataKey === "m9_30";
+            const valText = typeof item.value === "string" && item.value.endsWith("%") ? item.value : `${item.value}%`;
             return (
               <div key={item.dataKey} className={`flex items-center justify-between ${isSpecial ? "font-bold text-blue-900" : ""}`}>
                 <span className="flex items-center gap-1 text-slate-600">
@@ -157,7 +158,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
                   />
                   <span className={isSpecial ? "text-blue-950 font-bold" : ""}>{item.name}:</span>
                 </span>
-                <span className={`font-mono font-bold ${isSpecial ? "text-blue-700" : "text-slate-900"}`}>{item.value}%</span>
+                <span className={`font-mono font-bold ${isSpecial ? "text-blue-700" : "text-slate-900"}`}>{valText}</span>
               </div>
             );
           })}
@@ -177,7 +178,7 @@ const renderKeyBarLabel = (monthKey: string) => (props: any) => {
   }
 
   const is930 = monthKey === "m9_30";
-  const text = `${value}%`;
+  const text = typeof value === "string" ? (value.endsWith("%") ? value : `${value}%`) : `${value}%`;
   const centerX = x + width / 2;
 
   return (
@@ -223,8 +224,8 @@ export const SmartDispatchOrderStructure: React.FC = () => {
       description={
         <span>
           <strong>三大审核主体（外包 / 总部 / 系统）出单结构与质量演进：</strong>
-          <strong>外包审核</strong> 占比从 1月的 <strong>28.5%</strong> 持续压降至 9.30全量的 <strong>7.5%</strong>（高差错率审单基本退出）；
-          <strong>总部审核</strong> 稳定在 <strong>40.0% ~ 48.1%</strong> 专注承接高危与复杂核心单；
+          <strong>外包审核</strong> 占比从 1月的 <strong>9.80%</strong> 持续压降至 9.30全量的 <strong>7.5%</strong>（高质检率审单基本退出）；
+          <strong>总部审核</strong> 稳定在 <strong>35.14% ~ 48.1%</strong> 专注承接高危与复杂核心单；
           <strong>系统自动审单</strong> 强劲跃升至 <strong>55.00%</strong>（主力放量全面成型）。
         </span>
       }
@@ -238,47 +239,60 @@ export const SmartDispatchOrderStructure: React.FC = () => {
             <thead>
               <tr className="border-b border-slate-200 text-slate-800">
                 <th className="py-2.5 px-3 text-left font-bold text-slate-500 text-xs sm:text-sm w-24">指标</th>
-                <th className="py-2.5 px-4 font-bold text-slate-800 text-sm sm:text-base">
+                <th className="py-2.5 px-3 font-bold text-slate-800 text-sm sm:text-base">
                   <div className="flex items-center justify-center gap-1.5">
                     <span className="w-2 h-2 bg-slate-400 shrink-0"></span>
-                    <span>外包</span>
+                    <span>外包 (1-8月均值)</span>
                   </div>
                 </th>
-                <th className="w-8 py-2.5 text-slate-400 font-mono"></th>
-                <th className="py-2.5 px-4 font-bold text-slate-800 text-sm sm:text-base">
+                <th className="w-6 py-2.5 text-slate-400 font-mono"></th>
+                <th className="py-2.5 px-3 font-bold text-slate-800 text-sm sm:text-base">
                   <div className="flex items-center justify-center gap-1.5">
                     <span className="w-2 h-2 bg-slate-600 shrink-0"></span>
-                    <span>总部</span>
+                    <span>总部 (1-8月均值)</span>
                   </div>
                 </th>
-                <th className="w-8 py-2.5 text-slate-400 font-mono"></th>
-                <th className="py-2.5 px-4 font-bold text-blue-950 bg-blue-50/70 text-sm sm:text-base">
+                <th className="w-6 py-2.5 text-slate-400 font-mono"></th>
+                <th className="py-2.5 px-3 font-bold text-blue-950 bg-blue-50/70 text-sm sm:text-base">
                   <div className="flex items-center justify-center gap-1.5">
                     <span className="w-2 h-2 bg-blue-600 shrink-0"></span>
-                    <span>系统</span>
+                    <span>系统 (1-8月均值)</span>
+                  </div>
+                </th>
+                <th className="w-6 py-2.5 text-slate-400 font-mono"></th>
+                <th className="py-2.5 px-3 font-bold text-blue-950 bg-blue-100/80 text-sm sm:text-base">
+                  <div className="flex items-center justify-center gap-1.5">
+                    <span className="w-2 h-2 bg-blue-800 shrink-0"></span>
+                    <span>系统 (930全量)</span>
                   </div>
                 </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 tabular-nums">
-              {/* 行 1：差错率 */}
+              {/* 行 1：质检率 */}
               <tr>
                 <td className="py-3 px-3 text-left font-bold text-slate-900 text-sm">
-                  差错率
+                  质检率
                 </td>
-                <td className="py-3 px-4 font-bold text-red-700 text-sm sm:text-base">
-                  1.82% ~ 1.95%
-                </td>
-                <td className="py-3 text-center font-bold text-red-600 text-base">
-                  &gt;
-                </td>
-                <td className="py-3 px-4 font-bold text-slate-900 text-sm sm:text-base">
-                  0.69% ~ 0.78%
+                <td className="py-3 px-3 font-bold text-red-700 text-sm sm:text-base">
+                  1.91%
                 </td>
                 <td className="py-3 text-center font-bold text-red-600 text-base">
                   &gt;
                 </td>
-                <td className="py-3 px-4 font-bold text-emerald-700 bg-blue-50/30 text-sm sm:text-base">
+                <td className="py-3 px-3 font-bold text-slate-900 text-sm sm:text-base">
+                  0.85%
+                </td>
+                <td className="py-3 text-center font-bold text-red-600 text-base">
+                  &gt;
+                </td>
+                <td className="py-3 px-3 font-bold text-emerald-800 bg-blue-50/30 text-sm sm:text-base">
+                  0.14%
+                </td>
+                <td className="py-3 text-center font-bold text-emerald-600 text-base">
+                  ➔
+                </td>
+                <td className="py-3 px-3 font-bold text-emerald-700 bg-blue-100/40 text-sm sm:text-base">
                   0.060% <span className="text-xs font-bold text-emerald-800 ml-1">(最优)</span>
                 </td>
               </tr>
@@ -288,20 +302,26 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                 <td className="py-3 px-3 text-left font-bold text-slate-900 text-sm">
                   出单比例
                 </td>
-                <td className="py-3 px-4 font-bold text-slate-700 text-sm sm:text-base">
-                  7.5% <span className="text-xs text-emerald-700 font-semibold ml-1">(↓21.0%)</span>
+                <td className="py-3 px-3 font-bold text-slate-700 text-sm sm:text-base">
+                  10.12% 
                 </td>
                 <td className="py-3 text-center font-bold text-slate-400 text-base">
                   &lt;
                 </td>
-                <td className="py-3 px-4 font-bold text-slate-900 text-sm sm:text-base">
-                  48.1% <span className="text-xs text-slate-500 font-semibold ml-1">(高危承接)</span>
+                <td className="py-3 px-3 font-bold text-slate-900 text-sm sm:text-base">
+                  40.11%
                 </td>
                 <td className="py-3 text-center font-bold text-slate-400 text-base">
                   &lt;
                 </td>
-                <td className="py-3 px-4 font-bold text-blue-950 bg-blue-50/30 text-sm sm:text-base">
-                  55.00% <span className="text-xs font-bold text-blue-900 ml-1">(主力放量)</span>
+                <td className="py-3 px-3 font-bold text-blue-950 bg-blue-50/30 text-sm sm:text-base">
+                  49.77%
+                </td>
+                <td className="py-3 text-center font-bold text-blue-600 text-base">
+                  ➔
+                </td>
+                <td className="py-3 px-3 font-bold text-blue-950 bg-blue-100/40 text-sm sm:text-base">
+                  55.00% <span className="text-xs font-bold text-blue-900 ml-1">(全量放量)</span>
                 </td>
               </tr>
             </tbody>
@@ -323,12 +343,25 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                 stroke={chartColors.ink}
                 tick={{ ...chartAxisTick, fontSize: 14, fontWeight: 800 }}
               />
+              {/* 左 Y 轴：出单比例 (%) */}
               <YAxis
+                yAxisId="left"
                 stroke={chartColors.ink}
                 tick={chartAxisTick}
                 tickFormatter={(val) => `${val}%`}
                 domain={[0, 60]}
                 ticks={[0, 15, 30, 45, 60]}
+              />
+
+              {/* 右 Y 轴：质检率 (%) */}
+              <YAxis
+                yAxisId="right"
+                orientation="right"
+                stroke="#b91c1c"
+                tick={{ ...chartAxisTick, fill: "#b91c1c", fontSize: 12, fontWeight: 700 }}
+                tickFormatter={(val) => `${val}%`}
+                domain={[0, 2.5]}
+                ticks={[0, 0.5, 1.0, 1.5, 2.0, 2.5]}
               />
               <Tooltip content={<CustomTooltip />} />
               <Legend content={renderLegend} />
@@ -337,6 +370,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
               {monthBarConfigs.map((cfg) => (
                 <Bar
                   key={cfg.key}
+                  yAxisId="left"
                   dataKey={cfg.key}
                   name={cfg.name}
                   fill={cfg.color}
