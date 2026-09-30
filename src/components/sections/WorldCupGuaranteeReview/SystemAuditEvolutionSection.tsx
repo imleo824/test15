@@ -1307,12 +1307,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                         </div>
 
                         {/* 中间：双向加权路由核心引擎 */}
-                        <div className="md:col-span-3 flex flex-col items-center justify-center p-4 bg-slate-900 text-white text-center space-y-2.5">
-                          <div className="flex items-center justify-center gap-2 text-blue-300 text-xs font-mono font-bold">
-                            <span>➔</span>
-                            <Sliders className="w-5 h-5 text-emerald-400" />
-                            <span>⮐</span>
-                          </div>
+                        <div className="md:col-span-3 flex flex-col items-center justify-center p-4 bg-slate-900 text-white text-center space-y-2.5">                       
                           <div>
                             <span className="text-sm sm:text-base font-extrabold block text-white tracking-tight">
                               双向加权路由引擎
@@ -1633,7 +1628,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 <div className="pt-2.5 border-t border-slate-100">
                   <div className="inline-flex items-center gap-2 px-2.5 py-1.5 bg-slate-50 text-xs font-mono text-slate-900 font-semibold">
                     <span className="px-1.5 py-0.5 bg-slate-900 text-white text-xs font-bold leading-none uppercase tracking-wider">
-                      态势
+                      迭代
                     </span>
                     <span className="text-slate-900 font-bold">案例复盘 · 持续进化</span>
                   </div>

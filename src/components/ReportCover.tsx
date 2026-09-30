@@ -53,7 +53,7 @@ export const ReportCover: React.FC = () => {
           <span className="text-slate-300 hidden sm:inline" aria-hidden="true">•</span>
 
           <div className="flex items-center gap-2.5">
-            <span className="font-mono text-slate-500 font-medium text-xs sm:text-sm">治理主线</span>
+            <span className="font-mono text-slate-500 font-medium text-xs sm:text-sm">工作主线</span>
             <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-800">
               <span>安全合规防风险</span>
               <span className="text-slate-300">·</span>

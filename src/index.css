@@ -2449,13 +2449,11 @@
   }
 
   .report-standard-table th,
-  .report-standard-table td,
-  .report-dense-table th,
-  .report-dense-table td {
-    padding: 12px 14px !important;
+  .report-standard-table td {
+    padding: 11px 14px !important;
     vertical-align: middle;
     border-right: 0 !important;
-    border-bottom: 1px solid var(--report-line);
+    border-bottom: 1px solid #e2e8f0;
     white-space: nowrap !important;
     word-break: keep-all !important;
     overflow-wrap: normal !important;
@@ -2465,20 +2463,28 @@
 
   .report-dense-table th,
   .report-dense-table td {
-    padding: 10px 12px !important;
+    padding: 8.5px 10px !important;
+    vertical-align: middle;
+    border-right: 0 !important;
+    border-bottom: 1px solid #e2e8f0;
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    overflow: hidden;
+    text-overflow: clip;
   }
 
   .report-dense-table tr {
-    min-height: 52px;
+    min-height: 44px;
   }
 
   .report-standard-table thead th,
   .report-dense-table thead th {
-    background: #f1f5f9 !important;
-    border-bottom: 2px solid var(--report-ink) !important;
+    background: #f8fafc !important;
+    border-bottom: 1px solid #cbd5e1 !important;
     white-space: nowrap !important;
     color: var(--report-ink) !important;
-    font-size: 15.5px !important;
+    font-size: 15px !important;
     font-weight: 700;
   }
 
@@ -2492,13 +2498,18 @@
 
   .report-standard-table tbody tr:nth-child(even),
   .report-dense-table tbody tr:nth-child(even) {
-    background: #fbfcfd !important;
+    background: #f1f5f9 !important;
+  }
+
+  .report-standard-table tbody tr:nth-child(odd),
+  .report-dense-table tbody tr:nth-child(odd) {
+    background: #ffffff !important;
   }
 
   .report-standard-table td,
   .report-dense-table td {
     color: var(--report-ink);
-    font-size: 15px !important;
+    font-size: 14.5px !important;
     font-weight: var(--report-weight-medium);
   }
 
@@ -3463,23 +3474,27 @@
   .report-shell .recharts-label-list text,
   .report-shell .recharts-bar-label,
   .report-shell .recharts-line text {
-    fill: #0f172a !important;
-    font-size: 13px !important;
-    font-weight: 700 !important;
-    paint-order: stroke;
-    stroke: #ffffff;
-    stroke-width: 2.5px;
-    stroke-linejoin: round;
+    fill: #334155 !important;
+    color: #334155 !important;
+    font-size: 13.5px !important;
+    font-weight: 650 !important;
+    paint-order: stroke fill !important;
+    stroke: #ffffff !important;
+    stroke-width: 3px !important;
+    stroke-linejoin: round !important;
+    stroke-linecap: round !important;
   }
 
   .report-shell .order-structure-bar-label {
-    fill: #0f172a !important;
-    font-size: 13px !important;
-    font-weight: 700 !important;
-    paint-order: stroke !important;
+    fill: #334155 !important;
+    color: #334155 !important;
+    font-size: 13.5px !important;
+    font-weight: 650 !important;
+    paint-order: stroke fill !important;
     stroke: #ffffff !important;
-    stroke-width: 2.5px !important;
+    stroke-width: 3px !important;
     stroke-linejoin: round !important;
+    stroke-linecap: round !important;
   }
 
   .report-shell .chart-label-normal {
@@ -3891,12 +3906,17 @@
 
   .report-standard-table tbody tr:nth-child(even),
   .report-dense-table tbody tr:nth-child(even) {
-    background: #fafcfd !important;
+    background: #f1f5f9 !important;
+  }
+
+  .report-standard-table tbody tr:nth-child(odd),
+  .report-dense-table tbody tr:nth-child(odd) {
+    background: #ffffff !important;
   }
 
   .report-standard-table tbody tr:hover,
   .report-dense-table tbody tr:hover {
-    background: inherit !important;
+    background: #e9eef5 !important;
   }
 
   .report-shell .recharts-cartesian-grid line {

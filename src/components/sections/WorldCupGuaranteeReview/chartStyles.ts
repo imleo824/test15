@@ -20,18 +20,18 @@ export const chartSeriesColors = {
 };
 
 export const chartAxisTick = {
-  fill: "#0f172a",
-  fontWeight: 700,
-  fontSize: 14.5,
+  fill: "#334155",
+  fontWeight: 650,
+  fontSize: 14,
 };
 
 const chartLabelStyle = {
-  fill: "#0f172a",
-  fontWeight: 700,
-  fontSize: 14.5,
-  paintOrder: "stroke",
+  fill: "#334155",
+  fontWeight: 650,
+  fontSize: 14,
+  paintOrder: "stroke fill",
   stroke: "#ffffff",
-  strokeWidth: 2.5,
+  strokeWidth: 3,
   strokeLinejoin: "round",
 };
 
