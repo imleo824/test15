@@ -4,7 +4,7 @@ import { ArrowDown, Eye, Users, Lock } from "lucide-react";
 interface ArchTier {
   level: string;
   name: string;
-  status: "进行中" | "待加强";
+  status: "进行中" | "可加强";
   icon: React.ReactNode;
   keyPoints: string[];
 }
@@ -35,7 +35,7 @@ const tiers: ArchTier[] = [
   {
     level: "L1 底层",
     name: "安全机制",
-    status: "待加强",
+    status: "可加强",
     icon: <Lock className="w-4 h-4 text-slate-900" />,
     keyPoints: [
       "敏感信息集中收口与字典维护",
@@ -52,7 +52,6 @@ export const SafetyArchitectureDiagram: React.FC = () => {
       {/* 头部标题栏：紧凑高能级 */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b-2 border-slate-900 pb-3">
         <div className="flex items-center gap-2.5">
-          <div className="w-2.5 h-6 bg-slate-900 shrink-0"></div>
           <div>
             <h3 className="text-lg sm:text-xl font-bold text-slate-950 tracking-tight leading-none">
               安全合规分层防御架构
