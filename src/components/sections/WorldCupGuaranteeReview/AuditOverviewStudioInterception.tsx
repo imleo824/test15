@@ -113,7 +113,7 @@ export const AuditOverviewStudioInterception: React.FC = () => {
 
       {/* 统一总结模块 */}
       <SummaryBox>
-        <p className="text-sm md:text-base text-slate-800 font-medium leading-relaxed">
+        <p className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
           {highlightNumbers(
             "[[4-6月工作室总计]]达 [[4,819.44w]]。[[游戏分类]]中[[体育批量]]占据主导，达 [[2,051.09w]]（占比 [[42.56%]]）；其次为[[真人批量]]（[[849.46w]]，[[17.63%]]）与[[彩票批量]]（[[774.11w]]，[[16.06%]]）。[[站点分布]]中[[4站]]金额最高，达 [[1,224.53w]]（占比 [[25.41%]]）。",
           )}
@@ -136,7 +136,7 @@ export const AuditOverviewStudioInterception: React.FC = () => {
               <th colSpan={2} className="py-2 px-2 text-center">其他（棋牌，娱乐）</th>
             </tr>
             {/* 二级表头 */}
-            <tr className="border-b-2 border-slate-900 text-slate-800 font-bold text-sm">
+            <tr className="border-b border-slate-200 text-slate-800 font-bold text-sm">
               <th className="px-2 py-2 text-center">金额</th>
               <th className="px-2 py-2 text-center">占比</th>
               <th className="px-2 py-2 text-center">金额</th>
@@ -177,7 +177,7 @@ export const AuditOverviewStudioInterception: React.FC = () => {
               );
             })}
           </tbody>
-          <tfoot className="border-t-2 border-b-2 border-slate-900 bg-slate-50 font-mono tabular-nums text-xs sm:text-sm text-slate-900 font-bold">
+          <tfoot className="border-t border-b border-slate-200 bg-slate-50 font-mono tabular-nums text-xs sm:text-sm text-slate-900 font-bold">
             <tr className="border-b border-slate-200">
               <td className="px-2 py-2.5 text-center font-bold">小计</td>
               <td className="px-2 py-2.5 text-center">-</td>

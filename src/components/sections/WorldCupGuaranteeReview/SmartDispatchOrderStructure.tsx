@@ -260,48 +260,48 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 font-mono">
+            <tbody className="divide-y divide-slate-100 tabular-nums">
               {/* 行 1：差错率 */}
               <tr>
-                <td className="py-3 px-3 text-left font-sans font-bold text-slate-800 text-xs sm:text-sm">
+                <td className="py-3 px-3 text-left font-bold text-slate-900 text-sm">
                   差错率
                 </td>
                 <td className="py-3 px-4 font-bold text-red-700 text-sm sm:text-base">
                   1.82% ~ 1.95%
                 </td>
-                <td className="py-3 text-center font-black text-red-600 text-base sm:text-lg">
+                <td className="py-3 text-center font-bold text-red-600 text-base">
                   &gt;
                 </td>
-                <td className="py-3 px-4 font-bold text-slate-800 text-sm sm:text-base">
+                <td className="py-3 px-4 font-bold text-slate-900 text-sm sm:text-base">
                   0.69% ~ 0.78%
                 </td>
-                <td className="py-3 text-center font-black text-red-600 text-base sm:text-lg">
+                <td className="py-3 text-center font-bold text-red-600 text-base">
                   &gt;
                 </td>
-                <td className="py-3 px-4 font-black text-emerald-700 bg-blue-50/30 text-sm sm:text-base">
-                  0.060% <span className="font-sans text-xs font-bold text-emerald-800 ml-1">(最优)</span>
+                <td className="py-3 px-4 font-bold text-emerald-700 bg-blue-50/30 text-sm sm:text-base">
+                  0.060% <span className="text-xs font-bold text-emerald-800 ml-1">(最优)</span>
                 </td>
               </tr>
 
               {/* 行 2：出单比例 */}
               <tr>
-                <td className="py-3 px-3 text-left font-sans font-bold text-slate-800 text-xs sm:text-sm">
+                <td className="py-3 px-3 text-left font-bold text-slate-900 text-sm">
                   出单比例
                 </td>
                 <td className="py-3 px-4 font-bold text-slate-700 text-sm sm:text-base">
                   7.5% <span className="text-xs text-emerald-700 font-semibold ml-1">(↓21.0%)</span>
                 </td>
-                <td className="py-3 text-center font-black text-blue-600 text-base sm:text-lg">
+                <td className="py-3 text-center font-bold text-slate-400 text-base">
                   &lt;
                 </td>
-                <td className="py-3 px-4 font-bold text-slate-800 text-sm sm:text-base">
+                <td className="py-3 px-4 font-bold text-slate-900 text-sm sm:text-base">
                   48.1% <span className="text-xs text-slate-500 font-semibold ml-1">(高危承接)</span>
                 </td>
-                <td className="py-3 text-center font-black text-blue-600 text-base sm:text-lg">
+                <td className="py-3 text-center font-bold text-slate-400 text-base">
                   &lt;
                 </td>
-                <td className="py-3 px-4 font-black text-blue-900 bg-blue-50/30 text-sm sm:text-base">
-                  55.00% <span className="font-sans text-xs font-bold text-blue-900 ml-1">(主力放量)</span>
+                <td className="py-3 px-4 font-bold text-blue-950 bg-blue-50/30 text-sm sm:text-base">
+                  55.00% <span className="text-xs font-bold text-blue-900 ml-1">(主力放量)</span>
                 </td>
               </tr>
             </tbody>

@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "DIN Alternate", "PingFang SC", "Microsoft YaHei", ui-monospace, SFMono-Regular, monospace;
-  --font-display: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* 全局提升字体梯队，彻底改善密集数据与说明卡片的易读性 */
   --text-2xs: 0.8125rem; /* 13px */
   --text-xs: 0.875rem;   /* 14px */
   --text-sm: 0.96875rem; /* 15.5px */
-  --text-base: 1.0625rem;/* 17px */
+  --text-base: 0.96875rem;/* 15.5px */
   --text-lg: 1.1875rem;  /* 19px */
   --text-xl: 1.375rem;   /* 22px */
   --text-2xl: 1.625rem;  /* 26px */
@@ -94,6 +94,9 @@
   /* ==========================================================================
      全局弱化线条与边框最佳实践：将粗重线条统一弱化为 1px 极细精巧线条，并采用软灰度配色
      ========================================================================== */
+  .border-2 {
+    border-width: 1px !important;
+  }
   .border-t-2 {
     border-top-width: 1px !important;
   }
@@ -107,13 +110,19 @@
     border-right-width: 1px !important;
   }
   .border-t-4 {
-    border-top-width: 2px !important;
+    border-top-width: 1.5px !important;
   }
   .border-b-4 {
-    border-bottom-width: 2px !important;
+    border-bottom-width: 1.5px !important;
   }
-  .border-l-4 {
-    border-left-width: 2px !important;
+  .border-l-4,
+  [class*="border-l-[3px]"],
+  [class*="border-l-[4px]"] {
+    border-left-width: 1.5px !important;
+  }
+  [class*="border-t-[3px]"],
+  [class*="border-b-[3px]"] {
+    border-width: 1px !important;
   }
 
   /* 全局重彩与深重背景边框，柔化为高端哑光浅灰色 #e2e8f0 */
@@ -136,7 +145,7 @@
   tr[class*="border-b-2"],
   tr[class*="border-slate-900"] {
     border-bottom-width: 1px !important;
-    border-bottom-color: #cbd5e1 !important;
+    border-bottom-color: #e2e8f0 !important;
   }
 }
 
@@ -847,24 +856,25 @@
   }
 
   .report-sequence-badge {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     flex: 0 0 auto;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: var(--report-blue);
-    color: #ffffff;
+    background: #0f172a;
+    color: #ffffff !important;
     border-radius: var(--report-radius-sm);
     font-family: var(--font-mono);
     font-size: var(--report-font-caption);
     line-height: 1;
-    font-weight: 600;
+    font-weight: 700 !important;
     font-variant-numeric: tabular-nums;
   }
 
   .report-sequence-badge--risk {
-    background: var(--report-blue);
+    background: #0f172a;
+    color: #ffffff !important;
   }
 
   .report-step-card {
@@ -920,7 +930,7 @@
   .report-dimension-card {
     background: #ffffff;
     border: 1px solid var(--report-line);
-    border-top: 2px solid #0f172a;
+    border-top: 1px solid var(--report-line);
     border-radius: var(--report-radius-md);
     padding: 18px 20px;
     display: flex;
@@ -1053,7 +1063,7 @@
   .report-cover-directory {
     display: flex;
     flex-direction: column;
-    border-top: 2px solid #0f172a;
+    border-top: 1px solid #e2e8f0;
     padding-top: 8px;
   }
 
@@ -1188,7 +1198,7 @@
   .report-note {
     background: #f8fafc;
     border: 1px solid #e2e8f0;
-    border-left: 3px solid #0f172a;
+    border-left: 1.5px solid #cbd5e1;
     border-radius: 0;
     color: var(--report-ink);
     font-size: var(--report-font-small);
@@ -1241,7 +1251,7 @@
   .report-note--chapter {
     background: #f8fafc;
     border: 1px solid #e2e8f0;
-    border-left: 3px solid #0f172a;
+    border-left: 1.5px solid #cbd5e1;
     border-radius: 0;
     padding: 16px 20px;
   }
@@ -1249,7 +1259,7 @@
   .report-note--module {
     background: #f8fafc;
     border: 1px solid #e2e8f0;
-    border-left: 3px solid #0f172a;
+    border-left: 1.5px solid #cbd5e1;
     border-radius: 0;
     padding: 14px 18px;
   }
@@ -3550,8 +3560,8 @@
 
   .report-standard-table,
   .report-dense-table {
-    border-top: 2px solid #0f172a !important;
-    border-bottom: 1.5px solid #0f172a !important;
+    border-top: 1px solid #e2e8f0 !important;
+    border-bottom: 1px solid #e2e8f0 !important;
     border-left: none !important;
     border-right: none !important;
   }
@@ -3655,24 +3665,24 @@
   .report-note--chapter {
     background: #f8fafc;
     border: 1px solid #e2e8f0 !important;
-    border-left: 1.5px solid #94a3b8 !important;
+    border-left: 1.5px solid #cbd5e1 !important;
     border-radius: 0 !important;
-    padding: 16px 20px !important;
-    font-size: 16px !important;
+    padding: 14px 18px !important;
+    font-size: 15.5px !important;
   }
 
   .report-note--chapter .report-note-title {
     color: #0f172a !important;
     font-size: 15px !important;
-    font-weight: 700 !important;
+    font-weight: 600 !important;
     letter-spacing: -0.01em;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   .report-note--module {
     background: #f8fafc;
     border: 1px solid #e2e8f0 !important;
-    border-left: 1.5px solid #94a3b8 !important;
+    border-left: 1.5px solid #cbd5e1 !important;
     border-radius: 0 !important;
     padding: 14px 18px !important;
     font-size: 15.5px !important;
@@ -3681,14 +3691,14 @@
   .report-note--module .report-note-title {
     color: #0f172a !important;
     font-size: 14.5px !important;
-    font-weight: 700 !important;
+    font-weight: 600 !important;
     margin-bottom: 6px;
   }
 
   .report-note--note {
     background: #f8fafc;
     border: 1px solid #e2e8f0 !important;
-    border-left: 1.5px solid #94a3b8 !important;
+    border-left: 1.5px solid #cbd5e1 !important;
     border-radius: 0 !important;
     padding: 12px 16px !important;
     font-size: 15px !important;
@@ -3713,28 +3723,147 @@
   .report-summary-copy li > span,
   .report-summary-copy div {
     font-size: 15.5px !important;
-    font-weight: var(--report-weight-medium) !important;
+    font-weight: 400 !important;
   }
 
   /* 强力规范“一句话总结”及重点备注模块的正文文本与高亮加粗词汇 */
-  .report-summary-copy,
-  .report-summary-copy p,
-  .report-summary-copy li,
-  .report-note-content,
-  .report-note-content p,
-  .report-note-content li {
-    font-size: 15.5px !important;
-    line-height: 1.75 !important;
-    font-weight: 400 !important;
-    color: #334155 !important;
+  /* ==========================================================================
+     全局文字与字重系统的极致大一统 (全站全模块强制生效)
+     ========================================================================== */
+
+  /* 1. 全局字族大一统：全站统一采用 PingFang SC / Microsoft YaHei 字系，彻底根除跨模块字体撕裂 */
+  html,
+  body,
+  .report-shell,
+  .report-shell *,
+  .report-shell *::before,
+  .report-shell *::after {
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "WenQuanYi Micro Hei", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
   }
 
-  .report-summary-copy :is(strong, b, .font-bold, .font-semibold, .font-black),
-  .report-note-content :is(strong, b, .font-bold, .font-semibold, .font-black) {
-    font-weight: 600 !important;
+  /* 2. 全局非粗体文字大一统：常规段落、列表、表格单元格、卡片文本、说明描述、一句话总结 */
+  .report-shell p:not(.text-white):not([class*="text-white"]),
+  .report-shell li:not(.text-white):not([class*="text-white"]),
+  .report-shell dd:not(.text-white):not([class*="text-white"]),
+  .report-shell dt:not(.text-white):not([class*="text-white"]),
+  .report-shell td:not(.text-white):not([class*="text-white"]),
+  .report-shell .report-note,
+  .report-shell .report-note p:not(.text-white):not([class*="text-white"]),
+  .report-shell .report-note div:not(.text-white):not([class*="text-white"]),
+  .report-shell .report-note li:not(.text-white):not([class*="text-white"]),
+  .report-shell .report-note span:not(.report-number):not(.report-core-underline):not(.report-badge):not(.report-status-badge):not(.report-sequence-badge):not(.text-white):not([class*="text-white"]),
+  .report-shell .report-note-content,
+  .report-shell .report-note-content p:not(.text-white):not([class*="text-white"]),
+  .report-shell .report-note-content div:not(.text-white):not([class*="text-white"]),
+  .report-shell .report-note-content li:not(.text-white):not([class*="text-white"]),
+  .report-shell .report-note-content span:not(.report-number):not(.report-core-underline):not(.report-badge):not(.report-status-badge):not(.report-sequence-badge):not(.text-white):not([class*="text-white"]),
+  .report-shell .report-summary-copy,
+  .report-shell .report-summary-copy p:not(.text-white):not([class*="text-white"]),
+  .report-shell .report-summary-copy div:not(.text-white):not([class*="text-white"]),
+  .report-shell .report-summary-copy li:not(.text-white):not([class*="text-white"]),
+  .report-shell .report-summary-copy span:not(.report-number):not(.report-core-underline):not(.report-badge):not(.report-status-badge):not(.report-sequence-badge):not(.text-white):not([class*="text-white"]),
+  .report-shell .report-takeaway-block,
+  .report-shell .report-dimension-card p:not(.text-white):not([class*="text-white"]),
+  .report-shell .report-chart-card p:not(.text-white):not([class*="text-white"]),
+  .report-shell .report-chart-card [class*="bg-slate-50"],
+  .report-shell .report-metric-card-detail:not(.text-white):not([class*="text-white"]),
+  .report-shell .report-step-card-body,
+  .report-shell .report-panel-description,
+  .report-shell .agent-dispatch-list-item,
+  .report-shell .text-slate-600,
+  .report-shell .text-slate-700,
+  .report-shell .text-slate-800,
+  .report-shell .text-gray-600,
+  .report-shell .text-gray-700,
+  .report-shell .text-gray-800 {
+    color: #334155 !important; /* 温和优雅、具有高级感深灰的 #334155 (slate-700) */
+    font-weight: 400 !important; /* 字重大一统：强制 400 (Regular) */
+    line-height: 1.75 !important;
+  }
+
+  /* 非粗体字号大一统：标准对齐到 15.5px (0.96875rem) */
+  .report-shell p,
+  .report-shell li,
+  .report-shell dd,
+  .report-shell dt,
+  .report-shell td,
+  .report-shell .report-note,
+  .report-shell .report-note p,
+  .report-shell .report-note div,
+  .report-shell .report-note-content,
+  .report-shell .report-note-content p,
+  .report-shell .report-note-content div,
+  .report-shell .report-summary-copy,
+  .report-shell .report-summary-copy p,
+  .report-shell .report-summary-copy div,
+  .report-shell .report-takeaway-block,
+  .report-shell .report-chart-card [class*="bg-slate-50"],
+  .report-shell .agent-dispatch-list-item {
+    font-size: 15.5px !important;
+  }
+
+  /* 3. 全局粗体文字大一统：所有 strong、b 标签、高亮短语及重点数字 */
+  .report-shell strong:not(.text-white):not([class*="text-white"]),
+  .report-shell b:not(.text-white):not([class*="text-white"]),
+  .report-shell .report-core-underline,
+  .report-shell .report-number:not(.report-number-risk):not(.report-number-safe):not(.text-white),
+  .report-shell p strong:not(.text-white):not([class*="text-white"]),
+  .report-shell li strong:not(.text-white):not([class*="text-white"]),
+  .report-shell td strong:not(.text-white):not([class*="text-white"]),
+  .report-shell span strong:not(.text-white):not([class*="text-white"]),
+  .report-shell div > strong:not(.text-white):not([class*="text-white"]),
+  .report-shell .report-note strong:not(.text-white):not([class*="text-white"]),
+  .report-shell .report-summary-copy strong:not(.text-white):not([class*="text-white"]) {
+    color: #020617 !important; /* 色值大一统：深邃高阶对比极致黑色 #020617 (slate-950) */
+    font-weight: 600 !important; /* 字重大一统：统一 600 (SemiBold) */
+    margin: 0 !important; /* 零间距约束：去除了所有粗体词汇前后的间隙与外边距 */
+    padding: 0 !important;
+    display: inline !important;
+    letter-spacing: -0.01em;
+  }
+
+  /* 统一加粗 class 在正文内容区统合为 600，但严格排除所有反白文字、序号徽章及深色背景 */
+  .report-shell :is(p, li, td, span, div, dd, dt):is(.font-bold, .font-semibold, .font-extrabold, .font-black):not(h1):not(h2):not(h3):not(.report-number-risk):not(.report-number-safe):not([class*="text-emerald"]):not([class*="text-rose"]):not([class*="text-blue"]):not([class*="text-amber"]):not([class*="text-sky"]):not([class*="text-red"]):not(.text-white):not([class*="text-white"]):not(.report-sequence-badge):not([class*="report-sequence"]):not([class*="bg-slate-9"]):not([class*="bg-black"]):not([class*="bg-blue-9"]) {
     color: #020617 !important;
+    font-weight: 600 !important;
+  }
+
+  /* 强制确保所有序号徽章、深色标签、目录编号及反白文字为纯白 #ffffff，彻底解决黑底黑字看不清问题 */
+  .report-shell .text-white,
+  .report-shell [class*="text-white"],
+  .report-shell .report-sequence-badge,
+  .report-shell .report-sequence-badge--risk,
+  .report-shell .report-badge--slate,
+  .report-shell [class*="bg-slate-900"] .text-white,
+  .report-shell [class*="bg-slate-950"] .text-white,
+  .report-shell [class*="bg-black"] .text-white,
+  .report-shell .report-cover-page [class*="bg-slate-900"] {
+    color: #ffffff !important;
+  }
+
+  /* 4. 重点高亮数字的语义配色 (保持 600 字重与零边距) */
+  .report-shell .report-number-risk {
+    color: #b91c1c !important;
+    font-weight: 600 !important;
     margin: 0 !important;
     padding: 0 !important;
+    display: inline !important;
+  }
+
+  .report-shell .report-number-safe {
+    color: #047857 !important;
+    font-weight: 600 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline !important;
+  }
+
+  /* 5. 纯数字对齐规则 (统一使用 tabular-nums，无字体分裂) */
+  .report-shell [class*="tabular-nums"],
+  .report-shell .report-number,
+  .report-shell table td,
+  .report-shell table th {
+    font-variant-numeric: tabular-nums;
   }
 
   .report-metric-card {

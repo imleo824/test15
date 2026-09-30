@@ -33,7 +33,7 @@ export const PersonnelDistribution: React.FC = () => {
         <ReportSectionHeader title="1.1 组织优化" />
 
         <SummaryBox variant="module">
-          <div className="text-sm sm:text-base text-slate-800 font-normal leading-relaxed">
+          <div className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
               "聚焦[[人效提升]]与[[合规安全]]：强化策略分析工作，压降重复人工审核与外包编制，优化各职场配置。"
             )}
@@ -44,11 +44,11 @@ export const PersonnelDistribution: React.FC = () => {
           {policyItems.map((item, index) => (
             <div
               key={index}
-              className="bg-white p-5 sm:p-6 border-t-2 border-slate-900 bg-slate-50/50 flex flex-col justify-between space-y-3 h-full"
+              className="bg-white p-5 sm:p-6 border border-[#e2e8f0] flex flex-col justify-between space-y-3 h-full"
             >
-              <div className="flex items-center justify-between pb-3 border-b border-slate-200">
+              <div className="flex items-center justify-between pb-3 border-b border-slate-100">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs font-bold text-white bg-slate-900 w-5 h-5 flex items-center justify-center shrink-0">
+                  <span className="text-xs font-bold text-white bg-slate-900 w-5 h-5 flex items-center justify-center shrink-0">
                     {index + 1}
                   </span>
                   <span className="font-bold text-slate-950 text-base">
@@ -56,7 +56,7 @@ export const PersonnelDistribution: React.FC = () => {
                   </span>
                 </div>
                 <span
-                  className={`font-mono text-xs font-bold ${
+                  className={`text-xs font-bold ${
                     item.category === "降本增效"
                       ? "text-emerald-700"
                       : "text-blue-700"
@@ -65,7 +65,7 @@ export const PersonnelDistribution: React.FC = () => {
                   {item.category}
                 </span>
               </div>
-              <p className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal flex-1">
+              <p className="text-sm sm:text-[15.5px] text-slate-700 leading-relaxed font-normal flex-1">
                 {highlightNumbers(item.content)}
               </p>
             </div>
@@ -78,7 +78,7 @@ export const PersonnelDistribution: React.FC = () => {
         <ReportSectionHeader title="1.2 人员分布" />
 
         <SummaryBox variant="module">
-          <div className="text-sm sm:text-base text-slate-800 font-normal leading-relaxed">
+          <div className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
               "推进[[系统自动审单]]与业务流程收口，外包编制净减 [[17人]]，实现专职化集中运营与在册管控。"
             )}
@@ -89,12 +89,12 @@ export const PersonnelDistribution: React.FC = () => {
           {/* 第一层：在岗人数 & 外包人力 */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-xl mx-auto items-stretch">
             {/* Card 1: 在岗人数 */}
-            <div className="bg-slate-50 border-t-2 border-slate-900 p-6 text-center space-y-1 flex flex-col justify-between">
+            <div className="bg-slate-50 border border-[#e2e8f0] p-6 text-center space-y-1 flex flex-col justify-between">
               <span className="text-xs sm:text-sm font-bold text-slate-600 block uppercase tracking-wider">
                 在岗人数
               </span>
-              <div className="flex items-baseline justify-center gap-1.5 py-1 font-mono">
-                <span className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight tabular-nums">
+              <div className="flex items-baseline justify-center gap-1.5 py-1">
+                <span className="text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight tabular-nums">
                   365
                 </span>
                 <span className="text-sm font-bold text-slate-600">人</span>
@@ -102,12 +102,12 @@ export const PersonnelDistribution: React.FC = () => {
             </div>
 
             {/* Card 2: 外包人力 */}
-            <div className="bg-slate-50 border-t-2 border-slate-900 p-6 text-center space-y-1 flex flex-col justify-between">
+            <div className="bg-slate-50 border border-[#e2e8f0] p-6 text-center space-y-1 flex flex-col justify-between">
               <span className="text-xs sm:text-sm font-bold text-slate-600 block uppercase tracking-wider">
                 外包人力
               </span>
-              <div className="flex items-baseline justify-center gap-2 py-1 font-mono">
-                <span className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight tabular-nums">
+              <div className="flex items-baseline justify-center gap-2 py-1">
+                <span className="text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight tabular-nums">
                   119
                 </span>
                 <span className="text-xs font-bold text-emerald-700 tabular-nums">
@@ -121,17 +121,17 @@ export const PersonnelDistribution: React.FC = () => {
           {/* 树状连接线 (仅在中大屏幕显示) */}
           <div className="hidden md:block my-2">
             {/* 垂直主干线 */}
-            <div className="w-px h-5 bg-slate-300 mx-auto" />
+            <div className="w-px h-5 bg-slate-200 mx-auto" />
 
             {/* 水平分支线 */}
-            <div className="w-[83.33%] mx-auto h-px bg-slate-300 relative">
+            <div className="w-[83.33%] mx-auto h-px bg-slate-200 relative">
               {/* 6个下降触点 */}
-              <div className="absolute top-0 left-[0%] -translate-x-1/2 w-px h-5 bg-slate-300" />
-              <div className="absolute top-0 left-[20%] -translate-x-1/2 w-px h-5 bg-slate-300" />
-              <div className="absolute top-0 left-[40%] -translate-x-1/2 w-px h-5 bg-slate-300" />
-              <div className="absolute top-0 left-[60%] -translate-x-1/2 w-px h-5 bg-slate-300" />
-              <div className="absolute top-0 left-[80%] -translate-x-1/2 w-px h-5 bg-slate-300" />
-              <div className="absolute top-0 left-[100%] -translate-x-1/2 w-px h-5 bg-slate-300" />
+              <div className="absolute top-0 left-[0%] -translate-x-1/2 w-px h-5 bg-slate-200" />
+              <div className="absolute top-0 left-[20%] -translate-x-1/2 w-px h-5 bg-slate-200" />
+              <div className="absolute top-0 left-[40%] -translate-x-1/2 w-px h-5 bg-slate-200" />
+              <div className="absolute top-0 left-[60%] -translate-x-1/2 w-px h-5 bg-slate-200" />
+              <div className="absolute top-0 left-[80%] -translate-x-1/2 w-px h-5 bg-slate-200" />
+              <div className="absolute top-0 left-[100%] -translate-x-1/2 w-px h-5 bg-slate-200" />
             </div>
           </div>
 
@@ -152,11 +152,11 @@ export const PersonnelDistribution: React.FC = () => {
                 <div className="text-xs sm:text-sm font-bold text-slate-700 tracking-wide">
                   {item.label}
                 </div>
-                <div className="font-mono text-2xl sm:text-3xl font-black text-slate-950 tracking-tight tabular-nums">
+                <div className="text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight tabular-nums">
                   {item.count}
                 </div>
                 <div
-                  className={`font-mono text-xs font-bold tabular-nums ${
+                  className={`text-xs font-bold tabular-nums ${
                     item.isIncrease
                       ? "text-blue-700"
                       : "text-slate-600"

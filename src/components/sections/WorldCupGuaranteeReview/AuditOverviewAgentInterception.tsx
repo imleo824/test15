@@ -144,30 +144,30 @@ export const AuditOverviewAgentInterception: React.FC = () => {
       {/* 统一总结模块 */}
       <SummaryBox>
         <div className="space-y-3">
-          <div className="text-sm md:text-base text-slate-800 font-medium leading-relaxed">
+          <div className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
               "代理拦截以[[佣金]]为主体，[[活动类]]与[[首复存]]为主要补充。"
             )}
           </div>
           <ul className="space-y-2 text-slate-700">
-            <li className="flex items-start gap-2 text-sm text-slate-700 leading-relaxed">
-              <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
+            <li className="flex items-start gap-2 text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
+              <span className="w-1.5 h-1.5 bg-slate-400 shrink-0 mt-2" />
               <span>
                 {highlightNumbers(
                   "[[佣金]]：含基础与额外佣金，占比达 [[62.42%]]，核心为[[基础佣金]]与[[扶持降档]]。",
                 )}
               </span>
             </li>
-            <li className="flex items-start gap-2 text-sm text-slate-700 leading-relaxed">
-              <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
+            <li className="flex items-start gap-2 text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
+              <span className="w-1.5 h-1.5 bg-slate-400 shrink-0 mt-2" />
               <span>
                 {highlightNumbers(
                   "[[活动]]：以[[奖励活动]]（[[4.35%]]）与[[新增冲刺]]（[[12.02%]]）为主，合计占比 [[16.37%]]；叠加[[首复存]]后金额达 [[2,932.8w]]，占比 [[33.15%]]。",
                 )}
               </span>
             </li>
-            <li className="flex items-start gap-2 text-sm text-slate-700 leading-relaxed">
-              <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
+            <li className="flex items-start gap-2 text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
+              <span className="w-1.5 h-1.5 bg-slate-400 shrink-0 mt-2" />
               <span>
                 {highlightNumbers(
                   "[[存款]]：针对[[用户首复存套利]]，拦截占比约为 [[16.77%]]。",
@@ -193,7 +193,7 @@ export const AuditOverviewAgentInterception: React.FC = () => {
               <th colSpan={2} className="py-2 px-2 text-center">新增冲刺</th>
               <th colSpan={2} className="py-2 px-2 text-center">其他</th>
             </tr>
-            <tr className="border-b-2 border-slate-900 text-slate-700 font-bold text-xs sm:text-sm">
+            <tr className="border-b border-slate-200 text-slate-700 font-bold text-xs sm:text-sm">
               <th className="px-2 py-2 text-center">金额</th>
               <th className="px-2 py-2 text-center">占比</th>
               <th className="px-2 py-2 text-center">金额</th>
@@ -235,7 +235,7 @@ export const AuditOverviewAgentInterception: React.FC = () => {
               );
             })}
           </tbody>
-          <tfoot className="border-t-2 border-b-2 border-slate-900 bg-slate-50 font-mono tabular-nums text-xs sm:text-sm text-slate-900 font-bold">
+          <tfoot className="border-t border-b border-slate-200 bg-slate-50 font-mono tabular-nums text-xs sm:text-sm text-slate-900 font-bold">
             <tr>
               <td className="px-2 py-2.5 text-center font-bold">总计</td>
               <td className="px-2 py-2.5 text-center font-bold text-blue-900">{totals.total_amt.toFixed(1)}</td>

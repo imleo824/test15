@@ -190,7 +190,7 @@ export const SecurityUpgradeSection: React.FC = () => {
       {/* 3.3 章节核心导语 */}
       <SummaryBox variant="module">
         <div className="space-y-2.5">
-          <p className="text-sm md:text-base text-slate-800 font-medium leading-relaxed">
+          <p className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
               "针对底层安全机制的实际运作痛点，全面聚焦[[敏感信息维护、敏感异常操作、敏感信息修改、敏感权限结构]]四大核心场景推进加固改造，以系统硬规则约束一线裁量，筑牢底层安全合规防线。"
             )}
@@ -201,92 +201,92 @@ export const SecurityUpgradeSection: React.FC = () => {
       {/* 核心四大场景摘要说明卡片（2x2 网格） */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 items-stretch">
         {/* 场景 1：敏感信息维护 */}
-        <div className="bg-slate-50/70 border-t-2 border-slate-900 p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
-          <div className="flex items-center gap-2 pb-2.5 border-b border-slate-200">
-            <span className="w-5 h-5 bg-slate-900 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0">
+        <div className="bg-white border border-[#e2e8f0] p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
+          <div className="flex items-center gap-2 pb-2.5 border-b border-slate-100">
+            <span className="w-5 h-5 bg-slate-900 text-white text-xs font-bold flex items-center justify-center shrink-0">
               1
             </span>
             <h4 className="text-base font-bold text-slate-950">敏感信息维护</h4>
-            <span className="text-xs font-mono font-bold text-emerald-700 ml-auto">
+            <span className="text-xs font-bold text-emerald-700 ml-auto">
               统一字典收口
             </span>
           </div>
-          <div className="text-xs sm:text-[14.5px] text-slate-700 leading-relaxed font-normal space-y-2 flex-1">
+          <div className="text-sm sm:text-[15.5px] text-slate-700 leading-relaxed font-normal space-y-2 flex-1">
             <p>
-              <strong className="text-slate-950 font-medium">现状痛点：</strong>
+              <strong className="text-slate-950">现状痛点：</strong>
               很多敏感信息散落在太多的模块内，导致收口和更新、维护都很麻烦，且还存在漏的问题。
             </p>
-            <p className="text-slate-600">
-              <strong className="text-slate-950 font-medium">应对措施：</strong>
+            <p>
+              <strong className="text-slate-950">应对措施：</strong>
               建立统一敏感数据中台字典，底层统一加密脱敏，所有模块统一调用中台接口，一处配置全局生效。
             </p>
           </div>
         </div>
 
         {/* 场景 2：敏感异常操作 */}
-        <div className="bg-slate-50/70 border-t-2 border-slate-900 p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
-          <div className="flex items-center gap-2 pb-2.5 border-b border-slate-200">
-            <span className="w-5 h-5 bg-slate-900 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0">
+        <div className="bg-white border border-[#e2e8f0] p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
+          <div className="flex items-center gap-2 pb-2.5 border-b border-slate-100">
+            <span className="w-5 h-5 bg-slate-900 text-white text-xs font-bold flex items-center justify-center shrink-0">
               2
             </span>
             <h4 className="text-base font-bold text-slate-950">敏感异常操作</h4>
-            <span className="text-xs font-mono font-bold text-blue-700 ml-auto">
+            <span className="text-xs font-bold text-blue-700 ml-auto">
               工种控权收紧
             </span>
           </div>
-          <div className="text-xs sm:text-[14.5px] text-slate-700 leading-relaxed font-normal space-y-2 flex-1">
+          <div className="text-sm sm:text-[15.5px] text-slate-700 leading-relaxed font-normal space-y-2 flex-1">
             <p>
-              <strong className="text-slate-950 font-medium">现状痛点：</strong>
+              <strong className="text-slate-950">现状痛点：</strong>
               复制、截屏、导出、批量查询等高危操作权限泛滥，未按实际工种必要性进行严格控制。
             </p>
-            <p className="text-slate-600">
-              <strong className="text-slate-950 font-medium">应对措施：</strong>
+            <p>
+              <strong className="text-slate-950">应对措施：</strong>
               按工种严格控制权限，98% 基础岗位关闭批量导出与复制，全端覆盖敏感防截屏与动态盲水印。
             </p>
           </div>
         </div>
 
         {/* 场景 3：敏感信息修改 */}
-        <div className="bg-slate-50/70 border-t-2 border-slate-900 p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
-          <div className="flex items-center gap-2 pb-2.5 border-b border-slate-200">
-            <span className="w-5 h-5 bg-slate-900 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0">
+        <div className="bg-white border border-[#e2e8f0] p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
+          <div className="flex items-center gap-2 pb-2.5 border-b border-slate-100">
+            <span className="w-5 h-5 bg-slate-900 text-white text-xs font-bold flex items-center justify-center shrink-0">
               3
             </span>
             <h4 className="text-base font-bold text-slate-950">敏感信息修改</h4>
-            <span className="text-xs font-mono font-bold text-indigo-700 ml-auto">
+            <span className="text-xs font-bold text-indigo-700 ml-auto">
               双人背靠背审批
             </span>
           </div>
-          <div className="text-xs sm:text-[14.5px] text-slate-700 leading-relaxed font-normal space-y-2 flex-1">
+          <div className="text-sm sm:text-[15.5px] text-slate-700 leading-relaxed font-normal space-y-2 flex-1">
             <p>
-              <strong className="text-slate-950 font-medium">现状痛点：</strong>
+              <strong className="text-slate-950">现状痛点：</strong>
               有权限的人可以单人完成修改，缺乏背靠背交叉核验，风险较大且易发生单点内部作案。
             </p>
-            <p className="text-slate-600">
-              <strong className="text-slate-950 font-medium">应对措施：</strong>
+            <p>
+              <strong className="text-slate-950">应对措施：</strong>
               取消单人直接修改入口，全面改由经办与复核双人背靠背审批，关键修改强制绑定 24 小时提款冷却。
             </p>
           </div>
         </div>
 
         {/* 场景 4：敏感权限结构 */}
-        <div className="bg-slate-50/70 border-t-2 border-slate-900 p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
-          <div className="flex items-center gap-2 pb-2.5 border-b border-slate-200">
-            <span className="w-5 h-5 bg-slate-900 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0">
+        <div className="bg-white border border-[#e2e8f0] p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
+          <div className="flex items-center gap-2 pb-2.5 border-b border-slate-100">
+            <span className="w-5 h-5 bg-slate-900 text-white text-xs font-bold flex items-center justify-center shrink-0">
               4
             </span>
             <h4 className="text-base font-bold text-slate-950">敏感权限结构</h4>
-            <span className="text-xs font-mono font-bold text-slate-700 ml-auto">
+            <span className="text-xs font-bold text-slate-700 ml-auto">
               任务驱动分层
             </span>
           </div>
-          <div className="text-xs sm:text-[14.5px] text-slate-700 leading-relaxed font-normal space-y-2 flex-1">
+          <div className="text-sm sm:text-[15.5px] text-slate-700 leading-relaxed font-normal space-y-2 flex-1">
             <p>
-              <strong className="text-slate-950 font-medium">现状痛点：</strong>
+              <strong className="text-slate-950">现状痛点：</strong>
               主动查会员信息场景极少，无工单任务无故查询属于高风险操作，缺乏严格的任务约束。
             </p>
-            <p className="text-slate-600">
-              <strong className="text-slate-950 font-medium">应对措施：</strong>
+            <p>
+              <strong className="text-slate-950">应对措施：</strong>
               构建「长期特权 + 临时限时 + 凭单查询」三级安全权限架构，以任务定权限，单结权销。
             </p>
           </div>
@@ -298,7 +298,7 @@ export const SecurityUpgradeSection: React.FC = () => {
         <ReportSubsectionHeader
           title="3.3.1 四大安全机制落地细则"
           rightContent={
-            <span className="text-xs font-mono text-slate-500">
+            <span className="text-xs text-slate-500">
               围绕 4 大核心场景落实 13 项防护细则
             </span>
           }
@@ -332,7 +332,7 @@ export const SecurityUpgradeSection: React.FC = () => {
                 </div>
 
                 {/* 对应模块的标题下方：核心痛点与治理原则 */}
-                <div className="bg-slate-50/70 p-4 border-l-2 border-slate-700 text-sm sm:text-[14.5px] space-y-2 font-normal">
+                <div className="bg-slate-50/60 p-4 border border-slate-200/60 text-sm sm:text-[15.5px] space-y-2 font-normal">
                   <div className="text-slate-950 leading-relaxed">
                     <span className="font-bold text-slate-950">核心痛点：</span>
                     {highlightNumbers(cat.coreIssue)}
@@ -345,7 +345,7 @@ export const SecurityUpgradeSection: React.FC = () => {
 
                 {/* 场景4 内嵌：敏感权限三级架构模型卡片（长期权限 / 临时权限 / 凭单查询） */}
                 {isScenario4 && (
-                  <div className="bg-slate-50/70 p-4 sm:p-5 space-y-3 border-l-[3px] border-slate-900">
+                  <div className="bg-slate-50/40 p-4 sm:p-5 space-y-3 border border-slate-200/60">
                     <div className="flex items-center justify-between pb-2 border-b border-slate-200">
                       <div className="flex items-center gap-2">
                         <Layers className="w-4 h-4 text-slate-900" />
@@ -361,7 +361,7 @@ export const SecurityUpgradeSection: React.FC = () => {
                     {/* 3 列权限类型架构对比 */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1">
                       {/* 1. 长期权限 */}
-                      <div className="bg-white p-4 flex flex-col justify-between space-y-2.5 border-t-2 border-slate-900">
+                      <div className="bg-white p-4 flex flex-col justify-between space-y-2.5 border border-slate-200/80">
                         <div className="space-y-1.5">
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-1.5 text-slate-950 font-bold text-sm sm:text-base">
@@ -388,54 +388,54 @@ export const SecurityUpgradeSection: React.FC = () => {
                       </div>
 
                       {/* 2. 临时权限 */}
-                      <div className="bg-white p-4 flex flex-col justify-between space-y-2.5 border-t-2 border-indigo-700">
+                      <div className="bg-white p-4 flex flex-col justify-between space-y-2.5 border border-slate-200/80">
                         <div className="space-y-1.5">
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-1.5 text-indigo-950 font-bold text-sm sm:text-base">
-                              <span className="w-4.5 h-4.5 bg-indigo-800 text-white text-xs font-mono font-bold flex items-center justify-center shrink-0">
+                              <span className="w-4.5 h-4.5 bg-indigo-800 text-white text-xs font-bold flex items-center justify-center shrink-0">
                                 2
                               </span>
                               <span>临时权限</span>
                             </div>
-                            <span className="text-xs font-mono font-bold text-indigo-700">
+                            <span className="text-xs font-bold text-indigo-700">
                               限时审批生效
                             </span>
                           </div>
-                          <div className="text-xs text-indigo-700 font-mono">
+                          <div className="text-xs text-indigo-700">
                             适用：专项排查、跨部门短期支持
                           </div>
                           <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal">
                             线上发起限时工单申请，明确指定<strong>有效时间窗口</strong>（如 2小时 / 当天）；到期系统全自动回收熔断，禁止私下延期。
                           </p>
                         </div>
-                        <div className="pt-2 border-t border-indigo-100 text-xs text-indigo-900 font-mono flex items-center gap-1">
+                        <div className="pt-2 border-t border-indigo-100 text-xs text-indigo-900 flex items-center gap-1">
                           <Clock className="w-3.5 h-3.5 text-indigo-700 shrink-0" />
                           <span>管控：到期自动失效，零历史残留</span>
                         </div>
                       </div>
 
                       {/* 3. 凭单查询 */}
-                      <div className="bg-white p-4 flex flex-col justify-between space-y-2.5 border-t-2 border-blue-700">
+                      <div className="bg-white p-4 flex flex-col justify-between space-y-2.5 border border-slate-200/80">
                         <div className="space-y-1.5">
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-1.5 text-blue-950 font-bold text-sm sm:text-base">
-                              <span className="w-4.5 h-4.5 bg-blue-800 text-white text-xs font-mono font-bold flex items-center justify-center shrink-0">
+                              <span className="w-4.5 h-4.5 bg-blue-800 text-white text-xs font-bold flex items-center justify-center shrink-0">
                                 3
                               </span>
                               <span>凭单查询</span>
                             </div>
-                            <span className="text-xs font-mono font-bold text-blue-700">
+                            <span className="text-xs font-bold text-blue-700">
                               任务动态解锁
                             </span>
                           </div>
-                          <div className="text-xs text-blue-700 font-mono">
+                          <div className="text-xs text-blue-700">
                             适用：一线客服、常规审核、业务经办
                           </div>
                           <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal">
                             日常<strong>无独立主动查询入口</strong>；仅当系统派单或承接有效工单时，动态解锁<strong>该工单涉及的玩家特定信息</strong>，单结权销。
                           </p>
                         </div>
-                        <div className="pt-2 border-t border-blue-100 text-xs text-blue-900 font-mono flex items-center gap-1">
+                        <div className="pt-2 border-t border-blue-100 text-xs text-blue-900 flex items-center gap-1">
                           <FileCheck2 className="w-3.5 h-3.5 text-blue-700 shrink-0" />
                           <span>管控：以单定权、单结权销、100% 任务绑定</span>
                         </div>
@@ -448,7 +448,7 @@ export const SecurityUpgradeSection: React.FC = () => {
                 <ReportTableFrame>
                   <table className="w-full text-left border-collapse min-w-[680px]">
                     <thead>
-                      <tr className="border-b border-slate-900 bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm uppercase tracking-wider">
+                      <tr className="border-b border-slate-200 bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm uppercase tracking-wider">
                         <th className="py-2.5 px-3 w-[22%]">防护场景</th>
                         <th className="py-2.5 px-3 w-[38%]">潜在隐患与风险</th>
                         <th className="py-2.5 px-3 w-[40%]">升级管控规范</th>

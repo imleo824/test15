@@ -163,7 +163,7 @@ export const AuditOverviewInterceptionType: React.FC = () => {
 
       {/* 统一总结模块 */}
       <SummaryBox>
-        <p className="text-sm md:text-base text-slate-800 font-medium leading-relaxed">
+        <p className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
           {highlightNumbers(
             "[[拦截结构]]：[[体育类]]为主要拦截业务（占比 [[55.99%]]），其次为[[代理类]]（[[16.63%]]）与[[红利类]]（[[8.13%]]）。[[站点分布]]：4站、8站、BD+XK、6+9 等重点站点合计占比 [[62.92%]]；其中[[4站拦截 8,990.38w（占比 33.01%）]]，各品类拦截规模均居首位，为重点防守站点。"
           )}
@@ -198,7 +198,7 @@ export const AuditOverviewInterceptionType: React.FC = () => {
               <th className="py-2 px-2 text-center">占比</th>
             </tr>
           </thead>
-          <tbody className="font-mono tabular-nums">
+          <tbody className="tabular-nums">
             {tableData.map((row, idx) => {
               const isMainSports = row.sports_pct && parseFloat(row.sports_pct) > 40;
               return (

@@ -5,13 +5,13 @@ import { ReportBadge, ReportHeading, ReportTableFrame } from "../../ReportSectio
 export const stripDisplayUnits = (value: string | number) => String(value);
 
 const summaryNumberClass =
-  "report-number text-slate-950 font-black font-mono tabular-nums";
+  "report-number text-slate-950 font-semibold tabular-nums";
 const summaryRiskNumberClass =
-  "report-number report-number-risk text-rose-800 font-black font-mono tabular-nums";
+  "report-number report-number-risk text-[#b91c1c] font-semibold tabular-nums";
 const summarySafeNumberClass =
-  "report-number report-number-safe text-slate-950 font-black font-mono tabular-nums";
+  "report-number report-number-safe text-[#047857] font-semibold tabular-nums";
 const summaryCoreClass =
-  "report-core-underline font-bold text-slate-950";
+  "report-core-underline font-semibold text-slate-950";
 
 const numericPattern =
   String.raw`[<>≤≥~～]?\s*[+\-]?\d+(?:[.,:：]\d+)*(?:\+)?(?:\s*(?:%|人/小时|单/月|/月|w/月|W/月|人|场|项|倍|E|W|w|万|亿|万元|亿元|元|h|ms|min|k|个|单|条|站|分|分钟|秒|天|月|年))?(?:\s*[-~～]\s*\d+(?:[.,:：]\d+)*(?:\+)?(?:\s*(?:%|人/小时|单/月|/月|w/月|W/月|人|场|项|倍|E|W|w|万|亿|万元|亿元|元|h|ms|min|k|个|单|条|站|分|分钟|秒|天|月|年))?)?`;
@@ -277,7 +277,7 @@ export const ExpectedRhythm = ({
         <ReportTableFrame>
           <table className="report-standard-table">
             <thead>
-              <tr className="bg-slate-100 text-slate-900 border-b-2 border-slate-900 text-sm">
+              <tr className="bg-slate-100 text-slate-900 border-b border-slate-200 text-sm">
                 <th className="py-3 px-4 font-bold text-left">功能模块</th>
                 <th className="py-3 px-4 font-bold text-left w-44">需求时间</th>
                 <th className="py-3 px-4 font-bold text-left w-56">当前状态</th>

@@ -54,7 +54,7 @@ export const SafetyArchitectureDiagram: React.FC = () => {
   return (
     <div className="w-full bg-white space-y-4">
       {/* 头部标题栏：紧凑高能级 */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b-2 border-slate-900 pb-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-3">
         <div className="flex items-center gap-2.5">
           <div>
             <h3 className="text-lg sm:text-xl font-bold text-slate-950 tracking-tight leading-none">
@@ -64,7 +64,7 @@ export const SafetyArchitectureDiagram: React.FC = () => {
         </div>
 
         {/* 顶部逻辑流标识 */}
-        <div className="flex items-center gap-1.5 bg-slate-100 px-2.5 py-1 text-xs font-mono shrink-0 self-start sm:self-auto">
+        <div className="flex items-center gap-1.5 bg-slate-100 px-2.5 py-1 text-xs shrink-0 self-start sm:self-auto">
           <span className="font-bold text-slate-900">L1 安全机制</span>
           <span className="text-slate-400">➔</span>
           <span className="font-bold text-slate-900">L2 协同流转</span>
@@ -74,9 +74,9 @@ export const SafetyArchitectureDiagram: React.FC = () => {
       </div>
 
       {/* 架构主体：极简专业审计风格分层表格 */}
-      <div className="border-t border-b border-slate-900 bg-white divide-y divide-slate-200">
+      <div className="border-t border-b border-slate-200 bg-white divide-y divide-slate-100">
         {/* 表格列头指示（大屏显示） */}
-        <div className="hidden lg:grid grid-cols-12 gap-3 bg-slate-50 px-4 py-2.5 text-xs font-bold text-slate-800 uppercase tracking-wider border-b border-slate-900">
+        <div className="hidden lg:grid grid-cols-12 gap-3 bg-slate-50 px-4 py-2.5 text-xs font-bold text-slate-800 uppercase tracking-wider border-b border-slate-200">
           <div className="col-span-3">防御层级</div>
           <div className="col-span-2 text-center">管控场景</div>
           <div className="col-span-2 text-center">治理状态</div>

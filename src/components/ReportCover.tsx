@@ -65,15 +65,15 @@ export const ReportCover: React.FC = () => {
 
       {/* 目录 (高阶报告目录架构) */}
       <div className="space-y-3 pt-2">
-        <div className="flex items-center justify-between pb-2.5 border-b border-slate-900">
-          <span className="text-sm sm:text-base font-mono font-bold tracking-wider text-slate-900 uppercase">
+        <div className="flex items-center justify-between pb-2.5 border-b border-slate-300">
+          <span className="text-sm sm:text-base font-bold tracking-wider text-slate-900 uppercase">
             报告目录
           </span>
-          <span className="text-xs font-mono text-slate-500">共 4 个核心章节</span>
+          <span className="text-xs text-slate-500">共 {sections.length} 个核心章节</span>
         </div>
 
         {/* 目录列表：单线清爽分割 */}
-        <div className="divide-y divide-slate-200 bg-white">
+        <div className="divide-y divide-slate-100 bg-white">
           {sections.map((section) => (
             <div
               key={section.id}

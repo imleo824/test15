@@ -38,7 +38,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
         {/* 审单模式结构翻转 看板 */}
         <div className="space-y-6">
           {/* 连续流向指向卡：统一向心对比结构（45% ➔ 65% 与 55% ➔ 35%） */}
-          <div className="bg-slate-50/60 p-5 sm:p-6 border-t-2 border-slate-900 space-y-4">
+          <div className="bg-white p-5 sm:p-6 border border-slate-200/80 space-y-4">
             {/* 行 1：系统审核演进（45.0% ➔ 65.0%） */}
             <div className="bg-white p-3.5 sm:p-4 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
               {/* 原来：45.0% */}
@@ -117,7 +117,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
           </div>
 
           {/* 系统出单比例极限与业务瓶颈深度剖析 */}
-          <div className="bg-slate-50/60 p-5 sm:p-6 border-t-2 border-slate-900 space-y-5">
+          <div className="bg-white p-5 sm:p-6 border border-slate-200/80 space-y-5">
             {/* 顶部标题与简述 */}
             <div className="flex items-center gap-2 pb-1">
               <span className="w-2.5 h-2.5 bg-blue-700"></span>
@@ -127,7 +127,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             </div>
 
             {/* 管理结论：置于【成因剖析】标题正下方 */}
-            <div className="p-4 bg-white border-l-[3px] border-slate-900 text-sm sm:text-base text-slate-800 leading-relaxed">
+            <div className="p-4 bg-slate-50/60 border-l-2 border-slate-300 text-sm sm:text-base text-slate-800 leading-relaxed">
               基于<strong>“多账号风险拦截（约15%）+ 历史存量标签兜底（约15%）”</strong>的刚性风控边界；当前 <strong>60%~65%</strong> 的系统出单水平已高度贴近 <strong>70%</strong> 的安全物理极限。
             </div>
 
@@ -202,7 +202,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   </div>
 
                   {/* 右侧解析卡片 1 (lg:col-span-9) */}
-                  <div className="lg:col-span-9 lg:h-16 min-h-[64px] p-3 sm:p-3.5 bg-slate-50/80 border-l-[3px] border-slate-400 flex flex-col justify-center">
+                  <div className="lg:col-span-9 lg:h-16 min-h-[64px] p-3 sm:p-3.5 bg-slate-50/80 border-l-2 border-slate-300 flex flex-col justify-center">
                     <div className="flex items-center justify-between gap-2">
                       <span className="text-sm font-bold text-slate-900">刚性人工审核比例</span>
                       <span className="text-xs font-mono font-bold text-slate-700">约 30% • 安全边界</span>
@@ -217,7 +217,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-4 items-center">
                   {/* 左侧柱段 (lg:col-span-3) */}
                   <div className="lg:col-span-3 flex items-center">
-                    <div className="flex-1 lg:h-14 min-h-[56px] bg-amber-50/80 border-2 border-dashed border-amber-400 flex flex-col items-center justify-center rounded-xs">
+                    <div className="flex-1 lg:h-14 min-h-[56px] bg-amber-50/80 border border-dashed border-amber-300 flex flex-col items-center justify-center rounded-xs">
                       <span className="text-[11px] font-medium text-amber-800">剩余潜能</span>
                       <span className="text-sm sm:text-base font-mono font-bold text-amber-950">5%~10%</span>
                     </div>
@@ -229,7 +229,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   </div>
 
                   {/* 右侧解析卡片 2 (lg:col-span-9) */}
-                  <div className="lg:col-span-9 lg:h-14 min-h-[56px] p-3 sm:p-3.5 bg-amber-50/50 border-l-[3px] border-amber-500 flex flex-col justify-center">
+                  <div className="lg:col-span-9 lg:h-14 min-h-[56px] p-3 sm:p-3.5 bg-amber-50/50 border-l-2 border-amber-400 flex flex-col justify-center">
                     <div className="flex items-center justify-between gap-2">
                       <span className="text-sm font-bold text-amber-950">逼近系统出单极限</span>
                       <span className="text-xs font-mono font-bold text-amber-800">5% ~ 10% • 剩余潜能</span>
@@ -256,7 +256,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   </div>
 
                   {/* 右侧解析卡片 3 (lg:col-span-9) */}
-                  <div className="lg:col-span-9 lg:h-20 min-h-[80px] p-3 sm:p-3.5 bg-blue-50/40 border-l-[3px] border-blue-600 flex flex-col justify-center">
+                  <div className="lg:col-span-9 lg:h-20 min-h-[80px] p-3 sm:p-3.5 bg-blue-50/40 border-l-2 border-blue-400 flex flex-col justify-center">
                     <div className="flex items-center justify-between gap-2">
                       <span className="text-sm font-bold text-blue-950">当前系统运行水平</span>
                       <span className="text-xs font-mono font-bold text-blue-700">60% ~ 65% • 阶段数据</span>
@@ -347,30 +347,30 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             </div>
 
             {/* 模块 2：核心解释说明（左右等高对齐） */}
-            <div className="text-sm sm:text-[15.5px] text-slate-800 font-normal leading-relaxed flex flex-col justify-between gap-3 bg-white p-4 border-l-[3px] border-slate-900 flex-1">
+            <div className="text-sm sm:text-[15.5px] text-slate-800 font-normal leading-relaxed flex flex-col justify-between gap-3 bg-slate-50/60 p-4 border-l-2 border-slate-300 flex-1">
               <div className="flex items-start gap-2.5">
                 <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                 <div className="leading-relaxed">
-                  <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">自动化规模跃升：</strong>
-                  <span>云盾系统替代人工审单规模由 </span>
-                  <strong className="text-slate-950 font-bold font-mono">200 w单提升至 300 w单</strong>
-                  <span className="text-slate-700">，净替代增加 100 w单（增幅 +50.0%）。</span>
+                  <strong className="text-slate-950">自动化规模跃升：</strong>
+                  <span>云盾系统替代人工审单规模由</span>
+                  <strong className="text-slate-950">200w单提升至300w单</strong>
+                  <span>，净替代增加100w单（增幅+50.0%）。</span>
                 </div>
               </div>
               <div className="flex items-start gap-2.5">
                 <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                 <div className="leading-relaxed">
-                  <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">人力减负与差错止损：</strong>
-                  <span>替代外包 </span>
-                  <strong className="text-slate-950 font-bold font-mono">50w+ 订单</strong>
-                  <span>，直接释放外包 </span>
-                  <strong className="text-slate-950 font-bold font-mono">100+ 人力</strong>
+                  <strong className="text-slate-950">人力减负与差错止损：</strong>
+                  <span>替代外包</span>
+                  <strong className="text-slate-950">50w+订单</strong>
+                  <span>，直接释放外包</span>
+                  <strong className="text-slate-950">100+人力</strong>
                   <span>，外包差错实现</span>
-                  <strong className="text-slate-950 font-bold font-mono"> 月度止损 50w+ 元</strong>
-                  <span>；总部审单同步精减 </span>
-                  <strong className="text-slate-950 font-bold font-mono">50w+ 单</strong>
-                  <span>；全量开启后月度综合业务价值约 </span>
-                  <strong className="text-slate-950 font-bold font-mono">300w/月</strong>。
+                  <strong className="text-slate-950">月度止损50w+元</strong>
+                  <span>；总部审单同步精减</span>
+                  <strong className="text-slate-950">50w+单</strong>
+                  <span>；全量开启后月度综合业务价值约</span>
+                  <strong className="text-slate-950">300w/月</strong>。
                 </div>
               </div>
             </div>
@@ -442,28 +442,28 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             </div>
 
             {/* 模块 2：核心解释说明（左右等高对齐） */}
-            <div className="text-sm sm:text-[15.5px] text-slate-800 font-normal leading-relaxed flex flex-col justify-between gap-3 bg-white p-4 border-l-[3px] border-slate-900 flex-1">
+            <div className="text-sm sm:text-[15.5px] text-slate-800 font-normal leading-relaxed flex flex-col justify-between gap-3 bg-slate-50/60 p-4 border-l-2 border-slate-300 flex-1">
               <div className="flex items-start gap-2.5">
                 <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                 <div className="leading-relaxed">
-                  <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">全盘平均停留缩短：</strong>
-                  <span>按总单量 500w 测算（人审单均 8 分钟、系统单均 15 秒），加权平均停留时间从 </span>
-                  <strong className="text-slate-950 font-bold font-mono">4.51 分钟降至 3.35 分钟</strong>
-                  <span className="text-slate-700">，净压缩 </span>
-                  <strong className="text-slate-950 font-bold font-mono">1.16 分钟</strong>
-                  <span className="text-slate-700">（全盘时效提速 </span>
-                  <strong className="text-emerald-700 font-bold font-mono">+25.8%</strong>
-                  <span className="text-slate-700">）。</span>
+                  <strong className="text-slate-950">全盘平均停留缩短：</strong>
+                  <span>按总单量500w测算（人审单均8分钟、系统单均15秒），加权平均停留时间从</span>
+                  <strong className="text-slate-950">4.51分钟降至3.35分钟</strong>
+                  <span>，净压缩</span>
+                  <strong className="text-slate-950">1.16分钟</strong>
+                  <span>（全盘时效提速</span>
+                  <strong className="text-emerald-700">+25.8%</strong>
+                  <span>）。</span>
                 </div>
               </div>
               <div className="flex items-start gap-2.5">
                 <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                 <div className="leading-relaxed">
-                  <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">转系统单秒级直出：</strong>
-                  <span>系统审核规模由 225w 增至 300w，释放的 </span>
-                  <strong className="text-slate-950 font-bold font-mono">75 w单</strong>
-                  <span>由原 8 分钟降至 15 秒（提速 96.9%）；占总量 </span>
-                  <strong className="text-slate-950 font-bold font-mono">60% 的系统订单（300w单）</strong>
+                  <strong className="text-slate-950">转系统单秒级直出：</strong>
+                  <span>系统审核规模由225w增至300w，释放的</span>
+                  <strong className="text-slate-950">75w单</strong>
+                  <span>由原8分钟降至15秒（提速96.9%）；占总量</span>
+                  <strong className="text-slate-950">60%的系统订单（300w单）</strong>
                   <span>彻底摆脱人工排队，端到端出款体感显著改善。</span>
                 </div>
               </div>
@@ -551,7 +551,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   </div>
 
                   {/* 业务场景说明 */}
-                  <div className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal bg-white p-3.5 border-l-[3px] border-slate-900">
+                  <div className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal bg-slate-50/60 p-3.5 border-l-2 border-slate-300">
                     <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">【场景举例】</strong>原来盈利 &gt; xxx 等防御性的策略一律转人工；现在系统自动识别<strong>全包、对打、打水、关联、快进快出、租卖号</strong>等套利行为，精准拦截违规，正常玩家极速放行。
                   </div>
                 </div>
@@ -600,7 +600,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   </div>
 
                   {/* 业务场景说明 */}
-                  <div className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal bg-white p-3.5 border-l-[3px] border-slate-900">
+                  <div className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal bg-slate-50/60 p-3.5 border-l-2 border-slate-300">
                     <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">【场景举例】</strong>原来专员需手动登录三方场馆逐笔查单；现在一些核心场馆<strong>接口秒级直连</strong>，实时共享风控信息。
                   </div>
                 </div>
@@ -649,7 +649,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   </div>
 
                   {/* 业务场景说明 */}
-                  <div className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal bg-white p-3.5 border-l-[3px] border-slate-900">
+                  <div className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal bg-slate-50/60 p-3.5 border-l-2 border-slate-300">
                     <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">【场景举例】</strong>原来凭专员经验主观判定，尺度易漂移；现在结合行为特征<strong>实时计算动态风险分</strong>，低风险秒级放行，高风险精准触发人工复核。
                   </div>
                 </div>
@@ -698,7 +698,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   </div>
 
                   {/* 业务场景说明 */}
-                  <div className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal bg-white p-3.5 border-l-[3px] border-slate-900">
+                  <div className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal bg-slate-50/60 p-3.5 border-l-2 border-slate-300">
                     <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">【场景举例】</strong>原来工单按顺序机械轮询；现在根据<strong>风险等级、业务类型与审核员专长</strong>智能派单（如复杂的体育套利单直派资深专家，基础单派普通专员）。
                   </div>
                 </div>
@@ -747,7 +747,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   </div>
 
                   {/* 业务场景说明 */}
-                  <div className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal bg-white p-3.5 border-l-[3px] border-slate-900">
+                  <div className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal bg-slate-50/60 p-3.5 border-l-2 border-slate-300">
                     <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">【场景举例】</strong>原来排查关联需跨系统肉眼比对，现在一键生成<strong>关联图谱</strong>等异常由系统自动辅助决策，大幅提升执行效率。
                   </div>
                 </div>
@@ -796,7 +796,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   </div>
 
                   {/* 业务场景说明 */}
-                  <div className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal bg-white p-3.5 border-l-[3px] border-slate-900">
+                  <div className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal bg-slate-50/60 p-3.5 border-l-2 border-slate-300">
                     <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">【场景举例】</strong>原来<strong>系统审核环节不具备跨站关联分析能力</strong>，而历史被拦截处置的高危订单中 <strong>50% 以上存在跨账号/跨站关联</strong>，形成重大防御盲区。现在系统在自动放行前<strong>实时识别比对跨站特征</strong>（跨站同设备、同资金链路、多站对冲等），直接识别拦截跨站风险，补齐关键防线。
                   </div>
                 </div>
@@ -914,10 +914,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   </div>
 
                   {/* 右侧阶段说明内容卡片 */}
-                  <div className="flex-1 bg-slate-50/70 p-5 sm:p-6 border-t-2 border-slate-900 space-y-4">
+                  <div className="flex-1 bg-white p-5 sm:p-6 border border-slate-200/80 space-y-4">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2.5 border-b border-slate-200 gap-2">
                       <div className="flex items-center gap-2">
-                        <Scan className="w-5 h-5 text-slate-900 shrink-0" />
                         <h6 className="text-base sm:text-lg font-bold text-slate-950">
                           阶段一 · 提款策略扫描
                         </h6>
@@ -934,7 +933,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <div className="overflow-x-auto">
                       <table className="w-full text-left border-collapse bg-white">
                         <thead>
-                          <tr className="bg-slate-100 text-slate-900 text-xs font-mono font-bold border-b border-slate-300">
+                          <tr className="bg-slate-100 text-slate-900 text-xs font-mono font-bold border-b border-slate-200">
                             <th className="py-2.5 px-3 w-[18%]">分类</th>
                             <th className="py-2.5 px-3 w-[42%]">子项策略名称</th>
                             <th className="py-2.5 px-3 w-[16%] text-center">风险分数</th>
@@ -1154,10 +1153,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   </div>
 
                   {/* 右侧阶段说明内容卡片：简版量化决策流程示意 */}
-                  <div className="flex-1 bg-slate-50/70 p-5 sm:p-6 border-t-2 border-slate-900 space-y-4">
+                  <div className="flex-1 bg-white p-5 sm:p-6 border border-slate-200/80 space-y-4">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-200 gap-2">
                       <div className="flex items-center gap-2">
-                        <Calculator className="w-5 h-5 text-slate-900 shrink-0" />
                         <h6 className="text-base sm:text-lg font-bold text-slate-950">
                           阶段二 · 计算风险分数
                         </h6>
@@ -1170,7 +1168,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     {/* 简版流程示意图: 计算分数 ➔ 总分 ➔ 比较参数 ➔ 决定是否转给人 */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 text-xs sm:text-sm relative">
                       {/* 1. 计算分数 */}
-                      <div className="bg-white p-4 border-t-2 border-slate-900 flex flex-col justify-between space-y-2 relative">
+                      <div className="bg-slate-50/50 p-4 border border-slate-200/70 flex flex-col justify-between space-y-2 relative">
                         <div className="space-y-1.5">
                           <div className="flex items-center justify-between pb-1.5 border-b border-slate-200">
                             <span className="text-xs font-mono font-bold bg-slate-900 text-white px-2 py-0.5">01</span>
@@ -1187,7 +1185,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       </div>
 
                       {/* 2. 总分 */}
-                      <div className="bg-white p-4 border-t-2 border-slate-900 flex flex-col justify-between space-y-2 relative">
+                      <div className="bg-slate-50/50 p-4 border border-slate-200/70 flex flex-col justify-between space-y-2 relative">
                         <div className="space-y-1.5">
                           <div className="flex items-center justify-between pb-1.5 border-b border-slate-200">
                             <span className="text-xs font-mono font-bold bg-slate-900 text-white px-2 py-0.5">02</span>
@@ -1204,7 +1202,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       </div>
 
                       {/* 3. 比较参数 */}
-                      <div className="bg-white p-4 border-t-2 border-slate-900 flex flex-col justify-between space-y-2 relative">
+                      <div className="bg-slate-50/50 p-4 border border-slate-200/70 flex flex-col justify-between space-y-2 relative">
                         <div className="space-y-1.5">
                           <div className="flex items-center justify-between pb-1.5 border-b border-slate-200">
                             <span className="text-xs font-mono font-bold bg-slate-900 text-white px-2 py-0.5">03</span>
@@ -1259,10 +1257,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   </div>
 
                   {/* 右侧阶段说明内容卡片 */}
-                  <div className="flex-1 bg-slate-50/70 p-5 sm:p-6 border-t-2 border-slate-900 space-y-5">
+                  <div className="flex-1 bg-white p-5 sm:p-6 border border-slate-200/80 space-y-5">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-200 gap-2">
                       <div className="flex items-center gap-2">
-                        <UserCheck className="w-5 h-5 text-slate-950 shrink-0" />
                         <h6 className="text-base sm:text-lg font-bold text-slate-950">
                           阶段三 · 派单动态匹配
                         </h6>
@@ -1286,7 +1283,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
 
                       <div className="grid grid-cols-1 md:grid-cols-11 gap-3 sm:gap-4 items-stretch">
                         {/* 左侧：订单特征画像 */}
-                        <div className="md:col-span-4 bg-white p-4 border-t-2 border-slate-900 space-y-3 flex flex-col justify-between">
+                        <div className="md:col-span-4 bg-white p-4 border border-slate-200/80 space-y-3 flex flex-col justify-between">
                           <div className="flex items-center justify-between pb-2 border-b border-slate-200">
                             <span className="text-xs sm:text-sm font-bold text-slate-950 flex items-center gap-1.5">
                               <span className="w-2.5 h-2.5 bg-slate-900"></span>
@@ -1330,7 +1327,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                         </div>
 
                         {/* 右侧：人员能力画像 */}
-                        <div className="md:col-span-4 bg-white p-4 border-t-2 border-slate-900 space-y-3 flex flex-col justify-between">
+                        <div className="md:col-span-4 bg-white p-4 border border-slate-200/80 space-y-3 flex flex-col justify-between">
                           <div className="flex items-center justify-between pb-2 border-b border-slate-200">
                             <span className="text-xs sm:text-sm font-bold text-slate-950 flex items-center gap-1.5">
                               <span className="w-2.5 h-2.5 bg-slate-900"></span>
@@ -1367,7 +1364,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
 
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
                         {/* 场景 1：体育专长匹配 */}
-                        <div className="bg-white p-4 border-t-2 border-slate-900 space-y-3 flex flex-col justify-between">
+                        <div className="bg-white p-4 border border-slate-200/80 space-y-3 flex flex-col justify-between">
                           <div className="space-y-2.5">
                             <div className="flex items-center justify-between pb-2 border-b border-slate-200">
                               <span className="text-xs sm:text-sm font-bold text-slate-950">1. 业务专长对口</span>
@@ -1399,7 +1396,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                         </div>
 
                         {/* 场景 2：高绩效优先 */}
-                        <div className="bg-white p-4 border-t-2 border-slate-900 space-y-3 flex flex-col justify-between">
+                        <div className="bg-white p-4 border border-slate-200/80 space-y-3 flex flex-col justify-between">
                           <div className="space-y-2.5">
                             <div className="flex items-center justify-between pb-2 border-b border-slate-200">
                               <span className="text-xs sm:text-sm font-bold text-slate-950">2. 质量绩效优先</span>
@@ -1431,7 +1428,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                         </div>
 
                         {/* 场景 3：分组权限控制 */}
-                        <div className="bg-white p-4 border-t-2 border-slate-900 space-y-3 flex flex-col justify-between">
+                        <div className="bg-white p-4 border border-slate-200/80 space-y-3 flex flex-col justify-between">
                           <div className="space-y-2.5">
                             <div className="flex items-center justify-between pb-2 border-b border-slate-200">
                               <span className="text-xs sm:text-sm font-bold text-slate-950">3. 权限分层隔离</span>
@@ -1482,10 +1479,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   </div>
 
                   {/* 右侧阶段说明内容卡片 */}
-                  <div className="flex-1 bg-slate-50/70 p-5 sm:p-6 border-t-2 border-slate-900 space-y-4">
+                  <div className="flex-1 bg-white p-5 sm:p-6 border border-slate-200/80 space-y-4">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-200 gap-2">
                       <div className="flex items-center gap-2">
-                        <RotateCcw className="w-5 h-5 text-sky-700 shrink-0" />
                         <h6 className="text-base sm:text-lg font-bold text-slate-950">
                           阶段四 · 闭环反馈自进化
                         </h6>
@@ -1498,7 +1494,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     </div>
 
                     {/* 阶段四 核心定位与业务机制说明 */}
-                    <div className="p-3.5 bg-white border-t border-slate-200 text-xs sm:text-sm text-slate-900 leading-relaxed font-normal flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div className="p-3.5 bg-slate-50/70 border border-slate-200/60 text-xs sm:text-sm text-slate-900 leading-relaxed font-normal flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                       <div>
                         建立常态化实盘抽检与自进化闭环：<strong>每周都会找到 500+ 案例进行专人复盘分析</strong>，深入排查漏检特征与异常波动，动态反哺策略库与评分权重。
                       </div>
@@ -1507,7 +1503,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
 
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                       {/* 支柱 1：召回率动态回溯 */}
-                      <div className="bg-white p-4 sm:p-5 space-y-2 border-t-2 border-slate-900">
+                      <div className="bg-slate-50/50 p-4 sm:p-5 space-y-2 border border-slate-200/70">
                         <div className="flex items-center gap-2 pb-2 border-b border-slate-200 font-bold text-slate-950 text-base">
                           <span className="report-sequence-badge text-xs">1</span>
                           <span>召回率动态回溯</span>
@@ -1518,7 +1514,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       </div>
 
                       {/* 支柱 2：命中率阈值精修 */}
-                      <div className="bg-white p-4 sm:p-5 space-y-2 border-t-2 border-slate-900">
+                      <div className="bg-slate-50/50 p-4 sm:p-5 space-y-2 border border-slate-200/70">
                         <div className="flex items-center gap-2 pb-2 border-b border-slate-200 font-bold text-slate-950 text-base">
                           <span className="report-sequence-badge text-xs">2</span>
                           <span>命中率阈值精修</span>
@@ -1529,7 +1525,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       </div>
 
                       {/* 支柱 3：持续对抗推演迭代 */}
-                      <div className="bg-white p-4 sm:p-5 space-y-2 border-t-2 border-slate-900">
+                      <div className="bg-slate-50/50 p-4 sm:p-5 space-y-2 border border-slate-200/70">
                         <div className="flex items-center gap-2 pb-2 border-b border-slate-200 font-bold text-slate-950 text-base">
                           <span className="report-sequence-badge text-xs">3</span>
                           <span>变异对抗与持续演进</span>
@@ -1565,7 +1561,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             {/* 4 列防线矩阵卡片 */}
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 items-stretch">
               {/* 支柱 1：最小范围知晓与定期归档销毁 */}
-              <div className="bg-slate-50/70 p-5 border-t-2 border-slate-900 flex flex-col justify-between space-y-3.5">
+              <div className="bg-white p-5 border border-slate-200/80 flex flex-col justify-between space-y-3.5">
                 <div className="space-y-2">
                   <span className="text-base font-bold text-slate-950 block">
                     1. 最小知晓与归档销毁
@@ -1574,8 +1570,8 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     底层风控规则、策略参数及评分权重严格执行<strong>“最小知晓范围”</strong>，禁止扩散；规则与参数<strong>定期归档离线并销毁</strong>，从源头杜绝策略外泄与逆向分析。
                   </p>
                 </div>
-                <div className="pt-2.5 border-t border-slate-200">
-                  <div className="inline-flex items-center gap-2 px-2.5 py-1.5 bg-white text-xs font-mono text-slate-900 font-semibold">
+                <div className="pt-2.5 border-t border-slate-100">
+                  <div className="inline-flex items-center gap-2 px-2.5 py-1.5 bg-slate-50 text-xs font-mono text-slate-900 font-semibold">
                     <span className="px-1.5 py-0.5 bg-slate-900 text-white text-xs font-bold leading-none uppercase tracking-wider">
                       原则
                     </span>
@@ -1585,7 +1581,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               </div>
 
               {/* 支柱 2：多环节组合控制与防窥全貌 */}
-              <div className="bg-slate-50/70 p-5 border-t-2 border-slate-900 flex flex-col justify-between space-y-3.5">
+              <div className="bg-white p-5 border border-slate-200/80 flex flex-col justify-between space-y-3.5">
                 <div className="space-y-2">
                   <span className="text-base font-bold text-slate-950 block">
                     2. 多环节组合受控
@@ -1594,8 +1590,8 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     体系由特征提取、规则校验、风险评分、动态路由等多环节组合构成，<strong>单一功能无法准确影响全链路执行逻辑</strong>，极难知道一个点反推全局规则。
                   </p>
                 </div>
-                <div className="pt-2.5 border-t border-slate-200">
-                  <div className="inline-flex items-center gap-2 px-2.5 py-1.5 bg-white text-xs font-mono text-slate-900 font-semibold">
+                <div className="pt-2.5 border-t border-slate-100">
+                  <div className="inline-flex items-center gap-2 px-2.5 py-1.5 bg-slate-50 text-xs font-mono text-slate-900 font-semibold">
                     <span className="px-1.5 py-0.5 bg-slate-900 text-white text-xs font-bold leading-none uppercase tracking-wider">
                       机制
                     </span>
@@ -1605,7 +1601,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               </div>
 
               {/* 支柱 3：上百个特征及参数周级别动态调整 */}
-              <div className="bg-slate-50/70 p-5 border-t-2 border-slate-900 flex flex-col justify-between space-y-3.5">
+              <div className="bg-white p-5 border border-slate-200/80 flex flex-col justify-between space-y-3.5">
                 <div className="space-y-2">
                   <span className="text-base font-bold text-slate-950 block">
                     3. 上百特征周级调参
@@ -1614,8 +1610,8 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     涵盖<strong>上百个特征及核心权重参数</strong>；风控策略组结合实盘样本执行<strong>周级例行指标校准与动态调参</strong>，打破静态规律，保持防御有效性。
                   </p>
                 </div>
-                <div className="pt-2.5 border-t border-slate-200">
-                  <div className="inline-flex items-center gap-2 px-2.5 py-1.5 bg-white text-xs font-mono text-slate-900 font-semibold">
+                <div className="pt-2.5 border-t border-slate-100">
+                  <div className="inline-flex items-center gap-2 px-2.5 py-1.5 bg-slate-50 text-xs font-mono text-slate-900 font-semibold">
                     <span className="px-1.5 py-0.5 bg-slate-900 text-white text-xs font-bold leading-none uppercase tracking-wider">
                       频率
                     </span>
@@ -1625,7 +1621,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               </div>
 
               {/* 支柱 4：评估反馈机制与自进化更新迭代 */}
-              <div className="bg-slate-50/70 p-5 border-t-2 border-slate-900 flex flex-col justify-between space-y-3.5">
+              <div className="bg-white p-5 border border-slate-200/80 flex flex-col justify-between space-y-3.5">
                 <div className="space-y-2">
                   <span className="text-base font-bold text-slate-950 block">
                     4. 持续对抗与自进化
@@ -1634,8 +1630,8 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     针对灰黑产对抗模式的变异升级，依托召回率动态回溯与命中率周级调整，驱动策略模型持续版本迭代与抗衰减演化。
                   </p>
                 </div>
-                <div className="pt-2.5 border-t border-slate-200">
-                  <div className="inline-flex items-center gap-2 px-2.5 py-1.5 bg-white text-xs font-mono text-slate-900 font-semibold">
+                <div className="pt-2.5 border-t border-slate-100">
+                  <div className="inline-flex items-center gap-2 px-2.5 py-1.5 bg-slate-50 text-xs font-mono text-slate-900 font-semibold">
                     <span className="px-1.5 py-0.5 bg-slate-900 text-white text-xs font-bold leading-none uppercase tracking-wider">
                       态势
                     </span>

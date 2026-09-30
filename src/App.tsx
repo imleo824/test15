@@ -22,13 +22,13 @@ export default function App() {
               <ReportCover />
             </div>
 
-            {/* Strategic Risk & Governance Review (Chapters 1.0 - 4.0) */}
+            {/* Strategic Risk & Governance Review (Chapters 1.0 - 5.0) */}
             <div id="fk-world-cup-review" className="scroll-mt-14">
               <WorldCupGuaranteeReview />
             </div>
 
             {/* Report End Page */}
-            <footer className="report-end-page print:hidden border-t-2 border-slate-900 mt-24 pt-14 pb-10">
+            <footer className="report-end-page print:hidden border-t border-slate-300 mt-20 pt-12 pb-10">
               <div className="report-end-content space-y-3 text-center">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
                   汇报结束 · 感谢审阅

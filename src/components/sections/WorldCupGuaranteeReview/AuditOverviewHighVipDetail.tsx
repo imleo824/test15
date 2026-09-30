@@ -64,13 +64,13 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
 
       {/* 统一总结模块 */}
       <SummaryBox>
-        <p className="text-sm sm:text-base text-slate-950 font-bold leading-relaxed mb-2.5">
+        <p className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed mb-2.5">
           {highlightNumbers(
             "[[高等级会员处理]]共 [[810人]]，金额 [[5,790.60w]]（占比 [[21.26%]]）：",
           )}
         </p>
         <ul className="mt-3 space-y-2.5 text-slate-700">
-          <li className="flex items-start gap-2 text-sm sm:text-[15px] text-slate-800">
+          <li className="flex items-start gap-2 text-sm sm:text-[15.5px] text-slate-700">
             <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2" />
             <span className="leading-relaxed">
               {highlightNumbers(
@@ -78,23 +78,23 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
               )}
             </span>
           </li>
-          <li className="flex items-start gap-2 text-sm sm:text-[15px] text-slate-800">
+          <li className="flex items-start gap-2 text-sm sm:text-[15.5px] text-slate-700">
             <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2" />
             <div className="flex-1">
               <span className="text-slate-950 font-bold">业务分析：</span>
               <ul className="mt-1.5 list-none space-y-1.5 pl-3 text-slate-700">
                 <li className="flex items-start gap-1.5">
-                  <span className="shrink-0 font-mono text-sm text-slate-500">（一）</span>
+                  <span className="shrink-0 text-sm text-slate-500">（一）</span>
                   <span>{highlightNumbers("违规用户养号周期拉长、伪装度高，常规规则识别存在[[发现延迟]]。")}</span>
                 </li>
                 <li className="flex items-start gap-1.5">
-                  <span className="shrink-0 font-mono text-sm text-slate-500">（二）</span>
+                  <span className="shrink-0 text-sm text-slate-500">（二）</span>
                   <span>{highlightNumbers("高等级账号异常更隐蔽，需结合全链路特征综合判定，快速捕捉[[新型手法]]。")}</span>
                 </li>
               </ul>
             </div>
           </li>
-          <li className="flex items-start gap-2 text-sm sm:text-[15px] text-slate-800">
+          <li className="flex items-start gap-2 text-sm sm:text-[15.5px] text-slate-700">
             <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2" />
             <div className="flex-1">
               <span className="text-slate-950 font-bold">持续优化：</span>
@@ -130,7 +130,7 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
                 <th colSpan={3} className="p-2 text-center">软件</th>
               </tr>
               {/* 二级表头 */}
-              <tr className="border-b-2 border-slate-900 text-slate-800 font-bold text-sm">
+              <tr className="border-b border-slate-200 text-slate-800 font-bold text-sm">
                 <th className="px-2 py-2 text-center">人数</th>
                 <th className="px-2 py-2 text-center">占比</th>
 
@@ -189,7 +189,7 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
                 );
               })}
             </tbody>
-            <tfoot className="border-t-2 border-b-2 border-slate-900 bg-slate-50 font-bold font-mono tabular-nums text-sm text-slate-900">
+            <tfoot className="border-t border-b border-slate-200 bg-slate-50 font-bold font-mono tabular-nums text-sm text-slate-900">
               <tr>
                 <td className="px-2 py-2.5 text-center font-bold">总计</td>
                 <td className="px-2 py-2.5 text-center text-slate-900 font-bold">810</td>
