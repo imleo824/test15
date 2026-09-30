@@ -10,7 +10,7 @@ export const PersonnelDistribution: React.FC = () => {
       content: "以[[系统自动化]]替代重复人工审核，精简岗位编制，提升单人人效；",
     },
     {
-      title: "考核机制",
+      title: "考核优化",
       category: "降本增效",
       content: "落实量化考核与[[末位淘汰]]，人力向[[策略与专业分析岗位]]倾斜，精简低效编制；",
     },
@@ -28,15 +28,6 @@ export const PersonnelDistribution: React.FC = () => {
 
   return (
     <div className="space-y-16 lg:space-y-20">
-      {/* 核心战略导语 */}
-      <SummaryBox variant="chapter">
-        <div className="text-base sm:text-[16.5px] font-medium text-slate-900 leading-relaxed">
-          {highlightNumbers(
-            "依托[[系统自动化]]推进[[组织精简]]与[[作业合规]]，压降低效编制，提升人效与拦截质效。"
-          )}
-        </div>
-      </SummaryBox>
-
       {/* 1.1 组织优化举措 */}
       <div className="space-y-6 sm:space-y-8">
         <ReportSectionHeader title="1.1 组织优化" />
@@ -44,7 +35,7 @@ export const PersonnelDistribution: React.FC = () => {
         <SummaryBox variant="module">
           <div className="text-sm sm:text-base text-slate-800 font-normal leading-relaxed">
             {highlightNumbers(
-              "聚焦[[人效提升]]与[[合规安全]]：强化策略分析岗位，压降重复人工审核与外包编制，优化各职场配置。"
+              "聚焦[[人效提升]]与[[合规安全]]：强化策略分析工作，压降重复人工审核与外包编制，优化各职场配置。"
             )}
           </div>
         </SummaryBox>
@@ -65,10 +56,10 @@ export const PersonnelDistribution: React.FC = () => {
                   </span>
                 </div>
                 <span
-                  className={`font-mono text-xs font-bold px-2 py-0.5 ${
+                  className={`font-mono text-xs font-bold ${
                     item.category === "降本增效"
-                      ? "text-emerald-800 bg-emerald-50"
-                      : "text-blue-900 bg-blue-50"
+                      ? "text-emerald-700"
+                      : "text-blue-700"
                   }`}
                 >
                   {item.category}
@@ -119,7 +110,7 @@ export const PersonnelDistribution: React.FC = () => {
                 <span className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight tabular-nums">
                   119
                 </span>
-                <span className="text-xs font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 tabular-nums">
+                <span className="text-xs font-bold text-emerald-700 tabular-nums">
                   -17
                 </span>
                 <span className="text-sm font-bold text-slate-600">人</span>
@@ -165,10 +156,10 @@ export const PersonnelDistribution: React.FC = () => {
                   {item.count}
                 </div>
                 <div
-                  className={`font-mono text-xs font-bold px-2 py-0.5 tabular-nums ${
+                  className={`font-mono text-xs font-bold tabular-nums ${
                     item.isIncrease
-                      ? "text-blue-900 bg-blue-50"
-                      : "text-slate-600 bg-slate-100"
+                      ? "text-blue-700"
+                      : "text-slate-600"
                   }`}
                 >
                   {item.change}

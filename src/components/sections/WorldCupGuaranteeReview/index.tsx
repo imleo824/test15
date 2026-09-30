@@ -45,11 +45,6 @@ export const WorldCupGuaranteeReview: React.FC = () => {
       {/* 4.0 云盾审核 (审单比例演变、收益测算与云盾系统) */}
       <section id="section-4.0" className="report-chapter-block scroll-mt-6">
         <ChapterTitle>4.0 云盾审核</ChapterTitle>
-        <SummaryBox variant="chapter">
-          {highlightNumbers(
-            "从 [[25年]] 开始，历经多轮迭代后在 [[26年9月开始灰度验证]]，于 [[9月28日正式全量上线]]，实现[[审单模式向系统自动化的根本性重构]]（系统出单达 [[65.0%]]）。"
-          )}
-        </SummaryBox>
         <div className="report-chapter-content">
           <SystemAuditEvolutionSection />
         </div>

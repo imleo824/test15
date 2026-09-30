@@ -143,7 +143,7 @@ export const InternalControlSection: React.FC = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 items-stretch">
           {/* 1. 外部通讯群信息 */}
-          <div className="flex flex-col justify-between space-y-4 bg-slate-50/70 p-5 sm:p-6 border-l-4 border-slate-900 h-full">
+          <div className="flex flex-col justify-between space-y-4 bg-slate-50/70 p-5 sm:p-6 border-t-2 border-slate-900 h-full">
             <div className="space-y-2.5">
               <div className="flex items-center gap-2 text-slate-900 font-bold text-base sm:text-lg">
                 <span className="report-sequence-badge report-sequence-badge--risk">1</span>
@@ -165,7 +165,7 @@ export const InternalControlSection: React.FC = () => {
           </div>
 
           {/* 2. 内部勾结查控 */}
-          <div className="flex flex-col justify-between space-y-4 bg-slate-50/70 p-5 sm:p-6 border-l-4 border-slate-900 h-full">
+          <div className="flex flex-col justify-between space-y-4 bg-slate-50/70 p-5 sm:p-6 border-t-2 border-slate-900 h-full">
             <div className="space-y-2.5">
               <div className="flex items-center gap-2 text-slate-900 font-bold text-base sm:text-lg">
                 <span className="report-sequence-badge report-sequence-badge--risk">2</span>

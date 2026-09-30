@@ -207,7 +207,7 @@ export const SecurityUpgradeSection: React.FC = () => {
               1
             </span>
             <h4 className="text-base font-bold text-slate-950">敏感信息维护</h4>
-            <span className="text-xs font-mono font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 ml-auto">
+            <span className="text-xs font-mono font-bold text-emerald-700 ml-auto">
               统一字典收口
             </span>
           </div>
@@ -230,7 +230,7 @@ export const SecurityUpgradeSection: React.FC = () => {
               2
             </span>
             <h4 className="text-base font-bold text-slate-950">敏感异常操作</h4>
-            <span className="text-xs font-mono font-bold text-blue-900 bg-blue-100/80 px-2 py-0.5 ml-auto">
+            <span className="text-xs font-mono font-bold text-blue-700 ml-auto">
               工种控权收紧
             </span>
           </div>
@@ -253,7 +253,7 @@ export const SecurityUpgradeSection: React.FC = () => {
               3
             </span>
             <h4 className="text-base font-bold text-slate-950">敏感信息修改</h4>
-            <span className="text-xs font-mono font-bold text-indigo-900 bg-indigo-100/80 px-2 py-0.5 ml-auto">
+            <span className="text-xs font-mono font-bold text-indigo-700 ml-auto">
               双人背靠背审批
             </span>
           </div>
@@ -276,7 +276,7 @@ export const SecurityUpgradeSection: React.FC = () => {
               4
             </span>
             <h4 className="text-base font-bold text-slate-950">敏感权限结构</h4>
-            <span className="text-xs font-mono font-bold text-slate-800 bg-slate-200 px-2 py-0.5 ml-auto">
+            <span className="text-xs font-mono font-bold text-slate-700 ml-auto">
               任务驱动分层
             </span>
           </div>
@@ -372,7 +372,7 @@ export const SecurityUpgradeSection: React.FC = () => {
                               </span>
                               <span>长期权限</span>
                             </div>
-                            <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-1.5 py-0.5">
+                            <span className="text-xs font-mono font-bold text-slate-700">
                               少数特权工种
                             </span>
                           </div>
@@ -399,7 +399,7 @@ export const SecurityUpgradeSection: React.FC = () => {
                               </span>
                               <span>临时权限</span>
                             </div>
-                            <span className="text-xs font-mono font-bold text-indigo-900 bg-indigo-50 px-1.5 py-0.5">
+                            <span className="text-xs font-mono font-bold text-indigo-700">
                               限时审批生效
                             </span>
                           </div>
@@ -426,7 +426,7 @@ export const SecurityUpgradeSection: React.FC = () => {
                               </span>
                               <span>凭单查询</span>
                             </div>
-                            <span className="text-xs font-mono font-bold text-blue-900 bg-blue-50 px-1.5 py-0.5">
+                            <span className="text-xs font-mono font-bold text-blue-700">
                               任务动态解锁
                             </span>
                           </div>
@@ -472,7 +472,7 @@ export const SecurityUpgradeSection: React.FC = () => {
                             {highlightNumbers(item.measure)}
                           </td>
                           <td className="py-3 px-3 font-medium text-slate-900 text-xs sm:text-sm leading-relaxed align-top">
-                            <span className="inline-block px-2 py-0.5 bg-slate-100 text-slate-800 font-medium">
+                            <span className="inline-block font-semibold text-slate-900">
                               {item.impact}
                             </span>
                           </td>

@@ -141,7 +141,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
       <div style={chartTooltipStyle} className="p-3 space-y-2 min-w-[240px]">
         <div className="flex items-center justify-between border-b border-slate-200 pb-1.5">
           <span className="font-bold text-slate-900 text-sm">{label}审核 · 月度演进明细</span>
-          <span className="text-[11px] px-1.5 py-0.5 bg-slate-100 text-slate-800 font-mono font-bold">
+          <span className="text-[11px] text-slate-800 font-mono font-bold">
             {roleItem?.tag}
           </span>
         </div>
@@ -149,7 +149,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
           {payload.map((item: any) => {
             const isSpecial = item.dataKey === "m9_30";
             return (
-              <div key={item.dataKey} className={`flex items-center justify-between ${isSpecial ? "font-bold text-blue-900 bg-blue-50 px-1 py-0.5 rounded-xs" : ""}`}>
+              <div key={item.dataKey} className={`flex items-center justify-between ${isSpecial ? "font-bold text-blue-900" : ""}`}>
                 <span className="flex items-center gap-1 text-slate-600">
                   <span
                     className="w-2 h-2 rounded-xs shrink-0"
