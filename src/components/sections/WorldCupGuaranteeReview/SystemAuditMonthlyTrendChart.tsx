@@ -243,49 +243,66 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
           <table className="w-full text-sm sm:text-base text-center border-collapse">
             <thead>
               <tr className="border-b border-slate-200 text-slate-800">
-                <th className="py-2.5 px-3 text-left font-bold text-slate-500 text-xs sm:text-sm w-32">系统核心指标</th>
+                <th className="py-2.5 px-3 text-left font-bold text-slate-500 text-xs sm:text-sm w-36">系统核心指标</th>
                 <th className="py-2.5 px-4 font-bold text-slate-700 text-sm sm:text-base">1~8月均值 (基线)</th>
                 <th className="w-8 py-2.5 text-slate-400 font-mono"></th>
-                <th className="py-2.5 px-4 font-bold text-blue-950 bg-blue-50/70 text-sm sm:text-base">9月 (推全成效)</th>
-                <th className="py-2.5 px-4 text-right font-bold text-slate-700 text-xs sm:text-sm">演进趋势与核心成效</th>
+                <th className="py-2.5 px-4 font-bold text-blue-950 bg-blue-50/70 text-sm sm:text-base">
+                  <div className="flex items-center justify-center gap-1.5">
+                    <span className="w-2 h-2 bg-blue-600 shrink-0"></span>
+                    <span>9月 (灰度验收)</span>
+                  </div>
+                </th>
+                <th className="w-8 py-2.5 text-slate-400 font-mono"></th>
+                <th className="py-2.5 px-4 font-bold text-blue-950 bg-blue-100/80 text-sm sm:text-base">
+                  <div className="flex items-center justify-center gap-1.5">
+                    <span className="w-2 h-2 bg-blue-800 shrink-0"></span>
+                    <span>系统 (930全量)</span>
+                  </div>
+                </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 font-mono">
+            <tbody className="divide-y divide-slate-100 tabular-nums">
               {/* 行 1：系统出单比例 (出单比例上升) */}
               <tr>
-                <td className="py-3 px-3 text-left font-sans font-bold text-slate-800 text-xs sm:text-sm">
+                <td className="py-3 px-3 text-left font-bold text-slate-900 text-sm">
                   系统出单比例
                 </td>
                 <td className="py-3 px-4 font-bold text-slate-700 text-sm sm:text-base">
                   49.77%
                 </td>
-                <td className="py-3 text-center font-black text-blue-600 text-base sm:text-lg">
+                <td className="py-3 text-center font-bold text-blue-600 text-base sm:text-lg">
                   ➔
                 </td>
-                <td className="py-3 px-4 font-black text-blue-950 bg-blue-50/30 text-sm sm:text-base">
-                  55.00% <span className="text-xs text-emerald-700 font-semibold ml-1">(+5.23%)</span>
+                <td className="py-3 px-4 font-bold text-blue-950 bg-blue-50/30 text-sm sm:text-base">
+                  52.50% <span className="text-xs text-emerald-700 font-semibold ml-1">(灰度放量)</span>
                 </td>
-                <td className="py-3 px-4 text-right font-sans font-bold text-blue-900 text-xs sm:text-sm">
-                  出单比例放量上升
+                <td className="py-3 text-center font-bold text-blue-600 text-base sm:text-lg">
+                  ➔
+                </td>
+                <td className="py-3 px-4 font-bold text-blue-950 bg-blue-100/40 text-sm sm:text-base">
+                  55.00% <span className="text-xs text-blue-900 font-semibold ml-1">(全量放量)</span>
                 </td>
               </tr>
 
               {/* 行 2：系统质检率 (质检率下降) */}
               <tr>
-                <td className="py-3 px-3 text-left font-sans font-bold text-slate-800 text-xs sm:text-sm">
+                <td className="py-3 px-3 text-left font-bold text-slate-900 text-sm">
                   系统质检率
                 </td>
                 <td className="py-3 px-4 font-bold text-red-700 text-sm sm:text-base">
                   0.141% <span className="text-xs text-slate-500 font-normal">(1月0.324%)</span>
                 </td>
-                <td className="py-3 text-center font-black text-red-600 text-base sm:text-lg">
+                <td className="py-3 text-center font-bold text-red-600 text-base sm:text-lg">
                   ➔
                 </td>
-                <td className="py-3 px-4 font-black text-emerald-700 bg-blue-50/30 text-sm sm:text-base">
-                  0.060% <span className="text-xs text-emerald-800 font-semibold ml-1">(-57.4%)</span>
+                <td className="py-3 px-4 font-bold text-emerald-700 bg-blue-50/30 text-sm sm:text-base">
+                  0.08% <span className="text-xs text-emerald-800 font-semibold ml-1">(灰度收敛)</span>
                 </td>
-                <td className="py-3 px-4 text-right font-sans font-bold text-emerald-800 text-xs sm:text-sm">
-                  质检率大幅收敛
+                <td className="py-3 text-center font-bold text-red-600 text-base sm:text-lg">
+                  ➔
+                </td>
+                <td className="py-3 px-4 font-bold text-emerald-700 bg-blue-100/40 text-sm sm:text-base">
+                  0.060% <span className="text-xs text-emerald-800 font-semibold ml-1">(最优收敛)</span>
                 </td>
               </tr>
             </tbody>

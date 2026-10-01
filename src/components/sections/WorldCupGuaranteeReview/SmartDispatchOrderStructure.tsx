@@ -260,6 +260,13 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                   </div>
                 </th>
                 <th className="w-6 py-2.5 text-slate-400 font-mono"></th>
+                <th className="py-2.5 px-3 font-bold text-blue-950 bg-blue-50/90 text-sm sm:text-base">
+                  <div className="flex items-center justify-center gap-1.5">
+                    <span className="w-2 h-2 bg-blue-700 shrink-0"></span>
+                    <span>系统 (9月均值)</span>
+                  </div>
+                </th>
+                <th className="w-6 py-2.5 text-slate-400 font-mono"></th>
                 <th className="py-2.5 px-3 font-bold text-blue-950 bg-blue-100/80 text-sm sm:text-base">
                   <div className="flex items-center justify-center gap-1.5">
                     <span className="w-2 h-2 bg-blue-800 shrink-0"></span>
@@ -292,6 +299,12 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                 <td className="py-3 text-center font-bold text-emerald-600 text-base">
                   ➔
                 </td>
+                <td className="py-3 px-3 font-bold text-emerald-800 bg-blue-50/50 text-sm sm:text-base">
+                  0.08% <span className="text-xs font-bold text-emerald-700 ml-1">(灰度收敛)</span>
+                </td>
+                <td className="py-3 text-center font-bold text-emerald-600 text-base">
+                  ➔
+                </td>
                 <td className="py-3 px-3 font-bold text-emerald-700 bg-blue-100/40 text-sm sm:text-base">
                   0.060% <span className="text-xs font-bold text-emerald-800 ml-1">(最优)</span>
                 </td>
@@ -316,6 +329,12 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                 </td>
                 <td className="py-3 px-3 font-bold text-blue-950 bg-blue-50/30 text-sm sm:text-base">
                   49.77%
+                </td>
+                <td className="py-3 text-center font-bold text-blue-600 text-base">
+                  ➔
+                </td>
+                <td className="py-3 px-3 font-bold text-blue-950 bg-blue-50/50 text-sm sm:text-base">
+                  52.50% <span className="text-xs font-bold text-blue-800 ml-1">(灰度放量)</span>
                 </td>
                 <td className="py-3 text-center font-bold text-blue-600 text-base">
                   ➔
