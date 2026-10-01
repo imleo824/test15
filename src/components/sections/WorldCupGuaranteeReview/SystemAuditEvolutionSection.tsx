@@ -161,7 +161,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             </div>
 
             {/* 核心数据呈现：左柱右文 1:1 严格对齐 */}
-            <div className="bg-white border border-slate-200 p-4 sm:p-6 space-y-4">
+            <div className="pt-4 border-t border-slate-200 space-y-4">
               {/* 顶部比例分布说明标头 */}
               <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-200 text-xs">
                 <div className="flex items-center gap-2">

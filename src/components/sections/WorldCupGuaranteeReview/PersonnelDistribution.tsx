@@ -86,18 +86,18 @@ export const PersonnelDistribution: React.FC = () => {
         </SummaryBox>
 
         <div className="space-y-6 pt-2">
-          {/* 第一层：在岗人数 & 外包人力 */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-xl mx-auto items-stretch">
+          {/* 第一层：在岗人数 & 外包人力 核心指标 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl mx-auto items-stretch">
             {/* Card 1: 在岗人数 */}
-            <div className="bg-slate-50 border border-slate-200 p-6 text-center space-y-1 flex flex-col justify-between">
+            <div className="bg-white border border-slate-200 p-6 text-center space-y-2 flex flex-col justify-between">
               <span className="text-xs sm:text-sm font-bold text-slate-600 block uppercase tracking-wider">
-                在岗人数
+                在岗总人数
               </span>
               <div className="flex items-baseline justify-center gap-2 py-1">
                 <span className="text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight tabular-nums">
                   356
                 </span>
-                <span className="text-xs font-bold text-emerald-700 tabular-nums">
+                <span className="text-xs sm:text-sm font-bold text-emerald-700 tabular-nums">
                   -9
                 </span>
                 <span className="text-sm font-bold text-slate-600">人</span>
@@ -105,15 +105,15 @@ export const PersonnelDistribution: React.FC = () => {
             </div>
 
             {/* Card 2: 外包人力 */}
-            <div className="bg-slate-50 border border-slate-200 p-6 text-center space-y-1 flex flex-col justify-between">
+            <div className="bg-white border border-slate-200 p-6 text-center space-y-2 flex flex-col justify-between">
               <span className="text-xs sm:text-sm font-bold text-slate-600 block uppercase tracking-wider">
-                外包人力
+                外包人力编制
               </span>
               <div className="flex items-baseline justify-center gap-2 py-1">
                 <span className="text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight tabular-nums">
                   100
                 </span>
-                <span className="text-xs font-bold text-emerald-700 tabular-nums">
+                <span className="text-xs sm:text-sm font-bold text-emerald-700 tabular-nums">
                   -19
                 </span>
                 <span className="text-sm font-bold text-slate-600">人</span>
@@ -121,54 +121,47 @@ export const PersonnelDistribution: React.FC = () => {
             </div>
           </div>
 
-          {/* 树状连接线 (仅在中大屏幕显示) */}
-          <div className="hidden md:block my-2">
-            {/* 垂直主干线 */}
-            <div className="w-px h-5 bg-slate-200 mx-auto" />
-
-            {/* 水平分支线 */}
-            <div className="w-[83.33%] mx-auto h-px bg-slate-200 relative">
-              {/* 6个下降触点 */}
-              <div className="absolute top-0 left-[0%] -translate-x-1/2 w-px h-5 bg-slate-200" />
-              <div className="absolute top-0 left-[20%] -translate-x-1/2 w-px h-5 bg-slate-200" />
-              <div className="absolute top-0 left-[40%] -translate-x-1/2 w-px h-5 bg-slate-200" />
-              <div className="absolute top-0 left-[60%] -translate-x-1/2 w-px h-5 bg-slate-200" />
-              <div className="absolute top-0 left-[80%] -translate-x-1/2 w-px h-5 bg-slate-200" />
-              <div className="absolute top-0 left-[100%] -translate-x-1/2 w-px h-5 bg-slate-200" />
+          {/* 第二层：职场属地分布明细 */}
+          <div className="space-y-3 pt-2">
+            <div className="flex items-center justify-between px-1">
+              <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
+                职场属地与编制分布明细
+              </span>
+              <span className="text-xs font-mono text-slate-400">
+                单位：人
+              </span>
             </div>
-          </div>
-
-          {/* 第二层：6个细分岗位卡片 */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 items-stretch">
-            {[
-              { label: "T场地", count: "3", change: "0", isIncrease: false },
-              { label: "D场地", count: "115", change: "↑ +44", isIncrease: true },
-              { label: "S场地", count: "211", change: "↓ -28", isIncrease: false },
-              { label: "F场地", count: "24", change: "↓ -28", isIncrease: false },
-              { label: "远程", count: "0", change: "0", isIncrease: false },
-              { label: "外包", count: "100", change: "↓ -19", isIncrease: false },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className="bg-slate-50/70 border border-slate-200 p-4 text-center flex flex-col items-center justify-between space-y-2 h-full"
-              >
-                <div className="text-xs sm:text-sm font-bold text-slate-700 tracking-wide">
-                  {item.label}
-                </div>
-                <div className="text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight tabular-nums">
-                  {item.count}
-                </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 items-stretch">
+              {[
+                { label: "T场地", count: "3", change: "0", isIncrease: false },
+                { label: "D场地", count: "115", change: "↑ +44", isIncrease: true },
+                { label: "S场地", count: "211", change: "↓ -28", isIncrease: false },
+                { label: "F场地", count: "24", change: "↓ -28", isIncrease: false },
+                { label: "远程", count: "0", change: "0", isIncrease: false },
+                { label: "外包", count: "100", change: "↓ -19", isIncrease: false },
+              ].map((item) => (
                 <div
-                  className={`text-xs font-bold tabular-nums ${
-                    item.isIncrease
-                      ? "text-blue-700"
-                      : "text-slate-600"
-                  }`}
+                  key={item.label}
+                  className="bg-white border border-slate-200 p-4 text-center flex flex-col items-center justify-between space-y-2 h-full"
                 >
-                  {item.change}
+                  <div className="text-xs sm:text-sm font-bold text-slate-700 tracking-wide">
+                    {item.label}
+                  </div>
+                  <div className="text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight tabular-nums">
+                    {item.count}
+                  </div>
+                  <div
+                    className={`text-xs font-bold tabular-nums ${
+                      item.isIncrease
+                        ? "text-blue-700"
+                        : "text-slate-600"
+                    }`}
+                  >
+                    {item.change}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

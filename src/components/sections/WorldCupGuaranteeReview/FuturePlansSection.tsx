@@ -74,7 +74,7 @@ export const FuturePlansSection: React.FC = () => {
         {plans.map((plan) => (
           <div
             key={plan.index}
-            className="bg-white border border-slate-200 p-6 sm:p-7 flex flex-col justify-between space-y-6"
+            className="bg-white border border-slate-200 p-6 sm:p-7 flex flex-col justify-between space-y-6 h-full"
           >
             <div className="space-y-5">
               {/* 卡片标头 */}

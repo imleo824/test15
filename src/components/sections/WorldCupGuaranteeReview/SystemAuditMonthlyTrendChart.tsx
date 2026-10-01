@@ -97,10 +97,10 @@ const monthlyTrendData = [
   {
     month: "2026-09",
     monthLabel: "9月",
-    autoRate: 55.0,
-    autoRateLabel: "55.00%",
-    errorRate: 0.06,
-    errorRateLabel: "0.060%",
+    autoRate: 55.77,
+    autoRateLabel: "55.77%",
+    errorRate: 0.072,
+    errorRateLabel: "0.072%",
     isSeptember: true,
   },
 ];
@@ -231,14 +231,14 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
       title="系统出单趋势对比"
       description={
         <span>
-          2026年1月至9月，<strong>系统出单比例</strong>由 1~8月均值的 <strong>49.77% 稳健攀升至 55.00%</strong>；同时 <strong>系统质检率由 1~8月均值的 0.141%（1月峰值 0.324%）持续大幅压降并收敛至 0.060% 极低安全水平</strong>，<strong>实现了“出单比例提升，出单质量不降反升”的兼顾。</strong>
+          2026年1月至9月，<strong>系统出单比例</strong>由 1~8月均值的 <strong>49.77% 稳健攀升至 9月的 55.77%</strong>；同时 <strong>系统质检率由 1~8月均值的 0.141%（1月峰值 0.324%）持续大幅压降并收敛至 9月的 0.072% 极低安全水平</strong>，<strong>实现了“出单比例提升，出单质量不降反升”的兼顾。</strong>
         </span>
       }
       bodyHeight="h-[510px]"
-      footnote="注：数据周期为 2026年1月至2026年9月。左 Y 轴出单比例采用高敏感度聚焦区间（40%~58%），展示系统出单放量趋势；右 Y 轴质检率展示质量持续改善与收敛落差。"
+      footnote="注：数据周期为 2026年1月至2026年9月。左 Y 轴出单比例展示系统出单放量趋势；右 Y 轴质检率展示质量持续改善与收敛落差。"
     >
       <div className="flex flex-col h-full justify-between">
-        {/* 顶部：系统自身出单与质检率演进对比看板 (聚焦系统本身：出单比例上升、质检率下降) */}
+        {/* 顶部：系统自身出单与质检率演进对比看板 (聚焦系统本身：1~8月基线 ➔ 9月灰度 ➔ 930全量) */}
         <div className="overflow-x-auto my-1.5">
           <table className="w-full text-sm sm:text-base text-center border-collapse report-data-table">
             <thead>
@@ -256,7 +256,7 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
                 <th className="py-2.5 px-4 font-bold text-blue-950 bg-blue-100/80 text-sm sm:text-base">
                   <div className="flex items-center justify-center gap-1.5">
                     <span className="w-2 h-2 bg-blue-800 shrink-0"></span>
-                    <span>9.30 (全量推全)</span>
+                    <span>930 (全量推全)</span>
                   </div>
                 </th>
               </tr>
@@ -274,13 +274,13 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
                   ➔
                 </td>
                 <td className="py-3 px-4 font-bold text-blue-950 bg-blue-50/30 text-sm sm:text-base">
-                  52.50%
+                  55.77%
                 </td>
                 <td className="py-3 text-center font-bold text-blue-600 text-base sm:text-lg">
                   ➔
                 </td>
                 <td className="py-3 px-4 font-bold text-blue-950 bg-blue-100/40 text-sm sm:text-base">
-                  55.00%
+                  63.00%
                 </td>
               </tr>
 
@@ -296,13 +296,13 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
                   ➔
                 </td>
                 <td className="py-3 px-4 font-bold text-emerald-700 bg-blue-50/30 text-sm sm:text-base">
-                  0.08%
+                  0.072%
                 </td>
-                <td className="py-3 text-center font-bold text-red-600 text-base sm:text-lg">
+                <td className="py-3 text-center font-bold text-emerald-600 text-base sm:text-lg">
                   ➔
                 </td>
                 <td className="py-3 px-4 font-bold text-emerald-700 bg-blue-100/40 text-sm sm:text-base">
-                  0.060%
+                  0.072%
                 </td>
               </tr>
             </tbody>
@@ -324,17 +324,17 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
                 tick={{ ...chartAxisTick, fontSize: 13 }}
               />
               
-              {/* 左 Y 轴：系统出单比例 (%) - 采用高敏感度聚焦区间 [40, 58]，显著拉开 44.37% 与 55.00% 的视觉落差 */}
+              {/* 左 Y 轴：系统出单比例 (%) - 采用聚焦区间 [40, 60] */}
               <YAxis
                 yAxisId="left"
                 stroke={chartColors.blue}
                 tick={{ ...chartAxisTick, fill: "#1e40af", fontWeight: 700 }}
                 tickFormatter={(val) => `${val}%`}
-                domain={[40, 58]}
-                ticks={[40, 45, 50, 55, 58]}
+                domain={[40, 60]}
+                ticks={[40, 45, 50, 55, 60]}
               />
 
-              {/* 右 Y 轴：系统质检率 (%) - 采用高敏感度区间 [0.03, 0.36]，大幅拉开 0.108% 与 0.060% 的视觉落差 */}
+              {/* 右 Y 轴：系统质检率 (%) */}
               <YAxis
                 yAxisId="right"
                 orientation="right"
@@ -342,7 +342,7 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
                 tick={{ ...chartAxisTick, fill: "#b91c1c", fontSize: 12, fontWeight: 700 }}
                 tickFormatter={(val) => `${Number(val).toFixed(2)}%`}
                 domain={[0.03, 0.36]}
-                ticks={[0.03, 0.06, 0.10, 0.15, 0.20, 0.28, 0.36]}
+                ticks={[0.03, 0.072, 0.12, 0.18, 0.25, 0.36]}
               />
 
               <Tooltip
@@ -373,9 +373,9 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
                 <LabelList dataKey="autoRateLabel" content={renderBarLabel} />
               </Bar>
 
-              {/* 9月 0.060% 目标基准参考线 */}
+              {/* 9月 0.072% 目标基准参考线 */}
               <ReferenceLine
-                y={0.06}
+                y={0.072}
                 yAxisId="right"
                 stroke="#059669"
                 strokeDasharray="4 3"

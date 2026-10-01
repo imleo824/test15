@@ -111,7 +111,7 @@ export const TgGovernanceSection: React.FC = () => {
         <ReportSubsectionHeader title="3.2.1 线下离线流程治理" />
 
         {/* 关键治理准则：警惕“形式化工单化”——源头消除优先于工单流转 */}
-        <div className="bg-slate-50/80 p-5 sm:p-6 border border-slate-200 space-y-3.5">
+        <div className="bg-slate-50 border-l-4 border-l-slate-900 p-5 sm:p-6 space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2.5 border-b border-slate-200 gap-2">
             <div className="flex items-center gap-2">
               <span className="px-2 py-0.5 bg-slate-900 text-white font-mono text-xs font-bold">
@@ -356,7 +356,7 @@ export const TgGovernanceSection: React.FC = () => {
       </div>
 
       {/* 3.2.2 线下群聊与系统工单流转对比 */}
-      <div className="space-y-6">
+      <div className="space-y-6 sm:space-y-8">
         <ReportSubsectionHeader title="3.2.2 线下群聊与系统工单流转对比" />
 
         {/* 治理前 Telegram 线下群操作隐患与高风险场景剖析 (具象化案例阐述) */}
@@ -636,7 +636,7 @@ export const TgGovernanceSection: React.FC = () => {
       </div>
 
       {/* 3.2.3 核心流程闭环节点 */}
-      <div className="space-y-4">
+      <div className="space-y-6 sm:space-y-8">
         <ReportSubsectionHeader title="3.2.3 高风险审核业务" />
 
         <SummaryBox>
@@ -657,7 +657,7 @@ export const TgGovernanceSection: React.FC = () => {
             <div className="grid grid-cols-6 gap-2 relative z-10 min-w-[620px] sm:min-w-0">
               {/* 节点 1：提款（发起点，无对号及其他多余信息） */}
               <div className="flex flex-col items-center text-center">
-                <div className="w-13 h-13 sm:w-16 sm:h-16 rounded-full bg-slate-100 text-slate-800 flex items-center justify-center ring-2 ring-white border border-slate-200 shadow-xs mb-3.5">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-slate-100 text-slate-800 flex items-center justify-center ring-2 ring-white border border-slate-200 shadow-xs mb-3.5">
                   <span className="text-xs sm:text-sm font-bold text-slate-700">发起</span>
                 </div>
                 <div className="space-y-1">
@@ -669,7 +669,7 @@ export const TgGovernanceSection: React.FC = () => {
 
               {/* 节点 2：审核 */}
               <div className="flex flex-col items-center text-center">
-                <div className="w-13 h-13 sm:w-16 sm:h-16 rounded-full bg-slate-900 text-white flex items-center justify-center ring-2 ring-white border border-slate-900 shadow-xs mb-3.5">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-slate-900 text-white flex items-center justify-center ring-2 ring-white border border-slate-900 shadow-xs mb-3.5">
                   <Check className="w-7 h-7 sm:w-9 sm:h-9 stroke-[3.5] text-white" />
                 </div>
                 <div className="space-y-1.5">
@@ -687,7 +687,7 @@ export const TgGovernanceSection: React.FC = () => {
 
               {/* 节点 3：复审 */}
               <div className="flex flex-col items-center text-center">
-                <div className="w-13 h-13 sm:w-16 sm:h-16 rounded-full bg-slate-900 text-white flex items-center justify-center ring-2 ring-white border border-slate-900 shadow-xs mb-3.5">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-slate-900 text-white flex items-center justify-center ring-2 ring-white border border-slate-900 shadow-xs mb-3.5">
                   <Check className="w-7 h-7 sm:w-9 sm:h-9 stroke-[3.5] text-white" />
                 </div>
                 <div className="space-y-1.5">
@@ -705,7 +705,7 @@ export const TgGovernanceSection: React.FC = () => {
 
               {/* 节点 4：KYC */}
               <div className="flex flex-col items-center text-center">
-                <div className="w-13 h-13 sm:w-16 sm:h-16 rounded-full bg-slate-900 text-white flex items-center justify-center ring-2 ring-white border border-slate-900 shadow-xs mb-3.5">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-slate-900 text-white flex items-center justify-center ring-2 ring-white border border-slate-900 shadow-xs mb-3.5">
                   <Check className="w-7 h-7 sm:w-9 sm:h-9 stroke-[3.5] text-white" />
                 </div>
                 <div className="space-y-1.5">
@@ -723,7 +723,7 @@ export const TgGovernanceSection: React.FC = () => {
 
               {/* 节点 5：扣款 */}
               <div className="flex flex-col items-center text-center">
-                <div className="w-13 h-13 sm:w-16 sm:h-16 rounded-full bg-slate-900 text-white flex items-center justify-center ring-2 ring-white border border-slate-900 shadow-xs mb-3.5">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-slate-900 text-white flex items-center justify-center ring-2 ring-white border border-slate-900 shadow-xs mb-3.5">
                   <Check className="w-7 h-7 sm:w-9 sm:h-9 stroke-[3.5] text-white" />
                 </div>
                 <div className="space-y-1.5">
@@ -741,7 +741,7 @@ export const TgGovernanceSection: React.FC = () => {
 
               {/* 节点 6：禁用 */}
               <div className="flex flex-col items-center text-center">
-                <div className="w-13 h-13 sm:w-16 sm:h-16 rounded-full bg-slate-900 text-white flex items-center justify-center ring-2 ring-white border border-slate-900 shadow-xs mb-3.5">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-slate-900 text-white flex items-center justify-center ring-2 ring-white border border-slate-900 shadow-xs mb-3.5">
                   <Check className="w-7 h-7 sm:w-9 sm:h-9 stroke-[3.5] text-white" />
                 </div>
                 <div className="space-y-1.5">

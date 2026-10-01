@@ -5,13 +5,13 @@ import { ReportBadge, ReportHeading, ReportTableFrame } from "../../ReportSectio
 export const stripDisplayUnits = (value: string | number) => String(value);
 
 const summaryNumberClass =
-  "report-number text-slate-950 font-semibold tabular-nums";
+  "report-number text-slate-950 font-bold tabular-nums";
 const summaryRiskNumberClass =
-  "report-number report-number-risk text-[#b91c1c] font-semibold tabular-nums";
+  "report-number report-number-risk text-[#b91c1c] font-bold tabular-nums";
 const summarySafeNumberClass =
-  "report-number report-number-safe text-[#047857] font-semibold tabular-nums";
+  "report-number report-number-safe text-[#047857] font-bold tabular-nums";
 const summaryCoreClass =
-  "report-core-underline font-semibold text-slate-950";
+  "report-core-underline font-bold text-slate-950";
 
 const numericPattern =
   String.raw`[<>≤≥~～]?\s*[+\-]?\d+(?:[.,:：]\d+)*(?:\+)?(?:\s*(?:%|人/小时|单/月|/月|w/月|W/月|人|场|项|倍|E|W|w|万|亿|万元|亿元|元|h|ms|min|k|个|单|条|站|分|分钟|秒|天|月|年))?(?:\s*[-~～]\s*\d+(?:[.,:：]\d+)*(?:\+)?(?:\s*(?:%|人/小时|单/月|/月|w/月|W/月|人|场|项|倍|E|W|w|万|亿|万元|亿元|元|h|ms|min|k|个|单|条|站|分|分钟|秒|天|月|年))?)?`;

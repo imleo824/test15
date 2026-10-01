@@ -64,14 +64,14 @@ export const roleGroupedData: RoleMonthlyData[] = [
     m7Label: "9.14%",
     m8: 11.92,
     m8Label: "11.92%",
-    m9: 16.7,
-    m9Label: "16.7%",
-    m9_30: 7.5,
-    m9_30Label: "7.5%",
+    m9: 6.99,
+    m9Label: "6.99%",
+    m9_30: 0.63,
+    m9_30Label: "0.63%",
   },
   {
     role: "总部",
-    tag: "1~8月均质检率 0.85%",
+    tag: "1~8月均质检率 0.84%",
     m1: 37.55,
     m1Label: "37.55%",
     m2: 45.36,
@@ -88,10 +88,10 @@ export const roleGroupedData: RoleMonthlyData[] = [
     m7Label: "42.85%",
     m8: 39.71,
     m8Label: "39.71%",
-    m9: 40.0,
-    m9Label: "40.0%",
-    m9_30: 48.1,
-    m9_30Label: "48.1%",
+    m9: 37.24,
+    m9Label: "37.24%",
+    m9_30: 36.36,
+    m9_30Label: "36.36%",
   },
   {
     role: "系统",
@@ -112,10 +112,10 @@ export const roleGroupedData: RoleMonthlyData[] = [
     m7Label: "48.01%",
     m8: 48.37,
     m8Label: "48.37%",
-    m9: 43.3,
-    m9Label: "43.3%",
-    m9_30: 44.4,
-    m9_30Label: "44.4%",
+    m9: 55.77,
+    m9Label: "55.77%",
+    m9_30: 63.00,
+    m9_30Label: "63.00%",
   },
 ];
 
@@ -224,16 +224,16 @@ export const SmartDispatchOrderStructure: React.FC = () => {
       description={
         <span>
           <strong>三大审核主体（外包 / 总部 / 系统）出单结构与质量演进：</strong>
-          <strong>外包审核</strong> 占比从 1月的 <strong>9.80%</strong> 持续压降至 9.30全量的 <strong>7.5%</strong>（高质检率审单基本退出）；
-          <strong>总部审核</strong> 稳定在 <strong>35.14% ~ 48.1%</strong> 专注承接高危与复杂核心单；
-          <strong>系统自动审单</strong> 强劲跃升至 <strong>55.00%</strong>（主力放量全面成型）。
+          <strong>外包审核</strong> 占比由 1~8月均值的 <strong>10.12%</strong> 快速压降至 9月的 <strong>6.99%</strong>（高质检率外包审单基本退出）；
+          <strong>总部审核</strong> 占比稳定在 <strong>37.24%</strong>，专注承接高危与复杂核心单；
+          <strong>系统自动审单</strong> 由 1~8月均值的 <strong>49.77%</strong> 强劲跃升至 9月的 <strong>55.77%</strong>（主力放量全面成型）。
         </span>
       }
       bodyHeight="h-[510px]"
       footnote="注：横坐标为主体角色（外包、总部、系统），每个主体内部展示 1月至9月及 9月30日全量开启节点的所有月份对比柱子，直观展示三大主体月度占比的历史消长。"
     >
       <div className="flex flex-col h-full justify-between">
-        {/* 顶部：极简轻量 3 列表格对比看板 (直接通过 > 和 < 进行指标对决) */}
+        {/* 顶部：极简轻量表格对比看板 (保留 1~8月均值、9月均值与 930 全量完整演进链条) */}
         <div className="overflow-x-auto my-1.5">
           <table className="w-full text-sm sm:text-base text-center border-collapse report-data-table">
             <thead>
@@ -263,14 +263,14 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                 <th className="py-2.5 px-3 font-bold text-blue-950 bg-blue-50/90 text-sm sm:text-base">
                   <div className="flex items-center justify-center gap-1.5">
                     <span className="w-2 h-2 bg-blue-700 shrink-0"></span>
-                    <span>系统 (9月均值)</span>
+                    <span>系统 (9月灰度放量)</span>
                   </div>
                 </th>
                 <th className="w-6 py-2.5 text-slate-400 font-mono"></th>
                 <th className="py-2.5 px-3 font-bold text-blue-950 bg-blue-100/80 text-sm sm:text-base">
                   <div className="flex items-center justify-center gap-1.5">
                     <span className="w-2 h-2 bg-blue-800 shrink-0"></span>
-                    <span>系统 (9.30全量)</span>
+                    <span>系统 (930全量)</span>
                   </div>
                 </th>
               </tr>
@@ -288,25 +288,25 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                   &gt;
                 </td>
                 <td className="py-3 px-3 font-bold text-slate-900 text-sm sm:text-base">
-                  0.85%
+                  0.84%
                 </td>
                 <td className="py-3 text-center font-bold text-red-600 text-base">
                   &gt;
                 </td>
                 <td className="py-3 px-3 font-bold text-emerald-800 bg-blue-50/30 text-sm sm:text-base">
-                  0.14%
+                  0.141%
                 </td>
                 <td className="py-3 text-center font-bold text-emerald-600 text-base">
                   ➔
                 </td>
                 <td className="py-3 px-3 font-bold text-emerald-800 bg-blue-50/50 text-sm sm:text-base">
-                  0.08%
+                  0.072%
                 </td>
                 <td className="py-3 text-center font-bold text-emerald-600 text-base">
                   ➔
                 </td>
                 <td className="py-3 px-3 font-bold text-emerald-700 bg-blue-100/40 text-sm sm:text-base">
-                  0.060%
+                  0.072%
                 </td>
               </tr>
 
@@ -334,13 +334,13 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                   ➔
                 </td>
                 <td className="py-3 px-3 font-bold text-blue-950 bg-blue-50/50 text-sm sm:text-base">
-                  52.50%
+                  55.77%
                 </td>
                 <td className="py-3 text-center font-bold text-blue-600 text-base">
                   ➔
                 </td>
                 <td className="py-3 px-3 font-bold text-blue-950 bg-blue-100/40 text-sm sm:text-base">
-                  55.00%
+                  63.00%
                 </td>
               </tr>
             </tbody>
@@ -368,8 +368,8 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                 stroke={chartColors.ink}
                 tick={chartAxisTick}
                 tickFormatter={(val) => `${val}%`}
-                domain={[0, 60]}
-                ticks={[0, 15, 30, 45, 60]}
+                domain={[0, 70]}
+                ticks={[0, 15, 30, 45, 60, 70]}
               />
 
               {/* 右 Y 轴：质检率 (%) */}

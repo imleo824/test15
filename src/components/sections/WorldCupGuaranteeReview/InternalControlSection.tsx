@@ -51,7 +51,7 @@ export const InternalControlSection: React.FC = () => {
       </SummaryBox>
 
       {/* 3.1.1 专职监督工作成果 */}
-      <div className="space-y-6">
+      <div className="space-y-6 sm:space-y-8">
         <ReportSubsectionHeader title="3.1.1 违规查处与稽查成果" />
         
         <ReportMetricHero
@@ -136,7 +136,7 @@ export const InternalControlSection: React.FC = () => {
       </div>
 
       {/* 3.1.3 高危场景防范 */}
-      <div className="space-y-6">
+      <div className="space-y-6 sm:space-y-8">
         <ReportSubsectionHeader title="3.1.3 高危场景防范" />
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 items-stretch">
@@ -187,7 +187,7 @@ export const InternalControlSection: React.FC = () => {
       </div>
 
       {/* 3.1.4 典型违规案例剖析 */}
-      <div className="space-y-6">
+      <div className="space-y-6 sm:space-y-8">
         <ReportSubsectionHeader title="3.1.4 典型案例剖析" />
         
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-5 sm:gap-6 items-stretch">

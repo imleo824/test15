@@ -1294,7 +1294,7 @@
 
   .report-core-underline {
     color: #020617 !important; /* Deep, sharp slate-950 color */
-    font-weight: 600 !important; /* SemiBold matching font-semibold */
+    font-weight: 700 !important; /* True bold weight for strong visual hierarchy */
     background-color: transparent !important; /* No background */
     border-bottom: none !important; /* No underline as requested */
     padding: 0 !important; /* Zero padding */
@@ -1314,7 +1314,7 @@
     line-height: inherit;
     vertical-align: baseline;
     letter-spacing: -0.01em;
-    font-weight: 600 !important; /* SemiBold matching font-semibold */
+    font-weight: 700 !important; /* True bold weight for numeric emphasis */
     background: transparent !important;
     border: none !important;
     border-bottom: 0 !important;
@@ -3830,17 +3830,17 @@
   .report-shell .report-note strong:not(.text-white):not([class*="text-white"]),
   .report-shell .report-summary-copy strong:not(.text-white):not([class*="text-white"]) {
     color: #020617 !important; /* 色值大一统：深邃高阶对比极致黑色 #020617 (slate-950) */
-    font-weight: 600 !important; /* 字重大一统：统一 600 (SemiBold) */
+    font-weight: 700 !important; /* 字重大一统：统一 700 (Bold) 确保中文字体清晰可见 */
     margin: 0 !important; /* 零间距约束：去除了所有粗体词汇前后的间隙与外边距 */
     padding: 0 !important;
     display: inline !important;
     letter-spacing: -0.01em;
   }
 
-  /* 统一加粗 class 在正文内容区统合为 600，但严格排除所有反白文字、序号徽章及深色背景 */
+  /* 统一加粗 class 在正文内容区统合为 700，但严格排除所有反白文字、序号徽章及深色背景 */
   .report-shell :is(p, li, td, span, div, dd, dt):is(.font-bold, .font-semibold, .font-extrabold, .font-black):not(h1):not(h2):not(h3):not(.report-number-risk):not(.report-number-safe):not([class*="text-emerald"]):not([class*="text-rose"]):not([class*="text-blue"]):not([class*="text-amber"]):not([class*="text-sky"]):not([class*="text-red"]):not(.text-white):not([class*="text-white"]):not(.report-sequence-badge):not([class*="report-sequence"]):not([class*="bg-slate-9"]):not([class*="bg-black"]):not([class*="bg-blue-9"]) {
     color: #020617 !important;
-    font-weight: 600 !important;
+    font-weight: 700 !important;
   }
 
   /* 强制确保所有序号徽章、深色标签、目录编号及反白文字为纯白 #ffffff，彻底解决黑底黑字看不清问题 */
