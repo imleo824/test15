@@ -80,7 +80,7 @@ export const PersonnelDistribution: React.FC = () => {
         <SummaryBox variant="module">
           <div className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "推进[[系统自动审单]]与业务流程收口，外包编制净减 [[17人]]，实现专职化集中运营与在册管控。"
+              "推进[[系统自动审单]]与业务流程收口，外包编制净减 [[19人]]，实现专职化集中运营与在册管控。"
             )}
           </div>
         </SummaryBox>
@@ -93,9 +93,12 @@ export const PersonnelDistribution: React.FC = () => {
               <span className="text-xs sm:text-sm font-bold text-slate-600 block uppercase tracking-wider">
                 在岗人数
               </span>
-              <div className="flex items-baseline justify-center gap-1.5 py-1">
+              <div className="flex items-baseline justify-center gap-2 py-1">
                 <span className="text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight tabular-nums">
-                  365
+                  356
+                </span>
+                <span className="text-xs font-bold text-emerald-700 tabular-nums">
+                  -9
                 </span>
                 <span className="text-sm font-bold text-slate-600">人</span>
               </div>
@@ -108,10 +111,10 @@ export const PersonnelDistribution: React.FC = () => {
               </span>
               <div className="flex items-baseline justify-center gap-2 py-1">
                 <span className="text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight tabular-nums">
-                  119
+                  100
                 </span>
                 <span className="text-xs font-bold text-emerald-700 tabular-nums">
-                  -17
+                  -19
                 </span>
                 <span className="text-sm font-bold text-slate-600">人</span>
               </div>
@@ -138,12 +141,12 @@ export const PersonnelDistribution: React.FC = () => {
           {/* 第二层：6个细分岗位卡片 */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 items-stretch">
             {[
-              { label: "T场地", count: "3", change: "↓ -18", isReduction: true },
-              { label: "D场地", count: "71", change: "↓ -5", isReduction: true },
-              { label: "S场地", count: "239", change: "↑ +21", isIncrease: true },
-              { label: "F场地", count: "52", change: "↑ +2", isIncrease: true },
-              { label: "远程", count: "0", change: "↓ -5", isReduction: true },
-              { label: "外包", count: "119", change: "↓ -12", isReduction: true },
+              { label: "T场地", count: "3", change: "0", isIncrease: false },
+              { label: "D场地", count: "115", change: "↑ +44", isIncrease: true },
+              { label: "S场地", count: "211", change: "↓ -28", isIncrease: false },
+              { label: "F场地", count: "24", change: "↓ -28", isIncrease: false },
+              { label: "远程", count: "0", change: "0", isIncrease: false },
+              { label: "外包", count: "100", change: "↓ -19", isIncrease: false },
             ].map((item) => (
               <div
                 key={item.label}

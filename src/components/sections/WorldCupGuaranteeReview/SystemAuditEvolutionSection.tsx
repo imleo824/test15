@@ -817,7 +817,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             {/* 框架说明 */}
             <SummaryBox variant="module">
               {highlightNumbers(
-                "云盾构建[[“策略扫描 ➔ 风险评分 ➔ 动态派单 ➔ 闭环反馈进化”]]全链路闭环，以数据、特征、策略、评分与流程为支撑，[[实现系统自动放行与人工精审的高效协同]]。"
+                "云盾构建[[“策略扫描 ➔ 风险评分 ➔ 动态派单 ➔ 闭环反馈进化”]]全链路闭环，融合[[风险分值累加]]与[[特定高危策略组合熔断]]双重判定逻辑，[[实现系统自动放行与人工精审的高效协同]]。"
               )}
             </SummaryBox>
 
@@ -931,6 +931,43 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                           <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
                           50+ 项策略探针穿透
                         </span>
+                      </div>
+                    </div>
+
+                    {/* 策略扫描双重转人工触发逻辑（分数判定 + 高危特定组合熔断） */}
+                    <div className="bg-amber-50/70 border border-amber-200/90 p-3 sm:p-3.5 space-y-2">
+                      <div className="flex items-center justify-between border-b border-amber-200/80 pb-2">
+                        <div className="flex items-center gap-2">
+                          <span className="px-2 py-0.5 bg-amber-900 text-white font-mono font-bold text-xs">
+                            双重转人工触发机制
+                          </span>
+                          <span className="font-bold text-slate-950 text-xs sm:text-sm">
+                            分数量化阈值 + 特定高危策略组合熔断
+                          </span>
+                        </div>
+                        <span className="hidden sm:inline-block text-[11px] font-bold text-amber-900 bg-amber-100 px-2 py-0.5 border border-amber-300 font-mono">
+                          杜绝低分高危漏网
+                        </span>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 text-xs sm:text-[13px] leading-relaxed">
+                        <div className="bg-white/90 p-2.5 border border-slate-200/80 space-y-1">
+                          <div className="font-bold text-slate-950 flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-slate-900"></span>
+                            <span>逻辑一：风险分值累加（标准量化）</span>
+                          </div>
+                          <p className="text-slate-700">
+                            50+ 项策略探针实时扫描计分，若加权总得分达到风险安全放行门槛（如 ≥ 60分），系统自动阻断并转人工审核。
+                          </p>
+                        </div>
+                        <div className="bg-white/90 p-2.5 border border-amber-300/80 space-y-1">
+                          <div className="font-bold text-amber-950 flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-rose-600"></span>
+                            <span>逻辑二：特定策略组合熔断（低分高危强转）</span>
+                          </div>
+                          <p className="text-slate-700">
+                            即使<strong>总风险分数不高（未达分值门槛）</strong>，只要命中<strong>特定高危策略组合</strong>（如：<span className="font-mono font-bold text-rose-900 bg-rose-50 border border-rose-200 px-1 py-0.2">敏感资料变更 + 快进快出</span>，或 <span className="font-mono font-bold text-rose-900 bg-rose-50 border border-rose-200 px-1 py-0.2">新绑定账户 + 特邀红利超额</span>），同样直接强行转人工审核。
+                          </p>
+                        </div>
                       </div>
                     </div>
 
@@ -1235,11 +1272,11 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                           </div>
                           <h6 className="font-bold text-slate-950 text-base pt-0.5">3. 比较参数</h6>
                           <p className="text-sm text-slate-700 leading-relaxed">
-                            比对风控安全放行线阈值参数（如：规则放行线 60 分）。
+                            比对风控安全放行线阈值参数（如：规则放行线 60 分），或比对【高危特定策略组合】命中状态。
                           </p>
                         </div>
                         <div className="pt-2 border-t border-slate-200 text-xs sm:text-sm font-mono font-bold text-slate-900">
-                          比对：105分 ≥ 60分
+                          比对：105分 ≥ 60分 / 组合命中
                         </div>
                       </div>
 
@@ -1252,7 +1289,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                           </div>
                           <h6 className="font-bold text-white text-base pt-0.5">4. 决定是否转给人</h6>
                           <p className="text-sm text-slate-300 leading-relaxed">
-                            超出放行安全分值，触发风控防御阻断并转人工精审；未超线直接自动放行。
+                            超出放行安全分值（≥60分）或命中高危特定组合（低分强转），均直接转人工精审；未超线且未中组合则放行。
                           </p>
                         </div>
                         <div className="pt-2 border-t border-slate-800 text-xs sm:text-sm font-mono font-bold text-rose-300 flex items-center gap-1">
