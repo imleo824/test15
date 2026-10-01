@@ -37,7 +37,7 @@ export const ReportCover: React.FC = () => {
           </h1>
         </div>
 
-        <div className="flex flex-wrap items-center gap-x-8 gap-y-3 py-4 border-t border-b border-[#e2e8f0] text-sm">
+        <div className="flex flex-wrap items-center gap-x-8 gap-y-3 py-4 border-t border-b border-slate-200 text-sm">
           <div className="flex items-center gap-2.5">
             <span className="font-mono text-slate-500 font-medium text-xs sm:text-sm">数据周期</span>
             <strong className="font-mono font-bold text-slate-900 text-sm sm:text-base">{FA.navTitle}</strong>

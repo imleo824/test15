@@ -38,7 +38,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
         {/* 审单模式结构翻转 看板 */}
         <div className="space-y-6">
           {/* 连续流向指向卡：统一向心对比结构（45% ➔ 65% 与 55% ➔ 35%） */}
-          <div className="bg-white p-5 sm:p-6 border border-slate-200/80 space-y-4">
+          <div className="bg-white p-5 sm:p-6 border border-slate-200 space-y-4">
             {/* 行 1：系统审核演进（45.0% ➔ 65.0%） */}
             <div className="bg-white p-3.5 sm:p-4 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
               {/* 原来：45.0% */}
@@ -117,7 +117,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
           </div>
 
           {/* 系统出单比例极限与业务瓶颈深度剖析 */}
-          <div className="bg-white p-5 sm:p-6 border border-slate-200/80 space-y-5">
+          <div className="bg-white p-5 sm:p-6 border border-slate-200 space-y-5">
             {/* 顶部标题与简述 */}
             <div className="flex items-center gap-2 pb-1">
               <span className="w-2.5 h-2.5 bg-blue-700"></span>
@@ -128,7 +128,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
 
             {/* 管理结论：置于【成因剖析】标题正下方 */}
             <div className="p-4 bg-slate-50/60 border-l-2 border-slate-300 text-sm sm:text-base text-slate-800 leading-relaxed">
-              基于<strong>“多账号风险拦截（约15%）+ 历史存量标签兜底（约15%）”</strong>的刚性风控边界；当前 <strong>60%~65%</strong> 的系统出单水平已高度贴近 <strong>70%</strong> 的安全物理极限。
+              基于<strong>“多账号风险拦截（约15%）+ 历史存量标签兜底（约15%）”</strong>的刚性风控边界，当前 <strong>60%~65%</strong> 的系统出单水平已高度贴近 <strong>70%</strong> 的安全物理极限。
             </div>
 
             {/* 成因 1 & 2 */}
@@ -235,7 +235,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       <span className="text-xs font-mono font-bold text-amber-800">5% ~ 10% • 剩余潜能</span>
                     </div>
                     <p className="text-xs text-slate-700 mt-1 leading-relaxed">
-                      还有 <strong className="text-amber-950 font-bold font-mono">5% ~ 10%</strong> 到达系统出单比例安全边界（70%）。
+                      距系统出单安全物理边界（70%）仅存 <strong className="text-amber-950 font-bold font-mono">5% ~ 10%</strong> 的理论优化空间。
                     </p>
                   </div>
                 </div>
@@ -352,25 +352,29 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                 <div className="leading-relaxed">
                   <strong className="text-slate-950">自动化规模跃升：</strong>
-                  <span>云盾系统替代人工审单规模由</span>
-                  <strong className="text-slate-950">200w单提升至300w单</strong>
-                  <span>，净替代增加100w单（增幅+50.0%）。</span>
+                  <span>云盾系统替代人工审单规模由 </span>
+                  <strong className="text-slate-950 font-mono">200w 单</strong>
+                  <span> 提升至 </span>
+                  <strong className="text-slate-950 font-mono">300w 单</strong>
+                  <span>，净增加替代 </span>
+                  <strong className="text-slate-950 font-mono">100w 单</strong>
+                  <span>（增幅 +50.0%）。</span>
                 </div>
               </div>
               <div className="flex items-start gap-2.5">
                 <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                 <div className="leading-relaxed">
                   <strong className="text-slate-950">人力减负与差错止损：</strong>
-                  <span>替代外包</span>
-                  <strong className="text-slate-950">50w+订单</strong>
-                  <span>，直接释放外包</span>
-                  <strong className="text-slate-950">100+人力</strong>
-                  <span>，外包差错实现</span>
-                  <strong className="text-slate-950">月度止损50w+元</strong>
-                  <span>；总部审单同步精减</span>
-                  <strong className="text-slate-950">50w+单</strong>
-                  <span>；全量开启后月度综合业务价值约</span>
-                  <strong className="text-slate-950">300w/月</strong>。
+                  <span>替代外包 </span>
+                  <strong className="text-slate-950 font-mono">50w+ 订单</strong>
+                  <span>，直接释放外包 </span>
+                  <strong className="text-slate-950 font-mono">100+ 人力</strong>
+                  <span>，外包差错实现 </span>
+                  <strong className="text-slate-950 font-mono">月度止损 50w+ 元</strong>
+                  <span>；总部审单同步精简 </span>
+                  <strong className="text-slate-950 font-mono">50w+ 单</strong>
+                  <span>；全量开启后月度综合业务价值约 </span>
+                  <strong className="text-slate-950 font-mono">300w/月</strong>。
                 </div>
               </div>
             </div>
@@ -447,24 +451,26 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                 <div className="leading-relaxed">
                   <strong className="text-slate-950">全盘平均停留缩短：</strong>
-                  <span>按总单量500w测算（人审单均8分钟、系统单均15秒），加权平均停留时间从</span>
-                  <strong className="text-slate-950">4.51分钟降至3.35分钟</strong>
-                  <span>，净压缩</span>
-                  <strong className="text-slate-950">1.16分钟</strong>
-                  <span>（全盘时效提速</span>
-                  <strong className="text-emerald-700">+25.8%</strong>
+                  <span>按总单量 </span>
+                  <strong className="text-slate-950 font-mono">500w 单</strong>
+                  <span> 测算（人审单均 8 分钟、系统单均 15 秒），加权平均停留时间从 </span>
+                  <strong className="text-slate-950 font-mono">4.51 分钟降至 3.35 分钟</strong>
+                  <span>，净压缩 </span>
+                  <strong className="text-slate-950 font-mono">1.16 分钟</strong>
+                  <span>（全盘时效提速 </span>
+                  <strong className="text-emerald-700 font-mono">+25.8%</strong>
                   <span>）。</span>
                 </div>
               </div>
               <div className="flex items-start gap-2.5">
                 <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                 <div className="leading-relaxed">
-                  <strong className="text-slate-950">转系统单秒级直出：</strong>
-                  <span>系统审核规模由225w增至300w，释放的</span>
-                  <strong className="text-slate-950">75w单</strong>
-                  <span>由原8分钟降至15秒（提速96.9%）；占总量</span>
-                  <strong className="text-slate-950">60%的系统订单（300w单）</strong>
-                  <span>彻底摆脱人工排队，端到端出款体感显著改善。</span>
+                  <strong className="text-slate-950">优质用户体验提升：</strong>
+                  <span>系统审核规模由 225w 单增至 300w 单，释放的 </span>
+                  <strong className="text-slate-950 font-mono">75w 单</strong>
+                  <span> 由原 8 分钟降至 15 秒；占总量 </span>
+                  <strong className="text-slate-950 font-mono">60% 的系统订单（300w 单）</strong>
+                  <span> 彻底摆脱人工排队，优质用户端到端出款体感显著改善。</span>
                 </div>
               </div>
             </div>
@@ -492,7 +498,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
         {/* 机制与支撑说明 */}
         <SummaryBox variant="module">
           {highlightNumbers(
-            "从0到1打造了[[云盾风控体系]]支持审核模式优化。通过 [[策略矩阵校验 ➔ 风险评分 ➔ 动态决策 ➔ 效果反馈]] 四个环节，[[明确系统自动放行与人工复审的分工边界]]，支撑系统自动化目标。"
+            "从 0 到 1 打造[[云盾风控体系]]以支持审单模式演进。通过[[策略矩阵校验 ➔ 风险评分 ➔ 动态派单 ➔ 闭环反馈]]四个环节，明确系统自动放行与人工复审的分工边界，全面支撑自动化出单目标。"
           )}
         </SummaryBox>
 
@@ -552,7 +558,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
 
                   {/* 业务场景说明 */}
                   <div className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal bg-slate-50/60 p-3.5 border-l-2 border-slate-300">
-                    <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">【场景举例】</strong>原来盈利 &gt; xxx 等防御性的策略一律转人工；现在系统自动识别<strong>全包、对打、打水、关联、快进快出、租卖号</strong>等套利行为，精准拦截违规，正常玩家极速放行。
+                    <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">【场景举例】</strong>原来凡出现大额盈利等粗放式策略一律转人工；现在系统自动识别<strong>全包、对打、打水、关联、快进快出、租卖号</strong>等套利行为，精准拦截违规，正常玩家极速放行。
                   </div>
                 </div>
               </ReportDimensionCard>
@@ -601,7 +607,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
 
                   {/* 业务场景说明 */}
                   <div className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal bg-slate-50/60 p-3.5 border-l-2 border-slate-300">
-                    <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">【场景举例】</strong>原来专员需手动登录三方场馆逐笔查单；现在一些核心场馆<strong>接口秒级直连</strong>，实时共享风控信息。
+                    <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">【场景举例】</strong>原来专员需手动登录三方场馆逐笔查单；现在核心场馆已实现<strong>接口秒级直连</strong>，实时共享风控与注单数据。
                   </div>
                 </div>
               </ReportDimensionCard>
@@ -748,7 +754,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
 
                   {/* 业务场景说明 */}
                   <div className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal bg-slate-50/60 p-3.5 border-l-2 border-slate-300">
-                    <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">【场景举例】</strong>原来排查关联需跨系统肉眼比对，现在一键生成<strong>关联图谱</strong>等异常由系统自动辅助决策，大幅提升执行效率。
+                    <strong className="text-slate-950 font-bold text-sm sm:text-base mr-1">【场景举例】</strong>原来排查关联需跨系统人工比对；现在一键生成<strong>关联图谱</strong>并由系统自动标识异常，辅助人工精准高效决策。
                   </div>
                 </div>
               </ReportDimensionCard>
@@ -817,7 +823,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             {/* 框架说明 */}
             <SummaryBox variant="module">
               {highlightNumbers(
-                "云盾构建[[“策略扫描 ➔ 风险评分 ➔ 动态派单 ➔ 闭环反馈进化”]]全链路闭环，融合[[风险分值累加]]与[[特定高危策略组合熔断]]双重判定逻辑，[[实现系统自动放行与人工精审的高效协同]]。"
+                "云盾构建[[“策略扫描 ➔ 风险评分 ➔ 动态派单 ➔ 闭环反馈进化”]]全链路闭环，融合[[风险分值累加]]与[[特定策略组合]]双重判定逻辑，[[实现系统自动放行与人工精审的高效协同]]。"
               )}
             </SummaryBox>
 
@@ -942,7 +948,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                             双重转人工触发机制
                           </span>
                           <span className="font-bold text-slate-950 text-xs sm:text-sm">
-                            分数量化阈值 + 特定高危策略组合熔断
+                            分数量化阈值 + 特定策略组合
                           </span>
                         </div>
                         <span className="hidden sm:inline-block text-[11px] font-bold text-amber-900 bg-amber-100 px-2 py-0.5 border border-amber-300 font-mono">
@@ -965,7 +971,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                             <span>逻辑二：特定策略组合熔断（低分高危强转）</span>
                           </div>
                           <p className="text-slate-700">
-                            即使<strong>总风险分数不高（未达分值门槛）</strong>，只要命中<strong>特定高危策略组合</strong>（如：<span className="font-mono font-bold text-rose-900 bg-rose-50 border border-rose-200 px-1 py-0.2">敏感资料变更 + 快进快出</span>，或 <span className="font-mono font-bold text-rose-900 bg-rose-50 border border-rose-200 px-1 py-0.2">新绑定账户 + 特邀红利超额</span>），同样直接强行转人工审核。
+                            即使<strong>总风险分数不高（未达分值门槛）</strong>，只要命中<strong>特定策略组合</strong>（如：<span className="font-mono font-bold text-rose-900 bg-rose-50 border border-rose-200 px-1 py-0.2">敏感资料变更 + 快进快出</span>，或 <span className="font-mono font-bold text-rose-900 bg-rose-50 border border-rose-200 px-1 py-0.2">新绑定账户 + 特邀红利超额</span>），同样直接强行转人工审核。
                           </p>
                         </div>
                       </div>
@@ -1276,20 +1282,20 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                           </p>
                         </div>
                         <div className="pt-2 border-t border-slate-200 text-xs sm:text-sm font-mono font-bold text-slate-900">
-                          比对：105分 ≥ 60分 / 组合命中
+                          比对：105 分 ≥ 60 分 / 组合命中
                         </div>
                       </div>
 
-                      {/* 4. 决定是否转给人 */}
+                      {/* 4. 判定放行或转人工 */}
                       <div className="bg-slate-900 text-white p-4 flex flex-col justify-between space-y-2 relative">
                         <div className="space-y-1.5">
                           <div className="flex items-center justify-between pb-1.5 border-b border-slate-800">
                             <span className="text-xs font-mono font-bold bg-rose-500 text-white px-2 py-0.5">04</span>
                             <UserCheck className="w-4 h-4 text-amber-300" />
                           </div>
-                          <h6 className="font-bold text-white text-base pt-0.5">4. 决定是否转给人</h6>
+                          <h6 className="font-bold text-white text-base pt-0.5">4. 判定放行或转人工</h6>
                           <p className="text-sm text-slate-300 leading-relaxed">
-                            超出放行安全分值（≥60分）或命中高危特定组合（低分强转），均直接转人工精审；未超线且未中组合则放行。
+                            超出放行安全分值（≥ 60 分）或命中高危特定组合（低分强转），均直接转人工精审；未超线且未中组合则放行。
                           </p>
                         </div>
                         <div className="pt-2 border-t border-slate-800 text-xs sm:text-sm font-mono font-bold text-rose-300 flex items-center gap-1">
@@ -1447,13 +1453,13 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                               <strong className="font-bold text-slate-950 font-mono">指派审核员 A</strong>
                             </div>
                             <p className="text-xs text-slate-700 leading-relaxed">
-                              体育订单约80%给到体育组，提升准确度。
+                              体育订单约 80% 定向分流至专业体育组，提升审核准确度。
                             </p>
                           </div>
                         </div>
 
                         {/* 场景 2：高绩效优先 */}
-                        <div className="bg-white p-4 border border-slate-200/80 space-y-3 flex flex-col justify-between">
+                        <div className="bg-white p-4 border border-slate-200 space-y-3 flex flex-col justify-between">
                           <div className="space-y-2.5">
                             <div className="flex items-center justify-between pb-2 border-b border-slate-200">
                               <span className="text-xs sm:text-sm font-bold text-slate-950">2. 质量绩效优先</span>
@@ -1479,13 +1485,13 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                               <strong className="font-bold text-slate-950 font-mono">指派审核员 A</strong>
                             </div>
                             <p className="text-xs text-slate-700 leading-relaxed">
-                              优先高绩效资深专家处理，确保质量零差错。
+                              优先派发至高绩效资深审核专家，确保高额资产零差错。
                             </p>
                           </div>
                         </div>
 
                         {/* 场景 3：分组权限控制 */}
-                        <div className="bg-white p-4 border border-slate-200/80 space-y-3 flex flex-col justify-between">
+                        <div className="bg-white p-4 border border-slate-200 space-y-3 flex flex-col justify-between">
                           <div className="space-y-2.5">
                             <div className="flex items-center justify-between pb-2 border-b border-slate-200">
                               <span className="text-xs sm:text-sm font-bold text-slate-950">3. 权限分层隔离</span>
@@ -1511,7 +1517,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                               <strong className="font-bold text-slate-950 font-mono">指派审核员 A</strong>
                             </div>
                             <p className="text-xs text-slate-700 leading-relaxed">
-                              严格权限校验，杜绝越权审查与防套取。
+                              落实严格的权限组校验，阻断非受控越权审核与外部利益勾结。
                             </p>
                           </div>
                         </div>
@@ -1553,7 +1559,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     {/* 阶段四 核心定位与业务机制说明 */}
                     <div className="p-3.5 bg-slate-50/70 border border-slate-200/60 text-xs sm:text-sm text-slate-900 leading-relaxed font-normal flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                       <div>
-                        建立常态化实盘抽检与自进化闭环：<strong>每周都会找到 500+ 案例进行专人复盘分析</strong>，深入排查漏检特征与异常波动，动态反哺策略库与评分权重。
+                        建立常态化实盘抽检与自进化闭环：<strong>每周抽检 500+ 重点案例开展专人深度复盘</strong>，深入排查漏检特征与异常波动，动态反哺策略库与评分权重。
                       </div>
                      
                     </div>
@@ -1644,7 +1650,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     2. 多环节组合受控
                   </span>
                   <p className="text-sm sm:text-[14.5px] text-slate-700 leading-relaxed font-normal">
-                    体系由特征提取、规则校验、风险评分、动态路由等多环节组合构成，<strong>单一功能无法准确影响全链路执行逻辑</strong>，极难知道一个点反推全局规则。
+                    体系由特征提取、规则校验、风险评分、动态路由等多环节组合构成，<strong>单一模块无法获悉全链路执行逻辑</strong>，彻底杜绝依据单点推导全局风控规则。
                   </p>
                 </div>
                 <div className="pt-2.5 border-t border-slate-100">

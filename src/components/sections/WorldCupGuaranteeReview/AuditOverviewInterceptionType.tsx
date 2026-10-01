@@ -172,7 +172,7 @@ export const AuditOverviewInterceptionType: React.FC = () => {
 
       {/* 表格数据展示 */}
       <ReportTableFrame>
-        <table className="report-dense-table report-dense-table--site-detail">
+        <table className="report-dense-table report-dense-table--site-detail report-data-table">
           <thead>
             <tr>
               <th rowSpan={2} className="py-2.5 px-2 text-center">站点</th>

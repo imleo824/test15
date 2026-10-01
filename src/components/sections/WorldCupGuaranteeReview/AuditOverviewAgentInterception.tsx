@@ -180,7 +180,7 @@ export const AuditOverviewAgentInterception: React.FC = () => {
 
       {/* 表格 */}
       <ReportTableFrame>
-        <table className="report-dense-table w-full">
+        <table className="report-dense-table w-full report-data-table">
           <thead className="bg-slate-50 text-slate-800">
             <tr className="border-b border-slate-200 font-bold text-slate-900">
               <th rowSpan={2} className="py-2.5 px-2 text-center">时间</th>

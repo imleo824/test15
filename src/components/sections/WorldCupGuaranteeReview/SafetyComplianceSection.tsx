@@ -2,6 +2,7 @@ import React from "react";
 import { InternalControlSection } from "./InternalControlSection";
 import { TgGovernanceSection } from "./TgGovernanceSection";
 import { SecurityUpgradeSection } from "./SecurityUpgradeSection";
+import { PermissionStructureSection } from "./PermissionStructureSection";
 import { ReportSectionHeader } from "../../ReportSections";
 import { SafetyArchitectureDiagram } from "./SafetyArchitectureDiagram";
 
@@ -43,11 +44,24 @@ export const SafetyComplianceSection: React.FC = () => {
           title="3.3 安全机制"
           rightContent={
             <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-2.5 py-1">
-              系统硬性防线 · 信息维护/异常操作/信息修改/权限结构
+              系统硬性防线 · 信息维护/异常操作/信息修改
             </span>
           }
         />
         <SecurityUpgradeSection />
+      </section>
+
+      {/* 3.4 权限结构模块 */}
+      <section id="section-3.4" className="scroll-mt-6 space-y-8">
+        <ReportSectionHeader
+          title="3.4 权限结构"
+          rightContent={
+            <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-2.5 py-1">
+              访问管控 · 长期/临时/凭单三级权限架构
+            </span>
+          }
+        />
+        <PermissionStructureSection />
       </section>
     </div>
   );

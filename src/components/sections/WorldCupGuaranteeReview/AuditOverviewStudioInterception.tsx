@@ -122,7 +122,7 @@ export const AuditOverviewStudioInterception: React.FC = () => {
 
       {/* 工作室拦截明细表格 */}
       <ReportTableFrame>
-        <table className="report-dense-table studio-data-table w-full">
+        <table className="report-dense-table studio-data-table w-full report-data-table">
           <thead className="bg-slate-50 text-slate-800">
             {/* 一级表头 */}
             <tr className="border-b border-slate-200 font-bold text-slate-900">

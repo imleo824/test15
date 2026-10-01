@@ -235,28 +235,28 @@ export const SmartDispatchOrderStructure: React.FC = () => {
       <div className="flex flex-col h-full justify-between">
         {/* 顶部：极简轻量 3 列表格对比看板 (直接通过 > 和 < 进行指标对决) */}
         <div className="overflow-x-auto my-1.5">
-          <table className="w-full text-sm sm:text-base text-center border-collapse">
+          <table className="w-full text-sm sm:text-base text-center border-collapse report-data-table">
             <thead>
               <tr className="border-b border-slate-200 text-slate-800">
                 <th className="py-2.5 px-3 text-left font-bold text-slate-500 text-xs sm:text-sm w-24">指标</th>
                 <th className="py-2.5 px-3 font-bold text-slate-800 text-sm sm:text-base">
                   <div className="flex items-center justify-center gap-1.5">
                     <span className="w-2 h-2 bg-slate-400 shrink-0"></span>
-                    <span>外包 (1-8月均值)</span>
+                    <span>外包 (1~8月均值)</span>
                   </div>
                 </th>
                 <th className="w-6 py-2.5 text-slate-400 font-mono"></th>
                 <th className="py-2.5 px-3 font-bold text-slate-800 text-sm sm:text-base">
                   <div className="flex items-center justify-center gap-1.5">
                     <span className="w-2 h-2 bg-slate-600 shrink-0"></span>
-                    <span>总部 (1-8月均值)</span>
+                    <span>总部 (1~8月均值)</span>
                   </div>
                 </th>
                 <th className="w-6 py-2.5 text-slate-400 font-mono"></th>
                 <th className="py-2.5 px-3 font-bold text-blue-950 bg-blue-50/70 text-sm sm:text-base">
                   <div className="flex items-center justify-center gap-1.5">
                     <span className="w-2 h-2 bg-blue-600 shrink-0"></span>
-                    <span>系统 (1-8月均值)</span>
+                    <span>系统 (1~8月均值)</span>
                   </div>
                 </th>
                 <th className="w-6 py-2.5 text-slate-400 font-mono"></th>
@@ -270,7 +270,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                 <th className="py-2.5 px-3 font-bold text-blue-950 bg-blue-100/80 text-sm sm:text-base">
                   <div className="flex items-center justify-center gap-1.5">
                     <span className="w-2 h-2 bg-blue-800 shrink-0"></span>
-                    <span>系统 (930全量)</span>
+                    <span>系统 (9.30全量)</span>
                   </div>
                 </th>
               </tr>
@@ -300,13 +300,13 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                   ➔
                 </td>
                 <td className="py-3 px-3 font-bold text-emerald-800 bg-blue-50/50 text-sm sm:text-base">
-                  0.08% <span className="text-xs font-bold text-emerald-700 ml-1">(灰度收敛)</span>
+                  0.08%
                 </td>
                 <td className="py-3 text-center font-bold text-emerald-600 text-base">
                   ➔
                 </td>
                 <td className="py-3 px-3 font-bold text-emerald-700 bg-blue-100/40 text-sm sm:text-base">
-                  0.060% <span className="text-xs font-bold text-emerald-800 ml-1">(最优)</span>
+                  0.060%
                 </td>
               </tr>
 
@@ -334,13 +334,13 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                   ➔
                 </td>
                 <td className="py-3 px-3 font-bold text-blue-950 bg-blue-50/50 text-sm sm:text-base">
-                  52.50% <span className="text-xs font-bold text-blue-800 ml-1">(灰度放量)</span>
+                  52.50%
                 </td>
                 <td className="py-3 text-center font-bold text-blue-600 text-base">
                   ➔
                 </td>
                 <td className="py-3 px-3 font-bold text-blue-950 bg-blue-100/40 text-sm sm:text-base">
-                  55.00% <span className="text-xs font-bold text-blue-900 ml-1">(全量放量)</span>
+                  55.00%
                 </td>
               </tr>
             </tbody>

@@ -7,17 +7,17 @@ export const PersonnelDistribution: React.FC = () => {
     {
       title: "人员优化",
       category: "降本增效",
-      content: "以[[系统自动化]]替代重复人工审核，精简岗位编制，提升单人人效；",
+      content: "以[[系统自动化]]替代重复人工审核，精简岗位编制，提升单人人效。",
     },
     {
       title: "考核优化",
       category: "降本增效",
-      content: "落实量化考核与[[末位淘汰]]，精简低效编制；",
+      content: "落实量化考核与[[末位淘汰]]，精简低效编制。",
     },
     {
       title: "场地优化",
       category: "合规安全",
-      content: "结合各职场承载力[[动态调配]]，分散集中度以控制属地与合规风险；",
+      content: "结合各职场承载力[[动态调配]]，分散集中度以控制属地与合规风险。",
     },
     {
       title: "流程优化",
@@ -44,11 +44,11 @@ export const PersonnelDistribution: React.FC = () => {
           {policyItems.map((item, index) => (
             <div
               key={index}
-              className="bg-white p-5 sm:p-6 border border-[#e2e8f0] flex flex-col justify-between space-y-3 h-full"
+              className="bg-white p-5 sm:p-6 border border-slate-200 flex flex-col justify-between space-y-3 h-full"
             >
               <div className="flex items-center justify-between pb-3 border-b border-slate-100">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold text-white bg-slate-900 w-5 h-5 flex items-center justify-center shrink-0">
+                  <span className="text-xs font-mono font-bold text-white bg-slate-900 w-5 h-5 flex items-center justify-center shrink-0">
                     {index + 1}
                   </span>
                   <span className="font-bold text-slate-950 text-base">
@@ -56,7 +56,7 @@ export const PersonnelDistribution: React.FC = () => {
                   </span>
                 </div>
                 <span
-                  className={`text-xs font-bold ${
+                  className={`text-xs font-mono font-bold ${
                     item.category === "降本增效"
                       ? "text-emerald-700"
                       : "text-blue-700"
@@ -89,7 +89,7 @@ export const PersonnelDistribution: React.FC = () => {
           {/* 第一层：在岗人数 & 外包人力 */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-xl mx-auto items-stretch">
             {/* Card 1: 在岗人数 */}
-            <div className="bg-slate-50 border border-[#e2e8f0] p-6 text-center space-y-1 flex flex-col justify-between">
+            <div className="bg-slate-50 border border-slate-200 p-6 text-center space-y-1 flex flex-col justify-between">
               <span className="text-xs sm:text-sm font-bold text-slate-600 block uppercase tracking-wider">
                 在岗人数
               </span>
@@ -105,7 +105,7 @@ export const PersonnelDistribution: React.FC = () => {
             </div>
 
             {/* Card 2: 外包人力 */}
-            <div className="bg-slate-50 border border-[#e2e8f0] p-6 text-center space-y-1 flex flex-col justify-between">
+            <div className="bg-slate-50 border border-slate-200 p-6 text-center space-y-1 flex flex-col justify-between">
               <span className="text-xs sm:text-sm font-bold text-slate-600 block uppercase tracking-wider">
                 外包人力
               </span>
@@ -150,7 +150,7 @@ export const PersonnelDistribution: React.FC = () => {
             ].map((item) => (
               <div
                 key={item.label}
-                className="bg-slate-50/70 p-4 text-center flex flex-col items-center justify-between space-y-2 h-full"
+                className="bg-slate-50/70 border border-slate-200 p-4 text-center flex flex-col items-center justify-between space-y-2 h-full"
               >
                 <div className="text-xs sm:text-sm font-bold text-slate-700 tracking-wide">
                   {item.label}

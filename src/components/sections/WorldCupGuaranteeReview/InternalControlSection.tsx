@@ -88,13 +88,13 @@ export const InternalControlSection: React.FC = () => {
             title="用户信息修改"
             value="17,166"
             unit="条"
-            detail={highlightNumbers("修改漏记/错记[[248条]]")}
+            detail={highlightNumbers("核查修改漏记/错记 [[248条]]")}
           />
           <ReportMetricCard
-            title="后台登陆监测"
+            title="后台登录监测"
             value="568+"
             unit="个网络节点"
-            detail={highlightNumbers("其中[[16条]]异常跳跃登录节点已全部核实")}
+            detail={highlightNumbers("其中 [[16条]] 异常跳跃登录节点已全部核实")}
           />
           <ReportMetricCard
             title="数据导出监测"

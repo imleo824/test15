@@ -264,7 +264,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
       <SummaryBox>
         <p className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed mb-2.5">
           {highlightNumbers(
-            "[[体育总计]] [[15248.39w]]，其中[[体育打水]]为主体，金额 [[10827.21w]]、占比 [[71.01%]]；其次为[[批量打水]] [[1730.97w]]、占比 [[11.35%]]，[[出货]] [[1379.37w]]、占比 [[9.05%]]。站点分布中[[4站]]合计金额最集中，合计 [[5242.16w]]；其中[[体育打水]] [[4065.38w]]、该类占比 [[37.55%]]，[[其他类]] [[630.30w]]、该类占比 [[64.95%]]。",
+            "[[体育总计]] [[15,248.39w]]，其中[[体育打水]]为主体，金额 [[10,827.21w]]、占比 [[71.01%]]；其次为[[批量打水]] [[1,730.97w]]、占比 [[11.35%]]，[[出货]] [[1,379.37w]]、占比 [[9.05%]]。站点分布中[[4站]]合计金额最集中，合计 [[5,242.16w]]；其中[[体育打水]] [[4,065.38w]]、该类占比 [[37.55%]]，[[其他类]] [[630.30w]]、该类占比 [[64.95%]]。",
           )}
         </p>
         <ul className="mt-3 space-y-2.5 text-slate-700">
@@ -280,7 +280,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
             <span className="w-1.5 h-1.5 bg-slate-400 shrink-0 mt-2" />
             <span>
               {highlightNumbers(
-                "[[处置闭环]]：建立标准化流程，含[[系统预警]]（[[15分钟]] 内跟进）、[[系统初审]]（自动分流）、[[智能分单]]（[[派发至 34人体育组]]）及[[工具复审]]（跨站关联排查），实现高危订单[[精准拦截与分级处置]]。",
+                "[[处置闭环]]：建立标准化流程，含[[系统预警]]（[[15分钟]]内跟进）、[[系统初审]]（自动分流）、[[智能分单]]（[[派发至 34人体育组]]）及[[工具复审]]（跨站关联排查），实现高危订单[[精准拦截与分级处置]]。",
               )}
             </span>
           </li>
@@ -350,7 +350,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
 
       {/* 体育拦截分类与站点明细大表 */}
       <ReportTableFrame>
-        <table className="report-dense-table report-dense-table--sports-detail w-full">
+        <table className="report-dense-table report-dense-table--sports-detail w-full report-data-table">
           <thead className="bg-slate-50 text-slate-800">
             <tr className="border-b border-slate-200 font-bold text-slate-900">
               <th rowSpan={2} className="w-[74px] text-center py-2.5">站点</th>

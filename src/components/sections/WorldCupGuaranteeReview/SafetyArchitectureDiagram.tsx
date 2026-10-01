@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowDown, Eye, Users, Lock } from "lucide-react";
+import { Eye, Users, Lock, KeyRound } from "lucide-react";
 
 interface ArchTier {
   level: string;
@@ -12,7 +12,7 @@ interface ArchTier {
 
 const tiers: ArchTier[] = [
   {
-    level: "L3 顶层",
+    level: "L3",
     name: "专职监督",
     controlScene: "审计管控",
     status: "执行中",
@@ -24,7 +24,7 @@ const tiers: ArchTier[] = [
     ],
   },
   {
-    level: "L2 中层",
+    level: "L2",
     name: "风控工单",
     controlScene: "流转管控",
     status: "执行中",
@@ -36,16 +36,27 @@ const tiers: ArchTier[] = [
     ],
   },
   {
-    level: "L1 底层",
+    level: "L1",
     name: "安全机制",
-    controlScene: "单点管控",
+    controlScene: "异常管控",
     status: "可加强",
     icon: <Lock className="w-4 h-4 text-slate-900" />,
     keyPoints: [
-      "敏感信息集中收口与字典维护",
-      "复制/截屏/导出等按工种严控",
+      "敏感信息集中统一收口，杜绝分散外露",
+      "复制、截屏、导出等高危动作按工种严控",
       "敏感信息修改双人背靠背审批",
-      "长期/临时/凭单三级权限结构",
+    ],
+  },
+  {
+    level: "L0",
+    name: "权限结构",
+    controlScene: "访问管控",
+    status: "可加强",
+    icon: <KeyRound className="w-4 h-4 text-slate-900" />,
+    keyPoints: [
+      "长期权限（极少数核心特权工种）",
+      "临时权限（限时任务特批到期自动失效）",
+      "凭单权限（一线业务工单触发单结权销）",
     ],
   },
 ];
@@ -65,9 +76,11 @@ export const SafetyArchitectureDiagram: React.FC = () => {
 
         {/* 顶部逻辑流标识 */}
         <div className="flex items-center gap-1.5 bg-slate-100 px-2.5 py-1 text-xs shrink-0 self-start sm:self-auto">
+          <span className="font-bold text-slate-900">L0 权限结构</span>
+          <span className="text-slate-400">➔</span>
           <span className="font-bold text-slate-900">L1 安全机制</span>
           <span className="text-slate-400">➔</span>
-          <span className="font-bold text-slate-900">L2 协同流转</span>
+          <span className="font-bold text-slate-900">L2 风控工单</span>
           <span className="text-slate-400">➔</span>
           <span className="font-bold text-slate-900">L3 专职监督</span>
         </div>
@@ -118,7 +131,7 @@ export const SafetyArchitectureDiagram: React.FC = () => {
                 ) : (
                   <span className="inline-flex items-center gap-1.5 text-amber-900 font-bold text-xs sm:text-sm font-mono shrink-0">
                     <span className="w-2 h-2 rounded-[1px] bg-amber-600"></span>
-                    <span>待加强</span>
+                    <span>{tier.status}</span>
                   </span>
                 )}
               </div>

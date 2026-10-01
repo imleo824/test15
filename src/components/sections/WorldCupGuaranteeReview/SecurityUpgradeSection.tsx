@@ -3,11 +3,6 @@ import {
   Database,
   Search,
   Smartphone,
-  ShieldCheck,
-  Lock,
-  Clock,
-  FileCheck2,
-  Layers,
 } from "lucide-react";
 import {
   ReportSubsectionHeader,
@@ -49,26 +44,20 @@ export const SecurityUpgradeSection: React.FC = () => {
       tagBg: "bg-emerald-50",
       tagText: "text-emerald-900 border-emerald-200",
       icon: Database,
-      coreIssue: "敏感信息散落在太多的模块内，导致收口和更新、维护都很麻烦，且还存在漏的问题。",
+      coreIssue: "敏感信息散落在多个模块中，统一维护与收口难度大，极易产生数据外露与更新遗漏。",
       principle: "建立敏感信息全景字典与统一管理中台，底层统一脱敏加密，前端接口单一收口，消除维护死角。",
       items: [
         {
           name: "多模块分散维护",
-          risk: "手机、银行、邮箱、姓名、微信、支付宝、开户名、标签、输赢、等级、代理等敏感字段散落在各后台系统及历史旧页面中，缺乏明确的监管定义与收口机制，具有极高外泄风险",
+          risk: "手机、银行、邮箱、姓名、微信、支付宝、开户名、标签、输赢、等级、代理等敏感字段散落在各后台系统及历史旧页面中，缺乏明确的监管定义与收口机制，具有极高外泄风险。",
           measure: "[[明确敏感字段定义，展示入口全面收敛并默认脱敏]]：严格将[[手机、银行、邮箱、姓名、微信、支付宝、开户名、标签、输赢、等级、代理]]等明确纳入敏感信息监管范畴，全面清理收敛散落在各后台系统及历史旧页面中的展示入口，[[非必须展示敏感字段的页面一律关闭]]；[[必须展示的默认全掩码脱敏]]；站点名称、商户标识及敏感字眼统一进行脱敏与[[内部代号替换]]。",
           impact: "展示入口全面收拢，默认脱敏率 100%",
         },
         {
           name: "敏感信息更新脱节",
-          risk: "局部老旧后台版本脱节、更新不及时，导致数据脱敏、防复制、访问控制及监控熔断等功能改造未能联动生效，遗留盲区",
-          measure: "[[安全改造必须全平台所有系统同步生效]]：凡涉及敏感数据脱敏、防复制、访问控制及监控熔断的功能改造，必须[[覆盖全平台所有业务系统与独立子后台]]，[[统一版本同步上线]]，避免局部老旧后台被遗漏。",
+          risk: "后台涉及多个子系统（如财务中台等），若系统间更新脱节，将导致数据脱敏与访问控制改造未能联动生效，遗留安全盲区。",
+          measure: "[[安全改造必须全平台所有系统同步生效]]：凡涉及敏感数据脱敏、访问控制等功能改造，必须[[覆盖全平台所有业务系统与独立子后台]]，[[统一上线]]，避免被遗漏。",
           impact: "100% 覆盖全平台独立系统，消除版本差",
-        },
-        {
-          name: "未纳管接口与盲区",
-          risk: "新增临时报表或第三方插件未走标准合规审查，无意中暴露出明文敏感信息",
-          measure: "部署【数据资产自动扫描探针】，每日定时全量巡检所有后台 API 返回体，识别未脱敏明文字段并即时阻断告警",
-          impact: "未受控接口发现率 100%，建立全景资产台账",
         },
       ],
     },
@@ -87,27 +76,21 @@ export const SecurityUpgradeSection: React.FC = () => {
       items: [
         {
           name: "报表批量导出",
-          risk: "一键大批量导出客户名单与流水，易导致大面积脱库外泄；多数基础工种日常根本无需导出权限",
-          measure: "收回 98% 基础工种导出权限；仅少数合规岗位限额导出（≤1,000条/次且须线上审批）；强制嵌入员工数字盲水印",
+          risk: "一键大批量导出客户名单与流水，易导致大面积脱库外泄；多数基础工种日常根本无需导出权限。",
+          measure: "收回 98% 基础工种导出权限；仅少数合规岗位限额导出（≤1,000条/次且须线上审批）；强制嵌入员工数字盲水印。",
           impact: "非必要工种 100% 关闭，外泄可秒级精准溯源",
         },
         {
           name: "高频与批量查询",
-          risk: "通过短时间内高频调阅、连续大批量翻页或异常时段调阅等行为批量提取敏感数据，安全预警缺失",
+          risk: "通过短时间内高频调阅、连续大批量翻页或异常时段调阅等行为批量提取敏感数据，安全预警缺失。",
           measure: "[[建立调阅行为异常监控与自动熔断机制]]：设定监控预警规则，当发现短时间内[[高频调阅]]、[[连续大批量翻页]]或[[异常时段调阅]]等行为时，系统自动告警并[[立即强制中断当前会话]]。",
           impact: "高危异常查询秒级熔断阻断率 100%",
         },
         {
           name: "界面划选与复制",
-          risk: "大面积划选、Ctrl+A 全选快捷键批量复制数据，规避导出审计",
-          measure: "代码级禁用批量划选与右键全选；仅保留单项复制按钮，60 秒连续复制超 10 次锁屏告警",
+          risk: "大面积划选、Ctrl+A 全选快捷键批量复制数据，规避导出审计。",
+          measure: "代码级禁用批量划选与右键全选；仅保留单项复制按钮，60 秒连续复制超 10 次锁屏告警。",
           impact: "批量提取完全阻断，单项复制全程审计",
-        },
-        {
-          name: "系统截图与防拍",
-          risk: "截屏工具抓取或外部手机翻拍屏幕，试图获取敏感信息规避系统审计",
-          measure: "敏感页面屏蔽截屏录屏；全后台页面强制覆盖半透明网格动态水印（工号 + 姓名 + 秒级时间戳 + 访问 IP）",
-          impact: "截屏防范全覆盖，翻拍照 10 分钟内准确定位责任人",
         },
       ],
     },
@@ -125,61 +108,22 @@ export const SecurityUpgradeSection: React.FC = () => {
       principle: "取消所有单人后台直接修改入口，实行经办与复核双人背靠背审批与 24 小时提款冷却保护。",
       items: [
         {
-          name: "手机号更换 / 解绑",
-          risk: "私改会员安全手机，篡改双因子验证渠道以接管账号资金",
-          measure: "严格核验原手机或人脸凭证；线上工单经办与复核双人核验，修改后冻结提款 24 小时",
+          name: "手机号",
+          risk: "有权限的单人即可修改成功，缺乏背靠背交叉核验，易私改会员安全手机以接管账号资金。",
+          measure: "必须提交线上工单与背靠背审批流，经双人严格核验与审批流通过后才能改成功，修改后冻结提款 24 小时。",
           impact: "杜绝单人私下改号，保护账户资产安全",
         },
         {
-          name: "真实姓名更正",
-          risk: "通过改名套取多重活动新人首存与多重身份红利",
-          measure: "严禁常规姓名变更；同音错字更正须直连权威实名接口核验一致，经风控主管特批",
+          name: "姓名",
+          risk: "有权限的单人即可修改成功，缺乏背靠背交叉核验，易通过改名套取多重活动新人首存与多重身份红利。",
+          measure: "严禁常规单人变更；必须提交线上审批流，经实名接口核验及风控主管特批与双人审批流才能改成功。",
           impact: "彻底阻断借改名套利的黑产行为",
         },
         {
-          name: "支付/登录密码重置",
-          risk: "人工客服私自生成重置密码，越权接管高价值会员账号",
-          measure: "严禁人工生成或知悉明文密码；系统全自动鉴权，仅下发一次性高熵链接至注册邮箱",
+          name: "密码",
+          risk: "有权限的单人即可修改成功，缺乏背靠背交叉核验，易由人工客服私自生成重置密码以越权接管高价值会员账号。",
+          measure: "严禁人工单人重置；必须走系统自动鉴权或线上严格工单审批流才能改成功，实现人工零接触。",
           impact: "密码重置人工零接触，规避内部作案",
-        },
-        {
-          name: "提款卡 / 钱包换绑",
-          risk: "非法篡改收款卡号或加密地址，将提现资金转移至外部钱包",
-          measure: "双人背靠背复核 + 历史流水比对 + 换绑后强制 24 小时提款冷却期 + 电话回访确认",
-          impact: "篡改收款渠道拦截率 100%",
-        },
-      ],
-    },
-    {
-      key: "sensitive_permissions",
-      categoryName: "敏感权限结构",
-      categoryTag: "任务驱动查控",
-      direction: "场景四",
-      themeColor: "slate",
-      borderTopColor: "border-t-slate-900",
-      tagBg: "bg-slate-100",
-      tagText: "text-slate-900 border-slate-300",
-      icon: ShieldCheck,
-      coreIssue: "主动查会员信息场景极少，无故随意主动查询属于高危操作；原有权限结构缺乏任务约束与时效控制。",
-      principle: "重构为「长期权限 + 临时权限 + 凭单查询」三级安全权限架构，无任务禁止主动查询玩家信息。",
-      items: [
-        {
-          name: "长期权限（特权岗位）",
-          risk: "传统大水漫灌式长期授权，导致离岗或越权人员仍具备常态化查询能力",
-          measure: "仅限专职内控、核心高级风控等极少数特定工种配置长期权限；总监级特批并纳入 100% 每日操作审计",
-          impact: "长期特权人数压缩 90% 以上，全量操作严密留痕",
-        },
-        {
-          name: "临时权限（限时任务）",
-          risk: "突发专项排查或跨部门支持借用特权账号，事后权限未及时回收",
-          measure: "线上发起限时工单申请，明确指定有效时间范围（如 2小时 / 当天）；到期系统自动熔断失效并收回",
-          impact: "权限过期 100% 自动失效，消除历史滞留特权",
-        },
-        {
-          name: "凭单查询（工单驱动）",
-          risk: "一线客服、常规审核无事主动检索玩家个人信息，存在隐私刺探与私下倒卖隐患",
-          measure: "常规岗位彻底关闭主动无条件检索入口；仅在系统派发或承接有效工单时，动态解锁该工单涉及的玩家信息；单结权销",
-          impact: "无故主动查询行为下降 98%，实现以单定权、有据可查",
         },
       ],
     },
@@ -192,72 +136,72 @@ export const SecurityUpgradeSection: React.FC = () => {
         <div className="space-y-2.5">
           <p className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "针对底层安全机制的实际运作痛点，全面聚焦[[敏感信息维护、敏感异常操作、敏感信息修改、敏感权限结构]]四大核心场景推进加固改造，以系统硬规则约束一线裁量，筑牢底层安全合规防线。"
+              "针对底层安全机制的实际运作痛点，全面聚焦[[敏感信息维护、敏感异常操作、敏感信息修改]]三大核心场景推进加固改造，以系统硬规则约束一线裁量，筑牢底层安全合规防线。"
             )}
           </p>
         </div>
       </SummaryBox>
 
-      {/* 核心四大场景摘要说明卡片（2x2 网格） */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 items-stretch">
+      {/* 核心三大场景摘要说明卡片（3 列网格） */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 items-stretch">
         {/* 场景 1：敏感信息维护 */}
-        <div className="bg-white border border-[#e2e8f0] p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
+        <div className="bg-white border border-slate-200 p-5 sm:p-6 flex flex-col justify-between space-y-3.5 h-full">
           <div className="flex items-center gap-2 pb-2.5 border-b border-slate-100">
-            <span className="w-5 h-5 bg-slate-900 text-white text-xs font-bold flex items-center justify-center shrink-0">
+            <span className="w-5 h-5 bg-slate-900 text-white text-xs font-mono font-bold flex items-center justify-center shrink-0">
               1
             </span>
             <h4 className="text-base font-bold text-slate-950">敏感信息维护</h4>
-            <span className="text-xs font-bold text-emerald-700 ml-auto">
-              统一字典收口
+            <span className="text-xs font-mono font-bold text-emerald-700 ml-auto">
+              统一展示收口
             </span>
           </div>
-          <div className="text-sm sm:text-[15.5px] text-slate-700 leading-relaxed font-normal space-y-2 flex-1">
+          <div className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal space-y-2.5 flex-1">
             <p>
               <strong className="text-slate-950">现状痛点：</strong>
-              很多敏感信息散落在太多的模块内，导致收口和更新、维护都很麻烦，且还存在漏的问题。
+              敏感信息分散暴露在过多模块中，导致集中维护与收口困难，存在信息外露与遗漏风险。
             </p>
             <p>
               <strong className="text-slate-950">应对措施：</strong>
-              建立统一敏感数据中台字典，底层统一加密脱敏，所有模块统一调用中台接口，一处配置全局生效。
+              全面排查展示敏感信息的模块，彻底去除无必要的展示页面，实现集中统一收口。
             </p>
           </div>
         </div>
 
         {/* 场景 2：敏感异常操作 */}
-        <div className="bg-white border border-[#e2e8f0] p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
+        <div className="bg-white border border-slate-200 p-5 sm:p-6 flex flex-col justify-between space-y-3.5 h-full">
           <div className="flex items-center gap-2 pb-2.5 border-b border-slate-100">
-            <span className="w-5 h-5 bg-slate-900 text-white text-xs font-bold flex items-center justify-center shrink-0">
+            <span className="w-5 h-5 bg-slate-900 text-white text-xs font-mono font-bold flex items-center justify-center shrink-0">
               2
             </span>
             <h4 className="text-base font-bold text-slate-950">敏感异常操作</h4>
-            <span className="text-xs font-bold text-blue-700 ml-auto">
-              工种控权收紧
+            <span className="text-xs font-mono font-bold text-blue-700 ml-auto">
+              操作控权收紧
             </span>
           </div>
-          <div className="text-sm sm:text-[15.5px] text-slate-700 leading-relaxed font-normal space-y-2 flex-1">
+          <div className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal space-y-2.5 flex-1">
             <p>
               <strong className="text-slate-950">现状痛点：</strong>
               复制、截屏、导出、批量查询等高危操作权限泛滥，未按实际工种必要性进行严格控制。
             </p>
             <p>
               <strong className="text-slate-950">应对措施：</strong>
-              按工种严格控制权限，98% 基础岗位关闭批量导出与复制，全端覆盖敏感防截屏与动态盲水印。
+              对敏感信息禁止复制；对批量查询、数据导出按工种严格控制权限。
             </p>
           </div>
         </div>
 
         {/* 场景 3：敏感信息修改 */}
-        <div className="bg-white border border-[#e2e8f0] p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
+        <div className="bg-white border border-slate-200 p-5 sm:p-6 flex flex-col justify-between space-y-3.5 h-full">
           <div className="flex items-center gap-2 pb-2.5 border-b border-slate-100">
-            <span className="w-5 h-5 bg-slate-900 text-white text-xs font-bold flex items-center justify-center shrink-0">
+            <span className="w-5 h-5 bg-slate-900 text-white text-xs font-mono font-bold flex items-center justify-center shrink-0">
               3
             </span>
             <h4 className="text-base font-bold text-slate-950">敏感信息修改</h4>
-            <span className="text-xs font-bold text-indigo-700 ml-auto">
+            <span className="text-xs font-mono font-bold text-indigo-700 ml-auto">
               双人背靠背审批
             </span>
           </div>
-          <div className="text-sm sm:text-[15.5px] text-slate-700 leading-relaxed font-normal space-y-2 flex-1">
+          <div className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal space-y-2.5 flex-1">
             <p>
               <strong className="text-slate-950">现状痛点：</strong>
               有权限的人可以单人完成修改，缺乏背靠背交叉核验，风险较大且易发生单点内部作案。
@@ -268,46 +212,13 @@ export const SecurityUpgradeSection: React.FC = () => {
             </p>
           </div>
         </div>
-
-        {/* 场景 4：敏感权限结构 */}
-        <div className="bg-white border border-[#e2e8f0] p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
-          <div className="flex items-center gap-2 pb-2.5 border-b border-slate-100">
-            <span className="w-5 h-5 bg-slate-900 text-white text-xs font-bold flex items-center justify-center shrink-0">
-              4
-            </span>
-            <h4 className="text-base font-bold text-slate-950">敏感权限结构</h4>
-            <span className="text-xs font-bold text-slate-700 ml-auto">
-              任务驱动分层
-            </span>
-          </div>
-          <div className="text-sm sm:text-[15.5px] text-slate-700 leading-relaxed font-normal space-y-2 flex-1">
-            <p>
-              <strong className="text-slate-950">现状痛点：</strong>
-              主动查会员信息场景极少，无工单任务无故查询属于高风险操作，缺乏严格的任务约束。
-            </p>
-            <p>
-              <strong className="text-slate-950">应对措施：</strong>
-              构建「长期特权 + 临时限时 + 凭单查询」三级安全权限架构，以任务定权限，单结权销。
-            </p>
-          </div>
-        </div>
       </div>
 
-      {/* 四大核心场景落地管控规范全览 (落地细则表) */}
+      {/* 三大核心场景落地管控规范全览 (落地细则表) */}
       <div className="space-y-6 sm:space-y-8">
-        <ReportSubsectionHeader
-          title="3.3.1 四大安全机制落地细则"
-          rightContent={
-            <span className="text-xs text-slate-500">
-              围绕 4 大核心场景落实 13 项防护细则
-            </span>
-          }
-        />
-
         <div className="space-y-8">
           {securityCategories.map((cat) => {
             const Icon = cat.icon;
-            const isScenario4 = cat.key === "sensitive_permissions";
 
             return (
               <div
@@ -332,7 +243,7 @@ export const SecurityUpgradeSection: React.FC = () => {
                 </div>
 
                 {/* 对应模块的标题下方：核心痛点与治理原则 */}
-                <div className="bg-slate-50/60 p-4 border border-slate-200/60 text-sm sm:text-[15.5px] space-y-2 font-normal">
+                <div className="bg-slate-50/70 p-4 border border-slate-200 text-sm sm:text-[15px] space-y-2 font-normal">
                   <div className="text-slate-950 leading-relaxed">
                     <span className="font-bold text-slate-950">核心痛点：</span>
                     {highlightNumbers(cat.coreIssue)}
@@ -342,107 +253,6 @@ export const SecurityUpgradeSection: React.FC = () => {
                     {highlightNumbers(cat.principle)}
                   </div>
                 </div>
-
-                {/* 场景4 内嵌：敏感权限三级架构模型卡片（长期权限 / 临时权限 / 凭单查询） */}
-                {isScenario4 && (
-                  <div className="bg-slate-50/40 p-4 sm:p-5 space-y-3 border border-slate-200/60">
-                    <div className="flex items-center justify-between pb-2 border-b border-slate-200">
-                      <div className="flex items-center gap-2">
-                        <Layers className="w-4 h-4 text-slate-900" />
-                        <span className="text-sm sm:text-base font-bold text-slate-950">
-                          三级权限架构运转逻辑（长期权限 · 临时权限 · 凭单查询）
-                        </span>
-                      </div>
-                      <span className="text-xs text-slate-500 font-mono">
-                        主动查会员 = 高风险 ➔ 凭单授权、单结权销
-                      </span>
-                    </div>
-
-                    {/* 3 列权限类型架构对比 */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1">
-                      {/* 1. 长期权限 */}
-                      <div className="bg-white p-4 flex flex-col justify-between space-y-2.5 border border-slate-200/80">
-                        <div className="space-y-1.5">
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-1.5 text-slate-950 font-bold text-sm sm:text-base">
-                              <span className="w-4.5 h-4.5 bg-slate-900 text-white text-xs font-mono font-bold flex items-center justify-center shrink-0">
-                                1
-                              </span>
-                              <span>长期权限</span>
-                            </div>
-                            <span className="text-xs font-mono font-bold text-slate-700">
-                              少数特权工种
-                            </span>
-                          </div>
-                          <div className="text-xs text-slate-500 font-mono">
-                            适用：专职内控、核心风控主管
-                          </div>
-                          <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal">
-                            仅针对特定极少数核心工种配置常态化查询权限，需总监级线上特批；全量操作实施 <strong>100% 独立审计留痕与行为巡检</strong>。
-                          </p>
-                        </div>
-                        <div className="pt-2 border-t border-slate-100 text-xs text-slate-600 font-mono flex items-center gap-1">
-                          <Lock className="w-3.5 h-3.5 text-slate-700 shrink-0" />
-                          <span>管控：全量日志留痕 + 异常预警</span>
-                        </div>
-                      </div>
-
-                      {/* 2. 临时权限 */}
-                      <div className="bg-white p-4 flex flex-col justify-between space-y-2.5 border border-slate-200/80">
-                        <div className="space-y-1.5">
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-1.5 text-indigo-950 font-bold text-sm sm:text-base">
-                              <span className="w-4.5 h-4.5 bg-indigo-800 text-white text-xs font-bold flex items-center justify-center shrink-0">
-                                2
-                              </span>
-                              <span>临时权限</span>
-                            </div>
-                            <span className="text-xs font-bold text-indigo-700">
-                              限时审批生效
-                            </span>
-                          </div>
-                          <div className="text-xs text-indigo-700">
-                            适用：专项排查、跨部门短期支持
-                          </div>
-                          <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal">
-                            线上发起限时工单申请，明确指定<strong>有效时间窗口</strong>（如 2小时 / 当天）；到期系统全自动回收熔断，禁止私下延期。
-                          </p>
-                        </div>
-                        <div className="pt-2 border-t border-indigo-100 text-xs text-indigo-900 flex items-center gap-1">
-                          <Clock className="w-3.5 h-3.5 text-indigo-700 shrink-0" />
-                          <span>管控：到期自动失效，零历史残留</span>
-                        </div>
-                      </div>
-
-                      {/* 3. 凭单查询 */}
-                      <div className="bg-white p-4 flex flex-col justify-between space-y-2.5 border border-slate-200/80">
-                        <div className="space-y-1.5">
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-1.5 text-blue-950 font-bold text-sm sm:text-base">
-                              <span className="w-4.5 h-4.5 bg-blue-800 text-white text-xs font-bold flex items-center justify-center shrink-0">
-                                3
-                              </span>
-                              <span>凭单查询</span>
-                            </div>
-                            <span className="text-xs font-bold text-blue-700">
-                              任务动态解锁
-                            </span>
-                          </div>
-                          <div className="text-xs text-blue-700">
-                            适用：一线客服、常规审核、业务经办
-                          </div>
-                          <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal">
-                            日常<strong>无独立主动查询入口</strong>；仅当系统派单或承接有效工单时，动态解锁<strong>该工单涉及的玩家特定信息</strong>，单结权销。
-                          </p>
-                        </div>
-                        <div className="pt-2 border-t border-blue-100 text-xs text-blue-900 flex items-center gap-1">
-                          <FileCheck2 className="w-3.5 h-3.5 text-blue-700 shrink-0" />
-                          <span>管控：以单定权、单结权销、100% 任务绑定</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
 
                 {/* 3 列规范明细表：场景 / 潜在隐患 / 升级管控规范 */}
                 <ReportTableFrame>

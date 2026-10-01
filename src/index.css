@@ -3929,6 +3929,16 @@
     color: #334155 !important;
   }
 
+  /* 全局数据表数字列（除首列外）统一右对齐，确保数值垂直方向对齐对比阅读 */
+  .report-data-table :is(td, th):not(:first-child) {
+    text-align: right !important;
+    padding-right: 16px !important;
+  }
+  .report-data-table :is(td, th):first-child {
+    text-align: left !important;
+    padding-left: 16px !important;
+  }
+
 }
 
 /* Scrollbar styling - Higher contrast */

@@ -74,11 +74,11 @@ export const FuturePlansSection: React.FC = () => {
         {plans.map((plan) => (
           <div
             key={plan.index}
-            className="bg-white border border-[#e2e8f0] p-6 sm:p-7 flex flex-col justify-between space-y-6"
+            className="bg-white border border-slate-200 p-6 sm:p-7 flex flex-col justify-between space-y-6"
           >
             <div className="space-y-5">
               {/* 卡片标头 */}
-              <div className="flex items-center justify-between border-b border-[#e2e8f0] pb-3.5">
+              <div className="flex items-center justify-between border-b border-slate-200 pb-3.5">
                 <span className="font-mono text-2xl font-bold text-slate-400">
                   {plan.index}
                 </span>

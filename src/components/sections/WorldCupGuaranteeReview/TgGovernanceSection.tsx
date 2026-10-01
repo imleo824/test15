@@ -20,7 +20,7 @@ export const TgGovernanceSection: React.FC = () => {
       riskLevel: "低风险",
       status: "已处理",
       method: "彻底取消",
-      actionDetails: "入款真实性与到账状态由支付系统自动校验，取消风控人工找财务二次核实",
+      actionDetails: "入款真实性与到账状态由支付系统自动校验，取消风控人工找财务二次核实。",
     },
     {
       id: "02",
@@ -28,7 +28,7 @@ export const TgGovernanceSection: React.FC = () => {
       riskLevel: "低风险",
       status: "已处理",
       method: "彻底取消",
-      actionDetails: "代理大额代存真实性在前置入款与代理端核验，取消风控线下人工核实",
+      actionDetails: "代理大额代存真实性在前置入款与代理端核验，取消风控线下人工核实。",
     },
     {
       id: "03",
@@ -36,98 +36,82 @@ export const TgGovernanceSection: React.FC = () => {
       riskLevel: "低风险",
       status: "已处理",
       method: "彻底取消",
-      actionDetails: "统一代理额度代存与系统存款判定标准，取消人工拉群核实冗余环节",
+      actionDetails: "统一代理额度代存与系统存款判定标准，取消人工拉群核实冗余环节。",
     },
     {
       id: "04",
-      name: "流水咨询流程",
-      riskLevel: "低风险",
-      status: "已处理",
-      method: "系统替代",
-      actionDetails: "上线自助查询工具与标准指引，咨询侧自助查询，无需人工问询",
-    },
-    {
-      id: "05",
       name: "红利审核流程",
       riskLevel: "高风险",
       status: "已处理",
       method: "系统替代",
-      actionDetails: "关停线下红利审核，全量迁移至后台工单，名单与额度系统自动校验",
+      actionDetails: "关停线下红利审核，全量迁移至后台工单，名单与额度系统+人工校验。",
     },
     {
-      id: "06",
+      id: "05",
       name: "审核扣款流程",
       riskLevel: "高风险",
       status: "已处理",
       method: "系统替代",
-      actionDetails: "风控判定与扣款动作由系统接口自动触发，禁止群内人工报单",
+      actionDetails: "风控判定与扣款动作由系统接口自动触发，禁止群内人工报单。",
     },
     {
-      id: "07",
+      id: "06",
       name: "审核复审流程",
       riskLevel: "高风险",
       status: "已处理",
       method: "系统替代",
-      actionDetails: "核心出款决策嵌入后台复审流，群内零敏感数据流转，100% 审计留痕",
+      actionDetails: "核心出款决策嵌入后台复审流，群内零敏感数据流转，100% 审计留痕。",
     },
     {
-      id: "08",
+      id: "07",
       name: "上标下标流程",
       riskLevel: "高风险",
       status: "已处理",
       method: "系统替代",
-      actionDetails: "会员上下标对接全量改为后台一键工单审批，系统自动同步生效",
+      actionDetails: "会员上下标对接全量改为后台一键工单审批，系统自动同步生效。",
     },
     {
-      id: "09",
+      id: "08",
       name: "备注审核流程",
       riskLevel: "高风险",
       status: "已处理",
       method: "系统替代",
-      actionDetails: "系统自动识别高危标签并在界面强制高亮提醒，消除人工漏看漏判",
+      actionDetails: "系统自动识别高危标签并在界面强制高亮提醒，消除人工漏看漏判。",
     },
     {
-      id: "10",
+      id: "09",
       name: "资料审核流程",
       riskLevel: "高风险",
       status: "已处理",
       method: "系统替代",
-      actionDetails: "实行多节点背靠背交叉核验，实名证件及隐私资料由 2~3 人协同审批",
+      actionDetails: "实行多节点背靠背交叉核验，实名证件及隐私资料由 2~3 人协同审批。",
     },
     {
-      id: "11",
+      id: "10",
       name: "会员禁用流程",
       riskLevel: "高风险",
       status: "已处理",
       method: "系统替代",
-      actionDetails: "高危账号封禁与限制接入后台工单流，系统自动同步拦截，杜绝私下封号",
+      actionDetails: "高危账号封禁与限制接入后台多人审批流，杜绝单人随意封号。",
     },
     {
-      id: "12",
+      id: "11",
       name: "场馆解锁流程",
       riskLevel: "低风险",
       status: "已处理",
       method: "系统替代",
-      actionDetails: "场馆内嵌游戏输光上线系统自动解锁机制，减少风控 15%~20% 无效咨询",
+      actionDetails: "场馆内嵌游戏输光上线系统自动解锁机制，减少风控 15%~20% 无效咨询。",
     },
   ];
 
   return (
-    <div className="space-y-12 lg:space-y-16">
+    <div id="section-tg-governance" className="space-y-12 lg:space-y-16">
       {/* 3.2.1 线下离线流程治理 */}
       <div className="space-y-6 sm:space-y-8">
         <ReportSubsectionHeader title="3.2.1 线下离线流程治理" />
 
-        <SummaryBox className="space-y-2">
-          <p className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
-            {highlightNumbers(
-              "全部工作对接群按[[非必要群聊]]、[[日常沟通群]]、[[高风险审核业务]]、[[低风险咨询业务]]四类分级处置，落实清理、控权、工单迁移与协同切换。",
-            )}
-          </p>
-        </SummaryBox>
-
         {/* 关键治理准则：警惕“形式化工单化”——源头消除优先于工单流转 */}
-        <div className="bg-slate-50/80 p-5 sm:p-6 border border-[#e2e8f0] space-y-3.5">
+        <div className="bg-slate-50/80 p-5 sm:p-6 border border-slate-200 space-y-3.5">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2.5 border-b border-slate-200 gap-2">
             <div className="flex items-center gap-2">
               <span className="px-2 py-0.5 bg-slate-900 text-white font-mono text-xs font-bold">
@@ -143,30 +127,17 @@ export const TgGovernanceSection: React.FC = () => {
           </div>
 
           <p className="text-sm sm:text-[15.5px] text-slate-800 leading-relaxed font-normal">
-            推进线下离线流程治理向系统化收口的过程中，<strong>严防将可通过系统自动化解决的诉求形式化包装为内部工单</strong>。凡<strong>用户前端可自主闭环</strong>或<strong>底层系统可根治</strong>的诉求，必须<strong>从源头彻底消除</strong>；确需人工介入的诉求，<strong>支持用户自主发起并直连路由至承接部门</strong>，<strong>减少多重冗余角色中转</strong>，实现<strong>极简高效流转</strong>。
+            推进线下流程向系统化工单收口过程中，<strong>严防将本可通过系统自动化解决的诉求形式化包装为内部工单</strong>。凡<strong>前端可自主闭环</strong>或<strong>底层系统可根治</strong>的诉求，坚决<strong>从源头彻底消除</strong>；确需人工介入的诉求，<strong>支持用户端自主发起并直连路由至承接部门</strong>，<strong>减少多重冗余角色中转</strong>，实现<strong>极简高效流转</strong>。
           </p>
 
           {/* 典型场景举例：2 列卡片 */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-3.5 pt-1">
-            {/* 场景 1：流水查询与核对 */}
-            <div className="bg-white p-4 space-y-2 flex flex-col justify-between border border-[#e2e8f0]">
+            {/* 场景 1：体育内嵌场馆玩非体育输光不解锁 */}
+            <div className="bg-white p-4 space-y-2 flex flex-col justify-between border border-slate-200">
               <div className="space-y-2 text-sm sm:text-[15.5px] text-slate-700 leading-relaxed">
-                <div>
-                  <strong className="text-slate-950">【典型案例 · 提款流水咨询】</strong>
-                </div>
-                <div>
-                  <strong className="text-slate-950">传统弊端：</strong><span>流水计算不准引发频繁咨询，客服转提工单复核；</span>
-                  <br />
-                  <strong className="text-slate-950">源头治理：</strong><span>校准流水计算并对用户透明呈现，直接消除咨询源头，<strong>减少风控约 30% 无效咨询与流转</strong>。</span>
-                </div>
-              </div>
-            </div>
-
-            {/* 场景 2：体育内嵌场馆玩非体育输光不解锁 */}
-            <div className="bg-white p-4 space-y-2 flex flex-col justify-between border border-[#e2e8f0]">
-              <div className="space-y-2 text-sm sm:text-[15.5px] text-slate-700 leading-relaxed">
-                <div>
+                <div className="flex items-center justify-between">
                   <strong className="text-slate-950">【典型案例 · 体育内嵌玩非体育输光不解锁】</strong>
+                  <span className="text-xs font-mono font-bold px-2 py-0.5 bg-emerald-100 text-emerald-800 border border-emerald-300 shrink-0">已解决</span>
                 </div>
                 <div>
                   <strong className="text-slate-950">传统弊端：</strong><span>内嵌游戏输光未自动解锁，导致频繁咨询与人工介入；</span>
@@ -175,8 +146,31 @@ export const TgGovernanceSection: React.FC = () => {
                 </div>
               </div>
             </div>
+
+            {/* 场景 2：流水查询与核对 */}
+            <div className="bg-white p-4 space-y-2 flex flex-col justify-between border border-slate-200">
+              <div className="space-y-2 text-sm sm:text-[15.5px] text-slate-700 leading-relaxed">
+                <div className="flex items-center justify-between">
+                  <strong className="text-slate-950">【典型案例 · 提款流水咨询】</strong>
+                  <span className="text-xs font-mono font-bold px-2 py-0.5 bg-amber-100 text-amber-800 border border-amber-300 shrink-0">待解决</span>
+                </div>
+                <div>
+                  <strong className="text-slate-950">传统弊端：</strong><span>系统流水计算不准引发频繁咨询，客服转提工单复核；</span>
+                  <br />
+                  <strong className="text-slate-950">源头治理：</strong><span>校准流水计算，直接消除咨询源头，<strong>减少风控约 30% 无效咨询与流转</strong>。</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+
+        <SummaryBox className="space-y-2">
+          <p className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
+            {highlightNumbers(
+              "基于治理准则，将全部离线工作对接按[[非必要群聊]]、[[日常沟通群]]、[[高风险审核业务]]与[[低风险咨询业务]]四类分级处置，全面落实解散清理、分级控权与系统工单收口。",
+            )}
+          </p>
+        </SummaryBox>
 
         {/* 4.1 分级治理架构：从左至右两阶段分析与治理路径 */}
         <div className="space-y-4">
@@ -221,7 +215,7 @@ export const TgGovernanceSection: React.FC = () => {
                   <span>处置策略与成效</span>
                 </div>
                 <p className="text-sm text-slate-900 leading-relaxed font-normal">
-                  一律注销。<strong className="text-slate-950 font-bold">彻底清零冗余线下对接群</strong>，消除无痕操作漏洞与暴露面。
+                  <strong className="text-slate-950 font-bold">清零冗余线下对接群</strong>，消除无痕操作漏洞与暴露面。
                 </p>
               </div>
             </div>
@@ -265,7 +259,7 @@ export const TgGovernanceSection: React.FC = () => {
                   <span>处置策略与成效</span>
                 </div>
                 <p className="text-sm text-slate-900 leading-relaxed font-normal">
-                  严格限制进出权限，<strong className="text-slate-950 font-bold">严禁流转任何风控单据</strong>，杜绝无痕业务操作。
+                  限制进出权限，<strong className="text-slate-950 font-bold">严禁流转任何风控单据</strong>，杜绝无痕业务操作。
                 </p>
               </div>
             </div>
@@ -309,7 +303,7 @@ export const TgGovernanceSection: React.FC = () => {
                   <span>处置策略与成效</span>
                 </div>
                 <p className="text-sm text-slate-900 leading-relaxed font-normal">
-                  <strong className="text-slate-950 font-bold">群聊 100% 注销</strong>，全量迁移至后台系统工单与标准 API，全流程留痕且强制复核。
+                  全量迁移至后台系统工单与标准 API，全流程留痕且强制复核。
                 </p>
               </div>
             </div>
@@ -474,9 +468,9 @@ export const TgGovernanceSection: React.FC = () => {
           </div>
 
           {/* 2. 下方：100% 还原 Telegram Desktop 浅色原版客户端历史真实快照 */}
-          <div className="bg-white border border-[#e2e8f0] overflow-hidden font-sans">
+          <div className="bg-white border border-slate-200 overflow-hidden font-sans">
             {/* macOS 风格顶部窗口栏 */}
-            <div className="bg-[#e7e8ea] px-3 py-2 border-b border-[#e2e8f0] flex items-center justify-between text-xs text-slate-700 select-none">
+            <div className="bg-[#e7e8ea] px-3 py-2 border-b border-slate-200 flex items-center justify-between text-xs text-slate-700 select-none">
               <div className="flex items-center gap-2">
                 <div className="flex gap-1.5">
                   <span className="w-3 h-3 rounded-full bg-[#ff5f56] border border-[#e0443e] inline-block" />
@@ -490,7 +484,7 @@ export const TgGovernanceSection: React.FC = () => {
             {/* TG 客户端主工作区 (左侧搜索列表 + 右侧绿色壁纸聊天窗口) */}
             <div className="grid grid-cols-1 sm:grid-cols-12 bg-white">
               {/* 1. 左侧会话与搜索结果列表 (纯正 TG 浅色灰白底) */}
-              <div className="sm:col-span-4 bg-[#f4f5f5] border-r border-[#e2e8f0] p-3 flex flex-col justify-between">
+              <div className="sm:col-span-4 bg-[#f4f5f5] border-r border-slate-200 p-3 flex flex-col justify-between">
                 <div className="space-y-3">
                   {/* 搜索框 (输入目标账号 qweasd123 进行跨群检索) */}
                   <div className="bg-white rounded-full px-3 py-1.5 flex items-center gap-2 border border-[#e2e8f0]">
@@ -585,9 +579,9 @@ export const TgGovernanceSection: React.FC = () => {
               </div>
 
               {/* 2. 右侧聊天窗口 (经典 TG 浅绿壁纸 + 单条原版真实高危报单气泡) */}
-              <div className="sm:col-span-8 flex flex-col justify-between bg-[#a8cf9e] relative border-l border-[#e2e8f0]">
+              <div className="sm:col-span-8 flex flex-col justify-between bg-[#a8cf9e] relative border-l border-slate-200">
                 {/* 群顶部标题栏 */}
-                <div className="bg-white px-3 py-2 border-b border-[#e2e8f0] flex items-center justify-between">
+                <div className="bg-white px-3 py-2 border-b border-slate-200 flex items-center justify-between">
                   <div>
                     <div className="font-bold text-slate-900 text-xs font-mono">群1</div>
                     <div className="text-xs text-slate-500">466 位成员</div>
@@ -643,18 +637,18 @@ export const TgGovernanceSection: React.FC = () => {
 
       {/* 3.2.3 核心流程闭环节点 */}
       <div className="space-y-4">
-        <ReportSubsectionHeader title="3.2.3 核心流程闭环节点" />
+        <ReportSubsectionHeader title="3.2.3 高风险审核业务" />
 
         <SummaryBox>
           <p className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "以[[提款]]为发起点，推动[[审核]]、[[复审]]、[[KYC]]、[[扣款]]、[[禁用]]全面接入系统工单，实现敏感信息保护、审计全部留痕。",
+              "以[[提款]]为发起点，推动[[审核]]、[[复审]]、[[KYC]]、[[扣款]]、[[禁用]]全面从 TG 离线群聊切换至风控工单，实现敏感信息保护与 100% 审计留痕。",
             )}
           </p>
         </SummaryBox>
 
         {/* 核心流程改造节点：极简一条线，提款为发起点，其余节点大对号表明改造完成 */}
-        <div className="bg-white p-5 sm:p-7 border border-slate-200/80">
+        <div className="bg-white p-5 sm:p-7 border border-slate-200">
           {/* 流程管道主体：一条线上贯穿 6 个核心节点 */}
           <div className="relative pt-3 pb-2 overflow-x-auto">
             {/* 贯穿全流程的水平连接轴线 */}
@@ -663,7 +657,7 @@ export const TgGovernanceSection: React.FC = () => {
             <div className="grid grid-cols-6 gap-2 relative z-10 min-w-[620px] sm:min-w-0">
               {/* 节点 1：提款（发起点，无对号及其他多余信息） */}
               <div className="flex flex-col items-center text-center">
-                <div className="w-13 h-13 sm:w-16 sm:h-16 rounded-full bg-slate-100 text-slate-800 flex items-center justify-center ring-2 ring-white border border-slate-200/80 shadow-xs mb-3.5">
+                <div className="w-13 h-13 sm:w-16 sm:h-16 rounded-full bg-slate-100 text-slate-800 flex items-center justify-center ring-2 ring-white border border-slate-200 shadow-xs mb-3.5">
                   <span className="text-xs sm:text-sm font-bold text-slate-700">发起</span>
                 </div>
                 <div className="space-y-1">
