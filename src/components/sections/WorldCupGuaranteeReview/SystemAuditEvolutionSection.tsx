@@ -279,7 +279,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
         {/* 核心收益一句话说明 */}
         <SummaryBox variant="module">
           {highlightNumbers(
-            "系统自动审核带来[[规模跃升、时效提速与质量改善]]三大核心收益：以 [[500w]] 总单量测算，系统替代规模由 [[250w单 (50%)]] 增至 [[325w单 (65%)]]（[[净增 75w单，增幅 +30.0%]]）；全盘平均停留时间由 [[4.13分钟]] 压降至 [[2.96分钟]]（[[时效提速 28.2%]]）；系统质检率低至 [[0.072%]]，全面替代高质检率外包并大幅缓解总部审单压力，有效保障全盘审核质量。"
+            "系统自动审核带来[[规模跃升、时效提速与降本止损]]三大核心收益：以 [[500w]] 总单量测算，系统替代规模由 [[250w单 (50%)]] 增至 [[325w单 (65%)]]（[[净增 75w单，增幅 +30.0%]]）；全盘平均停留时间由 [[4.13分钟]] 压降至 [[2.96分钟]]（[[时效提速 28.2%]]）；外包审单全面清退，直接省去外包采购硬性成本[[小 100w/月]]，并彻底消灭外包高质检差错实现[[月度止损 50w+ 元]]，全盘审核质量稳步提升。"
           )}
         </SummaryBox>
 
@@ -364,17 +364,21 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               <div className="flex items-start gap-2.5">
                 <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                 <div className="leading-relaxed">
-                  <strong className="text-slate-950">人力减负与差错止损：</strong>
+                  <strong className="text-slate-950">外包清退与降本止损：</strong>
                   <span>替代外包 </span>
                   <strong className="text-slate-950 font-mono">50w+ 订单</strong>
-                  <span>，直接释放外包 </span>
+                  <span>，外包团队全面清退释放 </span>
                   <strong className="text-slate-950 font-mono">100+ 人力</strong>
-                  <span>，外包差错实现 </span>
-                  <strong className="text-slate-950 font-mono">月度止损 50w+ 元</strong>
+                  <span>，直接削减外包每月采购硬性成本 </span>
+                  <strong className="text-emerald-700 font-bold font-mono">小 100w/月</strong>
+                  <span>；彻底消灭过去外包每月平均 </span>
+                  <strong className="text-emerald-700 font-bold font-mono">50w+ 元</strong>
+                  <span> 的质检差错资金损失，形成确定性止损收益 </span>
+                  <strong className="text-emerald-700 font-bold font-mono">50w+ 元/月</strong>
                   <span>；总部审单同步精简 </span>
                   <strong className="text-slate-950 font-mono">25w+ 单</strong>
-                  <span>；月度综合业务价值约 </span>
-                  <strong className="text-slate-950 font-mono">300w/月</strong>。
+                  <span>；全量开启后月度直接综合经济价值达 </span>
+                  <strong className="text-slate-950 font-bold font-mono">150w/月</strong>。
                 </div>
               </div>
             </div>
@@ -546,21 +550,28 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               <div className="flex items-start gap-2.5">
                 <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                 <div className="leading-relaxed">
-                  <strong className="text-slate-950">系统高品质替代高危外包：</strong>
+                  <strong className="text-slate-950">消灭外包差错与降本止损：</strong>
                   <span>系统审单质量极高（质检率仅 </span>
                   <strong className="text-slate-950 font-mono">0.072%</strong>
-                  <span>），全面替代质检率高达 </span>
+                  <span>），全面替代质检差错率高达 </span>
                   <strong className="text-slate-950 font-mono">1.91%</strong>
-                  <span> 的外包审核（外包占比由 10.12% 压降至 0.63% 基本退出），从源头阻断差错风险。</span>
+                  <span> 的外包审核（外包占比由 10.12% 降至 0.63% 基本退出）；彻底消灭过去外包平均每月 </span>
+                  <strong className="text-emerald-700 font-bold font-mono">50w+ 元</strong>
+                  <span> 的质检差错资金损失，形成直接止损收益 </span>
+                  <strong className="text-emerald-700 font-bold font-mono">50w+ 元/月</strong>
+                  <span>；叠加省去每月外包采购硬性成本 </span>
+                  <strong className="text-emerald-700 font-bold font-mono">小 100w/月</strong>
+                  <span>，每月实现直接财务收益合计约 </span>
+                  <strong className="text-slate-950 font-bold font-mono">150w/月</strong>。
                 </div>
               </div>
               <div className="flex items-start gap-2.5">
                 <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                 <div className="leading-relaxed">
                   <strong className="text-slate-950">缓解总部压力聚焦核心风控：</strong>
-                  <span>总部订单减少 </span>
-                  <strong className="text-slate-950 font-mono">50w+ 单</strong>
-                  <span>，极大缓解审单员疲劳与业务压力；一线审核得以集中精力深耕高危、复杂及大额订单，有效带动全盘审核质量稳步提升。</span>
+                  <span>总部订单精简 </span>
+                  <strong className="text-slate-950 font-mono">25w+ 单</strong>
+                  <span>，极大缓解一线疲劳与负荷；资深审核得以集中精力深耕高危、复杂及大额订单，有效带动全盘审核质量稳步提升。</span>
                 </div>
               </div>
             </div>

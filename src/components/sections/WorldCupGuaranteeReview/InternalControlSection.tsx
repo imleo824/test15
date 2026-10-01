@@ -60,7 +60,7 @@ export const InternalControlSection: React.FC = () => {
           metrics={
             <div className="flex items-baseline gap-4">
               <span className="text-3xl md:text-4xl text-slate-950 font-bold tracking-tight tabular-nums">225<small className="ml-1 text-xs text-slate-500 font-bold">人</small></span>
-              <span className="text-2xl md:text-3xl text-slate-950 font-bold tracking-tight tabular-nums">178,140</span>
+              <span className="text-2xl md:text-3xl text-slate-950 font-bold tracking-tight tabular-nums">178,140<small className="ml-1 text-xs text-slate-500 font-bold">条</small></span>
             </div>
           }
         />

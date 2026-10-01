@@ -98,7 +98,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
       ],
     },
     {
-      name: "冠名 场馆",
+      name: "冠名场馆",
       rows: [
         { quarter: "26年二季度", b: "6.74%", y: "5.91%", bw: "5.33%", total: "6.57%" },
         { quarter: "26年三季度", b: "6.70%", y: "6.00%", bw: "5.92%", total: "6.59%" },
@@ -106,7 +106,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
       ],
     },
     {
-      name: "熊猫 场馆",
+      name: "熊猫场馆",
       rows: [
         { quarter: "26年二季度", b: "5.63%", y: "4.00%", bw: "5.78%", total: "5.42%" },
         { quarter: "26年三季度", b: "5.84%", y: "4.67%", bw: "5.14%", total: "5.68%" },
