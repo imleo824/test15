@@ -65,7 +65,7 @@ export const PermissionStructureSection: React.FC = () => {
             <div className="space-y-2">
               <div className="flex items-center justify-between pb-2 border-b border-slate-100">
                 <div className="flex items-center gap-2 text-slate-950 font-bold text-base">
-                  <span className="w-5 h-5 bg-indigo-800 text-white text-xs font-mono font-bold flex items-center justify-center shrink-0">
+                  <span className="w-5 h-5 bg-slate-900 text-white text-xs font-mono font-bold flex items-center justify-center shrink-0">
                     2
                   </span>
                   <span>临时权限</span>
@@ -92,7 +92,7 @@ export const PermissionStructureSection: React.FC = () => {
             <div className="space-y-2">
               <div className="flex items-center justify-between pb-2 border-b border-slate-100">
                 <div className="flex items-center gap-2 text-slate-950 font-bold text-base">
-                  <span className="w-5 h-5 bg-blue-800 text-white text-xs font-mono font-bold flex items-center justify-center shrink-0">
+                  <span className="w-5 h-5 bg-slate-900 text-white text-xs font-mono font-bold flex items-center justify-center shrink-0">
                     3
                   </span>
                   <span>凭单查询</span>

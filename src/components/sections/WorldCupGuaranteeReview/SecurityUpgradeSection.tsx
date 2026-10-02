@@ -255,7 +255,7 @@ export const SecurityUpgradeSection: React.FC = () => {
                 </div>
 
                 {/* 对应模块的标题下方：核心痛点与治理原则 */}
-                <div className="bg-slate-50/70 p-4 border border-slate-200 border-l-[3px] border-l-slate-900 text-sm sm:text-[15px] space-y-2 font-normal">
+                <div className="bg-slate-50 border-l-2 border-slate-800 p-4 text-xs sm:text-sm space-y-1.5 font-normal">
                   <div className="text-slate-950 leading-relaxed">
                     <span className="font-bold text-slate-950">核心痛点：</span>
                     {highlightNumbers(cat.coreIssue)}

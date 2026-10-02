@@ -412,7 +412,7 @@ export const ReportInfoGrid = ({
             {showIndex && <span className="report-sequence-badge report-info-index">{index + 1}</span>}
             <div className="min-w-0 flex-1 flex flex-col justify-between h-full">
               <div className="flex items-center justify-between gap-2">
-                <div className="text-sm font-black text-slate-900 leading-tight">{item.title}</div>
+                <div className="text-sm font-bold text-slate-950 leading-tight">{item.title}</div>
                 {(item.badge || item.status) && (
                   <div className="flex items-center gap-1 shrink-0">
                     {item.badge && (
@@ -433,7 +433,7 @@ export const ReportInfoGrid = ({
                   </div>
                 )}
               </div>
-              {item.desc && <p className="text-sm font-bold text-slate-900 leading-normal mt-1">{highlightNumbers(item.desc)}</p>}
+              {item.desc && <p className="text-sm text-slate-700 font-normal leading-relaxed mt-1">{highlightNumbers(item.desc)}</p>}
             </div>
           </div>
         ))}

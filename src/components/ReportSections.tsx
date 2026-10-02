@@ -296,3 +296,172 @@ export const ReportDimensionCard: React.FC<{
     </div>
   );
 };
+
+export interface CaseStep {
+  step: number | string;
+  title: React.ReactNode;
+  content: React.ReactNode;
+}
+
+export const ReportCaseCard: React.FC<{
+  title: React.ReactNode;
+  badge?: React.ReactNode;
+  icon?: React.ReactNode;
+  steps: CaseStep[];
+  className?: string;
+  footer?: React.ReactNode;
+}> = ({ title, badge, icon, steps, className = "", footer }) => {
+  return (
+    <div className={`report-case-card bg-white border border-slate-200 p-5 sm:p-6 flex flex-col justify-between h-full ${className}`}>
+      <div className="space-y-4 flex-1">
+        <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="flex items-center gap-2 font-bold text-slate-950 text-base sm:text-lg">
+            {icon}
+            <span>{title}</span>
+          </div>
+          {badge && <div className="shrink-0">{badge}</div>}
+        </div>
+        <div className="space-y-3.5">
+          {steps.map((s, idx) => (
+            <div key={idx} className="flex items-start gap-3">
+              <div className="flex flex-col items-center shrink-0">
+                <span className="w-5 h-5 bg-slate-900 text-white font-mono font-bold text-xs flex items-center justify-center shrink-0">
+                  {s.step}
+                </span>
+                {idx < steps.length - 1 && (
+                  <span className="w-px flex-1 bg-slate-200 my-1 min-h-[14px]" />
+                )}
+              </div>
+              <div className="flex-1 pb-1">
+                <div className="font-bold text-slate-900 text-sm sm:text-[15px] mb-0.5">
+                  {s.title}
+                </div>
+                <div className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal">
+                  {s.content}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      {footer && (
+        <div className="pt-3 mt-4 border-t border-slate-100 text-xs sm:text-sm text-slate-600">
+          {footer}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export const ReportCompareBlock: React.FC<{
+  beforeTag?: string;
+  beforeTitle: React.ReactNode;
+  beforeContent: React.ReactNode;
+  afterTag?: string;
+  afterTitle: React.ReactNode;
+  afterContent: React.ReactNode;
+  className?: string;
+}> = ({
+  beforeTag = "治理前",
+  beforeTitle,
+  beforeContent,
+  afterTag = "治理后",
+  afterTitle,
+  afterContent,
+  className = "",
+}) => {
+  return (
+    <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 ${className}`}>
+      <div className="bg-slate-50 border border-slate-200 p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
+        <div className="flex items-center justify-between pb-2.5 border-b border-slate-200">
+          <span className="font-bold text-slate-900 text-sm sm:text-base">
+            {beforeTitle}
+          </span>
+          <span className="text-xs font-mono font-bold px-2 py-0.5 bg-rose-50 text-rose-800 border border-rose-200">
+            {beforeTag}
+          </span>
+        </div>
+        <div className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal flex-1 space-y-2">
+          {beforeContent}
+        </div>
+      </div>
+
+      <div className="bg-white border border-slate-200 p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
+        <div className="flex items-center justify-between pb-2.5 border-b border-slate-200">
+          <span className="font-bold text-slate-950 text-sm sm:text-base">
+            {afterTitle}
+          </span>
+          <span className="text-xs font-mono font-bold px-2 py-0.5 bg-emerald-50 text-emerald-800 border border-emerald-200">
+            {afterTag}
+          </span>
+        </div>
+        <div className="text-sm sm:text-[15px] text-slate-800 leading-relaxed font-normal flex-1 space-y-2">
+          {afterContent}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export interface PipelineStep {
+  index: number | string;
+  title: string;
+  subtitle?: string;
+  status?: string;
+  statusType?: "success" | "pending" | "neutral";
+}
+
+export const ReportStepPipeline: React.FC<{
+  steps: PipelineStep[];
+  className?: string;
+  columns?: 3 | 4 | 5 | 6;
+}> = ({ steps, className = "", columns = 6 }) => {
+  const colClass =
+    columns === 3
+      ? "grid-cols-1 sm:grid-cols-3"
+      : columns === 4
+      ? "grid-cols-2 sm:grid-cols-2 lg:grid-cols-4"
+      : columns === 5
+      ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-5"
+      : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-6";
+
+  return (
+    <div className={`bg-white border border-slate-200 p-4 sm:p-5 ${className}`}>
+      <div className={`grid ${colClass} gap-3 sm:gap-4 items-stretch text-center`}>
+        {steps.map((st, idx) => (
+          <div
+            key={idx}
+            className="flex flex-col items-center justify-between p-3.5 bg-slate-50 border border-slate-100 space-y-2 h-full"
+          >
+            <div className="flex items-center gap-1.5">
+              <span className="w-5 h-5 bg-slate-900 text-white font-mono font-bold text-xs flex items-center justify-center shrink-0">
+                {st.index}
+              </span>
+              <span className="font-bold text-slate-950 text-xs sm:text-sm">
+                {st.title}
+              </span>
+            </div>
+            {st.subtitle && (
+              <span className="text-xs text-slate-500 font-normal">
+                {st.subtitle}
+              </span>
+            )}
+            {st.status && (
+              <span
+                className={`text-xs font-mono font-bold px-2 py-0.5 ${
+                  st.statusType === "pending"
+                    ? "text-amber-800 bg-amber-50 border border-amber-200"
+                    : st.statusType === "neutral"
+                    ? "text-slate-700 bg-slate-100 border border-slate-200"
+                    : "text-emerald-800 bg-emerald-50 border border-emerald-200"
+                }`}
+              >
+                {st.status}
+              </span>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
