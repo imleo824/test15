@@ -33,7 +33,7 @@ export const PersonnelDistribution: React.FC = () => {
         <ReportSectionHeader title="1.1 组织优化" />
 
         <SummaryBox variant="module">
-          <div className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
+          <div className="text-sm text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
               "聚焦[[人效提升]]与[[合规安全]]：强化策略分析职能，坚决压降重复人工审核与外包编制，持续优化各职场属地资源配置。"
             )}
@@ -65,7 +65,7 @@ export const PersonnelDistribution: React.FC = () => {
                   {item.category}
                 </span>
               </div>
-              <p className="text-sm sm:text-[15.5px] text-slate-700 leading-relaxed font-normal flex-1">
+              <p className="text-sm text-slate-700 leading-relaxed font-normal flex-1">
                 {highlightNumbers(item.content)}
               </p>
             </div>
@@ -78,7 +78,7 @@ export const PersonnelDistribution: React.FC = () => {
         <ReportSectionHeader title="1.2 人员分布" />
 
         <SummaryBox variant="module">
-          <div className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
+          <div className="text-sm text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
               "各职场编制有序调配转移；持续提升系统自动审单比例，自 [[9月起]] 将外包审单量成功压降至 [[1% 以下]]，实现[[降本、增效、提质]]多维突破。"
             )}
@@ -86,37 +86,53 @@ export const PersonnelDistribution: React.FC = () => {
         </SummaryBox>
 
         <div className="space-y-6 pt-2">
-          {/* 第一层：在岗人数 & 外包人力 核心指标 */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl mx-auto items-stretch">
+          {/* 第一层：在岗人数 & 外包人力 核心指标 (横向全宽对称对齐) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 items-stretch">
             {/* Card 1: 在岗人数 */}
-            <div className="bg-white border border-slate-200 p-6 text-center space-y-2 flex flex-col justify-between">
-              <span className="text-xs sm:text-sm font-bold text-slate-600 block uppercase tracking-wider">
-                在岗总人数
-              </span>
-              <div className="flex items-baseline justify-center gap-2 py-1">
-                <span className="text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight tabular-nums">
-                  356
+            <div className="bg-white border border-slate-200 p-6 flex flex-col justify-between space-y-3">
+              <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+                <span className="text-xs sm:text-sm font-bold text-slate-700 tracking-wider uppercase">
+                  在岗总人数
                 </span>
-                <span className="text-xs sm:text-sm font-bold text-emerald-700 tabular-nums">
-                  -9
+                <span className="text-xs font-mono font-bold text-slate-600 bg-slate-100 px-2 py-0.5">
+                  全职在册
                 </span>
-                <span className="text-sm font-bold text-slate-600">人</span>
+              </div>
+              <div className="flex items-baseline justify-between py-1">
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight font-mono tabular-nums">
+                    356
+                  </span>
+                  <span className="text-sm font-bold text-slate-600">人</span>
+                </div>
+                <div className="flex items-center gap-1 text-xs sm:text-sm font-mono font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5">
+                  <span>↓ 较年初</span>
+                  <span>-9 人</span>
+                </div>
               </div>
             </div>
 
             {/* Card 2: 外包人力 */}
-            <div className="bg-white border border-slate-200 p-6 text-center space-y-2 flex flex-col justify-between">
-              <span className="text-xs sm:text-sm font-bold text-slate-600 block uppercase tracking-wider">
-                外包人力编制
-              </span>
-              <div className="flex items-baseline justify-center gap-2 py-1">
-                <span className="text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight tabular-nums">
-                  100
+            <div className="bg-white border border-slate-200 p-6 flex flex-col justify-between space-y-3">
+              <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+                <span className="text-xs sm:text-sm font-bold text-slate-700 tracking-wider uppercase">
+                  外包人力编制
                 </span>
-                <span className="text-xs sm:text-sm font-bold text-emerald-700 tabular-nums">
-                  -19
+                <span className="text-xs font-mono font-bold text-slate-600 bg-slate-100 px-2 py-0.5">
+                  外包编制
                 </span>
-                <span className="text-sm font-bold text-slate-600">人</span>
+              </div>
+              <div className="flex items-baseline justify-between py-1">
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight font-mono tabular-nums">
+                    100
+                  </span>
+                  <span className="text-sm font-bold text-slate-600">人</span>
+                </div>
+                <div className="flex items-center gap-1 text-xs sm:text-sm font-mono font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5">
+                  <span>↓ 持续压降</span>
+                  <span>-19 人</span>
+                </div>
               </div>
             </div>
           </div>
@@ -133,28 +149,30 @@ export const PersonnelDistribution: React.FC = () => {
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 items-stretch">
               {[
-                { label: "T场地", count: "3", change: "0", isIncrease: false },
-                { label: "D场地", count: "115", change: "↑ +44", isIncrease: true },
-                { label: "S场地", count: "211", change: "↓ -28", isIncrease: false },
-                { label: "F场地", count: "24", change: "↓ -28", isIncrease: false },
-                { label: "远程", count: "0", change: "0", isIncrease: false },
-                { label: "外包", count: "100", change: "↓ -19", isIncrease: false },
+                { label: "T场地", count: "3", change: "持平 0", isIncrease: false, isZero: true },
+                { label: "D场地", count: "115", change: "↑ +44", isIncrease: true, isZero: false },
+                { label: "S场地", count: "211", change: "↓ -28", isIncrease: false, isZero: false },
+                { label: "F场地", count: "24", change: "↓ -28", isIncrease: false, isZero: false },
+                { label: "远程", count: "0", change: "已清零", isIncrease: false, isZero: true },
+                { label: "外包", count: "100", change: "↓ -19", isIncrease: false, isZero: false },
               ].map((item) => (
                 <div
                   key={item.label}
                   className="bg-white border border-slate-200 p-4 text-center flex flex-col items-center justify-between space-y-2 h-full"
                 >
-                  <div className="text-xs sm:text-sm font-bold text-slate-700 tracking-wide">
+                  <div className="text-xs sm:text-sm font-bold text-slate-700 tracking-wide pb-1.5 border-b border-slate-100 w-full">
                     {item.label}
                   </div>
-                  <div className="text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight tabular-nums">
+                  <div className="text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight font-mono tabular-nums py-0.5">
                     {item.count}
                   </div>
                   <div
-                    className={`text-xs font-bold tabular-nums ${
+                    className={`text-xs font-mono font-bold tabular-nums px-1.5 py-0.5 w-full ${
                       item.isIncrease
-                        ? "text-blue-700"
-                        : "text-slate-600"
+                        ? "text-blue-800 bg-blue-50 border border-blue-200"
+                        : item.isZero
+                        ? "text-slate-500 bg-slate-50 border border-slate-100"
+                        : "text-emerald-800 bg-emerald-50 border border-emerald-200"
                     }`}
                   >
                     {item.change}

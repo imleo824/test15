@@ -81,28 +81,28 @@ export const SafetyArchitectureDiagram: React.FC = () => {
 
       {/* 架构主体：专业标准审计风格表格 */}
       <ReportTableFrame>
-        <table className="w-full text-left border-collapse min-w-[700px]">
+        <table className="report-dense-table report-data-table w-full text-left border-collapse min-w-[700px]">
           <thead>
             <tr className="bg-slate-50 border-b border-slate-200">
-              <th className="py-3 px-4 sm:px-5 text-xs font-bold text-slate-900 uppercase tracking-wider w-[18%]">
+              <th className="py-2.5 px-4 text-xs font-bold text-slate-900 uppercase tracking-wider w-[18%]">
                 防御层级
               </th>
-              <th className="py-3 px-4 sm:px-5 text-xs font-bold text-slate-900 uppercase tracking-wider w-[26%]">
+              <th className="py-2.5 px-4 text-xs font-bold text-slate-900 uppercase tracking-wider w-[26%]">
                 管控场景
               </th>
-              <th className="py-3 px-4 sm:px-5 text-xs font-bold text-slate-900 uppercase tracking-wider text-center w-[14%]">
+              <th className="py-2.5 px-4 text-xs font-bold text-slate-900 uppercase tracking-wider text-center w-[14%]">
                 治理状态
               </th>
-              <th className="py-3 px-4 sm:px-5 text-xs font-bold text-slate-900 uppercase tracking-wider w-[42%]">
+              <th className="py-2.5 px-4 text-xs font-bold text-slate-900 uppercase tracking-wider w-[42%]">
                 核心防护举措
               </th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-100 text-slate-800">
+          <tbody className="divide-y divide-slate-100 text-slate-800 text-xs sm:text-sm">
             {tiers.map((tier) => (
-              <tr key={tier.level} className="hover:bg-slate-50/60 transition-colors">
+              <tr key={tier.level} className="bg-white">
                 {/* 1. 防御层级 */}
-                <td className="py-4 px-4 sm:px-5 align-top">
+                <td className="py-3 px-4 align-top">
                   <div className="flex items-center gap-2">
                     <span className="font-mono text-xs font-bold px-1.5 py-0.5 bg-slate-900 text-white leading-none shrink-0">
                       {tier.level}
@@ -114,14 +114,14 @@ export const SafetyArchitectureDiagram: React.FC = () => {
                 </td>
 
                 {/* 2. 管控场景 */}
-                <td className="py-4 px-4 sm:px-5 align-top">
-                  <span className="text-sm sm:text-[14.5px] font-bold text-slate-950 leading-relaxed block">
+                <td className="py-3 px-4 align-top">
+                  <span className="text-sm font-bold text-slate-950 leading-relaxed block">
                     {tier.controlScene}
                   </span>
                 </td>
 
                 {/* 3. 治理状态 */}
-                <td className="py-4 px-4 sm:px-5 align-top text-center">
+                <td className="py-3 px-4 align-top text-center">
                   {tier.status === "执行中" ? (
                     <span className="inline-flex items-center gap-1.5 text-blue-900 font-bold text-xs sm:text-sm font-mono px-2 py-0.5 bg-blue-50 border border-blue-200">
                       <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
@@ -136,8 +136,8 @@ export const SafetyArchitectureDiagram: React.FC = () => {
                 </td>
 
                 {/* 4. 核心防护举措 */}
-                <td className="py-4 px-4 sm:px-5 align-top">
-                  <ul className="space-y-1.5 text-sm sm:text-[14.5px] text-slate-800">
+                <td className="py-3 px-4 align-top">
+                  <ul className="space-y-1.5 text-sm text-slate-800">
                     {tier.keyPoints.map((pt, pIdx) => (
                       <li key={pIdx} className="flex items-start gap-2">
                         <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>

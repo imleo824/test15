@@ -144,13 +144,13 @@ export const AuditOverviewAgentInterception: React.FC = () => {
       {/* 统一总结模块 */}
       <SummaryBox>
         <div className="space-y-3">
-          <div className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
+          <div className="text-sm text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
               "代理拦截以[[佣金]]为主体，[[活动类]]与[[首复存]]为主要补充。"
             )}
           </div>
           <ul className="space-y-2 text-slate-700">
-            <li className="flex items-start gap-2 text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
+            <li className="flex items-start gap-2 text-sm text-slate-700 font-normal leading-relaxed">
               <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
               <span>
                 {highlightNumbers(
@@ -158,7 +158,7 @@ export const AuditOverviewAgentInterception: React.FC = () => {
                 )}
               </span>
             </li>
-            <li className="flex items-start gap-2 text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
+            <li className="flex items-start gap-2 text-sm text-slate-700 font-normal leading-relaxed">
               <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
               <span>
                 {highlightNumbers(
@@ -166,7 +166,7 @@ export const AuditOverviewAgentInterception: React.FC = () => {
                 )}
               </span>
             </li>
-            <li className="flex items-start gap-2 text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
+            <li className="flex items-start gap-2 text-sm text-slate-700 font-normal leading-relaxed">
               <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
               <span>
                 {highlightNumbers(

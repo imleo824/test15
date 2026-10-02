@@ -231,26 +231,29 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
       title="系统出单趋势对比"
       description={
         <span>
-          2026年1月至9月，<strong>系统出单比例</strong>由 1~8月均值的 <strong>49.77% 强劲攀升至 9.30全量的 65.00%</strong>；同时 <strong>系统质检率由 1~8月均值的 0.141%（1月峰值 0.324%）持续大幅压降并收敛至极低的 0.072% 安全极值</strong>，<strong>实现了“放量大升，出单质量不降反升”的重大兼顾。</strong>
+          2026年1月至9月，<strong className="text-slate-900 font-bold">系统出单比例</strong>由 1~8月均值的 <span className="font-mono font-bold text-slate-950">49.77%</span> 攀升至 9.30全量的 <span className="font-mono font-bold text-slate-950">65.00%</span>；同时 <strong className="text-slate-900 font-bold">系统质检率</strong>由 1~8月均值的 <span className="font-mono font-bold text-slate-950">0.141%</span>（1月峰值 0.324%）大幅压降并收敛至极低的 <span className="font-mono font-bold text-emerald-800">0.072%</span> 安全极值，实现了<span className="font-bold text-blue-950 bg-blue-100/90 border border-blue-300 px-2 py-0.5 mx-1 inline-block select-none">“放量大升，出单质量不降反升”</span>的重大兼顾。
         </span>
       }
       bodyHeight="h-[510px]"
       footnote="注：数据周期为 2026年1月至2026年9月（含 9.30 全量推全节点）。左 Y 轴出单比例展示系统出单放量趋势；右 Y 轴质检率展示质量持续改善与收敛落差。"
     >
       <div className="flex flex-col h-full justify-between">
-        {/* 顶部：系统自身出单与质检率演进对比看板 (聚焦系统本身：1~8月基线 ➔ 9月灰度 ➔ 930全量) */}
+        {/* 顶部：系统自身出单与质检率演进对比看板 (聚焦系统本身：1~8月基线 ➔ 930全量 ➔ 变化与比例) */}
         <div className="overflow-x-auto my-1.5">
           <table className="w-full text-sm sm:text-base text-center border-collapse report-data-table">
             <thead>
               <tr className="border-b border-slate-200 text-slate-800">
-                <th className="py-2.5 px-3 text-left font-bold text-slate-500 text-xs sm:text-sm w-36">系统核心指标</th>
+                <th className="py-2.5 px-3 text-left font-bold text-slate-500 text-xs sm:text-sm w-32">系统核心指标</th>
                 <th className="py-2.5 px-4 font-bold text-slate-700 text-sm sm:text-base">1~8月 (均值基线)</th>
-                <th className="w-8 py-2.5 text-slate-400 font-mono"></th>
+                <th className="w-6 py-2.5 text-slate-400 font-mono"></th>
                 <th className="py-2.5 px-4 font-bold text-blue-950 bg-blue-100/80 text-sm sm:text-base">
                   <div className="flex items-center justify-center gap-1.5">
                     <span className="w-2 h-2 bg-blue-800 shrink-0"></span>
                     <span>930 (全量推全)</span>
                   </div>
+                </th>
+                <th className="py-2.5 px-4 font-bold text-slate-900 text-sm sm:text-base bg-slate-50 border-l border-slate-200/80">
+                  变化
                 </th>
               </tr>
             </thead>
@@ -260,14 +263,22 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
                 <td className="py-3 px-3 text-left font-bold text-slate-900 text-sm">
                   出单比例
                 </td>
-                <td className="py-3 px-4 font-bold text-slate-700 text-sm sm:text-base">
+                <td className="py-3 px-4 font-bold text-slate-700 text-sm sm:text-base font-mono">
                   49.77%
                 </td>
                 <td className="py-3 text-center font-bold text-blue-600 text-base sm:text-lg">
                   ➔
                 </td>
-                <td className="py-3 px-4 font-bold text-blue-950 bg-blue-100/40 text-sm sm:text-base">
+                <td className="py-3 px-4 font-bold text-blue-950 bg-blue-100/40 text-sm sm:text-base font-mono">
                   65.00%
+                </td>
+                <td className="py-3 px-4 text-center font-mono bg-slate-50/60 border-l border-slate-200/80">
+                  <div className="inline-flex items-center justify-center gap-1.5 flex-wrap">
+                    <span className="font-bold text-blue-950 text-sm sm:text-base">+15.23%</span>
+                    <span className="text-xs font-bold text-blue-800 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded-xs">
+                      ↑ +30.60%
+                    </span>
+                  </div>
                 </td>
               </tr>
 
@@ -276,14 +287,22 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
                 <td className="py-3 px-3 text-left font-bold text-slate-900 text-sm">
                   质检率
                 </td>
-                <td className="py-3 px-4 font-bold text-red-700 text-sm sm:text-base">
-                  0.141% <span className="text-xs text-slate-500 font-normal">(1月 0.324%)</span>
+                <td className="py-3 px-4 font-bold text-slate-700 text-sm sm:text-base font-mono">
+                  0.141% <span className="text-xs text-slate-500 font-normal font-sans">(1月 0.324%)</span>
                 </td>
                 <td className="py-3 text-center font-bold text-emerald-600 text-base sm:text-lg">
                   ➔
                 </td>
-                <td className="py-3 px-4 font-bold text-emerald-700 bg-blue-100/40 text-sm sm:text-base">
+                <td className="py-3 px-4 font-bold text-emerald-700 bg-blue-100/40 text-sm sm:text-base font-mono">
                   0.072%
+                </td>
+                <td className="py-3 px-4 text-center font-mono bg-slate-50/60 border-l border-slate-200/80">
+                  <div className="inline-flex items-center justify-center gap-1.5 flex-wrap">
+                    <span className="font-bold text-emerald-800 text-sm sm:text-base">-0.069%</span>
+                    <span className="text-xs font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded-xs">
+                      ↓ -48.94%
+                    </span>
+                  </div>
                 </td>
               </tr>
             </tbody>

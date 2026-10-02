@@ -64,13 +64,13 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
 
       {/* 统一总结模块 */}
       <SummaryBox>
-        <p className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed mb-2.5">
+        <p className="text-sm text-slate-700 font-normal leading-relaxed mb-2.5">
           {highlightNumbers(
             "[[高等级会员违规处置]]共 [[810人]]，涉及金额 [[5,790.60w]]（占总拦截金额 [[21.26%]]）：",
           )}
         </p>
         <ul className="mt-3 space-y-2.5 text-slate-700">
-          <li className="flex items-start gap-2 text-sm sm:text-[15.5px] text-slate-700">
+          <li className="flex items-start gap-2 text-sm text-slate-700">
             <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2" />
             <span className="leading-relaxed">
               {highlightNumbers(
@@ -78,7 +78,7 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
               )}
             </span>
           </li>
-          <li className="flex items-start gap-2 text-sm sm:text-[15.5px] text-slate-700">
+          <li className="flex items-start gap-2 text-sm text-slate-700">
             <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2" />
             <div className="flex-1">
               <span className="text-slate-950 font-bold">业务分析：</span>
@@ -94,7 +94,7 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
               </ul>
             </div>
           </li>
-          <li className="flex items-start gap-2 text-sm sm:text-[15.5px] text-slate-700">
+          <li className="flex items-start gap-2 text-sm text-slate-700">
             <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2" />
             <div className="flex-1">
               <span className="text-slate-950 font-bold">持续优化：</span>

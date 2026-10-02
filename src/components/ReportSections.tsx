@@ -146,7 +146,7 @@ export const ReportMetricCard: React.FC<{
           : "bg-white border-slate-200 text-slate-900"
       } ${className}`}
     >
-      <div className={`text-sm sm:text-[15.5px] font-bold tracking-wide uppercase ${isDark ? "text-slate-300" : "text-slate-700"}`}>{title}</div>
+      <div className={`text-sm font-bold tracking-wide uppercase ${isDark ? "text-slate-300" : "text-slate-700"}`}>{title}</div>
       <div className="my-3 flex items-baseline gap-1.5">
         <span className={`text-3xl sm:text-4xl font-bold tabular-nums tracking-tight ${isDark ? "text-white" : "text-slate-950"}`}>
           {value}
@@ -156,7 +156,7 @@ export const ReportMetricCard: React.FC<{
         )}
       </div>
       {detail && (
-        <div className={`text-sm sm:text-[15.5px] leading-relaxed font-normal pt-3 border-t ${isDark ? "border-slate-800 text-slate-300" : "border-slate-200 text-slate-700"}`}>
+        <div className={`text-sm leading-relaxed font-normal pt-3 border-t ${isDark ? "border-slate-800 text-slate-300" : "border-slate-200 text-slate-700"}`}>
           {detail}
         </div>
       )}
@@ -239,7 +239,7 @@ export const ReportChartCard: React.FC<{
         <div className="report-chart-card-head pb-3.5 mb-4 border-b border-slate-200 min-h-[52px]">
           <div className="min-w-0 pr-2">
             <span className="text-lg sm:text-xl font-bold text-slate-900 block">{title}</span>
-            {subtitle && <p className="text-sm sm:text-[15.5px] text-slate-600 font-normal mt-0.5">{subtitle}</p>}
+            {subtitle && <p className="text-sm text-slate-600 font-normal mt-0.5">{subtitle}</p>}
           </div>
           <div className="flex items-center gap-2.5 shrink-0">
             {badge}
@@ -249,7 +249,7 @@ export const ReportChartCard: React.FC<{
 
         {/* 一段文字说明 (Key Takeaway / 洞察分析) */}
         {description && (
-          <div className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed bg-slate-50/80 px-4 py-3 mb-5 flex items-center">
+          <div className="text-sm text-slate-700 font-normal leading-relaxed bg-slate-50/80 px-4 py-3 mb-5 flex items-center">
             {description}
           </div>
         )}
@@ -333,10 +333,10 @@ export const ReportCaseCard: React.FC<{
                 )}
               </div>
               <div className="flex-1 pb-1">
-                <div className="font-bold text-slate-900 text-sm sm:text-[15px] mb-0.5">
+                <div className="font-bold text-slate-900 text-sm mb-0.5">
                   {s.title}
                 </div>
-                <div className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal">
+                <div className="text-sm text-slate-700 leading-relaxed font-normal">
                   {s.content}
                 </div>
               </div>
@@ -381,7 +381,7 @@ export const ReportCompareBlock: React.FC<{
             {beforeTag}
           </span>
         </div>
-        <div className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal flex-1 space-y-2">
+        <div className="text-sm text-slate-700 leading-relaxed font-normal flex-1 space-y-2">
           {beforeContent}
         </div>
       </div>
@@ -395,7 +395,7 @@ export const ReportCompareBlock: React.FC<{
             {afterTag}
           </span>
         </div>
-        <div className="text-sm sm:text-[15px] text-slate-800 leading-relaxed font-normal flex-1 space-y-2">
+        <div className="text-sm text-slate-800 leading-relaxed font-normal flex-1 space-y-2">
           {afterContent}
         </div>
       </div>

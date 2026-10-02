@@ -64,9 +64,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 px-3.5 py-1.5 bg-slate-900 text-white font-mono font-bold text-xs shrink-0">
+              <div className="flex items-center gap-1.5 px-3.5 py-1.5 bg-slate-900 text-white font-mono font-bold text-xs shrink-0">
                 <span>系统占比 +15.0%</span>
-                <span className="text-emerald-400 font-bold">➔</span>
+                <span className="text-emerald-400 font-bold text-sm leading-none">↑</span>
               </div>
 
               <div className="flex-1 flex items-center justify-between px-3 py-1 w-full md:w-auto">
@@ -94,9 +94,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 px-3.5 py-1.5 bg-slate-900 text-white font-mono font-bold text-xs shrink-0">
+              <div className="flex items-center gap-1.5 px-3.5 py-1.5 bg-slate-900 text-white font-mono font-bold text-xs shrink-0">
                 <span>人工占比 -15.0%</span>
-                <span className="text-rose-400 font-bold">➔</span>
+                <span className="text-rose-400 font-bold text-sm leading-none">↓</span>
               </div>
 
               <div className="flex-1 flex items-center justify-between px-3 py-1 w-full md:w-auto">
@@ -280,8 +280,8 @@ export const SystemAuditEvolutionSection: React.FC = () => {
         {/* 核心收益结构化气泡/卡片 */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pb-1">
           {/* Bubble 1: 规模跃升 */}
-          <div className="bg-slate-50 border border-slate-200 p-4 rounded-sm flex flex-col justify-between space-y-2.5 hover:border-slate-300 transition-colors">
-            <div className="flex items-center gap-2">
+          <div className="bg-white border border-slate-200 p-4 sm:p-5 flex flex-col justify-between space-y-2.5">
+            <div className="flex items-center gap-2 pb-2 border-b border-slate-100">
               <span className="w-2 h-2 rounded-full bg-blue-600 shrink-0"></span>
               <strong className="text-sm font-bold text-slate-900">核心维度 · 规模放量跃升</strong>
             </div>
@@ -291,8 +291,8 @@ export const SystemAuditEvolutionSection: React.FC = () => {
           </div>
 
           {/* Bubble 2: 时效提速 */}
-          <div className="bg-slate-50 border border-slate-200 p-4 rounded-sm flex flex-col justify-between space-y-2.5 hover:border-slate-300 transition-colors">
-            <div className="flex items-center gap-2">
+          <div className="bg-white border border-slate-200 p-4 sm:p-5 flex flex-col justify-between space-y-2.5">
+            <div className="flex items-center gap-2 pb-2 border-b border-slate-100">
               <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0"></span>
               <strong className="text-sm font-bold text-slate-900">核心维度 · 审核时效提速</strong>
             </div>
@@ -302,18 +302,18 @@ export const SystemAuditEvolutionSection: React.FC = () => {
           </div>
 
           {/* Bubble 3: 降本止损 */}
-          <div className="bg-slate-50 border border-slate-200 p-4 rounded-sm flex flex-col justify-between space-y-2.5 hover:border-slate-300 transition-colors">
-            <div className="flex items-center justify-between">
+          <div className="bg-white border border-slate-200 p-4 sm:p-5 flex flex-col justify-between space-y-2.5">
+            <div className="flex items-center justify-between pb-2 border-b border-slate-100">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-600 shrink-0"></span>
                 <strong className="text-sm font-bold text-slate-900">核心维度 · 综合降本止损</strong>
               </div>
-              <span className="text-[11px] font-mono font-bold text-emerald-800 bg-emerald-50 border border-emerald-100 px-1.5 py-0.5 rounded-xs select-none">
+              <span className="text-[11px] font-mono font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 select-none">
                 合计约 250w/月
               </span>
             </div>
             <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal flex-1">
-              清退外包节省采购硬成本 <span className="text-emerald-700 font-bold font-mono">小 100w/月</span> 并免除质检漏洞每月 <span className="text-emerald-700 font-bold font-mono">直接止损 50w+ 元</span>；人审比例降低精简总部审核量，理论实现降本 <span className="text-emerald-700 font-bold font-mono">约 100w/月</span>。月度直接与理论经济价值共计 <span className="text-emerald-700 font-bold font-mono">约 250w/月</span>。
+              外包节省成本 <span className="text-emerald-700 font-bold font-mono">近 100w/月</span>、堵塞质检漏洞 <span className="text-emerald-700 font-bold font-mono">直接止损 50w+/月</span>；叠加人审精简理论降本 <span className="text-emerald-700 font-bold font-mono">约 100w/月</span>，月度综合价值合计 <span className="text-emerald-700 font-bold font-mono">约 250w/月</span>。
             </p>
           </div>
         </div>
@@ -339,22 +339,22 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 <div className="space-y-2 py-1">
                   {/* 组 1：系统自动审核 */}
                   <div className="flex items-stretch gap-2">
-                    <div className="w-10 bg-slate-100 text-slate-800 text-[11px] font-bold flex items-center justify-center shrink-0 rounded-sm select-none">
+                    <div className="w-12 bg-slate-100 text-slate-800 text-xs font-bold flex items-center justify-center shrink-0 select-none">
                       系统
                     </div>
                     <div className="grid grid-cols-2 gap-2 flex-1">
-                      <div className="bg-slate-50 p-1.5 text-center flex flex-col justify-center space-y-0.5">
-                        <span className="text-[9px] font-bold text-slate-500 uppercase block">1-9月月均</span>
-                        <div className="font-mono text-sm font-bold text-slate-700">50.4%</div>
+                      <div className="bg-slate-50 p-2 text-center flex flex-col justify-center space-y-0.5">
+                        <span className="text-xs font-bold text-slate-500 uppercase tracking-tight block">1-9月月均</span>
+                        <div className="font-mono text-sm sm:text-base font-bold text-slate-700">50.4%</div>
                       </div>
-                      <div className="bg-slate-50 p-1.5 text-center flex flex-col justify-center space-y-0.5">
-                        <span className="text-[9px] font-bold text-slate-950 uppercase block">系统930</span>
-                        <div className="font-mono text-sm font-bold text-slate-950">65.0%</div>
+                      <div className="bg-slate-50 p-2 text-center flex flex-col justify-center space-y-0.5">
+                        <span className="text-xs font-bold text-slate-950 uppercase tracking-tight block">系统930</span>
+                        <div className="font-mono text-sm sm:text-base font-bold text-slate-950">65.0%</div>
                       </div>
                     </div>
-                    <div className="bg-emerald-50 border border-emerald-100 p-1.5 text-center flex flex-col justify-center items-center w-[30%] min-w-[85px] shrink-0 space-y-0.5 rounded-sm">
-                      <span className="text-[9px] font-bold text-emerald-800 uppercase flex items-center gap-0.5 justify-center">
-                        <TrendingUp className="w-2.5 h-3 text-emerald-700 shrink-0" />
+                    <div className="bg-emerald-50 border border-emerald-200 p-2 text-center flex flex-col justify-center items-center w-[30%] min-w-[90px] shrink-0 space-y-0.5">
+                      <span className="text-xs font-bold text-emerald-800 uppercase flex items-center gap-0.5 justify-center">
+                        <TrendingUp className="w-3 h-3 text-emerald-700 shrink-0" />
                         <span>增幅</span>
                       </span>
                       <div className="font-mono text-xs sm:text-sm font-bold text-emerald-700">+29.0%</div>
@@ -363,22 +363,22 @@ export const SystemAuditEvolutionSection: React.FC = () => {
 
                   {/* 组 2：外包单量变化 */}
                   <div className="flex items-stretch gap-2">
-                    <div className="w-10 bg-slate-100 text-slate-800 text-[11px] font-bold flex items-center justify-center shrink-0 rounded-sm select-none">
+                    <div className="w-12 bg-slate-100 text-slate-800 text-xs font-bold flex items-center justify-center shrink-0 select-none">
                       外包
                     </div>
                     <div className="grid grid-cols-2 gap-2 flex-1">
-                      <div className="bg-slate-50 p-1.5 text-center flex flex-col justify-center space-y-0.5">
-                        <span className="text-[9px] font-bold text-slate-500 uppercase block">1-9月月均</span>
-                        <div className="font-mono text-sm font-bold text-slate-700">9.7%</div>
+                      <div className="bg-slate-50 p-2 text-center flex flex-col justify-center space-y-0.5">
+                        <span className="text-xs font-bold text-slate-500 uppercase tracking-tight block">1-9月月均</span>
+                        <div className="font-mono text-sm sm:text-base font-bold text-slate-700">9.7%</div>
                       </div>
-                      <div className="bg-slate-50 p-1.5 text-center flex flex-col justify-center space-y-0.5">
-                        <span className="text-[9px] font-bold text-slate-950 uppercase block">外包930</span>
-                        <div className="font-mono text-sm font-bold text-slate-950">0.6%</div>
+                      <div className="bg-slate-50 p-2 text-center flex flex-col justify-center space-y-0.5">
+                        <span className="text-xs font-bold text-slate-950 uppercase tracking-tight block">外包930</span>
+                        <div className="font-mono text-sm sm:text-base font-bold text-slate-950">0.6%</div>
                       </div>
                     </div>
-                    <div className="bg-rose-50 border border-rose-100 p-1.5 text-center flex flex-col justify-center items-center w-[30%] min-w-[85px] shrink-0 space-y-0.5 rounded-sm">
-                      <span className="text-[9px] font-bold text-rose-800 uppercase flex items-center gap-0.5 justify-center">
-                        <TrendingDown className="w-2.5 h-3 text-rose-700 shrink-0" />
+                    <div className="bg-rose-50 border border-rose-200 p-2 text-center flex flex-col justify-center items-center w-[30%] min-w-[90px] shrink-0 space-y-0.5">
+                      <span className="text-xs font-bold text-rose-800 uppercase flex items-center gap-0.5 justify-center">
+                        <TrendingDown className="w-3 h-3 text-rose-700 shrink-0" />
                         <span>压降</span>
                       </span>
                       <div className="font-mono text-xs sm:text-sm font-bold text-rose-700">-93.8%</div>
@@ -387,22 +387,22 @@ export const SystemAuditEvolutionSection: React.FC = () => {
 
                   {/* 组 3：总部单量变化 */}
                   <div className="flex items-stretch gap-2">
-                    <div className="w-10 bg-slate-100 text-slate-800 text-[11px] font-bold flex items-center justify-center shrink-0 rounded-sm select-none">
+                    <div className="w-12 bg-slate-100 text-slate-800 text-xs font-bold flex items-center justify-center shrink-0 select-none">
                       总部
                     </div>
                     <div className="grid grid-cols-2 gap-2 flex-1">
-                      <div className="bg-slate-50 p-1.5 text-center flex flex-col justify-center space-y-0.5">
-                        <span className="text-[9px] font-bold text-slate-500 uppercase block">1-9月月均</span>
-                        <div className="font-mono text-sm font-bold text-slate-700">40.0%</div>
+                      <div className="bg-slate-50 p-2 text-center flex flex-col justify-center space-y-0.5">
+                        <span className="text-xs font-bold text-slate-500 uppercase tracking-tight block">1-9月月均</span>
+                        <div className="font-mono text-sm sm:text-base font-bold text-slate-700">40.0%</div>
                       </div>
-                      <div className="bg-slate-50 p-1.5 text-center flex flex-col justify-center space-y-0.5">
-                        <span className="text-[9px] font-bold text-slate-950 uppercase block">总部930</span>
-                        <div className="font-mono text-sm font-bold text-slate-950">34.4%</div>
+                      <div className="bg-slate-50 p-2 text-center flex flex-col justify-center space-y-0.5">
+                        <span className="text-xs font-bold text-slate-950 uppercase tracking-tight block">总部930</span>
+                        <div className="font-mono text-sm sm:text-base font-bold text-slate-950">34.4%</div>
                       </div>
                     </div>
-                    <div className="bg-rose-50 border border-rose-100 p-1.5 text-center flex flex-col justify-center items-center w-[30%] min-w-[85px] shrink-0 space-y-0.5 rounded-sm">
-                      <span className="text-[9px] font-bold text-rose-800 uppercase flex items-center gap-0.5 justify-center">
-                        <TrendingDown className="w-2.5 h-3 text-rose-700 shrink-0" />
+                    <div className="bg-rose-50 border border-rose-200 p-2 text-center flex flex-col justify-center items-center w-[30%] min-w-[90px] shrink-0 space-y-0.5">
+                      <span className="text-xs font-bold text-rose-800 uppercase flex items-center gap-0.5 justify-center">
+                        <TrendingDown className="w-3 h-3 text-rose-700 shrink-0" />
                         <span>精简</span>
                       </span>
                       <div className="font-mono text-xs sm:text-sm font-bold text-rose-700">-14.0%</div>
@@ -459,22 +459,22 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 <div className="space-y-2 py-1">
                   {/* 组 1：平均停留时间 */}
                   <div className="flex items-stretch gap-2">
-                    <div className="w-10 bg-slate-100 text-slate-800 text-[11px] font-bold flex items-center justify-center shrink-0 rounded-sm select-none">
+                    <div className="w-12 bg-slate-100 text-slate-800 text-xs font-bold flex items-center justify-center shrink-0 select-none">
                       全盘
                     </div>
                     <div className="grid grid-cols-2 gap-2 flex-1">
-                      <div className="bg-slate-50 p-1.5 text-center flex flex-col justify-center space-y-0.5">
-                        <span className="text-[9px] font-bold text-slate-500 uppercase block">原来</span>
-                        <div className="font-mono text-sm font-bold text-slate-700">4.13分</div>
+                      <div className="bg-slate-50 p-2 text-center flex flex-col justify-center space-y-0.5">
+                        <span className="text-xs font-bold text-slate-500 uppercase tracking-tight block">原来</span>
+                        <div className="font-mono text-sm sm:text-base font-bold text-slate-700">4.13分</div>
                       </div>
-                      <div className="bg-slate-50 p-1.5 text-center flex flex-col justify-center space-y-0.5">
-                        <span className="text-[9px] font-bold text-slate-950 uppercase block">现在</span>
-                        <div className="font-mono text-sm font-bold text-slate-950">2.96分</div>
+                      <div className="bg-slate-50 p-2 text-center flex flex-col justify-center space-y-0.5">
+                        <span className="text-xs font-bold text-slate-950 uppercase tracking-tight block">现在</span>
+                        <div className="font-mono text-sm sm:text-base font-bold text-slate-950">2.96分</div>
                       </div>
                     </div>
-                    <div className="bg-emerald-50 border border-emerald-100 p-1.5 text-center flex flex-col justify-center items-center w-[30%] min-w-[85px] shrink-0 space-y-0.5 rounded-sm">
-                      <span className="text-[9px] font-bold text-emerald-800 uppercase flex items-center gap-0.5 justify-center">
-                        <TrendingUp className="w-2.5 h-3 text-emerald-700 shrink-0" />
+                    <div className="bg-emerald-50 border border-emerald-200 p-2 text-center flex flex-col justify-center items-center w-[30%] min-w-[90px] shrink-0 space-y-0.5">
+                      <span className="text-xs font-bold text-emerald-800 uppercase flex items-center gap-0.5 justify-center">
+                        <TrendingUp className="w-3 h-3 text-emerald-700 shrink-0" />
                         <span>提速</span>
                       </span>
                       <div className="font-mono text-xs sm:text-sm font-bold text-emerald-700">+28.2%</div>
@@ -483,22 +483,22 @@ export const SystemAuditEvolutionSection: React.FC = () => {
 
                   {/* 组 2：系统秒级放行 */}
                   <div className="flex items-stretch gap-2">
-                    <div className="w-10 bg-slate-100 text-slate-800 text-[11px] font-bold flex items-center justify-center shrink-0 rounded-sm select-none">
+                    <div className="w-12 bg-slate-100 text-slate-800 text-xs font-bold flex items-center justify-center shrink-0 select-none">
                       系统
                     </div>
                     <div className="grid grid-cols-2 gap-2 flex-1">
-                      <div className="bg-slate-50 p-1.5 text-center flex flex-col justify-center space-y-0.5">
-                        <span className="text-[9px] font-bold text-slate-500 uppercase block">订单比例</span>
-                        <div className="font-mono text-sm font-bold text-slate-700">65.0%</div>
+                      <div className="bg-slate-50 p-2 text-center flex flex-col justify-center space-y-0.5">
+                        <span className="text-xs font-bold text-slate-500 uppercase tracking-tight block">订单比例</span>
+                        <div className="font-mono text-sm sm:text-base font-bold text-slate-700">65.0%</div>
                       </div>
-                      <div className="bg-slate-50 p-1.5 text-center flex flex-col justify-center space-y-0.5">
-                        <span className="text-[9px] font-bold text-slate-950 uppercase block">系统自动</span>
-                        <div className="font-mono text-sm font-bold text-slate-950">秒级通过</div>
+                      <div className="bg-slate-50 p-2 text-center flex flex-col justify-center space-y-0.5">
+                        <span className="text-xs font-bold text-slate-950 uppercase tracking-tight block">系统自动</span>
+                        <div className="font-mono text-sm sm:text-base font-bold text-slate-950">秒级通过</div>
                       </div>
                     </div>
-                    <div className="bg-emerald-50 border border-emerald-100 p-1.5 text-center flex flex-col justify-center items-center w-[30%] min-w-[85px] shrink-0 space-y-0.5 rounded-sm">
-                      <span className="text-[9px] font-bold text-emerald-800 uppercase flex items-center gap-0.5 justify-center">
-                        <TrendingUp className="w-2.5 h-3 text-emerald-700 shrink-0" />
+                    <div className="bg-emerald-50 border border-emerald-200 p-2 text-center flex flex-col justify-center items-center w-[30%] min-w-[90px] shrink-0 space-y-0.5">
+                      <span className="text-xs font-bold text-emerald-800 uppercase flex items-center gap-0.5 justify-center">
+                        <TrendingUp className="w-3 h-3 text-emerald-700 shrink-0" />
                         <span>极速放行</span>
                       </span>
                       <div className="font-mono text-xs sm:text-sm font-bold text-emerald-700">15秒内</div>
@@ -548,22 +548,22 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 <div className="space-y-2 py-1">
                   {/* 组 1：系统自对比 */}
                   <div className="flex items-stretch gap-2">
-                    <div className="w-10 bg-slate-100 text-slate-800 text-[11px] font-bold flex items-center justify-center shrink-0 rounded-sm select-none">
+                    <div className="w-12 bg-slate-100 text-slate-800 text-xs font-bold flex items-center justify-center shrink-0 select-none">
                       系统
                     </div>
                     <div className="grid grid-cols-2 gap-2 flex-1">
-                      <div className="bg-slate-50 p-1.5 text-center flex flex-col justify-center space-y-0.5">
-                        <span className="text-[9px] font-bold text-slate-500 uppercase block">系统原来</span>
-                        <div className="font-mono text-sm font-bold text-slate-700">0.141%</div>
+                      <div className="bg-slate-50 p-2 text-center flex flex-col justify-center space-y-0.5">
+                        <span className="text-xs font-bold text-slate-500 uppercase tracking-tight block">系统原来</span>
+                        <div className="font-mono text-sm sm:text-base font-bold text-slate-700">0.141%</div>
                       </div>
-                      <div className="bg-slate-50 p-1.5 text-center flex flex-col justify-center space-y-0.5">
-                        <span className="text-[9px] font-bold text-slate-950 uppercase block">系统现在</span>
-                        <div className="font-mono text-sm font-bold text-slate-950">0.072%</div>
+                      <div className="bg-slate-50 p-2 text-center flex flex-col justify-center space-y-0.5">
+                        <span className="text-xs font-bold text-slate-950 uppercase tracking-tight block">系统现在</span>
+                        <div className="font-mono text-sm sm:text-base font-bold text-slate-950">0.072%</div>
                       </div>
                     </div>
-                    <div className="bg-emerald-50 border border-emerald-100 p-1.5 text-center flex flex-col justify-center items-center w-[30%] min-w-[85px] shrink-0 space-y-0.5 rounded-sm">
-                      <span className="text-[9px] font-bold text-emerald-800 uppercase flex items-center gap-0.5 justify-center">
-                        <TrendingUp className="w-2.5 h-3 text-emerald-700 shrink-0" />
+                    <div className="bg-emerald-50 border border-emerald-200 p-2 text-center flex flex-col justify-center items-center w-[30%] min-w-[90px] shrink-0 space-y-0.5">
+                      <span className="text-xs font-bold text-emerald-800 uppercase flex items-center gap-0.5 justify-center">
+                        <TrendingUp className="w-3 h-3 text-emerald-700 shrink-0" />
                         <span>自对比</span>
                       </span>
                       <div className="font-mono text-xs sm:text-sm font-bold text-emerald-700">+1.96倍</div>
@@ -572,22 +572,22 @@ export const SystemAuditEvolutionSection: React.FC = () => {
 
                   {/* 组 2：系统代外包 */}
                   <div className="flex items-stretch gap-2">
-                    <div className="w-10 bg-slate-100 text-slate-800 text-[11px] font-bold flex items-center justify-center shrink-0 rounded-sm select-none">
+                    <div className="w-12 bg-slate-100 text-slate-800 text-xs font-bold flex items-center justify-center shrink-0 select-none">
                       外包
                     </div>
                     <div className="grid grid-cols-2 gap-2 flex-1">
-                      <div className="bg-slate-50 p-1.5 text-center flex flex-col justify-center space-y-0.5">
-                        <span className="text-[9px] font-bold text-slate-500 uppercase block">外包均值</span>
-                        <div className="font-mono text-sm font-bold text-slate-700">1.910%</div>
+                      <div className="bg-slate-50 p-2 text-center flex flex-col justify-center space-y-0.5">
+                        <span className="text-xs font-bold text-slate-500 uppercase tracking-tight block">外包均值</span>
+                        <div className="font-mono text-sm sm:text-base font-bold text-slate-700">1.910%</div>
                       </div>
-                      <div className="bg-slate-50 p-1.5 text-center flex flex-col justify-center space-y-0.5">
-                        <span className="text-[9px] font-bold text-slate-950 uppercase block">系统现在</span>
-                        <div className="font-mono text-sm font-bold text-slate-950">0.072%</div>
+                      <div className="bg-slate-50 p-2 text-center flex flex-col justify-center space-y-0.5">
+                        <span className="text-xs font-bold text-slate-950 uppercase tracking-tight block">系统现在</span>
+                        <div className="font-mono text-sm sm:text-base font-bold text-slate-950">0.072%</div>
                       </div>
                     </div>
-                    <div className="bg-emerald-50 border border-emerald-100 p-1.5 text-center flex flex-col justify-center items-center w-[30%] min-w-[85px] shrink-0 space-y-0.5 rounded-sm">
-                      <span className="text-[9px] font-bold text-emerald-800 uppercase flex items-center gap-0.5 justify-center">
-                        <TrendingUp className="w-2.5 h-3 text-emerald-700 shrink-0" />
+                    <div className="bg-emerald-50 border border-emerald-200 p-2 text-center flex flex-col justify-center items-center w-[30%] min-w-[90px] shrink-0 space-y-0.5">
+                      <span className="text-xs font-bold text-emerald-800 uppercase flex items-center gap-0.5 justify-center">
+                        <TrendingUp className="w-3 h-3 text-emerald-700 shrink-0" />
                         <span>代外包</span>
                       </span>
                       <div className="font-mono text-xs sm:text-sm font-bold text-emerald-700">+26.5倍</div>
@@ -596,22 +596,22 @@ export const SystemAuditEvolutionSection: React.FC = () => {
 
                   {/* 组 3：系统助总部 */}
                   <div className="flex items-stretch gap-2">
-                    <div className="w-10 bg-slate-100 text-slate-800 text-[11px] font-bold flex items-center justify-center shrink-0 rounded-sm select-none">
+                    <div className="w-12 bg-slate-100 text-slate-800 text-xs font-bold flex items-center justify-center shrink-0 select-none">
                       总部
                     </div>
                     <div className="grid grid-cols-2 gap-2 flex-1">
-                      <div className="bg-slate-50 p-1.5 text-center flex flex-col justify-center space-y-0.5">
-                        <span className="text-[9px] font-bold text-slate-500 uppercase block">总部均值</span>
-                        <div className="font-mono text-sm font-bold text-slate-700">0.840%</div>
+                      <div className="bg-slate-50 p-2 text-center flex flex-col justify-center space-y-0.5">
+                        <span className="text-xs font-bold text-slate-500 uppercase tracking-tight block">总部均值</span>
+                        <div className="font-mono text-sm sm:text-base font-bold text-slate-700">0.840%</div>
                       </div>
-                      <div className="bg-slate-50 p-1.5 text-center flex flex-col justify-center space-y-0.5">
-                        <span className="text-[9px] font-bold text-slate-950 uppercase block">系统现在</span>
-                        <div className="font-mono text-sm font-bold text-slate-950">0.072%</div>
+                      <div className="bg-slate-50 p-2 text-center flex flex-col justify-center space-y-0.5">
+                        <span className="text-xs font-bold text-slate-950 uppercase tracking-tight block">系统现在</span>
+                        <div className="font-mono text-sm sm:text-base font-bold text-slate-950">0.072%</div>
                       </div>
                     </div>
-                    <div className="bg-emerald-50 border border-emerald-100 p-1.5 text-center flex flex-col justify-center items-center w-[30%] min-w-[85px] shrink-0 space-y-0.5 rounded-sm">
-                      <span className="text-[9px] font-bold text-emerald-800 uppercase flex items-center gap-0.5 justify-center">
-                        <TrendingUp className="w-2.5 h-3 text-emerald-700 shrink-0" />
+                    <div className="bg-emerald-50 border border-emerald-200 p-2 text-center flex flex-col justify-center items-center w-[30%] min-w-[90px] shrink-0 space-y-0.5">
+                      <span className="text-xs font-bold text-emerald-800 uppercase flex items-center gap-0.5 justify-center">
+                        <TrendingUp className="w-3 h-3 text-emerald-700 shrink-0" />
                         <span>助总部</span>
                       </span>
                       <div className="font-mono text-xs sm:text-sm font-bold text-emerald-700">+11.6倍</div>
@@ -731,45 +731,45 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   scenario: "历史拦截高危单 50%+ 存在跨站关联，过去为重大盲区；现在自动放行前实时识别比对跨站同设备、同资金链路等特征，补齐关键防线。",
                 },
               ].map((row, idx) => (
-                <div key={idx} className="bg-white border border-slate-200 p-4 sm:p-5 space-y-4 hover:border-slate-300 transition-colors">
+                <div key={idx} className="bg-white border border-slate-200 p-5 sm:p-6 space-y-4">
                   {/* 顶部标题与标签 */}
-                  <div className="flex items-center justify-between border-b border-slate-100 pb-2">
+                  <div className="flex items-center justify-between border-b border-slate-100 pb-2.5">
                     <div className="flex items-center gap-2">
                       <span className="w-1.5 h-3 bg-slate-900"></span>
-                      <span className="font-bold text-slate-950 text-sm sm:text-base">{row.dimension}</span>
+                      <span className="font-bold text-slate-950 text-base">{row.dimension}</span>
                     </div>
-                    <span className="text-[10px] font-mono font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-xs">
+                    <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-2 py-0.5 border border-slate-200">
                       {row.tag}
                     </span>
                   </div>
 
                   {/* VS 左右对比面板 */}
-                  <div className="grid grid-cols-1 md:grid-cols-11 gap-3 items-center">
+                  <div className="grid grid-cols-1 md:grid-cols-11 gap-3 sm:gap-4 items-center">
                     {/* 左：治理前基线 */}
-                    <div className="md:col-span-4 bg-slate-50 border border-slate-100 p-3 text-center space-y-1 rounded-xs">
-                      <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">治理前基线</span>
-                      <div className="text-xs sm:text-sm font-semibold text-slate-600 font-sans leading-relaxed">{row.before}</div>
+                    <div className="md:col-span-4 bg-slate-50 border border-slate-200 p-3.5 text-center space-y-1">
+                      <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block font-mono">治理前基线</span>
+                      <div className="text-xs sm:text-sm font-semibold text-slate-700 font-sans leading-relaxed">{row.before}</div>
                     </div>
 
                     {/* 中：VS / 核心升级举措 */}
                     <div className="md:col-span-3 flex flex-col items-center justify-center py-2 md:py-0">
-                      <span className="text-[10px] font-mono font-bold text-blue-800 bg-blue-50 border border-blue-100 px-2.5 py-0.5 rounded-full select-none inline-flex items-center gap-1 shrink-0 uppercase mb-1">
+                      <span className="text-xs font-mono font-bold text-blue-900 bg-blue-50 border border-blue-200 px-2.5 py-0.5 select-none inline-flex items-center gap-1 shrink-0 uppercase mb-1">
                         ⚡ VS 升级举措
                       </span>
-                      <div className="text-xs font-mono font-bold text-slate-900 border border-dashed border-slate-300 bg-slate-50 px-2.5 py-1 text-center">
+                      <div className="text-xs font-mono font-bold text-slate-950 border border-dashed border-slate-300 bg-slate-50 px-3 py-1 text-center w-full max-w-[200px]">
                         {row.upgrade}
                       </div>
                     </div>
 
                     {/* 右：治理后能力 */}
-                    <div className="md:col-span-4 bg-emerald-50/50 border border-emerald-100/60 p-3 text-center space-y-1 rounded-xs">
-                      <span className="text-[10px] font-bold text-emerald-800 uppercase tracking-wider block">治理后能力</span>
+                    <div className="md:col-span-4 bg-emerald-50/50 border border-emerald-200/80 p-3.5 text-center space-y-1">
+                      <span className="text-[11px] font-bold text-emerald-800 uppercase tracking-wider block font-mono">治理后能力</span>
                       <div className="text-xs sm:text-sm font-bold text-emerald-950 font-sans leading-relaxed">{row.after}</div>
                     </div>
                   </div>
 
                   {/* 底部实战价值描述 */}
-                  <div className="bg-slate-50/60 p-3 text-xs sm:text-sm text-slate-700 leading-relaxed border-l-2 border-slate-300">
+                  <div className="bg-slate-50/70 p-3.5 text-xs sm:text-sm text-slate-700 leading-relaxed border-l-2 border-slate-800">
                     <strong className="text-slate-900 block mb-1">实战业务场景与价值：</strong>
                     {row.scenario}
                   </div>
@@ -886,7 +886,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     </div>
 
                     {/* 策略扫描双重转人工触发逻辑（分数判定 + 高危特定组合熔断） */}
-                    <div className="bg-slate-50 border-l-2 border-slate-800 p-3.5 sm:p-4 space-y-2.5">
+                    <div className="bg-slate-50 border-l-2 border-slate-800 p-3.5 sm:p-4 space-y-3">
                       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-2 border-b border-slate-200">
                         <div className="flex items-center gap-2">
                           <span className="font-bold text-slate-950 text-xs sm:text-sm">
@@ -897,21 +897,26 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                           杜绝低分高危漏网
                         </span>
                       </div>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-[13px] leading-relaxed">
-                        <div className="space-y-1">
+
+                      {/* 纵向层叠布局：不分1行2列，各逻辑获得充分舒展空间 */}
+                      <div className="space-y-3 text-xs sm:text-[13px] leading-relaxed">
+                        {/* 逻辑一 */}
+                        <div className="bg-white p-3.5 border border-slate-200 space-y-1.5">
                           <div className="font-bold text-slate-950 flex items-center gap-1.5">
                             <span className="w-1.5 h-1.5 bg-slate-900 shrink-0"></span>
-                            <span>逻辑一：风险分值累加（标准量化）</span>
+                            <span className="text-sm">逻辑一：风险分值累加（标准量化）</span>
                           </div>
-                          <p className="text-slate-700">
+                          <p className="text-slate-700 pl-3">
                             50+ 项策略探针实时扫描计分，若加权总得分达到风险安全放行门槛（如 ≥ 60分），系统自动阻断并转人工审核。
                           </p>
                         </div>
-                        <div className="space-y-1.5">
-                          <div className="font-bold text-slate-950 flex flex-wrap items-center justify-between gap-1.5">
+
+                        {/* 逻辑二 */}
+                        <div className="bg-white p-3.5 border border-slate-200 space-y-2">
+                          <div className="font-bold text-slate-950 flex flex-wrap items-center justify-between gap-1.5 pb-1 border-b border-slate-100">
                             <div className="flex items-center gap-1.5">
                               <span className="w-1.5 h-1.5 bg-rose-600 shrink-0"></span>
-                              <span>逻辑二：特定策略组合熔断（低分高危强转）</span>
+                              <span className="text-sm">逻辑二：特定策略组合熔断（低分高危强转）</span>
                             </div>
                             <span className="text-[10px] font-mono font-bold text-rose-800 bg-rose-100/60 px-1.5 py-0.2 rounded-xs select-none">
                               VIP差异化 · 30+组合/级
@@ -920,7 +925,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                           <p className="text-slate-700">
                             即使<strong>总风险分数不高（未达分值门槛）</strong>，只要命中<strong>特定策略组合</strong>（如：<span className="font-mono font-bold text-rose-900 bg-rose-50 border border-rose-200 px-1 py-0.2">敏感资料变更 + 快进快出</span>，或 <span className="font-mono font-bold text-rose-900 bg-rose-50 border border-rose-200 px-1 py-0.2">新绑定账户 + 特邀红利超额</span>），同样直接强行转人工审核。
                           </p>
-                          <div className="pt-1.5 border-t border-slate-200 text-xs text-slate-800 space-y-1">
+                          <div className="pt-2 border-t border-slate-100 text-xs text-slate-800 space-y-1.5">
                             <div className="flex items-start gap-1.5">
                               <span className="text-rose-600 font-bold shrink-0">▸</span>
                               <p>
@@ -939,17 +944,17 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     </div>
 
                     {/* 4列策略扫描结果表格 (全量规则名称透视) */}
-                    <div className="overflow-x-auto">
-                      <table className="w-full text-left border-collapse bg-white">
+                    <ReportTableFrame>
+                      <table className="report-dense-table report-data-table w-full text-left border-collapse">
                         <thead>
-                          <tr className="bg-slate-100 text-slate-900 text-xs font-mono font-bold border-b border-slate-200">
+                          <tr className="bg-slate-50 text-slate-900 text-xs font-mono font-bold border-b border-slate-200 uppercase tracking-wider">
                             <th className="py-2.5 px-3 w-[16%]">分类</th>
                             <th className="py-2.5 px-3 w-[46%]">子项策略名称</th>
                             <th className="py-2.5 px-3 w-[18%] text-center">风险分数</th>
                             <th className="py-2.5 px-3 w-[20%] text-center">扫描结果</th>
                           </tr>
                         </thead>
-                        <tbody className="divide-y divide-slate-100 text-xs sm:text-[13px]">
+                        <tbody className="divide-y divide-slate-100 text-xs sm:text-sm">
                           {[
                             {
                               category: "账户",
@@ -1145,21 +1150,8 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                             </React.Fragment>
                           ))}
                         </tbody>
-                        <tfoot>
-                          <tr className="bg-slate-50 border-t border-slate-200 text-xs font-mono font-bold">
-                            <td className="py-2.5 px-3 font-bold text-slate-900" colSpan={2}>
-                              合计扫描结果（50+ 项策略探针）
-                            </td>
-                            <td className="py-2.5 px-3 text-center text-rose-700 font-bold text-sm">
-                              +105分
-                            </td>
-                            <td className="py-2.5 px-3 text-center text-rose-700 font-bold">
-                              5 异常 / 45 正常
-                            </td>
-                          </tr>
-                        </tfoot>
                       </table>
-                    </div>
+                    </ReportTableFrame>
                   </div>
                 </div>
 
@@ -1248,19 +1240,24 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       </div>
 
                       {/* 4. 判定放行或转人工 */}
-                      <div className="bg-slate-900 text-white p-4 flex flex-col justify-between space-y-2 relative">
+                      <div className="bg-rose-50/40 p-4 border border-rose-300 flex flex-col justify-between space-y-2.5 relative">
                         <div className="space-y-1.5">
-                          <div className="flex items-center justify-between pb-1.5 border-b border-slate-800">
-                            <span className="text-xs font-mono font-bold bg-rose-500 text-white px-2 py-0.5">04</span>
-                            <UserCheck className="w-4 h-4 text-amber-300" />
+                          <div className="flex items-center justify-between pb-1.5 border-b border-rose-200">
+                            <span className="text-xs font-mono font-bold bg-rose-600 text-white px-2 py-0.5">04</span>
+                            <span className="text-[11px] font-mono font-bold text-rose-800 bg-white border border-rose-200 px-1.5 py-0.5">
+                              终审阻断
+                            </span>
                           </div>
-                          <h6 className="font-bold text-white text-base pt-0.5">4. 判定放行或转人工</h6>
-                          <p className="text-sm text-slate-300 leading-relaxed">
+                          <h6 className="font-bold text-slate-950 text-base pt-0.5">4. 判定放行或转人工</h6>
+                          <p className="text-xs sm:text-[13px] text-slate-800 leading-relaxed">
                             超出放行安全分值（≥ 60 分）或命中高危特定组合（低分强转），均直接转人工精审；未超线且未中组合则放行。
                           </p>
                         </div>
-                        <div className="pt-2 border-t border-slate-800 text-xs sm:text-sm font-mono font-bold text-rose-300 flex items-center gap-1">
-                          <span>➔ 决策：阻断转人工</span>
+                        <div className="pt-2 border-t border-rose-200 text-xs sm:text-sm font-mono font-bold text-rose-800 flex items-center justify-between">
+                          <span>决策结果</span>
+                          <span className="bg-rose-100 text-rose-900 border border-rose-300 px-2 py-0.5">
+                            ➔ 阻断转人工
+                          </span>
                         </div>
                       </div>
                     </div>

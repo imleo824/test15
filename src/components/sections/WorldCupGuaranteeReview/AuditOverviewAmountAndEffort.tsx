@@ -62,12 +62,12 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
       {/* 文字总结区 */}
       <SummaryBox>
         <div className="space-y-2.5">
-          <div className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
+          <div className="text-sm text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
                "[[三季度整体拦截金额]]：累计拦截 [[2.72e]]；峰值月度受赛事与活动驱动达 [[1.046e]]。全面强化对[[批量黑产]]直接[[扣除本金]]处置，威慑效应显著，拦截趋势保持平稳可控。",
             )}
           </div>
-          <div className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
+          <div className="text-sm text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
               "[[三季度平均审核时长]]：依托[[系统分流]]与[[智能派单]]，[[平均人工审核时长]]稳定在 [[08:45]]；在单量峰值达 [[300.77w单]] 承压下，全盘审核时效平稳达标。",
             )}

@@ -113,7 +113,7 @@ export const AuditOverviewStudioInterception: React.FC = () => {
 
       {/* 统一总结模块 */}
       <SummaryBox>
-        <p className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
+        <p className="text-sm text-slate-700 font-normal leading-relaxed">
           {highlightNumbers(
             "[[工作室拦截总计]]达 [[4,819.44w]]。[[游戏品类分布]]中[[体育批量]]占据主导，达 [[2,051.09w]]（占比 [[42.56%]]）；其次为[[真人批量]]（[[849.46w]]，[[17.63%]]）与[[彩票批量]]（[[774.11w]]，[[16.06%]]）。[[站点分布]]中[[4站]]拦截规模居首，达 [[1,224.53w]]（占比 [[25.41%]]）。",
           )}

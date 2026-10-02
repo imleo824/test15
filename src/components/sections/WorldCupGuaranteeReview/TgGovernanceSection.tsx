@@ -161,7 +161,7 @@ export const TgGovernanceSection: React.FC = () => {
         </div>
 
         <SummaryBox className="space-y-2">
-          <p className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
+          <p className="text-sm text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
               "根据安全治理准则，对全部离线工作对接实施四级分类处置：[[非必要群聊]]坚决清零、[[日常沟通群]]严格控权、[[高风险审核业务]]全量工单收口、[[低风险咨询业务]]系统协同切换，彻底阻断线下无痕流转风险。"
             )}
@@ -325,7 +325,7 @@ export const TgGovernanceSection: React.FC = () => {
         <ReportSubsectionHeader title="3.2.2 线下群聊与系统工单流转对比" />
 
         <SummaryBox>
-          <p className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
+          <p className="text-sm text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
               "以真实报单跨群检索泄露为例，全面对比[[线下群明文裸露、口头催单无痕]]与[[系统工单脱敏流转、100% 审计存证]]，彻底阻断敏感数据外泄风险。"
             )}
@@ -412,7 +412,7 @@ export const TgGovernanceSection: React.FC = () => {
         <ReportSubsectionHeader title="3.2.3 高风险审核业务" />
 
         <SummaryBox>
-          <p className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
+          <p className="text-sm text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
               "以[[提款]]为发起点，推动[[审核]]、[[复审]]、[[KYC]]、[[扣款]]、[[禁用]]全面从离线群聊切换至风控工单，实现敏感信息保护与 100% 审计留痕。",
             )}

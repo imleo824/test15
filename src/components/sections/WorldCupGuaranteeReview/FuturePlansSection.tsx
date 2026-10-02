@@ -105,10 +105,10 @@ export const FuturePlansSection: React.FC = () => {
                   <div key={idx} className="flex items-start gap-2.5">
                     <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2"></span>
                     <div className="space-y-1">
-                      <h4 className="text-sm sm:text-[15.5px] font-bold text-slate-950 leading-snug">
+                      <h4 className="text-sm font-bold text-slate-950 leading-snug">
                         {item.title}
                       </h4>
-                      <p className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
+                      <p className="text-sm text-slate-700 font-normal leading-relaxed">
                         {highlightNumbers(item.desc)}
                       </p>
                     </div>

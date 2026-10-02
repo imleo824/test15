@@ -152,7 +152,7 @@ export const SecurityUpgradeSection: React.FC = () => {
       {/* 3.3 章节核心导语 */}
       <SummaryBox variant="module">
         <div className="space-y-2.5">
-          <p className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
+          <p className="text-sm text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
               "针对底层安全机制的实际运作痛点，全面聚焦[[敏感信息维护、敏感异常操作、敏感信息修改]]三大核心场景推进加固改造，以系统硬规则约束一线裁量，筑牢底层安全合规防线。"
             )}
@@ -173,7 +173,7 @@ export const SecurityUpgradeSection: React.FC = () => {
               统一展示收口
             </span>
           </div>
-          <div className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal space-y-2.5 flex-1">
+          <div className="text-sm text-slate-700 leading-relaxed font-normal space-y-2.5 flex-1">
             <p>
               <strong className="text-slate-950">现状痛点：</strong>
               敏感信息分散暴露在过多模块中，导致集中维护与收口困难，存在信息外露与遗漏风险。
@@ -196,7 +196,7 @@ export const SecurityUpgradeSection: React.FC = () => {
               操作控权收紧
             </span>
           </div>
-          <div className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal space-y-2.5 flex-1">
+          <div className="text-sm text-slate-700 leading-relaxed font-normal space-y-2.5 flex-1">
             <p>
               <strong className="text-slate-950">现状痛点：</strong>
               复制、截屏、导出、批量查询等高危操作权限泛滥，未按实际工种必要性进行严格控制。
@@ -219,7 +219,7 @@ export const SecurityUpgradeSection: React.FC = () => {
               双人背靠背审批
             </span>
           </div>
-          <div className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal space-y-2.5 flex-1">
+          <div className="text-sm text-slate-700 leading-relaxed font-normal space-y-2.5 flex-1">
             <p>
               <strong className="text-slate-950">现状痛点：</strong>
               有权限的人可以单人完成修改，缺乏背靠背交叉核验，风险较大且易发生单点内部作案。
@@ -287,13 +287,13 @@ export const SecurityUpgradeSection: React.FC = () => {
                         <tr
                           key={idx}
                         >
-                          <td className="py-3 px-3 font-bold text-slate-900 align-top text-sm sm:text-[14.5px]">
+                          <td className="py-3 px-3 font-bold text-slate-900 align-top text-sm">
                             {item.name}
                           </td>
-                          <td className="py-3 px-3 text-slate-600 text-sm sm:text-[14.5px] leading-relaxed align-top">
+                          <td className="py-3 px-3 text-slate-600 text-sm leading-relaxed align-top">
                             {highlightNumbers(item.risk)}
                           </td>
-                          <td className="py-3 px-3 text-slate-800 text-sm sm:text-[14.5px] leading-relaxed align-top">
+                          <td className="py-3 px-3 text-slate-800 text-sm leading-relaxed align-top">
                             {highlightNumbers(item.measure)}
                           </td>
                         </tr>

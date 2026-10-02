@@ -232,27 +232,25 @@ export const SmartDispatchOrderStructure: React.FC = () => {
       footnote="注：横坐标为主体角色（外包、总部、系统），每个主体内部展示 1月至8月及 9月30日全量开启节点的所有月份对比柱子，直观展示三大主体月度占比的历史消长。"
     >
       <div className="flex flex-col h-full justify-between">
-        {/* 顶部：极简轻量表格对比看板 (保留 1~8月均值、9月均值与 930 全量完整演进链条) */}
+        {/* 顶部：三大审核主体数据演进对比看板 (外包基线 vs 总部基线 vs 系统基线 ➔ 系统930全量 ➔ 变化) */}
         <div className="overflow-x-auto my-1.5">
           <table className="w-full text-sm sm:text-base text-center border-collapse report-data-table">
             <thead>
               <tr className="border-b border-slate-200 text-slate-800">
-                <th className="py-2.5 px-3 text-left font-bold text-slate-500 text-xs sm:text-sm w-24">指标</th>
-                <th className="py-2.5 px-3 font-bold text-slate-800 text-sm sm:text-base">
+                <th className="py-2.5 px-3 text-left font-bold text-slate-500 text-xs sm:text-sm w-28">系统核心指标</th>
+                <th className="py-2.5 px-3 font-bold text-slate-700 text-sm sm:text-base">
                   <div className="flex items-center justify-center gap-1.5">
                     <span className="w-2 h-2 bg-slate-400 shrink-0"></span>
                     <span>外包 (1~8月均值)</span>
                   </div>
                 </th>
-                <th className="w-6 py-2.5 text-slate-400 font-mono"></th>
-                <th className="py-2.5 px-3 font-bold text-slate-800 text-sm sm:text-base">
+                <th className="py-2.5 px-3 font-bold text-slate-700 text-sm sm:text-base">
                   <div className="flex items-center justify-center gap-1.5">
                     <span className="w-2 h-2 bg-slate-600 shrink-0"></span>
                     <span>总部 (1~8月均值)</span>
                   </div>
                 </th>
-                <th className="w-6 py-2.5 text-slate-400 font-mono"></th>
-                <th className="py-2.5 px-3 font-bold text-blue-950 bg-blue-50/70 text-sm sm:text-base">
+                <th className="py-2.5 px-3 font-bold text-blue-950 bg-blue-50/60 text-sm sm:text-base">
                   <div className="flex items-center justify-center gap-1.5">
                     <span className="w-2 h-2 bg-blue-600 shrink-0"></span>
                     <span>系统 (1~8月均值)</span>
@@ -265,62 +263,69 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                     <span>系统 (930全量)</span>
                   </div>
                 </th>
+                <th className="py-2.5 px-3 font-bold text-slate-900 text-sm sm:text-base bg-slate-50 border-l border-slate-200/80">
+                  变化
+                </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 tabular-nums">
-              {/* 行 1：质检率 */}
-              <tr>
-                <td className="py-3 px-3 text-left font-bold text-slate-900 text-sm">
-                  质检率
-                </td>
-                <td className="py-3 px-3 font-bold text-red-700 text-sm sm:text-base">
-                  1.91%
-                </td>
-                <td className="py-3 text-center font-bold text-red-600 text-base">
-                  &gt;
-                </td>
-                <td className="py-3 px-3 font-bold text-slate-900 text-sm sm:text-base">
-                  0.84%
-                </td>
-                <td className="py-3 text-center font-bold text-red-600 text-base">
-                  &gt;
-                </td>
-                <td className="py-3 px-3 font-bold text-emerald-800 bg-blue-50/30 text-sm sm:text-base">
-                  0.141%
-                </td>
-                <td className="py-3 text-center font-bold text-emerald-600 text-base">
-                  ➔
-                </td>
-                <td className="py-3 px-3 font-bold text-emerald-700 bg-blue-100/40 text-sm sm:text-base">
-                  0.072%
-                </td>
-              </tr>
-
-              {/* 行 2：出单比例 */}
+              {/* 行 1：出单比例 */}
               <tr>
                 <td className="py-3 px-3 text-left font-bold text-slate-900 text-sm">
                   出单比例
                 </td>
-                <td className="py-3 px-3 font-bold text-slate-700 text-sm sm:text-base">
-                  10.12% 
+                <td className="py-3 px-3 font-bold text-slate-700 text-sm sm:text-base font-mono">
+                  10.12%
                 </td>
-                <td className="py-3 text-center font-bold text-slate-400 text-base">
-                  &lt;
-                </td>
-                <td className="py-3 px-3 font-bold text-slate-900 text-sm sm:text-base">
+                <td className="py-3 px-3 font-bold text-slate-900 text-sm sm:text-base font-mono">
                   40.11%
                 </td>
-                <td className="py-3 text-center font-bold text-slate-400 text-base">
-                  &lt;
-                </td>
-                <td className="py-3 px-3 font-bold text-blue-950 bg-blue-50/30 text-sm sm:text-base">
+                <td className="py-3 px-3 font-bold text-blue-950 bg-blue-50/30 text-sm sm:text-base font-mono">
                   49.77%
                 </td>
-                <td className="py-3 text-center font-bold text-blue-600 text-base">
+                <td className="py-3 text-center font-bold text-blue-600 text-base sm:text-lg">
                   ➔
                 </td>
-                <td className="py-3 px-3 font-bold text-blue-950 bg-blue-100/40 text-sm sm:text-base">
+                <td className="py-3 px-3 font-bold text-blue-950 bg-blue-100/40 text-sm sm:text-base font-mono">
                   65.00%
+                </td>
+                <td className="py-3 px-3 text-center font-mono bg-slate-50/60 border-l border-slate-200/80">
+                  <div className="inline-flex items-center justify-center gap-1.5 flex-wrap">
+                    <span className="font-bold text-blue-950 text-sm sm:text-base">+15.23%</span>
+                    <span className="text-xs font-bold text-blue-800 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded-xs">
+                      ↑ +30.60%
+                    </span>
+                  </div>
+                </td>
+              </tr>
+
+              {/* 行 2：质检率 */}
+              <tr>
+                <td className="py-3 px-3 text-left font-bold text-slate-900 text-sm">
+                  质检率
+                </td>
+                <td className="py-3 px-3 font-bold text-red-700 text-sm sm:text-base font-mono">
+                  1.91%
+                </td>
+                <td className="py-3 px-3 font-bold text-slate-800 text-sm sm:text-base font-mono">
+                  0.84%
+                </td>
+                <td className="py-3 px-3 font-bold text-slate-700 bg-blue-50/30 text-sm sm:text-base font-mono">
+                  0.141%
+                </td>
+                <td className="py-3 text-center font-bold text-emerald-600 text-base sm:text-lg">
+                  ➔
+                </td>
+                <td className="py-3 px-3 font-bold text-emerald-700 bg-blue-100/40 text-sm sm:text-base font-mono">
+                  0.072%
+                </td>
+                <td className="py-3 px-3 text-center font-mono bg-slate-50/60 border-l border-slate-200/80">
+                  <div className="inline-flex items-center justify-center gap-1.5 flex-wrap">
+                    <span className="font-bold text-emerald-800 text-sm sm:text-base">-0.069%</span>
+                    <span className="text-xs font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded-xs">
+                      ↓ -48.94%
+                    </span>
+                  </div>
                 </td>
               </tr>
             </tbody>
