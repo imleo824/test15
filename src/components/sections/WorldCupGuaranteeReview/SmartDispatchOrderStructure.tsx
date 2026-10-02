@@ -90,8 +90,8 @@ export const roleGroupedData: RoleMonthlyData[] = [
     m8Label: "39.71%",
     m9: 37.24,
     m9Label: "37.24%",
-    m9_30: 36.36,
-    m9_30Label: "36.36%",
+    m9_30: 34.37,
+    m9_30Label: "34.37%",
   },
   {
     role: "系统",
@@ -114,8 +114,8 @@ export const roleGroupedData: RoleMonthlyData[] = [
     m8Label: "48.37%",
     m9: 55.77,
     m9Label: "55.77%",
-    m9_30: 63.00,
-    m9_30Label: "63.00%",
+    m9_30: 65.00,
+    m9_30Label: "65.00%",
   },
 ];
 
@@ -129,7 +129,6 @@ export const monthBarConfigs = [
   { key: "m6", name: "6月", color: "#64748b" },
   { key: "m7", name: "7月", color: "#64748b" },
   { key: "m8", name: "8月", color: "#475569" },
-  { key: "m9", name: "9月", color: "#334155" },
   { key: "m9_30", name: "9.30全量", color: "#1d4ed8", isKey: true },
 ];
 
@@ -224,13 +223,13 @@ export const SmartDispatchOrderStructure: React.FC = () => {
       description={
         <span>
           <strong>三大审核主体（外包 / 总部 / 系统）出单结构与质量演进：</strong>
-          <strong>外包审核</strong> 占比由 1~8月均值的 <strong>10.12%</strong> 快速压降至 9月的 <strong>6.99%</strong>（高质检率外包审单基本退出）；
-          <strong>总部审核</strong> 占比稳定在 <strong>37.24%</strong>，专注承接高危与复杂核心单；
-          <strong>系统自动审单</strong> 由 1~8月均值的 <strong>49.77%</strong> 强劲跃升至 9月的 <strong>55.77%</strong>（主力放量全面成型）。
+          <strong>外包审核</strong> 占比由 1~8月均值的 <strong>10.12%</strong> 深度清退至 9.30全量的 <strong>0.63%</strong>（高差错外包全面退场）；
+          <strong>总部审核</strong> 占比精简至 <strong>34.37%</strong>，专注承接复杂核心单；
+          <strong>系统自动审单</strong> 由 1~8月均值的 <strong>49.77%</strong> 强劲跃升至 9.30全量的 <strong>65.00%</strong>（系统全量放量成型）。
         </span>
       }
       bodyHeight="h-[510px]"
-      footnote="注：横坐标为主体角色（外包、总部、系统），每个主体内部展示 1月至9月及 9月30日全量开启节点的所有月份对比柱子，直观展示三大主体月度占比的历史消长。"
+      footnote="注：横坐标为主体角色（外包、总部、系统），每个主体内部展示 1月至8月及 9月30日全量开启节点的所有月份对比柱子，直观展示三大主体月度占比的历史消长。"
     >
       <div className="flex flex-col h-full justify-between">
         {/* 顶部：极简轻量表格对比看板 (保留 1~8月均值、9月均值与 930 全量完整演进链条) */}
@@ -257,13 +256,6 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                   <div className="flex items-center justify-center gap-1.5">
                     <span className="w-2 h-2 bg-blue-600 shrink-0"></span>
                     <span>系统 (1~8月均值)</span>
-                  </div>
-                </th>
-                <th className="w-6 py-2.5 text-slate-400 font-mono"></th>
-                <th className="py-2.5 px-3 font-bold text-blue-950 bg-blue-50/90 text-sm sm:text-base">
-                  <div className="flex items-center justify-center gap-1.5">
-                    <span className="w-2 h-2 bg-blue-700 shrink-0"></span>
-                    <span>系统 (9月灰度放量)</span>
                   </div>
                 </th>
                 <th className="w-6 py-2.5 text-slate-400 font-mono"></th>
@@ -299,12 +291,6 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                 <td className="py-3 text-center font-bold text-emerald-600 text-base">
                   ➔
                 </td>
-                <td className="py-3 px-3 font-bold text-emerald-800 bg-blue-50/50 text-sm sm:text-base">
-                  0.072%
-                </td>
-                <td className="py-3 text-center font-bold text-emerald-600 text-base">
-                  ➔
-                </td>
                 <td className="py-3 px-3 font-bold text-emerald-700 bg-blue-100/40 text-sm sm:text-base">
                   0.072%
                 </td>
@@ -333,14 +319,8 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                 <td className="py-3 text-center font-bold text-blue-600 text-base">
                   ➔
                 </td>
-                <td className="py-3 px-3 font-bold text-blue-950 bg-blue-50/50 text-sm sm:text-base">
-                  55.77%
-                </td>
-                <td className="py-3 text-center font-bold text-blue-600 text-base">
-                  ➔
-                </td>
                 <td className="py-3 px-3 font-bold text-blue-950 bg-blue-100/40 text-sm sm:text-base">
-                  63.00%
+                  65.00%
                 </td>
               </tr>
             </tbody>

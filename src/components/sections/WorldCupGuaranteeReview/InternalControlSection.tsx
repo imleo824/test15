@@ -74,15 +74,15 @@ export const InternalControlSection: React.FC = () => {
         <ReportMetricGrid columns={3}>
           <ReportMetricCard
             title="红利类型派错"
-            value="1,143"
+            value="161"
             unit="人"
-            detail={highlightNumbers("通过[[每日复核机制]]查获并退回；涉及金额 [[36.69w]]")}
+            detail={highlightNumbers("通过[[每日复核机制]]查获并退回；涉及金额[[3.73w]]，环比第二季度 [[36.69w]]下降[[89.83%]]")}
           />
           <ReportMetricCard
             title="红利流水派错"
-            value="465"
+            value="1,142"
             unit="人"
-            detail={highlightNumbers("通过[[每日复核机制]]查获并修正；涉及金额 [[6.79w]]")}
+            detail={highlightNumbers("通过[[每日复核机制]]查获并修正；涉及金额[[17.13w]]，环比第二季度 [[6.79w]]上升[[152%]]")}
           />
           <ReportMetricCard
             title="平台参数修改"
@@ -92,21 +92,28 @@ export const InternalControlSection: React.FC = () => {
           />
           <ReportMetricCard
             title="用户信息修改"
-            value="17,166"
+            value="15,135"
             unit="条"
-            detail={highlightNumbers("核查修改漏记/错记 [[248条]]")}
+            detail={highlightNumbers("核查修改漏记/错记 [[192条]]，环比第二季度 [[248条]]下降[[22.58%]]")}
           />
           <ReportMetricCard
             title="后台登录监测"
-            value="568+"
-            unit="个网络节点"
-            detail={highlightNumbers("其中 [[16条]] 异常跳跃登录节点已全部核实")}
+            value="742+"
+            unit="常用IP"
+            detail={highlightNumbers("其中 [[179条]] 异常跳跃登录；主要为 [[8月29日]] 频繁切换 IP 随机尝试登录后台的异常 IP（共 [[110条]]），其余主要为 VPN 节点跳跃登出或登录失败；异常 IP 均已即时反馈技术团队拉黑阻断")}
           />
           <ReportMetricCard
             title="数据导出监测"
-            value="49,114"
+            value="43,087"
             unit="次"
-            detail={highlightNumbers("经[[人工及系统双向复核]]，未发现泄露行为")}
+            detail={highlightNumbers("经[[人工及系统双向复核]]，未发现泄露行为；环比第二季度 [[55,017次]]下降[[21.68%]]")}
+          />
+          <ReportMetricCard
+            title="全站点明文回显"
+            value="9,020"
+            unit="次 (9月新增监测)"
+            className="sm:col-span-2 lg:col-span-3"
+            detail={highlightNumbers("管控背景与处置闭环：9月新增明文回显全量监控，累计捕获回显记录 [[9,020次]]。因上半月查看姓名数据较多，内控监督即时介入反馈，果断对相关账号的高敏查看[[权限全面回收]]。至 [[9月16日]] 查看明文监测群技术调试全面就绪，日常查看条数迅速压降收敛至 [[0 ~ 4 条/日]] 极低安全水位，且全部经逐笔复核反馈无违规异常。")}
           />
         </ReportMetricGrid>
       </div>

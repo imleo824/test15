@@ -35,7 +35,7 @@ export const PersonnelDistribution: React.FC = () => {
         <SummaryBox variant="module">
           <div className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "聚焦[[人效提升]]与[[合规安全]]：强化策略分析工作，压降重复人工审核与外包编制，优化各职场配置。"
+              "聚焦[[人效提升]]与[[合规安全]]：强化策略分析职能，坚决压降重复人工审核与外包编制，持续优化各职场属地资源配置。"
             )}
           </div>
         </SummaryBox>
@@ -80,7 +80,7 @@ export const PersonnelDistribution: React.FC = () => {
         <SummaryBox variant="module">
           <div className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "推进[[系统自动审单]]与业务流程收口，外包编制净减 [[19人]]，实现专职化集中运营与在册管控。"
+              "各职场编制有序调配转移；持续提升系统自动审单比例，自 [[9月起]] 将外包审单量成功压降至 [[1% 以下]]，实现[[降本、增效、提质]]多维突破。"
             )}
           </div>
         </SummaryBox>

@@ -151,26 +151,26 @@ export const AuditOverviewAgentInterception: React.FC = () => {
           </div>
           <ul className="space-y-2 text-slate-700">
             <li className="flex items-start gap-2 text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
-              <span className="w-1.5 h-1.5 bg-slate-400 shrink-0 mt-2" />
+              <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
               <span>
                 {highlightNumbers(
-                  "[[佣金]]：含基础与额外佣金，占比达 [[62.42%]]，核心为[[基础佣金]]与[[扶持降档]]。",
+                  "[[佣金拦截主体]]：含基础与额外佣金，占比达 [[62.42%]]，核心重拳打击[[基础佣金虚增]]与[[扶持降档套利]]。",
                 )}
               </span>
             </li>
             <li className="flex items-start gap-2 text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
-              <span className="w-1.5 h-1.5 bg-slate-400 shrink-0 mt-2" />
+              <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
               <span>
                 {highlightNumbers(
-                  "[[活动]]：以[[奖励活动]]（[[4.35%]]）与[[新增冲刺]]（[[12.02%]]）为主，合计占比 [[16.37%]]；叠加[[首复存]]后金额达 [[2,932.8w]]，占比 [[33.15%]]。",
+                  "[[活动套利阻断]]：以[[奖励活动]]（[[4.35%]]）与[[新增冲刺]]（[[12.02%]]）为主，合计占比 [[16.37%]]；叠加[[首复存]]后金额达 [[2,932.8w]]，占比 [[33.15%]]。",
                 )}
               </span>
             </li>
             <li className="flex items-start gap-2 text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
-              <span className="w-1.5 h-1.5 bg-slate-400 shrink-0 mt-2" />
+              <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
               <span>
                 {highlightNumbers(
-                  "[[存款]]：针对[[用户首复存套利]]，拦截占比约为 [[16.77%]]。",
+                  "[[存款套利防控]]：针对[[用户首复存造假套利]]实施全量筛查，拦截占比达 [[16.77%]]。",
                 )}
               </span>
             </li>

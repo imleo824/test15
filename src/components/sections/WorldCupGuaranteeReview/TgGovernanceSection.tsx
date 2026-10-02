@@ -163,7 +163,7 @@ export const TgGovernanceSection: React.FC = () => {
         <SummaryBox className="space-y-2">
           <p className="text-sm sm:text-[15.5px] text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "基于治理准则，将全部离线工作对接按[[非必要群聊]]、[[日常沟通群]]、[[高风险审核业务]]与[[低风险咨询业务]]四类分级处置，全面落实解散清理、分级控权与系统工单收口。",
+              "根据安全治理准则，对全部离线工作对接实施四级分类处置：[[非必要群聊]]坚决清零、[[日常沟通群]]严格控权、[[高风险审核业务]]全量工单收口、[[低风险咨询业务]]系统协同切换，彻底阻断线下无痕流转风险。"
             )}
           </p>
         </SummaryBox>
