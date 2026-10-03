@@ -51,7 +51,7 @@ export const PermissionStructureSection: React.FC = () => {
                 适用：日常核心工作需要（如风控）
               </div>
               <p className="text-sm text-slate-700 leading-relaxed font-normal pt-1">
-                仅针对特定极少数核心工种配置常态化查询权限；全量操作实施 <strong>100% 独立审计留痕与行为巡检</strong>。
+                {highlightNumbers("仅针对特定极少数核心工种配置常态化查询权限；全量操作实施 [[100% 独立审计留痕与行为巡检]]。")}
               </p>
             </div>
             <div className="pt-3 border-t border-slate-100 text-xs font-mono text-slate-600 flex items-center gap-1.5">
@@ -78,7 +78,7 @@ export const PermissionStructureSection: React.FC = () => {
                 适用：专项排查、跨部门短期支持
               </div>
               <p className="text-sm text-slate-700 leading-relaxed font-normal pt-1">
-                线上发起限时临时权限申请，明确指定<strong>有效时间窗口</strong>（如 2小时或当日）；到期系统全自动回收熔断。
+                {highlightNumbers("线上发起限时临时权限申请，明确指定[[有效时间窗口]]（如 2小时或当日）；到期系统全自动回收熔断。")}
               </p>
             </div>
             <div className="pt-3 border-t border-slate-100 text-xs font-mono text-slate-600 flex items-center gap-1.5">
@@ -105,7 +105,7 @@ export const PermissionStructureSection: React.FC = () => {
                 适用：一线客服、常规审核、业务经办
               </div>
               <p className="text-sm text-slate-700 leading-relaxed font-normal pt-1">
-                日常<strong>无独立主动查询入口</strong>；仅当系统派单或承接有效工单时，动态解锁<strong>该工单涉及的玩家特定信息</strong>，单结权销。
+                {highlightNumbers("日常[[无独立主动查询入口]]；仅当系统派单或承接有效工单时，动态解锁[[该工单涉及的玩家特定信息]]，单结权销。")}
               </p>
             </div>
             <div className="pt-3 border-t border-slate-100 text-xs font-mono text-slate-600 flex items-center gap-1.5">

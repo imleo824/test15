@@ -7,22 +7,22 @@ export const PersonnelDistribution: React.FC = () => {
     {
       title: "人员优化",
       category: "降本增效",
-      content: "以[[系统自动化]]替代重复人工审核，精简岗位，提升人效和整体速率。",
+      content: "以[[系统自动审单]]替代重复人工审核，压降外包编制，提升[[全盘人效与出单时效]]。",
     },
     {
       title: "考核优化",
       category: "降本增效",
-      content: "落实量化考核与[[末位淘汰]]，精简低效编制，盘活组织业绩竞争。",
+      content: "落实量化考核与[[末位淘汰]]机制，精简低效编制，提高团队人均效能。",
     },
     {
       title: "场地优化",
       category: "合规安全",
-      content: "结合各职场承载力[[动态调配]]，分散集中度以控制属地与合规风险。",
+      content: "结合各职场承载力进行[[动态调配]]，分散集中度以控制[[属地合规风险]]。",
     },
     {
       title: "流程优化",
       category: "合规安全",
-      content: "裁撤跨部门[[冗余流转节点]]，缩短协同链路，严格权限隔离与[[操作审计留痕]]。",
+      content: "裁撤跨部门[[冗余流转节点]]，缩短协同链路，严格执行[[权限隔离与全流程操作审计]]。",
     },
   ];
 
@@ -80,7 +80,7 @@ export const PersonnelDistribution: React.FC = () => {
         <SummaryBox variant="module">
           <div className="text-sm text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "各职场编制有序调配转移；持续提升系统自动审单比例，自 [[9月起]] 将外包审单量压降至 [[1% 以下]]，实现[[降本、增效、提质]]多维突破。"
+              "各职场编制按业务承载动态调配；持续提升系统自动审单比例，自 [[9月起]] 将外包审单量压降至 [[1% 以下]]，实现[[成本节约与差错压降]]实质成效。"
             )}
           </div>
         </SummaryBox>

@@ -34,13 +34,13 @@ export const ChapterTitle: React.FC<{
   className?: string;
 }> = ({ children, eyebrow, className = "" }) => {
   return (
-    <div className={`report-chapter-title border-t border-slate-200 pt-8 pb-3 mb-6 ${className}`}>
+    <div className={`report-chapter-title border-t border-slate-200 pt-10 sm:pt-12 pb-4 mb-8 sm:mb-10 ${className}`}>
       {eyebrow && (
-        <div className="text-xs sm:text-sm font-mono font-bold tracking-widest text-slate-500 mb-2 uppercase">
+        <div className="text-xs sm:text-sm font-mono font-bold tracking-widest text-slate-500 mb-2.5 uppercase">
           {eyebrow}
         </div>
       )}
-      <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight">
+      <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-slate-950 tracking-tight leading-tight">
         {children}
       </h2>
     </div>
@@ -84,7 +84,7 @@ export const ReportSectionHeader: React.FC<{
 }> = ({ title, rightContent, className = "" }) => {
   return (
     <div
-      className={`report-section-header flex flex-col lg:flex-row lg:items-center justify-between pb-3 border-b border-slate-200 mb-6 gap-3 ${className}`}
+      className={`report-section-header flex flex-col lg:flex-row lg:items-center justify-between pb-3.5 border-b border-slate-200 mb-6 sm:mb-8 gap-3.5 ${className}`}
     >
       <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight flex items-center gap-2.5">
         {title}
@@ -104,7 +104,7 @@ export const ReportSubsectionHeader: React.FC<{
   className?: string;
 }> = ({ title, rightContent, className = "" }) => {
   return (
-    <div className={`report-subsection-header flex items-center justify-between pb-2.5 border-b border-slate-200/80 mb-5 ${className}`}>
+    <div className={`report-subsection-header flex items-center justify-between pb-2.5 border-b border-slate-200 mb-5 sm:mb-6 ${className}`}>
       <h4 className="text-lg sm:text-xl font-bold text-slate-950 tracking-tight flex items-center gap-2">
         {title}
       </h4>
@@ -118,7 +118,7 @@ export const ReportTableFrame: React.FC<{
   className?: string;
 }> = ({ children, className = "" }) => {
   return (
-    <div className={`report-table-frame border-t border-b border-slate-200 my-5 sm:my-6 overflow-x-auto ${className}`}>
+    <div className={`report-table-frame border-t border-b border-slate-200 my-6 sm:my-7 overflow-x-auto ${className}`}>
       {children}
     </div>
   );
@@ -130,7 +130,7 @@ export const ReportMetricGrid: React.FC<{
   className?: string;
 }> = ({ children, columns = 3, className = "" }) => {
   return (
-    <div className={`report-metric-grid report-metric-grid--${columns} gap-4 sm:gap-5 ${className}`}>
+    <div className={`report-metric-grid report-metric-grid--${columns} gap-5 sm:gap-6 ${className}`}>
       {children}
     </div>
   );
@@ -154,8 +154,8 @@ export const ReportMetricCard: React.FC<{
       } ${className}`}
     >
       <div className={`text-sm font-bold tracking-wide uppercase ${isDark ? "text-slate-300" : "text-slate-700"}`}>{title}</div>
-      <div className="my-3 flex items-baseline gap-1.5">
-        <span className={`text-3xl sm:text-4xl font-bold tabular-nums tracking-tight ${isDark ? "text-white" : "text-slate-950"}`}>
+      <div className="my-3.5 flex items-baseline gap-1.5">
+        <span className={`text-3xl sm:text-4xl font-bold tabular-nums tracking-tight font-mono ${isDark ? "text-white" : "text-slate-950"}`}>
           {value}
         </span>
         {unit && (
@@ -378,31 +378,31 @@ export const ReportCompareBlock: React.FC<{
   className = "",
 }) => {
   return (
-    <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 ${className}`}>
-      <div className="bg-slate-50 border border-slate-200 p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
-        <div className="flex items-center justify-between pb-2.5 border-b border-slate-200">
+    <div className={`grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 lg:gap-8 ${className}`}>
+      <div className="bg-slate-50/70 border border-slate-200 p-6 sm:p-7 flex flex-col justify-between space-y-3.5 h-full">
+        <div className="flex items-center justify-between pb-3 border-b border-slate-200">
           <span className="font-bold text-slate-900 text-sm sm:text-base">
             {beforeTitle}
           </span>
-          <span className="text-xs font-mono font-bold px-2 py-0.5 bg-rose-50 text-rose-800 border border-rose-200">
+          <span className="text-xs font-mono font-bold px-2.5 py-0.5 bg-rose-50 text-rose-800 border border-rose-200">
             {beforeTag}
           </span>
         </div>
-        <div className="text-sm text-slate-700 leading-relaxed font-normal flex-1 space-y-2">
+        <div className="text-sm text-slate-700 leading-relaxed font-normal flex-1 space-y-2.5">
           {beforeContent}
         </div>
       </div>
 
-      <div className="bg-white border border-slate-200 p-5 sm:p-6 flex flex-col justify-between space-y-3 h-full">
-        <div className="flex items-center justify-between pb-2.5 border-b border-slate-200">
+      <div className="bg-white border border-slate-200 p-6 sm:p-7 flex flex-col justify-between space-y-3.5 h-full shadow-2xs">
+        <div className="flex items-center justify-between pb-3 border-b border-slate-200">
           <span className="font-bold text-slate-950 text-sm sm:text-base">
             {afterTitle}
           </span>
-          <span className="text-xs font-mono font-bold px-2 py-0.5 bg-emerald-50 text-emerald-800 border border-emerald-200">
+          <span className="text-xs font-mono font-bold px-2.5 py-0.5 bg-emerald-50 text-emerald-800 border border-emerald-200">
             {afterTag}
           </span>
         </div>
-        <div className="text-sm text-slate-800 leading-relaxed font-normal flex-1 space-y-2">
+        <div className="text-sm text-slate-800 leading-relaxed font-normal flex-1 space-y-2.5">
           {afterContent}
         </div>
       </div>
@@ -433,8 +433,8 @@ export const ReportStepPipeline: React.FC<{
       : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-6";
 
   return (
-    <div className={`bg-white border border-slate-200 p-4 sm:p-5 ${className}`}>
-      <div className={`grid ${colClass} gap-3 sm:gap-4 items-stretch text-center`}>
+    <div className={`bg-white border border-slate-200 p-5 sm:p-6 ${className}`}>
+      <div className={`grid ${colClass} gap-3.5 sm:gap-4 items-stretch text-center`}>
         {steps.map((st, idx) => {
           const isSuccess =
             st.statusType === "success" || st.status === "改造完成";
@@ -444,7 +444,7 @@ export const ReportStepPipeline: React.FC<{
           return (
             <div
               key={idx}
-              className={`relative flex flex-col justify-between p-3.5 bg-slate-50 border space-y-2.5 h-full text-center transition-colors ${
+              className={`relative flex flex-col justify-between p-4 bg-slate-50 border space-y-3 h-full text-center transition-colors ${
                 isSuccess
                   ? "border-emerald-200 bg-emerald-50/20"
                   : "border-slate-200"

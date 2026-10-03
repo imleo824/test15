@@ -325,14 +325,14 @@ export const SystemAuditEvolutionSection: React.FC = () => {
 
         {/* 核心收益结构化气泡/卡片 */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pb-1">
-          {/* Bubble 1: 规模跃升 */}
+          {/* Bubble 1: 规模放量 */}
           <div className="bg-white border border-slate-200 p-4 sm:p-5 flex flex-col justify-between space-y-2.5">
             <div className="flex items-center gap-2 pb-2 border-b border-slate-100">
               <span className="w-2 h-2 rounded-full bg-blue-600 shrink-0"></span>
-              <strong className="text-sm font-bold text-slate-900">核心维度 · 规模放量跃升</strong>
+              <strong className="text-sm font-bold text-slate-900">核心维度 · 自动审单放量</strong>
             </div>
             <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal flex-1">
-              以 <span className="font-mono font-bold text-slate-950">500w</span> 总单量测算，系统替代规模从原先的 <span className="font-mono font-bold text-slate-950">250w单 (50%)</span> 强劲增至 <span className="font-mono font-bold text-slate-950">325w单 (65%)</span>，实现 <span className="text-emerald-700 font-bold font-mono">净增 75w单 (+30.0%)</span>。
+              以 <span className="font-mono font-bold text-slate-950">500w</span> 总单量测算，系统替代规模从原先的 <span className="font-mono font-bold text-slate-950">250w单 (50%)</span> 提升至 <span className="font-mono font-bold text-slate-950">325w单 (65%)</span>，实现 <span className="text-emerald-700 font-bold font-mono">净增 75w单 (+30.0%)</span>。
             </p>
           </div>
 
@@ -343,7 +343,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               <strong className="text-sm font-bold text-slate-900">核心维度 · 审核时效提速</strong>
             </div>
             <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal flex-1">
-              加权平均停留时间由原来的 <span className="font-mono font-bold text-slate-950">4.13分钟</span> 净压降压缩至 <span className="font-mono font-bold text-slate-950">2.96分钟</span>，全盘时效实现超预期 <span className="text-emerald-700 font-bold font-mono">整体提速 +28.2%</span>。
+              加权平均停留时间由原来的 <span className="font-mono font-bold text-slate-950">4.13分钟</span> 净压降压缩至 <span className="font-mono font-bold text-slate-950">2.96分钟</span>，全盘时效实现 <span className="text-emerald-700 font-bold font-mono">整体提速 +28.2%</span>。
             </p>
           </div>
 
@@ -471,14 +471,14 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                     <p>
                       <strong className="text-slate-950">外包清退与降本止损：</strong>
-                      外包团队占比由 1-9月月均 <strong className="text-slate-950 font-mono">9.7%</strong> 清退压降至 系统930 的 <strong className="text-slate-950 font-mono">0.6%</strong>（压降相对减幅 <strong className="text-slate-950 font-mono">-93.8%</strong>），全面释放 <strong className="text-slate-950 font-mono">100+ 人力</strong>，直接削减硬性成本 <strong className="text-emerald-700 font-bold font-mono">小 100w/月</strong>；并间接减少外包差错产生的约 <strong className="text-emerald-700 font-bold font-mono">50w+ 元/月</strong> 的资金损失，月度综合经济价值达 <strong className="text-slate-950 font-bold font-mono">150w/月</strong>。
+                      外包团队占比由 1-9月月均 <strong className="text-slate-950 font-mono">9.7%</strong> 清退压降至 系统930 的 <strong className="text-slate-950 font-mono">0.6%</strong>（相对减幅 <strong className="text-slate-950 font-mono">-93.8%</strong>），全面释放 <strong className="text-slate-950 font-mono">100+ 人力</strong>，直接削减外包硬性成本 <strong className="text-emerald-700 font-bold font-mono">近 100w/月</strong>；并减少外包差错引发的约 <strong className="text-emerald-700 font-bold font-mono">50w+ 元/月</strong> 资金损失，月度综合经济价值达 <strong className="text-slate-950 font-bold font-mono">150w/月</strong>。
                     </p>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                     <p>
-                      <strong className="text-slate-950">总部减负与理论成本降低：</strong>
-                      总部人工审核占比由月均 <strong className="text-slate-950 font-mono">40.0%</strong> 降至 系统930 的 <strong className="text-slate-950 font-mono">34.4%</strong>（相对精简 <strong className="text-slate-950 font-mono">-14.0%</strong>），相当于直接释放了大约 <strong className="text-emerald-700 font-bold font-mono">30 人</strong> 的日常审核工作量，从而实现了约 <strong className="text-emerald-700 font-bold font-mono">100w/月</strong> 的总部理论综合成本降低。
+                      <strong className="text-slate-950">总部减负与成本节约：</strong>
+                      总部人工审核占比由月均 <strong className="text-slate-950 font-mono">40.0%</strong> 降至 系统930 的 <strong className="text-slate-950 font-mono">34.4%</strong>（相对精简 <strong className="text-slate-950 font-mono">-14.0%</strong>），相当于释放约 <strong className="text-emerald-700 font-bold font-mono">30 人</strong> 的日常审核工作量，实现总部月均理论成本节约约 <strong className="text-emerald-700 font-bold font-mono">100w/月</strong>。
                     </p>
                   </div>
                 </div>
