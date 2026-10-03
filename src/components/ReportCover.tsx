@@ -1,6 +1,5 @@
 import React from "react";
 import { FA } from "../types";
-import { ShieldCheck, TrendingUp, ChevronRight } from "lucide-react";
 
 interface SectionItem {
   id: string;

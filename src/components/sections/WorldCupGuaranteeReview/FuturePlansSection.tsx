@@ -1,14 +1,23 @@
 import React from "react";
 import { SummaryBox, highlightNumbers } from "./utils";
+import { ReportBadge } from "../../ReportSections";
 import { Bot, Users, ShieldCheck } from "lucide-react";
 
 export const FuturePlansSection: React.FC = () => {
-  const plans = [
+  const plans: {
+    index: string;
+    title: string;
+    badge: string;
+    badgeTone: "blue" | "amber" | "green";
+    accentBorder: string;
+    icon: React.ReactNode;
+    highlights: { title: string; desc: string }[];
+  }[] = [
     {
       index: "01",
       title: "优化会员云盾审核",
       badge: "会员云盾",
-      badgeColor: "bg-blue-50 text-blue-900 border-blue-200",
+      badgeTone: "blue",
       accentBorder: "border-blue-600",
       icon: <Bot className="w-5 h-5 text-blue-700" />,
       highlights: [
@@ -26,7 +35,7 @@ export const FuturePlansSection: React.FC = () => {
       index: "02",
       title: "落地代理云盾审核",
       badge: "代理云盾",
-      badgeColor: "bg-amber-50 text-amber-900 border-amber-200",
+      badgeTone: "amber",
       accentBorder: "border-amber-500",
       icon: <Users className="w-5 h-5 text-amber-700" />,
       highlights: [
@@ -44,7 +53,7 @@ export const FuturePlansSection: React.FC = () => {
       index: "03",
       title: "深化安全合规治理",
       badge: "安全合规",
-      badgeColor: "bg-emerald-50 text-emerald-900 border-emerald-200",
+      badgeTone: "green",
       accentBorder: "border-emerald-600",
       icon: <ShieldCheck className="w-5 h-5 text-emerald-700" />,
       highlights: [
@@ -61,7 +70,7 @@ export const FuturePlansSection: React.FC = () => {
   ];
 
   return (
-    <div id="section-future-plans" className="space-y-6 sm:space-y-8">
+    <div id="section-future-plans" className="report-chapter-content">
       {/* 5.0 章节核心要点 */}
       <SummaryBox variant="chapter">
         {highlightNumbers(
@@ -82,11 +91,9 @@ export const FuturePlansSection: React.FC = () => {
                 <span className="font-mono text-2xl font-bold text-slate-400">
                   {plan.index}
                 </span>
-                <span
-                  className={`text-xs font-mono font-bold px-2.5 py-1 border ${plan.badgeColor}`}
-                >
+                <ReportBadge tone={plan.badgeTone} className="text-xs font-mono">
                   {plan.badge}
-                </span>
+                </ReportBadge>
               </div>
 
               {/* 标题 */}

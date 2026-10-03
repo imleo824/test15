@@ -1,6 +1,6 @@
 import React from "react";
 import { SummaryBox, highlightNumbers } from "./utils";
-import { ReportSectionHeader } from "../../ReportSections";
+import { ReportBadge, ReportSectionHeader } from "../../ReportSections";
 
 export const PersonnelDistribution: React.FC = () => {
   const policyItems = [
@@ -27,9 +27,9 @@ export const PersonnelDistribution: React.FC = () => {
   ];
 
   return (
-    <div className="space-y-16 lg:space-y-20">
+    <div className="report-chapter-content">
       {/* 1.1 组织优化举措 */}
-      <div className="space-y-6 sm:space-y-8">
+      <div className="flex flex-col gap-[var(--report-panel-gap)]">
         <ReportSectionHeader title="1.1 组织优化" />
 
         <SummaryBox variant="module">
@@ -55,15 +55,12 @@ export const PersonnelDistribution: React.FC = () => {
                     {item.title}
                   </span>
                 </div>
-                <span
-                  className={`text-xs font-mono font-bold ${
-                    item.category === "降本增效"
-                      ? "text-emerald-700"
-                      : "text-blue-700"
-                  }`}
+                <ReportBadge
+                  tone={item.category === "降本增效" ? "green" : "blue"}
+                  className="text-xs font-mono"
                 >
                   {item.category}
-                </span>
+                </ReportBadge>
               </div>
               <p className="text-sm text-slate-700 leading-relaxed font-normal flex-1">
                 {highlightNumbers(item.content)}
@@ -74,7 +71,7 @@ export const PersonnelDistribution: React.FC = () => {
       </div>
 
       {/* 1.2 各职场人员分布与变动明细 */}
-      <div className="space-y-6 sm:space-y-8">
+      <div className="flex flex-col gap-[var(--report-panel-gap)]">
         <ReportSectionHeader title="1.2 人员分布" />
 
         <SummaryBox variant="module">
@@ -94,9 +91,9 @@ export const PersonnelDistribution: React.FC = () => {
                 <span className="text-xs sm:text-sm font-bold text-slate-700 tracking-wider uppercase">
                   总人数
                 </span>
-                <span className="text-xs font-mono font-bold text-slate-600 bg-slate-100 px-2 py-0.5">
+                <ReportBadge tone="slate" className="text-xs font-mono">
                   场地
-                </span>
+                </ReportBadge>
               </div>
               <div className="flex items-baseline justify-between py-1">
                 <div className="flex items-baseline gap-1.5">
@@ -105,10 +102,9 @@ export const PersonnelDistribution: React.FC = () => {
                   </span>
                   <span className="text-sm font-bold text-slate-600">人</span>
                 </div>
-                <div className="flex items-center gap-1 text-xs sm:text-sm font-mono font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5">
-                  <span>↓ 较年初</span>
-                  <span>-9 人</span>
-                </div>
+                <ReportBadge tone="green" className="text-xs sm:text-sm font-mono font-bold">
+                  ↓ -9 人
+                </ReportBadge>
               </div>
             </div>
 
@@ -118,9 +114,9 @@ export const PersonnelDistribution: React.FC = () => {
                 <span className="text-xs sm:text-sm font-bold text-slate-700 tracking-wider uppercase">
                   总人数
                 </span>
-                <span className="text-xs font-mono font-bold text-slate-600 bg-slate-100 px-2 py-0.5">
+                <ReportBadge tone="slate" className="text-xs font-mono">
                   外包
-                </span>
+                </ReportBadge>
               </div>
               <div className="flex items-baseline justify-between py-1">
                 <div className="flex items-baseline gap-1.5">
@@ -129,10 +125,9 @@ export const PersonnelDistribution: React.FC = () => {
                   </span>
                   <span className="text-sm font-bold text-slate-600">人</span>
                 </div>
-                <div className="flex items-center gap-1 text-xs sm:text-sm font-mono font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5">
-                  <span>↓ 持续压降</span>
-                  <span>-19 人</span>
-                </div>
+                <ReportBadge tone="green" className="text-xs sm:text-sm font-mono font-bold">
+                  ↓ -19 人
+                </ReportBadge>
               </div>
             </div>
           </div>
@@ -142,9 +137,6 @@ export const PersonnelDistribution: React.FC = () => {
             <div className="flex items-center justify-between px-1">
               <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
                 分布
-              </span>
-              <span className="text-xs font-mono text-slate-400">
-                单位：人
               </span>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 items-stretch">
@@ -166,16 +158,19 @@ export const PersonnelDistribution: React.FC = () => {
                   <div className="text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight font-mono tabular-nums py-0.5">
                     {item.count}
                   </div>
-                  <div
-                    className={`text-xs font-mono font-bold tabular-nums px-1.5 py-0.5 w-full ${
-                      item.isIncrease
-                        ? "text-blue-800 bg-blue-50 border border-blue-200"
-                        : item.isZero
-                        ? "text-slate-500 bg-slate-50 border border-slate-100"
-                        : "text-emerald-800 bg-emerald-50 border border-emerald-200"
-                    }`}
-                  >
-                    {item.change}
+                  <div className="w-full flex justify-center">
+                    <ReportBadge
+                      tone={
+                        item.isIncrease
+                          ? "blue"
+                          : item.isZero
+                          ? "slate"
+                          : "green"
+                      }
+                      className="w-full justify-center text-xs font-mono font-bold"
+                    >
+                      {item.change}
+                    </ReportBadge>
                   </div>
                 </div>
               ))}

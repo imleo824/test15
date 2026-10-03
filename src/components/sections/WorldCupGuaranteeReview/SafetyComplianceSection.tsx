@@ -67,12 +67,12 @@ export const SafetyTierLocationIndicator: React.FC<{
 
 export const SafetyComplianceSection: React.FC = () => {
   return (
-    <div id="section-safety-compliance" className="space-y-18 lg:space-y-22">
+    <div id="section-safety-compliance" className="report-chapter-content">
       {/* 3.0 章节开头：安全合规分层防御架构 */}
       <SafetyArchitectureDiagram />
 
       {/* 3.1 权限模式升级 (L0 · 源头控制) */}
-      <section id="section-3.1" className="scroll-mt-6 space-y-8">
+      <section id="section-3.1" className="scroll-mt-6 flex flex-col gap-[var(--report-panel-gap)]">
         <ReportSectionHeader
           title="3.1 权限模式升级"
           rightContent={<SafetyTierLocationIndicator currentLevel="L0" />}
@@ -81,7 +81,7 @@ export const SafetyComplianceSection: React.FC = () => {
       </section>
 
       {/* 3.2 敏感操作限制 (L1 · 行为防线) */}
-      <section id="section-3.2" className="scroll-mt-6 space-y-8">
+      <section id="section-3.2" className="scroll-mt-6 flex flex-col gap-[var(--report-panel-gap)]">
         <ReportSectionHeader
           title="3.2 敏感操作限制"
           rightContent={<SafetyTierLocationIndicator currentLevel="L1" />}
@@ -90,7 +90,7 @@ export const SafetyComplianceSection: React.FC = () => {
       </section>
 
       {/* 3.3 风控工单治理 (L2 · 链路管控) */}
-      <section id="section-3.3" className="scroll-mt-6 space-y-8">
+      <section id="section-3.3" className="scroll-mt-6 flex flex-col gap-[var(--report-panel-gap)]">
         <ReportSectionHeader
           title="3.3 风控工单治理"
           rightContent={<SafetyTierLocationIndicator currentLevel="L2" />}
@@ -99,7 +99,7 @@ export const SafetyComplianceSection: React.FC = () => {
       </section>
 
       {/* 3.4 专职角色巡检 (L3 · 监督兜底) */}
-      <section id="section-3.4" className="scroll-mt-6 space-y-8">
+      <section id="section-3.4" className="scroll-mt-6 flex flex-col gap-[var(--report-panel-gap)]">
         <ReportSectionHeader
           title="3.4 专职角色巡检"
           rightContent={<SafetyTierLocationIndicator currentLevel="L3" />}

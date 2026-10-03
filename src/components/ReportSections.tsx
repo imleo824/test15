@@ -34,9 +34,9 @@ export const ChapterTitle: React.FC<{
   className?: string;
 }> = ({ children, eyebrow, className = "" }) => {
   return (
-    <div className={`report-chapter-title border-t border-slate-200 pt-10 sm:pt-12 pb-4 mb-8 sm:mb-10 ${className}`}>
+    <div className={`report-chapter-title border-t border-slate-200 pt-8 sm:pt-10 pb-3 mb-0 ${className}`}>
       {eyebrow && (
-        <div className="text-xs sm:text-sm font-mono font-bold tracking-widest text-slate-500 mb-2.5 uppercase">
+        <div className="text-xs sm:text-sm font-mono font-bold tracking-widest text-slate-500 mb-2 uppercase">
           {eyebrow}
         </div>
       )}
@@ -65,7 +65,7 @@ export const ReportPanel: React.FC<{
 
 export const ReportBadge: React.FC<{
   children: React.ReactNode;
-  tone?: "blue" | "slate" | "green" | "amber" | "red";
+  tone?: "blue" | "slate" | "green" | "amber" | "red" | "indigo";
   className?: string;
 }> = ({ children, tone = "blue", className = "" }) => {
   return (
@@ -84,7 +84,7 @@ export const ReportSectionHeader: React.FC<{
 }> = ({ title, rightContent, className = "" }) => {
   return (
     <div
-      className={`report-section-header flex flex-col lg:flex-row lg:items-center justify-between pb-3.5 border-b border-slate-200 mb-6 sm:mb-8 gap-3.5 ${className}`}
+      className={`report-section-header flex flex-col lg:flex-row lg:items-center justify-between pb-3 border-b border-slate-200 mb-0 gap-3 ${className}`}
     >
       <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight flex items-center gap-2.5">
         {title}
@@ -104,7 +104,7 @@ export const ReportSubsectionHeader: React.FC<{
   className?: string;
 }> = ({ title, rightContent, className = "" }) => {
   return (
-    <div className={`report-subsection-header flex items-center justify-between pb-2.5 border-b border-slate-200 mb-5 sm:mb-6 ${className}`}>
+    <div className={`report-subsection-header flex items-center justify-between pb-2 border-b border-slate-200 mb-0 ${className}`}>
       <h4 className="text-lg sm:text-xl font-bold text-slate-950 tracking-tight flex items-center gap-2">
         {title}
       </h4>
@@ -130,7 +130,7 @@ export const ReportMetricGrid: React.FC<{
   className?: string;
 }> = ({ children, columns = 3, className = "" }) => {
   return (
-    <div className={`report-metric-grid report-metric-grid--${columns} gap-5 sm:gap-6 ${className}`}>
+    <div className={`report-metric-grid report-metric-grid--${columns} gap-[var(--report-panel-gap)] ${className}`}>
       {children}
     </div>
   );
@@ -147,23 +147,32 @@ export const ReportMetricCard: React.FC<{
   const isDark = tone === "dark";
   return (
     <div
-      className={`report-metric-card border p-6 sm:p-7 flex flex-col justify-between ${
+      className={`report-metric-card border p-5 sm:p-6 flex flex-col h-full ${
         isDark
           ? "bg-slate-900 border-slate-900 text-white"
           : "bg-white border-slate-200 text-slate-900"
       } ${className}`}
     >
-      <div className={`text-sm font-bold tracking-wide uppercase ${isDark ? "text-slate-300" : "text-slate-700"}`}>{title}</div>
-      <div className="my-3.5 flex items-baseline gap-1.5">
-        <span className={`text-3xl sm:text-4xl font-bold tabular-nums tracking-tight font-mono ${isDark ? "text-white" : "text-slate-950"}`}>
-          {value}
-        </span>
-        {unit && (
-          <span className={`text-sm sm:text-base font-bold ${isDark ? "text-slate-300" : "text-slate-600"}`}>{unit}</span>
-        )}
+      {/* 顶部固定结构区：标题 + 数字 + 横线 (全行绝对对齐) */}
+      <div className="flex flex-col">
+        <div className={`text-xs sm:text-sm font-bold tracking-wide uppercase flex items-center min-h-[22px] ${isDark ? "text-slate-300" : "text-slate-700"}`}>
+          {title}
+        </div>
+        <div className="flex items-baseline gap-1.5 min-h-[38px] mt-2 mb-3">
+          <span className={`text-2xl sm:text-3xl lg:text-4xl font-bold tabular-nums tracking-tight font-mono ${isDark ? "text-white" : "text-slate-950"}`}>
+            {value}
+          </span>
+          {unit && (
+            <span className={`text-xs sm:text-sm font-bold ${isDark ? "text-slate-300" : "text-slate-600"}`}>{unit}</span>
+          )}
+        </div>
+        {/* 横线处于固定高度 */}
+        <div className={`border-b ${isDark ? "border-slate-800" : "border-slate-200"}`} />
       </div>
+
+      {/* 下方内容区：顶对齐 (紧随横线向下排布) */}
       {detail && (
-        <div className={`text-sm leading-relaxed font-normal pt-3 border-t ${isDark ? "border-slate-800 text-slate-300" : "border-slate-200 text-slate-700"}`}>
+        <div className={`text-xs sm:text-sm leading-relaxed font-normal pt-3 flex-1 ${isDark ? "text-slate-300" : "text-slate-700"}`}>
           {detail}
         </div>
       )}
@@ -256,7 +265,7 @@ export const ReportChartCard: React.FC<{
 
         {/* 一段文字说明 (Key Takeaway / 洞察分析) */}
         {description && (
-          <div className="text-sm text-slate-700 font-normal leading-relaxed bg-slate-50/80 px-4 py-3 mb-5 flex items-center">
+          <div className="text-sm text-slate-700 font-normal leading-relaxed bg-slate-50/80 px-4 py-3 mb-5 block">
             {description}
           </div>
         )}
@@ -378,15 +387,15 @@ export const ReportCompareBlock: React.FC<{
   className = "",
 }) => {
   return (
-    <div className={`grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 lg:gap-8 ${className}`}>
+    <div className={`grid grid-cols-1 md:grid-cols-2 gap-[var(--report-panel-gap)] ${className}`}>
       <div className="bg-slate-50/70 border border-slate-200 p-6 sm:p-7 flex flex-col justify-between space-y-3.5 h-full">
         <div className="flex items-center justify-between pb-3 border-b border-slate-200">
           <span className="font-bold text-slate-900 text-sm sm:text-base">
             {beforeTitle}
           </span>
-          <span className="text-xs font-mono font-bold px-2.5 py-0.5 bg-rose-50 text-rose-800 border border-rose-200">
+          <ReportBadge tone="red" className="text-xs font-mono">
             {beforeTag}
-          </span>
+          </ReportBadge>
         </div>
         <div className="text-sm text-slate-700 leading-relaxed font-normal flex-1 space-y-2.5">
           {beforeContent}
@@ -398,9 +407,9 @@ export const ReportCompareBlock: React.FC<{
           <span className="font-bold text-slate-950 text-sm sm:text-base">
             {afterTitle}
           </span>
-          <span className="text-xs font-mono font-bold px-2.5 py-0.5 bg-emerald-50 text-emerald-800 border border-emerald-200">
+          <ReportBadge tone="green" className="text-xs font-mono">
             {afterTag}
-          </span>
+          </ReportBadge>
         </div>
         <div className="text-sm text-slate-800 leading-relaxed font-normal flex-1 space-y-2.5">
           {afterContent}
@@ -476,22 +485,17 @@ export const ReportStepPipeline: React.FC<{
               {/* 改造状态 Badge (改造完成增加 icon ✅) */}
               <div className="pt-0.5">
                 {st.status && (
-                  <span
-                    className={`inline-flex items-center justify-center gap-1 text-xs font-mono font-bold px-2 py-0.5 border ${
-                      isSuccess
-                        ? "text-emerald-800 bg-emerald-50 border-emerald-300"
-                        : isNeutral
-                        ? "text-slate-700 bg-slate-100 border-slate-200"
-                        : "text-amber-800 bg-amber-50 border-amber-200"
-                    }`}
+                  <ReportBadge
+                    tone={isSuccess ? "green" : isNeutral ? "slate" : "amber"}
+                    className="gap-1 text-xs font-mono"
                   >
                     {isSuccess ? (
-                      <Check className="w-3.5 h-3.5 text-emerald-600 stroke-[2.5]" />
+                      <Check className="w-3.5 h-3.5 stroke-[2.5]" />
                     ) : isNeutral ? (
                       <span className="w-1.5 h-1.5 rounded-full bg-slate-500" />
                     ) : null}
                     <span>{st.status}</span>
-                  </span>
+                  </ReportBadge>
                 )}
               </div>
 

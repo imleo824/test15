@@ -1,7 +1,8 @@
 import React from "react";
 import { Search, Shield, ShieldCheck } from "lucide-react";
-import { ReportInfoGrid, SummaryBox, highlightNumbers } from "./utils";
+import { SummaryBox, highlightNumbers } from "./utils";
 import {
+  ReportBadge,
   ReportCaseCard,
   ReportMetricCard,
   ReportMetricGrid,
@@ -49,7 +50,7 @@ const auditActionItems = [
 
 export const InternalControlSection: React.FC = () => {
   return (
-    <div id="section-internal-control" className="space-y-12 lg:space-y-16">
+    <div id="section-internal-control" className="flex flex-col gap-[var(--report-panel-gap)]">
       <SummaryBox variant="module">
         {highlightNumbers(
           "由专职监督独立把关，重点监控[[红利发放]]、[[敏感参数变动]]与[[异常登录]]；依托行为留痕与操作日志实现全链路可溯，违规操作即时预警与查处。",
@@ -57,7 +58,7 @@ export const InternalControlSection: React.FC = () => {
       </SummaryBox>
 
       {/* 3.4.1 专职监督工作成果 */}
-      <div className="space-y-6 sm:space-y-8">
+      <div className="flex flex-col gap-[var(--report-panel-gap)]">
         <ReportSubsectionHeader title="3.4.1 违规查处与稽查成果" />
         
         <ReportMetricHero
@@ -72,6 +73,20 @@ export const InternalControlSection: React.FC = () => {
         />
 
         <ReportMetricGrid columns={3}>
+          <ReportMetricCard
+            title={
+              <div className="flex items-center gap-2">
+                <span>全站点明文回显</span>
+                <ReportBadge tone="blue" className="text-xs font-mono font-normal">
+                  9月新增监测
+                </ReportBadge>
+              </div>
+            }
+            value="9,020"
+            unit="次"
+            className="sm:col-span-2 lg:col-span-3"
+            detail={highlightNumbers("管控背景与处置闭环：9月新增明文回显全量监控，累计捕获回显记录 [[9,020次]]。因上半月查看姓名数据较多，内控监督即时介入反馈，果断对相关账号的高敏查看[[权限全面回收]]。至 [[9月16日]] 查看明文监测群技术调试全面就绪，日常查看条数迅速压降收敛至 [[0~4条/日]] 极低安全水位，且全部经逐笔复核反馈无违规异常。")}
+          />
           <ReportMetricCard
             title="红利类型派错"
             value="161"
@@ -108,18 +123,11 @@ export const InternalControlSection: React.FC = () => {
             unit="次"
             detail={highlightNumbers("经[[人工及系统双向复核]]，未发现泄露行为；环比第二季度 [[55,017次]] 下降 [[21.68%]]。")}
           />
-          <ReportMetricCard
-            title="全站点明文回显"
-            value="9,020"
-            unit="次 (9月新增监测)"
-            className="sm:col-span-2 lg:col-span-3"
-            detail={highlightNumbers("管控背景与处置闭环：9月新增明文回显全量监控，累计捕获回显记录 [[9,020次]]。因上半月查看姓名数据较多，内控监督即时介入反馈，果断对相关账号的高敏查看[[权限全面回收]]。至 [[9月16日]] 查看明文监测群技术调试全面就绪，日常查看条数迅速压降收敛至 [[0~4条/日]] 极低安全水位，且全部经逐笔复核反馈无违规异常。")}
-          />
         </ReportMetricGrid>
       </div>
 
       {/* 3.4.2 监督排查核心主线 */}
-      <div className="space-y-6 sm:space-y-8">
+      <div className="flex flex-col gap-[var(--report-panel-gap)]">
         <ReportSubsectionHeader title="3.4.2 监督排查核心主线" />
 
         <SummaryBox variant="module">
@@ -128,28 +136,83 @@ export const InternalControlSection: React.FC = () => {
           )}
         </SummaryBox>
         
-        <div className="space-y-6">
-          <ReportInfoGrid
-            title="线索来源"
-            icon={<Search className="w-4 h-4 text-slate-900 shrink-0" />}
-            desc={highlightNumbers("通过外部渠道、系统预警、业务流程异常、匿名举报与行为留痕发现问题。")}
-            items={clueSourceItems}
-            showIndex
-            columns={4}
-          />
-          <ReportInfoGrid
-            title="稽查动作"
-            icon={<ShieldCheck className="w-4 h-4 text-slate-900 shrink-0" />}
-            desc={highlightNumbers("线索进入后，按归集、复核、追溯、核验和规则回流推进闭环处理。")}
-            items={auditActionItems}
-            showIndex
-            columns={4}
-          />
+        <div className="flex flex-col gap-6">
+          {/* 1. 线索来源 */}
+          <div className="flex flex-col gap-3.5">
+            <div className="flex items-center gap-2 pb-1.5 border-b border-slate-200">
+              <span className="w-1.5 h-3.5 bg-slate-900"></span>
+              <span className="font-bold text-slate-950 text-base flex items-center gap-2">
+                <Search className="w-4 h-4 text-slate-900 shrink-0" />
+                <span>线索来源</span>
+              </span>
+            </div>
+            <SummaryBox variant="note">
+              {highlightNumbers("通过[[外部渠道]]、[[系统预警]]、[[业务流程异常]]、[[匿名举报]]与[[行为留痕]]发现问题。")}
+            </SummaryBox>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
+              {clueSourceItems.map((item, index) => (
+                <div
+                  key={item.title}
+                  className="bg-white border border-slate-200 p-4 sm:p-5 flex flex-col justify-between space-y-2.5 h-full"
+                >
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 pb-2 border-b border-slate-100">
+                      <span className="w-5 h-5 bg-slate-900 text-white font-mono font-bold text-xs flex items-center justify-center shrink-0">
+                        {index + 1}
+                      </span>
+                      <span className="font-bold text-slate-950 text-sm sm:text-[15px]">
+                        {item.title}
+                      </span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                      {highlightNumbers(item.desc)}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 2. 稽查动作 */}
+          <div className="flex flex-col gap-3.5">
+            <div className="flex items-center gap-2 pb-1.5 border-b border-slate-200">
+              <span className="w-1.5 h-3.5 bg-slate-900"></span>
+              <span className="font-bold text-slate-950 text-base flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-slate-900 shrink-0" />
+                <span>稽查动作</span>
+              </span>
+            </div>
+            <SummaryBox variant="note">
+              {highlightNumbers("线索进入后，按[[归集]]、[[复核]]、[[追溯]]、[[核验]]和[[规则回流]]推进闭环处理。")}
+            </SummaryBox>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
+              {auditActionItems.map((item, index) => (
+                <div
+                  key={item.title}
+                  className="bg-white border border-slate-200 p-4 sm:p-5 flex flex-col justify-between space-y-2.5 h-full"
+                >
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 pb-2 border-b border-slate-100">
+                      <span className="w-5 h-5 bg-slate-900 text-white font-mono font-bold text-xs flex items-center justify-center shrink-0">
+                        {index + 1}
+                      </span>
+                      <span className="font-bold text-slate-950 text-sm sm:text-[15px]">
+                        {item.title}
+                      </span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                      {highlightNumbers(item.desc)}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
       {/* 3.4.3 高危场景防范 */}
-      <div className="space-y-6 sm:space-y-8">
+      <div className="flex flex-col gap-[var(--report-panel-gap)]">
         <ReportSubsectionHeader title="3.4.3 高危场景防范" />
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 items-stretch">
@@ -163,9 +226,9 @@ export const InternalControlSection: React.FC = () => {
                   </span>
                   <span>外部通讯群聊风险</span>
                 </div>
-                <span className="text-xs font-mono font-bold px-2 py-0.5 bg-rose-50 text-rose-800 border border-rose-200">
+                <ReportBadge tone="red" className="text-xs font-mono">
                   高危暴露
-                </span>
+                </ReportBadge>
               </div>
               <p className="text-sm text-slate-700 leading-relaxed font-normal">
                 {highlightNumbers("群聊信息易被全局检索，导致[[敏感数据暴露]]与非受控扩散，存在严重信息泄露隐患。")}
@@ -191,9 +254,9 @@ export const InternalControlSection: React.FC = () => {
                   </span>
                   <span>内部勾结风险</span>
                 </div>
-                <span className="text-xs font-mono font-bold px-2 py-0.5 bg-amber-50 text-amber-800 border border-amber-200">
+                <ReportBadge tone="amber" className="text-xs font-mono">
                   协同隐患
-                </span>
+                </ReportBadge>
               </div>
               <p className="text-sm text-slate-700 leading-relaxed font-normal">
                 {highlightNumbers("涉及[[身份验证]]、[[佣金结算]]与[[提款审核]]等环节，若缺乏随机隔离与交叉复核，易产生协同违规。")}
@@ -212,14 +275,14 @@ export const InternalControlSection: React.FC = () => {
       </div>
 
       {/* 3.4.4 典型违规案例剖析 */}
-      <div className="space-y-6 sm:space-y-8">
+      <div className="flex flex-col gap-[var(--report-panel-gap)]">
         <ReportSubsectionHeader title="3.4.4 典型案例剖析" />
         
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-5 sm:gap-6 items-stretch">
           <ReportCaseCard
             title="外包审核违规案例"
             icon={<Shield className="w-5 h-5 text-blue-800 shrink-0" />}
-            badge={<span className="text-xs font-mono font-bold text-rose-800 bg-rose-50 px-2 py-0.5 border border-rose-200">违规查处</span>}
+            badge={<ReportBadge tone="red" className="text-xs font-mono">违规查处</ReportBadge>}
             steps={[
               {
                 step: 1,
@@ -242,7 +305,7 @@ export const InternalControlSection: React.FC = () => {
           <ReportCaseCard
             title="业绩造假违规案例"
             icon={<Shield className="w-5 h-5 text-blue-800 shrink-0" />}
-            badge={<span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2 py-0.5 border border-amber-200">稽查纠偏</span>}
+            badge={<ReportBadge tone="amber" className="text-xs font-mono">稽查纠偏</ReportBadge>}
             steps={[
               {
                 step: 1,

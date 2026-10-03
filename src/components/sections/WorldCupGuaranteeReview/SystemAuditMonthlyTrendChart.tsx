@@ -13,7 +13,8 @@ import {
   Cell,
   ReferenceLine,
 } from "recharts";
-import { ReportChartCard } from "../../ReportSections";
+import { ReportBadge, ReportChartCard } from "../../ReportSections";
+import { highlightNumbers } from "./utils";
 import {
   chartAxisTick,
   chartColors,
@@ -229,11 +230,9 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
   return (
     <ReportChartCard
       title="系统出单趋势对比"
-      description={
-        <span>
-          2026年1月至9月，<strong className="text-slate-900 font-bold">系统出单比例</strong>由 1~8月均值的 <span className="font-mono font-bold text-slate-950">49.77%</span> 提升至 9.30全量的 <span className="font-mono font-bold text-slate-950">65.00%</span>；同时 <strong className="text-slate-900 font-bold">系统质检率</strong>由 1~8月均值的 <span className="font-mono font-bold text-slate-950">0.141%</span>（1月峰值 0.324%）稳步压降至 <span className="font-mono font-bold text-emerald-700">0.072%</span>，实现了<strong className="text-slate-950 font-bold">“放量提升同时差错率持续走低”</strong>的实际成效。
-        </span>
-      }
+      description={highlightNumbers(
+        "2026年1月至9月，[[系统出单比例]]由 1~8月均值的 [[49.77%]] 提升至 9.30全量的 [[65.00%]]；同时[[系统质检率]]由 1~8月均值的 [[0.141%]]（1月峰值 [[0.324%]]）稳步压降至 [[0.072%]]，实现了[[“放量提升同时差错率持续走低”]]的实际成效。"
+      )}
       bodyHeight="h-[510px]"
       footnote="注：数据周期为 2026年1月至2026年9月（含 9.30 全量推全节点）。左 Y 轴出单比例展示系统出单放量趋势；右 Y 轴质检率展示质量持续改善与收敛落差。"
     >
@@ -275,9 +274,9 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
                 <td className="py-3 px-4 text-center font-mono bg-slate-50/60 border-l border-slate-200/80">
                   <div className="inline-flex items-center justify-center gap-1.5 flex-wrap">
                     <span className="font-bold text-blue-950 text-sm sm:text-base">+15.23%</span>
-                    <span className="text-xs font-bold text-blue-800 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded-xs">
+                    <ReportBadge tone="blue" className="text-xs font-mono">
                       ↑ +30.60%
-                    </span>
+                    </ReportBadge>
                   </div>
                 </td>
               </tr>
@@ -299,9 +298,9 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
                 <td className="py-3 px-4 text-center font-mono bg-slate-50/60 border-l border-slate-200/80">
                   <div className="inline-flex items-center justify-center gap-1.5 flex-wrap">
                     <span className="font-bold text-emerald-800 text-sm sm:text-base">-0.069%</span>
-                    <span className="text-xs font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded-xs">
+                    <ReportBadge tone="green" className="text-xs font-mono">
                       ↓ -48.94%
-                    </span>
+                    </ReportBadge>
                   </div>
                 </td>
               </tr>

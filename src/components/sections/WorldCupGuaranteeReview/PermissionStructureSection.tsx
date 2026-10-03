@@ -1,10 +1,11 @@
 import React from "react";
 import { ShieldCheck, Lock, Clock, FileCheck2 } from "lucide-react";
 import { highlightNumbers, SummaryBox } from "./utils";
+import { ReportBadge } from "../../ReportSections";
 
 export const PermissionStructureSection: React.FC = () => {
   return (
-    <div id="section-permission-structure" className="space-y-12 lg:space-y-16">
+    <div id="section-permission-structure" className="flex flex-col gap-[var(--report-panel-gap)]">
       {/* 3.1 权限模式升级 章节导语 */}
       <SummaryBox variant="module">
         <div className="space-y-2.5">
@@ -27,9 +28,9 @@ export const PermissionStructureSection: React.FC = () => {
               权限模式升级体系
             </h4>
           </div>
-          <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-2.5 py-1 self-start sm:self-auto">
+          <ReportBadge tone="slate" className="text-xs font-mono py-1 px-2.5 self-start sm:self-auto">
             三级权限架构运转逻辑（长期权限 · 临时权限 · 凭单查询）
-          </span>
+          </ReportBadge>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 items-stretch">
@@ -43,9 +44,9 @@ export const PermissionStructureSection: React.FC = () => {
                   </span>
                   <span>长期权限</span>
                 </div>
-                <span className="text-xs font-mono font-bold text-slate-700">
+                <ReportBadge tone="blue" className="text-xs font-mono">
                   少数特权工种
-                </span>
+                </ReportBadge>
               </div>
               <div className="text-xs text-slate-500 font-mono">
                 适用：日常核心工作需要（如风控）
@@ -70,9 +71,9 @@ export const PermissionStructureSection: React.FC = () => {
                   </span>
                   <span>临时权限</span>
                 </div>
-                <span className="text-xs font-mono font-bold text-indigo-700">
+                <ReportBadge tone="blue" className="text-xs font-mono">
                   限时审批生效
-                </span>
+                </ReportBadge>
               </div>
               <div className="text-xs text-slate-500 font-mono">
                 适用：专项排查、跨部门短期支持
@@ -97,9 +98,9 @@ export const PermissionStructureSection: React.FC = () => {
                   </span>
                   <span>凭单查询</span>
                 </div>
-                <span className="text-xs font-mono font-bold text-blue-700">
+                <ReportBadge tone="blue" className="text-xs font-mono">
                   任务动态解锁
-                </span>
+                </ReportBadge>
               </div>
               <div className="text-xs text-slate-500 font-mono">
                 适用：一线客服、常规审核、业务经办

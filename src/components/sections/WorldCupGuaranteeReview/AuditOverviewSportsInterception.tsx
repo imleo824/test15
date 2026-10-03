@@ -14,7 +14,6 @@ import {
 import {
   ReportChartCard,
   ReportChartLegend,
-  ReportPanel,
   ReportSubsectionHeader,
   ReportTableFrame
 } from "../../ReportSections";
@@ -256,7 +255,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
       .toFixed(2);
 
   return (
-    <div id="section-audit-sports-interception" className="space-y-6 sm:space-y-8">
+    <div id="section-audit-sports-interception" className="flex flex-col gap-[var(--report-panel-gap)]">
       {/* 模块小标题 - 统一规范 */}
       <ReportSubsectionHeader title="2.1.4 体育数据" />
 

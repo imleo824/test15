@@ -10,7 +10,8 @@ import {
   Tooltip,
   LabelList,
 } from "recharts";
-import { ReportChartCard } from "../../ReportSections";
+import { ReportBadge, ReportChartCard } from "../../ReportSections";
+import { highlightNumbers } from "./utils";
 import {
   chartAxisTick,
   chartColors,
@@ -208,9 +209,13 @@ const renderLegend = () => (
           className={`h-2.5 w-2.5 rounded-xs shrink-0 ${cfg.hasBorder ? "border border-slate-300" : ""}`}
           style={{ backgroundColor: cfg.color }}
         />
-        <span className={cfg.isKey ? "font-bold text-blue-900 bg-blue-50 px-1 py-0.2" : "text-slate-600"}>
-          {cfg.name}
-        </span>
+        {cfg.isKey ? (
+          <ReportBadge tone="blue" className="text-xs font-mono">
+            {cfg.name}
+          </ReportBadge>
+        ) : (
+          <span className="text-slate-600">{cfg.name}</span>
+        )}
       </div>
     ))}
   </div>
@@ -223,25 +228,25 @@ export const SmartDispatchOrderStructure: React.FC = () => {
       description={
         <div className="w-full space-y-1.5 text-sm text-slate-700 leading-relaxed">
           <div className="font-bold text-slate-950">
-            三大审核主体（外包 / 总部 / 系统）出单结构与质量演进：
+            {highlightNumbers("三大审核主体（外包 / 总部 / 系统）[[出单结构与质量演进]]：")}
           </div>
           <div className="space-y-1 pl-0.5">
             <div className="flex items-start gap-2">
               <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
               <span>
-                <strong className="text-slate-900 font-bold">外包审核</strong> 占比由 1~8月均值的 <strong className="text-slate-950 font-mono font-bold">10.12%</strong> 深度清退至 9.30全量的 <strong className="text-emerald-700 font-mono font-bold">0.63%</strong>（高差错外包全面退场）；
+                {highlightNumbers("[[外包审核]] 占比由 1~8月均值的 [[10.12%]] 深度清退至 9.30全量的 [[0.63%]]（[[高差错外包全面退场]]）；")}
               </span>
             </div>
             <div className="flex items-start gap-2">
               <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
               <span>
-                <strong className="text-slate-900 font-bold">总部审核</strong> 占比精简至 <strong className="text-slate-950 font-mono font-bold">34.37%</strong>，专注承接复杂核心单；
+                {highlightNumbers("[[总部审核]] 占比精简至 [[34.37%]]，专注承接[[复杂核心单]]；")}
               </span>
             </div>
             <div className="flex items-start gap-2">
               <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
               <span>
-                <strong className="text-slate-900 font-bold">系统自动审单</strong> 由 1~8月均值的 <strong className="text-slate-950 font-mono font-bold">49.77%</strong> 跃升至 9.30全量的 <strong className="text-blue-900 font-mono font-bold">65.00%</strong>（系统全量放行成型）。
+                {highlightNumbers("[[系统自动审单]] 由 1~8月均值的 [[49.77%]] 跃升至 9.30全量的 [[65.00%]]（[[系统全量放行成型]]）。")}
               </span>
             </div>
           </div>
@@ -311,9 +316,9 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                 <td className="py-3 px-3 text-center font-mono bg-slate-50/60 border-l border-slate-200/80">
                   <div className="inline-flex items-center justify-center gap-1.5 flex-wrap">
                     <span className="font-bold text-blue-950 text-sm sm:text-base">+15.23%</span>
-                    <span className="text-xs font-bold text-blue-800 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded-xs">
+                    <ReportBadge tone="blue" className="text-xs font-mono">
                       ↑ +30.60%
-                    </span>
+                    </ReportBadge>
                   </div>
                 </td>
               </tr>
@@ -341,9 +346,9 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                 <td className="py-3 px-3 text-center font-mono bg-slate-50/60 border-l border-slate-200/80">
                   <div className="inline-flex items-center justify-center gap-1.5 flex-wrap">
                     <span className="font-bold text-emerald-800 text-sm sm:text-base">-0.069%</span>
-                    <span className="text-xs font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded-xs">
+                    <ReportBadge tone="green" className="text-xs font-mono">
                       ↓ -48.94%
-                    </span>
+                    </ReportBadge>
                   </div>
                 </td>
               </tr>

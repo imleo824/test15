@@ -5,18 +5,18 @@ import { AuditOverviewAgentInterception } from "./AuditOverviewAgentInterception
 import { AuditOverviewSportsInterception } from "./AuditOverviewSportsInterception";
 import { AuditOverviewStudioInterception } from "./AuditOverviewStudioInterception";
 import { AuditOverviewHighVipDetail } from "./AuditOverviewHighVipDetail";
-import { ReportSectionHeader } from "../../ReportSections";
+import { ReportBadge, ReportSectionHeader } from "../../ReportSections";
 
 export const AuditOverviewSection: React.FC = () => {
   return (
-    <div className="space-y-18 lg:space-y-20">
+    <div className="report-chapter-content">
       {/* 2.1 风控数据 主模块标题 */}
       <ReportSectionHeader
         title="2.1 风控数据"
         rightContent={
-          <span className="text-xs font-mono font-bold text-slate-800 bg-slate-100 px-2.5 py-1">
+          <ReportBadge tone="slate" className="text-xs font-mono py-1 px-3">
             2026年第三季度 · 核心拦截与时效全景
-          </span>
+          </ReportBadge>
         }
       />
 
@@ -40,3 +40,4 @@ export const AuditOverviewSection: React.FC = () => {
     </div>
   );
 };
+

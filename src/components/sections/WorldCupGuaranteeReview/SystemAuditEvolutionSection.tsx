@@ -1,20 +1,18 @@
 import React from "react";
 import {
-  ArrowRight,
   CheckCircle,
   XCircle,
   RotateCcw,
   Scale,
   Calculator,
   UserCheck,
-  Lock,
   Sliders,
   ShieldCheck,
-  Scan,
   TrendingUp,
   TrendingDown
 } from "lucide-react";
 import {
+  ReportBadge,
   ReportDimensionCard,
   ReportSectionHeader,
   ReportSubsectionHeader,
@@ -26,9 +24,9 @@ import { SystemAuditMonthlyTrendChart } from "./SystemAuditMonthlyTrendChart";
 
 export const SystemAuditEvolutionSection: React.FC = () => {
   return (
-    <div id="section-system-audit-evolution" className="space-y-18 lg:space-y-22">
+    <div id="section-system-audit-evolution" className="report-chapter-content">
       {/* 4.1 审单模式翻转 */}
-      <div className="space-y-6 sm:space-y-8">
+      <div className="flex flex-col gap-[var(--report-panel-gap)]">
         <ReportSectionHeader title="4.1 审单模式演进" />
 
         {/* 统一文字说明：一句话总结 */}
@@ -46,9 +44,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               <span className="font-bold text-slate-950 text-base">
                 审单模式结构变化
               </span>
-              <span className="text-xs font-mono font-bold text-slate-600 bg-slate-100 px-2 py-0.5">
+              <ReportBadge tone="slate" className="text-xs font-mono">
                 阶段演进（原来 ➔ 现在 ➔ 最优）
-              </span>
+              </ReportBadge>
             </div>
 
             {/* 行 1：系统审核演进（50.0% ➔ 65.0% ➔ 75.0%） */}
@@ -166,16 +164,18 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 <span className="w-2.5 h-2.5 bg-blue-700"></span>
                 <h4 className="text-base sm:text-lg font-bold text-slate-950 tracking-tight flex flex-wrap items-center gap-2">
                   <span>系统出单安全边界</span>
-                  <span className="bg-rose-50 text-rose-700 text-xs font-mono font-bold px-2 py-0.5 rounded-sm border border-rose-200 select-none">
+                  <ReportBadge tone="red" className="text-xs font-mono select-none">
                     75% 比例
-                  </span>
+                  </ReportBadge>
                 </h4>
               </div>
             </div>
 
             {/* 管理结论：置于【成因剖析】标题正下方 */}
             <div className="p-4 bg-slate-50/60 border-l-2 border-slate-300 text-sm sm:text-base text-slate-800 leading-relaxed">
-              基于<strong>“多账号风险拦截（约15%）+ 历史存量标签兜底（约10%）”</strong>的风控边界，当前 <strong>60%~65%</strong> 的系统出单水平已高度贴近 <strong>75%</strong> 的安全物理极限。
+              {highlightNumbers(
+                "基于[[“多账号风险拦截（约15%）+ 历史存量标签兜底（约10%）”]]的风控边界，当前 [[60%~65%]] 的系统出单水平已高度贴近 [[75%]] 的安全物理极限。"
+              )}
             </div>
 
             {/* 成因 1 & 2 */}
@@ -184,12 +184,14 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               <div className="bg-white p-4 space-y-2">
                 <div className="flex items-center justify-between">
                   <span className="text-xs sm:text-sm font-bold text-slate-900">平台运营特征：多账号关联高发</span>
-                  <span className="text-xs font-mono font-bold text-amber-700">
+                  <ReportBadge tone="amber" className="text-xs font-mono">
                     关联风险约 15%
-                  </span>
+                  </ReportBadge>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                  平台<strong className="text-slate-950 font-semibold">多账号关联占比高达 80% 左右</strong>；其中经策略矩阵深度识别后，<strong className="text-slate-950 font-semibold">高风险关联占比约 15% </strong>，该部分订单必须转入人工复审进行资产核验与风险阻断，无法由系统直接放行。
+                  {highlightNumbers(
+                    "平台[[多账号关联占比高达 80% 左右]]；其中经[[策略矩阵深度识别]]后，[[高风险关联占比约 15%]]，该部分订单必须转入人工复审进行资产核验与风险阻断，无法由系统直接放行。"
+                  )}
                 </p>
               </div>
 
@@ -197,12 +199,14 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               <div className="bg-white p-4 space-y-2">
                 <div className="flex items-center justify-between">
                   <span className="text-xs sm:text-sm font-bold text-slate-900">历史存量沉淀：存量风控标签留存</span>
-                  <span className="text-xs font-mono font-bold text-amber-700">
+                  <ReportBadge tone="amber" className="text-xs font-mono">
                     标签残留约 10%
-                  </span>
+                  </ReportBadge>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                  平台沉淀了大量被打上标签的用户；在经历多轮策略去重与标签清理后，<strong className="text-slate-950 font-semibold">带标存量用户依然占整体单量的 10% 左右</strong>，触发历史标签的订单仍需人工校验兜底。
+                  {highlightNumbers(
+                    "平台沉淀了大量被打上标签的用户；在经历多轮策略去重与标签清理后，[[带标存量用户依然占整体单量的 10% 左右]]，触发历史标签的订单仍需人工校验兜底。"
+                  )}
                 </p>
               </div>
             </div>
@@ -215,7 +219,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   <span className="font-bold text-slate-900">订单总体结构 (100%)</span>
                   <span className="text-slate-300">|</span>
                   <span className="text-slate-600 font-mono">
-                    系统出单安全边界：<strong className="text-amber-800 font-bold">75%</strong>
+                    系统出单安全边界：{highlightNumbers("[[75%]]")}
                   </span>
                 </div>
                 <div className="flex items-center gap-3 font-mono text-[11px] text-slate-500">
@@ -282,7 +286,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       <span className="text-xs font-mono font-bold text-amber-800">10% ~ 15% • 剩余潜能</span>
                     </div>
                     <p className="text-xs text-slate-700 mt-1 leading-relaxed">
-                      距系统出单安全物理边界（75%）仅存 <strong className="text-amber-950 font-bold font-mono">10% ~ 15%</strong> 的理论提升空间。
+                      {highlightNumbers(
+                        "距系统出单安全物理边界（75%）仅存 [[10% ~ 15%]] 的理论提升空间。"
+                      )}
                     </p>
                   </div>
                 </div>
@@ -320,7 +326,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
       </div>
 
       {/* 4.2 带来核心收益 */}
-      <div className="space-y-6 sm:space-y-8">
+      <div className="flex flex-col gap-[var(--report-panel-gap)]">
         <ReportSectionHeader title="4.2 带来核心收益" />
 
         {/* 核心收益结构化气泡/卡片 */}
@@ -332,7 +338,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               <strong className="text-sm font-bold text-slate-900">核心维度 · 自动审单放量</strong>
             </div>
             <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal flex-1">
-              以 <span className="font-mono font-bold text-slate-950">500w</span> 总单量测算，系统替代规模从原先的 <span className="font-mono font-bold text-slate-950">250w单 (50%)</span> 提升至 <span className="font-mono font-bold text-slate-950">325w单 (65%)</span>，实现 <span className="text-emerald-700 font-bold font-mono">净增 75w单 (+30.0%)</span>。
+              {highlightNumbers(
+                "以 [[500w]] 总单量测算，系统替代规模从原先的 [[250w单 (50%)]] 提升至 [[325w单 (65%)]]，实现[[净增 75w单 (+30.0%)]]。"
+              )}
             </p>
           </div>
 
@@ -343,7 +351,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               <strong className="text-sm font-bold text-slate-900">核心维度 · 审核时效提速</strong>
             </div>
             <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal flex-1">
-              加权平均停留时间由原来的 <span className="font-mono font-bold text-slate-950">4.13分钟</span> 净压降压缩至 <span className="font-mono font-bold text-slate-950">2.96分钟</span>，全盘时效实现 <span className="text-emerald-700 font-bold font-mono">整体提速 +28.2%</span>。
+              {highlightNumbers(
+                "加权平均停留时间由原来的 [[4.13分钟]] 净压降压缩至 [[2.96分钟]]，全盘时效实现[[整体提速 +28.2%]]。"
+              )}
             </p>
           </div>
 
@@ -354,12 +364,14 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 <span className="w-2 h-2 rounded-full bg-emerald-600 shrink-0"></span>
                 <strong className="text-sm font-bold text-slate-900">核心维度 · 综合降本止损</strong>
               </div>
-              <span className="text-[11px] font-mono font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 select-none">
+              <ReportBadge tone="green" className="text-xs font-mono">
                 合计约 250w/月
-              </span>
+              </ReportBadge>
             </div>
             <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal flex-1">
-              外包节省成本 <span className="text-emerald-700 font-bold font-mono">近 100w/月</span>、外包 <span className="text-emerald-700 font-bold font-mono">直接止损 50w+/月</span>；另总部人审单量精简后理论降本 <span className="text-emerald-700 font-bold font-mono">约 100w/月</span>，综合收益合计 <span className="text-emerald-700 font-bold font-mono">约 250w/月</span>。
+              {highlightNumbers(
+                "外包节省成本 [[近 100w/月]]、外包[[直接止损 50w+/月]]；另总部人审单量精简后理论降本 [[约 100w/月]]，综合收益合计 [[约 250w/月]]。"
+              )}
             </p>
           </div>
         </div>
@@ -464,21 +476,27 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                     <p>
                       <strong className="text-slate-950">自动化占比跃升：</strong>
-                      云盾系统出单占比由 1-9月均值 <strong className="text-slate-950 font-mono">50.4%</strong> 提升至 930全量节点的 <strong className="text-slate-950 font-mono">65.0%</strong>，占比相对提升 <strong className="text-slate-950 font-mono">+29.0%</strong>。
+                      {highlightNumbers(
+                        "云盾系统出单占比由 1-9月均值 [[50.4%]] 提升至 930全量节点的 [[65.0%]]，占比相对提升 [[+29.0%]]。"
+                      )}
                     </p>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                     <p>
                       <strong className="text-slate-950">外包清退与降本止损：</strong>
-                      外包团队占比由 1-9月月均 <strong className="text-slate-950 font-mono">9.7%</strong> 清退压降至 系统930 的 <strong className="text-slate-950 font-mono">0.6%</strong>（相对减幅 <strong className="text-slate-950 font-mono">-93.8%</strong>），全面释放 <strong className="text-slate-950 font-mono">100+ 人力</strong>，直接削减外包硬性成本 <strong className="text-emerald-700 font-bold font-mono">近 100w/月</strong>；并减少外包差错引发的约 <strong className="text-emerald-700 font-bold font-mono">50w+ 元/月</strong> 资金损失，月度综合经济价值达 <strong className="text-slate-950 font-bold font-mono">150w/月</strong>。
+                      {highlightNumbers(
+                        "外包团队占比由 1-9月月均 [[9.7%]] 清退压降至 系统930 的 [[0.6%]]（相对减幅 [[-93.8%]]），全面释放 [[100+ 人力]]，直接削减外包硬性成本 [[近 100w/月]]；并减少外包差错引发的约 [[50w+ 元/月]] 资金损失，月度综合经济价值达 [[150w/月]]。"
+                      )}
                     </p>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                     <p>
                       <strong className="text-slate-950">总部减负与成本节约：</strong>
-                      总部人工审核占比由月均 <strong className="text-slate-950 font-mono">40.0%</strong> 降至 系统930 的 <strong className="text-slate-950 font-mono">34.4%</strong>（相对精简 <strong className="text-slate-950 font-mono">-14.0%</strong>），相当于释放约 <strong className="text-emerald-700 font-bold font-mono">30 人</strong> 的日常审核工作量，实现总部月均理论成本节约约 <strong className="text-emerald-700 font-bold font-mono">100w/月</strong>。
+                      {highlightNumbers(
+                        "总部人工审核占比由月均 [[40.0%]] 降至 系统930 的 [[34.4%]]（相对精简 [[-14.0%]]），相当于释放约 [[30 人]] 的日常审核工作量，实现总部月均理论成本节约约 [[100w/月]]。"
+                      )}
                     </p>
                   </div>
                 </div>
@@ -584,21 +602,27 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                     <p>
                       <strong className="text-slate-950">订单风控停留缩短：</strong>
-                      按总单量 <strong className="text-slate-950 font-mono">500w 单</strong> 测算，加权平均停留时间从 <strong className="text-slate-950 font-mono">4.13 分钟降至 2.96 分钟</strong>，净压缩 <strong className="text-slate-950 font-mono">1.17 分钟</strong>（全盘时效提速 <strong className="text-emerald-700 font-mono">+28.2%</strong>）。
+                      {highlightNumbers(
+                        "按总单量 [[500w 单]] 测算，加权平均停留时间从 [[4.13 分钟降至 2.96 分钟]]，净压缩 [[1.17 分钟]]（全盘时效提速 [[+28.2%]]）。"
+                      )}
                     </p>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                     <p>
                       <strong className="text-slate-950">优质用户体感跃升：</strong>
-                      释放的 <strong className="text-slate-950 font-mono">75w 单</strong> 由原 8 分钟降至 15 秒；占总量 <strong className="text-slate-950 font-mono">65% 的优质客户提单（325w 单）</strong> 实现“秒过”的体验，出款体感显著改善。
+                      {highlightNumbers(
+                        "释放的 [[75w 单]] 由原 8 分钟降至 15 秒；占总量 [[65% 的优质客户提单（325w 单）]] 实现“秒过”的体验，出款体感显著改善。"
+                      )}
                     </p>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                     <p>
                       <strong className="text-slate-950">风险玩家深度严查：</strong>
-                      占总量 <strong className="text-slate-950 font-mono">35% 的风险玩家订单</strong> 由专业人工实施多维交叉复核，审核时效严控在 <strong className="text-slate-950 font-mono">8分钟内</strong> 快速闭环，兼顾安全防御与流转速率。
+                      {highlightNumbers(
+                        "占总量 [[35% 的风险玩家订单]] 由专业人工实施多维交叉复核，审核时效严控在 [[8分钟内]] 快速闭环，兼顾安全防御与流转速率。"
+                      )}
                     </p>
                   </div>
                 </div>
@@ -704,14 +728,18 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                     <p>
                       <strong className="text-slate-950">消灭外包高差错风险：</strong>
-                      系统审单质量远高于外包和一般审核人员，全面替代质检差错率高达 <strong className="text-slate-950 font-mono">1.91%</strong> 的外包审核，从根本上消除了外包质量控制不力带来的高危差错及安全漏洞。
+                      {highlightNumbers(
+                        "系统审单质量远高于外包和一般审核人员，全面替代质检差错率高达 [[1.91%]] 的外包审核，从根本上消除了外包质量控制不力带来的高危差错及安全漏洞。"
+                      )}
                     </p>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                     <p>
                       <strong className="text-slate-950">缓解总部压力聚焦核心：</strong>
-                      总部订单减少 <strong className="text-slate-950 font-mono">25w+ 单</strong>，缓解了一线审核人员的过度疲劳，得以集中精力深耕高危、复杂及高净值大额订单，显著带动了全盘审核业务的安全防御质效。
+                      {highlightNumbers(
+                        "总部订单减少 [[25w+ 单]]，缓解了一线审核人员的过度疲劳，得以集中精力深耕高危、复杂及高净值大额订单，显著带动了全盘审核业务的安全防御质效。"
+                      )}
                     </p>
                   </div>
                 </div>
@@ -746,7 +774,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
         </SummaryBox>
 
           {/* 4.3.1 关键机制优化前后对比 */}
-          <div className="space-y-6 sm:space-y-8">
+          <div className="flex flex-col gap-[var(--report-panel-gap)]">
             <ReportSubsectionHeader
               title="4.3.1 云盾体系 · 关键优化对比"
               rightContent={
@@ -765,7 +793,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   before: "无套利策略 (仅粗放额度判定)",
                   upgrade: "+29 项套利规则",
                   after: "补充专项套利矩阵",
-                  scenario: "原来大额盈利一律转人工，误杀率高；现在系统自动识别全包、对打、打水、关联、快进快出、租卖号等套利行为，精准拦截违规，正常玩家极速放行。",
+                  scenario: "原来[[大额盈利一律转人工]]，误杀率高；现在系统[[自动识别全包、对打、打水、关联、快进快出、租卖号]]等套利行为，[[精准拦截违规]]，正常玩家[[极速放行]]。",
                 },
                 {
                   dimension: "变化2：增加 -> 外部数据联动",
@@ -773,7 +801,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   before: "无系统接口直连",
                   upgrade: "秒级 API 接口直连",
                   after: "三方场馆数据互通",
-                  scenario: "原来专员需手动登录三方场馆逐笔查单；现在核心场馆已实现接口秒级直连，实时共享风控注单与实时数据。",
+                  scenario: "原来专员需[[手动登录三方场馆逐笔查单]]；现在核心场馆已实现[[接口秒级直连]]，实时共享[[风控注单与实时数据]]。",
                 },
                 {
                   dimension: "变化3：增加 -> 智能决策模型",
@@ -781,7 +809,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   before: "无风险评分体系",
                   upgrade: "模型量化分级",
                   after: "引入动态风险评分",
-                  scenario: "原来凭专员经验主观判定，尺度易漂移；现在结合行为特征实时计算动态风险分，低风险秒级放行，高风险精准触发人工复核。",
+                  scenario: "原来凭专员经验主观判定，尺度易漂移；现在结合行为特征[[实时计算动态风险分]]，[[低风险秒级放行]]，[[高风险精准触发人工复核]]。",
                 },
                 {
                   dimension: "变化4：增加 -> 智能派单机制",
@@ -789,7 +817,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   before: "简单机械轮询",
                   upgrade: "多因子匹配算法",
                   after: "多因子智能派单",
-                  scenario: "原来工单机械轮询派单；现在根据风险等级、业务类型与审核员专长智能派单（复杂套利单派资深专家，基础单派普通专员）。",
+                  scenario: "原来工单[[机械轮询派单]]；现在根据[[风险等级、业务类型与审核员专长智能派单]]（复杂套利单派[[资深专家]]，基础单派[[普通专员]]）。",
                 },
                 {
                   dimension: "变化5：增加 -> 跨站关联识别",
@@ -797,7 +825,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   before: "无跨站关联分析能力",
                   upgrade: "全网图谱打通",
                   after: "跨站关联即时识别",
-                  scenario: "历史拦截高危单 50%+ 存在跨站关联，过去为重大盲区；现在自动放行前实时识别比对跨站同设备、同资金链路等特征，补齐关键防线。",
+                  scenario: "历史拦截高危单 [[50%+ 存在跨站关联]]，过去为重大盲区；现在自动放行前实时识别比对[[跨站同设备、同资金链路]]等特征，[[补齐关键防线]]。",
                 },
                 {
                   dimension: "变化6：增加 -> 风控工具支持",
@@ -805,7 +833,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   before: "传统人工手工核查",
                   upgrade: "一站式工具链集成",
                   after: "引入风控工具链",
-                  scenario: "原来排查关联需跨系统人工比对；现在一键生成关联图谱并由系统自动标识异常，辅助人工精准高效决策。",
+                  scenario: "原来排查关联需[[跨系统人工比对]]；现在[[一键生成关联图谱]]并由系统[[自动标识异常]]，辅助人工[[精准高效决策]]。",
                 },
               ].map((row, idx) => (
                 <div key={idx} className="bg-white border border-slate-200 p-5 sm:p-6 space-y-4">
@@ -815,9 +843,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       <span className="w-1.5 h-3 bg-slate-900"></span>
                       <span className="font-bold text-slate-950 text-base">{row.dimension}</span>
                     </div>
-                    <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-2 py-0.5 border border-slate-200">
+                    <ReportBadge tone="slate" className="text-xs font-mono">
                       {row.tag}
-                    </span>
+                    </ReportBadge>
                   </div>
 
                   {/* VS 左右对比面板 */}
@@ -830,9 +858,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
 
                     {/* 中：VS / 核心升级举措 */}
                     <div className="md:col-span-3 flex flex-col items-center justify-center py-2 md:py-0">
-                      <span className="text-xs font-mono font-bold text-blue-900 bg-blue-50 border border-blue-200 px-2.5 py-0.5 select-none inline-flex items-center gap-1 shrink-0 uppercase mb-1">
+                      <ReportBadge tone="blue" className="text-xs font-mono mb-1">
                         ⚡ VS 升级举措
-                      </span>
+                      </ReportBadge>
                       <div className="text-xs font-mono font-bold text-slate-950 border border-dashed border-slate-300 bg-slate-50 px-3 py-1 text-center w-full max-w-[200px]">
                         {row.upgrade}
                       </div>
@@ -848,7 +876,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   {/* 底部实战价值描述 */}
                   <div className="bg-slate-50/70 p-3.5 text-xs sm:text-sm text-slate-700 leading-relaxed border-l-2 border-slate-800">
                     <strong className="text-slate-900 block mb-1">业务场景举例：</strong>
-                    {row.scenario}
+                    {highlightNumbers(row.scenario)}
                   </div>
                 </div>
               ))}
@@ -935,9 +963,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                             双重转人工触发机制（分数量化阈值 + 特定策略组合熔断）
                           </span>
                         </div>
-                        <span className="text-xs font-mono font-bold text-rose-800 bg-rose-50 px-2 py-0.5 border border-rose-200">
+                        <ReportBadge tone="red" className="text-xs font-mono">
                           杜绝低分高危漏网
-                        </span>
+                        </ReportBadge>
                       </div>
 
                       {/* 1 行 2 列网格布局 */}
@@ -950,12 +978,14 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                                 <span className="w-1.5 h-1.5 bg-slate-900 shrink-0"></span>
                                 <span className="text-sm">逻辑一：风险分值累加（风险量化分数）</span>
                               </div>
-                              <span className="text-[10px] font-mono font-bold text-blue-900 bg-blue-50 border border-blue-200 px-1.5 py-0.5 select-none">
+                              <ReportBadge tone="blue" className="text-[10px] font-mono">
                                 策略分 + 标签分
-                              </span>
+                              </ReportBadge>
                             </div>
                             <p className="text-slate-700">
-                              风险总分由<strong>「策略扫描分数 + 客户标签分数」</strong>加权综合计算得出。若综合得分达到安全放行门槛（如 ≥ 60分），系统自动阻断并转人工审核：
+                              {highlightNumbers(
+                                "风险总分由[[策略扫描分数 + 客户标签分数]]加权综合计算得出。若综合得分达到安全放行门槛（如 [[≥ 60分]]），系统自动阻断并转人工审核："
+                              )}
                             </p>
                             <div className="bg-slate-50 border border-slate-200 p-2.5 space-y-1.5 text-xs text-slate-800">
                               <div className="flex items-center gap-1.5 font-bold text-slate-950 font-mono text-[11px] sm:text-xs">
@@ -963,8 +993,14 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                                 <span>综合风险总分 = 策略规则得分 + 标签配置得分</span>
                               </div>
                               <div className="text-[11px] text-slate-600 font-sans space-y-1 pt-1 border-t border-slate-200">
-                                <div><strong>• 策略规则计分：</strong>50+ 项动态策略实时扫描交易行为并逐项量化计分；</div>
-                                <div><strong>• 标签独立赋分：</strong>每个风控标签均支持独立配置风险分值，命中标签即自动累加。</div>
+                                <div>
+                                  <strong className="text-slate-950 font-bold">• 策略规则计分：</strong>
+                                  {highlightNumbers("50+ 项动态策略实时扫描交易行为并逐项量化计分；")}
+                                </div>
+                                <div>
+                                  <strong className="text-slate-950 font-bold">• 标签独立赋分：</strong>
+                                  {highlightNumbers("每个风控标签均支持独立配置风险分值，命中标签即自动累加。")}
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -982,20 +1018,28 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                                 <span className="w-1.5 h-1.5 bg-rose-600 shrink-0"></span>
                                 <span className="text-sm">逻辑二：特定策略组合（低分高危强转）</span>
                               </div>
-                              <span className="text-[10px] font-mono font-bold text-rose-800 bg-rose-100/60 border border-rose-200 px-1.5 py-0.5 select-none">
+                              <ReportBadge tone="red" className="text-[10px] font-mono">
                                 VIP差异化 · 30+组合/级
-                              </span>
+                              </ReportBadge>
                             </div>
                             <p className="text-slate-700">
-                              即使<strong>总风险分数不高（未达门槛）</strong>，只要命中<strong>高危特定策略组合</strong>，同样直接强行熔断并转人工审核，彻底杜绝低分高危漏网：
+                              {highlightNumbers(
+                                "即使[[总风险分数不高（未达门槛）]]，只要命中[[高危特定策略组合]]，同样直接强行熔断并转人工审核，彻底杜绝低分高危漏网："
+                              )}
                             </p>
                             <div className="bg-rose-50/50 border border-rose-200/80 p-2.5 space-y-1.5 text-xs text-slate-800">
                               <div className="font-bold text-rose-950 text-[11px] sm:text-xs">
                                 典型组合：敏感资料变更 + 快进快出 / 新绑账户 + 异常红利
                               </div>
                               <div className="text-[11px] text-slate-600 font-sans space-y-1 pt-1 border-t border-rose-100">
-                                <div><strong>• VIP 差异化配置：</strong>按 VIP 等级设定差异化熔断阈值，兼顾体验与风控；</div>
-                                <div><strong>• 分级 30+ 策略矩阵：</strong>每等级独立配置 30+ 项高危组合，实施精准拦截。</div>
+                                <div>
+                                  <strong className="text-rose-950 font-bold">• VIP 差异化配置：</strong>
+                                  {highlightNumbers("按 VIP 等级设定差异化熔断阈值，兼顾体验与风控；")}
+                                </div>
+                                <div>
+                                  <strong className="text-rose-950 font-bold">• 分级 30+ 策略矩阵：</strong>
+                                  {highlightNumbers("每等级独立配置 30+ 项高危组合，实施精准拦截。")}
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -1026,225 +1070,234 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       </SummaryBox>
                     </div>
 
-                    {/* 4列策略扫描结果表格 (全量规则名称透视) */}
+                    {/* 5列策略扫描结果表格 (分类居中、新增序号列、扫描结果移至分数前) */}
                     <ReportTableFrame>
                       <table className="report-dense-table w-full text-left border-collapse">
                         <thead>
                           <tr className="bg-slate-50 text-slate-900 text-xs font-mono font-bold border-b border-slate-200 uppercase tracking-wider">
-                            <th className="py-2.5 px-3 w-[16%] text-left">分类</th>
+                            <th className="py-2.5 px-3 w-[14%] text-center">分类</th>
+                            <th className="py-2.5 px-3 w-[8%] text-center">序号</th>
                             <th className="py-2.5 px-3 w-[46%] text-left">名称</th>
-                            <th className="py-2.5 px-3 w-[18%] text-center">风险分数</th>
-                            <th className="py-2.5 px-3 w-[20%] text-center">扫描结果</th>
+                            <th className="py-2.5 px-3 w-[16%] text-center">扫描结果</th>
+                            <th className="py-2.5 px-3 w-[16%] text-center">风险分数</th>
                           </tr>
                         </thead>
                         <tbody className="divide-y divide-slate-100 text-xs sm:text-sm">
-                          {[
-                            {
-                              category: "账户",
-                              tagColor: "bg-slate-100 text-slate-800 border-slate-200",
-                              items: [
-                                { name: "存在关联账号", score: "0分", isError: false },
-                                { name: "新绑提款账户后首提", score: "0分", isError: false },
-                                { name: "命中高危险标签审核挂起", score: "0分", isError: false },
-                                { name: "敏感资料变更后首提", score: "0分", isError: false },
-                                { name: "命中高危险标签", score: "+25分", isError: true },
-                                { name: "白名单", score: "0分", isError: false },
-                                { name: "场馆钱包负数", score: "0分", isError: false },
-                                { name: "……", score: "-", isError: false }
-                              ]
-                            },
-                            {
-                              category: "环境",
-                              tagColor: "bg-blue-50 text-blue-800 border-blue-200",
-                              items: [
-                                { name: "使用新设备IP首提", score: "+15分", isError: true },
-                                { name: "银行卡为海南地区", score: "0分", isError: false },
-                                { name: "提款IP为海南地区", score: "0分", isError: false },
-                                { name: "模拟器登录特征", score: "0分", isError: false },
-                                { name: "……", score: "-", isError: false }
-                              ]
-                            },
-                            {
-                              category: "内控",
-                              tagColor: "bg-orange-50 text-orange-800 border-orange-200",
-                              items: [
-                                { name: "特殊上分类型", score: "0分", isError: false },
-                                { name: "N次提款未过人工审核", score: "0分", isError: false },
-                                { name: "短时提款次数过多", score: "+15分", isError: true },
-                                { name: "流水不达标", score: "0分", isError: false },
-                                { name: "N天内的首次提款", score: "0分", isError: false },
-                                { name: "场馆转账失败退回", score: "0分", isError: false },
-                                { name: "……", score: "-", isError: false }
-                              ]
-                            },
-                            {
-                              category: "红利",
-                              tagColor: "bg-rose-50 text-rose-800 border-rose-200",
-                              items: [
-                                { name: "领取特邀红利超额", score: "+30分", isError: true },
-                                { name: "高红利占比", score: "0分", isError: false },
-                                { name: "领取红利后首提", score: "0分", isError: false },
-                                { name: "……", score: "-", isError: false }
-                              ]
-                            },
-                            {
-                              category: "新手",
-                              tagColor: "bg-teal-50 text-teal-800 border-teal-200",
-                              items: [
-                                { name: "前N次提款", score: "0分", isError: false },
-                                { name: "红利超过限定额度", score: "0分", isError: false },
-                                { name: "大额提款", score: "0分", isError: false },
-                                { name: "……", score: "-", isError: false }
-                              ]
-                            },
-                            {
-                              category: "行为",
-                              tagColor: "bg-amber-50 text-amber-800 border-amber-200",
-                              items: [
-                                { name: "命中多个套利特征", score: "0分", isError: false },
-                                { name: "睡眠账号", score: "0分", isError: false },
-                                { name: "租卖号", score: "0分", isError: false },
-                                { name: "快进快出", score: "+20分", isError: true },
-                                { name: "机器下注", score: "0分", isError: false },
-                                { name: "单人单线", score: "0分", isError: false },
-                                { name: "批量打水", score: "0分", isError: false },
-                                { name: "……", score: "-", isError: false }
-                              ]
-                            },
-                            {
-                              category: "盈利",
-                              tagColor: "bg-cyan-50 text-cyan-800 border-cyan-200",
-                              items: [
-                                { name: "高盈利率", score: "0分", isError: false },
-                                { name: "高盈利审核挂起", score: "0分", isError: false },
-                                { name: "短时提款金额过大", score: "0分", isError: false },
-                                { name: "高盈利倍数", score: "0分", isError: false },
-                                { name: "……", score: "-", isError: false }
-                              ]
-                            },
-                            {
-                              category: "游戏",
-                              tagColor: "bg-purple-50 text-purple-800 border-purple-200",
-                              items: [
-                                { tag: "体育", tagColor: "bg-sky-50 text-sky-800 border-sky-200", name: "低赔率注单占比高", score: "0分", isError: false },
-                                { tag: "体育", tagColor: "bg-sky-50 text-sky-800 border-sky-200", name: "有二次结算注单", score: "0分", isError: false },
-                                { tag: "体育", tagColor: "bg-sky-50 text-sky-800 border-sky-200", name: "B端-下注行为异常", score: "0分", isError: false },
-                                { tag: "真人", tagColor: "bg-purple-50 text-purple-800 border-purple-200", name: "B端-下注行为异常", score: "0分", isError: false },
-                                { tag: "棋牌", tagColor: "bg-amber-50 text-amber-800 border-amber-200", name: "命中多个套利特征", score: "0分", isError: false },
-                                { tag: "棋牌", tagColor: "bg-amber-50 text-amber-800 border-amber-200", name: "全包", score: "0分", isError: false },
-                                { tag: "彩票", tagColor: "bg-emerald-50 text-emerald-800 border-emerald-200", name: "全包", score: "0分", isError: false },
-                                { tag: "彩票", tagColor: "bg-emerald-50 text-emerald-800 border-emerald-200", name: "高盈利额", score: "0分", isError: false },
-                                { tag: "电子", tagColor: "bg-indigo-50 text-indigo-800 border-indigo-200", name: "卡免费", score: "0分", isError: false },
-                                { tag: "电子", tagColor: "bg-indigo-50 text-indigo-800 border-indigo-200", name: "B端-下注行为异常", score: "0分", isError: false },
-                                { name: "……", score: "-", isError: false }
-                              ]
-                            },
-                            {
-                              category: "标签",
-                              tagColor: "bg-violet-50 text-violet-800 border-violet-200",
-                              items: [
-                                { name: "标签1", score: "0分", isError: false },
-                                { name: "标签2", score: "0分", isError: false },
-                                { name: "标签3", score: "0分", isError: false },
-                                { name: "……", score: "-", isError: false }
-                              ]
-                            }
-                          ].map((group, groupIdx) => (
-                            <React.Fragment key={groupIdx}>
-                              {group.items.map((sub: any, itemIdx) => {
-                                const gameBgClass = sub.tag === "体育"
-                                  ? "bg-sky-50/50"
-                                  : sub.tag === "真人"
-                                  ? "bg-purple-50/50"
-                                  : sub.tag === "棋牌"
-                                  ? "bg-amber-50/50"
-                                  : sub.tag === "彩票"
-                                  ? "bg-emerald-50/50"
-                                  : sub.tag === "电子"
-                                  ? "bg-indigo-50/50"
-                                  : group.category === "标签"
-                                  ? "bg-violet-50/30"
-                                  : sub.isError
-                                  ? "bg-rose-50/40"
-                                  : "bg-white";
+                          {(() => {
+                            let globalIndex = 0;
+                            return [
+                              {
+                                category: "账户",
+                                tagColor: "bg-slate-100 text-slate-800 border-slate-200",
+                                items: [
+                                  { name: "存在关联账号", score: "0分", isError: false },
+                                  { name: "新绑提款账户后首提", score: "0分", isError: false },
+                                  { name: "命中高危险标签审核挂起", score: "0分", isError: false },
+                                  { name: "敏感资料变更后首提", score: "0分", isError: false },
+                                  { name: "命中高危险标签", score: "+25分", isError: true },
+                                  { name: "白名单", score: "0分", isError: false },
+                                  { name: "场馆钱包负数", score: "0分", isError: false },
+                                  { name: "……", score: "-", isError: false }
+                                ]
+                              },
+                              {
+                                category: "环境",
+                                tagColor: "bg-blue-50 text-blue-800 border-blue-200",
+                                items: [
+                                  { name: "使用新设备IP首提", score: "+15分", isError: true },
+                                  { name: "银行卡为海南地区", score: "0分", isError: false },
+                                  { name: "提款IP为海南地区", score: "0分", isError: false },
+                                  { name: "模拟器登录特征", score: "0分", isError: false },
+                                  { name: "……", score: "-", isError: false }
+                                ]
+                              },
+                              {
+                                category: "内控",
+                                tagColor: "bg-orange-50 text-orange-800 border-orange-200",
+                                items: [
+                                  { name: "特殊上分类型", score: "0分", isError: false },
+                                  { name: "N次提款未过人工审核", score: "0分", isError: false },
+                                  { name: "短时提款次数过多", score: "+15分", isError: true },
+                                  { name: "流水不达标", score: "0分", isError: false },
+                                  { name: "N天内的首次提款", score: "0分", isError: false },
+                                  { name: "场馆转账失败退回", score: "0分", isError: false },
+                                  { name: "……", score: "-", isError: false }
+                                ]
+                              },
+                              {
+                                category: "红利",
+                                tagColor: "bg-rose-50 text-rose-800 border-rose-200",
+                                items: [
+                                  { name: "领取特邀红利超额", score: "+30分", isError: true },
+                                  { name: "高红利占比", score: "0分", isError: false },
+                                  { name: "领取红利后首提", score: "0分", isError: false },
+                                  { name: "……", score: "-", isError: false }
+                                ]
+                              },
+                              {
+                                category: "新手",
+                                tagColor: "bg-teal-50 text-teal-800 border-teal-200",
+                                items: [
+                                  { name: "前N次提款", score: "0分", isError: false },
+                                  { name: "红利超过限定额度", score: "0分", isError: false },
+                                  { name: "大额提款", score: "0分", isError: false },
+                                  { name: "……", score: "-", isError: false }
+                                ]
+                              },
+                              {
+                                category: "行为",
+                                tagColor: "bg-amber-50 text-amber-800 border-amber-200",
+                                items: [
+                                  { name: "命中多个套利特征", score: "0分", isError: false },
+                                  { name: "睡眠账号", score: "0分", isError: false },
+                                  { name: "租卖号", score: "0分", isError: false },
+                                  { name: "快进快出", score: "+20分", isError: true },
+                                  { name: "机器下注", score: "0分", isError: false },
+                                  { name: "单人单线", score: "0分", isError: false },
+                                  { name: "批量打水", score: "0分", isError: false },
+                                  { name: "……", score: "-", isError: false }
+                                ]
+                              },
+                              {
+                                category: "盈利",
+                                tagColor: "bg-cyan-50 text-cyan-800 border-cyan-200",
+                                items: [
+                                  { name: "高盈利率", score: "0分", isError: false },
+                                  { name: "高盈利审核挂起", score: "0分", isError: false },
+                                  { name: "短时提款金额过大", score: "0分", isError: false },
+                                  { name: "高盈利倍数", score: "0分", isError: false },
+                                  { name: "……", score: "-", isError: false }
+                                ]
+                              },
+                              {
+                                category: "游戏",
+                                tagColor: "bg-purple-50 text-purple-800 border-purple-200",
+                                items: [
+                                  { tag: "体育", tagColor: "bg-sky-50 text-sky-800 border-sky-200", name: "低赔率注单占比高", score: "0分", isError: false },
+                                  { tag: "体育", tagColor: "bg-sky-50 text-sky-800 border-sky-200", name: "有二次结算注单", score: "0分", isError: false },
+                                  { tag: "体育", tagColor: "bg-sky-50 text-sky-800 border-sky-200", name: "B端-下注行为异常", score: "0分", isError: false },
+                                  { tag: "真人", tagColor: "bg-purple-50 text-purple-800 border-purple-200", name: "B端-下注行为异常", score: "0分", isError: false },
+                                  { tag: "棋牌", tagColor: "bg-amber-50 text-amber-800 border-amber-200", name: "命中多个套利特征", score: "0分", isError: false },
+                                  { tag: "棋牌", tagColor: "bg-amber-50 text-amber-800 border-amber-200", name: "全包", score: "0分", isError: false },
+                                  { tag: "彩票", tagColor: "bg-emerald-50 text-emerald-800 border-emerald-200", name: "全包", score: "0分", isError: false },
+                                  { tag: "彩票", tagColor: "bg-emerald-50 text-emerald-800 border-emerald-200", name: "高盈利额", score: "0分", isError: false },
+                                  { tag: "电子", tagColor: "bg-indigo-50 text-indigo-800 border-indigo-200", name: "卡免费", score: "0分", isError: false },
+                                  { tag: "电子", tagColor: "bg-indigo-50 text-indigo-800 border-indigo-200", name: "B端-下注行为异常", score: "0分", isError: false },
+                                  { name: "……", score: "-", isError: false }
+                                ]
+                              },
+                              {
+                                category: "标签",
+                                tagColor: "bg-violet-50 text-violet-800 border-violet-200",
+                                items: [
+                                  { name: "标签1", score: "0分", isError: false },
+                                  { name: "标签2", score: "0分", isError: false },
+                                  { name: "标签3", score: "0分", isError: false },
+                                  { name: "……", score: "-", isError: false }
+                                ]
+                              }
+                            ].map((group, groupIdx) => (
+                              <React.Fragment key={groupIdx}>
+                                {group.items.map((sub: any, itemIdx) => {
+                                  globalIndex += 1;
+                                  const currentSeq = globalIndex;
+                                  const gameBgClass = sub.tag === "体育"
+                                    ? "bg-sky-50/50"
+                                    : sub.tag === "真人"
+                                    ? "bg-purple-50/50"
+                                    : sub.tag === "棋牌"
+                                    ? "bg-amber-50/50"
+                                    : sub.tag === "彩票"
+                                    ? "bg-emerald-50/50"
+                                    : sub.tag === "电子"
+                                    ? "bg-indigo-50/50"
+                                    : group.category === "标签"
+                                    ? "bg-violet-50/30"
+                                    : sub.isError
+                                    ? "bg-rose-50/40"
+                                    : "bg-white";
 
-                                const displayTag = sub.tag || group.category;
-                                const displayTagColor = sub.tagColor || group.tagColor || "bg-slate-100 text-slate-800 border-slate-200";
+                                  const displayTag = sub.tag || group.category;
+                                  const displayTagColor = sub.tagColor || group.tagColor || "bg-slate-100 text-slate-800 border-slate-200";
 
-                                const maskStrategyName = (name: string): string => {
-                                  if (name === "……") return "……";
-                                  if (name.startsWith("标签")) return name;
-                                  if (name.length <= 2) return `${name[0]}**`;
-                                  if (name.length === 3) return `${name[0]}**${name[2]}`;
-                                  if (name.length === 4) return `${name[0]}**${name[3]}`;
-                                  if (name.length <= 6) return `${name[0]}**${name.slice(2, 4)}**${name[name.length - 1]}`;
-                                  const len = name.length;
-                                  const p1 = name[0];
-                                  const p2 = name.slice(Math.floor(len / 3), Math.floor(len / 3) + 2);
-                                  const p3 = name[len - 1];
-                                  return `${p1}**${p2}**${p3}`;
-                                };
+                                  const maskStrategyName = (name: string): string => {
+                                    if (name === "……") return "……";
+                                    if (name.startsWith("标签")) return name;
+                                    if (name.length <= 2) return `${name[0]}**`;
+                                    if (name.length === 3) return `${name[0]}**${name[2]}`;
+                                    if (name.length === 4) return `${name[0]}**${name[3]}`;
+                                    if (name.length <= 6) return `${name[0]}**${name.slice(2, 4)}**${name[name.length - 1]}`;
+                                    const len = name.length;
+                                    const p1 = name[0];
+                                    const p2 = name.slice(Math.floor(len / 3), Math.floor(len / 3) + 2);
+                                    const p3 = name[len - 1];
+                                    return `${p1}**${p2}**${p3}`;
+                                  };
 
-                                return (
-                                <tr
-                                  key={itemIdx}
-                                  className={`transition-colors ${gameBgClass}`}
-                                >
-                                  {itemIdx === 0 && (
-                                    <td
-                                      rowSpan={group.items.length}
-                                      className="py-1.5 px-3 font-bold text-slate-950 bg-slate-50 align-middle"
+                                  return (
+                                    <tr
+                                      key={itemIdx}
+                                      className={`transition-colors ${gameBgClass}`}
                                     >
-                                      {group.category}
-                                    </td>
-                                  )}
-                                  <td className={`py-1 px-3 text-left ${
-                                    sub.name === "……"
-                                      ? "text-slate-400 font-mono tracking-widest text-xs"
-                                      : sub.isError
-                                      ? "text-rose-950 font-bold"
-                                      : "text-slate-800 font-medium"
-                                  }`}>
-                                    <div className="flex items-center justify-start gap-1.5 text-left w-full">
-                                      {sub.name !== "……" && (
-                                        <span className={`px-1.5 py-0.2 font-bold text-xs shrink-0 border ${displayTagColor}`}>
-                                          【{displayTag}】
-                                        </span>
+                                      {itemIdx === 0 && (
+                                        <td
+                                          rowSpan={group.items.length}
+                                          className="py-1.5 px-3 font-bold text-slate-950 bg-slate-50 align-middle text-center"
+                                        >
+                                          {group.category}
+                                        </td>
                                       )}
-                                      <span className="font-mono tracking-tight text-left">
-                                        {maskStrategyName(sub.name)}
-                                      </span>
-                                    </div>
-                                  </td>
-                                  <td className="py-1 px-3 text-center font-mono text-xs">
-                                    {sub.isError ? (
-                                      <span className="font-bold text-rose-700">
-                                        {sub.score}
-                                      </span>
-                                    ) : sub.name === "……" ? (
-                                      <span className="text-slate-400">{sub.score}</span>
-                                    ) : (
-                                      <span className="text-slate-600 font-medium">{sub.score}</span>
-                                    )}
-                                  </td>
-                                  <td className="py-1 px-3 text-center">
-                                    {sub.isError ? (
-                                      <span className="inline-flex items-center gap-1 font-bold text-rose-700 text-xs font-mono">
-                                        <XCircle className="w-3 h-3 text-rose-600 shrink-0" />
-                                        异常
-                                      </span>
-                                    ) : (
-                                      <span className={`inline-flex items-center gap-1 font-bold text-emerald-700 text-xs font-mono ${sub.name === "……" ? "opacity-80" : ""}`}>
-                                        <CheckCircle className="w-3 h-3 text-emerald-600 shrink-0" />
-                                        正常
-                                      </span>
-                                    )}
-                                  </td>
-                                </tr>
-                                );
-                              })}
-                            </React.Fragment>
-                          ))}
+                                      <td className="py-1 px-3 text-center font-mono text-xs text-slate-500 font-bold tabular-nums">
+                                        {currentSeq}
+                                      </td>
+                                      <td className={`py-1 px-3 text-left ${
+                                        sub.name === "……"
+                                          ? "text-slate-400 font-mono tracking-widest text-xs"
+                                          : sub.isError
+                                          ? "text-rose-950 font-bold"
+                                          : "text-slate-800 font-medium"
+                                      }`}>
+                                        <div className="flex items-center justify-start gap-1.5 text-left w-full">
+                                          {sub.name !== "……" && (
+                                            <span className={`px-1.5 py-0.2 font-bold text-xs shrink-0 border ${displayTagColor}`}>
+                                              【{displayTag}】
+                                            </span>
+                                          )}
+                                          <span className="font-mono tracking-tight text-left">
+                                            {maskStrategyName(sub.name)}
+                                          </span>
+                                        </div>
+                                      </td>
+                                      <td className="py-1 px-3 text-center">
+                                        {sub.isError ? (
+                                          <span className="inline-flex items-center gap-1 font-bold text-rose-700 text-xs font-mono">
+                                            <XCircle className="w-3 h-3 text-rose-600 shrink-0" />
+                                            异常
+                                          </span>
+                                        ) : (
+                                          <span className={`inline-flex items-center gap-1 font-bold text-emerald-700 text-xs font-mono ${sub.name === "……" ? "opacity-80" : ""}`}>
+                                            <CheckCircle className="w-3 h-3 text-emerald-600 shrink-0" />
+                                            正常
+                                          </span>
+                                        )}
+                                      </td>
+                                      <td className="py-1 px-3 text-center font-mono text-xs">
+                                        {sub.isError ? (
+                                          <span className="font-bold text-rose-700">
+                                            {sub.score}
+                                          </span>
+                                        ) : sub.name === "……" ? (
+                                          <span className="text-slate-400">{sub.score}</span>
+                                        ) : (
+                                          <span className="text-slate-600 font-medium">{sub.score}</span>
+                                        )}
+                                      </td>
+                                    </tr>
+                                  );
+                                })}
+                              </React.Fragment>
+                            ));
+                          })()}
                         </tbody>
                       </table>
                     </ReportTableFrame>
@@ -1318,19 +1371,21 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                         <div className="space-y-1.5">
                           <div className="flex items-center justify-between pb-1.5 border-b border-rose-200">
                             <h6 className="font-bold text-slate-950 text-base pt-0.5">4. 判定放行或转人工</h6>
-                            <span className="text-[11px] font-mono font-bold text-rose-800 bg-white border border-rose-200 px-1.5 py-0.5">
+                            <ReportBadge tone="red" className="text-[11px] font-mono">
                               终审阻断
-                            </span>
+                            </ReportBadge>
                           </div>
                           <p className="text-xs sm:text-[13px] text-slate-800 leading-relaxed">
-                            超出放行安全分值（≥ 60 分）或命中高危特定组合（低分强转），均直接转人工精审；未超线且未中组合则放行。
+                            {highlightNumbers(
+                              "超出放行安全分值（[[≥ 60 分]]）或命中高危特定组合（低分强转），均直接转人工精审；未超线且未中组合则放行。"
+                            )}
                           </p>
                         </div>
                         <div className="pt-2 border-t border-rose-200 text-xs sm:text-sm font-mono font-bold text-rose-800 flex items-center justify-between">
                           <span>决策结果</span>
-                          <span className="bg-rose-100 text-rose-900 border border-rose-300 px-2 py-0.5">
+                          <ReportBadge tone="red" className="text-xs font-mono">
                             ➔ 阻断转人工
-                          </span>
+                          </ReportBadge>
                         </div>
                       </div>
                     </div>
@@ -1344,14 +1399,16 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                         阶段三 · 派单动态匹配
                       </h6>
                     </div>
-                    <span className="text-xs sm:text-sm font-mono font-bold text-blue-900 self-start sm:self-auto">
+                    <ReportBadge tone="blue" className="text-xs sm:text-sm font-mono self-start sm:self-auto">
                       双向加权 · 精准派发
-                    </span>
+                    </ReportBadge>
                   </div>
 
                     {/* 顶部业务定义说明 */}
                     <div className="p-3.5 bg-white border-t border-slate-200 text-xs sm:text-sm text-slate-900 leading-relaxed font-normal">
-                      系统通过对<strong>订单特征（金额/风险分/业务类型）</strong>与<strong>审核员能力/负载画像（擅长领域/历史绩效/当前负载）</strong>进行<strong>双向加权实时拟合</strong>，将高风险或专项订单毫秒级分发至最匹配、绩效最优的审核专家，实现质量与时效的双重最优化。
+                      {highlightNumbers(
+                        "系统通过对[[订单特征（金额/风险分/业务类型）]]与[[审核员能力/负载画像（擅长领域/历史绩效/当前负载）]]进行[[双向加权实时拟合]]，将高风险或专项订单毫秒级分发至最匹配、绩效最优的审核专家，实现质量与时效的双重最优化。"
+                      )}
                     </div>
 
                     {/* 核心画像与双向加权路由模型架构图 */}
@@ -1465,7 +1522,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                               <strong className="font-bold text-slate-950 font-mono">指派审核员 A</strong>
                             </div>
                             <p className="text-xs text-slate-700 leading-relaxed">
-                              体育订单约 <strong className="font-mono font-bold text-slate-950">80%</strong> 定向分流至专业体育组，提升审核准确度。
+                              {highlightNumbers(
+                                "体育订单约 [[80%]] 定向分流至专业体育组，提升审核准确度。"
+                              )}
                             </p>
                           </div>
                         </div>
@@ -1486,7 +1545,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                               </div>
                               <div>
                                 <span className="text-slate-500 font-medium">候选列表：</span>
-                                <span className="text-slate-800">审核员A(准确率99%) 与 审核员B(常规组)</span>
+                                <span className="text-slate-800">
+                                  {highlightNumbers("审核员A(准确率 [[99%]]) 与 审核员B(常规组)")}
+                                </span>
                               </div>
                             </div>
                           </div>
@@ -1555,7 +1616,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   {/* 阶段四 核心定位与业务机制说明 */}
                   <div className="p-3.5 bg-slate-50/70 border border-slate-200/60 text-xs sm:text-sm text-slate-900 leading-relaxed font-normal flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div>
-                      建立常态化实盘抽检与自进化闭环：<strong>每周抽检 500+ 重点案例开展专人深度复盘</strong>，深入排查漏检特征与异常波动，动态反哺策略库与评分权重。
+                      {highlightNumbers(
+                        "建立常态化实盘抽检与自进化闭环：[[每周抽检 500+ 重点案例开展专人深度复盘]]，深入排查漏检特征与异常波动，动态反哺策略库与评分权重。"
+                      )}
                     </div>
                    
                   </div>
@@ -1568,7 +1631,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                         <span>召回率动态回溯</span>
                       </div>
                       <p className="text-sm text-slate-700 leading-relaxed">
-                        <strong>每周选取 500+ 案例开展专人深度复盘</strong>，持续追踪漏网订单与新型作案样本特征，反向闭环填补策略矩阵防御盲区，防止套利模式扩散。
+                        {highlightNumbers(
+                          "[[每周选取 500+ 案例开展专人深度复盘]]，持续追踪漏网订单与新型作案样本特征，反向闭环填补策略矩阵防御盲区，防止套利模式扩散。"
+                        )}
                       </p>
                     </div>
 
@@ -1579,7 +1644,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                         <span>命中率阈值精修</span>
                       </div>
                       <p className="text-sm text-slate-700 leading-relaxed">
-                        按周微调各规则评分权重与触发阈值，将误拦截率严控在万分级以下，最大化保障良性用户出款体验。
+                        {highlightNumbers(
+                          "按周微调各规则评分权重与触发阈值，将[[误拦截率严控在万分级以下]]，最大化保障良性用户出款体验。"
+                        )}
                       </p>
                     </div>
 
@@ -1590,7 +1657,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                         <span>变异对抗与持续演进</span>
                       </div>
                       <p className="text-sm text-slate-700 leading-relaxed">
-                        灰黑产套利模式持续升级，风控系统保持高度警惕，每周进行实盘推演与算法模型版本更新。
+                        {highlightNumbers(
+                          "灰黑产套利模式持续升级，风控系统保持高度警惕，[[每周进行实盘推演与算法模型版本更新]]。"
+                        )}
                       </p>
                     </div>
                   </div>
@@ -1624,7 +1693,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     1. 最小知晓与归档销毁
                   </span>
                   <p className="text-sm sm:text-[14.5px] text-slate-700 leading-relaxed font-normal">
-                    底层风控规则、策略参数及评分权重严格执行<strong>“最小知晓范围”</strong>，禁止扩散；规则与参数<strong>定期归档离线并销毁</strong>，从源头杜绝策略外泄与逆向分析。
+                    {highlightNumbers(
+                      "底层风控规则、策略参数及评分权重严格执行[[“最小知晓范围”]]，禁止扩散；规则与参数[[定期归档离线并销毁]]，从源头杜绝策略外泄与逆向分析。"
+                    )}
                   </p>
                 </div>
                 <div className="pt-2.5 border-t border-slate-100">
@@ -1644,7 +1715,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     2. 多环节组合受控
                   </span>
                   <p className="text-sm sm:text-[14.5px] text-slate-700 leading-relaxed font-normal">
-                    体系由特征提取、规则校验、风险评分、动态路由等多环节组合构成，<strong>单一模块无法获悉全链路执行逻辑</strong>，彻底杜绝依据单点推导全局风控规则。
+                    {highlightNumbers(
+                      "体系由特征提取、规则校验、风险评分、动态路由等多环节组合构成，[[单一模块无法获悉全链路执行逻辑]]，彻底杜绝依据单点推导全局风控规则。"
+                    )}
                   </p>
                 </div>
                 <div className="pt-2.5 border-t border-slate-100">
@@ -1664,7 +1737,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     3. 上百特征周级调参
                   </span>
                   <p className="text-sm sm:text-[14.5px] text-slate-700 leading-relaxed font-normal">
-                    涵盖<strong>上百个特征及核心权重参数</strong>；风控策略组结合实盘样本执行<strong>周级例行指标校准与动态调参</strong>，打破静态规律，保持防御有效性。
+                    {highlightNumbers(
+                      "涵盖[[上百个特征及核心权重参数]]；风控策略组结合实盘样本执行[[周级例行指标校准与动态调参]]，打破静态规律，保持防御有效性。"
+                    )}
                   </p>
                 </div>
                 <div className="pt-2.5 border-t border-slate-100">
@@ -1684,7 +1759,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     4. 持续对抗与自进化
                   </span>
                   <p className="text-sm sm:text-[14.5px] text-slate-700 leading-relaxed font-normal">
-                    针对灰黑产对抗模式的变异升级，依托召回率动态回溯与命中率周级调整，驱动策略模型持续版本迭代与抗衰减演化。
+                    {highlightNumbers(
+                      "针对灰黑产对抗模式的变异升级，依托[[召回率动态回溯与命中率周级调整]]，驱动策略模型持续版本迭代与抗衰减演化。"
+                    )}
                   </p>
                 </div>
                 <div className="pt-2.5 border-t border-slate-100">

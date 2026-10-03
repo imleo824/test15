@@ -120,9 +120,9 @@ export const TgGovernanceSection: React.FC = () => {
   ];
 
   return (
-    <div id="section-tg-governance" className="space-y-12 lg:space-y-16">
+    <div id="section-tg-governance" className="flex flex-col gap-[var(--report-panel-gap)]">
       {/* 3.3.1 线下离线流程治理 */}
-      <div className="space-y-6 sm:space-y-8">
+      <div className="flex flex-col gap-[var(--report-panel-gap)]">
         <ReportSubsectionHeader title="3.3.1 线下离线流程治理" />
 
         {/* 关键治理准则：警惕“形式化工单化”——源头消除优先于工单流转 */}
@@ -353,7 +353,7 @@ export const TgGovernanceSection: React.FC = () => {
 
       {/* 3.3.2 线下群聊与系统工单流转对比 */}
       <div className="space-y-6 sm:space-y-8">
-        <ReportSubsectionHeader title="3.3.2 线下群聊与系统工单流转对比" />
+        <ReportSubsectionHeader title="3.3.2 线下治理典型案例" />
 
         <SummaryBox>
           <p className="text-sm text-slate-700 font-normal leading-relaxed">
@@ -372,9 +372,9 @@ export const TgGovernanceSection: React.FC = () => {
                 真实案例实景还原 · Telegram 线下群聊跨群检索与明文报单隐患
               </h4>
             </div>
-            <span className="text-xs font-mono font-bold text-rose-800 bg-rose-50 border border-rose-200 px-2 py-0.5">
+            <ReportBadge tone="red" className="text-xs font-mono">
               治理前 · 真实隐患样本
-            </span>
+            </ReportBadge>
           </div>
 
           {/* Telegram 视窗模拟（紧凑高度，紧贴核心报单实况） */}
@@ -490,11 +490,11 @@ export const TgGovernanceSection: React.FC = () => {
                   {/* 核心高危报单明细消息（精准呈现明文报单参数） */}
                   <div className="flex items-start gap-2">
                     <div className="w-7 h-7 rounded-full bg-rose-600 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
-                      审核
+                      F
                     </div>
                     <div className="bg-white p-2.5 rounded-r-lg rounded-bl-lg w-full space-y-1.5 shadow-2xs border border-slate-200">
                       <div className="text-[11px] font-bold text-rose-700 flex items-center justify-between">
-                        <span>审核员A</span>
+                        <span>A001</span>
                         <span className="text-[10px] text-slate-400 font-mono font-normal">14:02</span>
                       </div>
 
@@ -503,11 +503,11 @@ export const TgGovernanceSection: React.FC = () => {
                         <div>平台 : 1</div>
                         <div>
                           帐号:{" "}
-                          <span className="font-mono font-bold text-slate-900 bg-slate-200 px-1.5 py-0.5 border border-slate-300">
+                          <strong className="font-mono font-bold text-slate-950">
                             asd001
-                          </span>
+                          </strong>
                         </div>
-                        <div>等级:  VIP7</div>
+                        <div>等级: 7</div>
                         <div>上级: leader_001</div>
                         <div>上标/复审:    复审</div>
                         <div className="pt-0.5">
@@ -515,7 +515,6 @@ export const TgGovernanceSection: React.FC = () => {
                           <div className="text-slate-800 pl-2 mt-0.5 border-l-2 border-slate-300 space-y-0.5">
                             <div>user_test 4战 有记录异常游戏  同下注</div>
                             <div>该会员多次异常游戏被处理后 今天继续同赛事下注多局 ，可疑继续电竞异常投注 ，麻烦复审</div>
-                            <div className="text-rose-700 font-bold text-xs tracking-wider">5683750944026091</div>
                           </div>
                         </div>
                       </div>
@@ -539,7 +538,9 @@ export const TgGovernanceSection: React.FC = () => {
                   <span>风险 1：跨群全局检索穿透，敏感记录缺乏隔离</span>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  在通讯工具中全局搜索任一会员账号（如 <span className="font-mono font-bold text-slate-900 bg-slate-100 px-1.5 py-0.5 border border-slate-200">asd001</span>），直接搜出跨度从 2025 年 8 月到 2026 年 9 月长达一年多的 9 条历史报单记录，跨群暴露无任何隔离。
+                  {highlightNumbers(
+                    "在通讯工具中全局搜索任一会员账号（如 [[asd001]]），直接搜出跨度从 2025 年 8 月到 2026 年 9 月长达一年多的 [[9 条历史报单记录]]，跨群暴露无任何隔离。"
+                  )}
                 </p>
               </div>
 
@@ -549,7 +550,9 @@ export const TgGovernanceSection: React.FC = () => {
                   <span>风险 2：口头催单报单，缺乏系统审计留痕</span>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  群内口头私下催单报单，缺乏标准化系统工单流转与权限管控，极易滋生人情单与操作隐患。
+                  {highlightNumbers(
+                    "群内口头私下催单报单，缺乏标准化系统工单流转与权限管控，极易滋生人情单与操作隐患。"
+                  )}
                 </p>
               </div>
             </div>
@@ -564,7 +567,9 @@ export const TgGovernanceSection: React.FC = () => {
                   <span>成效 1：工单系统收口，敏感数据脱敏隔离</span>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                  关闭所有线下非受控报单群，<strong>12 项业务 100% 迁移至风控工单</strong>。严控跨群检索，仅限授权在册角色按需加密调阅，数据不落本地。
+                  {highlightNumbers(
+                    "关闭所有线下非受控报单群，[[12 项业务 100% 迁移至风控工单]]。严控跨群检索，仅限授权在册角色按需加密调阅，数据不落本地。"
+                  )}
                 </p>
               </div>
 
@@ -574,7 +579,9 @@ export const TgGovernanceSection: React.FC = () => {
                   <span>成效 2：标准化审批流，100% 审计存证溯源</span>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                  催单、上标与复审全流程嵌入工单流转，实行<strong>分级权限与不可篡改的系统日志审计</strong>，彻底杜绝人情单与口头操作漏洞。
+                  {highlightNumbers(
+                    "催单、上标与复审全流程嵌入工单流转，实行[[分级权限与不可篡改的系统日志审计]]，彻底杜绝人情单与口头操作漏洞。"
+                  )}
                 </p>
               </div>
             </div>
@@ -599,10 +606,10 @@ export const TgGovernanceSection: React.FC = () => {
           columns={6}
           steps={[
             { index: 1, title: "提款", subtitle: "业务发起点", status: "触发源", statusType: "neutral" },
-            { index: 2, title: "审核", subtitle: "工单初审", status: "改造完成", statusType: "success" },
-            { index: 3, title: "复审", subtitle: "关键决策", status: "改造完成", statusType: "success" },
-            { index: 4, title: "KYC", subtitle: "身份核验", status: "改造完成", statusType: "success" },
-            { index: 5, title: "扣款", subtitle: "系统接口", status: "改造完成", statusType: "success" },
+            { index: 2, title: "审核", subtitle: "工单", status: "改造完成", statusType: "success" },
+            { index: 3, title: "复审", subtitle: "工单", status: "改造完成", statusType: "success" },
+            { index: 4, title: "KYC", subtitle: "工单", status: "改造完成", statusType: "success" },
+            { index: 5, title: "扣款", subtitle: "工单", status: "改造完成", statusType: "success" },
             { index: 6, title: "禁用", subtitle: "多级审批", status: "改造完成", statusType: "success" },
           ]}
         />
@@ -645,28 +652,26 @@ export const TgGovernanceSection: React.FC = () => {
                       </span>
                     </td>
                     <td className="py-3 px-3 text-center whitespace-nowrap">
-                      <span
-                        className={`inline-block text-xs sm:text-sm font-mono font-medium px-2 py-0.5 border ${
+                      <ReportBadge
+                        tone={
                           item.method === "系统替代"
-                            ? "bg-blue-50 text-blue-700 border-blue-200"
+                            ? "blue"
                             : item.method === "脱敏简化"
-                            ? "bg-slate-100 text-slate-700 border-slate-200"
-                            : "bg-amber-50 text-amber-700 border-amber-200"
-                        }`}
+                            ? "slate"
+                            : "amber"
+                        }
+                        className="text-xs font-mono"
                       >
                         {item.method}
-                      </span>
+                      </ReportBadge>
                     </td>
                     <td className="py-3 px-3 text-slate-800 leading-relaxed text-sm sm:text-[14.5px] font-normal">
                       {highlightNumbers(item.actionDetails)}
                     </td>
                     <td className="py-3 px-3 text-right whitespace-nowrap">
-                      <span
-                        className={`inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 border ${
-                          isCompleted
-                            ? "bg-slate-100 text-slate-900 border-slate-300 font-bold"
-                            : "bg-amber-50 text-amber-900 border-amber-200 font-bold"
-                        }`}
+                      <ReportBadge
+                        tone={isCompleted ? "green" : "amber"}
+                        className="text-xs font-mono"
                       >
                         {isCompleted ? (
                           <Check className="w-3 h-3 stroke-[2.5]" />
@@ -674,7 +679,7 @@ export const TgGovernanceSection: React.FC = () => {
                           <Clock className="w-3 h-3 stroke-[2]" />
                         )}
                         <span>{item.status}</span>
-                      </span>
+                      </ReportBadge>
                     </td>
                   </tr>
                 );

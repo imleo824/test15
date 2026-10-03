@@ -1,7 +1,7 @@
 import React from "react";
-import { ReportTableFrame } from "../../ReportSections";
+import { ReportBadge, ReportTableFrame } from "../../ReportSections";
 import { KeyRound, Eye, RefreshCw, ShieldAlert, ArrowRight } from "lucide-react";
-import { highlightNumbers } from "./utils";
+import { highlightNumbers, SummaryBox } from "./utils";
 
 interface ArchTier {
   level: string;
@@ -91,21 +91,13 @@ const logicCards = [
 
 export const SafetyArchitectureDiagram: React.FC = () => {
   return (
-    <div className="w-full bg-white space-y-6">
-      {/* 头部标题与治理理念一体化展示 */}
-      <div className="border-b border-slate-200 pb-3.5 space-y-2">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-          <div className="flex items-center gap-2.5">
-            <h3 className="text-lg sm:text-xl font-bold text-slate-950 tracking-tight leading-none">
-              安全合规分层防御架构
-            </h3>
-          </div>
-        </div>
-
-        <p className="text-sm text-slate-600 font-normal leading-relaxed">
-          安全合规不仅是<strong className="text-slate-950 font-semibold">事件驱动的单点应对</strong>，而是需要多维度系统化治理，持续构建覆盖「L0 源头控制 · 权限模式升级 - L1 行为防线 · 敏感操作限制 - L2 链路管控 · 风控工单治理 - L3 监督兜底 · 专职角色巡检」的<strong className="text-slate-950 font-semibold">分层防御闭环体系</strong>：
-        </p>
-      </div>
+    <div className="w-full flex flex-col gap-[var(--report-panel-gap)]">
+      {/* 3.0 章节核心要点总结 */}
+      <SummaryBox variant="chapter">
+        {highlightNumbers(
+          "安全合规不仅是[[事件驱动的单点应对]]，而是需要多维度系统化治理，持续构建覆盖「[[L0 源头控制 · 权限模式升级]] - [[L1 行为防线 · 敏感操作限制]] - [[L2 链路管控 · 风控工单治理]] - [[L3 监督兜底 · 专职角色巡检]]」的[[分层防御闭环体系]]。"
+        )}
+      </SummaryBox>
 
       {/* 4 层递进治理逻辑看板（4 列响应式网格，一体化融合治理原则与实施场景） */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
@@ -124,9 +116,9 @@ export const SafetyArchitectureDiagram: React.FC = () => {
                     {card.title}
                   </span>
                 </div>
-                <span className="text-xs font-mono font-bold text-slate-900 bg-slate-100 border border-slate-200 px-2 py-0.5">
+                <ReportBadge tone="slate" className="text-xs font-mono">
                   {card.role}
-                </span>
+                </ReportBadge>
               </div>
 
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
@@ -151,9 +143,9 @@ export const SafetyArchitectureDiagram: React.FC = () => {
 
       {/* 架构主体：专业标准审计风格表格 */}
       <ReportTableFrame>
-        <table className="safety-architecture-table report-data-table w-full text-left border-collapse min-w-[700px]">
+        <table className="safety-architecture-table w-full text-left border-collapse min-w-[700px]">
           <thead>
-            <tr className="bg-slate-50 border-b border-slate-200">
+            <tr className="bg-slate-50 border-b border-slate-200 text-left">
               <th className="py-2.5 px-4 text-xs font-bold text-slate-900 uppercase tracking-wider text-left w-[18%]">
                 防御层级
               </th>
@@ -168,16 +160,16 @@ export const SafetyArchitectureDiagram: React.FC = () => {
               </th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-100 text-slate-800 text-xs sm:text-sm">
+          <tbody className="divide-y divide-slate-100 text-slate-800 text-xs sm:text-sm text-left">
             {tiers.map((tier) => (
-              <tr key={tier.level} className="bg-white">
+              <tr key={tier.level} className="bg-white text-left">
                 {/* 1. 防御层级 */}
                 <td className="py-3 px-4 align-top text-left">
-                  <div className="flex items-center gap-2">
-                    <span className="font-mono text-xs font-bold px-1.5 py-0.5 bg-slate-900 text-white leading-none shrink-0">
+                  <div className="flex items-center justify-start gap-2 text-left">
+                    <span className="font-mono text-xs font-bold px-1.5 py-0.5 bg-slate-900 text-white leading-none shrink-0 text-left">
                       {tier.level}
                     </span>
-                    <span className="text-sm sm:text-base font-bold text-slate-950 tracking-tight">
+                    <span className="text-sm sm:text-base font-bold text-slate-950 tracking-tight text-left">
                       {tier.name}
                     </span>
                   </div>
@@ -185,33 +177,30 @@ export const SafetyArchitectureDiagram: React.FC = () => {
 
                 {/* 2. 管控场景与核心定位 */}
                 <td className="py-3 px-4 align-top text-left">
-                  <span className="text-sm sm:text-base font-bold text-slate-900">
+                  <span className="text-sm sm:text-base font-bold text-slate-900 text-left block">
                     {tier.corePrinciple}
                   </span>
                 </td>
 
                 {/* 3. 治理状态 */}
                 <td className="py-3 px-4 align-top text-left">
-                  {tier.status === "执行中" ? (
-                    <span className="inline-flex items-center gap-1.5 text-blue-900 font-bold text-xs sm:text-sm font-mono px-2 py-0.5 bg-blue-50 border border-blue-200">
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
-                      <span>执行中</span>
-                    </span>
-                  ) : (
-                    <span className="inline-flex items-center gap-1.5 text-amber-900 font-bold text-xs sm:text-sm font-mono px-2 py-0.5 bg-amber-50 border border-amber-200">
-                      <span className="w-1.5 h-1.5 rounded-full bg-amber-600"></span>
-                      <span>{tier.status}</span>
-                    </span>
-                  )}
+                  <div className="flex items-center justify-start text-left">
+                    <ReportBadge
+                      tone={tier.status === "执行中" ? "blue" : "amber"}
+                      className="text-xs font-mono"
+                    >
+                      {tier.status}
+                    </ReportBadge>
+                  </div>
                 </td>
 
                 {/* 4. 核心防护举措 */}
                 <td className="py-3 px-4 align-top text-left">
-                  <ul className="space-y-1.5 text-sm text-slate-800">
+                  <ul className="space-y-1.5 text-sm text-slate-800 text-left">
                     {tier.keyPoints.map((pt, pIdx) => (
-                      <li key={pIdx} className="flex items-start gap-2">
+                      <li key={pIdx} className="flex items-start justify-start gap-2 text-left">
                         <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
-                        <span className="leading-relaxed font-normal">{highlightNumbers(pt)}</span>
+                        <span className="leading-relaxed font-normal text-left">{highlightNumbers(pt)}</span>
                       </li>
                     ))}
                   </ul>

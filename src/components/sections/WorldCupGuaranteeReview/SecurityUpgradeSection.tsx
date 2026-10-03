@@ -5,7 +5,7 @@ import {
   Smartphone,
 } from "lucide-react";
 import {
-  ReportSubsectionHeader,
+  ReportBadge,
   ReportTableFrame,
 } from "../../ReportSections";
 import { highlightNumbers, SummaryBox } from "./utils";
@@ -16,10 +16,8 @@ interface SecurityCategoryData {
   categoryName: string;
   categoryTag: string;
   direction: string;
-  themeColor: string;
+  themeColor: "green" | "blue" | "indigo";
   borderTopColor: string;
-  tagBg: string;
-  tagText: string;
   icon: React.ElementType;
   coreIssue: string;
   principle: string;
@@ -39,10 +37,8 @@ export const SecurityUpgradeSection: React.FC = () => {
       categoryName: "敏感信息维护",
       categoryTag: "防散落遗漏",
       direction: "场景一",
-      themeColor: "emerald",
+      themeColor: "green",
       borderTopColor: "border-t-emerald-600",
-      tagBg: "bg-emerald-50",
-      tagText: "text-emerald-900 border-emerald-200",
       icon: Database,
       coreIssue: "敏感信息散落在多个模块中，统一维护与收口难度大，极易产生数据外露与更新遗漏。",
       principle: "建立敏感信息全景字典与统一管理中台，底层统一脱敏加密，前端接口单一收口，消除维护死角。",
@@ -68,8 +64,6 @@ export const SecurityUpgradeSection: React.FC = () => {
       direction: "场景二",
       themeColor: "blue",
       borderTopColor: "border-t-blue-700",
-      tagBg: "bg-blue-50",
-      tagText: "text-blue-900 border-blue-200",
       icon: Search,
       coreIssue: "复制、截屏、导出、批量查询等高危操作权限泛滥，未按实际工种需求严格隔离与管控。",
       principle: "严格按工种界定高危操作必要性，98% 基础岗位关闭批量导出与复制，全端加盖动态数字盲水印。",
@@ -101,8 +95,6 @@ export const SecurityUpgradeSection: React.FC = () => {
       direction: "场景三",
       themeColor: "indigo",
       borderTopColor: "border-t-indigo-700",
-      tagBg: "bg-indigo-50",
-      tagText: "text-indigo-900 border-indigo-200",
       icon: Smartphone,
       coreIssue: "有权限的人可以单人完成修改，缺乏背靠背交叉核验，单点内部作案与私自改号风险巨大。",
       principle: "取消所有单人后台直接修改入口，实行经办与复核双人背靠背审批与 24 小时提款冷却保护。",
@@ -138,7 +130,7 @@ export const SecurityUpgradeSection: React.FC = () => {
           impact: "杜绝单人私改提款渠道，保障出款资产安全",
         },
         {
-          name: "黑/白名单",
+          name: "黑白名单",
           risk: "有权限的单人即可修改成功，缺乏背靠背交叉核验，易私自将高危违规账号拉白放行或将正常用户拉黑，存在人情放行与资金损耗隐患。",
           measure: "必须提交线上工单与[[背靠背审批流]]，经双人严格核验与审批流通过后才能生效，[[全流程留痕审计]]。",
           impact: "杜绝单人私自调整名单，防止违规拉白套利",
@@ -148,7 +140,7 @@ export const SecurityUpgradeSection: React.FC = () => {
   ];
 
   return (
-    <div id="section-security-upgrade" className="space-y-12 lg:space-y-16">
+    <div id="section-security-upgrade" className="flex flex-col gap-[var(--report-panel-gap)]">
       {/* 3.2 敏感操作限制 章节核心导语 */}
       <SummaryBox variant="module">
         <div className="space-y-2.5">
@@ -169,9 +161,9 @@ export const SecurityUpgradeSection: React.FC = () => {
               1
             </span>
             <h4 className="text-base font-bold text-slate-950">敏感信息维护</h4>
-            <span className="text-xs font-mono font-bold text-emerald-700 ml-auto">
+            <ReportBadge tone="green" className="text-xs font-mono ml-auto">
               统一展示收口
-            </span>
+            </ReportBadge>
           </div>
           <div className="text-sm text-slate-700 leading-relaxed font-normal space-y-2.5 flex-1">
             <p>
@@ -192,9 +184,9 @@ export const SecurityUpgradeSection: React.FC = () => {
               2
             </span>
             <h4 className="text-base font-bold text-slate-950">敏感异常操作</h4>
-            <span className="text-xs font-mono font-bold text-blue-700 ml-auto">
+            <ReportBadge tone="blue" className="text-xs font-mono ml-auto">
               操作控权收紧
-            </span>
+            </ReportBadge>
           </div>
           <div className="text-sm text-slate-700 leading-relaxed font-normal space-y-2.5 flex-1">
             <p>
@@ -215,9 +207,9 @@ export const SecurityUpgradeSection: React.FC = () => {
               3
             </span>
             <h4 className="text-base font-bold text-slate-950">敏感信息修改</h4>
-            <span className="text-xs font-mono font-bold text-indigo-700 ml-auto">
+            <ReportBadge tone="indigo" className="text-xs font-mono ml-auto">
               双人背靠背审批
-            </span>
+            </ReportBadge>
           </div>
           <div className="text-sm text-slate-700 leading-relaxed font-normal space-y-2.5 flex-1">
             <p>
@@ -252,11 +244,12 @@ export const SecurityUpgradeSection: React.FC = () => {
                     <span>
                       【{cat.direction}】{cat.categoryName}
                     </span>
-                    <span
-                      className={`text-xs px-2 py-0.5 font-bold ${cat.tagBg} ${cat.tagText}`}
+                    <ReportBadge
+                      tone={cat.themeColor}
+                      className="text-xs font-mono"
                     >
                       {cat.categoryTag}
-                    </span>
+                    </ReportBadge>
                   </h4>
                 </div>
 
