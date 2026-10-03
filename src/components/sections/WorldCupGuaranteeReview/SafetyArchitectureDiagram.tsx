@@ -1,6 +1,7 @@
 import React from "react";
 import { ReportTableFrame } from "../../ReportSections";
 import { KeyRound, Eye, RefreshCw, ShieldAlert, ArrowRight } from "lucide-react";
+import { highlightNumbers } from "./utils";
 
 interface ArchTier {
   level: string;
@@ -17,9 +18,9 @@ const tiers: ArchTier[] = [
     corePrinciple: "权限模式升级",
     status: "可加强",
     keyPoints: [
-      "长期权限：仅限极少数核心特权工种，常态化审计留痕",
-      "临时权限：专项任务审批限时生效，到期系统自动熔断",
-      "凭单权限：一线业务随工单动态解锁，任务办结单结权销",
+      "[[长期权限]]：仅限极少数核心特权工种，常态化[[审计留痕]]",
+      "[[临时权限]]：专项任务审批限时生效，到期[[系统自动熔断]]",
+      "[[凭单权限]]：一线业务随工单动态解锁，任务办结[[单结权销]]",
     ],
   },
   {
@@ -28,9 +29,9 @@ const tiers: ArchTier[] = [
     corePrinciple: "敏感操作限制",
     status: "可加强",
     keyPoints: [
-      "敏感信息全平台集中收口，展示入口默认掩码脱敏",
-      "批量查询与导出按工种严控，高频调阅自动熔断",
-      "敏感信息修改取消单人直改，实行双人背靠背审批与冷却",
+      "敏感信息全平台集中收口，展示入口默认[[掩码脱敏]]",
+      "批量查询与导出按工种严控，高频调阅[[自动熔断]]",
+      "敏感信息修改取消单人直改，实行[[双人背靠背审批]]与冷却",
     ],
   },
   {
@@ -40,8 +41,8 @@ const tiers: ArchTier[] = [
     status: "执行中",
     keyPoints: [
       "系统自动化根治高频诉求，源头消除无效流转",
-      "全面关停线下非受控群聊，业务对接 100% 迁入风控工单",
-      "审核处置与跨组协同线上闭环，全流程存证可溯源",
+      "全面关停线下非受控群聊，业务对接 [[100% 迁入风控工单]]",
+      "审核处置与跨组协同线上闭环，全流程[[存证可溯源]]",
     ],
   },
   {
@@ -50,8 +51,8 @@ const tiers: ArchTier[] = [
     corePrinciple: "专职角色巡检",
     status: "执行中",
     keyPoints: [
-      "全量操作日志独立留痕与每日/每周常态巡检",
-      "返水、费率、账户状态等敏感参数异动即时预警",
+      "全量操作日志[[独立留痕]]与每日/每周常态巡检",
+      "返水、费率、账户状态等敏感参数异动[[即时预警]]",
       "外部线索深度稽查与违规问责处理形成闭环",
     ],
   },
@@ -62,28 +63,28 @@ const logicCards = [
     step: "L0",
     title: "源头控制",
     role: "权限模式升级",
-    desc: "坚持最小必要原则推进权限模式升级，以任务定权限、单结权销，从源头消灭特权泛滥与越权隐患。",
+    desc: "坚持最小必要原则推进权限模式升级，以任务定权限、[[单结权销]]，从源头消灭特权泛滥与越权隐患。",
     icon: <KeyRound className="w-4 h-4 text-slate-800" />,
   },
   {
     step: "L1",
     title: "行为防线",
     role: "敏感操作限制",
-    desc: "对拥有权限的操作严加监控与硬规则约束，落实敏感操作限制，拦截越权调阅、批量导出与单人擅改。",
+    desc: "对拥有权限的操作严加监控与硬规则约束，落实敏感操作限制，拦截越权调阅、[[批量导出]]与[[单人擅改]]。",
     icon: <Eye className="w-4 h-4 text-blue-800" />,
   },
   {
     step: "L2",
     title: "链路管控",
     role: "风控工单治理",
-    desc: "跨部门业务流转 100% 收拢至风控工单治理闭环，彻底取缔线下群聊，阻断业务数据外泄扩散。",
+    desc: "跨部门业务流转 [[100% 收拢至风控工单]]治理闭环，彻底取缔线下群聊，阻断业务数据外泄扩散。",
     icon: <RefreshCw className="w-4 h-4 text-indigo-800" />,
   },
   {
     step: "L3",
     title: "监督兜底",
     role: "专职角色巡检",
-    desc: "设立专职角色开展常态化巡检、线索深度穿透核查与违规问责，形成全流程防御闭环。",
+    desc: "设立专职角色开展[[常态化巡检]]、线索深度穿透核查与违规问责，形成全流程防御闭环。",
     icon: <ShieldAlert className="w-4 h-4 text-emerald-800" />,
   },
 ];
@@ -129,7 +130,7 @@ export const SafetyArchitectureDiagram: React.FC = () => {
               </div>
 
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                {card.desc}
+                {highlightNumbers(card.desc)}
               </p>
             </div>
 
@@ -150,20 +151,20 @@ export const SafetyArchitectureDiagram: React.FC = () => {
 
       {/* 架构主体：专业标准审计风格表格 */}
       <ReportTableFrame>
-        <table className="report-dense-table report-data-table w-full text-left border-collapse min-w-[700px]">
+        <table className="safety-architecture-table report-data-table w-full text-left border-collapse min-w-[700px]">
           <thead>
             <tr className="bg-slate-50 border-b border-slate-200">
-              <th className="py-2.5 px-4 text-xs font-bold text-slate-900 uppercase tracking-wider w-[18%]">
+              <th className="py-2.5 px-4 text-xs font-bold text-slate-900 uppercase tracking-wider text-left w-[18%]">
                 防御层级
               </th>
-              <th className="py-2.5 px-4 text-xs font-bold text-slate-900 uppercase tracking-wider w-[24%]">
-                核心定位与管控场景
+              <th className="py-2.5 px-4 text-xs font-bold text-slate-900 uppercase tracking-wider text-left w-[24%]">
+                核心定位
               </th>
-              <th className="py-2.5 px-4 text-xs font-bold text-slate-900 uppercase tracking-wider text-center w-[14%]">
+              <th className="py-2.5 px-4 text-xs font-bold text-slate-900 uppercase tracking-wider text-left w-[14%]">
                 治理状态
               </th>
-              <th className="py-2.5 px-4 text-xs font-bold text-slate-900 uppercase tracking-wider w-[44%]">
-                核心防护举措
+              <th className="py-2.5 px-4 text-xs font-bold text-slate-900 uppercase tracking-wider text-left w-[44%]">
+                核心举措
               </th>
             </tr>
           </thead>
@@ -171,7 +172,7 @@ export const SafetyArchitectureDiagram: React.FC = () => {
             {tiers.map((tier) => (
               <tr key={tier.level} className="bg-white">
                 {/* 1. 防御层级 */}
-                <td className="py-3 px-4 align-top">
+                <td className="py-3 px-4 align-top text-left">
                   <div className="flex items-center gap-2">
                     <span className="font-mono text-xs font-bold px-1.5 py-0.5 bg-slate-900 text-white leading-none shrink-0">
                       {tier.level}
@@ -183,14 +184,14 @@ export const SafetyArchitectureDiagram: React.FC = () => {
                 </td>
 
                 {/* 2. 管控场景与核心定位 */}
-                <td className="py-3 px-4 align-top">
+                <td className="py-3 px-4 align-top text-left">
                   <span className="text-sm sm:text-base font-bold text-slate-900">
                     {tier.corePrinciple}
                   </span>
                 </td>
 
                 {/* 3. 治理状态 */}
-                <td className="py-3 px-4 align-top text-center">
+                <td className="py-3 px-4 align-top text-left">
                   {tier.status === "执行中" ? (
                     <span className="inline-flex items-center gap-1.5 text-blue-900 font-bold text-xs sm:text-sm font-mono px-2 py-0.5 bg-blue-50 border border-blue-200">
                       <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
@@ -205,12 +206,12 @@ export const SafetyArchitectureDiagram: React.FC = () => {
                 </td>
 
                 {/* 4. 核心防护举措 */}
-                <td className="py-3 px-4 align-top">
+                <td className="py-3 px-4 align-top text-left">
                   <ul className="space-y-1.5 text-sm text-slate-800">
                     {tier.keyPoints.map((pt, pIdx) => (
                       <li key={pIdx} className="flex items-start gap-2">
                         <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
-                        <span className="leading-relaxed font-normal">{pt}</span>
+                        <span className="leading-relaxed font-normal">{highlightNumbers(pt)}</span>
                       </li>
                     ))}
                   </ul>

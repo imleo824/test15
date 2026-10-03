@@ -231,7 +231,7 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
       title="系统出单趋势对比"
       description={
         <span>
-          2026年1月至9月，<strong className="text-slate-900 font-bold">系统出单比例</strong>由 1~8月均值的 <span className="font-mono font-bold text-slate-950">49.77%</span> 攀升至 9.30全量的 <span className="font-mono font-bold text-slate-950">65.00%</span>；同时 <strong className="text-slate-900 font-bold">系统质检率</strong>由 1~8月均值的 <span className="font-mono font-bold text-slate-950">0.141%</span>（1月峰值 0.324%）大幅压降并收敛至极低的 <span className="font-mono font-bold text-emerald-800">0.072%</span> 安全极值，实现了<span className="font-bold text-blue-950 bg-blue-100/90 border border-blue-300 px-2 py-0.5 mx-1 inline-block select-none">“放量大升，出单质量不降反升”</span>的重大兼顾。
+          2026年1月至9月，<strong className="text-slate-900 font-bold">系统出单比例</strong>由 1~8月均值的 <span className="font-mono font-bold text-slate-950">49.77%</span> 提升至 9.30全量的 <span className="font-mono font-bold text-slate-950">65.00%</span>；同时 <strong className="text-slate-900 font-bold">系统质检率</strong>由 1~8月均值的 <span className="font-mono font-bold text-slate-950">0.141%</span>（1月峰值 0.324%）稳步压降至 <span className="font-mono font-bold text-emerald-700">0.072%</span>，实现了<strong className="text-slate-950 font-bold">“放量提升同时差错率持续走低”</strong>的实际成效。
         </span>
       }
       bodyHeight="h-[510px]"

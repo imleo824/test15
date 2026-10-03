@@ -35,7 +35,7 @@ export const TgGovernanceSection: React.FC = () => {
       riskLevel: "低风险",
       status: "已处理",
       method: "彻底取消",
-      actionDetails: "入款真实性与到账状态由支付系统自动校验，取消风控人工找财务二次核实。",
+      actionDetails: "入款真实性与到账状态由[[支付系统自动校验]]，取消风控人工找财务二次核实。",
     },
     {
       id: "02",
@@ -43,7 +43,7 @@ export const TgGovernanceSection: React.FC = () => {
       riskLevel: "低风险",
       status: "已处理",
       method: "彻底取消",
-      actionDetails: "代理大额代存真实性在前置入款与代理端核验，取消风控线下人工核实。",
+      actionDetails: "代理大额代存真实性在[[前置入款与代理端核验]]，取消风控线下人工核实。",
     },
     {
       id: "03",
@@ -51,7 +51,7 @@ export const TgGovernanceSection: React.FC = () => {
       riskLevel: "低风险",
       status: "已处理",
       method: "彻底取消",
-      actionDetails: "统一代理额度代存与系统存款判定标准，取消人工拉群核实冗余环节。",
+      actionDetails: "统一代理额度代存与系统存款判定标准，[[取消人工拉群核实]]冗余环节。",
     },
     {
       id: "04",
@@ -59,7 +59,7 @@ export const TgGovernanceSection: React.FC = () => {
       riskLevel: "高风险",
       status: "已处理",
       method: "系统替代",
-      actionDetails: "关停线下红利审核，全量迁移至后台工单，名单与额度系统+人工校验。",
+      actionDetails: "关停线下红利审核，全量迁移至[[后台工单]]，名单与额度系统+人工校验。",
     },
     {
       id: "05",
@@ -67,7 +67,7 @@ export const TgGovernanceSection: React.FC = () => {
       riskLevel: "高风险",
       status: "已处理",
       method: "系统替代",
-      actionDetails: "风控判定与扣款动作由系统接口自动触发，禁止群内人工报单。",
+      actionDetails: "风控判定与扣款动作由[[系统接口自动触发]]，禁止群内人工报单。",
     },
     {
       id: "06",
@@ -75,7 +75,7 @@ export const TgGovernanceSection: React.FC = () => {
       riskLevel: "高风险",
       status: "已处理",
       method: "系统替代",
-      actionDetails: "核心出款决策嵌入后台复审流，群内零敏感数据流转，100% 审计留痕。",
+      actionDetails: "核心出款决策嵌入[[后台复审流]]，群内零敏感数据流转，[[100% 审计留痕]]。",
     },
     {
       id: "07",
@@ -83,7 +83,7 @@ export const TgGovernanceSection: React.FC = () => {
       riskLevel: "高风险",
       status: "已处理",
       method: "系统替代",
-      actionDetails: "会员上下标对接全量改为后台一键工单审批，系统自动同步生效。",
+      actionDetails: "会员上下标对接全量改为[[后台一键工单审批]]，系统自动同步生效。",
     },
     {
       id: "08",
@@ -91,7 +91,7 @@ export const TgGovernanceSection: React.FC = () => {
       riskLevel: "高风险",
       status: "已处理",
       method: "系统替代",
-      actionDetails: "系统自动识别高危标签并在界面强制高亮提醒，消除人工漏看漏判。",
+      actionDetails: "系统自动识别高危标签并在界面[[强制高亮提醒]]，消除人工漏看漏判。",
     },
     {
       id: "09",
@@ -99,7 +99,7 @@ export const TgGovernanceSection: React.FC = () => {
       riskLevel: "高风险",
       status: "已处理",
       method: "系统替代",
-      actionDetails: "实行多节点背靠背交叉核验，实名证件及隐私资料由 2~3 人协同审批。",
+      actionDetails: "实行多节点[[背靠背交叉核验]]，实名证件及隐私资料由 [[2~3 人]]协同审批。",
     },
     {
       id: "10",
@@ -107,7 +107,7 @@ export const TgGovernanceSection: React.FC = () => {
       riskLevel: "高风险",
       status: "已处理",
       method: "系统替代",
-      actionDetails: "高危账号封禁与限制接入后台多人审批流，杜绝单人随意封号。",
+      actionDetails: "高危账号封禁与限制接入[[后台多人审批流]]，杜绝单人随意封号。",
     },
     {
       id: "11",
@@ -115,7 +115,7 @@ export const TgGovernanceSection: React.FC = () => {
       riskLevel: "低风险",
       status: "已处理",
       method: "系统替代",
-      actionDetails: "场馆内嵌游戏输光上线系统自动解锁机制，减少风控 15%~20% 无效咨询。",
+      actionDetails: "场馆内嵌游戏输光上线[[系统自动解锁机制]]，减少风控 [[15%~20%]] 无效咨询。",
     },
   ];
 
@@ -136,7 +136,9 @@ export const TgGovernanceSection: React.FC = () => {
             </span>
           </div>
           <p className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal">
-            推进线下流程向系统化工单收口过程中，<strong>严防将本可通过系统自动化解决的诉求形式化包装为内部工单</strong>。凡<strong>前端可自主闭环</strong>或<strong>底层系统可根治</strong>的诉求，坚决<strong>从源头彻底消除</strong>；确需人工介入的诉求，<strong>支持用户端自主发起并直连路由至承接部门</strong>，<strong>减少多重冗余角色中转</strong>，实现极简高效流转。
+            {highlightNumbers(
+              "推进线下流程向系统化工单收口过程中，[[严防将系统自动化可解决诉求形式化包装为工单]]。凡[[前端可自主闭环]]或[[底层系统可根治]]的诉求，坚决[[从源头彻底消除]]；确需人工介入的诉求，[[支持用户端自主发起并直连路由至承接部门]]，[[减少多重冗余角色中转]]，实现极简高效流转。"
+            )}
           </p>
         </div>
 
@@ -150,8 +152,14 @@ export const TgGovernanceSection: React.FC = () => {
               <ReportBadge tone="green" className="text-xs">已解决</ReportBadge>
             </div>
             <div className="text-xs sm:text-sm text-slate-700 space-y-1.5 leading-relaxed flex-1">
-              <p><strong className="text-slate-900">传统弊端：</strong>内嵌游戏输光未自动解锁，导致频繁咨询与人工介入；</p>
-              <p><strong className="text-slate-900">源头治理：</strong>底层系统自动识别输光状态并即时解锁，<strong>减少风控约 15%~20% 无效流转</strong>。</p>
+              <p>
+                <strong className="text-slate-900 font-bold">传统弊端：</strong>
+                {highlightNumbers("内嵌游戏输光未自动解锁，导致频繁咨询与人工介入；")}
+              </p>
+              <p>
+                <strong className="text-slate-900 font-bold">源头治理：</strong>
+                {highlightNumbers("底层系统自动识别输光状态并即时解锁，[[减少风控约 15%~20% 无效流转]]。")}
+              </p>
             </div>
           </div>
 
@@ -163,8 +171,14 @@ export const TgGovernanceSection: React.FC = () => {
               <ReportBadge tone="amber" className="text-xs">待解决</ReportBadge>
             </div>
             <div className="text-xs sm:text-sm text-slate-700 space-y-1.5 leading-relaxed flex-1">
-              <p><strong className="text-slate-900">传统弊端：</strong>系统流水计算不准引发频繁咨询，客服转提工单复核；</p>
-              <p><strong className="text-slate-900">源头治理：</strong>校准流水计算，直接消除咨询源头，<strong>减少风控约 30% 无效咨询与流转</strong>。</p>
+              <p>
+                <strong className="text-slate-900 font-bold">传统弊端：</strong>
+                {highlightNumbers("系统流水计算不准引发频繁咨询，客服转提工单复核；")}
+              </p>
+              <p>
+                <strong className="text-slate-900 font-bold">源头治理：</strong>
+                {highlightNumbers("校准流水计算，直接消除咨询源头，[[减少风控约 30% 无效咨询与流转]]。")}
+              </p>
             </div>
           </div>
         </div>
@@ -203,7 +217,7 @@ export const TgGovernanceSection: React.FC = () => {
                   排查范围
                 </div>
                 <p className="text-sm text-slate-700 leading-relaxed font-normal">
-                  排查无实际业务支撑、项目已结束、职责重叠或系统可替代的对接群。
+                  {highlightNumbers("排查无实际业务支撑、项目已结束、职责重叠或系统可替代的对接群。")}
                 </p>
               </div>
             </div>
@@ -213,7 +227,7 @@ export const TgGovernanceSection: React.FC = () => {
                 处置策略与成效
               </div>
               <p className="text-sm text-slate-800 leading-relaxed font-normal">
-                <strong className="text-slate-950 font-bold">清零冗余线下对接群</strong>，消除无痕操作漏洞与暴露面。
+                {highlightNumbers("[[清零冗余线下对接群]]，消除无痕操作漏洞与暴露面。")}
               </p>
             </div>
           </div>
@@ -242,7 +256,7 @@ export const TgGovernanceSection: React.FC = () => {
                   排查范围
                 </div>
                 <p className="text-sm text-slate-700 leading-relaxed font-normal">
-                  仅保留核心业务对接人，严格管控名单与权限，仅限事务同步与日常讨论。
+                  {highlightNumbers("仅保留核心业务对接人，严格管控名单与权限，仅限事务同步与日常讨论。")}
                 </p>
               </div>
             </div>
@@ -252,7 +266,7 @@ export const TgGovernanceSection: React.FC = () => {
                 处置策略与成效
               </div>
               <p className="text-sm text-slate-800 leading-relaxed font-normal">
-                限制进出权限，<strong className="text-slate-950 font-bold">严禁流转任何风控单据</strong>，杜绝无痕业务操作。
+                {highlightNumbers("限制进出权限，[[严禁流转任何风控单据]]，杜绝无痕业务操作。")}
               </p>
             </div>
           </div>
@@ -281,7 +295,7 @@ export const TgGovernanceSection: React.FC = () => {
                   排查范围
                 </div>
                 <p className="text-sm text-slate-700 leading-relaxed font-normal">
-                  涉及上标、备注、复审、扣款、禁用、红利、资料等核心敏感审核操作。
+                  {highlightNumbers("涉及[[上标、备注、复审、扣款、禁用、红利、资料]]等核心敏感审核操作。")}
                 </p>
               </div>
             </div>
@@ -291,7 +305,7 @@ export const TgGovernanceSection: React.FC = () => {
                 处置策略与成效
               </div>
               <p className="text-sm text-slate-800 leading-relaxed font-normal">
-                全量迁移至后台系统工单与标准 API，全流程留痕且强制复核。
+                {highlightNumbers("[[全量迁移至后台系统工单与标准 API]]，全流程留痕且强制复核。")}
               </p>
             </div>
           </div>
@@ -320,7 +334,7 @@ export const TgGovernanceSection: React.FC = () => {
                   排查范围
                 </div>
                 <p className="text-sm text-slate-700 leading-relaxed font-normal">
-                  不含敏感数据的常规问询、催促与答疑等轻量状态核验。
+                  {highlightNumbers("不含敏感数据的常规问询、催促与答疑等轻量状态核验。")}
                 </p>
               </div>
             </div>
@@ -330,7 +344,7 @@ export const TgGovernanceSection: React.FC = () => {
                 处置策略与成效
               </div>
               <p className="text-sm text-slate-800 leading-relaxed font-normal">
-                <strong className="text-slate-950 font-bold">协同对接部门工单就绪后统一切换</strong>，闭环后全量注销。
+                {highlightNumbers("[[协同对接部门工单就绪后统一切换]]，闭环后全量注销。")}
               </p>
             </div>
           </div>
@@ -371,11 +385,7 @@ export const TgGovernanceSection: React.FC = () => {
                 <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56] inline-block shadow-inner" />
                 <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e] inline-block shadow-inner" />
                 <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f] inline-block shadow-inner" />
-                <span className="ml-2.5 text-xs font-medium text-slate-300 font-mono">群1 – 业务对接群</span>
-              </div>
-              <div className="flex items-center gap-1.5 text-[11px] font-mono text-rose-300 bg-rose-950/80 border border-rose-500/40 px-2 py-0.2">
-                <span className="w-1.5 h-1.5 rounded-full bg-rose-400 animate-pulse" />
-                <span>实录：搜账号跨群穿透 · 明文报单流转</span>
+                <span className="ml-2.5 text-xs font-medium text-slate-300 font-mono">群1 – 示例</span>
               </div>
             </div>
 
@@ -493,7 +503,7 @@ export const TgGovernanceSection: React.FC = () => {
                         <div>平台 : 1</div>
                         <div>
                           帐号:{" "}
-                          <span className="bg-[#b3d7ff] text-slate-950 font-bold px-1.5 py-0.2 rounded">
+                          <span className="font-mono font-bold text-slate-900 bg-slate-200 px-1.5 py-0.5 border border-slate-300">
                             asd001
                           </span>
                         </div>
@@ -529,7 +539,7 @@ export const TgGovernanceSection: React.FC = () => {
                   <span>风险 1：跨群全局检索穿透，敏感记录缺乏隔离</span>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  在通讯工具中全局搜索任一会员账号（如 <span className="font-mono font-bold text-slate-900 bg-amber-100 px-1">asd001</span>），直接搜出跨度从 2025 年 8 月到 2026 年 9 月长达一年多的 9 条历史报单记录，跨群暴露无任何隔离。
+                  在通讯工具中全局搜索任一会员账号（如 <span className="font-mono font-bold text-slate-900 bg-slate-100 px-1.5 py-0.5 border border-slate-200">asd001</span>），直接搜出跨度从 2025 年 8 月到 2026 年 9 月长达一年多的 9 条历史报单记录，跨群暴露无任何隔离。
                 </p>
               </div>
 

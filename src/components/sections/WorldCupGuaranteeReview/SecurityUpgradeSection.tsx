@@ -175,12 +175,12 @@ export const SecurityUpgradeSection: React.FC = () => {
           </div>
           <div className="text-sm text-slate-700 leading-relaxed font-normal space-y-2.5 flex-1">
             <p>
-              <strong className="text-slate-950">现状痛点：</strong>
-              敏感信息分散暴露在过多模块中，导致集中维护与收口困难，存在信息外露与遗漏风险。
+              <strong className="text-slate-950 font-bold">现状痛点：</strong>
+              {highlightNumbers("敏感信息分散暴露在过多模块中，导致集中维护与收口困难，存在信息外露与遗漏风险。")}
             </p>
             <p>
-              <strong className="text-slate-950">应对措施：</strong>
-              全面排查展示敏感信息的模块，彻底去除无必要的展示页面，实现集中统一收口。
+              <strong className="text-slate-950 font-bold">应对措施：</strong>
+              {highlightNumbers("全面排查展示敏感信息的模块，彻底去除无必要的展示页面，实现[[集中统一收口]]。")}
             </p>
           </div>
         </div>
@@ -198,12 +198,12 @@ export const SecurityUpgradeSection: React.FC = () => {
           </div>
           <div className="text-sm text-slate-700 leading-relaxed font-normal space-y-2.5 flex-1">
             <p>
-              <strong className="text-slate-950">现状痛点：</strong>
-              复制、截屏、导出、批量查询等高危操作权限泛滥，未按实际工种必要性进行严格控制。
+              <strong className="text-slate-950 font-bold">现状痛点：</strong>
+              {highlightNumbers("复制、截屏、导出、批量查询等高危操作权限泛滥，未按实际工种必要性进行严格控制。")}
             </p>
             <p>
-              <strong className="text-slate-950">应对措施：</strong>
-              对敏感信息禁止复制；对批量查询、数据导出按工种严格控制权限。
+              <strong className="text-slate-950 font-bold">应对措施：</strong>
+              {highlightNumbers("对敏感信息[[禁止复制]]；对批量查询、数据导出按工种[[严格控制权限]]。")}
             </p>
           </div>
         </div>
@@ -221,12 +221,12 @@ export const SecurityUpgradeSection: React.FC = () => {
           </div>
           <div className="text-sm text-slate-700 leading-relaxed font-normal space-y-2.5 flex-1">
             <p>
-              <strong className="text-slate-950">现状痛点：</strong>
-              有权限的人可以单人完成修改，缺乏背靠背交叉核验，风险较大且易发生单点内部作案。
+              <strong className="text-slate-950 font-bold">现状痛点：</strong>
+              {highlightNumbers("有权限的人可以单人完成修改，缺乏背靠背交叉核验，风险较大且易发生单点内部作案。")}
             </p>
             <p>
-              <strong className="text-slate-950">应对措施：</strong>
-              取消单人直接修改入口，全面改由经办与复核双人背靠背审批，关键修改强制绑定 24 小时提款冷却。
+              <strong className="text-slate-950 font-bold">应对措施：</strong>
+              {highlightNumbers("取消单人直接修改入口，全面改由经办与复核[[双人背靠背审批]]，关键修改强制绑定 [[24 小时提款冷却]]。")}
             </p>
           </div>
         </div>
@@ -258,18 +258,6 @@ export const SecurityUpgradeSection: React.FC = () => {
                       {cat.categoryTag}
                     </span>
                   </h4>
-                </div>
-
-                {/* 对应模块的标题下方：核心痛点与治理原则 */}
-                <div className="bg-slate-50 border-l-2 border-slate-800 p-4 text-xs sm:text-sm space-y-1.5 font-normal">
-                  <div className="text-slate-950 leading-relaxed">
-                    <span className="font-bold text-slate-950">核心痛点：</span>
-                    {highlightNumbers(cat.coreIssue)}
-                  </div>
-                  <div className="text-slate-700 leading-relaxed">
-                    <span className="font-bold text-slate-950">治理原则：</span>
-                    {highlightNumbers(cat.principle)}
-                  </div>
                 </div>
 
                 {/* 3 列规范明细表：场景 / 潜在隐患 / 升级管控规范 */}

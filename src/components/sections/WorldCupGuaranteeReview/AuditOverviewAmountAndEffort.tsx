@@ -81,7 +81,7 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
         <ReportChartCard
           title="三季度拦截金额月度走势"
           value="2.72e"
-          description="三季度累计拦截金额 2.72e，峰值达 1.046e；全面强化对批量黑产直接扣除本金，威慑效应显著。"
+          description={highlightNumbers("三季度累计拦截金额 [[2.72e]]，峰值达 [[1.046e]]；全面强化对[[批量黑产]]直接[[扣除本金]]，威慑效应显著。")}
           legend={
             <ReportChartLegend
               items={[
@@ -110,7 +110,7 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
         <ReportChartCard
           title="三季度平均人工审核时长"
           value="08:45"
-          description="依托系统派单分流，平均人工审核时长稳定在 08:45；单量峰值达 300.77w单，时效依然平稳可控。"
+          description={highlightNumbers("依托[[系统派单分流]]，平均人工审核时长稳定在 [[08:45]]；单量峰值达 [[300.77w单]]，时效依然平稳可控。")}
           legend={
             <ReportChartLegend
               items={[

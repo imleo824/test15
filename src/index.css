@@ -2668,6 +2668,11 @@
     white-space: nowrap;
   }
 
+  .safety-architecture-table th,
+  .safety-architecture-table td {
+    text-align: left !important;
+  }
+
   .report-dense-table tbody tr:last-child {
     border-top: 1px solid var(--report-line);
   }

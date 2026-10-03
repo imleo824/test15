@@ -1465,7 +1465,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                               <strong className="font-bold text-slate-950 font-mono">指派审核员 A</strong>
                             </div>
                             <p className="text-xs text-slate-700 leading-relaxed">
-                              体育订单约 <strong className="font-mono font-bold text-blue-900 bg-blue-50 px-1.5 py-0.5 border border-blue-200 rounded-xs select-none">80%</strong> 定向分流至专业体育组，提升审核准确度。
+                              体育订单约 <strong className="font-mono font-bold text-slate-950">80%</strong> 定向分流至专业体育组，提升审核准确度。
                             </p>
                           </div>
                         </div>

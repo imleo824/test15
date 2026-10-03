@@ -241,7 +241,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
             <div className="flex items-start gap-2">
               <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
               <span>
-                <strong className="text-slate-900 font-bold">系统自动审单</strong> 由 1~8月均值的 <strong className="text-slate-950 font-mono font-bold">49.77%</strong> 强劲跃升至 9.30全量的 <strong className="text-blue-900 font-mono font-bold">65.00%</strong>（系统全量放量成型）。
+                <strong className="text-slate-900 font-bold">系统自动审单</strong> 由 1~8月均值的 <strong className="text-slate-950 font-mono font-bold">49.77%</strong> 跃升至 9.30全量的 <strong className="text-blue-900 font-mono font-bold">65.00%</strong>（系统全量放行成型）。
               </span>
             </div>
           </div>
