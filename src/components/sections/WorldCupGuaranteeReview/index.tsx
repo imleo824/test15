@@ -24,7 +24,7 @@ export const WorldCupGuaranteeReview: React.FC = () => {
         </div>
       </section>
 
-      {/* 3.0 安全合规 (专职监督兜底、风控工单收口、安全机制) */}
+      {/* 3.0 安全合规 (权限模式升级、敏感操作限制、风控工单治理、专职角色巡检) */}
       <section id="section-3.0" className="report-chapter-block scroll-mt-6">
         <ChapterTitle>3.0 安全合规</ChapterTitle>
         <div className="report-chapter-content">

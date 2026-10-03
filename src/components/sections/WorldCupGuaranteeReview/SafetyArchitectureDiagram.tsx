@@ -6,7 +6,6 @@ interface ArchTier {
   level: string;
   name: string;
   corePrinciple: string;
-  controlScene: string;
   status: "执行中" | "可加强";
   keyPoints: string[];
 }
@@ -15,8 +14,7 @@ const tiers: ArchTier[] = [
   {
     level: "L0",
     name: "源头控制",
-    corePrinciple: "权限分配合理 · 坚持最小必要",
-    controlScene: "以权限分配合理为核心源头，坚持最小必要，杜绝特权泛滥",
+    corePrinciple: "权限模式升级",
     status: "可加强",
     keyPoints: [
       "长期权限：仅限极少数核心特权工种，常态化审计留痕",
@@ -27,8 +25,7 @@ const tiers: ArchTier[] = [
   {
     level: "L1",
     name: "行为防线",
-    corePrinciple: "权限实时监控 · 拦截越权异动",
-    controlScene: "对已持有权限的操作实行全量实时监控，拦截越权与异动",
+    corePrinciple: "敏感操作限制",
     status: "可加强",
     keyPoints: [
       "敏感信息全平台集中收口，展示入口默认掩码脱敏",
@@ -39,8 +36,7 @@ const tiers: ArchTier[] = [
   {
     level: "L2",
     name: "链路管控",
-    corePrinciple: "数据流转管控 · 全链路工单化",
-    controlScene: "在业务数据流转环节全链路工单化受控，阻断线下扩散",
+    corePrinciple: "风控工单治理",
     status: "执行中",
     keyPoints: [
       "系统自动化根治高频诉求，源头消除无效流转",
@@ -51,8 +47,7 @@ const tiers: ArchTier[] = [
   {
     level: "L3",
     name: "监督兜底",
-    corePrinciple: "专职稽查巡检 · 防御闭环问责",
-    controlScene: "最终设立专职独立角色进行常态化稽查与巡检，形成防御闭环",
+    corePrinciple: "专职角色巡检",
     status: "执行中",
     keyPoints: [
       "全量操作日志独立留痕与每日/每周常态巡检",
@@ -66,33 +61,29 @@ const logicCards = [
   {
     step: "L0",
     title: "源头控制",
-    role: "核心源头",
-    corePrinciple: "以权限分配合理为核心源头，坚持最小必要，杜绝特权泛滥",
-    desc: "坚持最小必要原则合理配置权限，日常无任务无入口，从源头消灭特权泛滥与越权隐患。",
+    role: "权限模式升级",
+    desc: "坚持最小必要原则推进权限模式升级，以任务定权限、单结权销，从源头消灭特权泛滥与越权隐患。",
     icon: <KeyRound className="w-4 h-4 text-slate-800" />,
   },
   {
     step: "L1",
     title: "行为防线",
-    role: "行为防线",
-    corePrinciple: "对已持有权限的操作实行全量实时监控，拦截越权与异动",
-    desc: "对拥有权限的操作严加监控与硬规则约束，拦截越权调阅、批量导出、复制与单人擅改。",
+    role: "敏感操作限制",
+    desc: "对拥有权限的操作严加监控与硬规则约束，落实敏感操作限制，拦截越权调阅、批量导出与单人擅改。",
     icon: <Eye className="w-4 h-4 text-blue-800" />,
   },
   {
     step: "L2",
     title: "链路管控",
-    role: "链路管控",
-    corePrinciple: "在业务数据流转环节全链路工单化受控，阻断线下扩散",
-    desc: "跨部门业务流转 100% 收拢至受控工单系统，彻底取缔线下群聊，阻断业务数据外泄扩散。",
+    role: "风控工单治理",
+    desc: "跨部门业务流转 100% 收拢至风控工单治理闭环，彻底取缔线下群聊，阻断业务数据外泄扩散。",
     icon: <RefreshCw className="w-4 h-4 text-indigo-800" />,
   },
   {
     step: "L3",
     title: "监督兜底",
-    role: "监督兜底",
-    corePrinciple: "最终设立专职独立角色进行常态化稽查与巡检，形成防御闭环",
-    desc: "设立独立专职角色开展常态化巡检、线索深度核查与违规问责，形成全流程防御闭环。",
+    role: "专职角色巡检",
+    desc: "设立专职角色开展常态化巡检、线索深度穿透核查与违规问责，形成全流程防御闭环。",
     icon: <ShieldAlert className="w-4 h-4 text-emerald-800" />,
   },
 ];
@@ -111,7 +102,7 @@ export const SafetyArchitectureDiagram: React.FC = () => {
         </div>
 
         <p className="text-sm text-slate-600 font-normal leading-relaxed">
-          安全合规不仅是<strong className="text-slate-950 font-semibold">事件驱动的单点应对</strong>，而是需要多维度系统化治理，持续构建覆盖「源头控制 - 行为防线 - 链路管控 - 监督兜底」的<strong className="text-slate-950 font-semibold">分层防御闭环体系</strong>：
+          安全合规不仅是<strong className="text-slate-950 font-semibold">事件驱动的单点应对</strong>，而是需要多维度系统化治理，持续构建覆盖「L0 源头控制 · 权限模式升级 - L1 行为防线 · 敏感操作限制 - L2 链路管控 · 风控工单治理 - L3 监督兜底 · 专职角色巡检」的<strong className="text-slate-950 font-semibold">分层防御闭环体系</strong>：
         </p>
       </div>
 
@@ -132,14 +123,9 @@ export const SafetyArchitectureDiagram: React.FC = () => {
                     {card.title}
                   </span>
                 </div>
-                <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-2 py-0.5">
+                <span className="text-xs font-mono font-bold text-slate-900 bg-slate-100 border border-slate-200 px-2 py-0.5">
                   {card.role}
                 </span>
-              </div>
-
-              {/* 核心治理逻辑（一体化融入卡片内部，杜绝重复模块） */}
-              <div className="text-xs font-bold text-slate-900 bg-slate-50 border-l-2 border-slate-900 pl-2.5 py-1.5 leading-snug">
-                {card.corePrinciple}
               </div>
 
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
@@ -167,13 +153,13 @@ export const SafetyArchitectureDiagram: React.FC = () => {
         <table className="report-dense-table report-data-table w-full text-left border-collapse min-w-[700px]">
           <thead>
             <tr className="bg-slate-50 border-b border-slate-200">
-              <th className="py-2.5 px-4 text-xs font-bold text-slate-900 uppercase tracking-wider w-[16%]">
+              <th className="py-2.5 px-4 text-xs font-bold text-slate-900 uppercase tracking-wider w-[18%]">
                 防御层级
               </th>
-              <th className="py-2.5 px-4 text-xs font-bold text-slate-900 uppercase tracking-wider w-[28%]">
+              <th className="py-2.5 px-4 text-xs font-bold text-slate-900 uppercase tracking-wider w-[24%]">
                 核心定位与管控场景
               </th>
-              <th className="py-2.5 px-4 text-xs font-bold text-slate-900 uppercase tracking-wider text-center w-[12%]">
+              <th className="py-2.5 px-4 text-xs font-bold text-slate-900 uppercase tracking-wider text-center w-[14%]">
                 治理状态
               </th>
               <th className="py-2.5 px-4 text-xs font-bold text-slate-900 uppercase tracking-wider w-[44%]">
@@ -197,12 +183,9 @@ export const SafetyArchitectureDiagram: React.FC = () => {
                 </td>
 
                 {/* 2. 管控场景与核心定位 */}
-                <td className="py-3 px-4 align-top space-y-1">
-                  <span className="text-xs font-mono font-bold text-slate-500 block uppercase">
+                <td className="py-3 px-4 align-top">
+                  <span className="text-sm sm:text-base font-bold text-slate-900">
                     {tier.corePrinciple}
-                  </span>
-                  <span className="text-sm font-bold text-slate-950 leading-relaxed block">
-                    {tier.controlScene}
                   </span>
                 </td>
 

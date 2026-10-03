@@ -56,9 +56,9 @@ export const InternalControlSection: React.FC = () => {
         )}
       </SummaryBox>
 
-      {/* 3.1.1 专职监督工作成果 */}
+      {/* 3.4.1 专职监督工作成果 */}
       <div className="space-y-6 sm:space-y-8">
-        <ReportSubsectionHeader title="3.1.1 违规查处与稽查成果" />
+        <ReportSubsectionHeader title="3.4.1 违规查处与稽查成果" />
         
         <ReportMetricHero
           title="违规处理总计"
@@ -118,9 +118,9 @@ export const InternalControlSection: React.FC = () => {
         </ReportMetricGrid>
       </div>
 
-      {/* 3.1.2 监督排查核心主线 */}
+      {/* 3.4.2 监督排查核心主线 */}
       <div className="space-y-6 sm:space-y-8">
-        <ReportSubsectionHeader title="3.1.2 监督排查核心主线" />
+        <ReportSubsectionHeader title="3.4.2 监督排查核心主线" />
 
         <SummaryBox variant="module">
           {highlightNumbers(
@@ -148,9 +148,9 @@ export const InternalControlSection: React.FC = () => {
         </div>
       </div>
 
-      {/* 3.1.3 高危场景防范 */}
+      {/* 3.4.3 高危场景防范 */}
       <div className="space-y-6 sm:space-y-8">
-        <ReportSubsectionHeader title="3.1.3 高危场景防范" />
+        <ReportSubsectionHeader title="3.4.3 高危场景防范" />
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 items-stretch">
           {/* 1. 外部通讯群信息 */}
@@ -176,7 +176,7 @@ export const InternalControlSection: React.FC = () => {
                 应对举措
               </div>
               <p className="text-sm text-slate-800 leading-relaxed font-normal">
-                {highlightNumbers("全面[[关停外部通讯群聊]]，收拢至系统工单流转（详见 3.2 节）。")}
+                {highlightNumbers("全面[[关停外部通讯群聊]]，收拢至系统工单流转（详见 3.3 节）。")}
               </p>
             </div>
           </div>
@@ -204,16 +204,16 @@ export const InternalControlSection: React.FC = () => {
                 应对举措
               </div>
               <p className="text-sm text-slate-800 leading-relaxed font-normal">
-                {highlightNumbers("核心环节实行[[随机派单与多层审批]]，强化权限隔离（详见 3.2 与 3.3 节）。")}
+                {highlightNumbers("核心环节实行[[随机派单与多层审批]]，强化权限隔离（详见 3.1 与 3.2 节）。")}
               </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* 3.1.4 典型违规案例剖析 */}
+      {/* 3.4.4 典型违规案例剖析 */}
       <div className="space-y-6 sm:space-y-8">
-        <ReportSubsectionHeader title="3.1.4 典型案例剖析" />
+        <ReportSubsectionHeader title="3.4.4 典型案例剖析" />
         
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-5 sm:gap-6 items-stretch">
           <ReportCaseCard

@@ -5,18 +5,18 @@ import { highlightNumbers, SummaryBox } from "./utils";
 export const PermissionStructureSection: React.FC = () => {
   return (
     <div id="section-permission-structure" className="space-y-12 lg:space-y-16">
-      {/* 3.4 章节导语 */}
+      {/* 3.1 权限模式升级 章节导语 */}
       <SummaryBox variant="module">
         <div className="space-y-2.5">
           <p className="text-sm text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "除少数特定工种外，一线业务[[无独立主动查会员场景]]，无任务关联的自主查询属于[[高风险操作]]。构建[[长期特权]] + [[临时限时]] + [[凭单查询]]三级安全权限架构，[[以任务定权限，单结权销]]。"
+              "除少数特定工种外，一线业务[[无独立主动查会员场景]]，无任务关联的自主查询属于[[高风险操作]]。全面落实[[权限模式升级]]，构建[[长期特权]] + [[临时限时]] + [[凭单查询]]三级安全权限架构，[[以任务定权限，单结权销]]。"
             )}
           </p>
         </div>
       </SummaryBox>
 
-      {/* 权限结构体系架构 */}
+      {/* 权限模式升级体系架构 */}
       <div className="space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-200 gap-2">
           <div className="flex items-center gap-2.5">
@@ -24,7 +24,7 @@ export const PermissionStructureSection: React.FC = () => {
               <ShieldCheck className="w-4 h-4" />
             </div>
             <h4 className="text-base sm:text-lg font-bold text-slate-950">
-              权限结构体系
+              权限模式升级体系
             </h4>
           </div>
           <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-2.5 py-1 self-start sm:self-auto">

@@ -149,12 +149,12 @@ export const SecurityUpgradeSection: React.FC = () => {
 
   return (
     <div id="section-security-upgrade" className="space-y-12 lg:space-y-16">
-      {/* 3.3 章节核心导语 */}
+      {/* 3.2 敏感操作限制 章节核心导语 */}
       <SummaryBox variant="module">
         <div className="space-y-2.5">
           <p className="text-sm text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "针对底层安全机制的实际运作痛点，全面聚焦[[敏感信息维护、敏感异常操作、敏感信息修改]]三大核心场景推进加固改造，以系统硬规则约束一线裁量，筑牢底层安全合规防线。"
+              "针对底层安全机制运作痛点，全面落实[[敏感操作限制]]，严格聚焦[[敏感信息维护、敏感异常操作、敏感信息修改]]三大核心场景推进加固改造，以系统硬规则约束一线裁量，筑牢底层安全合规防线。"
             )}
           </p>
         </div>

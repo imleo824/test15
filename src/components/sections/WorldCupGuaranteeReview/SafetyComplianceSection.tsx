@@ -1,10 +1,69 @@
 import React from "react";
-import { InternalControlSection } from "./InternalControlSection";
-import { TgGovernanceSection } from "./TgGovernanceSection";
-import { SecurityUpgradeSection } from "./SecurityUpgradeSection";
 import { PermissionStructureSection } from "./PermissionStructureSection";
+import { SecurityUpgradeSection } from "./SecurityUpgradeSection";
+import { TgGovernanceSection } from "./TgGovernanceSection";
+import { InternalControlSection } from "./InternalControlSection";
 import { ReportSectionHeader } from "../../ReportSections";
 import { SafetyArchitectureDiagram } from "./SafetyArchitectureDiagram";
+
+const TIER_STEPS = [
+  { level: "L0", title: "权限模式升级", href: "#section-3.1" },
+  { level: "L1", title: "敏感操作限制", href: "#section-3.2" },
+  { level: "L2", title: "风控工单治理", href: "#section-3.3" },
+  { level: "L3", title: "专职角色巡检", href: "#section-3.4" },
+] as const;
+
+export const SafetyTierLocationIndicator: React.FC<{
+  currentLevel: "L0" | "L1" | "L2" | "L3";
+}> = ({ currentLevel }) => {
+  return (
+    <nav
+      aria-label="防御分层位置导航"
+      className="flex items-center gap-1.5 sm:gap-2 flex-nowrap text-xs font-mono py-0.5"
+    >
+      {TIER_STEPS.map((step, idx) => {
+        const isCurrent = step.level === currentLevel;
+        return (
+          <React.Fragment key={step.level}>
+            <a
+              href={step.href}
+              className={`inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 text-xs whitespace-nowrap transition-all select-none shrink-0 ${
+                isCurrent
+                  ? "bg-slate-900 text-white font-bold border border-slate-900 shadow-xs ring-1 ring-slate-900"
+                  : "bg-slate-100 text-slate-600 hover:text-slate-950 hover:bg-slate-200/90 border border-slate-200"
+              }`}
+              title={`防御分层位置 · ${step.level} ${step.title}`}
+            >
+              <span
+                className={`font-mono font-bold text-xs px-1.5 py-0.5 leading-none shrink-0 ${
+                  isCurrent
+                    ? "bg-white text-slate-950"
+                    : "bg-slate-200 text-slate-600"
+                }`}
+              >
+                {step.level}
+              </span>
+              <span
+                className={`text-xs whitespace-nowrap leading-none ${
+                  isCurrent
+                    ? "text-white font-bold"
+                    : "text-slate-600 font-medium"
+                }`}
+              >
+                {step.title}
+              </span>
+            </a>
+            {idx < TIER_STEPS.length - 1 && (
+              <span className="text-slate-300 font-normal select-none shrink-0 px-0.5">
+                ➔
+              </span>
+            )}
+          </React.Fragment>
+        );
+      })}
+    </nav>
+  );
+};
 
 export const SafetyComplianceSection: React.FC = () => {
   return (
@@ -12,56 +71,40 @@ export const SafetyComplianceSection: React.FC = () => {
       {/* 3.0 章节开头：安全合规分层防御架构 */}
       <SafetyArchitectureDiagram />
 
-      {/* 3.1 专职监督模块 */}
+      {/* 3.1 权限模式升级 (L0 · 源头控制) */}
       <section id="section-3.1" className="scroll-mt-6 space-y-8">
         <ReportSectionHeader
-          title="3.1 专职监督"
-          rightContent={
-            <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-2.5 py-1">
-              底线审计兜底 · 违规稽查与行为追溯
-            </span>
-          }
+          title="3.1 权限模式升级"
+          rightContent={<SafetyTierLocationIndicator currentLevel="L0" />}
         />
-        <InternalControlSection />
+        <PermissionStructureSection />
       </section>
 
-      {/* 3.2 风控工单模块 */}
+      {/* 3.2 敏感操作限制 (L1 · 行为防线) */}
       <section id="section-3.2" className="scroll-mt-6 space-y-8">
         <ReportSectionHeader
-          title="3.2 风控工单"
-          rightContent={
-            <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-2.5 py-1">
-              全链路闭环流转 · 彻底取缔线下群聊
-            </span>
-          }
-        />
-        <TgGovernanceSection />
-      </section>
-
-      {/* 3.3 安全机制模块 */}
-      <section id="section-3.3" className="scroll-mt-6 space-y-8">
-        <ReportSectionHeader
-          title="3.3 安全机制"
-          rightContent={
-            <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-2.5 py-1">
-              系统硬性防线 · 信息维护/异常操作/信息修改
-            </span>
-          }
+          title="3.2 敏感操作限制"
+          rightContent={<SafetyTierLocationIndicator currentLevel="L1" />}
         />
         <SecurityUpgradeSection />
       </section>
 
-      {/* 3.4 权限结构模块 */}
+      {/* 3.3 风控工单治理 (L2 · 链路管控) */}
+      <section id="section-3.3" className="scroll-mt-6 space-y-8">
+        <ReportSectionHeader
+          title="3.3 风控工单治理"
+          rightContent={<SafetyTierLocationIndicator currentLevel="L2" />}
+        />
+        <TgGovernanceSection />
+      </section>
+
+      {/* 3.4 专职角色巡检 (L3 · 监督兜底) */}
       <section id="section-3.4" className="scroll-mt-6 space-y-8">
         <ReportSectionHeader
-          title="3.4 权限结构"
-          rightContent={
-            <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-2.5 py-1">
-              访问管控 · 长期/临时/凭单三级权限架构
-            </span>
-          }
+          title="3.4 专职角色巡检"
+          rightContent={<SafetyTierLocationIndicator currentLevel="L3" />}
         />
-        <PermissionStructureSection />
+        <InternalControlSection />
       </section>
     </div>
   );

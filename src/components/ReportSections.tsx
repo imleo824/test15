@@ -1,4 +1,5 @@
 import React from "react";
+import { Check, ChevronRight } from "lucide-react";
 
 export type ReportHeadingLevel =
   | "chapter"
@@ -82,11 +83,17 @@ export const ReportSectionHeader: React.FC<{
   className?: string;
 }> = ({ title, rightContent, className = "" }) => {
   return (
-    <div className={`report-section-header flex items-center justify-between pb-3 border-b border-slate-200 mb-6 ${className}`}>
+    <div
+      className={`report-section-header flex flex-col lg:flex-row lg:items-center justify-between pb-3 border-b border-slate-200 mb-6 gap-3 ${className}`}
+    >
       <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight flex items-center gap-2.5">
         {title}
       </h3>
-      {rightContent ? <div className="shrink-0">{rightContent}</div> : null}
+      {rightContent ? (
+        <div className="shrink-0 max-w-full overflow-x-auto no-scrollbar">
+          {rightContent}
+        </div>
+      ) : null}
     </div>
   );
 };
@@ -428,39 +435,78 @@ export const ReportStepPipeline: React.FC<{
   return (
     <div className={`bg-white border border-slate-200 p-4 sm:p-5 ${className}`}>
       <div className={`grid ${colClass} gap-3 sm:gap-4 items-stretch text-center`}>
-        {steps.map((st, idx) => (
-          <div
-            key={idx}
-            className="flex flex-col items-center justify-between p-3.5 bg-slate-50 border border-slate-100 space-y-2 h-full"
-          >
-            <div className="flex items-center gap-1.5">
-              <span className="w-5 h-5 bg-slate-900 text-white font-mono font-bold text-xs flex items-center justify-center shrink-0">
-                {st.index}
-              </span>
-              <span className="font-bold text-slate-950 text-xs sm:text-sm">
-                {st.title}
-              </span>
+        {steps.map((st, idx) => {
+          const isSuccess =
+            st.statusType === "success" || st.status === "改造完成";
+          const isNeutral =
+            st.statusType === "neutral" || st.status === "触发源";
+
+          return (
+            <div
+              key={idx}
+              className={`relative flex flex-col justify-between p-3.5 bg-slate-50 border space-y-2.5 h-full text-center transition-colors ${
+                isSuccess
+                  ? "border-emerald-200 bg-emerald-50/20"
+                  : "border-slate-200"
+              }`}
+            >
+              {/* 序号与标题 */}
+              <div className="flex items-center justify-center gap-1.5">
+                <span
+                  className={`w-5 h-5 font-mono font-bold text-xs flex items-center justify-center shrink-0 ${
+                    isSuccess
+                      ? "bg-emerald-700 text-white"
+                      : "bg-slate-900 text-white"
+                  }`}
+                >
+                  {st.index}
+                </span>
+                <span className="font-bold text-slate-950 text-xs sm:text-sm">
+                  {st.title}
+                </span>
+              </div>
+
+              {/* 描述/副标题 */}
+              {st.subtitle && (
+                <span className="text-xs text-slate-500 font-normal">
+                  {st.subtitle}
+                </span>
+              )}
+
+              {/* 改造状态 Badge (改造完成增加 icon ✅) */}
+              <div className="pt-0.5">
+                {st.status && (
+                  <span
+                    className={`inline-flex items-center justify-center gap-1 text-xs font-mono font-bold px-2 py-0.5 border ${
+                      isSuccess
+                        ? "text-emerald-800 bg-emerald-50 border-emerald-300"
+                        : isNeutral
+                        ? "text-slate-700 bg-slate-100 border-slate-200"
+                        : "text-amber-800 bg-amber-50 border-amber-200"
+                    }`}
+                  >
+                    {isSuccess ? (
+                      <Check className="w-3.5 h-3.5 text-emerald-600 stroke-[2.5]" />
+                    ) : isNeutral ? (
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate-500" />
+                    ) : null}
+                    <span>{st.status}</span>
+                  </span>
+                )}
+              </div>
+
+              {/* 步骤流向箭头指示器 (桌面端每步指向下一步) */}
+              {idx < steps.length - 1 && (
+                <div
+                  className="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-10 w-5 h-5 bg-white border border-slate-300 text-slate-500 items-center justify-center text-xs shadow-xs pointer-events-none rounded-none"
+                  aria-hidden="true"
+                >
+                  <ChevronRight className="w-3.5 h-3.5 stroke-[2.5]" />
+                </div>
+              )}
             </div>
-            {st.subtitle && (
-              <span className="text-xs text-slate-500 font-normal">
-                {st.subtitle}
-              </span>
-            )}
-            {st.status && (
-              <span
-                className={`text-xs font-mono font-bold px-2 py-0.5 ${
-                  st.statusType === "pending"
-                    ? "text-amber-800 bg-amber-50 border border-amber-200"
-                    : st.statusType === "neutral"
-                    ? "text-slate-700 bg-slate-100 border border-slate-200"
-                    : "text-emerald-800 bg-emerald-50 border border-emerald-200"
-                }`}
-              >
-                {st.status}
-              </span>
-            )}
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
