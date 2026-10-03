@@ -221,12 +221,31 @@ export const SmartDispatchOrderStructure: React.FC = () => {
     <ReportChartCard
       title="出单结构趋势对比"
       description={
-        <span>
-          <strong>三大审核主体（外包 / 总部 / 系统）出单结构与质量演进：</strong>
-          <strong>外包审核</strong> 占比由 1~8月均值的 <strong>10.12%</strong> 深度清退至 9.30全量的 <strong>0.63%</strong>（高差错外包全面退场）；
-          <strong>总部审核</strong> 占比精简至 <strong>34.37%</strong>，专注承接复杂核心单；
-          <strong>系统自动审单</strong> 由 1~8月均值的 <strong>49.77%</strong> 强劲跃升至 9.30全量的 <strong>65.00%</strong>（系统全量放量成型）。
-        </span>
+        <div className="w-full space-y-1.5 text-sm text-slate-700 leading-relaxed">
+          <div className="font-bold text-slate-950">
+            三大审核主体（外包 / 总部 / 系统）出单结构与质量演进：
+          </div>
+          <div className="space-y-1 pl-0.5">
+            <div className="flex items-start gap-2">
+              <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
+              <span>
+                <strong className="text-slate-900 font-bold">外包审核</strong> 占比由 1~8月均值的 <strong className="text-slate-950 font-mono font-bold">10.12%</strong> 深度清退至 9.30全量的 <strong className="text-emerald-700 font-mono font-bold">0.63%</strong>（高差错外包全面退场）；
+              </span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
+              <span>
+                <strong className="text-slate-900 font-bold">总部审核</strong> 占比精简至 <strong className="text-slate-950 font-mono font-bold">34.37%</strong>，专注承接复杂核心单；
+              </span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
+              <span>
+                <strong className="text-slate-900 font-bold">系统自动审单</strong> 由 1~8月均值的 <strong className="text-slate-950 font-mono font-bold">49.77%</strong> 强劲跃升至 9.30全量的 <strong className="text-blue-900 font-mono font-bold">65.00%</strong>（系统全量放量成型）。
+              </span>
+            </div>
+          </div>
+        </div>
       }
       bodyHeight="h-[510px]"
       footnote="注：横坐标为主体角色（外包、总部、系统），每个主体内部展示 1月至8月及 9月30日全量开启节点的所有月份对比柱子，直观展示三大主体月度占比的历史消长。"
@@ -237,7 +256,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
           <table className="w-full text-sm sm:text-base text-center border-collapse report-data-table">
             <thead>
               <tr className="border-b border-slate-200 text-slate-800">
-                <th className="py-2.5 px-3 text-left font-bold text-slate-500 text-xs sm:text-sm w-28">系统核心指标</th>
+                <th className="py-2.5 px-3 text-left font-bold text-slate-500 text-xs sm:text-sm w-28">指标</th>
                 <th className="py-2.5 px-3 font-bold text-slate-700 text-sm sm:text-base">
                   <div className="flex items-center justify-center gap-1.5">
                     <span className="w-2 h-2 bg-slate-400 shrink-0"></span>

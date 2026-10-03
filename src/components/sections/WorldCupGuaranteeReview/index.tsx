@@ -1,6 +1,5 @@
 import React from "react";
 import { ChapterTitle } from "../../ReportSections";
-import { SummaryBox, highlightNumbers } from "./utils";
 
 import { PersonnelDistribution } from "./PersonnelDistribution";
 import { AuditOverviewSection } from "./AuditOverviewSection";
@@ -28,11 +27,6 @@ export const WorldCupGuaranteeReview: React.FC = () => {
       {/* 3.0 安全合规 (专职监督兜底、风控工单收口、安全机制) */}
       <section id="section-3.0" className="report-chapter-block scroll-mt-6">
         <ChapterTitle>3.0 安全合规</ChapterTitle>
-        <SummaryBox variant="chapter">
-          {highlightNumbers(
-            "安全合规不仅是[[事件驱动]]的单点应对，而是需要多维度系统化治理，持续构建[[安全合规分层防御架构]]：从源头让[[权限分配合理]]（L0 权限结构），对有权限人员实施[[实时行为监控与硬约束]]（L1 安全机制），在跨部门流转中对[[业务数据实施全链路工单化管控]]（L2 风控工单），最终由专职角色实施[[底线稽查与常态巡检]]（L3 专职监督），筑牢纵深防护底线。"
-          )}
-        </SummaryBox>
         <div className="report-chapter-content">
           <SafetyComplianceSection />
         </div>

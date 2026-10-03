@@ -34,7 +34,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
         {/* 统一文字说明：一句话总结 */}
         <SummaryBox variant="module">
           {highlightNumbers(
-            "从 [[25年]] 开始，历经多轮迭代后在 [[26年9月开始灰度验证]]，于 [[9月28日正式全量上线]]，审单模式实现[[系统自动为主、人工兜底为辅]]的[[根本性重构]]：系统审核占比由 [[50.0%]] 跃升至常态 [[65.0%]]（人工审核压降至 [[35.0%]]，逼近 [[25%]] 安全边界）。"
+            "从 [[25年]] 开始，历经多轮迭代后在 [[26年9月开始灰度验证]]，于 [[9月30日正式全量上线]]，审单模式实现[[系统自动为主、人工兜底为辅]]的[[根本性重构]]：系统审核占比由 [[50.0%]] 跃升至 [[65.0%]]（人工审核压降至 [[35.0%]]，逼近 [[25%]] 安全边界）。"
           )}
         </SummaryBox>
 
@@ -44,19 +44,20 @@ export const SystemAuditEvolutionSection: React.FC = () => {
           <div className="bg-white border border-slate-200 p-5 sm:p-6 space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2.5 border-b border-slate-100 gap-2">
               <span className="font-bold text-slate-950 text-base">
-                审单模式结构翻转看板
+                审单模式结构变化
               </span>
               <span className="text-xs font-mono font-bold text-slate-600 bg-slate-100 px-2 py-0.5">
-                基准对照（原来 ➔ 当前常态）
+                阶段演进（原来 ➔ 现在 ➔ 最优）
               </span>
             </div>
 
-            {/* 行 1：系统审核演进（50.0% ➔ 65.0%） */}
-            <div className="flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4 p-3.5 bg-slate-50 border border-slate-100">
-              <div className="flex-1 flex items-center justify-between px-3 py-1 w-full md:w-auto">
+            {/* 行 1：系统审核演进（50.0% ➔ 65.0% ➔ 75.0%） */}
+            <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3 sm:gap-3.5 p-3.5 bg-slate-50 border border-slate-100">
+              {/* 原来 */}
+              <div className="flex-1 flex items-center justify-between px-3.5 py-2.5 bg-white border border-slate-200">
                 <div className="flex flex-col">
                   <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">原来（基线）</span>
-                  <span className="text-sm font-bold text-slate-900">系统审核占比</span>
+                  <span className="text-sm font-bold text-slate-900">系统占比</span>
                 </div>
                 <div className="flex items-baseline gap-0.5 font-mono">
                   <span className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">50.0</span>
@@ -64,29 +65,52 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-1.5 px-3.5 py-1.5 bg-slate-900 text-white font-mono font-bold text-xs shrink-0">
-                <span>系统占比 +15.0%</span>
+              {/* 跃升 1 */}
+              <div className="flex items-center justify-center gap-1.5 px-3 py-1.5 bg-slate-900 text-white font-mono font-bold text-xs shrink-0 self-center">
+                <span>+15.0%</span>
                 <span className="text-emerald-400 font-bold text-sm leading-none">↑</span>
               </div>
 
-              <div className="flex-1 flex items-center justify-between px-3 py-1 w-full md:w-auto">
+              {/* 现在：鲜明当前背景与聚焦边框 */}
+              <div className="flex-1 flex items-center justify-between px-3.5 py-2.5 bg-blue-100 border-2 border-blue-600 shadow-xs relative">
+                <div className="flex flex-col">
+                  <span className="text-xs font-bold text-blue-900 uppercase tracking-wider">现在</span>
+                  <span className="text-sm font-bold text-blue-950">系统占比</span>
+                </div>
                 <div className="flex items-baseline gap-0.5 font-mono">
                   <span className="text-3xl sm:text-4xl font-bold text-blue-950 tracking-tight">65.0</span>
-                  <span className="text-xs font-bold text-blue-700">%</span>
+                  <span className="text-xs font-bold text-blue-800">%</span>
                 </div>
-                <div className="flex flex-col text-right">
-                  <span className="text-xs font-bold text-blue-800 uppercase tracking-wider">现在（全量常态）</span>
-                  <span className="text-sm font-bold text-blue-950">系统审核占比</span>
+              </div>
+
+              {/* 跃升 2 */}
+              <div className="flex items-center justify-center gap-1.5 px-3 py-1.5 bg-slate-900 text-white font-mono font-bold text-xs shrink-0 self-center">
+                <span>+10.0%</span>
+                <span className="text-emerald-400 font-bold text-sm leading-none">↑</span>
+              </div>
+
+              {/* 最优 (75.0%)：虚线边框，体现将来的预期感 */}
+              <div className="flex-1 flex items-center justify-between px-3.5 py-2.5 bg-emerald-50/40 border-2 border-dashed border-emerald-500">
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-xs font-bold text-emerald-800 uppercase tracking-wider">最优</span>
+                  </div>
+                  <span className="text-sm font-bold text-emerald-950">系统占比</span>
+                </div>
+                <div className="flex items-baseline gap-0.5 font-mono">
+                  <span className="text-3xl sm:text-4xl font-bold text-emerald-900 tracking-tight">75.0</span>
+                  <span className="text-xs font-bold text-emerald-700">%</span>
                 </div>
               </div>
             </div>
 
-            {/* 行 2：人工审核演进（50.0% ➔ 35.0%） */}
-            <div className="flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4 p-3.5 bg-slate-50 border border-slate-100">
-              <div className="flex-1 flex items-center justify-between px-3 py-1 w-full md:w-auto">
+            {/* 行 2：人工审核演进（50.0% ➔ 35.0% ➔ 25.0%） */}
+            <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3 sm:gap-3.5 p-3.5 bg-slate-50 border border-slate-100">
+              {/* 原来 */}
+              <div className="flex-1 flex items-center justify-between px-3.5 py-2.5 bg-white border border-slate-200">
                 <div className="flex flex-col">
                   <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">原来（基线）</span>
-                  <span className="text-sm font-bold text-slate-900">人工审核占比</span>
+                  <span className="text-sm font-bold text-slate-900">人工占比</span>
                 </div>
                 <div className="flex items-baseline gap-0.5 font-mono">
                   <span className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">50.0</span>
@@ -94,19 +118,41 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-1.5 px-3.5 py-1.5 bg-slate-900 text-white font-mono font-bold text-xs shrink-0">
-                <span>人工占比 -15.0%</span>
+              {/* 压降 1 */}
+              <div className="flex items-center justify-center gap-1.5 px-3 py-1.5 bg-slate-900 text-white font-mono font-bold text-xs shrink-0 self-center">
+                <span>-15.0%</span>
                 <span className="text-rose-400 font-bold text-sm leading-none">↓</span>
               </div>
 
-              <div className="flex-1 flex items-center justify-between px-3 py-1 w-full md:w-auto">
+              {/* 现在：鲜明当前背景与聚焦边框 */}
+              <div className="flex-1 flex items-center justify-between px-3.5 py-2.5 bg-blue-100 border-2 border-blue-600 shadow-xs relative">
+                <div className="flex flex-col">
+                  <span className="text-xs font-bold text-blue-900 uppercase tracking-wider">现在</span>
+                  <span className="text-sm font-bold text-slate-950">人工占比</span>
+                </div>
                 <div className="flex items-baseline gap-0.5 font-mono">
                   <span className="text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight">35.0</span>
-                  <span className="text-xs font-bold text-slate-600">%</span>
+                  <span className="text-xs font-bold text-slate-700">%</span>
                 </div>
-                <div className="flex flex-col text-right">
-                  <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">现在（人工兜底）</span>
-                  <span className="text-sm font-bold text-slate-950">人工审核占比</span>
+              </div>
+
+              {/* 压降 2 */}
+              <div className="flex items-center justify-center gap-1.5 px-3 py-1.5 bg-slate-900 text-white font-mono font-bold text-xs shrink-0 self-center">
+                <span>-10.0%</span>
+                <span className="text-rose-400 font-bold text-sm leading-none">↓</span>
+              </div>
+
+              {/* 最优 (25.0%)：虚线边框，体现将来的预期感 */}
+              <div className="flex-1 flex items-center justify-between px-3.5 py-2.5 bg-amber-50/40 border-2 border-dashed border-amber-500">
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-xs font-bold text-amber-800 uppercase tracking-wider">最优</span>
+                  </div>
+                  <span className="text-sm font-bold text-amber-950">人工占比</span>
+                </div>
+                <div className="flex items-baseline gap-0.5 font-mono">
+                  <span className="text-3xl sm:text-4xl font-bold text-amber-900 tracking-tight">25.0</span>
+                  <span className="text-xs font-bold text-amber-700">%</span>
                 </div>
               </div>
             </div>
@@ -236,7 +282,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       <span className="text-xs font-mono font-bold text-amber-800">10% ~ 15% • 剩余潜能</span>
                     </div>
                     <p className="text-xs text-slate-700 mt-1 leading-relaxed">
-                      距系统出单安全物理边界（75%）仅存 <strong className="text-amber-950 font-bold font-mono">10% ~ 15%</strong> 的理论优化空间。
+                      距系统出单安全物理边界（75%）仅存 <strong className="text-amber-950 font-bold font-mono">10% ~ 15%</strong> 的理论提升空间。
                     </p>
                   </div>
                 </div>
@@ -313,7 +359,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               </span>
             </div>
             <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal flex-1">
-              外包节省成本 <span className="text-emerald-700 font-bold font-mono">近 100w/月</span>、堵塞质检漏洞 <span className="text-emerald-700 font-bold font-mono">直接止损 50w+/月</span>；叠加人审精简理论降本 <span className="text-emerald-700 font-bold font-mono">约 100w/月</span>，月度综合价值合计 <span className="text-emerald-700 font-bold font-mono">约 250w/月</span>。
+              外包节省成本 <span className="text-emerald-700 font-bold font-mono">近 100w/月</span>、外包 <span className="text-emerald-700 font-bold font-mono">直接止损 50w+/月</span>；另总部人审单量精简后理论降本 <span className="text-emerald-700 font-bold font-mono">约 100w/月</span>，综合收益合计 <span className="text-emerald-700 font-bold font-mono">约 250w/月</span>。
             </p>
           </div>
         </div>
@@ -425,7 +471,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                     <p>
                       <strong className="text-slate-950">外包清退与降本止损：</strong>
-                      外包团队占比由 1-9月月均 <strong className="text-slate-950 font-mono">9.7%</strong> 清退压降至 系统930 的 <strong className="text-slate-950 font-mono">0.6%</strong>（压降相对减幅 <strong className="text-slate-950 font-mono">-93.8%</strong>），全面清退释放 <strong className="text-slate-950 font-mono">100+ 人力</strong>，直接削减外包硬性采购成本 <strong className="text-emerald-700 font-bold font-mono">小 100w/月</strong>；并消灭由于外包高质检差错产生的平均约 <strong className="text-emerald-700 font-bold font-mono">50w+ 元/月</strong> 的质检资金损失，月度直接综合经济价值达 <strong className="text-slate-950 font-bold font-mono">150w/月</strong>。
+                      外包团队占比由 1-9月月均 <strong className="text-slate-950 font-mono">9.7%</strong> 清退压降至 系统930 的 <strong className="text-slate-950 font-mono">0.6%</strong>（压降相对减幅 <strong className="text-slate-950 font-mono">-93.8%</strong>），全面释放 <strong className="text-slate-950 font-mono">100+ 人力</strong>，直接削减硬性成本 <strong className="text-emerald-700 font-bold font-mono">小 100w/月</strong>；并间接减少外包差错产生的约 <strong className="text-emerald-700 font-bold font-mono">50w+ 元/月</strong> 的资金损失，月度综合经济价值达 <strong className="text-slate-950 font-bold font-mono">150w/月</strong>。
                     </p>
                   </div>
                   <div className="flex items-start gap-2">
@@ -456,10 +502,10 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
               {/* 左侧：数据指标对照 */}
               <div className="md:col-span-5 flex flex-col justify-center pb-4 md:pb-0 md:pr-6 border-b md:border-b-0 md:border-r border-slate-100">
-                <div className="space-y-2 py-1">
+                <div className="space-y-2.5 py-1">
                   {/* 组 1：平均停留时间 */}
                   <div className="flex items-stretch gap-2">
-                    <div className="w-12 bg-slate-100 text-slate-800 text-xs font-bold flex items-center justify-center shrink-0 select-none">
+                    <div className="w-16 bg-slate-100 text-slate-800 text-xs font-bold flex items-center justify-center shrink-0 select-none text-center px-1">
                       全盘
                     </div>
                     <div className="grid grid-cols-2 gap-2 flex-1">
@@ -483,8 +529,8 @@ export const SystemAuditEvolutionSection: React.FC = () => {
 
                   {/* 组 2：系统秒级放行 */}
                   <div className="flex items-stretch gap-2">
-                    <div className="w-12 bg-slate-100 text-slate-800 text-xs font-bold flex items-center justify-center shrink-0 select-none">
-                      系统
+                    <div className="w-16 bg-slate-100 text-slate-800 text-xs font-bold flex items-center justify-center shrink-0 select-none text-center px-1">
+                      优质客户
                     </div>
                     <div className="grid grid-cols-2 gap-2 flex-1">
                       <div className="bg-slate-50 p-2 text-center flex flex-col justify-center space-y-0.5">
@@ -499,9 +545,33 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <div className="bg-emerald-50 border border-emerald-200 p-2 text-center flex flex-col justify-center items-center w-[30%] min-w-[90px] shrink-0 space-y-0.5">
                       <span className="text-xs font-bold text-emerald-800 uppercase flex items-center gap-0.5 justify-center">
                         <TrendingUp className="w-3 h-3 text-emerald-700 shrink-0" />
-                        <span>极速放行</span>
+                        <span>极速</span>
                       </span>
                       <div className="font-mono text-xs sm:text-sm font-bold text-emerald-700">15秒内</div>
+                    </div>
+                  </div>
+
+                  {/* 组 3：风险玩家多维复核 */}
+                  <div className="flex items-stretch gap-2">
+                    <div className="w-16 bg-slate-100 text-slate-800 text-xs font-bold flex items-center justify-center shrink-0 select-none text-center px-1">
+                      风险玩家
+                    </div>
+                    <div className="grid grid-cols-2 gap-2 flex-1">
+                      <div className="bg-slate-50 p-2 text-center flex flex-col justify-center space-y-0.5">
+                        <span className="text-xs font-bold text-slate-500 uppercase tracking-tight block">订单比例</span>
+                        <div className="font-mono text-sm sm:text-base font-bold text-slate-700">35.0%</div>
+                      </div>
+                      <div className="bg-slate-50 p-2 text-center flex flex-col justify-center space-y-0.5">
+                        <span className="text-xs font-bold text-slate-950 uppercase tracking-tight block">人工审核</span>
+                        <div className="font-mono text-sm sm:text-base font-bold text-slate-950">多维复核</div>
+                      </div>
+                    </div>
+                    <div className="bg-blue-50 border border-blue-200 p-2 text-center flex flex-col justify-center items-center w-[30%] min-w-[90px] shrink-0 space-y-0.5">
+                      <span className="text-xs font-bold text-blue-900 uppercase flex items-center gap-0.5 justify-center">
+                        <ShieldCheck className="w-3 h-3 text-blue-700 shrink-0" />
+                        <span>严查</span>
+                      </span>
+                      <div className="font-mono text-xs sm:text-sm font-bold text-blue-950">8分内</div>
                     </div>
                   </div>
                 </div>
@@ -509,11 +579,11 @@ export const SystemAuditEvolutionSection: React.FC = () => {
 
               {/* 右侧：文字说明 */}
               <div className="md:col-span-7 flex flex-col justify-center md:pl-2">
-                <div className="text-sm text-slate-700 leading-relaxed font-normal space-y-3.5">
+                <div className="text-sm text-slate-700 leading-relaxed font-normal space-y-3">
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                     <p>
-                      <strong className="text-slate-950">全盘平均停留缩短：</strong>
+                      <strong className="text-slate-950">订单风控停留缩短：</strong>
                       按总单量 <strong className="text-slate-950 font-mono">500w 单</strong> 测算，加权平均停留时间从 <strong className="text-slate-950 font-mono">4.13 分钟降至 2.96 分钟</strong>，净压缩 <strong className="text-slate-950 font-mono">1.17 分钟</strong>（全盘时效提速 <strong className="text-emerald-700 font-mono">+28.2%</strong>）。
                     </p>
                   </div>
@@ -521,7 +591,14 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                     <p>
                       <strong className="text-slate-950">优质用户体感跃升：</strong>
-                      释放的 <strong className="text-slate-950 font-mono">75w 单</strong> 由原 8 分钟降至 15 秒；占总量 <strong className="text-slate-950 font-mono">65% 的系统订单（325w 单）</strong> 彻底摆脱人工排队，端到端出款体感显著改善。
+                      释放的 <strong className="text-slate-950 font-mono">75w 单</strong> 由原 8 分钟降至 15 秒；占总量 <strong className="text-slate-950 font-mono">65% 的优质客户提单（325w 单）</strong> 实现“秒过”的体验，出款体感显著改善。
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
+                    <p>
+                      <strong className="text-slate-950">风险玩家深度严查：</strong>
+                      占总量 <strong className="text-slate-950 font-mono">35% 的风险玩家订单</strong> 由专业人工实施多维交叉复核，审核时效严控在 <strong className="text-slate-950 font-mono">8分钟内</strong> 快速闭环，兼顾安全防御与流转速率。
                     </p>
                   </div>
                 </div>
@@ -588,7 +665,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <div className="bg-emerald-50 border border-emerald-200 p-2 text-center flex flex-col justify-center items-center w-[30%] min-w-[90px] shrink-0 space-y-0.5">
                       <span className="text-xs font-bold text-emerald-800 uppercase flex items-center gap-0.5 justify-center">
                         <TrendingUp className="w-3 h-3 text-emerald-700 shrink-0" />
-                        <span>代外包</span>
+                        <span>比外包</span>
                       </span>
                       <div className="font-mono text-xs sm:text-sm font-bold text-emerald-700">+26.5倍</div>
                     </div>
@@ -612,7 +689,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <div className="bg-emerald-50 border border-emerald-200 p-2 text-center flex flex-col justify-center items-center w-[30%] min-w-[90px] shrink-0 space-y-0.5">
                       <span className="text-xs font-bold text-emerald-800 uppercase flex items-center gap-0.5 justify-center">
                         <TrendingUp className="w-3 h-3 text-emerald-700 shrink-0" />
-                        <span>助总部</span>
+                        <span>比总部</span>
                       </span>
                       <div className="font-mono text-xs sm:text-sm font-bold text-emerald-700">+11.6倍</div>
                     </div>
@@ -627,14 +704,14 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                     <p>
                       <strong className="text-slate-950">消灭外包高差错风险：</strong>
-                      系统审单质量极高（质检率仅 <strong className="text-slate-950 font-mono">0.072%</strong>），全面替代质检差错率高达 <strong className="text-slate-950 font-mono">1.91%</strong> 的外包审核，实现审核业务的纯净化，从根本上消除了外包质量控制不力带来的高危差错及安全阻断漏洞。
+                      系统审单质量远高于外包和一般审核人员，全面替代质检差错率高达 <strong className="text-slate-950 font-mono">1.91%</strong> 的外包审核，从根本上消除了外包质量控制不力带来的高危差错及安全漏洞。
                     </p>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                     <p>
                       <strong className="text-slate-950">缓解总部压力聚焦核心：</strong>
-                      总部订单精简 <strong className="text-slate-950 font-mono">25w+ 单</strong>，极大缓解了一线审核人员的过度疲劳与心智负荷；资深风控专家得以集中精力深耕高危、复杂及高净值大额订单，显著带动了全盘审核业务的安全防御质效。
+                      总部订单减少 <strong className="text-slate-950 font-mono">25w+ 单</strong>，缓解了一线审核人员的过度疲劳，得以集中精力深耕高危、复杂及高净值大额订单，显著带动了全盘审核业务的安全防御质效。
                     </p>
                   </div>
                 </div>
@@ -683,7 +760,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             <div className="grid grid-cols-1 gap-4 sm:gap-6">
               {[
                 {
-                  dimension: "套利策略矩阵",
+                  dimension: "变化1：增加 -> 套利策略矩阵",
                   tag: "策略引擎",
                   before: "无套利策略 (仅粗放额度判定)",
                   upgrade: "+29 项套利规则",
@@ -691,7 +768,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   scenario: "原来大额盈利一律转人工，误杀率高；现在系统自动识别全包、对打、打水、关联、快进快出、租卖号等套利行为，精准拦截违规，正常玩家极速放行。",
                 },
                 {
-                  dimension: "外部数据联动",
+                  dimension: "变化2：增加 -> 外部数据联动",
                   tag: "底层基建",
                   before: "无系统接口直连",
                   upgrade: "秒级 API 接口直连",
@@ -699,7 +776,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   scenario: "原来专员需手动登录三方场馆逐笔查单；现在核心场馆已实现接口秒级直连，实时共享风控注单与实时数据。",
                 },
                 {
-                  dimension: "智能决策模型",
+                  dimension: "变化3：增加 -> 智能决策模型",
                   tag: "量化分流",
                   before: "无风险评分体系",
                   upgrade: "模型量化分级",
@@ -707,7 +784,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   scenario: "原来凭专员经验主观判定，尺度易漂移；现在结合行为特征实时计算动态风险分，低风险秒级放行，高风险精准触发人工复核。",
                 },
                 {
-                  dimension: "智能派单机制",
+                  dimension: "变化4：增加 -> 智能派单机制",
                   tag: "派单调度",
                   before: "简单机械轮询",
                   upgrade: "多因子匹配算法",
@@ -715,20 +792,20 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   scenario: "原来工单机械轮询派单；现在根据风险等级、业务类型与审核员专长智能派单（复杂套利单派资深专家，基础单派普通专员）。",
                 },
                 {
-                  dimension: "风控工具支持",
-                  tag: "审核工具",
-                  before: "传统人工手工核查",
-                  upgrade: "一站式工具链集成",
-                  after: "引入风控工具链",
-                  scenario: "原来排查关联需跨系统人工比对；现在一键生成关联图谱并由系统自动标识异常，辅助人工精准高效决策。",
-                },
-                {
-                  dimension: "跨站关联识别",
+                  dimension: "变化5：增加 -> 跨站关联识别",
                   tag: "跨站协同",
                   before: "无跨站关联分析能力",
                   upgrade: "全网图谱打通",
                   after: "跨站关联即时识别",
                   scenario: "历史拦截高危单 50%+ 存在跨站关联，过去为重大盲区；现在自动放行前实时识别比对跨站同设备、同资金链路等特征，补齐关键防线。",
+                },
+                {
+                  dimension: "变化6：增加 -> 风控工具支持",
+                  tag: "审核工具",
+                  before: "传统人工手工核查",
+                  upgrade: "一站式工具链集成",
+                  after: "引入风控工具链",
+                  scenario: "原来排查关联需跨系统人工比对；现在一键生成关联图谱并由系统自动标识异常，辅助人工精准高效决策。",
                 },
               ].map((row, idx) => (
                 <div key={idx} className="bg-white border border-slate-200 p-5 sm:p-6 space-y-4">
@@ -770,7 +847,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
 
                   {/* 底部实战价值描述 */}
                   <div className="bg-slate-50/70 p-3.5 text-xs sm:text-sm text-slate-700 leading-relaxed border-l-2 border-slate-800">
-                    <strong className="text-slate-900 block mb-1">实战业务场景与价值：</strong>
+                    <strong className="text-slate-900 block mb-1">业务场景举例：</strong>
                     {row.scenario}
                   </div>
                 </div>
@@ -844,23 +921,10 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             <div className="space-y-8 sm:space-y-10">
               {/* 阶段 1：对应上方【1. 提款策略扫描】 */}
               <div className="space-y-4">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2.5 border-b border-slate-200 gap-2">
-                  <div className="flex items-center gap-2">
-                    <h6 className="text-base sm:text-lg font-bold text-slate-950">
-                      阶段一 · 提款策略扫描
-                    </h6>
-                  </div>
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="inline-flex items-center gap-2 text-xs font-mono font-bold text-slate-800 bg-slate-50 border border-slate-200 px-3 py-1">
-                      <span className="text-slate-600 font-normal">(45 正常 / <strong className="text-rose-600 font-bold">5 异常</strong>)</span>
-                      <span className="text-slate-300">·</span>
-                      <span>总得分：<strong className="text-rose-700 font-bold text-sm">105分</strong></span>
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-slate-800 bg-slate-50 border border-slate-200 px-2.5 py-1">
-                      <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
-                      50+ 项策略探针穿透
-                    </span>
-                  </div>
+                <div className="pb-2.5 border-b border-slate-200">
+                  <h6 className="text-base sm:text-lg font-bold text-slate-950">
+                    阶段一 · 提款策略扫描
+                  </h6>
                 </div>
 
                     {/* 策略扫描双重转人工触发逻辑（分数判定 + 高危特定组合熔断） */}
@@ -876,58 +940,99 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                         </span>
                       </div>
 
-                      {/* 纵向层叠布局：不分1行2列，各逻辑获得充分舒展空间 */}
-                      <div className="space-y-3 text-xs sm:text-[13px] leading-relaxed">
-                        {/* 逻辑一 */}
-                        <div className="bg-white p-3.5 border border-slate-200 space-y-1.5">
-                          <div className="font-bold text-slate-950 flex items-center gap-1.5">
-                            <span className="w-1.5 h-1.5 bg-slate-900 shrink-0"></span>
-                            <span className="text-sm">逻辑一：风险分值累加（标准量化）</span>
+                      {/* 1 行 2 列网格布局 */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 items-stretch text-xs sm:text-[13px] leading-relaxed">
+                        {/* 逻辑一：风险分值累加（策略分 + 标签分） */}
+                        <div className="bg-white p-3.5 sm:p-4 border border-slate-200 flex flex-col justify-between space-y-2.5 h-full">
+                          <div className="space-y-2">
+                            <div className="flex items-center justify-between pb-1.5 border-b border-slate-100">
+                              <div className="font-bold text-slate-950 flex items-center gap-1.5">
+                                <span className="w-1.5 h-1.5 bg-slate-900 shrink-0"></span>
+                                <span className="text-sm">逻辑一：风险分值累加（风险量化分数）</span>
+                              </div>
+                              <span className="text-[10px] font-mono font-bold text-blue-900 bg-blue-50 border border-blue-200 px-1.5 py-0.5 select-none">
+                                策略分 + 标签分
+                              </span>
+                            </div>
+                            <p className="text-slate-700">
+                              风险总分由<strong>「策略扫描分数 + 客户标签分数」</strong>加权综合计算得出。若综合得分达到安全放行门槛（如 ≥ 60分），系统自动阻断并转人工审核：
+                            </p>
+                            <div className="bg-slate-50 border border-slate-200 p-2.5 space-y-1.5 text-xs text-slate-800">
+                              <div className="flex items-center gap-1.5 font-bold text-slate-950 font-mono text-[11px] sm:text-xs">
+                                <span className="text-blue-700">∑</span>
+                                <span>综合风险总分 = 策略规则得分 + 标签配置得分</span>
+                              </div>
+                              <div className="text-[11px] text-slate-600 font-sans space-y-1 pt-1 border-t border-slate-200">
+                                <div><strong>• 策略规则计分：</strong>50+ 项动态策略实时扫描交易行为并逐项量化计分；</div>
+                                <div><strong>• 标签独立赋分：</strong>每个风控标签均支持独立配置风险分值，命中标签即自动累加。</div>
+                              </div>
+                            </div>
                           </div>
-                          <p className="text-slate-700 pl-3">
-                            50+ 项策略探针实时扫描计分，若加权总得分达到风险安全放行门槛（如 ≥ 60分），系统自动阻断并转人工审核。
-                          </p>
+                          <div className="pt-2 border-t border-slate-100 text-[11px] text-slate-500 font-mono flex items-center justify-between">
+                            <span>门槛控制机制</span>
+                            <span className="text-slate-700 font-bold font-sans">≥ xx分自动转人工</span>
+                          </div>
                         </div>
 
-                        {/* 逻辑二 */}
-                        <div className="bg-white p-3.5 border border-slate-200 space-y-2">
-                          <div className="font-bold text-slate-950 flex flex-wrap items-center justify-between gap-1.5 pb-1 border-b border-slate-100">
-                            <div className="flex items-center gap-1.5">
-                              <span className="w-1.5 h-1.5 bg-rose-600 shrink-0"></span>
-                              <span className="text-sm">逻辑二：特定策略组合熔断（低分高危强转）</span>
+                        {/* 逻辑二：特定策略组合熔断 */}
+                        <div className="bg-white p-3.5 sm:p-4 border border-slate-200 flex flex-col justify-between space-y-2.5 h-full">
+                          <div className="space-y-2">
+                            <div className="flex items-center justify-between pb-1.5 border-b border-slate-100">
+                              <div className="font-bold text-slate-950 flex items-center gap-1.5">
+                                <span className="w-1.5 h-1.5 bg-rose-600 shrink-0"></span>
+                                <span className="text-sm">逻辑二：特定策略组合（低分高危强转）</span>
+                              </div>
+                              <span className="text-[10px] font-mono font-bold text-rose-800 bg-rose-100/60 border border-rose-200 px-1.5 py-0.5 select-none">
+                                VIP差异化 · 30+组合/级
+                              </span>
                             </div>
-                            <span className="text-[10px] font-mono font-bold text-rose-800 bg-rose-100/60 px-1.5 py-0.2 rounded-xs select-none">
-                              VIP差异化 · 30+组合/级
-                            </span>
+                            <p className="text-slate-700">
+                              即使<strong>总风险分数不高（未达门槛）</strong>，只要命中<strong>高危特定策略组合</strong>，同样直接强行熔断并转人工审核，彻底杜绝低分高危漏网：
+                            </p>
+                            <div className="bg-rose-50/50 border border-rose-200/80 p-2.5 space-y-1.5 text-xs text-slate-800">
+                              <div className="font-bold text-rose-950 text-[11px] sm:text-xs">
+                                典型组合：敏感资料变更 + 快进快出 / 新绑账户 + 异常红利
+                              </div>
+                              <div className="text-[11px] text-slate-600 font-sans space-y-1 pt-1 border-t border-rose-100">
+                                <div><strong>• VIP 差异化配置：</strong>按 VIP 等级设定差异化熔断阈值，兼顾体验与风控；</div>
+                                <div><strong>• 分级 30+ 策略矩阵：</strong>每等级独立配置 30+ 项高危组合，实施精准拦截。</div>
+                              </div>
+                            </div>
                           </div>
-                          <p className="text-slate-700">
-                            即使<strong>总风险分数不高（未达分值门槛）</strong>，只要命中<strong>特定策略组合</strong>（如：<span className="font-mono font-bold text-rose-900 bg-rose-50 border border-rose-200 px-1 py-0.2">敏感资料变更 + 快进快出</span>，或 <span className="font-mono font-bold text-rose-900 bg-rose-50 border border-rose-200 px-1 py-0.2">新绑定账户 + 特邀红利超额</span>），同样直接强行转人工审核。
-                          </p>
-                          <div className="pt-2 border-t border-slate-100 text-xs text-slate-800 space-y-1.5">
-                            <div className="flex items-start gap-1.5">
-                              <span className="text-rose-600 font-bold shrink-0">▸</span>
-                              <p>
-                                <strong>VIP 等级参数差异化配置：</strong>针对不同 VIP 客户等级设定差异化的风险容忍与熔断阈值，兼顾高价值用户的出单体感与风险防御。
-                              </p>
-                            </div>
-                            <div className="flex items-start gap-1.5">
-                              <span className="text-rose-600 font-bold shrink-0">▸</span>
-                              <p>
-                                <strong>分级 30+ 策略组合矩阵：</strong>每个 VIP 等级独立配置约 <strong className="font-mono text-rose-900 font-bold">30+</strong> 项高危策略组合，实现跨等级多特征套利的精准熔断。
-                              </p>
-                            </div>
+                          <div className="pt-2 border-t border-slate-100 text-[11px] text-rose-700 font-mono font-bold flex items-center justify-between">
+                            <span>硬性熔断机制</span>
+                            <span className="font-sans">命中组合即刻强转人工</span>
                           </div>
                         </div>
                       </div>
                     </div>
 
+                    {/* 策略与标签扫描明细 标题与一句话总结 */}
+                    <div className="space-y-2 pt-2">
+                      <div className="flex items-center gap-2">
+                        <span className="w-1.5 h-3.5 bg-slate-900"></span>
+                        <span className="font-bold text-slate-950 text-sm sm:text-base">
+                          策略与标签扫描明细
+                        </span>
+                      </div>
+
+                      {/* 一句话总结 */}
+                      <SummaryBox variant="module">
+                        <div className="text-xs sm:text-sm text-slate-700 font-normal leading-relaxed">
+                          {highlightNumbers(
+                            "全盘依托 [[50+ 项策略探针]]实时穿透扫描，本次出单检测呈现 [[45 正常 / 5 异常]]，综合风险总得分累计达 [[105分]]（超过 60分放行安全门槛），自动触发高危阻断并转人工审核。"
+                          )}
+                        </div>
+                      </SummaryBox>
+                    </div>
+
                     {/* 4列策略扫描结果表格 (全量规则名称透视) */}
                     <ReportTableFrame>
-                      <table className="report-dense-table report-data-table w-full text-left border-collapse">
+                      <table className="report-dense-table w-full text-left border-collapse">
                         <thead>
                           <tr className="bg-slate-50 text-slate-900 text-xs font-mono font-bold border-b border-slate-200 uppercase tracking-wider">
                             <th className="py-2.5 px-3 w-[16%] text-left">分类</th>
-                            <th className="py-2.5 px-3 w-[46%] text-left">子项策略名称</th>
+                            <th className="py-2.5 px-3 w-[46%] text-left">名称</th>
                             <th className="py-2.5 px-3 w-[18%] text-center">风险分数</th>
                             <th className="py-2.5 px-3 w-[20%] text-center">扫描结果</th>
                           </tr>
@@ -1033,6 +1138,16 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                                 { tag: "电子", tagColor: "bg-indigo-50 text-indigo-800 border-indigo-200", name: "B端-下注行为异常", score: "0分", isError: false },
                                 { name: "……", score: "-", isError: false }
                               ]
+                            },
+                            {
+                              category: "标签",
+                              tagColor: "bg-violet-50 text-violet-800 border-violet-200",
+                              items: [
+                                { name: "标签1", score: "0分", isError: false },
+                                { name: "标签2", score: "0分", isError: false },
+                                { name: "标签3", score: "0分", isError: false },
+                                { name: "……", score: "-", isError: false }
+                              ]
                             }
                           ].map((group, groupIdx) => (
                             <React.Fragment key={groupIdx}>
@@ -1047,6 +1162,8 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                                   ? "bg-emerald-50/50"
                                   : sub.tag === "电子"
                                   ? "bg-indigo-50/50"
+                                  : group.category === "标签"
+                                  ? "bg-violet-50/30"
                                   : sub.isError
                                   ? "bg-rose-50/40"
                                   : "bg-white";
@@ -1056,6 +1173,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
 
                                 const maskStrategyName = (name: string): string => {
                                   if (name === "……") return "……";
+                                  if (name.startsWith("标签")) return name;
                                   if (name.length <= 2) return `${name[0]}**`;
                                   if (name.length === 3) return `${name[0]}**${name[2]}`;
                                   if (name.length === 4) return `${name[0]}**${name[3]}`;
@@ -1240,7 +1358,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <div className="space-y-3 pt-1">
                       <div className="text-xs sm:text-sm font-bold text-slate-950 flex items-center gap-1.5 pb-2 border-b border-slate-200">
                         <Sliders className="w-4 h-4 text-slate-900" />
-                        <span>双向加权动态派单架构</span>
+                        <span>双向加权动态派单</span>
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-11 gap-3 sm:gap-4 items-stretch">

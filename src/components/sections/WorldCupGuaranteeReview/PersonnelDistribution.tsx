@@ -7,12 +7,12 @@ export const PersonnelDistribution: React.FC = () => {
     {
       title: "人员优化",
       category: "降本增效",
-      content: "以[[系统自动化]]替代重复人工审核，精简岗位编制，提升单人人效。",
+      content: "以[[系统自动化]]替代重复人工审核，精简岗位，提升人效和整体速率。",
     },
     {
       title: "考核优化",
       category: "降本增效",
-      content: "落实量化考核与[[末位淘汰]]，精简低效编制。",
+      content: "落实量化考核与[[末位淘汰]]，精简低效编制，盘活组织业绩竞争。",
     },
     {
       title: "场地优化",
@@ -35,7 +35,7 @@ export const PersonnelDistribution: React.FC = () => {
         <SummaryBox variant="module">
           <div className="text-sm text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "聚焦[[人效提升]]与[[合规安全]]：强化策略分析职能，坚决压降重复人工审核与外包编制，持续优化各职场属地资源配置。"
+              "聚焦[[人效提升]]与[[合规安全]]：强化策略分析职能，压降重复人工审核与外包编制，持续优化各职场属地资源配置。"
             )}
           </div>
         </SummaryBox>
@@ -80,7 +80,7 @@ export const PersonnelDistribution: React.FC = () => {
         <SummaryBox variant="module">
           <div className="text-sm text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "各职场编制有序调配转移；持续提升系统自动审单比例，自 [[9月起]] 将外包审单量成功压降至 [[1% 以下]]，实现[[降本、增效、提质]]多维突破。"
+              "各职场编制有序调配转移；持续提升系统自动审单比例，自 [[9月起]] 将外包审单量压降至 [[1% 以下]]，实现[[降本、增效、提质]]多维突破。"
             )}
           </div>
         </SummaryBox>
@@ -92,10 +92,10 @@ export const PersonnelDistribution: React.FC = () => {
             <div className="bg-white border border-slate-200 p-6 flex flex-col justify-between space-y-3">
               <div className="flex items-center justify-between pb-3 border-b border-slate-100">
                 <span className="text-xs sm:text-sm font-bold text-slate-700 tracking-wider uppercase">
-                  在岗总人数
+                  总人数
                 </span>
                 <span className="text-xs font-mono font-bold text-slate-600 bg-slate-100 px-2 py-0.5">
-                  全职在册
+                  场地
                 </span>
               </div>
               <div className="flex items-baseline justify-between py-1">
@@ -116,10 +116,10 @@ export const PersonnelDistribution: React.FC = () => {
             <div className="bg-white border border-slate-200 p-6 flex flex-col justify-between space-y-3">
               <div className="flex items-center justify-between pb-3 border-b border-slate-100">
                 <span className="text-xs sm:text-sm font-bold text-slate-700 tracking-wider uppercase">
-                  外包人力编制
+                  总人数
                 </span>
                 <span className="text-xs font-mono font-bold text-slate-600 bg-slate-100 px-2 py-0.5">
-                  外包编制
+                  外包
                 </span>
               </div>
               <div className="flex items-baseline justify-between py-1">
@@ -141,7 +141,7 @@ export const PersonnelDistribution: React.FC = () => {
           <div className="space-y-3 pt-2">
             <div className="flex items-center justify-between px-1">
               <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
-                职场属地与编制分布明细
+                分布
               </span>
               <span className="text-xs font-mono text-slate-400">
                 单位：人

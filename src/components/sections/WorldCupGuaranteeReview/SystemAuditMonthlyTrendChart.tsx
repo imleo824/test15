@@ -243,7 +243,7 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
           <table className="w-full text-sm sm:text-base text-center border-collapse report-data-table">
             <thead>
               <tr className="border-b border-slate-200 text-slate-800">
-                <th className="py-2.5 px-3 text-left font-bold text-slate-500 text-xs sm:text-sm w-32">系统核心指标</th>
+                <th className="py-2.5 px-3 text-left font-bold text-slate-500 text-xs sm:text-sm w-32">指标</th>
                 <th className="py-2.5 px-4 font-bold text-slate-700 text-sm sm:text-base">1~8月 (均值基线)</th>
                 <th className="w-6 py-2.5 text-slate-400 font-mono"></th>
                 <th className="py-2.5 px-4 font-bold text-blue-950 bg-blue-100/80 text-sm sm:text-base">
