@@ -369,12 +369,9 @@ export const TgGovernanceSection: React.FC = () => {
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 bg-rose-600 rounded-none shrink-0" />
               <h4 className="text-sm sm:text-base font-bold text-slate-950">
-                真实案例实景还原 · Telegram 线下群聊跨群检索与明文报单隐患
+                释义 · 线下群聊跨群检索与明文报单隐患
               </h4>
-            </div>
-            <ReportBadge tone="red" className="text-xs font-mono">
-              治理前 · 真实隐患样本
-            </ReportBadge>
+            </div>         
           </div>
 
           {/* Telegram 视窗模拟（紧凑高度，紧贴核心报单实况） */}

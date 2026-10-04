@@ -225,7 +225,7 @@ export const SummaryBox = ({
   variant?: "chapter" | "module" | "note";
 }) => {
   const hasMargin = className.match(/\b(m|m[tby])-\d+/);
-  const marginClass = hasMargin ? "" : "mb-0";
+  const marginClass = hasMargin ? "" : "my-4 sm:my-5";
 
   return (
     <div

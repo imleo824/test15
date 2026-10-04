@@ -986,7 +986,7 @@
   }
 
   .report-section-header {
-    margin-bottom: 0 !important;
+    margin-bottom: 1.25rem;
     border-bottom: 1px solid var(--report-line);
     padding-bottom: 10px;
   }
@@ -1000,7 +1000,7 @@
   }
 
   .report-subsection-header {
-    margin-bottom: 0 !important;
+    margin-bottom: 1rem;
     border-bottom: 1px solid var(--report-line-subtle);
     padding-bottom: 8px;
   }

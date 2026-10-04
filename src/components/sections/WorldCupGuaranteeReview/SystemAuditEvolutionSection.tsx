@@ -91,7 +91,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               <div className="flex-1 flex items-center justify-between px-3.5 py-2.5 bg-emerald-50/40 border-2 border-dashed border-emerald-500">
                 <div className="flex flex-col">
                   <div className="flex items-center gap-1.5">
-                    <span className="text-xs font-bold text-emerald-800 uppercase tracking-wider">最优</span>
+                    <span className="text-xs font-bold text-emerald-800 uppercase tracking-wider">安全边界</span>
                   </div>
                   <span className="text-sm font-bold text-emerald-950">系统占比</span>
                 </div>
@@ -144,7 +144,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               <div className="flex-1 flex items-center justify-between px-3.5 py-2.5 bg-amber-50/40 border-2 border-dashed border-amber-500">
                 <div className="flex flex-col">
                   <div className="flex items-center gap-1.5">
-                    <span className="text-xs font-bold text-amber-800 uppercase tracking-wider">最优</span>
+                    <span className="text-xs font-bold text-amber-800 uppercase tracking-wider">安全边界</span>
                   </div>
                   <span className="text-sm font-bold text-amber-950">人工占比</span>
                 </div>
@@ -329,13 +329,20 @@ export const SystemAuditEvolutionSection: React.FC = () => {
       <div className="flex flex-col gap-[var(--report-panel-gap)]">
         <ReportSectionHeader title="4.2 带来核心收益" />
 
+        {/* 4.2 章节一句话总结 */}
+        <SummaryBox variant="module">
+          {highlightNumbers(
+            "阶段性攻克出单规模大幅放量下的风控治理难题，同时达成[[“降本 · 增效 · 提质”]]的业务[[“不可能三角”]]：在系统出单规模净增 [[75w单 (+30.0%)]] 的同时，实现全盘时效提速 [[+28.2%]]、外包差错压降归零与综合收益 [[约 250w/月]]。"
+          )}
+        </SummaryBox>
+
         {/* 核心收益结构化气泡/卡片 */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pb-1">
           {/* Bubble 1: 规模放量 */}
           <div className="bg-white border border-slate-200 p-4 sm:p-5 flex flex-col justify-between space-y-2.5">
             <div className="flex items-center gap-2 pb-2 border-b border-slate-100">
               <span className="w-2 h-2 rounded-full bg-blue-600 shrink-0"></span>
-              <strong className="text-sm font-bold text-slate-900">核心维度 · 自动审单放量</strong>
+              <strong className="text-sm font-bold text-slate-900">自动审单放量</strong>
             </div>
             <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal flex-1">
               {highlightNumbers(
@@ -348,7 +355,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
           <div className="bg-white border border-slate-200 p-4 sm:p-5 flex flex-col justify-between space-y-2.5">
             <div className="flex items-center gap-2 pb-2 border-b border-slate-100">
               <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0"></span>
-              <strong className="text-sm font-bold text-slate-900">核心维度 · 审核时效提速</strong>
+              <strong className="text-sm font-bold text-slate-900">审核时效提速</strong>
             </div>
             <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal flex-1">
               {highlightNumbers(
@@ -362,7 +369,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             <div className="flex items-center justify-between pb-2 border-b border-slate-100">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-600 shrink-0"></span>
-                <strong className="text-sm font-bold text-slate-900">核心维度 · 综合降本止损</strong>
+                <strong className="text-sm font-bold text-slate-900">综合降本止损</strong>
               </div>
               <ReportBadge tone="green" className="text-xs font-mono">
                 合计约 250w/月
@@ -723,7 +730,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
 
               {/* 右侧：文字说明 */}
               <div className="md:col-span-7 flex flex-col justify-center md:pl-2">
-                <div className="text-sm text-slate-700 leading-relaxed font-normal space-y-3.5">
+                <div className="text-sm text-slate-700 leading-relaxed font-normal space-y-3">
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
                     <p>
@@ -738,7 +745,16 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <p>
                       <strong className="text-slate-950">缓解总部压力聚焦核心：</strong>
                       {highlightNumbers(
-                        "总部订单减少 [[25w+ 单]]，缓解了一线审核人员的过度疲劳，得以集中精力深耕高危、复杂及高净值大额订单，显著带动了全盘审核业务的安全防御质效。"
+                        "总部人审订单现已减少 [[25w+ 单]]，后续随着自动化出单深化，[[减单规模还将进一步扩大]]，持续降低一线审核人员的疲劳负荷，释放更多空间深耕高危、复杂及高净值大额订单。"
+                      )}
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
+                    <p>
+                      <strong className="text-slate-950">精准预审给出高亮强提醒：</strong>
+                      {highlightNumbers(
+                        "流转至人工复审的订单[[均已是明确的高风险订单]]，且系统预审给出精准且醒目的[[高危风险特征强提醒]]；随着识别准确率持续攀升，赋能审核人员快速完成风控研判，显著带动全盘审核业务的质效。"
                       )}
                     </p>
                   </div>
@@ -763,29 +779,29 @@ export const SystemAuditEvolutionSection: React.FC = () => {
       </div>
 
       {/* 4.3 智能风控体系架构 */}
-      <div id="section-cloud-shield-system" className="space-y-8 sm:space-y-10">
+      <div id="section-cloud-shield-system" className="space-y-10 sm:space-y-12">
         <ReportSectionHeader title="4.3 云盾风控体系" />
 
-        {/* 机制与支撑说明 */}
-        <SummaryBox variant="module">
-          {highlightNumbers(
-            "从 0 到 1 打造[[云盾风控体系]]以支持审单模式演进。通过[[策略矩阵校验 ➔ 风险评分 ➔ 动态派单 ➔ 闭环反馈]]四个环节，明确系统自动放行与人工复审的分工边界，全面支撑自动化出单目标。"
-          )}
-        </SummaryBox>
+        {/* 4.3.1 关键机制优化前后对比 */}
+        <div className="space-y-6">
+          <ReportSubsectionHeader
+            title="4.3.1 云盾体系 · 关键优化对比"
+            rightContent={
+              <p className="text-xs sm:text-sm text-slate-600 font-normal">
+                从 <span className="font-semibold text-slate-900 font-mono">2025年四季度</span> 规划至 <span className="font-semibold text-slate-900 font-mono">2026年三季度</span> 完成机制全面优化
+              </p>
+            }
+          />
 
-          {/* 4.3.1 关键机制优化前后对比 */}
-          <div className="flex flex-col gap-[var(--report-panel-gap)]">
-            <ReportSubsectionHeader
-              title="4.3.1 云盾体系 · 关键优化对比"
-              rightContent={
-                <p className="text-xs sm:text-sm text-slate-600 font-normal">
-                  从 <span className="font-semibold text-slate-900 font-mono">2025年四季度</span> 规划至 <span className="font-semibold text-slate-900 font-mono">2026年三季度</span> 完成机制全面优化
-                </p>
-              }
-            />
+          {/* 4.3.1 机制与支撑说明 */}
+          <SummaryBox variant="module">
+            {highlightNumbers(
+              "从 0 到 1 打造[[云盾风控体系]]以支持审单模式演进。通过[[策略引擎]]、[[底层基建]]、[[量化分流]]、[[派单调度]]、[[跨站协同]]及[[风控工具链]]六维机制优化，明确系统自动放行与人工复审的分工边界，全面支撑自动化出单目标。"
+            )}
+          </SummaryBox>
 
-            {/* 4.3.1 关键机制优化前后对比矩阵 (VS 对比卡片样式) */}
-            <div className="grid grid-cols-1 gap-4 sm:gap-6">
+          {/* 4.3.1 关键机制优化前后对比矩阵 (VS 对比卡片样式) */}
+          <div className="grid grid-cols-1 gap-4 sm:gap-6">
               {[
                 {
                   dimension: "变化1：增加 -> 套利策略矩阵",
@@ -884,14 +900,10 @@ export const SystemAuditEvolutionSection: React.FC = () => {
           </div>
 
           {/* 4.3.2 云盾体系 · 运行闭环框架 */}
-          <div className="space-y-6 pt-3">
-            <ReportSubsectionHeader
-              title={
-                <span className="flex items-center gap-2">
-                  <span>4.3.2 云盾体系 · 运行闭环框架</span>
-                </span>
-              }
-            />
+        <div className="space-y-6 pt-4 border-t border-slate-100">
+          <ReportSubsectionHeader
+            title="4.3.2 云盾体系 · 运行闭环框架"
+          />
 
             {/* 框架说明 */}
             <SummaryBox variant="module">

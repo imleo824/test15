@@ -1,7 +1,8 @@
 import React from "react";
 import {
-  BarChart,
+  ComposedChart,
   Bar,
+  Line,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -169,15 +170,12 @@ const CustomTooltip = ({ active, payload, label }: any) => {
   return null;
 };
 
-// 仅 1月（起点基线）和 9.30（全量终点）展示柱顶具体数字
-const renderKeyBarLabel = (monthKey: string) => (props: any) => {
+// 1月基线起点标签渲染
+const renderM1Label = (props: any) => {
   const { x, y, width, value } = props;
-  const isShow = monthKey === "m1" || monthKey === "m9_30";
-  if (!isShow || typeof x !== "number" || typeof y !== "number" || typeof width !== "number" || !value) {
+  if (typeof x !== "number" || typeof y !== "number" || typeof width !== "number" || !value) {
     return null;
   }
-
-  const is930 = monthKey === "m9_30";
   const text = typeof value === "string" ? (value.endsWith("%") ? value : `${value}%`) : `${value}%`;
   const centerX = x + width / 2;
 
@@ -186,10 +184,10 @@ const renderKeyBarLabel = (monthKey: string) => (props: any) => {
       x={centerX}
       y={y - 6}
       textAnchor="middle"
-      fill={is930 ? "#1d4ed8" : "#475569"}
-      fontSize={is930 ? 11.5 : 10.5}
+      fill="#475569"
+      fontSize={10.5}
       fontFamily="var(--font-mono, monospace)"
-      fontWeight={is930 ? 900 : 750}
+      fontWeight={750}
       paintOrder="stroke"
       stroke="#ffffff"
       strokeWidth={2.5}
@@ -197,6 +195,63 @@ const renderKeyBarLabel = (monthKey: string) => (props: any) => {
     >
       {text}
     </text>
+  );
+};
+
+// 9.30 柱顶定位锚点与数值标签渲染
+const render930AnchorAndLabel = (props: any) => {
+  const { x, y, width, value, index } = props;
+  if (typeof x !== "number" || typeof y !== "number" || typeof width !== "number" || !value) {
+    return null;
+  }
+  const centerX = x + width / 2;
+  const text = typeof value === "string" ? (value.endsWith("%") ? value : `${value}%`) : `${value}%`;
+
+  return (
+    <g className="m930-bar-anchor" data-idx={index}>
+      {/* 9.30 柱顶的基准定位锚点圆点 */}
+      <circle
+        cx={centerX}
+        cy={y}
+        r={6}
+        fill="#1d4ed8"
+        stroke="#ffffff"
+        strokeWidth={2}
+      />
+      <circle
+        cx={centerX}
+        cy={y}
+        r={10}
+        fill="none"
+        stroke="#1d4ed8"
+        strokeWidth={1.5}
+        strokeDasharray="3 3"
+      />
+      {/* 9.30 柱顶标签 */}
+      <g transform={`translate(${centerX}, ${y - 14})`}>
+        <rect
+          x={-28}
+          y={-14}
+          width={56}
+          height={18}
+          rx={3}
+          fill="#1e40af"
+          stroke="#ffffff"
+          strokeWidth={1.5}
+        />
+        <text
+          x={0}
+          y={-1}
+          textAnchor="middle"
+          fill="#ffffff"
+          fontSize={11}
+          fontFamily="var(--font-mono, monospace)"
+          fontWeight={900}
+        >
+          {text}
+        </text>
+      </g>
+    </g>
   );
 };
 
@@ -218,10 +273,48 @@ const renderLegend = () => (
         )}
       </div>
     ))}
+    <div className="flex items-center gap-1.5 font-bold text-blue-900 ml-1">
+      <span className="h-0.5 w-5 border-b-2 border-dashed border-blue-700 inline-block" />
+      <span>9.30全量差异连线 (0.63% ➔ 34.37% ➔ 65.00%)</span>
+    </div>
   </div>
 );
 
 export const SmartDispatchOrderStructure: React.FC = () => {
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const [linePath, setLinePath] = React.useState<string>("");
+  const [nodes, setNodes] = React.useState<Array<{ x: number; y: number }>>([]);
+
+  const updateLine = React.useCallback(() => {
+    if (!containerRef.current) return;
+    const anchors = containerRef.current.querySelectorAll(".m930-bar-anchor circle:first-child");
+    if (anchors.length >= 3) {
+      const containerRect = containerRef.current.getBoundingClientRect();
+      const pts = Array.from(anchors).map((el) => {
+        const r = el.getBoundingClientRect();
+        return {
+          x: r.left + r.width / 2 - containerRect.left,
+          y: r.top + r.height / 2 - containerRect.top,
+        };
+      });
+      setNodes(pts);
+      setLinePath(`M ${pts[0].x} ${pts[0].y} L ${pts[1].x} ${pts[1].y} L ${pts[2].x} ${pts[2].y}`);
+    }
+  }, []);
+
+  React.useLayoutEffect(() => {
+    updateLine();
+    const t1 = setTimeout(updateLine, 60);
+    const t2 = setTimeout(updateLine, 250);
+    const t3 = setTimeout(updateLine, 600);
+    window.addEventListener("resize", updateLine);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+      window.removeEventListener("resize", updateLine);
+    };
+  }, [updateLine]);
   return (
     <ReportChartCard
       title="出单结构趋势对比"
@@ -357,9 +450,34 @@ export const SmartDispatchOrderStructure: React.FC = () => {
         </div>
 
         {/* 图表展示区：横坐标为 外包 / 总部 / 系统，每个角色包含全部月份柱子 */}
-        <div className="h-[340px] pt-3">
+        <div ref={containerRef} className="relative h-[340px] pt-3">
+          {/* 顶层高精度连线：严格连接 3 个 9.30 柱顶 */}
+          {linePath && (
+            <svg
+              className="absolute inset-0 w-full h-full pointer-events-none z-10"
+              style={{ overflow: "visible" }}
+            >
+              {/* 连线微光发光层 */}
+              <path
+                d={linePath}
+                stroke="#3b82f6"
+                strokeWidth={9}
+                strokeOpacity={0.35}
+                fill="none"
+              />
+              {/* 连线主体深蓝虚线 */}
+              <path
+                d={linePath}
+                stroke="#1d4ed8"
+                strokeWidth={4}
+                strokeDasharray="6 4"
+                fill="none"
+              />
+            </svg>
+          )}
+
           <ResponsiveContainer width="100%" height="100%">
-            <BarChart
+            <ComposedChart
               data={roleGroupedData}
               barGap={3}
               barCategoryGap="20%"
@@ -394,7 +512,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
               <Tooltip content={<CustomTooltip />} />
               <Legend content={renderLegend} />
 
-              {/* 每个角色内部的 10 个月份柱子 */}
+              {/* 每个角色内部的月份柱子 */}
               {monthBarConfigs.map((cfg) => (
                 <Bar
                   key={cfg.key}
@@ -405,15 +523,21 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                   radius={chartBarRadius.standard}
                   isAnimationActive={false}
                 >
-                  {(cfg.key === "m1" || cfg.key === "m9_30") && (
+                  {cfg.key === "m1" && (
                     <LabelList
-                      dataKey={`${cfg.key}Label`}
-                      content={renderKeyBarLabel(cfg.key)}
+                      dataKey="m1Label"
+                      content={renderM1Label}
+                    />
+                  )}
+                  {cfg.key === "m9_30" && (
+                    <LabelList
+                      dataKey="m9_30Label"
+                      content={render930AnchorAndLabel}
                     />
                   )}
                 </Bar>
               ))}
-            </BarChart>
+            </ComposedChart>
           </ResponsiveContainer>
         </div>
       </div>

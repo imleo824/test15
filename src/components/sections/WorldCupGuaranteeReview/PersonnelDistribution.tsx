@@ -77,7 +77,7 @@ export const PersonnelDistribution: React.FC = () => {
         <SummaryBox variant="module">
           <div className="text-sm text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "各职场编制按业务承载动态调配；持续提升系统自动审单比例，自 [[9月起]] 将外包审单量压降至 [[1% 以下]]，实现[[成本节约与差错压降]]实质成效。"
+              "各职场编制按业务承载动态调配；持续提升系统自动审单比例，自 [[9月起]] 将外包审单量压降至 [[1% 以下]]（预计在10月内清0），实现[[成本节约与差错压降]]实质成效。"
             )}
           </div>
         </SummaryBox>

@@ -106,6 +106,16 @@ const monthlyTrendData = [
   },
 ];
 
+// 计算 1月峰值 0.324% 到 9.30全量 0.072% 的直线连接轨迹（直观表达变化趋势）
+const totalMonths = monthlyTrendData.length;
+const startRate = monthlyTrendData[0].errorRate; // 0.324
+const endRate = monthlyTrendData[totalMonths - 1].errorRate; // 0.072
+
+export const monthlyTrendDataWithLinear = monthlyTrendData.map((d, i) => ({
+  ...d,
+  linearErrorRate: Number((startRate + ((endRate - startRate) * i) / (totalMonths - 1)).toFixed(4)),
+}));
+
 const renderBarLabel = ({ x, y, width, value, index }: any) => {
   if (typeof x !== "number" || typeof y !== "number" || typeof width !== "number" || value === undefined) {
     return null;
@@ -116,15 +126,15 @@ const renderBarLabel = ({ x, y, width, value, index }: any) => {
   return (
     <text
       x={centerX}
-      y={y - 8}
+      y={y + 16}
       textAnchor="middle"
-      fill={isLast ? "#047857" : "#1e40af"}
-      fontSize={isLast ? 13.5 : 12}
+      fill={isLast ? "#ffffff" : "#0f172a"}
+      fontSize={isLast ? 12 : 11}
       fontFamily="var(--font-mono, monospace)"
-      fontWeight={isLast ? 900 : 700}
+      fontWeight={800}
       paintOrder="stroke"
-      stroke="#ffffff"
-      strokeWidth={2.5}
+      stroke={isLast ? "#1d4ed8" : "#ffffff"}
+      strokeWidth={2}
       strokeLinejoin="round"
     >
       {value}
@@ -169,15 +179,15 @@ const renderLineLabel = ({ x, y, value, index }: any) => {
   return (
     <text
       x={x}
-      y={y - 10}
+      y={y - 12}
       textAnchor="middle"
-      fill={isFirst ? "#991b1b" : "#7f1d1d"}
-      fontSize={isFirst ? 12.5 : 11}
+      fill={isFirst ? "#991b1b" : "#b91c1c"}
+      fontSize={isFirst ? 12 : 11}
       fontFamily="var(--font-mono, monospace)"
-      fontWeight={isFirst ? 900 : 700}
+      fontWeight={800}
       paintOrder="stroke"
       stroke="#ffffff"
-      strokeWidth={2.5}
+      strokeWidth={3}
       strokeLinejoin="round"
     >
       {value}
@@ -210,18 +220,22 @@ const renderCustomDot = (props: any) => {
 };
 
 const renderCustomLegend = () => (
-  <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 pt-3 text-xs sm:text-sm text-slate-800">
-    <div className="flex items-center gap-2 font-bold text-blue-900">
-      <span className="h-3 w-3 rounded-xs bg-[#2563eb]" />
+  <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-3 text-xs sm:text-sm text-slate-800">
+    <div className="flex items-center gap-2 font-medium text-slate-600">
+      <span className="h-3 w-3 rounded-xs bg-[#cbd5e1]" />
       <span>1~8月 出单比例 (%)</span>
     </div>
-    <div className="flex items-center gap-2 font-bold text-emerald-800">
-      <span className="h-3 w-3 rounded-xs bg-[#059669]" />
+    <div className="flex items-center gap-2 font-bold text-blue-900">
+      <span className="h-3 w-3 rounded-xs bg-[#1d4ed8]" />
       <span>9.30全量 出单比例</span>
     </div>
     <div className="flex items-center gap-2 font-bold text-red-700">
       <span className="h-2.5 w-5 bg-red-600 rounded-full inline-block" />
-      <span>系统质检率 (%)</span>
+      <span>实际月度质检率</span>
+    </div>
+    <div className="flex items-center gap-2 font-bold text-emerald-800">
+      <span className="h-0.5 w-6 border-b-2 border-dashed border-emerald-600 inline-block" />
+      <span>0.324% ➔ 0.072% 直线连接</span>
     </div>
   </div>
 );
@@ -312,7 +326,7 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
         <div className="h-[340px] pt-3">
           <ResponsiveContainer width="100%" height="100%">
             <ComposedChart
-              data={monthlyTrendData}
+              data={monthlyTrendDataWithLinear}
               barSize={28}
               margin={{ top: 34, right: 38, left: 10, bottom: 8 }}
             >
@@ -347,7 +361,8 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
               <Tooltip
                 formatter={(val: any, name: string) => {
                   if (name === "系统出单比例") return [`${val}%`, "系统出单比例"];
-                  if (name === "系统质检率" || name === "系统错误率") return [`${val}%`, "系统质检率"];
+                  if (name === "系统质检率" || name === "实际月度质检率") return [`${val}%`, "系统质检率"];
+                  if (name === "0.324% ➔ 0.072% 直线连接") return [`${val}%`, "直线基准"];
                   return [val, name];
                 }}
                 labelFormatter={(label) => `2026年 ${label}`}
@@ -355,7 +370,7 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
 
               <Legend content={renderCustomLegend} />
 
-              {/* 柱状图：系统出单比例 (9月单独使用翡翠绿区分) */}
+              {/* 柱状图：系统出单比例 (930全量使用统一高亮蓝，1-8月统一为灰系) */}
               <Bar
                 yAxisId="left"
                 dataKey="autoRate"
@@ -363,10 +378,10 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
                 radius={chartBarRadius.standard}
                 isAnimationActive={false}
               >
-                {monthlyTrendData.map((entry, index) => (
+                {monthlyTrendDataWithLinear.map((entry, index) => (
                   <Cell
                     key={`cell-${index}`}
-                    fill={entry.isSeptember ? "#059669" : "#2563eb"}
+                    fill={entry.isSeptember ? "#1d4ed8" : "#cbd5e1"}
                   />
                 ))}
                 <LabelList dataKey="autoRateLabel" content={renderBarLabel} />
@@ -382,12 +397,42 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
                 isFront={true}
               />
 
-              {/* 折线图：系统质检率 */}
+              {/* 0.324% (1月) ➔ 0.072% (9.30) 两点直线连接 */}
+              <Line
+                yAxisId="right"
+                type="linear"
+                dataKey="linearErrorRate"
+                name="0.324% ➔ 0.072% 直线连接"
+                stroke="#059669"
+                strokeWidth={2.5}
+                strokeDasharray="6 4"
+                dot={(props: any) => {
+                  const { cx, cy, index } = props;
+                  if (typeof cx !== "number" || typeof cy !== "number") return null;
+                  if (index === 0 || index === monthlyTrendDataWithLinear.length - 1) {
+                    return (
+                      <circle
+                        key={`linear-dot-${index}`}
+                        cx={cx}
+                        cy={cy}
+                        r={5.5}
+                        fill="#059669"
+                        stroke="#ffffff"
+                        strokeWidth={2}
+                      />
+                    );
+                  }
+                  return null;
+                }}
+                isAnimationActive={false}
+              />
+
+              {/* 折线图：实际月度系统质检率 */}
               <Line
                 yAxisId="right"
                 type="monotone"
                 dataKey="errorRate"
-                name="系统质检率"
+                name="实际月度质检率"
                 stroke="#b91c1c"
                 strokeWidth={3.5}
                 dot={renderCustomDot}
