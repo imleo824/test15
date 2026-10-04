@@ -25,14 +25,14 @@ import { SystemAuditMonthlyTrendChart } from "./SystemAuditMonthlyTrendChart";
 export const SystemAuditEvolutionSection: React.FC = () => {
   return (
     <div id="section-system-audit-evolution" className="report-chapter-content">
-      {/* 4.1 审单模式翻转 */}
-      <div className="flex flex-col gap-[var(--report-panel-gap)]">
+      {/* 4.1 审单模式演进 */}
+      <div className="flex flex-col gap-6">
         <ReportSectionHeader title="4.1 审单模式演进" />
 
         {/* 统一文字说明：一句话总结 */}
         <SummaryBox variant="module">
           {highlightNumbers(
-            "从 [[25年]] 开始，历经多轮迭代后在 [[26年9月开始灰度验证]]，于 [[9月30日正式全量上线]]，审单模式实现[[系统自动为主、人工兜底为辅]]的[[根本性重构]]：系统审核占比由 [[50.0%]] 跃升至 [[65.0%]]（人工审核压降至 [[35.0%]]，逼近 [[25%]] 安全边界）。"
+            "从 2025 年开始，历经多轮迭代后在 2026 年 9 月开展灰度验证，并于 9 月 30 日正式全量上线，审单模式实现[[系统自动为主、人工兜底为辅]]的架构重构：系统审核占比由 50.0% 跃升至 65.0%（人工审核压降至 35.0%，逼近 25% 安全边界）。"
           )}
         </SummaryBox>
 
@@ -88,15 +88,15 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               </div>
 
               {/* 最优 (75.0%)：虚线边框，体现将来的预期感 */}
-              <div className="flex-1 flex items-center justify-between px-3.5 py-2.5 bg-emerald-50/40 border-2 border-dashed border-emerald-500">
+              <div className="flex-1 flex items-center justify-between px-3.5 py-2.5 bg-emerald-50/30 border-2 border-dashed border-emerald-500">
                 <div className="flex flex-col">
                   <div className="flex items-center gap-1.5">
-                    <span className="text-xs font-bold text-emerald-800 uppercase tracking-wider">安全边界</span>
+                    <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">安全边界</span>
                   </div>
-                  <span className="text-sm font-bold text-emerald-950">系统占比</span>
+                  <span className="text-sm font-bold text-slate-950">系统占比</span>
                 </div>
                 <div className="flex items-baseline gap-0.5 font-mono">
-                  <span className="text-3xl sm:text-4xl font-bold text-emerald-900 tracking-tight">75.0</span>
+                  <span className="text-3xl sm:text-4xl font-bold text-emerald-700 tracking-tight">75.0</span>
                   <span className="text-xs font-bold text-emerald-700">%</span>
                 </div>
               </div>
@@ -141,16 +141,16 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               </div>
 
               {/* 最优 (25.0%)：虚线边框，体现将来的预期感 */}
-              <div className="flex-1 flex items-center justify-between px-3.5 py-2.5 bg-amber-50/40 border-2 border-dashed border-amber-500">
+              <div className="flex-1 flex items-center justify-between px-3.5 py-2.5 bg-slate-50 border-2 border-dashed border-slate-400">
                 <div className="flex flex-col">
                   <div className="flex items-center gap-1.5">
-                    <span className="text-xs font-bold text-amber-800 uppercase tracking-wider">安全边界</span>
+                    <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">安全边界</span>
                   </div>
-                  <span className="text-sm font-bold text-amber-950">人工占比</span>
+                  <span className="text-sm font-bold text-slate-950">人工占比</span>
                 </div>
                 <div className="flex items-baseline gap-0.5 font-mono">
-                  <span className="text-3xl sm:text-4xl font-bold text-amber-900 tracking-tight">25.0</span>
-                  <span className="text-xs font-bold text-amber-700">%</span>
+                  <span className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">25.0</span>
+                  <span className="text-xs font-bold text-slate-600">%</span>
                 </div>
               </div>
             </div>
@@ -174,7 +174,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             {/* 管理结论：置于【成因剖析】标题正下方 */}
             <div className="p-4 bg-slate-50/60 border-l-2 border-slate-300 text-sm sm:text-base text-slate-800 leading-relaxed">
               {highlightNumbers(
-                "基于[[“多账号风险拦截（约15%）+ 历史存量标签兜底（约10%）”]]的风控边界，当前 [[60%~65%]] 的系统出单水平已高度贴近 [[75%]] 的安全物理极限。"
+                "基于[[多账号拦截与存量标签兜底]]的风控边界，当前 60%~65% 的系统出单水平已高度贴近 75% 的安全物理极限。"
               )}
             </div>
 
@@ -190,7 +190,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 </div>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                   {highlightNumbers(
-                    "平台[[多账号关联占比高达 80% 左右]]；其中经[[策略矩阵深度识别]]后，[[高风险关联占比约 15%]]，该部分订单必须转入人工复审进行资产核验与风险阻断，无法由系统直接放行。"
+                    "平台多账号关联占比达 80% 左右；经[[策略矩阵深度识别]]后，高风险关联占比约 15%，该部分订单必须转入人工复审进行资产核验与风险阻断，无法由系统直接放行。"
                   )}
                 </p>
               </div>
@@ -205,7 +205,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 </div>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                   {highlightNumbers(
-                    "平台沉淀了大量被打上标签的用户；在经历多轮策略去重与标签清理后，[[带标存量用户依然占整体单量的 10% 左右]]，触发历史标签的订单仍需人工校验兜底。"
+                    "平台沉淀了大量被打上标签的用户；在经历多轮策略去重与标签清理后，带标存量用户依然占整体单量的 10% 左右，触发历史标签的订单仍需人工校验兜底。"
                   )}
                 </p>
               </div>
@@ -268,22 +268,22 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-4 items-center">
                   {/* 左侧柱段 (lg:col-span-3) */}
                   <div className="lg:col-span-3 flex items-center">
-                    <div className="flex-1 lg:h-14 min-h-[56px] bg-amber-50/80 border border-dashed border-amber-300 flex flex-col items-center justify-center rounded-xs">
-                      <span className="text-[11px] font-medium text-amber-800">剩余潜能</span>
-                      <span className="text-sm sm:text-base font-mono font-bold text-amber-950">10%~15%</span>
+                    <div className="flex-1 lg:h-14 min-h-[56px] bg-slate-50 border border-dashed border-slate-300 flex flex-col items-center justify-center rounded-xs">
+                      <span className="text-[11px] font-medium text-slate-600">剩余潜能</span>
+                      <span className="text-sm sm:text-base font-mono font-bold text-slate-900">10%~15%</span>
                     </div>
                     <div className="w-6 sm:w-8 flex items-center shrink-0 pl-1">
-                      <div className="w-full h-[2px] bg-amber-400 relative flex items-center justify-end">
-                        <span className="absolute -right-1.5 text-[10px] text-amber-600 leading-none">▶</span>
+                      <div className="w-full h-[2px] bg-slate-400 relative flex items-center justify-end">
+                        <span className="absolute -right-1.5 text-[10px] text-slate-600 leading-none">▶</span>
                       </div>
                     </div>
                   </div>
 
                   {/* 右侧解析卡片 2 (lg:col-span-9) */}
-                  <div className="lg:col-span-9 lg:h-14 min-h-[56px] p-3 sm:p-3.5 bg-amber-50/50 border-l-2 border-amber-400 flex flex-col justify-center">
+                  <div className="lg:col-span-9 lg:h-14 min-h-[56px] p-3 sm:p-3.5 bg-slate-50 border-l-2 border-slate-400 flex flex-col justify-center">
                     <div className="flex items-center justify-between gap-2">
-                      <span className="text-sm font-bold text-amber-950">逼近系统出单极限</span>
-                      <span className="text-xs font-mono font-bold text-amber-800">10% ~ 15% • 剩余潜能</span>
+                      <span className="text-sm font-bold text-slate-950">逼近系统出单极限</span>
+                      <span className="text-xs font-mono font-bold text-slate-600">10% ~ 15% • 剩余潜能</span>
                     </div>
                     <p className="text-xs text-slate-700 mt-1 leading-relaxed">
                       {highlightNumbers(
@@ -326,13 +326,13 @@ export const SystemAuditEvolutionSection: React.FC = () => {
       </div>
 
       {/* 4.2 带来核心收益 */}
-      <div className="flex flex-col gap-[var(--report-panel-gap)]">
+      <div className="flex flex-col gap-6">
         <ReportSectionHeader title="4.2 带来核心收益" />
 
         {/* 4.2 章节一句话总结 */}
         <SummaryBox variant="module">
           {highlightNumbers(
-            "阶段性攻克出单规模大幅放量下的风控治理难题，同时达成[[“降本 · 增效 · 提质”]]的业务[[“不可能三角”]]：在系统出单规模净增 [[75w单 (+30.0%)]] 的同时，实现全盘时效提速 [[+28.2%]]、外包差错压降归零与综合收益 [[约 250w/月]]。"
+            "阶段性攻克出单规模大幅放量下的风控治理难题，同时达成[[降本 · 增效 · 提质]]的业务目标：在系统出单规模净增 75w 单 (+30.0%) 的同时，实现全盘时效提速 +28.2%、外包差错压降归零与综合收益约 250w/月。"
           )}
         </SummaryBox>
 
@@ -346,7 +346,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             </div>
             <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal flex-1">
               {highlightNumbers(
-                "以 [[500w]] 总单量测算，系统替代规模从原先的 [[250w单 (50%)]] 提升至 [[325w单 (65%)]]，实现[[净增 75w单 (+30.0%)]]。"
+                "以 500w 总单量测算，系统替代规模从原先的 250w 单 (50.0%) 提升至 325w 单 (65.0%)，实现净增 75w 单 (+30.0%)。"
               )}
             </p>
           </div>
@@ -359,7 +359,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             </div>
             <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal flex-1">
               {highlightNumbers(
-                "加权平均停留时间由原来的 [[4.13分钟]] 净压降压缩至 [[2.96分钟]]，全盘时效实现[[整体提速 +28.2%]]。"
+                "加权平均停留时间由原来的 4.13 分钟净压降压缩至 2.96 分钟，全盘时效实现整体提速 +28.2%。"
               )}
             </p>
           </div>
@@ -377,7 +377,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             </div>
             <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed font-normal flex-1">
               {highlightNumbers(
-                "外包节省成本 [[近 100w/月]]、外包[[直接止损 50w+/月]]；另总部人审单量精简后理论降本 [[约 100w/月]]，综合收益合计 [[约 250w/月]]。"
+                "外包节省成本近 100w/月、外包直接止损 50w+/月；另总部人审单量精简后理论降本约 100w/月，综合收益合计约 250w/月。"
               )}
             </p>
           </div>
@@ -484,7 +484,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <p>
                       <strong className="text-slate-950">自动化占比跃升：</strong>
                       {highlightNumbers(
-                        "云盾系统出单占比由 1-9月均值 [[50.4%]] 提升至 930全量节点的 [[65.0%]]，占比相对提升 [[+29.0%]]。"
+                        "云盾系统出单占比由 1-9月均值 50.4% 提升至 930全量节点的 65.0%，占比相对提升 +29.0%。"
                       )}
                     </p>
                   </div>
@@ -493,7 +493,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <p>
                       <strong className="text-slate-950">外包清退与降本止损：</strong>
                       {highlightNumbers(
-                        "外包团队占比由 1-9月月均 [[9.7%]] 清退压降至 系统930 的 [[0.6%]]（相对减幅 [[-93.8%]]），全面释放 [[100+ 人力]]，直接削减外包硬性成本 [[近 100w/月]]；并减少外包差错引发的约 [[50w+ 元/月]] 资金损失，月度综合经济价值达 [[150w/月]]。"
+                        "外包团队占比由 1-9月月均 9.7% 清退压降至 系统930 的 0.6%（相对减幅 -93.8%），全面释放 100+ 人力，直接削减外包硬性成本近 100w/月；并减少外包差错引发的约 50w+ 元/月 资金损失，月度综合经济价值达 150w/月。"
                       )}
                     </p>
                   </div>
@@ -502,7 +502,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <p>
                       <strong className="text-slate-950">总部减负与成本节约：</strong>
                       {highlightNumbers(
-                        "总部人工审核占比由月均 [[40.0%]] 降至 系统930 的 [[34.4%]]（相对精简 [[-14.0%]]），相当于释放约 [[30 人]] 的日常审核工作量，实现总部月均理论成本节约约 [[100w/月]]。"
+                        "总部人工审核占比由月均 40.0% 降至 系统930 的 34.4%（相对精简 -14.0%），相当于释放约 30人 的日常审核工作量，实现总部月均理论成本节约约 100w/月。"
                       )}
                     </p>
                   </div>
@@ -610,7 +610,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <p>
                       <strong className="text-slate-950">订单风控停留缩短：</strong>
                       {highlightNumbers(
-                        "按总单量 [[500w 单]] 测算，加权平均停留时间从 [[4.13 分钟降至 2.96 分钟]]，净压缩 [[1.17 分钟]]（全盘时效提速 [[+28.2%]]）。"
+                        "按总单量 500w 单 测算，加权平均停留时间从 4.13 分钟降至 2.96 分钟，净压缩 1.17 分钟（全盘时效提速 +28.2%）。"
                       )}
                     </p>
                   </div>
@@ -619,7 +619,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <p>
                       <strong className="text-slate-950">优质用户体感跃升：</strong>
                       {highlightNumbers(
-                        "释放的 [[75w 单]] 由原 8 分钟降至 15 秒；占总量 [[65% 的优质客户提单（325w 单）]] 实现“秒过”的体验，出款体感显著改善。"
+                        "释放的 75w 单 由原 8 分钟降至 15 秒；占总量 65% 的优质客户提单（325w 单）实现[[秒级放行]]，出款体感显著改善。"
                       )}
                     </p>
                   </div>
@@ -628,7 +628,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <p>
                       <strong className="text-slate-950">风险玩家深度严查：</strong>
                       {highlightNumbers(
-                        "占总量 [[35% 的风险玩家订单]] 由专业人工实施多维交叉复核，审核时效严控在 [[8分钟内]] 快速闭环，兼顾安全防御与流转速率。"
+                        "占总量 35% 的风险玩家订单 由专业人工实施[[多维交叉复核]]，审核时效严控在 8分钟内 快速闭环，兼顾安全防御与流转速率。"
                       )}
                     </p>
                   </div>
@@ -736,7 +736,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <p>
                       <strong className="text-slate-950">消灭外包高差错风险：</strong>
                       {highlightNumbers(
-                        "系统审单质量远高于外包和一般审核人员，全面替代质检差错率高达 [[1.91%]] 的外包审核，从根本上消除了外包质量控制不力带来的高危差错及安全漏洞。"
+                        "系统审单质量远高于外包和一般审核人员，全面替代质检差错率高达 1.91% 的外包审核，从根本上消除了外包质量控制不力带来的高危差错及安全漏洞。"
                       )}
                     </p>
                   </div>
@@ -745,7 +745,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <p>
                       <strong className="text-slate-950">缓解总部压力聚焦核心：</strong>
                       {highlightNumbers(
-                        "总部人审订单现已减少 [[25w+ 单]]，后续随着自动化出单深化，[[减单规模还将进一步扩大]]，持续降低一线审核人员的疲劳负荷，释放更多空间深耕高危、复杂及高净值大额订单。"
+                        "总部人审订单现已减少 25w+ 单，后续随着自动化出单深化，减单规模还将进一步扩大，持续降低一线审核人员的疲劳负荷，释放更多空间深耕高危、复杂及高净值大额订单。"
                       )}
                     </p>
                   </div>
@@ -754,7 +754,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <p>
                       <strong className="text-slate-950">精准预审给出高亮强提醒：</strong>
                       {highlightNumbers(
-                        "流转至人工复审的订单[[均已是明确的高风险订单]]，且系统预审给出精准且醒目的[[高危风险特征强提醒]]；随着识别准确率持续攀升，赋能审核人员快速完成风控研判，显著带动全盘审核业务的质效。"
+                        "流转至人工复审的订单均已是明确的高风险订单，且系统预审给出精准且醒目的[[高危风险特征强提醒]]；随着识别准确率持续攀升，赋能审核人员快速完成风控研判，显著带动全盘审核业务的质效。"
                       )}
                     </p>
                   </div>
@@ -779,11 +779,11 @@ export const SystemAuditEvolutionSection: React.FC = () => {
       </div>
 
       {/* 4.3 智能风控体系架构 */}
-      <div id="section-cloud-shield-system" className="space-y-10 sm:space-y-12">
+      <div id="section-cloud-shield-system" className="flex flex-col gap-10 sm:gap-12">
         <ReportSectionHeader title="4.3 云盾风控体系" />
 
         {/* 4.3.1 关键机制优化前后对比 */}
-        <div className="space-y-6">
+        <div className="flex flex-col gap-6">
           <ReportSubsectionHeader
             title="4.3.1 云盾体系 · 关键优化对比"
             rightContent={
@@ -841,7 +841,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   before: "无跨站关联分析能力",
                   upgrade: "全网图谱打通",
                   after: "跨站关联即时识别",
-                  scenario: "历史拦截高危单 [[50%+ 存在跨站关联]]，过去为重大盲区；现在自动放行前实时识别比对[[跨站同设备、同资金链路]]等特征，[[补齐关键防线]]。",
+                  scenario: "历史拦截高危单 50%+ 存在跨站关联，过去为重大盲区；现在自动放行前实时识别比对[[跨站同设备、同资金链路]]等特征，[[补齐关键防线]]。",
                 },
                 {
                   dimension: "变化6：增加 -> 风控工具支持",
@@ -900,7 +900,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
           </div>
 
           {/* 4.3.2 云盾体系 · 运行闭环框架 */}
-        <div className="space-y-6 pt-4 border-t border-slate-100">
+        <div className="flex flex-col gap-6">
           <ReportSubsectionHeader
             title="4.3.2 云盾体系 · 运行闭环框架"
           />
@@ -996,7 +996,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                             </div>
                             <p className="text-slate-700">
                               {highlightNumbers(
-                                "风险总分由[[策略扫描分数 + 客户标签分数]]加权综合计算得出。若综合得分达到安全放行门槛（如 [[≥ 60分]]），系统自动阻断并转人工审核："
+                                "风险总分由[[策略扫描分数 + 客户标签分数]]加权综合计算得出。若综合得分达到安全放行门槛（如 ≥ 60分），系统自动阻断并转人工审核："
                               )}
                             </p>
                             <div className="bg-slate-50 border border-slate-200 p-2.5 space-y-1.5 text-xs text-slate-800">
@@ -1068,7 +1068,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       <div className="flex items-center gap-2">
                         <span className="w-1.5 h-3.5 bg-slate-900"></span>
                         <span className="font-bold text-slate-950 text-sm sm:text-base">
-                          策略与标签扫描明细
+                          策略与标签扫描释义
                         </span>
                       </div>
 
@@ -1076,7 +1076,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       <SummaryBox variant="module">
                         <div className="text-xs sm:text-sm text-slate-700 font-normal leading-relaxed">
                           {highlightNumbers(
-                            "全盘依托 [[50+ 项策略探针]]实时穿透扫描，本次出单检测呈现 [[45 正常 / 5 异常]]，综合风险总得分累计达 [[105分]]（超过 60分放行安全门槛），自动触发高危阻断并转人工审核。"
+                            "全盘依托 50+ 规则策略与 100+ 风险特征探针实时穿透扫描，本次出单检测呈现 45 正常 / 5 异常，综合风险总得分累计达 105分（超过 60分放行安全门槛），自动触发[[高危阻断并转人工审核]]。"
                           )}
                         </div>
                       </SummaryBox>
@@ -1125,7 +1125,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                               },
                               {
                                 category: "内控",
-                                tagColor: "bg-orange-50 text-orange-800 border-orange-200",
+                                tagColor: "bg-slate-100 text-slate-700 border-slate-200",
                                 items: [
                                   { name: "特殊上分类型", score: "0分", isError: false },
                                   { name: "N次提款未过人工审核", score: "0分", isError: false },
@@ -1138,7 +1138,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                               },
                               {
                                 category: "红利",
-                                tagColor: "bg-rose-50 text-rose-800 border-rose-200",
+                                tagColor: "bg-slate-100 text-slate-700 border-slate-200",
                                 items: [
                                   { name: "领取特邀红利超额", score: "+30分", isError: true },
                                   { name: "高红利占比", score: "0分", isError: false },
@@ -1148,7 +1148,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                               },
                               {
                                 category: "新手",
-                                tagColor: "bg-teal-50 text-teal-800 border-teal-200",
+                                tagColor: "bg-slate-100 text-slate-700 border-slate-200",
                                 items: [
                                   { name: "前N次提款", score: "0分", isError: false },
                                   { name: "红利超过限定额度", score: "0分", isError: false },
@@ -1158,7 +1158,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                               },
                               {
                                 category: "行为",
-                                tagColor: "bg-amber-50 text-amber-800 border-amber-200",
+                                tagColor: "bg-slate-100 text-slate-700 border-slate-200",
                                 items: [
                                   { name: "命中多个套利特征", score: "0分", isError: false },
                                   { name: "睡眠账号", score: "0分", isError: false },
@@ -1172,7 +1172,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                               },
                               {
                                 category: "盈利",
-                                tagColor: "bg-cyan-50 text-cyan-800 border-cyan-200",
+                                tagColor: "bg-slate-100 text-slate-700 border-slate-200",
                                 items: [
                                   { name: "高盈利率", score: "0分", isError: false },
                                   { name: "高盈利审核挂起", score: "0分", isError: false },
@@ -1183,24 +1183,24 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                               },
                               {
                                 category: "游戏",
-                                tagColor: "bg-purple-50 text-purple-800 border-purple-200",
+                                tagColor: "bg-slate-100 text-slate-700 border-slate-200",
                                 items: [
-                                  { tag: "体育", tagColor: "bg-sky-50 text-sky-800 border-sky-200", name: "低赔率注单占比高", score: "0分", isError: false },
-                                  { tag: "体育", tagColor: "bg-sky-50 text-sky-800 border-sky-200", name: "有二次结算注单", score: "0分", isError: false },
-                                  { tag: "体育", tagColor: "bg-sky-50 text-sky-800 border-sky-200", name: "B端-下注行为异常", score: "0分", isError: false },
-                                  { tag: "真人", tagColor: "bg-purple-50 text-purple-800 border-purple-200", name: "B端-下注行为异常", score: "0分", isError: false },
-                                  { tag: "棋牌", tagColor: "bg-amber-50 text-amber-800 border-amber-200", name: "命中多个套利特征", score: "0分", isError: false },
-                                  { tag: "棋牌", tagColor: "bg-amber-50 text-amber-800 border-amber-200", name: "全包", score: "0分", isError: false },
-                                  { tag: "彩票", tagColor: "bg-emerald-50 text-emerald-800 border-emerald-200", name: "全包", score: "0分", isError: false },
-                                  { tag: "彩票", tagColor: "bg-emerald-50 text-emerald-800 border-emerald-200", name: "高盈利额", score: "0分", isError: false },
-                                  { tag: "电子", tagColor: "bg-indigo-50 text-indigo-800 border-indigo-200", name: "卡免费", score: "0分", isError: false },
-                                  { tag: "电子", tagColor: "bg-indigo-50 text-indigo-800 border-indigo-200", name: "B端-下注行为异常", score: "0分", isError: false },
+                                  { tag: "体育", tagColor: "bg-slate-100 text-slate-700 border-slate-200", name: "低赔率注单占比高", score: "0分", isError: false },
+                                  { tag: "体育", tagColor: "bg-slate-100 text-slate-700 border-slate-200", name: "有二次结算注单", score: "0分", isError: false },
+                                  { tag: "体育", tagColor: "bg-slate-100 text-slate-700 border-slate-200", name: "B端-下注行为异常", score: "0分", isError: false },
+                                  { tag: "真人", tagColor: "bg-slate-100 text-slate-700 border-slate-200", name: "B端-下注行为异常", score: "0分", isError: false },
+                                  { tag: "棋牌", tagColor: "bg-slate-100 text-slate-700 border-slate-200", name: "命中多个套利特征", score: "0分", isError: false },
+                                  { tag: "棋牌", tagColor: "bg-slate-100 text-slate-700 border-slate-200", name: "全包", score: "0分", isError: false },
+                                  { tag: "彩票", tagColor: "bg-slate-100 text-slate-700 border-slate-200", name: "全包", score: "0分", isError: false },
+                                  { tag: "彩票", tagColor: "bg-slate-100 text-slate-700 border-slate-200", name: "高盈利额", score: "0分", isError: false },
+                                  { tag: "电子", tagColor: "bg-slate-100 text-slate-700 border-slate-200", name: "卡免费", score: "0分", isError: false },
+                                  { tag: "电子", tagColor: "bg-slate-100 text-slate-700 border-slate-200", name: "B端-下注行为异常", score: "0分", isError: false },
                                   { name: "……", score: "-", isError: false }
                                 ]
                               },
                               {
                                 category: "标签",
-                                tagColor: "bg-violet-50 text-violet-800 border-violet-200",
+                                tagColor: "bg-slate-100 text-slate-700 border-slate-200",
                                 items: [
                                   { name: "标签1", score: "0分", isError: false },
                                   { name: "标签2", score: "0分", isError: false },
@@ -1213,24 +1213,12 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                                 {group.items.map((sub: any, itemIdx) => {
                                   globalIndex += 1;
                                   const currentSeq = globalIndex;
-                                  const gameBgClass = sub.tag === "体育"
-                                    ? "bg-sky-50/50"
-                                    : sub.tag === "真人"
-                                    ? "bg-purple-50/50"
-                                    : sub.tag === "棋牌"
-                                    ? "bg-amber-50/50"
-                                    : sub.tag === "彩票"
-                                    ? "bg-emerald-50/50"
-                                    : sub.tag === "电子"
-                                    ? "bg-indigo-50/50"
-                                    : group.category === "标签"
-                                    ? "bg-violet-50/30"
-                                    : sub.isError
-                                    ? "bg-rose-50/40"
+                                  const gameBgClass = sub.isError
+                                    ? "bg-slate-50/80"
                                     : "bg-white";
 
                                   const displayTag = sub.tag || group.category;
-                                  const displayTagColor = sub.tagColor || group.tagColor || "bg-slate-100 text-slate-800 border-slate-200";
+                                  const displayTagColor = "bg-slate-100 text-slate-700 border-slate-200";
 
                                   const maskStrategyName = (name: string): string => {
                                     if (name === "……") return "……";
@@ -1389,7 +1377,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                           </div>
                           <p className="text-xs sm:text-[13px] text-slate-800 leading-relaxed">
                             {highlightNumbers(
-                              "超出放行安全分值（[[≥ 60 分]]）或命中高危特定组合（低分强转），均直接转人工精审；未超线且未中组合则放行。"
+                              "超出放行安全分值（≥ 60 分）或命中高危特定组合（低分强转），均[[直接转人工精审]]；未超线且未中组合则放行。"
                             )}
                           </p>
                         </div>
@@ -1419,7 +1407,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     {/* 顶部业务定义说明 */}
                     <div className="p-3.5 bg-white border-t border-slate-200 text-xs sm:text-sm text-slate-900 leading-relaxed font-normal">
                       {highlightNumbers(
-                        "系统通过对[[订单特征（金额/风险分/业务类型）]]与[[审核员能力/负载画像（擅长领域/历史绩效/当前负载）]]进行[[双向加权实时拟合]]，将高风险或专项订单毫秒级分发至最匹配、绩效最优的审核专家，实现质量与时效的双重最优化。"
+                        "系统通过对 **订单特征**（金额/风险分/业务类型）与 **审核员能力画像**（擅长领域/历史绩效/当前负载）进行[[双向加权实时拟合]]，将高风险或专项订单毫秒级分发至最匹配、绩效最优的审核专家，实现质量与时效的双重最优化。"
                       )}
                     </div>
 
@@ -1535,7 +1523,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                             </div>
                             <p className="text-xs text-slate-700 leading-relaxed">
                               {highlightNumbers(
-                                "体育订单约 [[80%]] 定向分流至专业体育组，提升审核准确度。"
+                                "体育订单约 80% 定向分流至专业体育组，提升审核准确度。"
                               )}
                             </p>
                           </div>
@@ -1558,7 +1546,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                               <div>
                                 <span className="text-slate-500 font-medium">候选列表：</span>
                                 <span className="text-slate-800">
-                                  {highlightNumbers("审核员A(准确率 [[99%]]) 与 审核员B(常规组)")}
+                                  {highlightNumbers("审核员A(准确率 99%) 与 审核员B(常规组)")}
                                 </span>
                               </div>
                             </div>
@@ -1629,7 +1617,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   <div className="p-3.5 bg-slate-50/70 border border-slate-200/60 text-xs sm:text-sm text-slate-900 leading-relaxed font-normal flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div>
                       {highlightNumbers(
-                        "建立常态化实盘抽检与自进化闭环：[[每周抽检 500+ 重点案例开展专人深度复盘]]，深入排查漏检特征与异常波动，动态反哺策略库与评分权重。"
+                        "建立常态化实盘抽检与自进化闭环：每周抽检 500+ 重点案例开展[[专人深度复盘]]，深入排查漏检特征与异常波动，动态反哺策略库与评分权重。"
                       )}
                     </div>
                    
@@ -1644,7 +1632,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       </div>
                       <p className="text-sm text-slate-700 leading-relaxed">
                         {highlightNumbers(
-                          "[[每周选取 500+ 案例开展专人深度复盘]]，持续追踪漏网订单与新型作案样本特征，反向闭环填补策略矩阵防御盲区，防止套利模式扩散。"
+                          "每周选取 500+ 案例开展[[专人深度复盘]]，持续追踪漏网订单与新型作案样本特征，反向闭环填补策略矩阵防御盲区，防止套利模式扩散。"
                         )}
                       </p>
                     </div>
@@ -1670,7 +1658,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       </div>
                       <p className="text-sm text-slate-700 leading-relaxed">
                         {highlightNumbers(
-                          "灰黑产套利模式持续升级，风控系统保持高度警惕，[[每周进行实盘推演与算法模型版本更新]]。"
+                          "灰黑产套利模式持续升级，风控系统保持高度警惕，每周进行[[实盘推演与算法模型版本更新]]。"
                         )}
                       </p>
                     </div>
@@ -1680,7 +1668,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             </div>
 
           {/* 4.3.3 云盾体系 · 保密机制防护 */}
-          <div className="space-y-4 pt-6 border-t border-slate-200">
+          <div className="flex flex-col gap-6">
             <ReportSubsectionHeader
               title={
                 <span className="flex items-center gap-2">
@@ -1750,7 +1738,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   </span>
                   <p className="text-sm sm:text-[14.5px] text-slate-700 leading-relaxed font-normal">
                     {highlightNumbers(
-                      "涵盖[[上百个特征及核心权重参数]]；风控策略组结合实盘样本执行[[周级例行指标校准与动态调参]]，打破静态规律，保持防御有效性。"
+                      "涵盖 100+ 特征及核心权重参数；风控策略组结合实盘样本执行[[周级例行指标校准与动态调参]]，打破静态规律，保持防御有效性。"
                     )}
                   </p>
                 </div>

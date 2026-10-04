@@ -77,7 +77,7 @@ export const PersonnelDistribution: React.FC = () => {
         <SummaryBox variant="module">
           <div className="text-sm text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "各职场编制按业务承载动态调配；持续提升系统自动审单比例，自 [[9月起]] 将外包审单量压降至 [[1% 以下]]（预计在10月内清0），实现[[成本节约与差错压降]]实质成效。"
+              "各职场编制按业务承载动态调配；持续提升系统自动审单比例，自 9月起 将外包审单量压降至 1% 以下（预计在10月内清0），实现[[成本节约与差错压降]]实质成效。"
             )}
           </div>
         </SummaryBox>
@@ -89,10 +89,10 @@ export const PersonnelDistribution: React.FC = () => {
             <div className="bg-white border border-slate-200 p-6 flex flex-col justify-between space-y-3">
               <div className="flex items-center justify-between pb-3 border-b border-slate-100">
                 <span className="text-xs sm:text-sm font-bold text-slate-700 tracking-wider uppercase">
-                  总人数
+                  内部职场在岗
                 </span>
                 <ReportBadge tone="slate" className="text-xs font-mono">
-                  场地
+                  内部在岗
                 </ReportBadge>
               </div>
               <div className="flex items-baseline justify-between py-1">
@@ -112,10 +112,10 @@ export const PersonnelDistribution: React.FC = () => {
             <div className="bg-white border border-slate-200 p-6 flex flex-col justify-between space-y-3">
               <div className="flex items-center justify-between pb-3 border-b border-slate-100">
                 <span className="text-xs sm:text-sm font-bold text-slate-700 tracking-wider uppercase">
-                  总人数
+                  外包在岗总数
                 </span>
                 <ReportBadge tone="slate" className="text-xs font-mono">
-                  外包
+                  外包编制
                 </ReportBadge>
               </div>
               <div className="flex items-baseline justify-between py-1">
@@ -136,7 +136,7 @@ export const PersonnelDistribution: React.FC = () => {
           <div className="space-y-3 pt-2">
             <div className="flex items-center justify-between px-1">
               <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
-                分布
+                各职场属地分布明细
               </span>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 items-stretch">

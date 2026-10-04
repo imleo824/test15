@@ -75,7 +75,7 @@ export const TgGovernanceSection: React.FC = () => {
       riskLevel: "高风险",
       status: "已处理",
       method: "系统替代",
-      actionDetails: "核心出款决策嵌入[[后台复审流]]，群内零敏感数据流转，[[100% 审计留痕]]。",
+      actionDetails: "核心出款决策嵌入[[后台复审流]]，群内零敏感数据流转，100% [[审计留痕]]。",
     },
     {
       id: "07",
@@ -99,7 +99,7 @@ export const TgGovernanceSection: React.FC = () => {
       riskLevel: "高风险",
       status: "已处理",
       method: "系统替代",
-      actionDetails: "实行多节点[[背靠背交叉核验]]，实名证件及隐私资料由 [[2~3 人]]协同审批。",
+      actionDetails: "实行多节点[[背靠背交叉核验]]，实名证件及隐私资料由 2~3人 协同审批。",
     },
     {
       id: "10",
@@ -115,14 +115,14 @@ export const TgGovernanceSection: React.FC = () => {
       riskLevel: "低风险",
       status: "已处理",
       method: "系统替代",
-      actionDetails: "场馆内嵌游戏输光上线[[系统自动解锁机制]]，减少风控 [[15%~20%]] 无效咨询。",
+      actionDetails: "场馆内嵌游戏输光上线[[系统自动解锁机制]]，减少风控 15%~20% 无效咨询。",
     },
   ];
 
   return (
-    <div id="section-tg-governance" className="flex flex-col gap-[var(--report-panel-gap)]">
+    <div id="section-tg-governance" className="flex flex-col gap-10 sm:gap-12">
       {/* 3.3.1 线下离线流程治理 */}
-      <div className="flex flex-col gap-[var(--report-panel-gap)]">
+      <div className="flex flex-col gap-6">
         <ReportSubsectionHeader title="3.3.1 线下离线流程治理" />
 
         {/* 关键治理准则：警惕“形式化工单化”——源头消除优先于工单流转 */}
@@ -137,7 +137,7 @@ export const TgGovernanceSection: React.FC = () => {
           </div>
           <p className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-normal">
             {highlightNumbers(
-              "推进线下流程向系统化工单收口过程中，[[严防将系统自动化可解决诉求形式化包装为工单]]。凡[[前端可自主闭环]]或[[底层系统可根治]]的诉求，坚决[[从源头彻底消除]]；确需人工介入的诉求，[[支持用户端自主发起并直连路由至承接部门]]，[[减少多重冗余角色中转]]，实现极简高效流转。"
+              "推进线下流程向系统化工单收口过程中，严格警惕“形式化工单化”。凡前端可自主闭环或底层系统可根治的诉求，坚决落实[[源头彻底消除]]；确需人工介入的诉求，全面推行[[端到端直连路由]]，消除多重冗余中转，实现极简高效流转。"
             )}
           </p>
         </div>
@@ -158,7 +158,7 @@ export const TgGovernanceSection: React.FC = () => {
               </p>
               <p>
                 <strong className="text-slate-900 font-bold">源头治理：</strong>
-                {highlightNumbers("底层系统自动识别输光状态并即时解锁，[[减少风控约 15%~20% 无效流转]]。")}
+                {highlightNumbers("底层系统自动识别输光状态并即时解锁，减少风控约 15%~20% 无效流转。")}
               </p>
             </div>
           </div>
@@ -177,7 +177,7 @@ export const TgGovernanceSection: React.FC = () => {
               </p>
               <p>
                 <strong className="text-slate-900 font-bold">源头治理：</strong>
-                {highlightNumbers("校准流水计算，直接消除咨询源头，[[减少风控约 30% 无效咨询与流转]]。")}
+                {highlightNumbers("校准流水计算规则，直接消除咨询源头，减少风控约 30% 无效咨询与流转。")}
               </p>
             </div>
           </div>
@@ -352,7 +352,7 @@ export const TgGovernanceSection: React.FC = () => {
       </div>
 
       {/* 3.3.2 线下群聊与系统工单流转对比 */}
-      <div className="space-y-6 sm:space-y-8">
+      <div className="flex flex-col gap-6">
         <ReportSubsectionHeader title="3.3.2 线下治理典型案例" />
 
         <SummaryBox>
@@ -536,7 +536,7 @@ export const TgGovernanceSection: React.FC = () => {
                 </div>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   {highlightNumbers(
-                    "在通讯工具中全局搜索任一会员账号（如 [[asd001]]），直接搜出跨度从 2025 年 8 月到 2026 年 9 月长达一年多的 [[9 条历史报单记录]]，跨群暴露无任何隔离。"
+                    "在通讯工具中全局搜索任一会员账号（如 asd001），直接搜出跨度从 2025 年 8 月到 2026 年 9 月长达一年多的 9 条历史报单记录，跨群暴露无任何隔离。"
                   )}
                 </p>
               </div>
@@ -565,7 +565,7 @@ export const TgGovernanceSection: React.FC = () => {
                 </div>
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                   {highlightNumbers(
-                    "关闭所有线下非受控报单群，[[12 项业务 100% 迁移至风控工单]]。严控跨群检索，仅限授权在册角色按需加密调阅，数据不落本地。"
+                    "关闭所有线下非受控报单群，12项业务 100% [[迁移至风控工单治理闭环]]。严控跨群检索，仅限授权在册角色按需加密调阅，数据不落本地。"
                   )}
                 </p>
               </div>
@@ -587,13 +587,13 @@ export const TgGovernanceSection: React.FC = () => {
       </div>
 
       {/* 3.3.3 核心流程闭环节点 */}
-      <div className="space-y-6 sm:space-y-8">
+      <div className="flex flex-col gap-6">
         <ReportSubsectionHeader title="3.3.3 高风险审核业务" />
 
         <SummaryBox>
           <p className="text-sm text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "以[[提款]]为发起点，推动[[审核]]、[[复审]]、[[KYC]]、[[扣款]]、[[禁用]]全面从离线群聊切换至风控工单，实现敏感信息保护与 100% 审计留痕。",
+              "以提款为发起点，推动审核、复审、KYC、扣款、禁用全面[[由离线群聊切换至风控工单]]，实现敏感数据严密防护与 100% 审计留痕。",
             )}
           </p>
         </SummaryBox>

@@ -1,6 +1,6 @@
 import React from "react";
 import { SummaryBox, highlightNumbers } from "./utils";
-import { ReportSubsectionHeader, ReportTableFrame } from "../../ReportSections";
+import { ReportSectionHeader, ReportTableFrame } from "../../ReportSections";
 
 export const AuditOverviewAgentInterception: React.FC = () => {
   const agentTableData = [
@@ -138,39 +138,40 @@ export const AuditOverviewAgentInterception: React.FC = () => {
 
   return (
     <div id="section-audit-agent-interception" className="flex flex-col gap-[var(--report-panel-gap)]">
-      {/* 模块小标题 - 统一规范 */}
-      <ReportSubsectionHeader title="2.1.3 代理数据" />
+      {/* 模块标题 - 统一规范 */}
+      <ReportSectionHeader title="2.3 代理拦截分析" />
 
       {/* 统一总结模块 */}
       <SummaryBox>
-        <div className="space-y-3">
+        <div className="space-y-2.5">
           <div className="text-sm text-slate-700 font-normal leading-relaxed">
-            {highlightNumbers(
-              "代理拦截以[[佣金]]为主体，[[活动类]]与[[首复存]]为主要补充。"
-            )}
+            代理拦截以<strong className="text-slate-950 font-bold">佣金类</strong>为主体，活动类与首复存为主要补充。
           </div>
-          <ul className="space-y-2 text-slate-700">
+          <ul className="space-y-1.5 text-slate-700">
             <li className="flex items-start gap-2 text-sm text-slate-700 font-normal leading-relaxed">
               <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
               <span>
+                <strong className="text-slate-950 font-bold">佣金拦截主体：</strong>
                 {highlightNumbers(
-                  "[[佣金拦截主体]]：含基础与额外佣金，占比达 [[62.42%]]，核心重拳打击[[基础佣金虚增]]与[[扶持降档套利]]。",
+                  "含基础与额外佣金，占比达 62.42%，核心重拳打击[[基础佣金虚增]]与[[扶持降档套利]]。"
                 )}
               </span>
             </li>
             <li className="flex items-start gap-2 text-sm text-slate-700 font-normal leading-relaxed">
               <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
               <span>
+                <strong className="text-slate-950 font-bold">活动套利阻断：</strong>
                 {highlightNumbers(
-                  "[[活动套利阻断]]：以[[奖励活动]]（[[4.35%]]）与[[新增冲刺]]（[[12.02%]]）为主，合计占比 [[16.37%]]；叠加[[首复存]]后金额达 [[2,932.8w]]，占比 [[33.15%]]。",
+                  "以奖励活动（4.35%）与新增冲刺（12.02%）为主，合计占比 16.37%；叠加首复存后金额达 2,932.8w，占比 33.15%。"
                 )}
               </span>
             </li>
             <li className="flex items-start gap-2 text-sm text-slate-700 font-normal leading-relaxed">
               <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
               <span>
+                <strong className="text-slate-950 font-bold">存款套利防控：</strong>
                 {highlightNumbers(
-                  "[[存款套利防控]]：针对[[用户首复存造假套利]]实施全量筛查，拦截占比达 [[16.77%]]。",
+                  "针对[[用户首复存造假套利]]实施全量筛查，拦截占比达 16.77%。"
                 )}
               </span>
             </li>

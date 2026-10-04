@@ -1,6 +1,6 @@
 import React from "react";
 import { SummaryBox, highlightNumbers } from "./utils";
-import { ReportSubsectionHeader, ReportTableFrame } from "../../ReportSections";
+import { ReportSectionHeader, ReportTableFrame } from "../../ReportSections";
 
 export const AuditOverviewHighVipDetail: React.FC = () => {
   // 会员等级明细数据（最新数据）
@@ -59,22 +59,23 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
 
   return (
     <div id="section-audit-high-vip-detail" className="flex flex-col gap-[var(--report-panel-gap)]">
-      {/* 模块小标题 - 统一规范 */}
-      <ReportSubsectionHeader title="2.1.6 高等级会员" />
+      {/* 模块标题 - 统一规范 */}
+      <ReportSectionHeader title="2.6 高等级会员拦截" />
 
       {/* 统一总结模块 */}
       <SummaryBox>
         <p className="text-sm text-slate-700 font-normal leading-relaxed mb-2.5">
           {highlightNumbers(
-            "[[高等级会员违规处置]]共 [[810人]]，涉及金额 [[5,790.60w]]（占总拦截金额 [[21.26%]]）：",
+            "高等级会员违规处置共 810人，涉及金额 5,790.60w（占总拦截金额 21.26%）："
           )}
         </p>
         <ul className="mt-3 space-y-2.5 text-slate-700">
           <li className="flex items-start gap-2 text-sm text-slate-700">
             <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2" />
             <span className="leading-relaxed">
+              <strong className="text-slate-950 font-bold">核心分布：</strong>
               {highlightNumbers(
-                "[[核心分布]]：集中在 [[6级与7级会员]]（人数占比 [[79.50%]]）；异常类型以[[体育打水]]、[[红利套利]]为主（人数占比 [[70.86%]]，金额占比 [[71.44%]]）。",
+                "集中在 6级与7级会员（人数占比 79.50%）；异常类型以[[体育打水]]与[[红利套利]]为主（人数占比 70.86%，金额占比 71.44%）。"
               )}
             </span>
           </li>
@@ -85,11 +86,11 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
               <ul className="mt-1.5 list-none space-y-1.5 pl-3 text-slate-700">
                 <li className="flex items-start gap-1.5">
                   <span className="shrink-0 font-mono text-sm text-slate-500">（1）</span>
-                  <span>{highlightNumbers("违规用户养号周期拉长、伪装度高，常规规则识别存在[[发现延迟]]。")}</span>
+                  <span>{highlightNumbers("违规用户养号周期拉长、伪装度高，常规规则识别存在发现延迟。")}</span>
                 </li>
                 <li className="flex items-start gap-1.5">
                   <span className="shrink-0 font-mono text-sm text-slate-500">（2）</span>
-                  <span>{highlightNumbers("高等级账号异常更隐蔽，需结合全链路特征综合判定，快速捕捉[[新型手法]]。")}</span>
+                  <span>{highlightNumbers("高等级账号异常更隐蔽，需结合全链路特征综合判定，快速捕捉新型手法。")}</span>
                 </li>
               </ul>
             </div>
@@ -101,11 +102,11 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
               <ul className="mt-1.5 list-none space-y-1.5 pl-3 text-slate-700">
                 <li className="flex items-start gap-1.5">
                   <span className="shrink-0 font-mono text-sm text-slate-500">（1）</span>
-                  <span>{highlightNumbers("[[观察中用户]]超 [[7天]]无异常提交[[组长审核]]，超 [[15天]]升级至[[主管审核]]；每日复审抽查，处理人数环比减少约 [[20%]]。")}</span>
+                  <span>{highlightNumbers("观察中用户超 7天 无异常提交组长审核，超 15天 升级至主管审核；每日复审抽查，处理人数环比减少约 20%。")}</span>
                 </li>
                 <li className="flex items-start gap-1.5">
                   <span className="shrink-0 font-mono text-sm text-slate-500">（2）</span>
-                  <span>{highlightNumbers("建立高等级异常升级机制，一审/二审向组长即时反馈，并对[[观察中用户]][[定期排查]]。")}</span>
+                  <span>{highlightNumbers("建立高等级异常升级机制，一审/二审向组长即时反馈，并对观察中用户实行[[定期排查升级机制]]。")}</span>
                 </li>
               </ul>
             </div>

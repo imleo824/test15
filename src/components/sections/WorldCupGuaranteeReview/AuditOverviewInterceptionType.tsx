@@ -1,6 +1,6 @@
 import React from "react";
 import { SummaryBox, highlightNumbers } from "./utils";
-import { ReportSubsectionHeader, ReportTableFrame } from "../../ReportSections";
+import { ReportSectionHeader, ReportTableFrame } from "../../ReportSections";
 
 export const AuditOverviewInterceptionType: React.FC = () => {
   const tableData = [
@@ -158,16 +158,25 @@ export const AuditOverviewInterceptionType: React.FC = () => {
 
   return (
     <div id="section-audit-interception-type" className="flex flex-col gap-[var(--report-panel-gap)]">
-      {/* 模块小标题 - 统一规范 */}
-      <ReportSubsectionHeader title="2.1.2 类型数据" />
+      {/* 模块标题 - 统一规范 */}
+      <ReportSectionHeader title="2.2 拦截类型与站点分布" />
 
       {/* 统一总结模块 */}
       <SummaryBox>
-        <p className="text-sm text-slate-700 font-normal leading-relaxed">
-          {highlightNumbers(
-            "[[拦截业务结构]]：[[体育类]]为核心拦截基本盘（占比 [[55.99%]]），其次为[[代理类]]（[[16.63%]]）与[[红利类]]（[[8.13%]]）。[[重点站点分布]]：4站、8站、BD+XK、6+9 等重点站点合计占比 [[62.92%]]；其中[[4站拦截 8,990.38w（占比 33.01%）]]，各品类拦截规模均居首位，为全线重点防守站点。"
-          )}
-        </p>
+        <div className="space-y-2 text-sm text-slate-700 font-normal leading-relaxed">
+          <p>
+            <strong className="text-slate-950 font-bold">拦截业务结构：</strong>
+            {highlightNumbers(
+              "体育类为[[核心拦截基本盘]]（占比 55.99%），其次为代理类（16.63%）与红利类（8.13%）。"
+            )}
+          </p>
+          <p>
+            <strong className="text-slate-950 font-bold">重点站点分布：</strong>
+            {highlightNumbers(
+              "4站、8站、BD+XK、6+9 等重点站点合计占比 62.92%；其中 4站 拦截 8,990.38w（占比 33.01%），各品类拦截规模均居首位，为全线[[重点防守站点]]。"
+            )}
+          </p>
+        </div>
       </SummaryBox>
 
       {/* 表格数据展示 */}

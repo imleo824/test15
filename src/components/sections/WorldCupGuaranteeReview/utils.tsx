@@ -416,9 +416,9 @@ export const ReportInfoGrid = ({
                 {(item.badge || item.status) && (
                   <div className="flex items-center gap-1 shrink-0">
                     {item.badge && (
-                      <ReportBadge tone={item.badge === "待排期" || item.badge.includes("待") ? "amber" : "blue"} className="report-status-badge">
+                      <ReportBadge tone={item.badge === "待排期" || item.badge.includes("待") ? "slate" : "blue"} className="report-status-badge">
                         {item.badge === "待排期" || item.badge.includes("待") ? (
-                          <Clock className="w-3.5 h-3.5 text-amber-600 shrink-0 stroke-[2.5]" />
+                          <Clock className="w-3.5 h-3.5 text-slate-600 shrink-0 stroke-[2.5]" />
                         ) : (
                           <Check className="w-3.5 h-3.5 text-blue-600 shrink-0 stroke-[2.5]" />
                         )}

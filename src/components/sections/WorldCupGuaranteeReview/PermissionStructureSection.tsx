@@ -11,7 +11,7 @@ export const PermissionStructureSection: React.FC = () => {
         <div className="space-y-2.5">
           <p className="text-sm text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "除少数特定工种外，一线业务[[无独立主动查会员场景]]，无任务关联的自主查询属于[[高风险操作]]。全面落实[[权限模式升级]]，构建[[长期特权]] + [[临时限时]] + [[凭单查询]]三级安全权限架构，[[以任务定权限，单结权销]]。"
+              "除少数特定工种外，一线业务无独立主动查会员场景，无任务关联的自主查询属于高风险操作。全面推进[[权限模式升级]]，构建「长期特权 - 临时限时 - 凭单查询」分层权限架构，从源头落实[[以任务定权限、单结权销]]。"
             )}
           </p>
         </div>
@@ -52,7 +52,7 @@ export const PermissionStructureSection: React.FC = () => {
                 适用：日常核心工作需要（如风控）
               </div>
               <p className="text-sm text-slate-700 leading-relaxed font-normal pt-1">
-                {highlightNumbers("仅针对特定极少数核心工种配置常态化查询权限；全量操作实施 [[100% 独立审计留痕与行为巡检]]。")}
+                {highlightNumbers("仅针对特定极少数核心工种配置常态化查询权限；全量操作实施 100% [[独立审计留痕与行为巡检]]。")}
               </p>
             </div>
             <div className="pt-3 border-t border-slate-100 text-xs font-mono text-slate-600 flex items-center gap-1.5">
@@ -83,7 +83,7 @@ export const PermissionStructureSection: React.FC = () => {
               </p>
             </div>
             <div className="pt-3 border-t border-slate-100 text-xs font-mono text-slate-600 flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5 text-indigo-700 shrink-0" />
+              <Clock className="w-3.5 h-3.5 text-slate-700 shrink-0" />
               <span>管控：到期自动失效、零历史残留</span>
             </div>
           </div>
@@ -110,7 +110,7 @@ export const PermissionStructureSection: React.FC = () => {
               </p>
             </div>
             <div className="pt-3 border-t border-slate-100 text-xs font-mono text-slate-600 flex items-center gap-1.5">
-              <FileCheck2 className="w-3.5 h-3.5 text-blue-700 shrink-0" />
+              <FileCheck2 className="w-3.5 h-3.5 text-slate-700 shrink-0" />
               <span>管控：以单定权、单结权销</span>
             </div>
           </div>

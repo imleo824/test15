@@ -291,7 +291,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
     if (anchors.length >= 3) {
       const containerRect = containerRef.current.getBoundingClientRect();
       const pts = Array.from(anchors).map((el) => {
-        const r = el.getBoundingClientRect();
+        const r = (el as Element).getBoundingClientRect();
         return {
           x: r.left + r.width / 2 - containerRect.left,
           y: r.top + r.height / 2 - containerRect.top,
@@ -321,25 +321,28 @@ export const SmartDispatchOrderStructure: React.FC = () => {
       description={
         <div className="w-full space-y-1.5 text-sm text-slate-700 leading-relaxed">
           <div className="font-bold text-slate-950">
-            {highlightNumbers("三大审核主体（外包 / 总部 / 系统）[[出单结构与质量演进]]：")}
+            {highlightNumbers("三大审核主体（外包 / 总部 / 系统）出单结构与质量演进：")}
           </div>
           <div className="space-y-1 pl-0.5">
             <div className="flex items-start gap-2">
               <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
               <span>
-                {highlightNumbers("[[外包审核]] 占比由 1~8月均值的 [[10.12%]] 深度清退至 9.30全量的 [[0.63%]]（[[高差错外包全面退场]]）；")}
+                <strong className="text-slate-950 font-bold">外包审核：</strong>
+                {highlightNumbers("占比由 1~8月均值 10.12% 深度清退至 9.30全量的 0.63%，实现[[高差错外包全面退场]]；")}
               </span>
             </div>
             <div className="flex items-start gap-2">
               <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
               <span>
-                {highlightNumbers("[[总部审核]] 占比精简至 [[34.37%]]，专注承接[[复杂核心单]]；")}
+                <strong className="text-slate-950 font-bold">总部审核：</strong>
+                {highlightNumbers("占比精简至 34.37%，实现[[专注承接复杂核心单]]；")}
               </span>
             </div>
             <div className="flex items-start gap-2">
               <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
               <span>
-                {highlightNumbers("[[系统自动审单]] 由 1~8月均值的 [[49.77%]] 跃升至 9.30全量的 [[65.00%]]（[[系统全量放行成型]]）。")}
+                <strong className="text-slate-950 font-bold">系统自动审单：</strong>
+                {highlightNumbers("由 1~8月均值 49.77% 跃升至 9.30全量的 65.00%，标志着[[系统全量放行成型]]。")}
               </span>
             </div>
           </div>

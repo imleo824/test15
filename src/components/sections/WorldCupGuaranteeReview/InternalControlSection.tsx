@@ -50,7 +50,7 @@ const auditActionItems = [
 
 export const InternalControlSection: React.FC = () => {
   return (
-    <div id="section-internal-control" className="flex flex-col gap-[var(--report-panel-gap)]">
+    <div id="section-internal-control" className="flex flex-col gap-10 sm:gap-12">
       <SummaryBox variant="module">
         {highlightNumbers(
           "由专职监督独立把关，重点监控[[红利发放]]、[[敏感参数变动]]与[[异常登录]]；依托行为留痕与操作日志实现全链路可溯，违规操作即时预警与查处。",
@@ -58,7 +58,7 @@ export const InternalControlSection: React.FC = () => {
       </SummaryBox>
 
       {/* 3.4.1 专职监督工作成果 */}
-      <div className="flex flex-col gap-[var(--report-panel-gap)]">
+      <div className="flex flex-col gap-6">
         <ReportSubsectionHeader title="3.4.1 违规查处与稽查成果" />
         
         <ReportMetricHero
@@ -85,49 +85,49 @@ export const InternalControlSection: React.FC = () => {
             value="9,020"
             unit="次"
             className="sm:col-span-2 lg:col-span-3"
-            detail={highlightNumbers("管控背景与处置闭环：9月新增明文回显全量监控，累计捕获回显记录 [[9,020次]]。因上半月查看姓名数据较多，内控监督即时介入反馈，果断对相关账号的高敏查看[[权限全面回收]]。至 [[9月16日]] 查看明文监测群技术调试全面就绪，日常查看条数迅速压降收敛至 [[0~4条/日]] 极低安全水位，且全部经逐笔复核反馈无违规异常。")}
+            detail={highlightNumbers("管控背景与处置闭环：9月新增明文回显全量监控，累计捕获回显记录 9,020次。因上半月查看姓名数据较多，内控监督即时介入反馈，果断对相关账号的高敏查看[[权限全面回收]]。至 9月16日 查看明文监测群技术调试全面就绪，日常查看条数迅速压降收敛至 0~4条/日 极低安全水位，且全部经逐笔复核反馈无违规异常。")}
           />
           <ReportMetricCard
             title="红利类型派错"
             value="161"
             unit="人"
-            detail={highlightNumbers("通过[[每日复核机制]]查获并退回；涉及金额 [[3.73w]]，环比第二季度 [[36.69w]] 下降 [[89.83%]]。")}
+            detail={highlightNumbers("通过[[每日复核机制]]查获并退回；涉及金额 3.73w，环比第二季度 36.69w 下降 89.83%。")}
           />
           <ReportMetricCard
             title="红利流水派错"
             value="1,142"
             unit="人"
-            detail={highlightNumbers("通过[[每日复核机制]]查获并修正；涉及金额 [[17.13w]]，环比第二季度 [[6.79w]] 上升 [[152%]]。")}
+            detail={highlightNumbers("通过[[每日复核机制]]查获并修正；涉及金额 17.13w，环比第二季度 6.79w 上升 152%。")}
           />
           <ReportMetricCard
             title="平台参数修改"
             value="52"
             unit="条"
-            detail={highlightNumbers("涵盖[[返水比例]]、[[财务费率]]、[[代理分红]]、[[财务存提]]等敏感配置变更。")}
+            detail={highlightNumbers("涵盖返水比例、财务费率、代理分红、财务存提等敏感配置变更。")}
           />
           <ReportMetricCard
             title="用户信息修改"
             value="15,135"
             unit="条"
-            detail={highlightNumbers("核查修改漏记/错记 [[192条]]，环比第二季度 [[248条]] 下降 [[22.58%]]。")}
+            detail={highlightNumbers("核查修改漏记/错记 192条，环比第二季度 248条 下降 22.58%。")}
           />
           <ReportMetricCard
             title="后台登录监测"
             value="742+"
             unit="常用IP"
-            detail={highlightNumbers("其中 [[179条]] 异常跳跃登录；主要为 [[8月29日]] 频繁切换 IP 随机尝试登录后台的异常 IP（共 [[110条]]），其余主要为 VPN 节点跳跃登出或登录失败；异常 IP 均已即时反馈技术团队拉黑阻断。")}
+            detail={highlightNumbers("其中 179条 异常跳跃登录；主要为 8月29日 频繁切换 IP 随机尝试登录后台的异常 IP（共 110条），其余主要为 VPN 节点跳跃登出或登录失败；异常 IP 均已即时反馈技术团队拉黑阻断。")}
           />
           <ReportMetricCard
             title="数据导出监测"
             value="43,087"
             unit="次"
-            detail={highlightNumbers("经[[人工及系统双向复核]]，未发现泄露行为；环比第二季度 [[55,017次]] 下降 [[21.68%]]。")}
+            detail={highlightNumbers("经[[人工及系统双向复核]]，未发现泄露行为；环比第二季度 55,017次 下降 21.68%。")}
           />
         </ReportMetricGrid>
       </div>
 
       {/* 3.4.2 监督排查核心主线 */}
-      <div className="flex flex-col gap-[var(--report-panel-gap)]">
+      <div className="flex flex-col gap-6">
         <ReportSubsectionHeader title="3.4.2 监督排查核心主线" />
 
         <SummaryBox variant="module">
@@ -212,7 +212,7 @@ export const InternalControlSection: React.FC = () => {
       </div>
 
       {/* 3.4.3 高危场景防范 */}
-      <div className="flex flex-col gap-[var(--report-panel-gap)]">
+      <div className="flex flex-col gap-6">
         <ReportSubsectionHeader title="3.4.3 高危场景防范" />
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 items-stretch">
@@ -275,7 +275,7 @@ export const InternalControlSection: React.FC = () => {
       </div>
 
       {/* 3.4.4 典型违规案例剖析 */}
-      <div className="flex flex-col gap-[var(--report-panel-gap)]">
+      <div className="flex flex-col gap-6">
         <ReportSubsectionHeader title="3.4.4 典型案例剖析" />
         
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-5 sm:gap-6 items-stretch">
@@ -292,7 +292,7 @@ export const InternalControlSection: React.FC = () => {
               {
                 step: 2,
                 title: "专项跟进与录屏分析",
-                content: highlightNumbers("对全量外包账号录屏抽检，查出[[不规范操作占比达 33%]]，安全隐患突出。"),
+                content: highlightNumbers("对全量外包账号录屏抽检，查出[[不规范操作]]占比达 33%，安全隐患突出。"),
               },
               {
                 step: 3,

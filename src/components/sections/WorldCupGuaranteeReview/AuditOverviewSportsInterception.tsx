@@ -14,7 +14,7 @@ import {
 import {
   ReportChartCard,
   ReportChartLegend,
-  ReportSubsectionHeader,
+  ReportSectionHeader,
   ReportTableFrame
 } from "../../ReportSections";
 
@@ -256,30 +256,32 @@ export const AuditOverviewSportsInterception: React.FC = () => {
 
   return (
     <div id="section-audit-sports-interception" className="flex flex-col gap-[var(--report-panel-gap)]">
-      {/* 模块小标题 - 统一规范 */}
-      <ReportSubsectionHeader title="2.1.4 体育数据" />
+      {/* 模块标题 - 统一规范 */}
+      <ReportSectionHeader title="2.4 体育拦截分析" />
 
       {/* 统一总结模块 */}
       <SummaryBox>
         <p className="text-sm text-slate-700 font-normal leading-relaxed mb-2.5">
           {highlightNumbers(
-            "[[体育拦截总计]] [[15,248.39w]]，其中[[体育打水]]为主体，金额 [[10,827.21w]]、占比 [[71.01%]]；其次为[[批量打水]] [[1,730.97w]]、占比 [[11.35%]]，[[出货]] [[1,379.37w]]、占比 [[9.05%]]。站点分布中[[4站]]合计金额最集中，达 [[5,242.16w]]；其中[[体育打水]] [[4,065.38w]]、该类占比 [[37.55%]]，[[其他类]] [[630.30w]]、该类占比 [[64.95%]]。",
+            "体育拦截总计 15,248.39w，其中体育打水为[[核心拦截基本盘]]，金额 10,827.21w、占比 71.01%；其次为批量打水 1,730.97w（占比 11.35%）与出货 1,379.37w（占比 9.05%）。站点分布中 4站 金额最为集中，达 5,242.16w；其中体育打水 4,065.38w（该类占比 37.55%）。"
           )}
         </p>
-        <ul className="mt-3 space-y-2.5 text-slate-700">
+        <ul className="mt-3 space-y-2 text-slate-700">
           <li className="flex items-start gap-2.5 text-sm text-slate-700 font-normal leading-relaxed">
             <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
             <span>
+              <strong className="text-slate-950 font-bold">盘口协同：</strong>
               {highlightNumbers(
-                "[[盘口协同]]：深化[[商户操盘协同机制]]，推动[[赔率联动]]覆盖 [[90%]] 以上进球类玩法，锁定合理[[盈利率]]。",
+                "深化[[商户操盘协同机制]]，推动赔率联动覆盖 90% 以上进球类玩法，锁定合理盈利率。"
               )}
             </span>
           </li>
           <li className="flex items-start gap-2.5 text-sm text-slate-700 font-normal leading-relaxed">
             <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
             <span>
+              <strong className="text-slate-950 font-bold">处置闭环：</strong>
               {highlightNumbers(
-                "[[处置闭环]]：建立标准化流程，含[[系统预警]]（[[15分钟]]内跟进）、[[系统初审]]（自动分流）、[[智能分单]]（[[派发至 34人体育组]]）及[[工具复审]]（跨站关联排查），实现高危订单[[精准拦截与分级处置]]。",
+                "建立标准化流程，含系统预警（15分钟内跟进）、系统初审（自动分流）、智能分单（定向派发至 34人体育组）及工具复审（跨站关联排查），实现高危订单[[精准拦截与分级处置]]。"
               )}
             </span>
           </li>
@@ -291,7 +293,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
         {/* 图表 1: 各系别体育拦截率趋势 */}
         <ReportChartCard
           title="各系别体育拦截率趋势"
-          description={highlightNumbers("三季度综合体育拦截率 [[6.50%]]，各系别集中在 [[5.8%~6.6%]]，防守态势平稳。")}
+          description={highlightNumbers("三季度综合体育拦截率 6.50%，各系别集中在 5.8%~6.6%，防守态势平稳。")}
           legend={
             <ReportChartLegend
               items={[
@@ -320,7 +322,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
         {/* 图表 2: 各场馆体育拦截率趋势 */}
         <ReportChartCard
           title="各场馆体育拦截率趋势"
-          description={highlightNumbers("各场馆体育拦截率维持在 [[5.6%~6.6%]]，与平台保持常态化[[盘口协同]]。")}
+          description={highlightNumbers("各场馆体育拦截率维持在 5.6%~6.6%，与平台保持常态化[[盘口协同]]。")}
           legend={
             <ReportChartLegend
               items={[

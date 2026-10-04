@@ -1,6 +1,6 @@
 import React from "react";
 import { SummaryBox, highlightNumbers } from "./utils";
-import { ReportSubsectionHeader, ReportTableFrame } from "../../ReportSections";
+import { ReportSectionHeader, ReportTableFrame } from "../../ReportSections";
 
 export const AuditOverviewStudioInterception: React.FC = () => {
   const studioData = [
@@ -108,16 +108,25 @@ export const AuditOverviewStudioInterception: React.FC = () => {
 
   return (
     <div id="section-audit-studio-interception" className="flex flex-col gap-[var(--report-panel-gap)]">
-      {/* 模块小标题 - 统一规范 */}
-      <ReportSubsectionHeader title="2.1.5 工作室数据" />
+      {/* 模块标题 - 统一规范 */}
+      <ReportSectionHeader title="2.5 工作室拦截明细" />
 
       {/* 统一总结模块 */}
       <SummaryBox>
-        <p className="text-sm text-slate-700 font-normal leading-relaxed">
-          {highlightNumbers(
-            "[[工作室拦截总计]]达 [[4,819.44w]]。[[游戏品类分布]]中[[体育批量]]占据主导，达 [[2,051.09w]]（占比 [[42.56%]]）；其次为[[真人批量]]（[[849.46w]]，[[17.63%]]）与[[彩票批量]]（[[774.11w]]，[[16.06%]]）。[[站点分布]]中[[4站]]拦截规模居首，达 [[1,224.53w]]（占比 [[25.41%]]）。",
-          )}
-        </p>
+        <div className="space-y-1.5 text-sm text-slate-700 font-normal leading-relaxed">
+          <div>
+            <strong className="text-slate-950 font-bold">拦截规模全景：</strong>
+            {highlightNumbers("工作室拦截总计达 4,819.44w，主要聚焦在批量打水与套利黑产。")}
+          </div>
+          <div>
+            <strong className="text-slate-950 font-bold">游戏品类分布：</strong>
+            {highlightNumbers("品类中[[体育批量占据主导]]，金额达 2,051.09w（占比 42.56%）；其次为真人批量（849.46w，17.63%）与彩票批量（774.11w，16.06%）。")}
+          </div>
+          <div>
+            <strong className="text-slate-950 font-bold">重点站点集中：</strong>
+            {highlightNumbers("站点分布中[[4站拦截规模居首]]，达 1,224.53w（占比 25.41%），各品类批量黑产均高度集中。")}
+          </div>
+        </div>
       </SummaryBox>
 
       {/* 工作室拦截明细表格 */}

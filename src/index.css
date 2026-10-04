@@ -424,19 +424,19 @@
   .report-section-stack {
     display: flex;
     flex-direction: column;
-    gap: 104px;
+    gap: 72px;
   }
 
   .report-chapter-block {
     display: flex;
     flex-direction: column;
-    gap: var(--report-panel-gap);
+    gap: 28px;
   }
 
   .report-chapter-content {
     display: flex;
     flex-direction: column;
-    gap: calc(var(--report-panel-gap) * 1.6);
+    gap: 48px;
   }
 
   .report-business-section {
@@ -991,6 +991,14 @@
     padding-bottom: 10px;
   }
 
+  /* 统一规范：当标题置于 flex 容器内部时，由容器 gap 统一控制间距，避免自身 margin 与父级 gap 叠加大造成不一致 */
+  .flex > .report-section-header,
+  .space-y-6 > .report-section-header,
+  .space-y-8 > .report-section-header,
+  .report-chapter-content > .report-section-header {
+    margin-bottom: 0 !important;
+  }
+
   .report-section-header h3 {
     font-size: var(--report-font-section-title) !important;
     font-weight: 800 !important;
@@ -1003,6 +1011,12 @@
     margin-bottom: 1rem;
     border-bottom: 1px solid var(--report-line-subtle);
     padding-bottom: 8px;
+  }
+
+  .flex > .report-subsection-header,
+  .space-y-6 > .report-subsection-header,
+  .space-y-8 > .report-subsection-header {
+    margin-bottom: 0 !important;
   }
 
   .report-subsection-header h4 {
@@ -1332,17 +1346,19 @@
   }
 
   .report-core-underline {
-    color: #020617 !important; /* Deep, sharp slate-950 color */
-    font-weight: 700 !important; /* True bold weight for strong visual hierarchy */
-    background-color: transparent !important; /* No background */
-    border-bottom: none !important; /* No underline as requested */
-    padding: 0 !important; /* Zero padding */
-    border-radius: 0 !important;
-    display: inline !important; /* Standard inline rendering */
-    box-decoration-break: clone !important;
-    -webkit-box-decoration-break: clone !important;
-    line-height: inherit;
-    margin: 0 !important; /* Zero margin */
+    color: #090d16 !important; /* Deep, sharp slate-950 font for core phrases */
+    font-weight: 700 !important; /* Bold weight for crisp emphasis */
+    background-color: #eff6ff !important; /* Flat subtle brand light blue tint (主色淡蓝) - zero yellow, zero shadow */
+    border: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    padding: 1px 5px !important;
+    border-radius: 2px !important;
+    display: inline !important;
+    line-height: inherit !important;
+    margin: 0 !important;
+    font-size: inherit !important;
   }
 
   .report-shell .report-number {
@@ -3868,10 +3884,9 @@
     font-size: 15.5px !important;
   }
 
-  /* 3. 全局粗体文字大一统：所有 strong、b 标签、高亮短语及重点数字 */
+  /* 3. 全局粗体文字大一统：所有 strong、b 标签及重点数字 */
   .report-shell strong:not(.text-white):not([class*="text-white"]),
   .report-shell b:not(.text-white):not([class*="text-white"]),
-  .report-shell .report-core-underline,
   .report-shell .report-number:not(.report-number-risk):not(.report-number-safe):not(.text-white),
   .report-shell p strong:not(.text-white):not([class*="text-white"]),
   .report-shell li strong:not(.text-white):not([class*="text-white"]),
@@ -4029,6 +4044,28 @@
     justify-content: flex-start !important;
   }
 
+  /* ==========================================================================
+     强调层级规范：
+     1. 正常文字：细体/常规 (400, #334155)
+     2. 强调层一：粗体 (700, #090d16)
+     3. 强调层二：粗体且高亮 (700, #090d16, 主色淡蓝微底色 #eff6ff, 无阴影立体)
+     ========================================================================== */
+  .report-shell .report-core-underline,
+  .report-core-underline {
+    color: #090d16 !important; /* 字体深色扎实，不使用杂色 */
+    font-weight: 700 !important; /* 粗体 */
+    background-color: #eff6ff !important; /* 主色淡蓝微高亮底色 */
+    border: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    padding: 1px 5px !important;
+    border-radius: 2px !important;
+    display: inline !important;
+    line-height: inherit !important;
+    margin: 0 !important;
+    font-size: inherit !important;
+  }
 }
 
 /* Scrollbar styling - Higher contrast */
