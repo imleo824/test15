@@ -148,16 +148,16 @@ export const TgGovernanceSection: React.FC = () => {
               <span className="font-bold text-slate-950 text-sm sm:text-base">
                 案例 1：体育内嵌玩非体育输光解锁
               </span>
-              <ReportBadge tone="green" className="text-xs">已解决</ReportBadge>
+              <ReportBadge tone="green" className="text-xs font-mono">已解决</ReportBadge>
             </div>
-            <div className="text-xs sm:text-sm text-slate-700 space-y-1.5 leading-relaxed flex-1">
+            <div className="text-xs sm:text-sm text-slate-700 space-y-2 leading-relaxed flex-1">
               <p>
                 <strong className="text-slate-900 font-bold">传统弊端：</strong>
-                {highlightNumbers("内嵌游戏输光未自动解锁，导致频繁咨询与人工介入；")}
+                {highlightNumbers("内嵌游戏输光未自动解锁，导致频繁咨询与人工介入申请解锁；")}
               </p>
               <p>
                 <strong className="text-slate-900 font-bold">源头治理：</strong>
-                {highlightNumbers("底层系统自动识别输光状态并即时解锁，减少风控约 15%~20% 无效流转。")}
+                {highlightNumbers("[[并非为此新建「场馆解锁工单」]]，而是由底层系统自动识别输光状态并即时解锁，从根源彻底消除不该存在的咨询，减少风控约 15%~20% 无效流转。")}
               </p>
             </div>
           </div>
@@ -167,16 +167,16 @@ export const TgGovernanceSection: React.FC = () => {
               <span className="font-bold text-slate-950 text-sm sm:text-base">
                 案例 2：提款流水咨询与校准
               </span>
-              <ReportBadge tone="amber" className="text-xs">待解决</ReportBadge>
+              <ReportBadge tone="amber" className="text-xs font-mono">待解决</ReportBadge>
             </div>
-            <div className="text-xs sm:text-sm text-slate-700 space-y-1.5 leading-relaxed flex-1">
+            <div className="text-xs sm:text-sm text-slate-700 space-y-2 leading-relaxed flex-1">
               <p>
                 <strong className="text-slate-900 font-bold">传统弊端：</strong>
-                {highlightNumbers("系统流水计算不准引发频繁咨询，客服转提工单复核；")}
+                {highlightNumbers("系统流水计算不准引发频繁咨询，客服被迫转提工单交由人工逐笔复核；")}
               </p>
               <p>
                 <strong className="text-slate-900 font-bold">源头治理：</strong>
-                {highlightNumbers("校准流水计算规则，直接消除咨询源头，减少风控约 30% 无效咨询与流转。")}
+                {highlightNumbers("[[并非为此新建「流水查询工单」]]，而是直接校准底层流水计算规则并清晰展示，从根源彻底消除不该存在的咨询，减少风控约 30% 无效流转。")}
               </p>
             </div>
           </div>

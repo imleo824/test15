@@ -94,7 +94,7 @@ export const ReportSectionHeader: React.FC<{
 }> = ({ title, rightContent, className = "" }) => {
   return (
     <div
-      className={`report-section-header flex flex-col lg:flex-row lg:items-center justify-between pb-3 border-b border-slate-200 gap-3 mb-5 sm:mb-6 ${className}`}
+      className={`report-section-header flex flex-col lg:flex-row lg:items-center justify-between pb-3 border-b border-slate-200 gap-3 ${className}`}
     >
       <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight flex items-center gap-2.5">
         {title}
@@ -114,7 +114,7 @@ export const ReportSubsectionHeader: React.FC<{
   className?: string;
 }> = ({ title, rightContent, className = "" }) => {
   return (
-    <div className={`report-subsection-header flex flex-col sm:flex-row sm:items-center justify-between pb-2.5 border-b border-slate-200 gap-2 mb-4 sm:mb-5 ${className}`}>
+    <div className={`report-subsection-header flex flex-col sm:flex-row sm:items-center justify-between pb-2.5 border-b border-slate-200 gap-2 ${className}`}>
       <h4 className="text-lg sm:text-xl font-bold text-slate-950 tracking-tight flex items-center gap-2">
         {title}
       </h4>
@@ -130,7 +130,7 @@ export const ReportTableFrame: React.FC<{
 }> = ({ children, className = "", noScroll = false }) => {
   return (
     <div
-      className={`report-table-frame border-t border-b border-slate-200 my-6 sm:my-7 ${
+      className={`report-table-frame border-t border-b border-slate-200 ${
         noScroll ? "overflow-hidden report-table-frame--no-scroll" : "overflow-x-auto"
       } ${className}`}
     >

@@ -47,7 +47,7 @@ export const FuturePlansSection: React.FC = () => {
       highlights: [
         {
           title: "全链路工单闭环",
-          desc: "业务流转全量收拢至[[工单系统]]，杜绝脱单私聊与线下流转，保持[[审计留痕与溯源]]。",
+          desc: "业务流转收拢至[[工单系统]]，杜绝脱单私聊与线下流转，保持[[留痕与溯源]]。",
         },
         {
           title: "权限与变更管控",
