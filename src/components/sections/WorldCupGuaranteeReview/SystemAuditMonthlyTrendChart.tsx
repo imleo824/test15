@@ -126,15 +126,15 @@ const renderBarLabel = ({ x, y, width, value, index }: any) => {
   return (
     <text
       x={centerX}
-      y={y + 16}
+      y={y + 18}
       textAnchor="middle"
-      fill={isLast ? "#ffffff" : "#0f172a"}
+      fill={isLast ? "#ffffff" : "#1e293b"}
       fontSize={isLast ? 12 : 11}
       fontFamily="var(--font-mono, monospace)"
       fontWeight={800}
       paintOrder="stroke"
       stroke={isLast ? "#1d4ed8" : "#ffffff"}
-      strokeWidth={2}
+      strokeWidth={isLast ? 1 : 2.5}
       strokeLinejoin="round"
     >
       {value}
@@ -154,16 +154,43 @@ const renderLineLabel = ({ x, y, value, index }: any) => {
       <g>
         {/* 9月成就高亮气泡：质检率降至历史最低 0.072% */}
         <rect
-          x={x - 30}
-          y={y - 28}
-          width={60}
+          x={x - 28}
+          y={y - 25}
+          width={56}
           height={18}
           fill="#047857"
           rx={3}
         />
         <text
           x={x}
-          y={y - 15}
+          y={y - 12}
+          textAnchor="middle"
+          fill="#ffffff"
+          fontSize={11.5}
+          fontFamily="var(--font-mono, monospace)"
+          fontWeight={900}
+        >
+          {value}
+        </text>
+      </g>
+    );
+  }
+
+  if (isFirst) {
+    return (
+      <g>
+        {/* 1月峰值高亮气泡：0.324% */}
+        <rect
+          x={x - 28}
+          y={y - 25}
+          width={56}
+          height={18}
+          fill="#991b1b"
+          rx={3}
+        />
+        <text
+          x={x}
+          y={y - 12}
           textAnchor="middle"
           fill="#ffffff"
           fontSize={11.5}
@@ -177,21 +204,30 @@ const renderLineLabel = ({ x, y, value, index }: any) => {
   }
 
   return (
-    <text
-      x={x}
-      y={y - 12}
-      textAnchor="middle"
-      fill={isFirst ? "#991b1b" : "#b91c1c"}
-      fontSize={isFirst ? 12 : 11}
-      fontFamily="var(--font-mono, monospace)"
-      fontWeight={800}
-      paintOrder="stroke"
-      stroke="#ffffff"
-      strokeWidth={3}
-      strokeLinejoin="round"
-    >
-      {value}
-    </text>
+    <g>
+      <rect
+        x={x - 23}
+        y={y - 20}
+        width={46}
+        height={16}
+        rx={2}
+        fill="#ffffff"
+        stroke="#fca5a5"
+        strokeWidth={1}
+        opacity={0.96}
+      />
+      <text
+        x={x}
+        y={y - 8}
+        textAnchor="middle"
+        fill="#b91c1c"
+        fontSize={10.5}
+        fontFamily="var(--font-mono, monospace)"
+        fontWeight={800}
+      >
+        {value}
+      </text>
+    </g>
   );
 };
 
@@ -232,10 +268,6 @@ const renderCustomLegend = () => (
     <div className="flex items-center gap-2 font-bold text-red-700">
       <span className="h-2.5 w-5 bg-red-600 rounded-full inline-block" />
       <span>实际月度质检率</span>
-    </div>
-    <div className="flex items-center gap-2 font-bold text-emerald-800">
-      <span className="h-0.5 w-6 border-b-2 border-dashed border-emerald-600 inline-block" />
-      <span>0.324% ➔ 0.072% 直线连接</span>
     </div>
   </div>
 );
@@ -337,25 +369,25 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
                 tick={{ ...chartAxisTick, fontSize: 13 }}
               />
               
-              {/* 左 Y 轴：系统出单比例 (%) - 采用聚焦区间 [40, 70] */}
+              {/* 左 Y 轴：系统出单比例 (%) - 采用基准零刻度 [0, 75]，与出单结构趋势对比保持严格一致 */}
               <YAxis
                 yAxisId="left"
                 stroke={chartColors.blue}
                 tick={{ ...chartAxisTick, fill: "#1e40af", fontWeight: 700 }}
                 tickFormatter={(val) => `${val}%`}
-                domain={[40, 70]}
-                ticks={[40, 45, 50, 55, 60, 65, 70]}
+                domain={[0, 75]}
+                ticks={[0, 15, 30, 45, 60, 75]}
               />
 
-              {/* 右 Y 轴：系统质检率 (%) */}
+              {/* 右 Y 轴：系统质检率 (%) - 采用 [0, 0.40]，彻底避免与出单比例重叠遮挡 */}
               <YAxis
                 yAxisId="right"
                 orientation="right"
                 stroke="#b91c1c"
                 tick={{ ...chartAxisTick, fill: "#b91c1c", fontSize: 12, fontWeight: 700 }}
                 tickFormatter={(val) => `${Number(val).toFixed(2)}%`}
-                domain={[0.03, 0.36]}
-                ticks={[0.03, 0.072, 0.12, 0.18, 0.25, 0.36]}
+                domain={[0, 0.40]}
+                ticks={[0, 0.072, 0.15, 0.25, 0.324, 0.40]}
               />
 
               <Tooltip
@@ -403,6 +435,7 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
                 type="linear"
                 dataKey="linearErrorRate"
                 name="0.324% ➔ 0.072% 直线连接"
+                legendType="none"
                 stroke="#059669"
                 strokeWidth={2.5}
                 strokeDasharray="6 4"

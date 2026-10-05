@@ -1008,15 +1008,9 @@
   }
 
   .report-subsection-header {
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem !important;
     border-bottom: 1px solid var(--report-line-subtle);
     padding-bottom: 8px;
-  }
-
-  .flex > .report-subsection-header,
-  .space-y-6 > .report-subsection-header,
-  .space-y-8 > .report-subsection-header {
-    margin-bottom: 0 !important;
   }
 
   .report-subsection-header h4 {
@@ -4074,14 +4068,21 @@
     color: #334155 !important;
   }
 
-  /* 全局数据表数字列（除首列外）统一右对齐，确保数值垂直方向对齐对比阅读（架构体系等纯文本表格除外） */
-  .report-data-table:not(.safety-architecture-table) :is(td, th):not(:first-child) {
-    text-align: right !important;
-    padding-right: 16px !important;
+  /* 全局数据表行业最佳对齐实践：多列跨度表头居中，右对齐金额列、居中占比列、左对齐标签列 */
+  .report-data-table:not(.safety-architecture-table) th[colspan]:not([colspan="1"]) {
+    text-align: center !important;
   }
-  .report-data-table:not(.safety-architecture-table) :is(td, th):first-child {
+  .report-data-table:not(.safety-architecture-table) :is(td, th).text-center {
+    text-align: center !important;
+  }
+  .report-data-table:not(.safety-architecture-table) :is(td, th).text-right {
+    text-align: right !important;
+  }
+  .report-data-table:not(.safety-architecture-table) :is(td, th).text-left {
     text-align: left !important;
-    padding-left: 16px !important;
+  }
+  .report-data-table:not(.safety-architecture-table) :is(td, th):first-child:not(.text-center):not(.text-right) {
+    text-align: left !important;
   }
 
   /* 安全合规分层防御架构表格：所有列表头及内容均严格左对齐 */

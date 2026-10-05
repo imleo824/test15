@@ -75,10 +75,28 @@ export const PersonnelDistribution: React.FC = () => {
         <ReportSectionHeader title="1.2 人员分布" />
 
         <SummaryBox variant="module">
-          <div className="text-sm text-slate-700 font-normal leading-relaxed">
-            {highlightNumbers(
-              "各职场承载动态调配；持续[[提升系统自动审单比例]]，自 9月起 将[[外包]]审单量压降至 1% 以下（预计在10月内清0）；同时[[总部]]人员也会持续压缩，实现[[成本节约与差错压降]]实质成效。"
-            )}
+          <div className="space-y-2.5 text-sm text-slate-700 font-normal leading-relaxed">
+            <p>
+              {highlightNumbers(
+                "各职场承载动态调配；持续[[提升系统自动审单比例]]，实现[[成本节约与差错压降]]实质成效："
+              )}
+            </p>
+            <ul className="space-y-1.5 pt-0.5">
+              <li className="flex items-start gap-2">
+                <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
+                <span>
+                  <strong className="text-slate-950 font-bold">外包：</strong>
+                  {highlightNumbers("自 9 月起将外包审单量压降至 [[1% 以下]]（预计在 10 月内清零）。")}
+                </span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
+                <span>
+                  <strong className="text-slate-950 font-bold">总部：</strong>
+                  {highlightNumbers("低效人员也会[[持续压缩和清理]]。")}
+                </span>
+              </li>
+            </ul>
           </div>
         </SummaryBox>
 

@@ -192,7 +192,7 @@ export const AuditOverviewAgentInterception: React.FC = () => {
               <span>
                 <strong className="text-slate-950 font-bold">基础与额外佣金拦截：</strong>
                 {highlightNumbers(
-                  "基础佣金以及额外佣金拦截[[两者总计占比达 65%]]，主要为基础以及扶持降低派发拦截。8月数据突出原因为 [[mk真人代理佣金拦截]]。"
+                  "基础佣金以及额外佣金拦截[[两者总计占比达 65%]]，主要为基础以及扶持降低派发拦截。8 月数据突出原因为 [[MK 真人代理佣金拦截]]。"
                 )}
               </span>
             </li>
@@ -201,7 +201,7 @@ export const AuditOverviewAgentInterception: React.FC = () => {
               <span>
                 <strong className="text-slate-950 font-bold">代理活动拦截：</strong>
                 {highlightNumbers(
-                  "主要以[[首复存 & 新增冲刺活动]]拦截金为主，两者总计占比占整体 [[23%]]。"
+                  "主要以[[首复存与新增冲刺活动]]拦截金为主，两者合计占整体 [[23%]]。"
                 )}
               </span>
             </li>
@@ -210,7 +210,7 @@ export const AuditOverviewAgentInterception: React.FC = () => {
               <span>
                 <strong className="text-slate-950 font-bold">人头费拦截：</strong>
                 {highlightNumbers(
-                  "因 25年优化后此项拦截持续减少；[[7月数据突出系杯赛策略调整]]所致。"
+                  "因 25 年优化后此项拦截持续减少；[[7 月数据突出系杯赛策略调整]]所致。"
                 )}
               </span>
             </li>
@@ -219,7 +219,7 @@ export const AuditOverviewAgentInterception: React.FC = () => {
               <span>
                 <strong className="text-slate-950 font-bold">首复存拦截：</strong>
                 {highlightNumbers(
-                  "属于会员活动拦截，整体拦截占比约占 [[13%]]。"
+                  "属于会员活动拦截，整体拦截占比约 [[13%]]。"
                 )}
               </span>
             </li>
@@ -228,92 +228,92 @@ export const AuditOverviewAgentInterception: React.FC = () => {
       </SummaryBox>
 
       {/* 表格 */}
-      <ReportTableFrame noScroll className="overflow-x-hidden">
-        <table className="report-dense-table w-full report-data-table">
+      <ReportTableFrame noScroll>
+        <table className="w-full report-data-table border-collapse whitespace-nowrap text-[10.5px] sm:text-[11px] lg:text-xs">
           <thead>
-            <tr className="border-b border-slate-300 font-bold text-slate-900 bg-slate-100/90 text-[11px] sm:text-xs">
-              <th rowSpan={2} className="py-2 px-1 text-center border-r border-slate-300">时间</th>
-              <th rowSpan={2} className="py-2 px-1 text-center border-r border-slate-300 bg-blue-100/50 text-blue-950">合计</th>
-              <th colSpan={2} className="py-1.5 px-1 text-center border-r border-slate-300">基础拦截</th>
-              <th colSpan={2} className="py-1.5 px-1 text-center border-r border-slate-300">额外拦截金额</th>
-              <th colSpan={2} className="py-1.5 px-1 text-center border-r border-slate-300">人头费拦截</th>
-              <th colSpan={2} className="py-1.5 px-1 text-center border-r border-slate-300">首复存</th>
-              <th colSpan={2} className="py-1.5 px-1 text-center border-r border-slate-300">奖励活动1</th>
-              <th colSpan={2} className="py-1.5 px-1 text-center border-r border-slate-300">新增冲刺</th>
-              <th colSpan={2} className="py-1.5 px-1 text-center">其他</th>
+            <tr className="border-b border-slate-300 font-bold text-slate-900 bg-slate-100/90">
+              <th rowSpan={2} className="py-2 px-2 text-left border-r border-slate-300">时间</th>
+              <th rowSpan={2} className="py-2 px-2 text-right border-r border-slate-300 bg-blue-100/60 text-blue-950">合计</th>
+              <th colSpan={2} className="py-1.5 px-1.5 text-center border-r border-slate-300">基础拦截</th>
+              <th colSpan={2} className="py-1.5 px-1.5 text-center border-r border-slate-300">额外拦截金额</th>
+              <th colSpan={2} className="py-1.5 px-1.5 text-center border-r border-slate-300">人头费拦截</th>
+              <th colSpan={2} className="py-1.5 px-1.5 text-center border-r border-slate-300">首复存</th>
+              <th colSpan={2} className="py-1.5 px-1.5 text-center border-r border-slate-300">奖励活动1</th>
+              <th colSpan={2} className="py-1.5 px-1.5 text-center border-r border-slate-300">新增冲刺</th>
+              <th colSpan={2} className="py-1.5 px-1.5 text-center">其他</th>
             </tr>
-            <tr className="border-b border-slate-300 text-slate-700 font-semibold bg-slate-50 text-[10.5px] sm:text-[11px]">
-              <th className="px-1 py-1.5 text-center">金额</th>
-              <th className="px-1 py-1.5 text-center border-r border-slate-300">占比</th>
-              <th className="px-1 py-1.5 text-center">金额</th>
-              <th className="px-1 py-1.5 text-center border-r border-slate-300">占比</th>
-              <th className="px-1 py-1.5 text-center">金额</th>
-              <th className="px-1 py-1.5 text-center border-r border-slate-300">占比</th>
-              <th className="px-1 py-1.5 text-center">金额</th>
-              <th className="px-1 py-1.5 text-center border-r border-slate-300">占比</th>
-              <th className="px-1 py-1.5 text-center">金额</th>
-              <th className="px-1 py-1.5 text-center border-r border-slate-300">占比</th>
-              <th className="px-1 py-1.5 text-center">金额</th>
-              <th className="px-1 py-1.5 text-center border-r border-slate-300">占比</th>
-              <th className="px-1 py-1.5 text-center">金额</th>
-              <th className="px-1 py-1.5 text-center">占比</th>
+            <tr className="border-b border-slate-300 text-slate-700 font-semibold bg-slate-50 text-[10px] sm:text-[10.5px] lg:text-[11px]">
+              <th className="px-1.5 py-1 text-right">金额</th>
+              <th className="px-1.5 py-1 text-center border-r border-slate-300">占比</th>
+              <th className="px-1.5 py-1 text-right">金额</th>
+              <th className="px-1.5 py-1 text-center border-r border-slate-300">占比</th>
+              <th className="px-1.5 py-1 text-right">金额</th>
+              <th className="px-1.5 py-1 text-center border-r border-slate-300">占比</th>
+              <th className="px-1.5 py-1 text-right">金额</th>
+              <th className="px-1.5 py-1 text-center border-r border-slate-300">占比</th>
+              <th className="px-1.5 py-1 text-right">金额</th>
+              <th className="px-1.5 py-1 text-center border-r border-slate-300">占比</th>
+              <th className="px-1.5 py-1 text-right">金额</th>
+              <th className="px-1.5 py-1 text-center border-r border-slate-300">占比</th>
+              <th className="px-1.5 py-1 text-right">金额</th>
+              <th className="px-1.5 py-1 text-center">占比</th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-slate-100 font-mono tabular-nums text-[9px] sm:text-[9.5px]">
+          <tbody className="bg-white divide-y divide-slate-100 font-mono tabular-nums">
             {processedData.map((row, idx) => {
               const isAug = row.month === "8月";
               const isJul = row.month === "7月";
               return (
-                <tr key={idx} className={idx % 2 === 0 ? "bg-white" : "bg-slate-50/40"}>
-                  <td className="px-1 py-1.5 text-center font-bold text-slate-900 border-r border-slate-200">{row.month}</td>
-                  <td className="px-1 py-1.5 text-center font-bold text-blue-900 border-r border-slate-200">{row.total_amt}</td>
-                  <td className={`px-1 py-1.5 text-center ${isAug ? "text-blue-900 font-bold bg-blue-50/40" : "text-slate-700"}`}>{row.base_amt}</td>
-                  <td className={`px-1 py-1.5 text-center border-r border-slate-200 ${isAug ? "text-blue-900 font-bold bg-blue-50/40" : "text-slate-700"}`}>{row.base_pct}</td>
-                  <td className={`px-1 py-1.5 text-center ${isAug ? "text-blue-900 font-bold bg-blue-50/40" : "text-slate-800"}`}>{row.extra_amt}</td>
-                  <td className={`px-1 py-1.5 text-center border-r border-slate-200 ${isAug ? "text-blue-900 font-bold bg-blue-50/40" : "text-slate-700"}`}>{row.extra_pct}</td>
-                  <td className={`px-1 py-1.5 text-center ${isJul ? "text-blue-900 font-bold bg-blue-50/40" : "text-slate-700"}`}>{row.head_amt}</td>
-                  <td className={`px-1 py-1.5 text-center border-r border-slate-200 ${isJul ? "text-blue-900 font-bold bg-blue-50/40" : "text-slate-700"}`}>{row.head_pct}</td>
-                  <td className="px-1 py-1.5 text-center text-slate-700">{row.first_dep_amt}</td>
-                  <td className="px-1 py-1.5 text-center border-r border-slate-200 text-slate-700">{row.first_dep_pct}</td>
-                  <td className="px-1 py-1.5 text-center text-slate-700">{row.reward1_amt}</td>
-                  <td className="px-1 py-1.5 text-center border-r border-slate-200 text-slate-700">{row.reward1_pct}</td>
-                  <td className="px-1 py-1.5 text-center text-slate-700">{row.sprint_amt}</td>
-                  <td className="px-1 py-1.5 text-center border-r border-slate-200 text-slate-700">{row.sprint_pct}</td>
-                  <td className="px-1 py-1.5 text-center text-slate-700">{row.other_amt}</td>
-                  <td className="px-1 py-1.5 text-center text-slate-700">{row.other_pct}</td>
+                <tr key={idx} className={idx % 2 === 0 ? "bg-white hover:bg-slate-50/70" : "bg-slate-50/40 hover:bg-slate-50/90"}>
+                  <td className="px-2 py-1.5 text-left font-bold text-slate-900 border-r border-slate-200">{row.month}</td>
+                  <td className="px-2 py-1.5 text-right font-bold text-blue-900 border-r border-slate-200 bg-blue-50/20">{row.total_amt}</td>
+                  <td className={`px-1.5 py-1.5 text-right ${isAug ? "text-blue-900 font-bold bg-blue-50/40" : "text-slate-700"}`}>{row.base_amt}</td>
+                  <td className={`px-1.5 py-1.5 text-center border-r border-slate-200 ${isAug ? "text-blue-900 font-bold bg-blue-50/40" : "text-slate-600"}`}>{row.base_pct}</td>
+                  <td className={`px-1.5 py-1.5 text-right ${isAug ? "text-blue-900 font-bold bg-blue-50/40" : "text-slate-800"}`}>{row.extra_amt}</td>
+                  <td className={`px-1.5 py-1.5 text-center border-r border-slate-200 ${isAug ? "text-blue-900 font-bold bg-blue-50/40" : "text-slate-600"}`}>{row.extra_pct}</td>
+                  <td className={`px-1.5 py-1.5 text-right ${isJul ? "text-blue-900 font-bold bg-blue-50/40" : "text-slate-700"}`}>{row.head_amt}</td>
+                  <td className={`px-1.5 py-1.5 text-center border-r border-slate-200 ${isJul ? "text-blue-900 font-bold bg-blue-50/40" : "text-slate-600"}`}>{row.head_pct}</td>
+                  <td className="px-1.5 py-1.5 text-right text-slate-700">{row.first_dep_amt}</td>
+                  <td className="px-1.5 py-1.5 text-center border-r border-slate-200 text-slate-600">{row.first_dep_pct}</td>
+                  <td className="px-1.5 py-1.5 text-right text-slate-700">{row.reward1_amt}</td>
+                  <td className="px-1.5 py-1.5 text-center border-r border-slate-200 text-slate-600">{row.reward1_pct}</td>
+                  <td className="px-1.5 py-1.5 text-right text-slate-700">{row.sprint_amt}</td>
+                  <td className="px-1.5 py-1.5 text-center border-r border-slate-200 text-slate-600">{row.sprint_pct}</td>
+                  <td className="px-1.5 py-1.5 text-right text-slate-700">{row.other_amt}</td>
+                  <td className="px-1.5 py-1.5 text-center text-slate-600">{row.other_pct}</td>
                 </tr>
               );
             })}
           </tbody>
-          <tfoot className="border-t-2 border-slate-300 bg-slate-50 font-mono tabular-nums text-[9px] sm:text-[9.5px] text-slate-900 font-bold">
+          <tfoot className="border-t-2 border-slate-300 bg-slate-50 font-mono tabular-nums text-slate-900 font-bold">
             <tr className="border-b border-slate-200">
-              <td className="px-1 py-2 text-center font-bold border-r border-slate-200">小计</td>
-              <td className="px-1 py-2 text-center font-bold text-blue-900 border-r border-slate-200">-</td>
-              <td className="px-1 py-2 text-center text-slate-800">3,972.5</td>
-              <td className="px-1 py-2 text-center border-r border-slate-200 text-slate-700">100.00%</td>
-              <td className="px-1 py-2 text-center text-slate-800">5,472.7</td>
-              <td className="px-1 py-2 text-center border-r border-slate-200 text-slate-700">100.00%</td>
-              <td className="px-1 py-2 text-center text-slate-800">999.9</td>
-              <td className="px-1 py-2 text-center border-r border-slate-200 text-slate-700">100.00%</td>
-              <td className="px-1 py-2 text-center text-slate-800">1,875.9</td>
-              <td className="px-1 py-2 text-center border-r border-slate-200 text-slate-700">100.00%</td>
-              <td className="px-1 py-2 text-center text-slate-800">646.5</td>
-              <td className="px-1 py-2 text-center border-r border-slate-200 text-slate-700">100.00%</td>
-              <td className="px-1 py-2 text-center text-slate-800">1,508.8</td>
-              <td className="px-1 py-2 text-center border-r border-slate-200 text-slate-700">100.00%</td>
-              <td className="px-1 py-2 text-center text-slate-800">17.8</td>
-              <td className="px-1 py-2 text-center text-slate-700">100.00%</td>
+              <td className="px-2 py-2 text-left font-bold border-r border-slate-200">金额小计</td>
+              <td className="px-2 py-2 text-right font-bold text-blue-900 border-r border-slate-200 bg-blue-50/30">14,494.1</td>
+              <td className="px-1.5 py-2 text-right text-slate-800">3,972.5</td>
+              <td className="px-1.5 py-2 text-center border-r border-slate-200 text-slate-600">100.00%</td>
+              <td className="px-1.5 py-2 text-right text-slate-800">5,472.7</td>
+              <td className="px-1.5 py-2 text-center border-r border-slate-200 text-slate-600">100.00%</td>
+              <td className="px-1.5 py-2 text-right text-slate-800">999.9</td>
+              <td className="px-1.5 py-2 text-center border-r border-slate-200 text-slate-600">100.00%</td>
+              <td className="px-1.5 py-2 text-right text-slate-800">1,875.9</td>
+              <td className="px-1.5 py-2 text-center border-r border-slate-200 text-slate-600">100.00%</td>
+              <td className="px-1.5 py-2 text-right text-slate-800">646.5</td>
+              <td className="px-1.5 py-2 text-center border-r border-slate-200 text-slate-600">100.00%</td>
+              <td className="px-1.5 py-2 text-right text-slate-800">1,508.8</td>
+              <td className="px-1.5 py-2 text-center border-r border-slate-200 text-slate-600">100.00%</td>
+              <td className="px-1.5 py-2 text-right text-slate-800">17.8</td>
+              <td className="px-1.5 py-2 text-center text-slate-600">100.00%</td>
             </tr>
             <tr className="bg-slate-100/90">
-              <td className="px-1 py-2 text-center font-bold border-r border-slate-200">总计</td>
-              <td colSpan={1} className="px-1 py-2 text-center font-bold text-blue-950 border-r border-slate-200">14,494.1</td>
-              <td colSpan={2} className="px-1 py-2 text-center font-mono font-bold text-slate-900 border-r border-slate-200">27.41%</td>
-              <td colSpan={2} className="px-1 py-2 text-center font-mono font-bold text-blue-900 border-r border-slate-200">37.76%</td>
-              <td colSpan={2} className="px-1 py-2 text-center font-mono font-bold text-slate-900 border-r border-slate-200">6.90%</td>
-              <td colSpan={2} className="px-1 py-2 text-center font-mono font-bold text-slate-900 border-r border-slate-200">12.94%</td>
-              <td colSpan={2} className="px-1 py-2 text-center font-mono font-bold text-slate-900 border-r border-slate-200">4.46%</td>
-              <td colSpan={2} className="px-1 py-2 text-center font-mono font-bold text-slate-900 border-r border-slate-200">10.41%</td>
-              <td colSpan={2} className="px-1 py-2 text-center font-mono text-slate-700">0.12%</td>
+              <td className="px-2 py-2 text-left font-bold border-r border-slate-200">整体占比</td>
+              <td colSpan={1} className="px-2 py-2 text-right font-bold text-blue-950 border-r border-slate-200 bg-blue-100/40">14,494.1</td>
+              <td colSpan={2} className="px-1.5 py-2 text-center font-mono font-bold text-slate-900 border-r border-slate-200">27.41%</td>
+              <td colSpan={2} className="px-1.5 py-2 text-center font-mono font-bold text-blue-900 border-r border-slate-200 bg-blue-50/30">37.76%</td>
+              <td colSpan={2} className="px-1.5 py-2 text-center font-mono font-bold text-slate-900 border-r border-slate-200">6.90%</td>
+              <td colSpan={2} className="px-1.5 py-2 text-center font-mono font-bold text-slate-900 border-r border-slate-200">12.94%</td>
+              <td colSpan={2} className="px-1.5 py-2 text-center font-mono font-bold text-slate-900 border-r border-slate-200">4.46%</td>
+              <td colSpan={2} className="px-1.5 py-2 text-center font-mono font-bold text-slate-900 border-r border-slate-200">10.41%</td>
+              <td colSpan={2} className="px-1.5 py-2 text-center font-mono text-slate-700">0.12%</td>
             </tr>
           </tfoot>
         </table>

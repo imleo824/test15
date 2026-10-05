@@ -44,7 +44,7 @@ export const InternalControlSection: React.FC = () => {
     <div id="section-internal-control" className="flex flex-col gap-10 sm:gap-12">
       <SummaryBox variant="module">
         {highlightNumbers(
-          "由专职监督独立把关，围绕[[敏感信息监控]]与[[稽查违规监控]]两大防线纵深推进；依托全量行为留痕与操作日志实现全链路可溯，落实违规操作即时预警、追责惩戒与挽回止损，形成防御闭环。",
+          "专职监督独立把关，聚焦[[敏感信息监控]]与[[稽查违规监控]]两大重点：依托全量操作日志与行为留痕，对违规操作实施即时预警、严肃追责与资产止损。",
         )}
       </SummaryBox>
 
@@ -71,7 +71,7 @@ export const InternalControlSection: React.FC = () => {
             value="9,020"
             unit="次"
             className="sm:col-span-2 lg:col-span-3"
-            detail={highlightNumbers("管控背景与处置闭环：9月新增明文回显全量监控，累计捕获回显记录 9,020次。因上半月查看姓名数据较多，内控监督即时介入反馈，果断对相关账号的高敏查看[[权限全面回收]]。至 9月16日 查看明文监测群技术调试全面就绪，日常查看条数迅速压降收敛至 0~4条/日 极低安全水位，且全部经逐笔复核反馈无违规异常。")}
+            detail={highlightNumbers("管控背景与处置闭环：9 月新增明文回显全量监控，累计捕获回显记录 9,020 次。因上半月查看姓名数据较多，内控监督即时介入反馈，果断对相关账号的高敏查看[[权限全面回收]]。至 9 月 16 日查看明文监测群技术调试全面就绪，日常查看条数迅速压降收敛至 0~4 条/日极低安全水位，且全部经逐笔复核反馈无违规异常。")}
           />
           <ReportMetricCard
             title="红利类型派错"
@@ -95,19 +95,19 @@ export const InternalControlSection: React.FC = () => {
             title="用户信息修改"
             value="15,135"
             unit="条"
-            detail={highlightNumbers("核查修改漏记/错记 192条，环比第二季度 248条 下降 22.58%。")}
+            detail={highlightNumbers("核查修改漏记/错记 192 条，环比第二季度 248 条下降 22.58%。")}
           />
           <ReportMetricCard
             title="后台登录监测"
             value="742+"
             unit="常用IP"
-            detail={highlightNumbers("其中 179条 异常跳跃登录；主要为 8月29日 频繁切换 IP 随机尝试登录后台的异常 IP（共 110条），其余主要为 VPN 节点跳跃登出或登录失败；异常 IP 均已即时反馈技术团队拉黑阻断。")}
+            detail={highlightNumbers("其中 179 条异常跳跃登录；主要为 8 月 29 日频繁切换 IP 随机尝试登录后台的异常 IP（共 110 条），其余主要为 VPN 节点跳跃登出或登录失败；异常 IP 均已即时反馈技术团队拉黑阻断。")}
           />
           <ReportMetricCard
             title="数据导出监测"
             value="43,087"
             unit="次"
-            detail={highlightNumbers("经[[人工及系统双向复核]]，未发现泄露行为；环比第二季度 55,017次 下降 21.68%。")}
+            detail={highlightNumbers("经[[人工及系统双向复核]]，未发现泄露行为；环比第二季度 55,017 次下降 21.68%。")}
           />
         </ReportMetricGrid>
       </div>
@@ -233,10 +233,7 @@ export const InternalControlSection: React.FC = () => {
                 <span className="text-sm sm:text-base font-bold text-slate-950">
                   日常稽查项机制演进（上季度基线 ➔ 本季度新增）
                 </span>
-              </div>
-              <ReportBadge tone="blue" className="text-xs font-mono">
-                稽查能力加固
-              </ReportBadge>
+              </div>         
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 items-stretch">
@@ -245,7 +242,7 @@ export const InternalControlSection: React.FC = () => {
                 <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
                   <div className="flex items-center gap-2 text-slate-900 font-bold text-sm sm:text-base">
                     <span className="w-2 h-2 bg-slate-600 shrink-0"></span>
-                    <span>上季度（常态基线 · 3项）</span>
+                    <span>上季度（常态基线 · 3 项）</span>
                   </div>
                   <ReportBadge tone="slate" className="text-xs font-mono">
                     基础防线
@@ -279,10 +276,10 @@ export const InternalControlSection: React.FC = () => {
                 <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
                   <div className="flex items-center gap-2 text-slate-950 font-bold text-sm sm:text-base">
                     <span className="w-2 h-2 bg-blue-700 shrink-0"></span>
-                    <span>本季度（新增拓展 · 2项）</span>
+                    <span>本季度（新增拓展 · 2 项）</span>
                   </div>
                   <ReportBadge tone="blue" className="text-xs font-mono">
-                    深度探测升级
+                    方式升级
                   </ReportBadge>
                 </div>
 

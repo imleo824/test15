@@ -68,7 +68,6 @@ export const ReportCover: React.FC = () => {
           <span className="text-sm sm:text-base font-bold tracking-wider text-slate-900 uppercase">
             报告目录
           </span>
-          <span className="text-xs text-slate-500">共 {sections.length} 个核心章节</span>
         </div>
 
         {/* 目录列表：单线清爽分割 */}
@@ -86,12 +85,7 @@ export const ReportCover: React.FC = () => {
                 <span className="text-base sm:text-lg font-bold text-slate-950">
                   {section.title}
                 </span>
-              </div>
-              <div className="flex items-center gap-3 shrink-0">
-                <span className="text-xs sm:text-sm font-mono font-medium text-slate-500 tracking-wider">
-                  第 {section.id} 章
-                </span>
-              </div>
+              </div>         
             </div>
           ))}
         </div>

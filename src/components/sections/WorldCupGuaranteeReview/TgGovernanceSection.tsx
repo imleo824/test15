@@ -98,7 +98,7 @@ export const TgGovernanceSection: React.FC = () => {
       riskLevel: "高风险",
       status: "已处理",
       method: "系统替代",
-      actionDetails: "实行多节点[[背靠背交叉核验]]，实名证件及隐私资料由 2~3人 协同审批。",
+      actionDetails: "实行多节点[[背靠背交叉核验]]，实名证件及隐私资料由 2~3 人协同审批。",
     },
     {
       id: "10",
@@ -114,7 +114,7 @@ export const TgGovernanceSection: React.FC = () => {
       riskLevel: "低风险",
       status: "已处理",
       method: "系统替代",
-      actionDetails: "场馆内嵌游戏输光上线[[系统自动解锁机制]]，减少风控 15%~20% 无效咨询。",
+      actionDetails: "场馆内嵌游戏输光上线[[系统自动解锁机制]]，减少风控约 15%~20% 无效咨询。",
     },
   ];
 
@@ -231,7 +231,7 @@ export const TgGovernanceSection: React.FC = () => {
                 处置策略与成效
               </div>
               <p className="text-sm text-slate-800 leading-relaxed font-normal">
-                {highlightNumbers("[[清零冗余线下对接群]]，消除无痕操作漏洞与暴露面。")}
+                {highlightNumbers("[[清零冗余线下对接群 20+]]，消除无痕操作漏洞与暴露面。")}
               </p>
             </div>
           </div>
@@ -595,7 +595,7 @@ export const TgGovernanceSection: React.FC = () => {
                   </div>
                   <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                     {highlightNumbers(
-                      "关闭所有线下非受控报单群，11项业务 100% [[迁移至风控工单治理闭环]]。严控跨群检索，仅限授权在册角色按需加密调阅，数据不落本地。"
+                      "关闭所有线下非受控报单群，11 项业务 100% [[迁移至风控工单治理闭环]]。严控跨群检索，仅限授权在册角色按需加密调阅，数据不落本地。"
                     )}
                   </p>
                 </div>

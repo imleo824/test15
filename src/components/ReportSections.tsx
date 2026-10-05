@@ -114,7 +114,7 @@ export const ReportSubsectionHeader: React.FC<{
   className?: string;
 }> = ({ title, rightContent, className = "" }) => {
   return (
-    <div className={`report-subsection-header flex flex-col sm:flex-row sm:items-center justify-between pb-2.5 border-b border-slate-200 gap-2 ${className}`}>
+    <div className={`report-subsection-header flex flex-col sm:flex-row sm:items-center justify-between pb-2.5 border-b border-slate-200 gap-2 mb-4 ${className}`}>
       <h4 className="text-lg sm:text-xl font-bold text-slate-950 tracking-tight flex items-center gap-2">
         {title}
       </h4>

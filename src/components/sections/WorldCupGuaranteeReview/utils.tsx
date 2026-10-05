@@ -18,7 +18,7 @@ const numericPattern =
 
 const semanticTonePrefixPattern = /^(?:red|green|blue):/;
 const numericOnlyPattern = new RegExp(`^\\s*${numericPattern}\\s*$`);
-const highlightPattern = new RegExp(`(\\[\\[(.*?)\\]\\])|(${numericPattern})`, "g");
+const highlightPattern = new RegExp(`(\\*\\*(.*?)\\*\\*)|(\\[\\[(.*?)\\]\\])|(${numericPattern})`, "g");
 const versionLikeNumberPattern = /^\d+(?:\.\d+)+(?:-\d+(?:\.\d+)*)?$/;
 const dateLikeNumberPattern = /^\d{1,2}月(?:\d{1,2}日)?$|^\d{4}年$/;
 const classificationPhrasePattern =
@@ -146,8 +146,16 @@ export const highlightNumbers = (
     }
 
     if (match[1]) {
+      // It's a **bold** phrase
+      const boldText = match[2];
+      result.push(
+        <strong key={match.index} className="font-bold text-slate-950">
+          {boldText}
+        </strong>,
+      );
+    } else if (match[3]) {
       // It's a [[core phrase]]
-      let phrase = stripTonePrefix(stripDisplayUnits(match[2]));
+      let phrase = stripTonePrefix(stripDisplayUnits(match[4]));
 
       // 提取纯数字部分进行判断
       const numericValue = phrase.replace(/[^\d.-]/g, "");
@@ -183,8 +191,8 @@ export const highlightNumbers = (
           </span>,
         );
       }
-    } else if (match[3]) {
-      const phrase = match[3];
+    } else if (match[5]) {
+      const phrase = match[5];
       const context = text.slice(Math.max(0, match.index - 18), Math.min(text.length, highlightPattern.lastIndex + 18));
       if (!shouldHighlightBareNumber(phrase, context)) {
         result.push(phrase);

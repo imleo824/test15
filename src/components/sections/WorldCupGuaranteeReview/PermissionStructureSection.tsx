@@ -31,7 +31,7 @@ const permissionItems: PermissionItem[] = [
     statusTone: "amber",
     tag: "限时审批生效",
     applicableScope: "专项排查、跨部门短期支持",
-    rule: "线上发起限时临时权限申请，明确指定[[有效时间窗口]]（如 2小时或当日）；到期系统全自动回收熔断。",
+    rule: "线上发起限时临时权限申请，明确指定[[有效时间窗口]]（如 2 小时或当日）；到期系统全自动回收熔断。",
     controlMeasure: "到期自动失效、零历史残留",
   },
   {
@@ -54,7 +54,7 @@ export const PermissionStructureSection: React.FC = () => {
         <div className="space-y-2.5">
           <p className="text-sm text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "除少数特定工种外，一线业务无独立主动查会员场景。全面推进[[权限模式升级]]，引入业界先进的[[「零信任 · 动态最小授权」]]理念，构建「长期特权 - 临时限时 - 凭单查询」三级分层架构，彻底颠覆传统常态化权限池，从源头落实[[以任务定权限、动态解锁、单结权销]]。"
+              "一线业务无独立主动查会员场景。全面推进[[权限模式升级]]，构建「长期特权 - 临时限时 - 凭单查询」三级分层架构，收拢常态化查询权限，从源头落实[[以任务定权限、动态解锁、单结权销]]。"
             )}
           </p>
         </div>

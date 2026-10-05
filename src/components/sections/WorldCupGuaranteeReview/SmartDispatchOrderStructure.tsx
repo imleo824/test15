@@ -197,17 +197,45 @@ const renderM1Label = (props: any) => {
   );
 };
 
-// 9.30 柱顶定位锚点与数值标签渲染
+// 暂存 3 个 9.30 柱顶坐标（外包 0.63%, 总部 34.37%, 系统 65.00%）
+const anchorCoords: Array<{ x: number; y: number }> = [];
+
+// 9.30 柱顶定位锚点与数值标签渲染，并在第3个节点直接绘制贯穿3点的连线
 const render930AnchorAndLabel = (props: any) => {
   const { x, y, width, value, index } = props;
   if (typeof x !== "number" || typeof y !== "number" || typeof width !== "number" || !value) {
     return null;
   }
   const centerX = x + width / 2;
+  anchorCoords[index] = { x: centerX, y };
   const text = typeof value === "string" ? (value.endsWith("%") ? value : `${value}%`) : `${value}%`;
+
+  const hasThreePoints = index === 2 && anchorCoords[0] && anchorCoords[1];
 
   return (
     <g className="m930-bar-anchor" data-idx={index}>
+      {/* 当渲染到第3个节点（系统 9.30）时，直接在 SVG 内部绘制从 外包 ➔ 总部 ➔ 系统 的高精度直连线 */}
+      {hasThreePoints && (
+        <g className="m930-internal-line pointer-events-none">
+          {/* 发光蓝底色层 */}
+          <path
+            d={`M ${anchorCoords[0].x} ${anchorCoords[0].y} L ${anchorCoords[1].x} ${anchorCoords[1].y} L ${centerX} ${y}`}
+            stroke="#3b82f6"
+            strokeWidth={8}
+            strokeOpacity={0.35}
+            fill="none"
+          />
+          {/* 科技蓝高对比度虚线主轴 */}
+          <path
+            d={`M ${anchorCoords[0].x} ${anchorCoords[0].y} L ${anchorCoords[1].x} ${anchorCoords[1].y} L ${centerX} ${y}`}
+            stroke="#1d4ed8"
+            strokeWidth={3.5}
+            strokeDasharray="6 4"
+            fill="none"
+          />
+        </g>
+      )}
+
       {/* 9.30 柱顶的基准定位锚点圆点 */}
       <circle
         cx={centerX}
@@ -272,17 +300,13 @@ const renderLegend = () => (
         )}
       </div>
     ))}
-    <div className="flex items-center gap-1.5 font-bold text-blue-900 ml-1">
-      <span className="h-0.5 w-5 border-b-2 border-dashed border-blue-700 inline-block" />
-      <span>9.30全量差异连线 (0.63% ➔ 34.37% ➔ 65.00%)</span>
-    </div>
   </div>
 );
 
 export const SmartDispatchOrderStructure: React.FC = () => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const [linePath, setLinePath] = React.useState<string>("");
-  const [nodes, setNodes] = React.useState<Array<{ x: number; y: number }>>([]);
+  const [, setNodes] = React.useState<Array<{ x: number; y: number }>>([]);
 
   const updateLine = React.useCallback(() => {
     if (!containerRef.current) return;
@@ -307,11 +331,21 @@ export const SmartDispatchOrderStructure: React.FC = () => {
     const t2 = setTimeout(updateLine, 250);
     const t3 = setTimeout(updateLine, 600);
     window.addEventListener("resize", updateLine);
+
+    let ro: ResizeObserver | null = null;
+    if (containerRef.current && typeof ResizeObserver !== "undefined") {
+      ro = new ResizeObserver(() => {
+        updateLine();
+      });
+      ro.observe(containerRef.current);
+    }
+
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
       clearTimeout(t3);
       window.removeEventListener("resize", updateLine);
+      if (ro) ro.disconnect();
     };
   }, [updateLine]);
   return (
@@ -340,7 +374,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
             <div className="flex items-start gap-2">
               <span className="w-1.5 h-1.5 bg-slate-900 shrink-0 mt-2"></span>
               <span>
-                <strong className="text-slate-950 font-bold">系统自动审单：</strong>
+                <strong className="text-slate-950 font-bold">系统审核：</strong>
                 {highlightNumbers("由 1~8月均值 49.77% 跃升至 9.30全量的 65.00%，标志着[[系统全量放行成型]]。")}
               </span>
             </div>

@@ -179,18 +179,18 @@ export const AuditOverviewInterceptionType: React.FC = () => {
           <p>
             <strong className="text-slate-950 font-bold">其他拦截分布：</strong>
             {highlightNumbers(
-              "其他类拦截[[21.2%]]，主要以[[电竞与彩票]]等为主。"
+              "其他类拦截占比 [[21.2%]]，主要以[[电竞与彩票]]等为主。"
             )}
           </p>
         </div>
       </SummaryBox>
 
       {/* 表格数据展示 */}
-      <ReportTableFrame noScroll className="overflow-x-hidden">
-        <table className="report-dense-table report-dense-table--site-detail report-data-table w-full">
+      <ReportTableFrame noScroll>
+        <table className="w-full report-data-table border-collapse whitespace-nowrap text-[11px] sm:text-xs">
           <thead>
-            <tr className="border-b border-slate-300 text-slate-900 font-bold text-[11px] sm:text-xs">
-              <th rowSpan={2} className="py-2 px-1.5 text-center bg-slate-100/90 border-r border-slate-300">站点</th>
+            <tr className="border-b border-slate-300 text-slate-900 font-bold">
+              <th rowSpan={2} className="py-2 px-2.5 text-left bg-slate-100/90 border-r border-slate-300">站点</th>
               <th colSpan={2} className="py-1.5 px-1.5 text-center bg-slate-100/90 border-r border-slate-300">2026第2季度总计</th>
               <th colSpan={2} className="py-1.5 px-1.5 text-center bg-blue-100/60 text-blue-950 border-r border-slate-300">2026第3季度总计</th>
               <th colSpan={2} className="py-1.5 px-1.5 text-center bg-slate-100/90 border-r border-slate-300">代理类</th>
@@ -199,68 +199,68 @@ export const AuditOverviewInterceptionType: React.FC = () => {
               <th colSpan={2} className="py-1.5 px-1.5 text-center bg-slate-100/90">其他</th>
             </tr>
             <tr className="border-b border-slate-300 text-slate-700 font-semibold bg-slate-50 text-[10.5px] sm:text-[11px]">
-              <th className="py-1.5 px-1.5 text-center">金额</th>
-              <th className="py-1.5 px-1.5 text-center border-r border-slate-300">占比</th>
-              <th className="py-1.5 px-1.5 text-center">金额</th>
-              <th className="py-1.5 px-1.5 text-center border-r border-slate-300">占比</th>
-              <th className="py-1.5 px-1.5 text-center">金额</th>
-              <th className="py-1.5 px-1.5 text-center border-r border-slate-300">占比</th>
-              <th className="py-1.5 px-1.5 text-center">金额</th>
-              <th className="py-1.5 px-1.5 text-center border-r border-slate-300">占比</th>
-              <th className="py-1.5 px-1.5 text-center">金额</th>
-              <th className="py-1.5 px-1.5 text-center border-r border-slate-300">占比</th>
-              <th className="py-1.5 px-1.5 text-center">金额</th>
-              <th className="py-1.5 px-1.5 text-center">占比</th>
+              <th className="py-1 px-1.5 text-right">金额</th>
+              <th className="py-1 px-1.5 text-center border-r border-slate-300">占比</th>
+              <th className="py-1 px-1.5 text-right">金额</th>
+              <th className="py-1 px-1.5 text-center border-r border-slate-300">占比</th>
+              <th className="py-1 px-1.5 text-right">金额</th>
+              <th className="py-1 px-1.5 text-center border-r border-slate-300">占比</th>
+              <th className="py-1 px-1.5 text-right">金额</th>
+              <th className="py-1 px-1.5 text-center border-r border-slate-300">占比</th>
+              <th className="py-1 px-1.5 text-right">金额</th>
+              <th className="py-1 px-1.5 text-center border-r border-slate-300">占比</th>
+              <th className="py-1 px-1.5 text-right">金额</th>
+              <th className="py-1 px-1.5 text-center">占比</th>
             </tr>
           </thead>
-          <tbody className="tabular-nums font-mono text-[9px] sm:text-[9.5px]">
+          <tbody className="tabular-nums font-mono">
             {tableData.map((row, idx) => {
               const isMainSports = row.sports_pct && parseFloat(row.sports_pct) > 30;
               return (
-                <tr key={idx} className={idx % 2 === 0 ? "bg-white" : "bg-slate-50/40"}>
-                  <td className="py-1.5 px-1.5 text-center font-bold text-slate-900 border-r border-slate-200">{row.site}</td>
-                  <td className="py-1.5 px-1.5 text-center">{row.q2_amt}</td>
-                  <td className="py-1.5 px-1.5 text-center border-r border-slate-200">{row.q2_pct}</td>
-                  <td className="py-1.5 px-1.5 text-center font-bold text-slate-900">{row.q3_amt}</td>
-                  <td className="py-1.5 px-1.5 text-center font-bold text-slate-900 border-r border-slate-200">{row.q3_pct}</td>
-                  <td className="py-1.5 px-1.5 text-center">{row.agent_amt}</td>
-                  <td className="py-1.5 px-1.5 text-center border-r border-slate-200">{row.agent_pct}</td>
-                  <td className={`py-1.5 px-1.5 text-center ${isMainSports ? "font-bold text-slate-900" : ""}`}>{row.sports_amt}</td>
-                  <td className={`py-1.5 px-1.5 text-center border-r border-slate-200 ${isMainSports ? "font-bold text-slate-900" : ""}`}>{row.sports_pct}</td>
-                  <td className="py-1.5 px-1.5 text-center">{row.bonus_amt}</td>
-                  <td className="py-1.5 px-1.5 text-center border-r border-slate-200">{row.bonus_pct}</td>
-                  <td className="py-1.5 px-1.5 text-center">{row.other_amt}</td>
-                  <td className="py-1.5 px-1.5 text-center">{row.other_pct}</td>
+                <tr key={idx} className={idx % 2 === 0 ? "bg-white hover:bg-slate-50/70" : "bg-slate-50/40 hover:bg-slate-50/90"}>
+                  <td className="py-1.5 px-2.5 text-left font-bold text-slate-900 border-r border-slate-200">{row.site}</td>
+                  <td className="py-1.5 px-1.5 text-right text-slate-700">{row.q2_amt}</td>
+                  <td className="py-1.5 px-1.5 text-center border-r border-slate-200 text-slate-600">{row.q2_pct}</td>
+                  <td className="py-1.5 px-1.5 text-right font-bold text-slate-950 bg-blue-50/20">{row.q3_amt}</td>
+                  <td className="py-1.5 px-1.5 text-center font-bold text-slate-950 border-r border-slate-200 bg-blue-50/20">{row.q3_pct}</td>
+                  <td className="py-1.5 px-1.5 text-right text-slate-700">{row.agent_amt}</td>
+                  <td className="py-1.5 px-1.5 text-center border-r border-slate-200 text-slate-600">{row.agent_pct}</td>
+                  <td className={`py-1.5 px-1.5 text-right ${isMainSports ? "font-bold text-blue-900 bg-blue-50/30" : "text-slate-700"}`}>{row.sports_amt}</td>
+                  <td className={`py-1.5 px-1.5 text-center border-r border-slate-200 ${isMainSports ? "font-bold text-blue-900 bg-blue-50/30" : "text-slate-600"}`}>{row.sports_pct}</td>
+                  <td className="py-1.5 px-1.5 text-right text-slate-700">{row.bonus_amt}</td>
+                  <td className="py-1.5 px-1.5 text-center border-r border-slate-200 text-slate-600">{row.bonus_pct}</td>
+                  <td className="py-1.5 px-1.5 text-right text-slate-700">{row.other_amt}</td>
+                  <td className="py-1.5 px-1.5 text-center text-slate-600">{row.other_pct}</td>
                 </tr>
               );
             })}
           </tbody>
-          <tfoot className="border-t-2 border-slate-300 bg-slate-50 font-bold font-mono text-[9px] sm:text-[9.5px]">
+          <tfoot className="border-t-2 border-slate-300 bg-slate-50 font-bold font-mono">
             <tr className="border-b border-slate-200">
-              <td className="py-2 px-1.5 text-center font-bold border-r border-slate-200">小计</td>
-              <td className="py-2 px-1.5 text-center">-</td>
-              <td className="py-2 px-1.5 text-center border-r border-slate-200">-</td>
-              <td className="py-2 px-1.5 text-center">-</td>
-              <td className="py-2 px-1.5 text-center border-r border-slate-200">-</td>
-              <td className="py-2 px-1.5 text-center font-mono">5,854.86</td>
-              <td className="py-2 px-1.5 text-center font-mono border-r border-slate-200">100%</td>
-              <td className="py-2 px-1.5 text-center font-mono font-bold">13,870.01</td>
-              <td className="py-2 px-1.5 text-center font-mono font-bold border-r border-slate-200">100%</td>
-              <td className="py-2 px-1.5 text-center font-mono">3,717.27</td>
-              <td className="py-2 px-1.5 text-center font-mono border-r border-slate-200">100%</td>
-              <td className="py-2 px-1.5 text-center font-mono">6,323.78</td>
-              <td className="py-2 px-1.5 text-center font-mono">100%</td>
+              <td className="py-2 px-2.5 text-left font-bold border-r border-slate-200">金额小计</td>
+              <td className="py-2 px-1.5 text-right font-mono font-bold text-slate-900">27,233.47</td>
+              <td className="py-2 px-1.5 text-center font-mono border-r border-slate-200 text-slate-600">100%</td>
+              <td className="py-2 px-1.5 text-right font-mono font-bold text-blue-900 bg-blue-50/30">29,765.92</td>
+              <td className="py-2 px-1.5 text-center font-mono font-bold text-blue-900 border-r border-slate-200 bg-blue-50/30">100%</td>
+              <td className="py-2 px-1.5 text-right font-mono text-slate-800">5,854.86</td>
+              <td className="py-2 px-1.5 text-center font-mono border-r border-slate-200 text-slate-600">100%</td>
+              <td className="py-2 px-1.5 text-right font-mono font-bold text-slate-900">13,870.01</td>
+              <td className="py-2 px-1.5 text-center font-mono font-bold border-r border-slate-200 text-slate-600">100%</td>
+              <td className="py-2 px-1.5 text-right font-mono text-slate-800">3,717.27</td>
+              <td className="py-2 px-1.5 text-center font-mono border-r border-slate-200 text-slate-600">100%</td>
+              <td className="py-2 px-1.5 text-right font-mono text-slate-800">6,323.78</td>
+              <td className="py-2 px-1.5 text-center font-mono text-slate-600">100%</td>
             </tr>
             <tr className="bg-slate-100/90 font-bold">
-              <td className="py-2 px-1.5 text-center font-bold border-r border-slate-200">总计</td>
-              <td className="py-2 px-1.5 text-center font-mono font-bold">27,233.47</td>
-              <td className="py-2 px-1.5 text-center font-mono font-bold border-r border-slate-200">100%</td>
-              <td className="py-2 px-1.5 text-center font-mono font-bold text-blue-900">29,765.92</td>
-              <td className="py-2 px-1.5 text-center font-mono font-bold text-blue-900 border-r border-slate-200">100%</td>
-              <td colSpan={2} className="py-2 px-1.5 font-mono text-center border-r border-slate-200">19.67%</td>
+              <td className="py-2 px-2.5 text-left font-bold border-r border-slate-200">整体占比</td>
+              <td className="py-2 px-1.5 text-right font-mono font-bold text-slate-900">27,233.47</td>
+              <td className="py-2 px-1.5 text-center font-mono font-bold border-r border-slate-200 text-slate-600">100%</td>
+              <td className="py-2 px-1.5 text-right font-mono font-bold text-blue-900 bg-blue-100/40">29,765.92</td>
+              <td className="py-2 px-1.5 text-center font-mono font-bold text-blue-900 border-r border-slate-200 bg-blue-100/40">100%</td>
+              <td colSpan={2} className="py-2 px-1.5 font-mono text-center border-r border-slate-200 text-slate-800">19.67%</td>
               <td colSpan={2} className="py-2 px-1.5 font-mono text-center font-bold text-slate-950 border-r border-slate-200">46.60%</td>
-              <td colSpan={2} className="py-2 px-1.5 font-mono text-center border-r border-slate-200">12.49%</td>
-              <td colSpan={2} className="py-2 px-1.5 font-mono text-center">21.25%</td>
+              <td colSpan={2} className="py-2 px-1.5 font-mono text-center border-r border-slate-200 text-slate-800">12.49%</td>
+              <td colSpan={2} className="py-2 px-1.5 font-mono text-center text-slate-800">21.25%</td>
             </tr>
           </tfoot>
         </table>

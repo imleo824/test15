@@ -9,7 +9,10 @@ import {
   Sliders,
   ShieldCheck,
   TrendingUp,
-  TrendingDown
+  TrendingDown,
+  ArrowRight,
+  ArrowDown,
+  ArrowUp
 } from "lucide-react";
 import {
   ReportBadge,
@@ -780,10 +783,18 @@ export const SystemAuditEvolutionSection: React.FC = () => {
 
       {/* 4.3 智能风控体系架构 */}
       <div id="section-cloud-shield-system" className="flex flex-col gap-10 sm:gap-12">
-        <ReportSectionHeader title="4.3 云盾风控体系" />
+        {/* 4.3 标题与全局一句话总结 */}
+        <div className="flex flex-col gap-4">
+          <ReportSectionHeader title="4.3 云盾风控体系" />
+          <SummaryBox variant="module">
+            {highlightNumbers(
+              "从 0 到 1 打造[[云盾风控体系]]以支持审单模式演进。通过[[策略引擎]]、[[底层基建]]、[[量化分流]]、[[派单调度]]、[[跨站协同]]及[[风控工具链]]六维机制优化，明确系统自动放行与人工复审的分工边界，全面支撑自动化出单目标。"
+            )}
+          </SummaryBox>
+        </div>
 
         {/* 4.3.1 关键机制优化前后对比 */}
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 pt-2">
           <ReportSubsectionHeader
             title="4.3.1 云盾体系 · 关键优化对比"
             rightContent={
@@ -792,13 +803,6 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               </p>
             }
           />
-
-          {/* 4.3.1 机制与支撑说明 */}
-          <SummaryBox variant="module">
-            {highlightNumbers(
-              "从 0 到 1 打造[[云盾风控体系]]以支持审单模式演进。通过[[策略引擎]]、[[底层基建]]、[[量化分流]]、[[派单调度]]、[[跨站协同]]及[[风控工具链]]六维机制优化，明确系统自动放行与人工复审的分工边界，全面支撑自动化出单目标。"
-            )}
-          </SummaryBox>
 
           {/* 4.3.1 关键机制优化前后对比矩阵 (VS 对比卡片样式) */}
           <div className="grid grid-cols-1 gap-4 sm:gap-6">
@@ -841,7 +845,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   before: "无跨站关联分析能力",
                   upgrade: "全网图谱打通",
                   after: "跨站关联即时识别",
-                  scenario: "历史拦截高危单 50%+ 存在跨站关联，过去为重大盲区；现在自动放行前实时识别比对[[跨站同设备、同资金链路]]等特征，[[补齐关键防线]]。",
+                  scenario: "历史拦截高危单 70%+ 存在关联，过去为重大盲区；现在自动放行前实时识别比对[[跨站的设备、手机、地址]]等特征，[[补齐关键防线]]。",
                 },
                 {
                   dimension: "变化6：增加 -> 风控工具支持",
@@ -912,48 +916,101 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               )}
             </SummaryBox>
 
-            {/* 全链路运转主流程指示条（含 4 ➔ 1 闭环反馈机制） */}
-            <div className="bg-white border border-slate-200 p-4 space-y-3">
-              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 items-stretch text-center">
-                <div className="flex flex-col items-center justify-center gap-1.5 bg-slate-50 p-3 border border-slate-100">
+            {/* 全链路运转主流程指示条（含 4 ➔ 1 闭环反馈连线机制） */}
+            <div className="bg-white border border-slate-200 p-4 sm:p-5 space-y-3 sm:space-y-4">
+              {/* 4 个阶段正向流程卡片 */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4 items-stretch text-center relative">
+                {/* 1. 提款策略扫描 */}
+                <div className="flex flex-col items-center justify-center gap-1.5 bg-slate-50/90 p-3.5 border border-slate-200 relative">
                   <div className="flex items-center gap-1.5">
-                    <Scale className="w-4 h-4 text-slate-700 shrink-0" />
+                    <Scale className="w-4 h-4 text-slate-800 shrink-0" />
                     <span className="font-bold text-xs sm:text-sm text-slate-950">1. 提款策略扫描</span>
                   </div>
-                  <span className="text-[11px] font-mono text-slate-500">50+ 项探针穿透</span>
+                  <span className="text-[11px] font-mono text-slate-500 font-medium">50+ 项探针穿透</span>
+
+                  {/* 1 ➔ 2 正向连接箭头 */}
+                  <div className="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-10 w-6 h-6 rounded-full bg-white border border-slate-300 shadow-xs items-center justify-center text-slate-600 pointer-events-none">
+                    <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
+                  </div>
                 </div>
 
-                <div className="flex flex-col items-center justify-center gap-1.5 bg-slate-50 p-3 border border-slate-100">
+                {/* 2. 计算风险分数 */}
+                <div className="flex flex-col items-center justify-center gap-1.5 bg-slate-50/90 p-3.5 border border-slate-200 relative">
                   <div className="flex items-center gap-1.5">
-                    <Calculator className="w-4 h-4 text-slate-700 shrink-0" />
+                    <Calculator className="w-4 h-4 text-slate-800 shrink-0" />
                     <span className="font-bold text-xs sm:text-sm text-slate-950">2. 计算风险分数</span>
                   </div>
-                  <span className="text-[11px] font-mono text-slate-500">分值累加 + 组合熔断</span>
+                  <span className="text-[11px] font-mono text-slate-500 font-medium">分值累加 + 策略组合</span>
+
+                  {/* 2 ➔ 3 正向连接箭头 */}
+                  <div className="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-10 w-6 h-6 rounded-full bg-white border border-slate-300 shadow-xs items-center justify-center text-slate-600 pointer-events-none">
+                    <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
+                  </div>
                 </div>
 
-                <div className="flex flex-col items-center justify-center gap-1.5 bg-slate-50 p-3 border border-slate-100">
+                {/* 3. 派单动态匹配 */}
+                <div className="flex flex-col items-center justify-center gap-1.5 bg-slate-50/90 p-3.5 border border-slate-200 relative">
                   <div className="flex items-center gap-1.5">
-                    <UserCheck className="w-4 h-4 text-slate-700 shrink-0" />
+                    <UserCheck className="w-4 h-4 text-slate-800 shrink-0" />
                     <span className="font-bold text-xs sm:text-sm text-slate-950">3. 派单动态匹配</span>
                   </div>
-                  <span className="text-[11px] font-mono text-slate-500">系统直出 / 人工专审</span>
+                  <span className="text-[11px] font-mono text-slate-500 font-medium">系统直出 / 人工专审</span>
+
+                  {/* 3 ➔ 4 正向连接箭头 */}
+                  <div className="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-10 w-6 h-6 rounded-full bg-white border border-slate-300 shadow-xs items-center justify-center text-slate-600 pointer-events-none">
+                    <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
+                  </div>
                 </div>
 
-                <div className="flex flex-col items-center justify-center gap-1.5 bg-slate-50 p-3 border border-slate-100">
+                {/* 4. 闭环反馈自进化 */}
+                <div className="flex flex-col items-center justify-center gap-1.5 bg-slate-50/90 p-3.5 border border-slate-200 relative">
                   <div className="flex items-center gap-1.5">
-                    <RotateCcw className="w-4 h-4 text-slate-700 shrink-0" />
+                    <RotateCcw className="w-4 h-4 text-slate-800 shrink-0" />
                     <span className="font-bold text-xs sm:text-sm text-slate-950">4. 闭环反馈自进化</span>
                   </div>
-                  <span className="text-[11px] font-mono text-slate-500">样本回流反哺策略</span>
+                  <span className="text-[11px] font-mono text-slate-500 font-medium">样本回流反哺策略</span>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between text-xs text-slate-600 bg-slate-50/80 px-3 py-1.5 border border-slate-100 font-mono">
-                <span className="flex items-center gap-1.5">
-                  <RotateCcw className="w-3.5 h-3.5 text-blue-700 shrink-0" />
-                  <span>闭环反馈机制：阶段 4 质检与处置样本动态反哺阶段 1 策略库，每周持续自进化校准。</span>
+              {/* 4 指向 1 的闭环连线 (桌面端回路连线，4 指向 1，线上标注指定文字) */}
+              <div className="hidden lg:block relative pt-2 pb-2">
+                <div className="relative w-full h-11">
+                  {/* U型回路虚线轨道：从 4 底部接出，向左贯穿，从 1 底部向上指示 */}
+                  <div
+                    className="absolute top-0 border-b-2 border-l-2 border-r-2 border-dashed border-blue-600 rounded-b-xl h-6"
+                    style={{ left: "12.5%", right: "12.5%" }}
+                  >
+                    {/* 4 底部接出的起点圆点 */}
+                    <div className="absolute -top-1.5 -right-1 w-2.5 h-2.5 rounded-full bg-blue-600" />
+
+                    {/* 指向 1 底部的箭头 (4 指向 1) */}
+                    <div className="absolute -top-3.5 -left-2 text-blue-700">
+                      <ArrowUp className="w-4 h-4 stroke-[3]" />
+                    </div>
+
+                    {/* 线上的文字：居中嵌入在连线上 */}
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-3.5 py-1 border border-blue-300 shadow-xs rounded-full flex items-center gap-2 text-xs font-mono text-blue-950 font-bold whitespace-nowrap z-10">
+                      <RotateCcw className="w-3.5 h-3.5 text-blue-700 shrink-0 stroke-[2.5]" />
+                      <span>阶段 4 质检与处置样本动态反哺阶段 1 策略库，每周持续自进化校准。</span>
+                      <span className="px-1.5 py-0.5 bg-blue-100 text-blue-900 text-[10.5px] rounded-xs font-mono font-bold">
+                        ◀ 4 ➔ 1 反哺连线
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 移动端 / 平板端自适应呈现 */}
+              <div className="lg:hidden flex flex-col sm:flex-row items-center justify-between text-xs text-blue-950 bg-blue-50/80 p-2.5 border border-blue-200 font-mono gap-1.5">
+                <div className="flex items-center gap-2">
+                  <RotateCcw className="w-4 h-4 text-blue-700 shrink-0 stroke-[2.5]" />
+                  <span className="font-medium text-slate-800">
+                    阶段 4 质检与处置样本动态反哺阶段 1 策略库，每周持续自进化校准。
+                  </span>
+                </div>
+                <span className="px-2 py-0.5 bg-blue-100 text-blue-900 text-[11px] rounded-xs font-mono font-bold shrink-0 self-end sm:self-auto">
+                  ◀ 4 ➔ 1 连线
                 </span>
-                <span className="hidden sm:inline font-bold text-slate-700">4 ➔ 1 持续闭环</span>
               </div>
             </div>
 
@@ -1317,9 +1374,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                   </div>
 
                     {/* 简版流程示意图: 计算分数 ➔ 总分 ➔ 比较参数 ➔ 决定是否转给人 */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 text-xs sm:text-sm relative">
+                    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 text-xs sm:text-sm relative items-stretch">
                       {/* 1. 计算分数 */}
-                      <div className="bg-slate-50/50 p-4 border border-slate-200/70 flex flex-col justify-between space-y-2 relative">
+                      <div className="bg-slate-50/70 p-4 border border-slate-200 flex flex-col justify-between space-y-2 relative">
                         <div className="space-y-1.5">
                           <div className="flex items-center justify-between pb-1.5 border-b border-slate-200">
                             <h6 className="font-bold text-slate-950 text-base pt-0.5">1. 计算分数</h6>
@@ -1332,10 +1389,18 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                         <div className="pt-2 border-t border-slate-200 text-xs sm:text-sm font-mono text-slate-600 font-medium">
                           特征因子加权计分
                         </div>
+
+                        {/* 指向模块 2 的箭头 */}
+                        <div className="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-white border border-slate-300 shadow-xs items-center justify-center text-slate-700 pointer-events-none">
+                          <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
+                        </div>
+                        <div className="lg:hidden flex items-center justify-center pt-2 text-slate-400">
+                          <ArrowDown className="w-4 h-4 stroke-[2.5]" />
+                        </div>
                       </div>
 
                       {/* 2. 总分 */}
-                      <div className="bg-slate-50/50 p-4 border border-slate-200/70 flex flex-col justify-between space-y-2 relative">
+                      <div className="bg-slate-50/70 p-4 border border-slate-200 flex flex-col justify-between space-y-2 relative">
                         <div className="space-y-1.5">
                           <div className="flex items-center justify-between pb-1.5 border-b border-slate-200">
                             <h6 className="font-bold text-slate-950 text-base pt-0.5">2. 总分</h6>
@@ -1348,10 +1413,18 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                         <div className="pt-2 border-t border-slate-200 text-xs sm:text-sm font-mono font-bold text-rose-700">
                           例如：累计得分 105 分
                         </div>
+
+                        {/* 指向模块 3 的箭头 */}
+                        <div className="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-white border border-slate-300 shadow-xs items-center justify-center text-slate-700 pointer-events-none">
+                          <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
+                        </div>
+                        <div className="lg:hidden flex items-center justify-center pt-2 text-slate-400">
+                          <ArrowDown className="w-4 h-4 stroke-[2.5]" />
+                        </div>
                       </div>
 
                       {/* 3. 比较参数 */}
-                      <div className="bg-slate-50/50 p-4 border border-slate-200/70 flex flex-col justify-between space-y-2 relative">
+                      <div className="bg-slate-50/70 p-4 border border-slate-200 flex flex-col justify-between space-y-2 relative">
                         <div className="space-y-1.5">
                           <div className="flex items-center justify-between pb-1.5 border-b border-slate-200">
                             <h6 className="font-bold text-slate-950 text-base pt-0.5">3. 比较参数</h6>
@@ -1363,6 +1436,14 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                         </div>
                         <div className="pt-2 border-t border-slate-200 text-xs sm:text-sm font-mono font-bold text-slate-900">
                           比对：105 分 ≥ 60 分 / 组合命中
+                        </div>
+
+                        {/* 指向模块 4 的箭头 */}
+                        <div className="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-white border border-slate-300 shadow-xs items-center justify-center text-slate-700 pointer-events-none">
+                          <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
+                        </div>
+                        <div className="lg:hidden flex items-center justify-center pt-2 text-slate-400">
+                          <ArrowDown className="w-4 h-4 stroke-[2.5]" />
                         </div>
                       </div>
 
@@ -1411,140 +1492,245 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       )}
                     </div>
 
-                    {/* 核心画像与双向加权路由模型架构图 */}
-                    <div className="space-y-3 pt-1">
-                      <div className="text-xs sm:text-sm font-bold text-slate-950 flex items-center gap-1.5 pb-2 border-b border-slate-200">
-                        <Sliders className="w-4 h-4 text-slate-900" />
-                        <span>双向加权动态派单</span>
+                    {/* 核心画像与双向加权路由模型架构图 (一体化面板) */}
+                    <div className="bg-white border border-slate-200 overflow-hidden space-y-0">
+                      {/* 一体化顶栏 */}
+                      <div className="bg-slate-50 px-4 sm:px-5 py-3 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+                        <div className="flex items-center gap-2">
+                          <Sliders className="w-4 h-4 text-slate-900" />
+                          <span className="text-sm sm:text-base font-bold text-slate-950">
+                            双向加权动态派单架构
+                          </span>
+                          <ReportBadge tone="blue" className="text-xs font-mono ml-1">
+                            多因子拟合引擎
+                          </ReportBadge>
+                        </div>
+                        <span className="text-xs font-mono text-slate-600 font-medium">
+                          订单多维特征 ➔ 核心路由引擎 ➔ 专家能力画像
+                        </span>
                       </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-11 gap-3 sm:gap-4 items-stretch">
-                        {/* 左侧：订单特征画像 */}
-                        <div className="md:col-span-4 bg-white p-4 border border-slate-200/80 space-y-3 flex flex-col justify-between">
-                          <div className="flex items-center justify-between pb-2 border-b border-slate-200">
-                            <span className="text-xs sm:text-sm font-bold text-slate-950 flex items-center gap-1.5">
-                              <span className="w-2.5 h-2.5 bg-slate-900"></span>
-                              订单特征画像
-                            </span>
-                          </div>
-                          <div className="space-y-2 text-xs sm:text-sm">
-                            <div className="flex items-center justify-between py-1.5 border-b border-slate-200 text-slate-900">
-                              <span className="text-slate-600 font-medium">维度 1 · 金额</span>
-                              <span className="font-bold text-slate-950">金额大小</span>
+                      {/* 核心画像与双向加权路由模型架构：一体式网格与流程连接 */}
+                      <div className="p-4 sm:p-5 bg-slate-50/30">
+                        <div className="grid grid-cols-1 md:grid-cols-11 gap-3 sm:gap-4 items-stretch relative">
+                          {/* 左侧：订单特征画像 (强化一体感) */}
+                          <div className="md:col-span-4 bg-white border border-slate-200 shadow-xs flex flex-col justify-between relative overflow-hidden">
+                            {/* 顶部标头栏 */}
+                            <div className="bg-slate-50 px-4 py-2.5 border-b border-slate-200 flex items-center justify-between">
+                              <div className="flex items-center gap-2">
+                                <span className="w-2 h-3.5 bg-blue-700"></span>
+                                <span className="text-xs sm:text-sm font-bold text-slate-950">
+                                  订单特征画像
+                                </span>
+                              </div>
+                              <span className="text-[11px] font-mono text-blue-900 font-bold bg-blue-50 px-2 py-0.5 border border-blue-200/60">
+                                输入特征端
+                              </span>
                             </div>
-                            <div className="flex items-center justify-between py-1.5 border-b border-slate-200 text-slate-900">
-                              <span className="text-slate-600 font-medium">维度 2 · 风险</span>
-                              <span className="font-bold text-slate-950">S/A/B 风险评分</span>
-                            </div>
-                            <div className="flex items-center justify-between py-1.5 text-slate-900">
-                              <span className="text-slate-600 font-medium">维度 3 · 业务</span>
-                              <span className="font-bold text-slate-950">体育 / 真人 / 综合</span>
-                            </div>
-                          </div>
-                        </div>
 
-                        {/* 中间：双向加权路由核心引擎 */}
-                        <div className="md:col-span-3 flex flex-col items-center justify-center p-4 bg-slate-900 text-white text-center space-y-2.5">                       
-                          <div>
-                            <span className="text-sm sm:text-base font-extrabold block text-white tracking-tight">
-                              双向加权路由引擎
-                            </span>
-                            <span className="text-xs font-mono text-slate-300 block mt-0.5">
-                              多因子实时权重矩阵
-                            </span>
-                          </div>
-                          <div className="px-2.5 py-1 bg-emerald-500 text-slate-950 font-mono font-black text-xs tracking-tight">
-                            秒级精准派发
-                          </div>
-                        </div>
+                            {/* 3 个一体化特征维度列表 */}
+                            <div className="p-3.5 sm:p-4 space-y-2.5 text-xs sm:text-sm">
+                              <div className="bg-slate-50/70 border border-slate-200/70 p-2.5 flex items-center justify-between">
+                                <div className="space-y-0.5">
+                                  <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block font-mono">维度 1 · 金额</span>
+                                  <span className="font-bold text-slate-900 text-xs sm:text-sm">金额大小与笔数</span>
+                                </div>
+                                <span className="text-xs font-mono text-slate-600 bg-white px-2 py-1 border border-slate-200">大额/中额/小额</span>
+                              </div>
 
-                        {/* 右侧：人员能力画像 */}
-                        <div className="md:col-span-4 bg-white p-4 border border-slate-200/80 space-y-3 flex flex-col justify-between">
-                          <div className="flex items-center justify-between pb-2 border-b border-slate-200">
-                            <span className="text-xs sm:text-sm font-bold text-slate-950 flex items-center gap-1.5">
-                              <span className="w-2.5 h-2.5 bg-slate-900"></span>
-                              人员能力画像
-                            </span>
+                              <div className="bg-slate-50/70 border border-slate-200/70 p-2.5 flex items-center justify-between">
+                                <div className="space-y-0.5">
+                                  <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block font-mono">维度 2 · 风险</span>
+                                  <span className="font-bold text-slate-900 text-xs sm:text-sm">S/A/B 级动态评分</span>
+                                </div>
+                                <span className="text-xs font-mono font-bold text-rose-700 bg-white px-2 py-1 border border-rose-200">风险量化分级</span>
+                              </div>
+
+                              <div className="bg-slate-50/70 border border-slate-200/70 p-2.5 flex items-center justify-between">
+                                <div className="space-y-0.5">
+                                  <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block font-mono">维度 3 · 业务</span>
+                                  <span className="font-bold text-slate-900 text-xs sm:text-sm">场馆及游戏类型</span>
+                                </div>
+                                <span className="text-xs font-mono text-slate-600 bg-white px-2 py-1 border border-slate-200">体育/真人/综合</span>
+                              </div>
+                            </div>
+
+                            {/* 底部连接指示条 */}
+                            <div className="px-4 py-2 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
+                              <span className="font-mono text-[11px]">特征向量实时提取</span>
+                              <span className="font-bold text-blue-900 font-mono flex items-center gap-1">
+                                <span>输入引擎</span>
+                                <span className="hidden md:inline">➔</span>
+                                <span className="md:hidden">↓</span>
+                              </span>
+                            </div>
+
+                            {/* 桌面端指向中间引擎的箭头 */}
+                            <div className="hidden md:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-white border border-slate-300 shadow-xs items-center justify-center text-slate-700 pointer-events-none font-bold">
+                              <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
+                            </div>
                           </div>
-                          <div className="space-y-2 text-xs sm:text-sm">
-                            <div className="flex items-center justify-between py-1.5 border-b border-slate-200 text-slate-900">
-                              <span className="text-slate-600 font-medium">属性 1 · 专长</span>
-                              <span className="font-bold text-slate-950">擅长业务领域</span>
+
+                          {/* 中间：双向加权路由核心引擎 */}
+                          <div className="md:col-span-3 flex flex-col justify-between p-4 sm:p-5 bg-slate-900 text-white text-center border border-slate-900 shadow-xs relative">
+                            <div className="space-y-2 py-2">
+                              <div className="w-9 h-9 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center mx-auto text-emerald-400">
+                                <Sliders className="w-4 h-4 stroke-[2.5]" />
+                              </div>
+                              <div>
+                                <span className="text-sm sm:text-base font-extrabold block text-white tracking-tight">
+                                  双向加权路由引擎
+                                </span>
+                                <span className="text-[11.5px] font-mono text-slate-300 block mt-1">
+                                  多因子实时权重矩阵
+                                </span>
+                              </div>
                             </div>
-                            <div className="flex items-center justify-between py-1.5 border-b border-slate-200 text-slate-900">
-                              <span className="text-slate-600 font-medium">属性 2 · 质量</span>
-                              <span className="font-bold text-slate-950">历史审核准确率</span>
+
+                            <div className="space-y-2 pt-2 border-t border-slate-800">
+                              <div className="px-2.5 py-1.5 bg-emerald-500 text-slate-950 font-mono font-bold text-xs tracking-tight flex items-center justify-center gap-1.5">
+                                <span>秒级精准撮合派发</span>
+                              </div>
+                              <span className="text-[11px] text-white font-medium block font-sans">
+                                算法实时拟合 · 质量与时效最优化
+                              </span>
                             </div>
-                            <div className="flex items-center justify-between py-1.5 text-slate-900">
-                              <span className="text-slate-600 font-medium">属性 3 · 负载</span>
-                              <span className="font-bold text-slate-950">在审单量 & 队列</span>
+                          </div>
+
+                          {/* 右侧：人员能力画像 */}
+                          <div className="md:col-span-4 bg-white border border-slate-200 shadow-xs flex flex-col justify-between relative overflow-hidden">
+                            {/* 桌面端来自中间引擎的接收箭头 */}
+                            <div className="hidden md:flex absolute -left-3.5 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-white border border-slate-300 shadow-xs items-center justify-center text-slate-700 pointer-events-none font-bold">
+                              <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
+                            </div>
+
+                            {/* 顶部标头栏 */}
+                            <div className="bg-slate-50 px-4 py-2.5 border-b border-slate-200 flex items-center justify-between">
+                              <div className="flex items-center gap-2">
+                                <span className="w-2 h-3.5 bg-slate-800"></span>
+                                <span className="text-xs sm:text-sm font-bold text-slate-950">
+                                  人员能力画像
+                                </span>
+                              </div>
+                              <span className="text-[11px] font-mono text-slate-800 font-bold bg-slate-100 px-2 py-0.5 border border-slate-200">
+                                供给资源端
+                              </span>
+                            </div>
+
+                            {/* 3 个一体化能力属性列表 */}
+                            <div className="p-3.5 sm:p-4 space-y-2.5 text-xs sm:text-sm">
+                              <div className="bg-slate-50/70 border border-slate-200/70 p-2.5 flex items-center justify-between">
+                                <div className="space-y-0.5">
+                                  <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block font-mono">属性 1 · 专长</span>
+                                  <span className="font-bold text-slate-900 text-xs sm:text-sm">擅长业务领域</span>
+                                </div>
+                                <span className="text-xs font-mono text-slate-600 bg-white px-2 py-1 border border-slate-200">体育/真人专精</span>
+                              </div>
+
+                              <div className="bg-slate-50/70 border border-slate-200/70 p-2.5 flex items-center justify-between">
+                                <div className="space-y-0.5">
+                                  <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block font-mono">属性 2 · 质量</span>
+                                  <span className="font-bold text-slate-900 text-xs sm:text-sm">历史审核准确率</span>
+                                </div>
+                                <span className="text-xs font-mono font-bold text-emerald-800 bg-white px-2 py-1 border border-emerald-200">99%+ 资深把关</span>
+                              </div>
+
+                              <div className="bg-slate-50/70 border border-slate-200/70 p-2.5 flex items-center justify-between">
+                                <div className="space-y-0.5">
+                                  <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block font-mono">属性 3 · 负载</span>
+                                  <span className="font-bold text-slate-900 text-xs sm:text-sm">在审单量 & 队列</span>
+                                </div>
+                                <span className="text-xs font-mono text-slate-600 bg-white px-2 py-1 border border-slate-200">动态负载均衡</span>
+                              </div>
+                            </div>
+
+                            {/* 底部连接指示条 */}
+                            <div className="px-4 py-2 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
+                              <span className="font-mono text-[11px]">人员档案动态刷新</span>
+                              <span className="font-bold text-slate-900 font-mono">参与匹配池</span>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
 
-                    {/* 运行场景与分配决策示意 */}
-                    <div className="space-y-3 pt-1">
-                      <div className="flex items-center justify-between pb-1.5 border-b border-slate-200">
-                        <span className="text-xs sm:text-sm font-bold text-slate-950 flex items-center gap-1.5">
-                          <span className="w-2 h-2 bg-slate-950"></span>
-                          派单匹配场景决策示例
+                    {/* 运行场景与分配决策示意 (一体化决策看板) */}
+                    <div className="bg-white border border-slate-200 overflow-hidden">
+                      {/* 一体化标头栏 */}
+                      <div className="bg-slate-50 px-4 sm:px-5 py-3 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+                        <div className="flex items-center gap-2">
+                          <span className="w-2 h-3.5 bg-slate-900 inline-block"></span>
+                          <span className="text-sm sm:text-base font-bold text-slate-950">
+                            派单匹配场景决策示例
+                          </span>
+                        </div>
+                        <span className="text-xs font-mono text-slate-600 font-medium">
+                          规则引擎多维拟合 · 杜绝错配与越权
                         </span>
-                        <span className="text-xs font-mono font-bold text-slate-600">精准派发机制</span>
                       </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
-                        {/* 场景 1：体育专长匹配 */}
-                        <div className="bg-white p-4 border border-slate-200/80 space-y-3 flex flex-col justify-between">
-                          <div className="space-y-2.5">
-                            <div className="flex items-center justify-between pb-2 border-b border-slate-200">
-                              <span className="text-xs sm:text-sm font-bold text-slate-950">1. 业务专长对口</span>
-                              <span className="text-xs font-mono font-bold text-slate-700">
+                      {/* 3 列一体式网格：使用无缝分割线 divide-y md:divide-y-0 md:divide-x divide-slate-200 */}
+                      <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-200 items-stretch">
+                        {/* 场景 1：业务专长对口 */}
+                        <div className="p-4 sm:p-5 flex flex-col justify-between space-y-4 bg-white hover:bg-slate-50/40 transition-colors">
+                          <div className="space-y-3">
+                            <div className="flex items-center justify-between pb-2.5 border-b border-slate-200">
+                              <div className="flex items-center gap-2">
+                                <span className="font-mono text-sm font-bold text-slate-500">01</span>
+                                <span className="text-xs sm:text-sm font-bold text-slate-950">业务专长对口</span>
+                              </div>
+                              <ReportBadge tone="slate" className="text-xs font-mono">
                                 领域专长
-                              </span>
+                              </ReportBadge>
                             </div>
-                            <div className="text-xs sm:text-sm space-y-1.5 text-slate-900">
-                              <div>
-                                <span className="text-slate-500 font-medium">待分订单：</span>
+
+                            <div className="space-y-2 text-xs sm:text-sm bg-slate-50/70 p-3 border border-slate-200/80">
+                              <div className="flex items-baseline gap-1.5">
+                                <span className="text-slate-500 font-medium shrink-0">待分订单：</span>
                                 <strong className="font-bold text-slate-950">体育订单</strong>
                               </div>
-                              <div>
-                                <span className="text-slate-500 font-medium">候选列表：</span>
+                              <div className="flex items-baseline gap-1.5">
+                                <span className="text-slate-500 font-medium shrink-0">候选列表：</span>
                                 <span className="text-slate-800">审核员A(体育专精) 与 审核员B(真人组)</span>
                               </div>
                             </div>
                           </div>
 
-                          <div className="pt-2.5 border-t border-slate-200 space-y-1.5">
-                            <div className="bg-slate-50 p-2.5 flex items-center justify-between text-xs sm:text-sm">
+                          <div className="pt-3 border-t border-slate-200 space-y-2">
+                            <div className="bg-slate-100/80 p-2.5 flex items-center justify-between text-xs sm:text-sm">
                               <span className="font-bold text-slate-700">派发决策</span>
-                              <strong className="font-bold text-slate-950 font-mono">指派审核员 A</strong>
+                              <ReportBadge tone="blue" className="text-xs font-mono font-bold">
+                                ➔ 指派审核员 A
+                              </ReportBadge>
                             </div>
                             <p className="text-xs text-slate-700 leading-relaxed">
                               {highlightNumbers(
-                                "体育订单约 80% 定向分流至专业体育组，提升审核准确度。"
+                                "体育订单约 80% 分流至体育组，提升审核准确度。"
                               )}
                             </p>
                           </div>
                         </div>
 
-                        {/* 场景 2：高绩效优先 */}
-                        <div className="bg-white p-4 border border-slate-200 space-y-3 flex flex-col justify-between">
-                          <div className="space-y-2.5">
-                            <div className="flex items-center justify-between pb-2 border-b border-slate-200">
-                              <span className="text-xs sm:text-sm font-bold text-slate-950">2. 质量绩效优先</span>
-                              <span className="text-xs font-mono font-bold text-slate-700">
-                                质量把关
-                              </span>
-                            </div>
-                            <div className="text-xs sm:text-sm space-y-1.5 text-slate-900">
-                              <div>
-                                <span className="text-slate-500 font-medium">待分订单：</span>
-                                <strong className="font-bold text-slate-950">高额复审订单</strong>
+                        {/* 场景 2：质量绩效优先 */}
+                        <div className="p-4 sm:p-5 flex flex-col justify-between space-y-4 bg-white hover:bg-slate-50/40 transition-colors">
+                          <div className="space-y-3">
+                            <div className="flex items-center justify-between pb-2.5 border-b border-slate-200">
+                              <div className="flex items-center gap-2">
+                                <span className="font-mono text-sm font-bold text-slate-500">02</span>
+                                <span className="text-xs sm:text-sm font-bold text-slate-950">质量绩效优先</span>
                               </div>
-                              <div>
-                                <span className="text-slate-500 font-medium">候选列表：</span>
+                              <ReportBadge tone="blue" className="text-xs font-mono">
+                                质量把关
+                              </ReportBadge>
+                            </div>
+
+                            <div className="space-y-2 text-xs sm:text-sm bg-slate-50/70 p-3 border border-slate-200/80">
+                              <div className="flex items-baseline gap-1.5">
+                                <span className="text-slate-500 font-medium shrink-0">待分订单：</span>
+                                <strong className="font-bold text-slate-950">复审订单</strong>
+                              </div>
+                              <div className="flex items-baseline gap-1.5">
+                                <span className="text-slate-500 font-medium shrink-0">候选列表：</span>
                                 <span className="text-slate-800">
                                   {highlightNumbers("审核员A(准确率 99%) 与 审核员B(常规组)")}
                                 </span>
@@ -1552,45 +1738,55 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                             </div>
                           </div>
 
-                          <div className="pt-2.5 border-t border-slate-200 space-y-1.5">
-                            <div className="bg-slate-50 p-2.5 flex items-center justify-between text-xs sm:text-sm">
+                          <div className="pt-3 border-t border-slate-200 space-y-2">
+                            <div className="bg-slate-100/80 p-2.5 flex items-center justify-between text-xs sm:text-sm">
                               <span className="font-bold text-slate-700">派发决策</span>
-                              <strong className="font-bold text-slate-950 font-mono">指派审核员 A</strong>
+                              <ReportBadge tone="blue" className="text-xs font-mono font-bold">
+                                ➔ 指派审核员 A
+                              </ReportBadge>
                             </div>
                             <p className="text-xs text-slate-700 leading-relaxed">
-                              优先派发至高绩效资深审核专家，确保高额资产零差错。
+                              {highlightNumbers("优先派发至高绩效资深审核专家，确保高额资产零差错。")}
                             </p>
                           </div>
                         </div>
 
-                        {/* 场景 3：分组权限控制 */}
-                        <div className="bg-white p-4 border border-slate-200 space-y-3 flex flex-col justify-between">
-                          <div className="space-y-2.5">
-                            <div className="flex items-center justify-between pb-2 border-b border-slate-200">
-                              <span className="text-xs sm:text-sm font-bold text-slate-950">3. 权限分层隔离</span>
-                              <span className="text-xs font-mono font-bold text-slate-700">
-                                风险隔离
-                              </span>
-                            </div>
-                            <div className="text-xs sm:text-sm space-y-1.5 text-slate-900">
-                              <div>
-                                <span className="text-slate-500 font-medium">待分订单：</span>
-                                <strong className="font-bold text-slate-950">S级特级高危订单</strong>
+                        {/* 场景 3：权限分层隔离 */}
+                        <div className="p-4 sm:p-5 flex flex-col justify-between space-y-4 bg-white hover:bg-slate-50/40 transition-colors">
+                          <div className="space-y-3">
+                            <div className="flex items-center justify-between pb-2.5 border-b border-slate-200">
+                              <div className="flex items-center gap-2">
+                                <span className="font-mono text-sm font-bold text-slate-500">03</span>
+                                <span className="text-xs sm:text-sm font-bold text-slate-950">权限分层隔离</span>
                               </div>
-                              <div>
-                                <span className="text-slate-500 font-medium">候选列表：</span>
-                                <span className="text-slate-800">审核员A(总部资深组) 与 审核员B(外包组)</span>
+                              <ReportBadge tone="red" className="text-xs font-mono">
+                                风险隔离
+                              </ReportBadge>
+                            </div>
+
+                            <div className="space-y-2 text-xs sm:text-sm bg-slate-50/70 p-3 border border-slate-200/80">
+                              <div className="flex items-baseline gap-1.5">
+                                <span className="text-slate-500 font-medium shrink-0">待分订单：</span>
+                                <strong className="font-bold text-slate-950">高额订单</strong>
+                              </div>
+                              <div className="flex items-baseline gap-1.5">
+                                <span className="text-slate-500 font-medium shrink-0">候选列表：</span>
+                                <span className="text-slate-800">
+                                  {highlightNumbers("审核员A(资深组) 与 审核员B(普通组)")}
+                                </span>
                               </div>
                             </div>
                           </div>
 
-                          <div className="pt-2.5 border-t border-slate-200 space-y-1.5">
-                            <div className="bg-slate-50 p-2.5 flex items-center justify-between text-xs sm:text-sm">
+                          <div className="pt-3 border-t border-slate-200 space-y-2">
+                            <div className="bg-slate-100/80 p-2.5 flex items-center justify-between text-xs sm:text-sm">
                               <span className="font-bold text-slate-700">派发决策</span>
-                              <strong className="font-bold text-slate-950 font-mono">指派审核员 A</strong>
+                              <ReportBadge tone="blue" className="text-xs font-mono font-bold">
+                                ➔ 指派审核员 A
+                              </ReportBadge>
                             </div>
                             <p className="text-xs text-slate-700 leading-relaxed">
-                              落实严格的权限组校验，阻断非受控越权审核与外部利益勾结。
+                              {highlightNumbers("严格的权限组校验，阻断高额订单潜在错误风险。")}
                             </p>
                           </div>
                         </div>
@@ -1645,7 +1841,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       </div>
                       <p className="text-sm text-slate-700 leading-relaxed">
                         {highlightNumbers(
-                          "按周微调各规则评分权重与触发阈值，将[[误拦截率严控在万分级以下]]，最大化保障良性用户出款体验。"
+                          "按周微调各规则评分权重与触发阈值，将[[误拦截率严控在千分级以下]]，最大化保障良性用户出款体验。"
                         )}
                       </p>
                     </div>

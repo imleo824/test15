@@ -62,19 +62,19 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
       <SummaryBox>
         <div className="space-y-2.5">
           <div className="text-sm text-slate-700 font-normal leading-relaxed">
-            <strong className="text-slate-950 font-bold">三季度整体拦截金额：</strong>
+            <strong className="text-slate-950 font-bold">整体拦截金额：</strong>
             {highlightNumbers(
-              "整体总计金额在 [[2.98E]]，其中 8月最高为 [[1.057E]]，后续呈现持续减少。此部分主要系 8月部分代理拦截提升原因，金额对比世界杯期间有所上涨，后续 9月落回，数据正常。"
+              "整体总计金额在 [[2.98E]]，其中 8 月最高为 [[1.057E]]，后续呈现持续减少。此部分主要系 8 月部分代理拦截提升原因，金额对比世界杯期间有所上涨，后续 9 月落回，数据正常。"
             )}
           </div>
           <div className="text-sm text-slate-700 font-normal leading-relaxed">
-            <strong className="text-slate-950 font-bold">三季度平均审核时长：</strong>
+            <strong className="text-slate-950 font-bold">平均审核时长：</strong>
             {highlightNumbers(
               "三季度整体平均人工审核时长为 [[09:15]]，整体处于[[良性审核时间范围]]，后续将持续关注与提升。"
             )}
           </div>
           <div className="text-sm text-slate-700 font-normal leading-relaxed">
-            <strong className="text-slate-950 font-bold">三季度平均审核单量：</strong>
+            <strong className="text-slate-950 font-bold">平均审核单量：</strong>
             {highlightNumbers(
               "随着世界杯赛事结束以及系统出单比例持续提升，[[有效释放人工审核压力]]与审核单量，后续呈现自然回落，属于正常数据表现。"
             )}
@@ -86,7 +86,7 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
         {/* 左卡片: 26年第三季度总防范金 */}
         <ReportChartCard
-          title="26年第三季度总防范金"
+          title="总防范金"
           value="2.98E"
         >
             <ResponsiveContainer width="100%" height="100%">
@@ -114,7 +114,7 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
 
         {/* 右卡片: 26年第三季度平均审核时长 */}
         <ReportChartCard
-          title="26年第三季度平均时长"
+          title="平均时长"
           value="09:15"
         >
             <ResponsiveContainer width="100%" height="100%">
