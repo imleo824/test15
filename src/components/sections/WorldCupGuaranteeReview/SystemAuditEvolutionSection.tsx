@@ -174,7 +174,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
             {/* 管理结论：置于【成因剖析】标题正下方 */}
             <div className="p-4 bg-slate-50/60 border-l-2 border-slate-300 text-sm sm:text-base text-slate-800 leading-relaxed">
               {highlightNumbers(
-                "基于[[多账号拦截与存量标签兜底]]的风控边界，当前 60%~65% 的系统出单水平已高度贴近 75% 的安全物理极限。"
+                "基于[[多账号拦截与存量标签兜底]]的风控边界，当前 60%~65% 的系统出单水平已高度贴近 75% 的安全边界。"
               )}
             </div>
 
@@ -190,7 +190,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 </div>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                   {highlightNumbers(
-                    "平台多账号关联占比达 80% 左右；经[[策略矩阵深度识别]]后，高风险关联占比约 15%，该部分订单必须转入人工复审进行资产核验与风险阻断，无法由系统直接放行。"
+                    "平台多账号关联占比达 80% 左右；经[[策略矩阵深度识别]]后，高风险关联占比约 15%，须转入人工复审进行资产核验，无法由系统直接放行。"
                   )}
                 </p>
               </div>
@@ -205,7 +205,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                 </div>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                   {highlightNumbers(
-                    "平台沉淀了大量被打上标签的用户；在经历多轮策略去重与标签清理后，带标存量用户依然占整体单量的 10% 左右，触发历史标签的订单仍需人工校验兜底。"
+                    "平台沉淀了大量被打上标签的用户；在经历多轮[[策略去重与标签清理]]后，带标存量用户依然占 10% 左右，触发历史标签的订单仍需人工校验兜底。"
                   )}
                 </p>
               </div>

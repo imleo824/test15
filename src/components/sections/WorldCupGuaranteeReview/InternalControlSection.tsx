@@ -1,5 +1,4 @@
 import React from "react";
-import { ShieldCheck } from "lucide-react";
 import { SummaryBox, highlightNumbers } from "./utils";
 import {
   ReportBadge,

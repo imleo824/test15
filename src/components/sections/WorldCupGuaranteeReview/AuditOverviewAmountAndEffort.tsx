@@ -1,7 +1,7 @@
 import React from "react";
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, ComposedChart, Line } from "recharts";
 import { SummaryBox, highlightNumbers } from "./utils";
-import { ReportChartCard, ReportChartLegend, ReportSectionHeader } from "../../ReportSections";
+import { ReportChartCard, ReportSectionHeader } from "../../ReportSections";
 import {
   chartAxisTick,
   chartBarRadius,
@@ -9,7 +9,6 @@ import {
   chartColors,
   getChartLabelClassName,
   getChartLabelStyle,
-  chartMargins,
   chartSeriesColors,
 } from "./chartStyles";
 
