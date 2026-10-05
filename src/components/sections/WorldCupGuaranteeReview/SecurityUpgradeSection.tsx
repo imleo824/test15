@@ -91,7 +91,7 @@ export const SecurityUpgradeSection: React.FC = () => {
           name: "界面划选与复制",
           status: "待支持",
           statusTone: "amber",
-          risk: "大面积划选、Ctrl+A 全选快捷键批量复制数据，规避导出审计。",
+          risk: "大面积划选、Ctrl+A 全选快捷键批量复制数据，规避导出审计；尤其是，敏感信息需要做特殊禁用。",
           measure: "代码级[[禁用批量划选与右键全选]]，对高频连续复制行为实施即时预警与全程审计。",
           impact: "批量提取完全阻断，单项复制全程审计",
         },
@@ -182,7 +182,7 @@ export const SecurityUpgradeSection: React.FC = () => {
                 </div>
                 <p className="text-xs sm:text-[13px] text-slate-700 leading-relaxed font-normal pt-1.5">
                   {highlightNumbers(
-                    "投注管理-筛选足球-投注金额 5000元 以上的会员，将这一批账号在后台使用关联关系查询功能，将该功能明文显示的数据[[手动复制并粘贴至 Excel 表格中]]进行筛选。"
+                    "投注管理-筛选足球-投注金额 xxx元 以上的会员，将这一批账号在后台使用关联关系查询功能，将该功能明文显示的数据[[手动复制并粘贴至 Excel 表格中]]进行筛选。"
                   )}
                 </p>
               </div>

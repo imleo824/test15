@@ -377,7 +377,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
           </tbody>
           <tfoot className="border-t-2 border-slate-300 bg-slate-50 tabular-nums font-mono text-slate-900 font-bold">
             <tr className="border-b border-slate-200">
-              <td className="text-left font-bold py-2 px-2 border-r border-slate-200">金额小计</td>
+              <td className="text-left font-bold py-2 px-2 border-r border-slate-200">小计</td>
               <td className="text-right tabular-nums text-blue-900 font-bold py-2 px-2 border-r border-slate-200 bg-blue-50/30">{categoryDetailSubtotal.total}</td>
               {categoryDetailSubtotal.columns.flatMap((amount, index) => {
                 const isLastCol = index === categoryDetailSubtotal.columns.length - 1;
@@ -388,7 +388,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
               })}
             </tr>
             <tr className="bg-slate-100/90 font-bold">
-              <td className="text-left font-bold py-2 px-2 border-r border-slate-200">整体占比</td>
+              <td className="text-left font-bold py-2 px-2 border-r border-slate-200">总计</td>
               <td className="text-right tabular-nums font-bold text-blue-900 py-2 px-2 border-r border-slate-200 bg-blue-100/40">{categoryDetailTotalPct.total}</td>
               {categoryDetailTotalPct.columns.map((pct, index) => {
                 const isLastCol = index === categoryDetailTotalPct.columns.length - 1;

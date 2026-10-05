@@ -35,7 +35,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
         {/* 统一文字说明：一句话总结 */}
         <SummaryBox variant="module">
           {highlightNumbers(
-            "从 2025 年开始，历经多轮迭代后在 2026 年 9 月开展灰度验证，并于 9 月 30 日正式全量上线，审单模式实现[[系统自动为主、人工兜底为辅]]的架构重构：系统审核占比由 50.0% 跃升至 65.0%（人工审核压降至 35.0%，逼近 25% 安全边界）。"
+            "从 [[2025 年]]开始，历经多轮迭代后在 [[2026 年 9 月]]开展灰度验证，并于 [[9 月 30 日]]正式全量上线，审单模式实现[[系统自动为主、人工兜底为辅]]的架构重构：系统审核占比由 50.0% 跃升至 65.0%（人工审核压降至 35.0%，逼近 25% 安全边界）。"
           )}
         </SummaryBox>
 
@@ -505,7 +505,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <p>
                       <strong className="text-slate-950">总部减负与成本节约：</strong>
                       {highlightNumbers(
-                        "总部人工审核占比由月均 40.0% 降至 系统930 的 34.4%（相对精简 -14.0%），相当于释放约 30人 的日常审核工作量，实现总部月均理论成本节约约 100w/月。"
+                        "总部人工审核占比由月均 40.0% 降至 系统930 的 34.4%（相对精简 -14.0%），相当于释放约 30人 的日常审核工作量，实现总部月均理论成本节约约 100w/月；后续将持续降低总部人工审核单量。"
                       )}
                     </p>
                   </div>
@@ -599,7 +599,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                         <ShieldCheck className="w-3 h-3 text-blue-700 shrink-0" />
                         <span>严查</span>
                       </span>
-                      <div className="font-mono text-xs sm:text-sm font-bold text-blue-950">8分内</div>
+                      <div className="font-mono text-xs sm:text-sm font-bold text-blue-950">10分内</div>
                     </div>
                   </div>
                 </div>
@@ -631,7 +631,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <p>
                       <strong className="text-slate-950">风险玩家深度严查：</strong>
                       {highlightNumbers(
-                        "占总量 35% 的风险玩家订单 由专业人工实施[[多维交叉复核]]，审核时效严控在 8分钟内 快速闭环，兼顾安全防御与流转速率。"
+                        "占总量 35% 的风险玩家订单 由专业人工实施[[多维交叉复核]]，审核时效严控在 10分钟内 快速闭环，兼顾安全防御与流转速率。"
                       )}
                     </p>
                   </div>

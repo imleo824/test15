@@ -140,8 +140,8 @@ export const InternalControlSection: React.FC = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
               {/* Card 1: 违规人数 */}
-              <div className="bg-white border border-slate-200 p-5 flex flex-col justify-between space-y-3">
-                <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
+              <div className="bg-white border border-slate-200 p-5 flex flex-col justify-between space-y-2.5">
+                <div className="flex items-center justify-between pb-2 border-b border-slate-100">
                   <span className="text-xs sm:text-sm font-bold text-slate-700 tracking-wide">
                     违规人数
                   </span>
@@ -149,20 +149,17 @@ export const InternalControlSection: React.FC = () => {
                     严重违规
                   </ReportBadge>
                 </div>
-                <div className="flex items-baseline gap-1 py-1">
+                <div className="flex items-baseline gap-1 py-0.5">
                   <span className="text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight font-mono tabular-nums">
                     16
                   </span>
                   <span className="text-xs sm:text-sm font-bold text-slate-600">人</span>
                 </div>
-                <p className="text-xs text-slate-600 leading-relaxed font-normal pt-1 border-t border-slate-50">
-                  {highlightNumbers("专项稽查锁定的核心违规与利益输送责任人")}
-                </p>
               </div>
 
               {/* Card 2: 预估挽回金额 */}
-              <div className="bg-white border border-slate-200 p-5 flex flex-col justify-between space-y-3">
-                <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
+              <div className="bg-white border border-slate-200 p-5 flex flex-col justify-between space-y-2.5">
+                <div className="flex items-center justify-between pb-2 border-b border-slate-100">
                   <span className="text-xs sm:text-sm font-bold text-slate-700 tracking-wide">
                     预估挽回金额
                   </span>
@@ -170,20 +167,17 @@ export const InternalControlSection: React.FC = () => {
                     资产止损
                   </ReportBadge>
                 </div>
-                <div className="flex items-baseline gap-1 py-1">
+                <div className="flex items-baseline gap-1 py-0.5">
                   <span className="text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight font-mono tabular-nums">
                     32,799
                   </span>
                   <span className="text-xs sm:text-sm font-bold text-slate-600">U</span>
                 </div>
-                <p className="text-xs text-slate-600 leading-relaxed font-normal pt-1 border-t border-slate-50">
-                  {highlightNumbers("通过止付、追回与违规扣回有效挽回的资产损失")}
-                </p>
               </div>
 
               {/* Card 3: 罚款人数 */}
-              <div className="bg-white border border-slate-200 p-5 flex flex-col justify-between space-y-3">
-                <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
+              <div className="bg-white border border-slate-200 p-5 flex flex-col justify-between space-y-2.5">
+                <div className="flex items-center justify-between pb-2 border-b border-slate-100">
                   <span className="text-xs sm:text-sm font-bold text-slate-700 tracking-wide">
                     罚款人数
                   </span>
@@ -191,20 +185,17 @@ export const InternalControlSection: React.FC = () => {
                     纪律惩戒
                   </ReportBadge>
                 </div>
-                <div className="flex items-baseline gap-1 py-1">
+                <div className="flex items-baseline gap-1 py-0.5">
                   <span className="text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight font-mono tabular-nums">
                     176
                   </span>
                   <span className="text-xs sm:text-sm font-bold text-slate-600">人</span>
                 </div>
-                <p className="text-xs text-slate-600 leading-relaxed font-normal pt-1 border-t border-slate-50">
-                  {highlightNumbers("触犯风控合规红线与操作规范的受惩人员")}
-                </p>
               </div>
 
               {/* Card 4: 罚款金额 */}
-              <div className="bg-white border border-slate-200 p-5 flex flex-col justify-between space-y-3">
-                <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
+              <div className="bg-white border border-slate-200 p-5 flex flex-col justify-between space-y-2.5">
+                <div className="flex items-center justify-between pb-2 border-b border-slate-100">
                   <span className="text-xs sm:text-sm font-bold text-slate-700 tracking-wide">
                     罚款金额
                   </span>
@@ -212,15 +203,12 @@ export const InternalControlSection: React.FC = () => {
                     依规罚没
                   </ReportBadge>
                 </div>
-                <div className="flex items-baseline gap-1 py-1">
+                <div className="flex items-baseline gap-1 py-0.5">
                   <span className="text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight font-mono tabular-nums">
                     30,624
                   </span>
                   <span className="text-xs sm:text-sm font-bold text-slate-600">U</span>
                 </div>
-                <p className="text-xs text-slate-600 leading-relaxed font-normal pt-1 border-t border-slate-50">
-                  {highlightNumbers("依规严肃执行的违规问责与经济惩戒款项")}
-                </p>
               </div>
             </div>
           </div>

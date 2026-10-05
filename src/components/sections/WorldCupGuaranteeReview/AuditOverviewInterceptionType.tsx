@@ -237,7 +237,7 @@ export const AuditOverviewInterceptionType: React.FC = () => {
           </tbody>
           <tfoot className="border-t-2 border-slate-300 bg-slate-50 font-bold font-mono">
             <tr className="border-b border-slate-200">
-              <td className="py-2 px-2.5 text-left font-bold border-r border-slate-200">金额小计</td>
+              <td className="py-2 px-2.5 text-left font-bold border-r border-slate-200">小计</td>
               <td className="py-2 px-1.5 text-right font-mono font-bold text-slate-900">27,233.47</td>
               <td className="py-2 px-1.5 text-center font-mono border-r border-slate-200 text-slate-600">100%</td>
               <td className="py-2 px-1.5 text-right font-mono font-bold text-blue-900 bg-blue-50/30">29,765.92</td>
@@ -252,7 +252,7 @@ export const AuditOverviewInterceptionType: React.FC = () => {
               <td className="py-2 px-1.5 text-center font-mono text-slate-600">100%</td>
             </tr>
             <tr className="bg-slate-100/90 font-bold">
-              <td className="py-2 px-2.5 text-left font-bold border-r border-slate-200">整体占比</td>
+              <td className="py-2 px-2.5 text-left font-bold border-r border-slate-200">总计</td>
               <td className="py-2 px-1.5 text-right font-mono font-bold text-slate-900">27,233.47</td>
               <td className="py-2 px-1.5 text-center font-mono font-bold border-r border-slate-200 text-slate-600">100%</td>
               <td className="py-2 px-1.5 text-right font-mono font-bold text-blue-900 bg-blue-100/40">29,765.92</td>

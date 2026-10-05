@@ -162,8 +162,11 @@ export const highlightNumbers = (
       const isNumber = numericOnlyPattern.test(phrase);
       const context = text.slice(Math.max(0, match.index - 18), Math.min(text.length, highlightPattern.lastIndex + 18));
 
+      const isDatePhrase = /^\d{4}年(?:\d{1,2}月)?(?:\d{1,2}日)?$|^\d{1,2}月(?:\d{1,2}日)?$/.test(phrase.replace(/\s+/g, ""));
+
       if (
         isNumber &&
+        !isDatePhrase &&
         (phrase.startsWith("-") || parseFloat(numericValue) < 0) &&
         getNumberToneClass(phrase, context, colorClass) === summaryRiskNumberClass
       ) {
@@ -172,7 +175,7 @@ export const highlightNumbers = (
             {phrase}
           </span>,
         );
-      } else if (isNumber) {
+      } else if (isNumber && !isDatePhrase) {
         result.push(
           <span
             key={match.index}

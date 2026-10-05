@@ -304,50 +304,6 @@ const renderLegend = () => (
 );
 
 export const SmartDispatchOrderStructure: React.FC = () => {
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const [linePath, setLinePath] = React.useState<string>("");
-  const [, setNodes] = React.useState<Array<{ x: number; y: number }>>([]);
-
-  const updateLine = React.useCallback(() => {
-    if (!containerRef.current) return;
-    const anchors = containerRef.current.querySelectorAll(".m930-bar-anchor circle:first-child");
-    if (anchors.length >= 3) {
-      const containerRect = containerRef.current.getBoundingClientRect();
-      const pts = Array.from(anchors).map((el) => {
-        const r = (el as Element).getBoundingClientRect();
-        return {
-          x: r.left + r.width / 2 - containerRect.left,
-          y: r.top + r.height / 2 - containerRect.top,
-        };
-      });
-      setNodes(pts);
-      setLinePath(`M ${pts[0].x} ${pts[0].y} L ${pts[1].x} ${pts[1].y} L ${pts[2].x} ${pts[2].y}`);
-    }
-  }, []);
-
-  React.useLayoutEffect(() => {
-    updateLine();
-    const t1 = setTimeout(updateLine, 60);
-    const t2 = setTimeout(updateLine, 250);
-    const t3 = setTimeout(updateLine, 600);
-    window.addEventListener("resize", updateLine);
-
-    let ro: ResizeObserver | null = null;
-    if (containerRef.current && typeof ResizeObserver !== "undefined") {
-      ro = new ResizeObserver(() => {
-        updateLine();
-      });
-      ro.observe(containerRef.current);
-    }
-
-    return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
-      clearTimeout(t3);
-      window.removeEventListener("resize", updateLine);
-      if (ro) ro.disconnect();
-    };
-  }, [updateLine]);
   return (
     <ReportChartCard
       title="出单结构趋势对比"
@@ -486,32 +442,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
         </div>
 
         {/* 图表展示区：横坐标为 外包 / 总部 / 系统，每个角色包含全部月份柱子 */}
-        <div ref={containerRef} className="relative h-[340px] pt-3">
-          {/* 顶层高精度连线：严格连接 3 个 9.30 柱顶 */}
-          {linePath && (
-            <svg
-              className="absolute inset-0 w-full h-full pointer-events-none z-10"
-              style={{ overflow: "visible" }}
-            >
-              {/* 连线微光发光层 */}
-              <path
-                d={linePath}
-                stroke="#3b82f6"
-                strokeWidth={9}
-                strokeOpacity={0.35}
-                fill="none"
-              />
-              {/* 连线主体深蓝虚线 */}
-              <path
-                d={linePath}
-                stroke="#1d4ed8"
-                strokeWidth={4}
-                strokeDasharray="6 4"
-                fill="none"
-              />
-            </svg>
-          )}
-
+        <div className="relative h-[340px] pt-3">
           <ResponsiveContainer width="100%" height="100%">
             <ComposedChart
               data={roleGroupedData}
