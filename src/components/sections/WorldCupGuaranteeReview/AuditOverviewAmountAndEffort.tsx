@@ -14,24 +14,24 @@ import {
 } from "./chartStyles";
 
 export const AuditOverviewAmountAndEffort: React.FC = () => {
-  // Chart 1: 26年Q2总拦截金 (月度数据 2026/1 ~ 2026/6)
+  // Chart 1: 26年三季度总防范金 (月度数据 2026/4 ~ 2026/9，Q3 累计 2.98e)
   const amountData = [
-    { month: "2026/1", amount: 1.153 },
-    { month: "2026/2", amount: 1.019 },
-    { month: "2026/3", amount: 0.899 },
     { month: "2026/4", amount: 0.868 },
     { month: "2026/5", amount: 0.810 },
     { month: "2026/6", amount: 1.046 },
+    { month: "2026/7", amount: 1.038 },
+    { month: "2026/8", amount: 1.057 },
+    { month: "2026/9", amount: 0.882 },
   ];
 
-  // Chart 2: 26年Q2平均审核时长 (双轴数据: 人工单量 & 人工时效)
+  // Chart 2: 26年三季度平均审核时长 (月度双轴数据: 人工单量 & 人工时效，Q3 均值 09:15)
   const effortData = [
-    { month: "2026/1", volume: 221.53, duration: "10:12", durationVal: 10.20 },
-    { month: "2026/2", volume: 223.84, duration: "10:46", durationVal: 10.77 },
-    { month: "2026/3", volume: 231.49, duration: "09:38", durationVal: 9.63 },
     { month: "2026/4", volume: 228.76, duration: "09:54", durationVal: 9.90 },
     { month: "2026/5", volume: 224.03, duration: "08:07", durationVal: 8.12 },
     { month: "2026/6", volume: 300.77, duration: "08:14", durationVal: 8.23 },
+    { month: "2026/7", volume: 329.37, duration: "09:16", durationVal: 9.27 },
+    { month: "2026/8", volume: 271.85, duration: "08:02", durationVal: 8.03 },
+    { month: "2026/9", volume: 201.92, duration: "10:28", durationVal: 10.47 },
   ];
   const amountValues = amountData.map((item) => item.amount);
   const volumeValues = effortData.map((item) => item.volume);
@@ -65,13 +65,19 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
           <div className="text-sm text-slate-700 font-normal leading-relaxed">
             <strong className="text-slate-950 font-bold">三季度整体拦截金额：</strong>
             {highlightNumbers(
-              "累计拦截 2.72e；峰值月度受赛事与活动驱动达 1.046e。全面强化对批量黑产实施[[直接扣除本金]]处置，威慑效应显著，拦截趋势保持平稳可控。"
+              "整体总计金额在 [[2.98E]]，其中 8月最高为 [[1.057E]]，后续呈现持续减少。此部分主要系 8月部分代理拦截提升原因，金额对比世界杯期间有所上涨，后续 9月落回，数据正常。"
             )}
           </div>
           <div className="text-sm text-slate-700 font-normal leading-relaxed">
             <strong className="text-slate-950 font-bold">三季度平均审核时长：</strong>
             {highlightNumbers(
-              "依托系统分流与[[智能派单调度]]，平均人工审核时长稳定在 08:45；在单量峰值达 300.77w 单承压下，全盘审核时效平稳达标。"
+              "三季度整体平均人工审核时长为 [[09:15]]，整体处于[[良性审核时间范围]]，后续将持续关注与提升。"
+            )}
+          </div>
+          <div className="text-sm text-slate-700 font-normal leading-relaxed">
+            <strong className="text-slate-950 font-bold">三季度平均审核单量：</strong>
+            {highlightNumbers(
+              "随着世界杯赛事结束以及系统出单比例持续提升，[[有效释放人工审核压力]]与审核单量，后续呈现自然回落，属于正常数据表现。"
             )}
           </div>
         </div>
@@ -79,23 +85,29 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
 
       {/* 图表展示区 - 统一结构规范：标题 + 说明 + 图例 + 图表 + 备注 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
-        {/* 左卡片: 26年三季度总拦截金额 */}
+        {/* 左卡片: 26年第三季度总防范金 */}
         <ReportChartCard
-          title="三季度拦截金额月度走势"
-          value="2.72e"
-          description={highlightNumbers("三季度累计拦截金额 2.72e，峰值达 1.046e；全面强化对批量黑产实施[[直接扣除本金]]，威慑效应显著。")}
+          title="26年第三季度总防范金"
+          value="2.98E"
           legend={
             <ReportChartLegend
               items={[
-                { label: "月度拦截金额", color: chartSeriesColors.secondary, shape: "rect" },
+                { label: "防范金额 (E)", color: chartSeriesColors.secondary, shape: "rect" },
               ]}
             />
           }
         >
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={amountData} margin={chartMargins.hiddenAxis}>
-                <XAxis dataKey="month" tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} />
-                <YAxis hide domain={[0, 1.5]} />
+              <BarChart data={amountData} margin={{ top: 40, right: 20, left: 20, bottom: 10 }}>
+                <XAxis
+                  dataKey="month"
+                  interval={0}
+                  padding={{ left: 15, right: 15 }}
+                  tick={chartAxisTick}
+                  axisLine={{ stroke: chartColors.ink }}
+                  tickLine={false}
+                />
+                <YAxis hide domain={[0, 1.4]} />
                 <Bar
                   dataKey="amount"
                   fill={chartSeriesColors.secondary}
@@ -108,25 +120,33 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
             </ResponsiveContainer>
         </ReportChartCard>
 
-        {/* 右卡片: 26年三季度平均审核时长 */}
+        {/* 右卡片: 26年第三季度平均审核时长 */}
         <ReportChartCard
-          title="三季度平均人工审核时长"
-          value="08:45"
-          description={highlightNumbers("依托[[系统派单分流]]，平均人工审核时长稳定在 08:45；单量峰值达 300.77w单，时效依然平稳可控。")}
+          title="26年第三季度平均审核时长"
+          value="09:15"
           legend={
             <ReportChartLegend
               items={[
-                { label: "人工审单量 (w单)", color: chartSeriesColors.secondary, shape: "rect" },
-                { label: "平均审核时长 (分:秒)", color: chartSeriesColors.trend, shape: "line" },
+                { label: "人工单量 (w)", color: chartSeriesColors.secondary, shape: "rect" },
+                { label: "人工时效 (分:秒)", color: chartSeriesColors.trend, shape: "line" },
               ]}
             />
           }
         >
             <ResponsiveContainer width="100%" height="100%">
-              <ComposedChart data={effortData} margin={chartMargins.hiddenAxis}>
-                <XAxis dataKey="month" tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} />
-                <YAxis yAxisId="volume" hide domain={[0, 900]} />
-                <YAxis yAxisId="duration" hide domain={[0, 13.5]} />
+              <ComposedChart data={effortData} margin={{ top: 48, right: 20, left: 20, bottom: 10 }}>
+                <XAxis
+                  dataKey="month"
+                  interval={0}
+                  padding={{ left: 15, right: 15 }}
+                  tick={chartAxisTick}
+                  axisLine={{ stroke: chartColors.ink }}
+                  tickLine={false}
+                />
+                {/* 调整单量 Y 轴 Range 使柱状图处于下半区，彻底与折线及文本点分离 */}
+                <YAxis yAxisId="volume" hide domain={[0, 750]} />
+                {/* 调整时效 Y 轴 Range 使折线点拉高至上半区 */}
+                <YAxis yAxisId="duration" hide domain={[0, 12]} />
                 <Bar
                   yAxisId="volume"
                   dataKey="volume"
@@ -147,7 +167,7 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
                   label={({ x, y, index }) => (
                     <text
                       x={x}
-                      y={y - 10}
+                      y={y - 12}
                       textAnchor="middle"
                       className={getChartLabelClassName(effortData[index].durationVal, durationValues, { highlight: "min" })}
                       {...getChartLabelStyle(effortData[index].durationVal, durationValues, { highlight: "min" })}

@@ -5,18 +5,10 @@ import { AuditOverviewAgentInterception } from "./AuditOverviewAgentInterception
 import { AuditOverviewSportsInterception } from "./AuditOverviewSportsInterception";
 import { AuditOverviewStudioInterception } from "./AuditOverviewStudioInterception";
 import { AuditOverviewHighVipDetail } from "./AuditOverviewHighVipDetail";
-import { SummaryBox, highlightNumbers } from "./utils";
 
 export const AuditOverviewSection: React.FC = () => {
   return (
     <div className="report-chapter-content">
-      {/* 2.0 章节核心要点 */}
-      <SummaryBox variant="chapter">
-        {highlightNumbers(
-          "三季度风控拦截总金额达 2.72 亿元，其中体育类为[[核心拦截基本盘]]（占比 55.99%）；在单量峰值达 300.77w 单承压下，平均人工审核时长稳定在 08:45；全面推进批量黑产直接扣除本金与高等级会员穿透排查。"
-        )}
-      </SummaryBox>
-
       {/* 2.1 拦截金额与处理时效 */}
       <AuditOverviewAmountAndEffort />
 

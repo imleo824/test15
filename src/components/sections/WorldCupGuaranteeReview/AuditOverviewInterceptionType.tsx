@@ -6,153 +6,153 @@ export const AuditOverviewInterceptionType: React.FC = () => {
   const tableData = [
     {
       site: "1",
-      q1_2026_amt: "2,369.67",
-      q1_2026_pct: "7.72%",
-      q2_2026_amt: "1,782.32",
-      q2_2026_pct: "6.54%",
-      agent_amt: "440.56",
-      agent_pct: "9.73%",
-      sports_amt: "904.16",
-      sports_pct: "5.93%",
-      bonus_amt: "148.67",
-      bonus_pct: "6.71%",
-      other_amt: "288.93",
-      other_pct: "5.51%",
+      q2_amt: "1,782.32",
+      q2_pct: "6.54%",
+      q3_amt: "1,722.59",
+      q3_pct: "5.79%",
+      agent_amt: "318.12",
+      agent_pct: "5.43%",
+      sports_amt: "763.91",
+      sports_pct: "5.51%",
+      bonus_amt: "276.17",
+      bonus_pct: "7.43%",
+      other_amt: "364.39",
+      other_pct: "5.76%",
     },
     {
       site: "2",
-      q1_2026_amt: "1,808.01",
-      q1_2026_pct: "5.89%",
-      q2_2026_amt: "1,679.40",
-      q2_2026_pct: "6.17%",
-      agent_amt: "387.73",
-      agent_pct: "8.56%",
-      sports_amt: "870.58",
-      sports_pct: "5.71%",
-      bonus_amt: "199.21",
-      bonus_pct: "8.99%",
-      other_amt: "221.88",
-      other_pct: "4.23%",
+      q2_amt: "1,679.40",
+      q2_pct: "6.17%",
+      q3_amt: "1,629.15",
+      q3_pct: "5.47%",
+      agent_amt: "348.46",
+      agent_pct: "5.95%",
+      sports_amt: "625.66",
+      sports_pct: "4.51%",
+      bonus_amt: "284.79",
+      bonus_pct: "7.66%",
+      other_amt: "370.23",
+      other_pct: "5.85%",
     },
     {
       site: "3",
-      q1_2026_amt: "1,875.98",
-      q1_2026_pct: "6.11%",
-      q2_2026_amt: "1,799.35",
-      q2_2026_pct: "6.61%",
-      agent_amt: "378.58",
-      agent_pct: "8.36%",
-      sports_amt: "855.99",
-      sports_pct: "5.61%",
-      bonus_amt: "174.95",
-      bonus_pct: "7.90%",
-      other_amt: "389.83",
-      other_pct: "7.44%",
+      q2_amt: "1,799.35",
+      q2_pct: "6.61%",
+      q3_amt: "1,827.58",
+      q3_pct: "6.14%",
+      agent_amt: "329.16",
+      agent_pct: "5.62%",
+      sports_amt: "746.11",
+      sports_pct: "5.38%",
+      bonus_amt: "294.88",
+      bonus_pct: "7.93%",
+      other_amt: "457.43",
+      other_pct: "7.23%",
     },
     {
       site: "4",
-      q1_2026_amt: "10,741.79",
-      q1_2026_pct: "34.98%",
-      q2_2026_amt: "8,990.38",
-      q2_2026_pct: "33.01%",
-      agent_amt: "985.99",
-      agent_pct: "21.77%",
-      sports_amt: "5,242.14",
-      sports_pct: "34.38%",
-      bonus_amt: "762.67",
-      bonus_pct: "34.43%",
-      other_amt: "1,999.57",
-      other_pct: "38.16%",
+      q2_amt: "8,990.38",
+      q2_pct: "33.01%",
+      q3_amt: "10,365.44",
+      q3_pct: "34.82%",
+      agent_amt: "1,047.37",
+      agent_pct: "17.89%",
+      sports_amt: "5,261.67",
+      sports_pct: "37.94%",
+      bonus_amt: "1,430.74",
+      bonus_pct: "38.49%",
+      other_amt: "2,625.66",
+      other_pct: "41.52%",
     },
     {
       site: "5",
-      q1_2026_amt: "794.42",
-      q1_2026_pct: "2.59%",
-      q2_2026_amt: "152.87",
-      q2_2026_pct: "0.56%",
-      agent_amt: "36.47",
-      agent_pct: "0.81%",
-      sports_amt: "79.96",
-      sports_pct: "0.52%",
-      bonus_amt: "11.95",
-      bonus_pct: "0.54%",
-      other_amt: "24.50",
-      other_pct: "0.47%",
+      q2_amt: "152.87",
+      q2_pct: "0.56%",
+      q3_amt: "238.87",
+      q3_pct: "0.80%",
+      agent_amt: "21.20",
+      agent_pct: "0.36%",
+      sports_amt: "156.36",
+      sports_pct: "1.13%",
+      bonus_amt: "28.01",
+      bonus_pct: "0.75%",
+      other_amt: "33.30",
+      other_pct: "0.53%",
     },
     {
       site: "7",
-      q1_2026_amt: "2,387.83",
-      q1_2026_pct: "7.78%",
-      q2_2026_amt: "2,361.69",
-      q2_2026_pct: "8.67%",
-      agent_amt: "439.87",
-      agent_pct: "9.71%",
-      sports_amt: "1,148.30",
-      sports_pct: "7.53%",
-      bonus_amt: "186.83",
-      bonus_pct: "8.43%",
-      other_amt: "586.68",
-      other_pct: "11.19%",
+      q2_amt: "2,361.69",
+      q2_pct: "8.67%",
+      q3_amt: "1,957.11",
+      q3_pct: "6.58%",
+      agent_amt: "384.31",
+      agent_pct: "6.56%",
+      sports_amt: "805.66",
+      sports_pct: "5.81%",
+      bonus_amt: "309.03",
+      bonus_pct: "8.31%",
+      other_amt: "458.11",
+      other_pct: "7.24%",
     },
     {
       site: "8",
-      q1_2026_amt: "1,581.97",
-      q1_2026_pct: "5.15%",
-      q2_2026_amt: "2,910.27",
-      q2_2026_pct: "10.69%",
-      agent_amt: "446.17",
-      agent_pct: "9.85%",
-      sports_amt: "2,096.51",
-      sports_pct: "13.75%",
-      bonus_amt: "125.67",
-      bonus_pct: "5.67%",
-      other_amt: "241.91",
-      other_pct: "4.62%",
+      q2_amt: "2,910.27",
+      q2_pct: "10.69%",
+      q3_amt: "3,979.42",
+      q3_pct: "13.37%",
+      agent_amt: "2,126.03",
+      agent_pct: "36.31%",
+      sports_amt: "1,456.00",
+      sports_pct: "10.50%",
+      bonus_amt: "108.34",
+      bonus_pct: "2.91%",
+      other_amt: "289.04",
+      other_pct: "4.57%",
     },
     {
       site: "6+9",
-      q1_2026_amt: "3,050.16",
-      q1_2026_pct: "9.93%",
-      q2_2026_amt: "2,577.88",
-      q2_2026_pct: "9.47%",
-      agent_amt: "533.76",
-      agent_pct: "11.79%",
-      sports_amt: "1,171.10",
-      sports_pct: "7.68%",
-      bonus_amt: "271.30",
-      bonus_pct: "12.25%",
-      other_amt: "601.72",
-      other_pct: "11.48%",
+      q2_amt: "2,577.88",
+      q2_pct: "9.47%",
+      q3_amt: "3,179.07",
+      q3_pct: "10.68%",
+      agent_amt: "469.05",
+      agent_pct: "8.01%",
+      sports_amt: "1,589.15",
+      sports_pct: "11.46%",
+      bonus_amt: "518.00",
+      bonus_pct: "13.94%",
+      other_amt: "602.87",
+      other_pct: "9.53%",
     },
     {
       site: "BD+XK",
-      q1_2026_amt: "3,492.17",
-      q1_2026_pct: "11.37%",
-      q2_2026_amt: "2,654.06",
-      q2_2026_pct: "9.75%",
-      agent_amt: "449.58",
-      agent_pct: "9.93%",
-      sports_amt: "1,650.99",
-      sports_pct: "10.83%",
-      bonus_amt: "147.05",
-      bonus_pct: "6.64%",
-      other_amt: "406.43",
-      other_pct: "7.76%",
+      q2_amt: "2,654.06",
+      q2_pct: "9.75%",
+      q3_amt: "2,590.76",
+      q3_pct: "8.70%",
+      agent_amt: "486.69",
+      agent_pct: "8.31%",
+      sports_amt: "1,289.49",
+      sports_pct: "9.30%",
+      bonus_amt: "268.38",
+      bonus_pct: "7.22%",
+      other_amt: "546.20",
+      other_pct: "8.64%",
     },
     {
       site: "综合",
-      q1_2026_amt: "2,605.10",
-      q1_2026_pct: "8.48%",
-      q2_2026_amt: "2,325.26",
-      q2_2026_pct: "8.54%",
-      agent_amt: "430.34",
-      agent_pct: "9.50%",
-      sports_amt: "1,228.66",
-      sports_pct: "8.06%",
-      bonus_amt: "187.13",
-      bonus_pct: "8.45%",
-      other_amt: "479.13",
-      other_pct: "9.14%",
+      q2_amt: "2,325.26",
+      q2_pct: "8.54%",
+      q3_amt: "2,275.93",
+      q3_pct: "7.65%",
+      agent_amt: "324.46",
+      agent_pct: "5.54%",
+      sports_amt: "1,175.99",
+      sports_pct: "8.48%",
+      bonus_amt: "198.92",
+      bonus_pct: "5.35%",
+      other_amt: "576.56",
+      other_pct: "9.12%",
     },
   ];
 
@@ -165,15 +165,21 @@ export const AuditOverviewInterceptionType: React.FC = () => {
       <SummaryBox>
         <div className="space-y-2 text-sm text-slate-700 font-normal leading-relaxed">
           <p>
-            <strong className="text-slate-950 font-bold">拦截业务结构：</strong>
+            <strong className="text-slate-950 font-bold">核心拦截结构：</strong>
             {highlightNumbers(
-              "体育类为[[核心拦截基本盘]]（占比 55.99%），其次为代理类（16.63%）与红利类（8.13%）。"
+              "体育类与其他类刷子为本年度[[主要拦截部分]]，占比分别达 [[46.6%]] 与 [[21.2%]]，两者合计约占整体 [[68%]]。不同于过往季度，代理拦截在本季度呈现占比大幅减少。"
             )}
           </p>
           <p>
-            <strong className="text-slate-950 font-bold">重点站点分布：</strong>
+            <strong className="text-slate-950 font-bold">红利拦截明细：</strong>
             {highlightNumbers(
-              "4站、8站、BD+XK、6+9 等重点站点合计占比 62.92%；其中 4站 拦截 8,990.38w（占比 33.01%），各品类拦截规模均居首位，为全线[[重点防守站点]]。"
+              "红利类拦截以[[场馆首存及投注豪礼]]为主，两者总计占红利分类的 [[64%]]。"
+            )}
+          </p>
+          <p>
+            <strong className="text-slate-950 font-bold">其他拦截分布：</strong>
+            {highlightNumbers(
+              "其他类拦截主要以[[电竞与彩票]]等业务板块为主。"
             )}
           </p>
         </div>
@@ -181,80 +187,80 @@ export const AuditOverviewInterceptionType: React.FC = () => {
 
       {/* 表格数据展示 */}
       <ReportTableFrame>
-        <table className="report-dense-table report-dense-table--site-detail report-data-table">
+        <table className="report-dense-table report-dense-table--site-detail report-data-table min-w-[800px] text-[11px] sm:text-xs">
           <thead>
             <tr>
-              <th rowSpan={2} className="py-2.5 px-2 text-center">站点</th>
-              <th colSpan={2} className="py-2 px-2 text-center">二季度</th>
-              <th colSpan={2} className="py-2 px-2 text-center">三季度</th>
-              <th colSpan={2} className="py-2 px-2 text-center">代理</th>
-              <th colSpan={2} className="py-2 px-2 text-center">体育</th>
-              <th colSpan={2} className="py-2 px-2 text-center">红利</th>
-              <th colSpan={2} className="py-2 px-2 text-center">其他</th>
+              <th rowSpan={2} className="py-2 px-1.5 text-center">站点</th>
+              <th colSpan={2} className="py-1.5 px-1.5 text-center">2026第2季度总计</th>
+              <th colSpan={2} className="py-1.5 px-1.5 text-center">2026第3季度总计</th>
+              <th colSpan={2} className="py-1.5 px-1.5 text-center">代理类</th>
+              <th colSpan={2} className="py-1.5 px-1.5 text-center">体育类</th>
+              <th colSpan={2} className="py-1.5 px-1.5 text-center">红利类</th>
+              <th colSpan={2} className="py-1.5 px-1.5 text-center">其他</th>
             </tr>
             <tr>
-              <th className="py-2 px-2 text-center">金额</th>
-              <th className="py-2 px-2 text-center">占比</th>
-              <th className="py-2 px-2 text-center">金额</th>
-              <th className="py-2 px-2 text-center">占比</th>
-              <th className="py-2 px-2 text-center">金额</th>
-              <th className="py-2 px-2 text-center">占比</th>
-              <th className="py-2 px-2 text-center">金额</th>
-              <th className="py-2 px-2 text-center">占比</th>
-              <th className="py-2 px-2 text-center">金额</th>
-              <th className="py-2 px-2 text-center">占比</th>
-              <th className="py-2 px-2 text-center">金额</th>
-              <th className="py-2 px-2 text-center">占比</th>
+              <th className="py-1.5 px-1.5 text-center">金额</th>
+              <th className="py-1.5 px-1.5 text-center">占比</th>
+              <th className="py-1.5 px-1.5 text-center">金额</th>
+              <th className="py-1.5 px-1.5 text-center">占比</th>
+              <th className="py-1.5 px-1.5 text-center">金额</th>
+              <th className="py-1.5 px-1.5 text-center">占比</th>
+              <th className="py-1.5 px-1.5 text-center">金额</th>
+              <th className="py-1.5 px-1.5 text-center">占比</th>
+              <th className="py-1.5 px-1.5 text-center">金额</th>
+              <th className="py-1.5 px-1.5 text-center">占比</th>
+              <th className="py-1.5 px-1.5 text-center">金额</th>
+              <th className="py-1.5 px-1.5 text-center">占比</th>
             </tr>
           </thead>
           <tbody className="tabular-nums">
             {tableData.map((row, idx) => {
-              const isMainSports = row.sports_pct && parseFloat(row.sports_pct) > 40;
+              const isMainSports = row.sports_pct && parseFloat(row.sports_pct) > 30;
               return (
                 <tr key={idx}>
-                  <td className="py-2 px-2 text-center font-bold text-slate-900">{row.site}</td>
-                  <td className="py-2 px-2 text-center">{row.q1_2026_amt}</td>
-                  <td className="py-2 px-2 text-center">{row.q1_2026_pct}</td>
-                  <td className="py-2 px-2 text-center font-bold text-slate-900">{row.q2_2026_amt}</td>
-                  <td className="py-2 px-2 text-center font-bold text-slate-900">{row.q2_2026_pct}</td>
-                  <td className="py-2 px-2 text-center">{row.agent_amt}</td>
-                  <td className="py-2 px-2 text-center">{row.agent_pct}</td>
-                  <td className={`py-2 px-2 text-center ${isMainSports ? "font-bold text-slate-900" : ""}`}>{row.sports_amt}</td>
-                  <td className={`py-2 px-2 text-center ${isMainSports ? "font-bold text-slate-900" : ""}`}>{row.sports_pct}</td>
-                  <td className="py-2 px-2 text-center">{row.bonus_amt}</td>
-                  <td className="py-2 px-2 text-center">{row.bonus_pct}</td>
-                  <td className="py-2 px-2 text-center">{row.other_amt}</td>
-                  <td className="py-2 px-2 text-center">{row.other_pct}</td>
+                  <td className="py-1.5 px-1.5 text-center font-bold text-slate-900">{row.site}</td>
+                  <td className="py-1.5 px-1.5 text-center">{row.q2_amt}</td>
+                  <td className="py-1.5 px-1.5 text-center">{row.q2_pct}</td>
+                  <td className="py-1.5 px-1.5 text-center font-bold text-slate-900">{row.q3_amt}</td>
+                  <td className="py-1.5 px-1.5 text-center font-bold text-slate-900">{row.q3_pct}</td>
+                  <td className="py-1.5 px-1.5 text-center">{row.agent_amt}</td>
+                  <td className="py-1.5 px-1.5 text-center">{row.agent_pct}</td>
+                  <td className={`py-1.5 px-1.5 text-center ${isMainSports ? "font-bold text-slate-900" : ""}`}>{row.sports_amt}</td>
+                  <td className={`py-1.5 px-1.5 text-center ${isMainSports ? "font-bold text-slate-900" : ""}`}>{row.sports_pct}</td>
+                  <td className="py-1.5 px-1.5 text-center">{row.bonus_amt}</td>
+                  <td className="py-1.5 px-1.5 text-center">{row.bonus_pct}</td>
+                  <td className="py-1.5 px-1.5 text-center">{row.other_amt}</td>
+                  <td className="py-1.5 px-1.5 text-center">{row.other_pct}</td>
                 </tr>
               );
             })}
           </tbody>
           <tfoot>
             <tr>
-              <td className="py-2.5 px-2 text-center font-bold">小计</td>
-              <td className="py-2.5 px-2 text-center">-</td>
-              <td className="py-2.5 px-2 text-center">-</td>
-              <td className="py-2.5 px-2 text-center">-</td>
-              <td className="py-2.5 px-2 text-center">-</td>
-              <td className="py-2.5 px-2 text-center">4,529.04</td>
-              <td className="py-2.5 px-2 text-center">100%</td>
-              <td className="py-2.5 px-2 text-center font-bold">15,248.39</td>
-              <td className="py-2.5 px-2 text-center font-bold">100%</td>
-              <td className="py-2.5 px-2 text-center">2,215.45</td>
-              <td className="py-2.5 px-2 text-center">100%</td>
-              <td className="py-2.5 px-2 text-center">5,240.59</td>
-              <td className="py-2.5 px-2 text-center">100%</td>
+              <td className="py-2 px-1.5 text-center font-bold">小计|占比</td>
+              <td className="py-2 px-1.5 text-center">-</td>
+              <td className="py-2 px-1.5 text-center">-</td>
+              <td className="py-2 px-1.5 text-center">-</td>
+              <td className="py-2 px-1.5 text-center">-</td>
+              <td className="py-2 px-1.5 text-center font-mono">5,854.86</td>
+              <td className="py-2 px-1.5 text-center font-mono">100%</td>
+              <td className="py-2 px-1.5 text-center font-mono font-bold">13,870.01</td>
+              <td className="py-2 px-1.5 text-center font-mono font-bold">100%</td>
+              <td className="py-2 px-1.5 text-center font-mono">3,717.27</td>
+              <td className="py-2 px-1.5 text-center font-mono">100%</td>
+              <td className="py-2 px-1.5 text-center font-mono">6,323.78</td>
+              <td className="py-2 px-1.5 text-center font-mono">100%</td>
             </tr>
             <tr>
-              <td className="py-2.5 px-2 text-center font-bold">总计</td>
-              <td className="py-2.5 px-2 text-center font-mono">30,707.10</td>
-              <td className="py-2.5 px-2 text-center font-mono">100%</td>
-              <td className="py-2.5 px-2 text-center font-mono font-bold">27,233.47</td>
-              <td className="py-2.5 px-2 text-center font-mono font-bold">100%</td>
-              <td colSpan={2} className="py-2.5 px-2 font-mono text-center">16.63%</td>
-              <td colSpan={2} className="py-2.5 px-2 font-mono text-center font-bold">55.99%</td>
-              <td colSpan={2} className="py-2.5 px-2 font-mono text-center">8.13%</td>
-              <td colSpan={2} className="py-2.5 px-2 font-mono text-center">19.24%</td>
+              <td className="py-2 px-1.5 text-center font-bold">总计|占比</td>
+              <td className="py-2 px-1.5 text-center font-mono font-bold">27,233.47</td>
+              <td className="py-2 px-1.5 text-center font-mono font-bold">100%</td>
+              <td className="py-2 px-1.5 text-center font-mono font-bold text-blue-900">29,765.92</td>
+              <td className="py-2 px-1.5 text-center font-mono font-bold text-blue-900">100%</td>
+              <td colSpan={2} className="py-2 px-1.5 font-mono text-center">19.67%</td>
+              <td colSpan={2} className="py-2 px-1.5 font-mono text-center font-bold text-slate-950">46.60%</td>
+              <td colSpan={2} className="py-2 px-1.5 font-mono text-center">12.49%</td>
+              <td colSpan={2} className="py-2 px-1.5 font-mono text-center">21.25%</td>
             </tr>
           </tfoot>
         </table>

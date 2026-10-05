@@ -2491,53 +2491,54 @@
   }
 
   .report-dense-table {
-    table-layout: fixed;
-    font-size: 15px !important;
+    table-layout: auto;
+    width: 100%;
+    min-width: 100%;
+    font-size: 13px !important;
   }
 
   .report-dense-table--site-detail th:first-child,
   .report-dense-table--site-detail td:first-child {
-    width: 8.5%;
-    padding-inline: 8px !important;
-    font-size: 15px !important;
+    width: auto;
+    padding-inline: 6px !important;
+    font-size: 13px !important;
   }
 
   .report-dense-table--sports-detail th:first-child,
   .report-dense-table--sports-detail td:first-child {
-    width: 96px !important;
-    padding-inline: 8px !important;
-    font-size: 15px !important;
+    width: auto !important;
+    padding-inline: 6px !important;
+    font-size: 13px !important;
     letter-spacing: -0.01em;
   }
 
   .report-standard-table th,
   .report-standard-table td {
-    padding: 11px 14px !important;
+    padding: 10px 12px !important;
     vertical-align: middle;
     border-right: 0 !important;
     border-bottom: 1px solid #e2e8f0;
     white-space: nowrap !important;
     word-break: keep-all !important;
     overflow-wrap: normal !important;
-    overflow: hidden;
-    text-overflow: clip;
+    overflow: visible;
   }
 
   .report-dense-table th,
   .report-dense-table td {
-    padding: 8.5px 10px !important;
+    padding: 6px 4px !important;
     vertical-align: middle;
     border-right: 0 !important;
     border-bottom: 1px solid #e2e8f0;
     white-space: nowrap !important;
     word-break: keep-all !important;
     overflow-wrap: normal !important;
-    overflow: hidden;
+    overflow: visible;
     text-overflow: clip;
   }
 
   .report-dense-table tr {
-    min-height: 44px;
+    min-height: 38px;
   }
 
   .report-standard-table thead th,
@@ -2546,7 +2547,7 @@
     border-bottom: 1px solid #cbd5e1 !important;
     white-space: nowrap !important;
     color: var(--report-ink) !important;
-    font-size: 15px !important;
+    font-size: 13px !important;
     font-weight: 700;
   }
 
@@ -2571,7 +2572,7 @@
   .report-standard-table td,
   .report-dense-table td {
     color: var(--report-ink);
-    font-size: 14.5px !important;
+    font-size: 12.5px !important;
     font-weight: var(--report-weight-medium);
   }
 

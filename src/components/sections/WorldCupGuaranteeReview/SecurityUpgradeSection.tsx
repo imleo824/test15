@@ -3,6 +3,7 @@ import {
   Database,
   Search,
   Smartphone,
+  AlertTriangle,
 } from "lucide-react";
 import {
   ReportBadge,
@@ -14,14 +15,18 @@ import { highlightNumbers, SummaryBox } from "./utils";
 interface SecurityCategoryData {
   key: string;
   categoryName: string;
+  status: string;
+  statusTone: "blue" | "slate" | "green" | "amber" | "red" | "indigo";
   categoryTag: string;
   direction: string;
   themeColor: "blue" | "slate";
   icon: React.ElementType;
-  coreIssue: string;
-  principle: string;
+  painPoint: string;
+  solution: string;
   items: {
     name: string;
+    status?: string;
+    statusTone?: "blue" | "slate" | "green" | "amber" | "red" | "indigo";
     risk: string;
     measure: string;
     impact: string;
@@ -34,12 +39,14 @@ export const SecurityUpgradeSection: React.FC = () => {
     {
       key: "sensitive_maintenance",
       categoryName: "敏感信息维护",
+      status: "可优化",
+      statusTone: "blue",
       categoryTag: "防散落遗漏",
       direction: "场景一",
       themeColor: "slate",
       icon: Database,
-      coreIssue: "敏感信息散落在多个模块中，统一维护与收口难度大，极易产生数据外露与更新遗漏。",
-      principle: "建立敏感信息全景字典与统一管理中台，底层统一脱敏加密，前端接口单一收口，消除维护死角。",
+      painPoint: "敏感信息分散暴露在过多模块中，导致集中维护、更新、授权等困难，存在信息外露与遗漏风险。",
+      solution: "全面排查展示敏感信息的模块，彻底去除无必要的展示页面，实现[[集中统一收口]]。",
       items: [
         {
           name: "多模块分散维护",
@@ -58,27 +65,35 @@ export const SecurityUpgradeSection: React.FC = () => {
     {
       key: "sensitive_ops",
       categoryName: "敏感异常操作",
+      status: "待支持",
+      statusTone: "amber",
       categoryTag: "按工种严控",
       direction: "场景二",
       themeColor: "slate",
       icon: Search,
-      coreIssue: "复制、截屏、导出、批量查询等高危操作权限泛滥，未按实际工种需求严格隔离与管控。",
-      principle: "严格按工种界定高危操作必要性，基础岗位关闭批量导出与复制，全端加盖动态数字盲水印。",
+      painPoint: "复制、截屏、导出、批量查询等高危操作权限泛滥，未按实际工种必要性进行严格控制。",
+      solution: "对敏感信息[[禁止复制]]；对批量查询、数据导出按工种[[严格控制权限]]。",
       items: [
         {
           name: "报表批量导出",
+          status: "待支持",
+          statusTone: "amber",
           risk: "一键大批量导出客户名单与流水，易导致大面积脱库外泄；多数基础工种日常无需导出权限。",
           measure: "对全量导出权限执行严格重审，有权限人员须[[重新单独申请]]并严格核验实际使用场景，非必要岗位一律关闭。",
           impact: "非必要工种关闭，外泄可秒级精准溯源",
         },
         {
           name: "高频与批量查询",
+          status: "可优化",
+          statusTone: "blue",
           risk: "通过短时间内高频调阅、连续大批量翻页或异常时段调阅等行为批量提取敏感数据，安全预警缺失。",
           measure: "设定异常调阅预警规则，对短时间高频调阅、连续批量翻页或异常时段调阅触发系统告警，并执行[[强制会话中断]]。",
           impact: "高危异常查询秒级熔断阻断",
         },
         {
           name: "界面划选与复制",
+          status: "待支持",
+          statusTone: "amber",
           risk: "大面积划选、Ctrl+A 全选快捷键批量复制数据，规避导出审计。",
           measure: "代码级[[禁用批量划选与右键全选]]，对高频连续复制行为实施即时预警与全程审计。",
           impact: "批量提取完全阻断，单项复制全程审计",
@@ -88,12 +103,14 @@ export const SecurityUpgradeSection: React.FC = () => {
     {
       key: "sensitive_modify",
       categoryName: "敏感信息修改",
+      status: "待支持",
+      statusTone: "amber",
       categoryTag: "防单人作案",
       direction: "场景三",
       themeColor: "slate",
       icon: Smartphone,
-      coreIssue: "有权限的人可以单人完成修改，缺乏背靠背交叉核验，单点内部作案与私自改号风险巨大。",
-      principle: "取消所有单人后台直接修改入口，实行经办与复核双人背靠背审批与 24 小时提款冷却保护。",
+      painPoint: "有权限的人可以单人完成修改，缺乏背靠背交叉核验，风险较大且易发生单点内部作案。",
+      solution: "取消单人直接修改入口，全面改由经办与复核[[双人背靠背审批]]，关键修改强制绑定 24小时[[提款冷却保护]]。",
       items: [
         {
           name: "手机号",
@@ -148,140 +165,105 @@ export const SecurityUpgradeSection: React.FC = () => {
         </div>
       </SummaryBox>
 
-      {/* 核心三大场景摘要说明卡片（3 列网格） */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 items-stretch">
-        {/* 场景 1：敏感信息维护 */}
-        <div className="bg-white border border-slate-200 p-5 sm:p-6 flex flex-col justify-between space-y-3.5 h-full">
-          <div className="flex items-center gap-2 pb-2.5 border-b border-slate-100">
-            <span className="w-5 h-5 bg-slate-900 text-white text-xs font-mono font-bold flex items-center justify-center shrink-0">
-              1
-            </span>
-            <h4 className="text-base font-bold text-slate-950">敏感信息维护</h4>
-            <ReportBadge tone="slate" className="text-xs font-mono ml-auto">
-              统一展示收口
-            </ReportBadge>
+      {/* 案例说明 */}
+      <div className="bg-slate-50 border border-slate-200 p-4 sm:p-5 space-y-2.5">
+        <div className="flex items-center gap-2 text-slate-950 font-bold text-sm sm:text-base flex-wrap">
+          <div className="flex items-center gap-2">
+            <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0" />
+            <span>案例说明</span>
           </div>
-          <div className="text-sm text-slate-700 leading-relaxed font-normal space-y-2.5 flex-1">
-            <p>
-              <strong className="text-slate-950 font-bold">现状痛点：</strong>
-              {highlightNumbers("敏感信息分散暴露在过多模块中，导致集中维护与收口困难，存在信息外露与遗漏风险。")}
-            </p>
-            <p>
-              <strong className="text-slate-950 font-bold">应对措施：</strong>
-              {highlightNumbers("全面排查展示敏感信息的模块，彻底去除无必要的展示页面，实现[[集中统一收口]]。")}
-            </p>
-          </div>
+          <ReportBadge tone="amber" className="text-xs font-mono font-bold">
+            重点案件溯源
+          </ReportBadge>
         </div>
-
-        {/* 场景 2：敏感异常操作 */}
-        <div className="bg-white border border-slate-200 p-5 sm:p-6 flex flex-col justify-between space-y-3.5 h-full">
-          <div className="flex items-center gap-2 pb-2.5 border-b border-slate-100">
-            <span className="w-5 h-5 bg-slate-900 text-white text-xs font-mono font-bold flex items-center justify-center shrink-0">
-              2
-            </span>
-            <h4 className="text-base font-bold text-slate-950">敏感异常操作</h4>
-            <ReportBadge tone="slate" className="text-xs font-mono ml-auto">
-              操作控权收紧
-            </ReportBadge>
-          </div>
-          <div className="text-sm text-slate-700 leading-relaxed font-normal space-y-2.5 flex-1">
-            <p>
-              <strong className="text-slate-950 font-bold">现状痛点：</strong>
-              {highlightNumbers("复制、截屏、导出、批量查询等高危操作权限泛滥，未按实际工种必要性进行严格控制。")}
-            </p>
-            <p>
-              <strong className="text-slate-950 font-bold">应对措施：</strong>
-              {highlightNumbers("对敏感信息[[禁止复制]]；对批量查询、数据导出按工种[[严格控制权限]]。")}
-            </p>
-          </div>
-        </div>
-
-        {/* 场景 3：敏感信息修改 */}
-        <div className="bg-white border border-slate-200 p-5 sm:p-6 flex flex-col justify-between space-y-3.5 h-full">
-          <div className="flex items-center gap-2 pb-2.5 border-b border-slate-100">
-            <span className="w-5 h-5 bg-slate-900 text-white text-xs font-mono font-bold flex items-center justify-center shrink-0">
-              3
-            </span>
-            <h4 className="text-base font-bold text-slate-950">敏感信息修改</h4>
-            <ReportBadge tone="slate" className="text-xs font-mono ml-auto">
-              双人背靠背审批
-            </ReportBadge>
-          </div>
-          <div className="text-sm text-slate-700 leading-relaxed font-normal space-y-2.5 flex-1">
-            <p>
-              <strong className="text-slate-950 font-bold">现状痛点：</strong>
-              {highlightNumbers("有权限的人可以单人完成修改，缺乏背靠背交叉核验，风险较大且易发生单点内部作案。")}
-            </p>
-            <p>
-              <strong className="text-slate-950 font-bold">应对措施：</strong>
-              {highlightNumbers("取消单人直接修改入口，全面改由经办与复核[[双人背靠背审批]]，关键修改强制绑定 24小时[[提款冷却保护]]。")}
-            </p>
-          </div>
-        </div>
+        <p className="text-sm text-slate-700 leading-relaxed font-normal">
+          {highlightNumbers(
+            "稽查过程中，明确发现当前后台「敏感资料」管控存在潜在漏洞，内部员工通过后台权限，[[批量窃取：用户姓名、手机号、出生日期、所在地、银行卡号等核心隐私信息]]并对外泄露，外部黑灰产团伙拿到基础资料后，[[进一步通过「开盒网站、非法社工库」补全用户身份信息]]，实现对用户的精准定位，[[定向拉拢至其他外部娱乐平台]]，严重损害平台经营安全。"
+          )}
+        </p>
       </div>
 
-      {/* 三大核心场景落地管控规范全览 (落地细则表) */}
+      {/* 三大核心场景落地管控规范全览 (落地细则与痛点应对) */}
       <div className="space-y-6 sm:space-y-8">
-        <div className="space-y-8">
-          {securityCategories.map((cat) => {
-            const Icon = cat.icon;
+        {securityCategories.map((cat) => {
+          const Icon = cat.icon;
 
-            return (
-              <div
-                key={cat.key}
-                className="bg-white space-y-4"
-              >
-                {/* 对应模块的标题栏 */}
-                <div className="flex items-center gap-2.5 pb-2.5 border-b border-slate-200">
-                  <div className="w-7 h-7 bg-slate-900 text-white flex items-center justify-center shrink-0">
-                    <Icon className="w-4 h-4" />
-                  </div>
-                  <h4 className="text-base sm:text-lg font-bold text-slate-950 flex items-center gap-2">
-                    <span>
-                      【{cat.direction}】{cat.categoryName}
-                    </span>
-                    <ReportBadge
-                      tone={cat.themeColor}
-                      className="text-xs font-mono"
-                    >
-                      {cat.categoryTag}
-                    </ReportBadge>
-                  </h4>
+          return (
+            <div
+              key={cat.key}
+              className="bg-white space-y-4"
+            >
+              {/* 对应模块的标题栏 */}
+              <div className="flex items-center gap-2.5 pb-2.5 border-b border-slate-200 flex-wrap">
+                <div className="w-7 h-7 bg-slate-900 text-white flex items-center justify-center shrink-0">
+                  <Icon className="w-4 h-4" />
                 </div>
-
-                {/* 3 列规范明细表：场景 / 潜在隐患 / 升级管控规范 */}
-                <ReportTableFrame>
-                  <table className="w-full text-left border-collapse min-w-[680px]">
-                    <thead>
-                      <tr className="border-b border-slate-200 bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm uppercase tracking-wider">
-                        <th className="py-2.5 px-3 w-[22%]">防护场景</th>
-                        <th className="py-2.5 px-3 w-[38%]">潜在隐患与风险</th>
-                        <th className="py-2.5 px-3 w-[40%]">升级管控规范</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-200 text-sm">
-                      {cat.items.map((item, idx) => (
-                        <tr
-                          key={idx}
-                        >
-                          <td className="py-3 px-3 font-bold text-slate-900 align-top text-sm">
-                            {item.name}
-                          </td>
-                          <td className="py-3 px-3 text-slate-600 text-sm leading-relaxed align-top">
-                            {highlightNumbers(item.risk)}
-                          </td>
-                          <td className="py-3 px-3 text-slate-800 text-sm leading-relaxed align-top">
-                            {highlightNumbers(item.measure)}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </ReportTableFrame>
+                <h4 className="text-base sm:text-lg font-bold text-slate-950 flex items-center gap-2 flex-wrap">
+                  <span>
+                    【{cat.direction}】{cat.categoryName}
+                  </span>
+                  <ReportBadge
+                    tone={cat.themeColor}
+                    className="text-xs font-mono font-normal"
+                  >
+                    {cat.categoryTag}
+                  </ReportBadge>
+                </h4>
               </div>
-            );
-          })}
-        </div>
+
+              {/* 现状痛点 & 应对措施 说明栏 */}
+              <div className="bg-slate-50 border border-slate-200 p-3.5 sm:p-4 text-sm text-slate-700 leading-relaxed space-y-1.5">
+                <p>
+                  <strong className="text-slate-950 font-bold">现状痛点：</strong>
+                  {highlightNumbers(cat.painPoint)}
+                </p>
+                <p>
+                  <strong className="text-slate-950 font-bold">应对措施：</strong>
+                  {highlightNumbers(cat.solution)}
+                </p>
+              </div>
+
+              {/* 4 列规范明细表：场景 / 支持状态 / 潜在隐患 / 升级管控规范 */}
+              <ReportTableFrame>
+                <table className="w-full text-left border-collapse min-w-[680px]">
+                  <thead>
+                    <tr className="border-b border-slate-200 bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm uppercase tracking-wider">
+                      <th className="py-2.5 px-3 w-[18%]">防护场景</th>
+                      <th className="py-2.5 px-3 w-[12%]">支持状态</th>
+                      <th className="py-2.5 px-3 w-[34%]">潜在隐患与风险</th>
+                      <th className="py-2.5 px-3 w-[36%]">升级管控规范</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-200 text-sm">
+                    {cat.items.map((item, idx) => (
+                      <tr
+                        key={idx}
+                      >
+                        <td className="py-3 px-3 font-bold text-slate-900 align-top text-sm">
+                          {item.name}
+                        </td>
+                        <td className="py-3 px-3 align-top">
+                          <ReportBadge
+                            tone={item.statusTone || cat.statusTone}
+                            className="text-xs font-mono font-bold"
+                          >
+                            {item.status || cat.status}
+                          </ReportBadge>
+                        </td>
+                        <td className="py-3 px-3 text-slate-600 text-sm leading-relaxed align-top">
+                          {highlightNumbers(item.risk)}
+                        </td>
+                        <td className="py-3 px-3 text-slate-800 text-sm leading-relaxed align-top">
+                          {highlightNumbers(item.measure)}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </ReportTableFrame>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

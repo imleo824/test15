@@ -30,45 +30,46 @@ export const AuditOverviewSportsInterception: React.FC = () => {
       </g>
     );
 
-  // Chart 1
+  // Chart 1: 各系别体育拦截率趋势
   const siteSlData = [
     {
       quarter: "26年二季度",
-      b_sys: 6.63,
-      y_sys: 5.78,
-      bw_sys: 5.39,
-      comboVal: 6.45,
-      comboLabel: "6.45%",
-    },
-    {
-      quarter: "26年三季度",
       b_sys: 6.61,
       y_sys: 5.97,
       bw_sys: 5.89,
       comboVal: 6.50,
       comboLabel: "6.50%",
     },
+    {
+      quarter: "26年三季度",
+      b_sys: 6.69,
+      y_sys: 6.07,
+      bw_sys: 6.01,
+      comboVal: 6.60,
+      comboLabel: "6.60%",
+    },
   ];
 
-  // Chart 2
+  // Chart 2: 各场馆体育拦截率趋势
   const venueSlData = [
     {
       quarter: "26年二季度",
-      im_venue: 6.11,
-      title_venue: 6.57,
-      panda_venue: 5.42,
-      comboVal: 6.45,
-      comboLabel: "6.45%",
-    },
-    {
-      quarter: "26年三季度",
       im_venue: 6.24,
       title_venue: 6.59,
       panda_venue: 5.68,
       comboVal: 6.50,
       comboLabel: "6.50%",
     },
+    {
+      quarter: "26年三季度",
+      im_venue: 6.13,
+      title_venue: 6.70,
+      panda_venue: 5.81,
+      comboVal: 6.60,
+      comboLabel: "6.60%",
+    },
   ];
+
   const renderRateBarLabel =
     (values: number[]) =>
     ({ x, y, width, value }: any) => {
@@ -86,173 +87,138 @@ export const AuditOverviewSportsInterception: React.FC = () => {
       );
     };
 
-  // 4组明细表格数据
-  const venueTables = [
-    {
-      name: "重点场馆",
-      rows: [
-        { quarter: "26年二季度", b: "6.22%", y: "5.69%", bw: "5.49%", total: "6.11%" },
-        { quarter: "26年三季度", b: "6.22%", y: "6.34%", bw: "6.32%", total: "6.24%" },
-        { quarter: "上个季度对比", b: "0.00%", y: "0.65%", bw: "0.84%", total: "0.13%", isDiff: true },
-      ],
-    },
-    {
-      name: "冠名场馆",
-      rows: [
-        { quarter: "26年二季度", b: "6.74%", y: "5.91%", bw: "5.33%", total: "6.57%" },
-        { quarter: "26年三季度", b: "6.70%", y: "6.00%", bw: "5.92%", total: "6.59%" },
-        { quarter: "上个季度对比", b: "-0.04%", y: "0.08%", bw: "0.59%", total: "0.02%", isDiff: true },
-      ],
-    },
-    {
-      name: "熊猫场馆",
-      rows: [
-        { quarter: "26年二季度", b: "5.63%", y: "4.00%", bw: "5.78%", total: "5.42%" },
-        { quarter: "26年三季度", b: "5.84%", y: "4.67%", bw: "5.14%", total: "5.68%" },
-        { quarter: "上个季度对比", b: "0.21%", y: "0.66%", bw: "-0.65%", total: "0.26%", isDiff: true },
-      ],
-    },
-    {
-      name: "整体季度",
-      rows: [
-        { quarter: "26年二季度", b: "6.63%", y: "5.78%", bw: "5.39%", total: "6.45%" },
-        { quarter: "26年三季度", b: "6.61%", y: "5.97%", bw: "5.89%", total: "6.50%" },
-        { quarter: "上个季度对比", b: "-0.02%", y: "0.19%", bw: "0.50%", total: "0.05%", isDiff: true },
-      ],
-    },
-  ];
-
-  // 体育拦截细分类别数据
+  // 7组列配置
   const categoryDetailColumns = [
-    { label: "体育打水" },
     { label: "批量打水" },
-    { label: <>打负、租卖号<br />其他打水</> },
-    { label: "出货" },
-    { label: <>野鸡、协议球<br />其他出货</> },
+    { label: "打负、租卖号" },
+    { label: "其他打水" },
+    { label: "野鸡、协议球" },
+    { label: "其他出货" },
     { label: "夹盘、卡进球" },
     { label: "其他" },
   ];
 
   const categoryDetailSubtotal = {
-    total: "15248.39",
-    columns: ["10827.21", "1730.97", "272.41", "1379.37", "13.14", "54.91", "970.38"],
+    total: "13,870.01",
+    columns: ["11,573.25", "1,325.90", "139.29", "93.78", "0.49", "2.29", "735.01"],
   };
 
   const categoryDetailTotalPct = {
     total: "100%",
-    columns: ["71.01%", "11.35%", "1.79%", "9.05%", "0.09%", "0.36%", "6.36%"],
+    columns: ["83.44%", "9.56%", "1.00%", "0.68%", "0.00%", "0.02%", "5.30%"],
   };
 
   const categoryDetailData = [
     {
       site: "1",
-      col1_amt: "688.81", col1_pct: "6.36%",
-      col2_amt: "158.59", col2_pct: "9.16%",
-      col3_amt: "13.47", col3_pct: "4.95%",
-      col4_amt: "0.00", col4_pct: "0.00%",
+      col1_amt: "604.80", col1_pct: "5.23%",
+      col2_amt: "71.80", col2_pct: "5.41%",
+      col3_amt: "7.30", col3_pct: "5.24%",
+      col4_amt: "48.00", col4_pct: "51.18%",
       col5_amt: "0.00", col5_pct: "0.00%",
-      col6_amt: "21.85", col6_pct: "39.80%",
-      col7_amt: "21.43", col7_pct: "2.21%",
+      col6_amt: "0.50", col6_pct: "21.83%",
+      col7_amt: "31.52", col7_pct: "4.29%",
     },
     {
       site: "2",
-      col1_amt: "553.49", col1_pct: "5.11%",
-      col2_amt: "227.17", col2_pct: "13.12%",
-      col3_amt: "54.82", col3_pct: "20.12%",
+      col1_amt: "464.62", col1_pct: "4.01%",
+      col2_amt: "108.69", col2_pct: "8.20%",
+      col3_amt: "35.00", col3_pct: "25.13%",
       col4_amt: "0.00", col4_pct: "0.00%",
       col5_amt: "0.00", col5_pct: "0.00%",
       col6_amt: "0.00", col6_pct: "0.00%",
-      col7_amt: "35.09", col7_pct: "3.62%",
+      col7_amt: "17.35", col7_pct: "2.36%",
     },
     {
       site: "3",
-      col1_amt: "720.82", col1_pct: "6.66%",
-      col2_amt: "93.62", col2_pct: "5.41%",
-      col3_amt: "9.82", col3_pct: "3.61%",
+      col1_amt: "677.08", col1_pct: "5.85%",
+      col2_amt: "45.55", col2_pct: "3.44%",
+      col3_amt: "1.89", col3_pct: "1.35%",
       col4_amt: "0.00", col4_pct: "0.00%",
       col5_amt: "0.00", col5_pct: "0.00%",
-      col6_amt: "4.04", col6_pct: "7.35%",
-      col7_amt: "27.69", col7_pct: "2.85%",
+      col6_amt: "0.00", col6_pct: "0.00%",
+      col7_amt: "21.60", col7_pct: "2.94%",
     },
     {
       site: "4",
-      col1_amt: "4065.38", col1_pct: "37.55%",
-      col2_amt: "408.81", col2_pct: "23.62%",
-      col3_amt: "90.49", col3_pct: "33.22%",
-      col4_amt: "19.48", col4_pct: "1.41%",
+      col1_amt: "4,279.86", col1_pct: "36.98%",
+      col2_amt: "505.45", col2_pct: "38.12%",
+      col3_amt: "42.62", col3_pct: "30.60%",
+      col4_amt: "2.47", col4_pct: "2.63%",
       col5_amt: "0.00", col5_pct: "0.00%",
-      col6_amt: "27.70", col6_pct: "50.44%",
-      col7_amt: "630.30", col7_pct: "64.95%",
+      col6_amt: "0.00", col6_pct: "0.00%",
+      col7_amt: "431.27", col7_pct: "58.68%",
     },
     {
       site: "5",
-      col1_amt: "59.23", col1_pct: "0.55%",
-      col2_amt: "17.80", col2_pct: "1.03%",
-      col3_amt: "0.00", col3_pct: "0.00%",
+      col1_amt: "138.52", col1_pct: "1.20%",
+      col2_amt: "13.80", col2_pct: "1.04%",
+      col3_amt: "0.89", col3_pct: "0.64%",
       col4_amt: "0.00", col4_pct: "0.00%",
       col5_amt: "0.00", col5_pct: "0.00%",
       col6_amt: "0.00", col6_pct: "0.00%",
-      col7_amt: "2.93", col7_pct: "0.30%",
+      col7_amt: "3.15", col7_pct: "0.43%",
     },
     {
       site: "7",
-      col1_amt: "881.27", col1_pct: "8.14%",
-      col2_amt: "208.96", col2_pct: "12.07%",
-      col3_amt: "17.57", col3_pct: "6.45%",
+      col1_amt: "662.36", col1_pct: "5.72%",
+      col2_amt: "106.04", col2_pct: "8.00%",
+      col3_amt: "8.16", col3_pct: "5.86%",
       col4_amt: "0.00", col4_pct: "0.00%",
       col5_amt: "0.00", col5_pct: "0.00%",
-      col6_amt: "1.32", col6_pct: "2.41%",
-      col7_amt: "39.18", col7_pct: "4.04%",
+      col6_amt: "0.00", col6_pct: "0.00%",
+      col7_amt: "29.10", col7_pct: "3.96%",
     },
     {
       site: "8",
-      col1_amt: "597.45", col1_pct: "5.52%",
-      col2_amt: "120.85", col2_pct: "6.98%",
-      col3_amt: "0.27", col3_pct: "0.10%",
-      col4_amt: "1359.90", col4_pct: "98.59%",
+      col1_amt: "1,331.86", col1_pct: "11.51%",
+      col2_amt: "69.22", col2_pct: "5.22%",
+      col3_amt: "0.81", col3_pct: "0.58%",
+      col4_amt: "43.32", col4_pct: "46.19%",
       col5_amt: "0.00", col5_pct: "0.00%",
       col6_amt: "0.00", col6_pct: "0.00%",
-      col7_amt: "18.05", col7_pct: "1.86%",
+      col7_amt: "10.81", col7_pct: "1.47%",
     },
     {
       site: "6+9",
-      col1_amt: "860.47", col1_pct: "7.95%",
-      col2_amt: "189.38", col2_pct: "10.94%",
-      col3_amt: "14.29", col3_pct: "5.25%",
+      col1_amt: "1,355.55", col1_pct: "11.71%",
+      col2_amt: "143.92", col2_pct: "10.85%",
+      col3_amt: "4.45", col3_pct: "3.19%",
       col4_amt: "0.00", col4_pct: "0.00%",
-      col5_amt: "6.61", col5_pct: "50.31%",
+      col5_amt: "0.49", col5_pct: "100.00%",
       col6_amt: "0.00", col6_pct: "0.00%",
-      col7_amt: "100.34", col7_pct: "10.34%",
+      col7_amt: "84.74", col7_pct: "11.53%",
     },
     {
       site: "BD+XK",
-      col1_amt: "1379.24", col1_pct: "12.74%",
-      col2_amt: "158.94", col2_pct: "9.18%",
-      col3_amt: "55.03", col3_pct: "20.20%",
+      col1_amt: "1,022.87", col1_pct: "8.84%",
+      col2_amt: "165.03", col2_pct: "12.45%",
+      col3_amt: "28.59", col3_pct: "20.53%",
       col4_amt: "0.00", col4_pct: "0.00%",
-      col5_amt: "6.53", col5_pct: "49.69%",
-      col6_amt: "0.00", col6_pct: "0.00%",
-      col7_amt: "51.26", col7_pct: "5.28%",
+      col5_amt: "0.00", col5_pct: "0.00%",
+      col6_amt: "1.79", col6_pct: "78.17%",
+      col7_amt: "71.20", col7_pct: "9.69%",
     },
     {
       site: "综合",
-      col1_amt: "1021.05", col1_pct: "9.43%",
-      col2_amt: "146.85", col2_pct: "8.48%",
-      col3_amt: "16.65", col3_pct: "6.11%",
+      col1_amt: "1,035.73", col1_pct: "8.95%",
+      col2_amt: "96.41", col2_pct: "7.27%",
+      col3_amt: "9.58", col3_pct: "6.88%",
       col4_amt: "0.00", col4_pct: "0.00%",
       col5_amt: "0.00", col5_pct: "0.00%",
       col6_amt: "0.00", col6_pct: "0.00%",
-      col7_amt: "44.11", col7_pct: "4.55%",
+      col7_amt: "34.27", col7_pct: "4.66%",
     },
   ];
 
-  const getCategoryDetailRowTotal = (row: (typeof categoryDetailData)[number]) =>
-    categoryDetailColumns
-      .reduce((sum, _, columnIndex) => {
-        const key = `col${columnIndex + 1}_amt` as keyof typeof row;
-        return sum + Number(row[key]);
-      }, 0)
-      .toFixed(2);
+  const getCategoryDetailRowTotal = (row: (typeof categoryDetailData)[number]) => {
+    const sum = categoryDetailColumns.reduce((acc, _, columnIndex) => {
+      const key = `col${columnIndex + 1}_amt` as keyof typeof row;
+      const numStr = String(row[key]).replace(/,/g, "");
+      return acc + (parseFloat(numStr) || 0);
+    }, 0);
+    return sum.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  };
 
   return (
     <div id="section-audit-sports-interception" className="flex flex-col gap-6">
@@ -261,39 +227,50 @@ export const AuditOverviewSportsInterception: React.FC = () => {
 
       {/* 统一总结模块 */}
       <SummaryBox>
-        <p className="text-sm text-slate-700 font-normal leading-relaxed mb-2.5">
-          {highlightNumbers(
-            "体育拦截总计 15,248.39w，其中体育打水为[[核心拦截基本盘]]，金额 10,827.21w、占比 71.01%；其次为批量打水 1,730.97w（占比 11.35%）与出货 1,379.37w（占比 9.05%）。站点分布中 4站 金额最为集中，达 5,242.16w；其中体育打水 4,065.38w（该类占比 37.55%）。"
-          )}
-        </p>
-        <ul className="mt-3 space-y-2 text-slate-700">
-          <li className="flex items-start gap-2.5 text-sm text-slate-700 font-normal leading-relaxed">
-            <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
-            <span>
-              <strong className="text-slate-950 font-bold">盘口协同：</strong>
-              {highlightNumbers(
-                "深化[[商户操盘协同机制]]，推动赔率联动覆盖 90% 以上进球类玩法，锁定合理盈利率。"
-              )}
-            </span>
-          </li>
-          <li className="flex items-start gap-2.5 text-sm text-slate-700 font-normal leading-relaxed">
-            <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
-            <span>
-              <strong className="text-slate-950 font-bold">处置闭环：</strong>
-              {highlightNumbers(
-                "建立标准化流程，含系统预警（15分钟内跟进）、系统初审（自动分流）、智能分单（定向派发至 34人体育组）及工具复审（跨站关联排查），实现高危订单[[精准拦截与分级处置]]。"
-              )}
-            </span>
-          </li>
-        </ul>
+        <div className="space-y-2.5">
+          <p className="text-sm text-slate-700 font-normal leading-relaxed">
+            {highlightNumbers(
+              "体育打水为[[主要拦截类型]]，批量打水占比达到 [[83.44%]]，其次为打负/租卖号（占比 [[9.56%]]）。站点分布主要以 [[4站、8站、6+9站]] 为主，三站合计约占整体 [[69%]]。"
+            )}
+          </p>
+          <ul className="space-y-2 text-slate-700 pt-1">
+            <li className="flex items-start gap-2.5 text-sm font-normal leading-relaxed">
+              <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
+              <span>
+                <strong className="text-slate-950 font-bold">套利手段：</strong>
+                {highlightNumbers(
+                  "主要通过[[盘口水位优势]]进行打水及红利套利，同时部分职业玩家集中在[[小联赛]]进行打水。"
+                )}
+              </span>
+            </li>
+            <li className="flex items-start gap-2.5 text-sm font-normal leading-relaxed">
+              <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
+              <span>
+                <strong className="text-slate-950 font-bold">发现方式：</strong>
+                {highlightNumbers(
+                  "主要通过[[提款审核]]、[[批量团体]]、[[账户关联分析]]、[[提前预警排查]]、[[三方反馈与预警群]]等渠道识别玩家套利行为。"
+                )}
+              </span>
+            </li>
+            <li className="flex items-start gap-2.5 text-sm font-normal leading-relaxed">
+              <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
+              <span>
+                <strong className="text-slate-950 font-bold">处置措施：</strong>
+                {highlightNumbers(
+                  "针对问题玩家，依据风险程度采取[[降水]]、[[延迟处理]]、[[单笔警告]]、[[扣除本金]]或[[终止合作]]等手段。"
+                )}
+              </span>
+            </li>
+          </ul>
+        </div>
       </SummaryBox>
 
-      {/* 图表展示区 - 统一结构规范：标题 + 说明 + 图例 + 图表 + 口径 */}
+      {/* 图表展示区 */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
         {/* 图表 1: 各系别体育拦截率趋势 */}
         <ReportChartCard
           title="各系别体育拦截率趋势"
-          description={highlightNumbers("三季度综合体育拦截率 6.50%，各系别集中在 5.8%~6.6%，防守态势平稳。")}
+          description={highlightNumbers("三季度全盘综合体育拦截率 [[6.60%]]（二季度 6.50%），B系（6.69%）、Y系（6.07%）与 BW（6.01%）表现平稳。")}
           legend={
             <ReportChartLegend
               items={[
@@ -322,11 +299,11 @@ export const AuditOverviewSportsInterception: React.FC = () => {
         {/* 图表 2: 各场馆体育拦截率趋势 */}
         <ReportChartCard
           title="各场馆体育拦截率趋势"
-          description={highlightNumbers("各场馆体育拦截率维持在 5.6%~6.6%，与平台保持常态化[[盘口协同]]。")}
+          description={highlightNumbers("各场馆体育拦截率维持在 [[5.81%~6.70%]]，冠名场馆（6.70%）与 IM 场馆（6.13%）盘口防护平稳。")}
           legend={
             <ReportChartLegend
               items={[
-                { label: "重点场馆", color: chartSeriesColors.secondary, shape: "rect" },
+                { label: "IM", color: chartSeriesColors.secondary, shape: "rect" },
                 { label: "冠名", color: chartSeriesColors.tertiary, shape: "rect" },
                 { label: "熊猫", color: chartSeriesColors.primary, shape: "rect" },
                 { label: "综合", color: "#0f172a", shape: "circle" },
@@ -351,63 +328,69 @@ export const AuditOverviewSportsInterception: React.FC = () => {
 
       {/* 体育拦截分类与站点明细大表 */}
       <ReportTableFrame>
-        <table className="report-dense-table report-dense-table--sports-detail w-full report-data-table">
+        <table className="report-dense-table report-dense-table--sports-detail w-full report-data-table min-w-[1000px] text-[11px] sm:text-xs">
           <thead className="bg-slate-50 text-slate-800">
             <tr className="border-b border-slate-200 font-bold text-slate-900">
-              <th rowSpan={2} className="w-[74px] text-center py-2.5">站点</th>
-              <th rowSpan={2} className="w-[82px] text-center py-2.5">合计</th>
-              {categoryDetailColumns.map((column, index) => (
-                <th
-                  key={index}
-                  colSpan={2}
-                  className="text-center py-2.5"
-                >
-                  {column.label}
-                </th>
-              ))}
+              <th rowSpan={3} className="w-[60px] text-center py-2 px-1">站点</th>
+              <th rowSpan={3} className="w-[75px] text-center py-2 px-1">合计</th>
+              <th colSpan={6} className="text-center py-1 px-1 border-b border-slate-200">体育打水</th>
+              <th colSpan={4} className="text-center py-1 px-1 border-b border-slate-200">出货</th>
+              <th colSpan={2} className="text-center py-1 px-1 border-b border-slate-200">快咨询</th>
+              <th colSpan={2} className="text-center py-1 px-1 border-b border-slate-200">其他</th>
             </tr>
-            <tr className="border-b border-slate-200 text-slate-700 font-bold text-sm">
+            <tr className="border-b border-slate-200 font-bold text-slate-800 text-[11px]">
+              <th colSpan={2} className="text-center py-1 px-1">批量打水</th>
+              <th colSpan={2} className="text-center py-1 px-1">打负、租卖号</th>
+              <th colSpan={2} className="text-center py-1 px-1">其他打水</th>
+              <th colSpan={2} className="text-center py-1 px-1">野鸡、协议球</th>
+              <th colSpan={2} className="text-center py-1 px-1">其他出货</th>
+              <th colSpan={2} className="text-center py-1 px-1">夹盘、卡进球</th>
+              <th colSpan={2} className="text-center py-1 px-1">其他</th>
+            </tr>
+            <tr className="border-b border-slate-200 text-slate-700 font-bold text-[10px] sm:text-[11px]">
               {categoryDetailColumns.flatMap((_, index) => [
-                <th key={`${index}-amount`} className="text-center py-2">金额</th>,
-                <th key={`${index}-pct`} className="text-center py-2">占比</th>,
+                <th key={`${index}-amount`} className="text-center py-1 px-1">金额</th>,
+                <th key={`${index}-pct`} className="text-center py-1 px-1">占比</th>,
               ])}
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-slate-100 tabular-nums text-xs sm:text-sm">
+          <tbody className="bg-white divide-y divide-slate-100 tabular-nums text-[11px] sm:text-xs">
             {categoryDetailData.map((row, idx) => {
+              const isMain = row.col1_pct && parseFloat(row.col1_pct) > 30;
               return (
                 <tr key={idx} className={idx % 2 === 0 ? "bg-white" : "bg-slate-50/50"}>
-                  <td className="text-center font-bold text-slate-900 py-2">{row.site}</td>
-                  <td className="text-center tabular-nums font-bold text-blue-900 py-2">{getCategoryDetailRowTotal(row)}</td>
+                  <td className="text-center font-bold text-slate-900 py-1.5 px-1">{row.site}</td>
+                  <td className="text-center tabular-nums font-bold text-blue-900 py-1.5 px-1">{getCategoryDetailRowTotal(row)}</td>
                   {categoryDetailColumns.flatMap((_, columnIndex) => {
                     const key = `col${columnIndex + 1}`;
+                    const isCol1 = columnIndex === 0;
 
                     return [
-                      <td key={`${row.site}-${key}-amount`} className="text-center tabular-nums text-slate-700 py-2">{row[`${key}_amt` as keyof typeof row]}</td>,
-                      <td key={`${row.site}-${key}-pct`} className="text-center tabular-nums text-slate-700 py-2">{row[`${key}_pct` as keyof typeof row]}</td>,
+                      <td key={`${row.site}-${key}-amount`} className={`text-center tabular-nums py-1.5 px-1 ${isCol1 && isMain ? "font-bold text-slate-900" : "text-slate-700"}`}>{row[`${key}_amt` as keyof typeof row]}</td>,
+                      <td key={`${row.site}-${key}-pct`} className={`text-center tabular-nums py-1.5 px-1 ${isCol1 && isMain ? "font-bold text-slate-900" : "text-slate-700"}`}>{row[`${key}_pct` as keyof typeof row]}</td>,
                     ];
                   })}
                 </tr>
               );
             })}
           </tbody>
-          <tfoot className="border-t border-b border-slate-200 bg-slate-50 tabular-nums text-xs sm:text-sm text-slate-900 font-bold">
+          <tfoot className="border-t border-b border-slate-200 bg-slate-50 tabular-nums text-[11px] sm:text-xs text-slate-900 font-bold">
             <tr className="border-b border-slate-200">
-              <td className="text-center font-bold py-2.5">小计</td>
-              <td className="text-center tabular-nums text-blue-900 font-bold py-2.5">{categoryDetailSubtotal.total}</td>
+              <td className="text-center font-bold py-2 px-1">小计|占比</td>
+              <td className="text-center tabular-nums text-blue-900 font-bold py-2 px-1">{categoryDetailSubtotal.total}</td>
               {categoryDetailSubtotal.columns.flatMap((amount, index) => {
                 return [
-                  <td key={`subtotal-${index}-amount`} className="text-center tabular-nums text-slate-800 py-2.5">{amount}</td>,
-                  <td key={`subtotal-${index}-pct`} className="text-center tabular-nums text-slate-700 py-2.5">100%</td>,
+                  <td key={`subtotal-${index}-amount`} className="text-center tabular-nums text-slate-800 py-2 px-1">{amount}</td>,
+                  <td key={`subtotal-${index}-pct`} className="text-center tabular-nums text-slate-700 py-2 px-1">100%</td>,
                 ];
               })}
             </tr>
             <tr className="bg-slate-100 font-bold">
-              <td className="text-center font-bold py-2.5">总计</td>
-              <td className="text-center tabular-nums font-bold text-blue-900 py-2.5">{categoryDetailTotalPct.total}</td>
+              <td className="text-center font-bold py-2 px-1">总计|占比</td>
+              <td className="text-center tabular-nums font-bold text-blue-900 py-2 px-1">{categoryDetailTotalPct.total}</td>
               {categoryDetailTotalPct.columns.map((pct, index) => {
                 return (
-                  <td key={`total-${index}`} colSpan={2} className="text-center tabular-nums text-slate-800 py-2.5">{pct}</td>
+                  <td key={`total-${index}`} colSpan={2} className="text-center tabular-nums text-slate-800 py-2 px-1">{pct}</td>
                 );
               })}
             </tr>

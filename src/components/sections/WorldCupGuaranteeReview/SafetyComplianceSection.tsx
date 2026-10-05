@@ -7,10 +7,10 @@ import { ReportSectionHeader } from "../../ReportSections";
 import { SafetyArchitectureDiagram } from "./SafetyArchitectureDiagram";
 
 const TIER_STEPS = [
-  { level: "L0", title: "权限模式升级", href: "#section-3.1" },
-  { level: "L1", title: "敏感操作限制", href: "#section-3.2" },
-  { level: "L2", title: "风控工单治理", href: "#section-3.3" },
-  { level: "L3", title: "专职角色巡检", href: "#section-3.4" },
+  { level: "L0", shortTitle: "源头控制", title: "L0 源头控制 权限模式升级", href: "#section-3.1" },
+  { level: "L1", shortTitle: "行为防线", title: "L1 行为防线 敏感操作限制", href: "#section-3.2" },
+  { level: "L2", shortTitle: "链路管控", title: "L2 链路管控 风控工单治理", href: "#section-3.3" },
+  { level: "L3", shortTitle: "监督兜底", title: "L3 监督兜底 专职角色巡检", href: "#section-3.4" },
 ] as const;
 
 export const SafetyTierLocationIndicator: React.FC<{
@@ -19,7 +19,7 @@ export const SafetyTierLocationIndicator: React.FC<{
   return (
     <nav
       aria-label="防御分层位置导航"
-      className="flex items-center gap-1.5 sm:gap-2 flex-nowrap text-xs font-mono py-0.5"
+      className="flex items-center gap-1 sm:gap-1.5 flex-nowrap text-xs font-mono py-0.5"
     >
       {TIER_STEPS.map((step, idx) => {
         const isCurrent = step.level === currentLevel;
@@ -27,15 +27,15 @@ export const SafetyTierLocationIndicator: React.FC<{
           <React.Fragment key={step.level}>
             <a
               href={step.href}
-              className={`inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 text-xs whitespace-nowrap transition-all select-none shrink-0 ${
+              className={`inline-flex items-center gap-1 sm:gap-1.5 px-2 py-0.5 sm:px-2.5 sm:py-1 text-xs whitespace-nowrap transition-all select-none shrink-0 ${
                 isCurrent
                   ? "bg-slate-900 text-white font-bold border border-slate-900 shadow-xs ring-1 ring-slate-900"
                   : "bg-slate-100 text-slate-600 hover:text-slate-950 hover:bg-slate-200/90 border border-slate-200"
               }`}
-              title={`防御分层位置 · ${step.level} ${step.title}`}
+              title={`防御分层位置 · ${step.level} ${step.shortTitle}`}
             >
               <span
-                className={`font-mono font-bold text-xs px-1.5 py-0.5 leading-none shrink-0 ${
+                className={`font-mono font-bold text-xs px-1 py-0.5 leading-none shrink-0 ${
                   isCurrent
                     ? "bg-white text-slate-950"
                     : "bg-slate-200 text-slate-600"
@@ -50,11 +50,11 @@ export const SafetyTierLocationIndicator: React.FC<{
                     : "text-slate-600 font-medium"
                 }`}
               >
-                {step.title}
+                {step.shortTitle}
               </span>
             </a>
             {idx < TIER_STEPS.length - 1 && (
-              <span className="text-slate-300 font-normal select-none shrink-0 px-0.5">
+              <span className="text-slate-300 font-normal select-none shrink-0 px-0.5 text-xs">
                 ➔
               </span>
             )}
@@ -71,37 +71,37 @@ export const SafetyComplianceSection: React.FC = () => {
       {/* 3.0 章节开头：安全合规分层防御架构 */}
       <SafetyArchitectureDiagram />
 
-      {/* L0 权限模式升级 (源头控制) */}
+      {/* L0 源头控制 权限模式升级 */}
       <section id="section-3.1" className="scroll-mt-6 flex flex-col gap-6">
         <ReportSectionHeader
-          title="L0 权限模式升级"
+          title="L0 源头控制 权限模式升级"
           rightContent={<SafetyTierLocationIndicator currentLevel="L0" />}
         />
         <PermissionStructureSection />
       </section>
 
-      {/* L1 敏感操作限制 (行为防线) */}
+      {/* L1 行为防线 敏感操作限制 */}
       <section id="section-3.2" className="scroll-mt-6 flex flex-col gap-6">
         <ReportSectionHeader
-          title="L1 敏感操作限制"
+          title="L1 行为防线 敏感操作限制"
           rightContent={<SafetyTierLocationIndicator currentLevel="L1" />}
         />
         <SecurityUpgradeSection />
       </section>
 
-      {/* L2 风控工单治理 (链路管控) */}
+      {/* L2 链路管控 风控工单治理 */}
       <section id="section-3.3" className="scroll-mt-6 flex flex-col gap-6">
         <ReportSectionHeader
-          title="L2 风控工单治理"
+          title="L2 链路管控 风控工单治理"
           rightContent={<SafetyTierLocationIndicator currentLevel="L2" />}
         />
         <TgGovernanceSection />
       </section>
 
-      {/* L3 专职角色巡检 (监督兜底) */}
+      {/* L3 监督兜底 专职角色巡检 */}
       <section id="section-3.4" className="scroll-mt-6 flex flex-col gap-6">
         <ReportSectionHeader
-          title="L3 专职角色巡检"
+          title="L3 监督兜底 专职角色巡检"
           rightContent={<SafetyTierLocationIndicator currentLevel="L3" />}
         />
         <InternalControlSection />
