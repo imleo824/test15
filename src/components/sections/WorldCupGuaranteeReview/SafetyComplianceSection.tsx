@@ -67,7 +67,7 @@ export const SafetyTierLocationIndicator: React.FC<{
 
 export const SafetyComplianceSection: React.FC = () => {
   return (
-    <div id="section-safety-compliance" className="report-chapter-content">
+    <div id="section-safety-compliance" className="report-chapter-content space-y-12 sm:space-y-14">
       {/* 3.0 章节开头：安全合规分层防御架构 */}
       <SafetyArchitectureDiagram />
 

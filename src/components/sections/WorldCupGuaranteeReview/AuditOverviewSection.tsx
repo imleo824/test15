@@ -8,7 +8,7 @@ import { AuditOverviewHighVipDetail } from "./AuditOverviewHighVipDetail";
 
 export const AuditOverviewSection: React.FC = () => {
   return (
-    <div className="report-chapter-content">
+    <div className="report-chapter-content space-y-12 sm:space-y-14">
       {/* 2.1 拦截金额与处理时效 */}
       <AuditOverviewAmountAndEffort />
 

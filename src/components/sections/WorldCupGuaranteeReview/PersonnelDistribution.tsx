@@ -7,7 +7,7 @@ export const PersonnelDistribution: React.FC = () => {
     {
       title: "人员优化",
       category: "降本增效",
-      content: "以[[系统自动审单]]替代人工，压降外包及总部人员，提升[[全盘人效与出单时效]]。",
+      content: "以[[系统自动审单]]替代人工，压降外包及总部人员，提升[[人效与时效]]。",
     },
     {
       title: "考核优化",
@@ -22,12 +22,12 @@ export const PersonnelDistribution: React.FC = () => {
     {
       title: "流程优化",
       category: "合规安全",
-      content: "裁撤跨部门[[冗余流转节点]]，缩短协同链路，严格执行[[权限隔离与全流程操作审计]]。",
+      content: "裁撤跨部门[[冗余流转节点]]，缩短协同链路，执行更严格[[安全合规]]。",
     },
   ];
 
   return (
-    <div className="report-chapter-content">
+    <div className="report-chapter-content space-y-12 sm:space-y-14">
       {/* 1.1 组织优化举措 */}
       <div className="flex flex-col gap-6">
         <ReportSectionHeader title="1.1 组织优化" />
@@ -35,7 +35,7 @@ export const PersonnelDistribution: React.FC = () => {
         <SummaryBox variant="module">
           <div className="text-sm text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "聚焦[[人效提升]]与[[合规安全]]：强化策略分析职能，压降重复人工审核与外包编制，持续优化各职场属地资源配置。"
+              "聚焦[[人效提升]]与[[合规安全]]：强化系统策略职能，压降人工审核，持续优化各场地配置。"
             )}
           </div>
         </SummaryBox>
@@ -77,7 +77,7 @@ export const PersonnelDistribution: React.FC = () => {
         <SummaryBox variant="module">
           <div className="text-sm text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "各职场编制按业务承载动态调配；持续提升系统自动审单比例，自 9月起 将外包审单量压降至 1% 以下（预计在10月内清0），实现[[成本节约与差错压降]]实质成效。"
+              "各职场承载动态调配；持续[[提升系统自动审单比例]]，自 9月起 将[[外包]]审单量压降至 1% 以下（预计在10月内清0）；同时[[总部]]人员也会持续压缩，实现[[成本节约与差错压降]]实质成效。"
             )}
           </div>
         </SummaryBox>
@@ -139,7 +139,7 @@ export const PersonnelDistribution: React.FC = () => {
                 { label: "D场地", count: "115", change: "↑ +44", isIncrease: true, isZero: false },
                 { label: "S场地", count: "211", change: "↓ -28", isIncrease: false, isZero: false },
                 { label: "F场地", count: "24", change: "↓ -28", isIncrease: false, isZero: false },
-                { label: "远程", count: "0", change: "已清零", isIncrease: false, isZero: true },
+                { label: "远程", count: "3", change: "↑ +3", isIncrease: true, isZero: false },
                 { label: "外包", count: "100", change: "↓ -19", isIncrease: false, isZero: false },
               ].map((item) => (
                 <div

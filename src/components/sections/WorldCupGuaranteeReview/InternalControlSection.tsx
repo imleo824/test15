@@ -1,9 +1,8 @@
 import React from "react";
-import { Shield, ShieldCheck } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 import { SummaryBox, highlightNumbers } from "./utils";
 import {
   ReportBadge,
-  ReportCaseCard,
   ReportMetricCard,
   ReportMetricGrid,
   ReportMetricHero,
@@ -46,7 +45,7 @@ export const InternalControlSection: React.FC = () => {
     <div id="section-internal-control" className="flex flex-col gap-10 sm:gap-12">
       <SummaryBox variant="module">
         {highlightNumbers(
-          "由专职监督独立把关，围绕[[敏感信息监控]]与[[稽查违规监控]]两大方向纵深推进；依托行为留痕与操作日志实现全链路可溯，违规操作即时预警与查处惩戒。",
+          "由专职监督独立把关，围绕[[敏感信息监控]]与[[稽查违规监控]]两大防线纵深推进；依托全量行为留痕与操作日志实现全链路可溯，落实违规操作即时预警、追责惩戒与挽回止损，形成防御闭环。",
         )}
       </SummaryBox>
 
@@ -59,17 +58,6 @@ export const InternalControlSection: React.FC = () => {
             "常态化全链路监控[[明文回显]]、[[红利发放]]、[[敏感参数变动]]与[[数据导出]]等高风险操作，依托行为留痕精准定位并即时阻断异常行为。",
           )}
         </SummaryBox>
-
-        <ReportMetricHero
-          title="违规处理总计"
-          desc="通过渠道稽查与敏感操作全链路监控精准定位"
-          metrics={
-            <div className="flex items-baseline gap-4">
-              <span className="text-3xl md:text-4xl text-slate-950 font-bold tracking-tight tabular-nums">225<small className="ml-1 text-xs text-slate-500 font-bold">人</small></span>
-              <span className="text-2xl md:text-3xl text-slate-950 font-bold tracking-tight tabular-nums">178,140<small className="ml-1 text-xs text-slate-500 font-bold">条</small></span>
-            </div>
-          }
-        />
 
         <ReportMetricGrid columns={3}>
           <ReportMetricCard
@@ -126,30 +114,19 @@ export const InternalControlSection: React.FC = () => {
       </div>
 
       {/* L3.2 稽查违规监控 */}
-      <div className="flex flex-col gap-8 sm:gap-10">
-        <div className="flex flex-col gap-6">
-          <ReportSubsectionHeader title="L3.2 稽查违规监控" />
+      <div className="flex flex-col gap-6">
+        <ReportSubsectionHeader title="L3.2 稽查违规监控" />
 
-          <SummaryBox variant="module">
-            {highlightNumbers(
-              "深入开展违规专项稽查与问责挽回：通过[[核心数据总览]]、[[日常稽查项演进]]加固及[[典型案例]]深度穿透，本季度累计查处违规与罚款 192人，实现止损挽回与罚没 63,423U。",
-            )}
-          </SummaryBox>
-
-          {/* 1. 本季度核心数据总览 */}
-          <div className="flex flex-col gap-3.5">
-            <div className="flex items-center justify-between pb-2 border-b border-slate-200">
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-3.5 bg-slate-900"></span>
-                <span className="font-bold text-slate-950 text-base flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-slate-900 shrink-0" />
-                  <span>本季度核心数据总览</span>
-                </span>
-              </div>
-              <ReportBadge tone="slate" className="text-xs font-mono">
-                稽查惩戒与挽回
-              </ReportBadge>
+        {/* 1. 数据总览 */}
+        <div className="flex flex-col gap-3.5">
+          <div className="flex items-center justify-between pb-2 border-b border-slate-200">
+            <div className="flex items-center gap-2">
+              <span className="w-1.5 h-3.5 bg-slate-900"></span>
+              <span className="font-bold text-slate-950 text-sm sm:text-base">
+                数据总览
+              </span>
             </div>
+          </div>
 
             <ReportMetricHero
               title="稽查处理与挽回总计"
@@ -333,71 +310,7 @@ export const InternalControlSection: React.FC = () => {
               </div>
             </div>
           </div>
-
-          {/* 3. 典型违规案例剖析 */}
-          <div className="flex flex-col gap-3.5 pt-4 border-t border-slate-200">
-            <div className="flex items-center justify-between pb-2 border-b border-slate-200">
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-3.5 bg-slate-900"></span>
-                <span className="text-sm sm:text-base font-bold text-slate-950">
-                  典型违规案例剖析
-                </span>
-              </div>
-              <ReportBadge tone="slate" className="text-xs font-mono">
-                深度穿透查处
-              </ReportBadge>
-            </div>
-            
-            <div className="grid grid-cols-1 xl:grid-cols-2 gap-5 sm:gap-6 items-stretch">
-              <ReportCaseCard
-                title="外包审核违规案例"
-                icon={<Shield className="w-5 h-5 text-blue-800 shrink-0" />}
-                badge={<ReportBadge tone="red" className="text-xs font-mono">违规查处</ReportBadge>}
-                steps={[
-                  {
-                    step: 1,
-                    title: "背景起因",
-                    content: highlightNumbers("外包审核存在数据外泄风险且质检率偏高，5月启动[[外包专项治理]]。"),
-                  },
-                  {
-                    step: 2,
-                    title: "专项跟进与录屏分析",
-                    content: highlightNumbers("对全量外包账号录屏抽检，查出[[不规范操作]]占比达 33%，安全隐患突出。"),
-                  },
-                  {
-                    step: 3,
-                    title: "深度挖掘与处理情况",
-                    content: highlightNumbers("锁定责任人利用职务便利违规放单与[[不当获利]]，已固定证据并严肃问责处置。"),
-                  },
-                ]}
-              />
-
-              <ReportCaseCard
-                title="业绩造假违规案例"
-                icon={<Shield className="w-5 h-5 text-blue-800 shrink-0" />}
-                badge={<ReportBadge tone="amber" className="text-xs font-mono">稽查纠偏</ReportBadge>}
-                steps={[
-                  {
-                    step: 1,
-                    title: "违规类型",
-                    content: highlightNumbers("[[业绩造假]]：伪造业务过程材料与用户参与记录，虚增个人业绩。"),
-                  },
-                  {
-                    step: 2,
-                    title: "发现情况",
-                    content: highlightNumbers("多名员工利用[[图像合成工具]]伪造用户对话记录，导致业绩数据失真。"),
-                  },
-                  {
-                    step: 3,
-                    title: "风险影响",
-                    content: highlightNumbers("破坏[[考核真实性]]与合规性，已纳入素材复核、交叉验证与绩效审计。"),
-                  },
-                ]}
-              />
-            </div>
-          </div>
         </div>
       </div>
-    </div>
   );
 };

@@ -2619,10 +2619,14 @@
     background: #ffffff !important;
   }
 
-  .report-standard-table td,
+  .report-standard-table td {
+    color: var(--report-ink);
+    font-size: 13.5px;
+    font-weight: 500;
+  }
+
   .report-dense-table td {
     color: var(--report-ink);
-    font-size: 11px !important;
     font-weight: 500;
   }
 
@@ -2953,7 +2957,6 @@
 
   .studio-data-table tfoot td {
     text-align: center !important;
-    font-size: 11px !important;
   }
 
   .studio-data-table tfoot td:first-child {
@@ -3882,7 +3885,7 @@
   .report-shell li:not(.text-white):not([class*="text-white"]),
   .report-shell dd:not(.text-white):not([class*="text-white"]),
   .report-shell dt:not(.text-white):not([class*="text-white"]),
-  .report-shell td:not(.text-white):not([class*="text-white"]),
+  .report-shell td:not(.text-white):not([class*="text-white"]):not(.report-dense-table td):not([class*="report-dense-table"] td):not(.studio-data-table td),
   .report-shell .report-note,
   .report-shell .report-note p:not(.text-white):not([class*="text-white"]),
   .report-shell .report-note div:not(.text-white):not([class*="text-white"]),
@@ -3922,7 +3925,7 @@
   .report-shell li,
   .report-shell dd,
   .report-shell dt,
-  .report-shell td,
+  .report-shell td:not(.report-dense-table td):not([class*="report-dense-table"] td):not(.studio-data-table td),
   .report-shell .report-note,
   .report-shell .report-note p,
   .report-shell .report-note div,

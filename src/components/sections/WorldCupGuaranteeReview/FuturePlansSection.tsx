@@ -47,7 +47,7 @@ export const FuturePlansSection: React.FC = () => {
       highlights: [
         {
           title: "全链路工单闭环",
-          desc: "业务流转全量收拢至[[线上工单系统]]，杜绝脱单私聊与线下流转，保持 100% [[审计留痕与溯源]]。",
+          desc: "业务流转全量收拢至[[工单系统]]，杜绝脱单私聊与线下流转，保持[[审计留痕与溯源]]。",
         },
         {
           title: "权限与变更管控",
@@ -65,7 +65,7 @@ export const FuturePlansSection: React.FC = () => {
           <div className="space-y-2">
             <p className="text-sm sm:text-base text-slate-800 font-normal leading-relaxed">
               {highlightNumbers(
-                "随着在[[会员维度]]系统化审核取得的阶段性成果，下阶段核心将会员维度的成功实践与成熟能力[[平滑复刻并全面落地至代理审核]]，构建「会员 + 代理」双轮驱动的智能化风控体系，取得更大的风控收益与人效突破。"
+                "随着在[[会员维度]]系统化审核取得的阶段性成果，下阶段核心将会员维度的成功实践与经验[[并全面落地至代理审核]]，构建「会员 + 代理」双轮驱动的智能化风控体系，取得更大的风控收益与人效突破。"
               )}
             </p>
             <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed border-t border-slate-200/80 pt-2 mt-2">

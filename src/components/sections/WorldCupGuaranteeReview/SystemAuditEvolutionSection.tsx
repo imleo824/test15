@@ -24,7 +24,7 @@ import { SystemAuditMonthlyTrendChart } from "./SystemAuditMonthlyTrendChart";
 
 export const SystemAuditEvolutionSection: React.FC = () => {
   return (
-    <div id="section-system-audit-evolution" className="report-chapter-content">
+    <div id="section-system-audit-evolution" className="report-chapter-content space-y-12 sm:space-y-14">
       {/* 4.1 审单模式演进 */}
       <div className="flex flex-col gap-6">
         <ReportSectionHeader title="4.1 审单模式演进" />
@@ -70,7 +70,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               </div>
 
               {/* 现在：鲜明当前背景与聚焦边框 */}
-              <div className="flex-1 flex items-center justify-between px-3.5 py-2.5 bg-blue-100 border-2 border-blue-600 shadow-xs relative">
+              <div className="flex-1 flex items-center justify-between px-3.5 py-2.5 bg-blue-50/80 border border-blue-300 relative">
                 <div className="flex flex-col">
                   <span className="text-xs font-bold text-blue-900 uppercase tracking-wider">现在</span>
                   <span className="text-sm font-bold text-blue-950">系统占比</span>
@@ -88,7 +88,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               </div>
 
               {/* 最优 (75.0%)：虚线边框，体现将来的预期感 */}
-              <div className="flex-1 flex items-center justify-between px-3.5 py-2.5 bg-emerald-50/30 border-2 border-dashed border-emerald-500">
+              <div className="flex-1 flex items-center justify-between px-3.5 py-2.5 bg-emerald-50/40 border border-dashed border-emerald-400">
                 <div className="flex flex-col">
                   <div className="flex items-center gap-1.5">
                     <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">安全边界</span>
@@ -119,11 +119,11 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               {/* 压降 1 */}
               <div className="flex items-center justify-center gap-1.5 px-3 py-1.5 bg-slate-900 text-white font-mono font-bold text-xs shrink-0 self-center">
                 <span>-15.0%</span>
-                <span className="text-rose-400 font-bold text-sm leading-none">↓</span>
+                <span className="text-emerald-400 font-bold text-sm leading-none">↓</span>
               </div>
 
               {/* 现在：鲜明当前背景与聚焦边框 */}
-              <div className="flex-1 flex items-center justify-between px-3.5 py-2.5 bg-blue-100 border-2 border-blue-600 shadow-xs relative">
+              <div className="flex-1 flex items-center justify-between px-3.5 py-2.5 bg-blue-50/80 border border-blue-300 relative">
                 <div className="flex flex-col">
                   <span className="text-xs font-bold text-blue-900 uppercase tracking-wider">现在</span>
                   <span className="text-sm font-bold text-slate-950">人工占比</span>
@@ -137,11 +137,11 @@ export const SystemAuditEvolutionSection: React.FC = () => {
               {/* 压降 2 */}
               <div className="flex items-center justify-center gap-1.5 px-3 py-1.5 bg-slate-900 text-white font-mono font-bold text-xs shrink-0 self-center">
                 <span>-10.0%</span>
-                <span className="text-rose-400 font-bold text-sm leading-none">↓</span>
+                <span className="text-emerald-400 font-bold text-sm leading-none">↓</span>
               </div>
 
               {/* 最优 (25.0%)：虚线边框，体现将来的预期感 */}
-              <div className="flex-1 flex items-center justify-between px-3.5 py-2.5 bg-slate-50 border-2 border-dashed border-slate-400">
+              <div className="flex-1 flex items-center justify-between px-3.5 py-2.5 bg-slate-50 border border-dashed border-slate-300">
                 <div className="flex flex-col">
                   <div className="flex items-center gap-1.5">
                     <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">安全边界</span>
@@ -1607,9 +1607,9 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       </h6>
                     </div>
                     <div className="flex flex-wrap items-center gap-2 self-start sm:self-auto">
-                      <span className="text-xs sm:text-sm font-mono font-bold text-sky-800">
+                      <ReportBadge tone="blue" className="text-xs font-mono font-bold">
                         周级动态校准 · 策略抗衰减
-                      </span>
+                      </ReportBadge>
                     </div>
                   </div>
 

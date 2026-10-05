@@ -9,7 +9,7 @@ import { FuturePlansSection } from "./FuturePlansSection";
 
 export const WorldCupGuaranteeReview: React.FC = () => {
   return (
-    <div className="report-section-stack pb-20">
+    <div className="report-section-stack space-y-16 sm:space-y-20 pb-20">
       {/* 1.0 组织管理 */}
       <section id="section-1.0" className="report-chapter-block scroll-mt-6">
         <ChapterTitle>1.0 组织管理</ChapterTitle>

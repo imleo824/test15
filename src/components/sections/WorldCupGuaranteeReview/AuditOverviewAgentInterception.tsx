@@ -271,8 +271,8 @@ export const AuditOverviewAgentInterception: React.FC = () => {
                   <td className={`px-1 py-1.5 text-center border-r border-slate-200 ${isAug ? "text-blue-900 font-bold bg-blue-50/40" : "text-slate-700"}`}>{row.base_pct}</td>
                   <td className={`px-1 py-1.5 text-center ${isAug ? "text-blue-900 font-bold bg-blue-50/40" : "text-slate-800"}`}>{row.extra_amt}</td>
                   <td className={`px-1 py-1.5 text-center border-r border-slate-200 ${isAug ? "text-blue-900 font-bold bg-blue-50/40" : "text-slate-700"}`}>{row.extra_pct}</td>
-                  <td className={`px-1 py-1.5 text-center ${isJul ? "text-emerald-900 font-bold bg-emerald-50/40" : "text-slate-700"}`}>{row.head_amt}</td>
-                  <td className={`px-1 py-1.5 text-center border-r border-slate-200 ${isJul ? "text-emerald-900 font-bold bg-emerald-50/40" : "text-slate-700"}`}>{row.head_pct}</td>
+                  <td className={`px-1 py-1.5 text-center ${isJul ? "text-blue-900 font-bold bg-blue-50/40" : "text-slate-700"}`}>{row.head_amt}</td>
+                  <td className={`px-1 py-1.5 text-center border-r border-slate-200 ${isJul ? "text-blue-900 font-bold bg-blue-50/40" : "text-slate-700"}`}>{row.head_pct}</td>
                   <td className="px-1 py-1.5 text-center text-slate-700">{row.first_dep_amt}</td>
                   <td className="px-1 py-1.5 text-center border-r border-slate-200 text-slate-700">{row.first_dep_pct}</td>
                   <td className="px-1 py-1.5 text-center text-slate-700">{row.reward1_amt}</td>

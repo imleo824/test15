@@ -152,13 +152,13 @@ const renderLineLabel = ({ x, y, value, index }: any) => {
   if (isLast) {
     return (
       <g>
-        {/* 9月高亮气泡 */}
+        {/* 9月成就高亮气泡：质检率降至历史最低 0.072% */}
         <rect
           x={x - 30}
           y={y - 28}
           width={60}
           height={18}
-          fill="#b91c1c"
+          fill="#047857"
           rx={3}
         />
         <text
@@ -201,8 +201,8 @@ const renderCustomDot = (props: any) => {
   if (isLast) {
     return (
       <g key={`dot-${index}`}>
-        <circle cx={cx} cy={cy} r={7} fill="#b91c1c" stroke="#ffffff" strokeWidth={2.5} />
-        <circle cx={cx} cy={cy} r={11} fill="none" stroke="#b91c1c" strokeWidth={1.5} strokeDasharray="3 3" />
+        <circle cx={cx} cy={cy} r={7} fill="#047857" stroke="#ffffff" strokeWidth={2.5} />
+        <circle cx={cx} cy={cy} r={11} fill="none" stroke="#047857" strokeWidth={1.5} strokeDasharray="3 3" />
       </g>
     );
   }

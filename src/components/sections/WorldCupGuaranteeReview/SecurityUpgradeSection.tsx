@@ -18,7 +18,6 @@ interface SecurityCategoryData {
   status: string;
   statusTone: "blue" | "slate" | "green" | "amber" | "red" | "indigo";
   categoryTag: string;
-  direction: string;
   themeColor: "blue" | "slate";
   icon: React.ElementType;
   painPoint: string;
@@ -42,7 +41,6 @@ export const SecurityUpgradeSection: React.FC = () => {
       status: "可优化",
       statusTone: "blue",
       categoryTag: "防散落遗漏",
-      direction: "场景一",
       themeColor: "slate",
       icon: Database,
       painPoint: "敏感信息分散暴露在过多模块中，导致集中维护、更新、授权等困难，存在信息外露与遗漏风险。",
@@ -51,14 +49,14 @@ export const SecurityUpgradeSection: React.FC = () => {
         {
           name: "多模块分散维护",
           risk: "手机、银行、邮箱、姓名、微信、支付宝、开户名、标签、输赢、等级、代理等敏感字段散落在各后台系统及历史旧页面中，缺乏明确的监管定义与收口机制，具有极高外泄风险。",
-          measure: "明确敏感字段定义与收口范围，清理散落在各后台旧页面的展示入口，非必要展示一律关闭；必须展示的实施[[全掩码脱敏]]，敏感字眼统一进行脱敏与[[内部代号替换]]。",
-          impact: "展示入口全面收拢，默认脱敏率 100%",
+          measure: "明确敏感字段定义与收口范围，[[清理散落在各后台旧页面的展示入口]]，非必要展示一律关闭；必须展示的实施[[全掩码脱敏]]；平台商户等敏感字眼统一进行脱敏与[[内部代号替换]]。",
+          impact: "敏感信息展示入口全面清理和收拢",
         },
         {
           name: "敏感信息更新脱节",
           risk: "后台涉及多个子系统（如财务中台等），若系统间更新脱节，将导致数据脱敏与访问控制改造未能联动生效，遗留安全盲区。",
           measure: "凡涉及敏感数据脱敏、访问控制等安全功能改造，必须覆盖全平台所有业务系统与独立子后台，严格执行[[全平台统一上线]]，彻底消除版本差。",
-          impact: "100% 覆盖全平台独立系统，消除版本差",
+          impact: "覆盖全平台独立系统，消除版本差",
         },
       ],
     },
@@ -68,7 +66,6 @@ export const SecurityUpgradeSection: React.FC = () => {
       status: "待支持",
       statusTone: "amber",
       categoryTag: "按工种严控",
-      direction: "场景二",
       themeColor: "slate",
       icon: Search,
       painPoint: "复制、截屏、导出、批量查询等高危操作权限泛滥，未按实际工种必要性进行严格控制。",
@@ -76,8 +73,8 @@ export const SecurityUpgradeSection: React.FC = () => {
       items: [
         {
           name: "报表批量导出",
-          status: "待支持",
-          statusTone: "amber",
+          status: "可优化",
+          statusTone: "blue",
           risk: "一键大批量导出客户名单与流水，易导致大面积脱库外泄；多数基础工种日常无需导出权限。",
           measure: "对全量导出权限执行严格重审，有权限人员须[[重新单独申请]]并严格核验实际使用场景，非必要岗位一律关闭。",
           impact: "非必要工种关闭，外泄可秒级精准溯源",
@@ -106,7 +103,6 @@ export const SecurityUpgradeSection: React.FC = () => {
       status: "待支持",
       statusTone: "amber",
       categoryTag: "防单人作案",
-      direction: "场景三",
       themeColor: "slate",
       icon: Smartphone,
       painPoint: "有权限的人可以单人完成修改，缺乏背靠背交叉核验，风险较大且易发生单点内部作案。",
@@ -159,28 +155,85 @@ export const SecurityUpgradeSection: React.FC = () => {
         <div className="space-y-2.5">
           <p className="text-sm text-slate-700 font-normal leading-relaxed">
             {highlightNumbers(
-              "针对底层安全机制运作痛点，全面落实[[敏感操作限制]]，严格聚焦 **敏感信息维护**、**敏感异常操作**、**敏感信息修改** 三大核心场景推进加固改造，以系统硬规则约束一线裁量，筑牢底层安全合规防线。"
+              "针对底层安全机制运作痛点，全面落实[[敏感操作限制]]，严格聚焦 **敏感信息维护**、**敏感异常操作**、**敏感信息修改** 场景推进加固改造，提升安全合规防线。"
             )}
           </p>
         </div>
       </SummaryBox>
 
       {/* 案例说明 */}
-      <div className="bg-slate-50 border border-slate-200 p-4 sm:p-5 space-y-2.5">
-        <div className="flex items-center gap-2 text-slate-950 font-bold text-sm sm:text-base flex-wrap">
-          <div className="flex items-center gap-2">
-            <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0" />
-            <span>案例说明</span>
-          </div>
+      <div className="bg-slate-50 border border-slate-200 p-4 sm:p-5 space-y-3.5">
+        <div className="flex items-center gap-2 pb-2.5 border-b border-slate-200 flex-wrap">
+          <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0" />
+          <span className="font-bold text-slate-950 text-sm sm:text-base">稽查案例说明</span>
           <ReportBadge tone="amber" className="text-xs font-mono font-bold">
-            重点案件溯源
+            溯源
           </ReportBadge>
         </div>
-        <p className="text-sm text-slate-700 leading-relaxed font-normal">
-          {highlightNumbers(
-            "稽查过程中，明确发现当前后台「敏感资料」管控存在潜在漏洞，内部员工通过后台权限，[[批量窃取：用户姓名、手机号、出生日期、所在地、银行卡号等核心隐私信息]]并对外泄露，外部黑灰产团伙拿到基础资料后，[[进一步通过「开盒网站、非法社工库」补全用户身份信息]]，实现对用户的精准定位，[[定向拉拢至其他外部娱乐平台]]，严重损害平台经营安全。"
-          )}
-        </p>
+
+        <div className="bg-white p-4 sm:p-5 border border-slate-200">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3.5 sm:gap-4 items-stretch">
+            {/* Step 1 */}
+            <div className="p-3.5 bg-slate-50 border border-slate-200/80 space-y-1.5 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-1.5 pb-1 border-b border-slate-200">
+                  <span className="w-5 h-5 bg-slate-900 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0">1</span>
+                  <strong className="text-xs sm:text-sm font-bold text-slate-950">提取关联数据</strong>
+                </div>
+                <p className="text-xs sm:text-[13px] text-slate-700 leading-relaxed font-normal pt-1.5">
+                  {highlightNumbers(
+                    "投注管理-筛选足球-投注金额 5000元 以上的会员，将这一批账号在后台使用关联关系查询功能，将该功能明文显示的数据[[手动复制并粘贴至 Excel 表格中]]进行筛选。"
+                  )}
+                </p>
+              </div>
+            </div>
+
+            {/* Step 2 */}
+            <div className="p-3.5 bg-slate-50 border border-slate-200/80 space-y-1.5 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-1.5 pb-1 border-b border-slate-200">
+                  <span className="w-5 h-5 bg-slate-900 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0">2</span>
+                  <strong className="text-xs sm:text-sm font-bold text-slate-950">核对敏感信息</strong>
+                </div>
+                <p className="text-xs sm:text-[13px] text-slate-700 leading-relaxed font-normal pt-1.5">
+                  {highlightNumbers(
+                    "对照筛选后的 Excel 数据，手动逐个复制账号跨模块至会员管理等页面，批量调阅并补全[[用户姓名、手机号、出生日期、所在地、银行卡号等核心隐私信息]]至表格。"
+                  )}
+                </p>
+              </div>
+            </div>
+
+            {/* Step 3 */}
+            <div className="p-3.5 bg-slate-50 border border-slate-200/80 space-y-1.5 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-1.5 pb-1 border-b border-slate-200">
+                  <span className="w-5 h-5 bg-slate-900 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0">3</span>
+                  <strong className="text-xs sm:text-sm font-bold text-slate-950">传输与清理</strong>
+                </div>
+                <p className="text-xs sm:text-[13px] text-slate-700 leading-relaxed font-normal pt-1.5">
+                  {highlightNumbers(
+                    "将最终的表格数据[[截图发送至冒充公司人员私人飞机号]]，发送完毕后及时在本地删除原始数据与记录，企图规避稽查留痕。"
+                  )}
+                </p>
+              </div>
+            </div>
+
+            {/* Step 4 */}
+            <div className="p-3.5 bg-rose-50/40 border border-rose-200/80 space-y-1.5 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-1.5 pb-1 border-b border-rose-200">
+                  <span className="w-5 h-5 bg-rose-700 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0">4</span>
+                  <strong className="text-xs sm:text-sm font-bold text-rose-950">开盒与黑产拉拢</strong>
+                </div>
+                <p className="text-xs sm:text-[13px] text-slate-700 leading-relaxed font-normal pt-1.5">
+                  {highlightNumbers(
+                    "外部黑灰产团伙拿到基础资料后，[[进一步通过「开盒网站、非法社工库」补全用户身份信息]]，实现对用户的精准定位，[[定向拉拢至其他外部娱乐平台]]，严重损害平台经营安全。"
+                  )}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* 三大核心场景落地管控规范全览 (落地细则与痛点应对) */}
@@ -199,9 +252,7 @@ export const SecurityUpgradeSection: React.FC = () => {
                   <Icon className="w-4 h-4" />
                 </div>
                 <h4 className="text-base sm:text-lg font-bold text-slate-950 flex items-center gap-2 flex-wrap">
-                  <span>
-                    【{cat.direction}】{cat.categoryName}
-                  </span>
+                  <span>{cat.categoryName}</span>
                   <ReportBadge
                     tone={cat.themeColor}
                     className="text-xs font-mono font-normal"

@@ -12,7 +12,6 @@ import {
 import { highlightNumbers, SummaryBox } from "./utils";
 import {
   ReportBadge,
-  ReportCompareBlock,
   ReportStepPipeline,
   ReportSubsectionHeader,
   ReportTableFrame,
@@ -182,8 +181,10 @@ export const TgGovernanceSection: React.FC = () => {
             </div>
           </div>
         </div>
+      </div>
 
-        {/* L2.2 线下离线流程治理分类 */}
+      {/* L2.2 线下离线流程治理分类 */}
+      <div className="flex flex-col gap-6">
         <ReportSubsectionHeader title="L2.2 治理分类" />
 
         <SummaryBox className="space-y-2">
@@ -354,7 +355,7 @@ export const TgGovernanceSection: React.FC = () => {
         </div>
       </div>
 
-      {/* L2.2 线下群聊与系统工单流转对比 */}
+      {/* L2.3 典型案例 */}
       <div className="flex flex-col gap-6">
         <ReportSubsectionHeader title="L2.3 典型案例" />
 
@@ -366,230 +367,257 @@ export const TgGovernanceSection: React.FC = () => {
           </p>
         </SummaryBox>
 
-        {/* 1:1 还原 Telegram 线下群聊实景截图示意图 */}
-        <div className="space-y-3">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 bg-rose-600 rounded-none shrink-0" />
-              <h4 className="text-sm sm:text-base font-bold text-slate-950">
-                释义 · 线下群聊跨群检索与明文报单隐患
-              </h4>
-            </div>         
+        {/* 典型案例双列布局：左侧群聊实景还原（占一半），右侧上下堆叠对比（上半传统弊端，下半治理成效） */}
+        <div className="grid grid-cols-1 xl:grid-cols-12 gap-4 sm:gap-5 items-stretch">
+          {/* 左半部分：Telegram 线下群聊实景还原 */}
+          <div className="xl:col-span-6 flex flex-col h-full">
+            <div className="w-full h-full bg-white border border-slate-300 shadow-xs overflow-hidden text-slate-900 font-sans flex flex-col justify-between">
+              {/* macOS 顶部窗口控制栏 */}
+              <div className="bg-[#242f3d] px-3.5 py-1.5 flex items-center justify-between border-b border-[#17212b] text-white shrink-0">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56] inline-block shadow-inner" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e] inline-block shadow-inner" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f] inline-block shadow-inner" />
+                  <span className="ml-2.5 text-xs font-medium text-slate-300 font-mono">群1 – 示例</span>
+                </div>
+              </div>
+
+              {/* 主体 2 列架构：左侧全局搜索命中列表 + 右侧群聊真实明文消息视窗 */}
+              <div className="grid grid-cols-1 sm:grid-cols-12 flex-1 min-h-0">
+                {/* 左侧：全局搜索栏与跨群检索命中结果 */}
+                <div className="sm:col-span-5 bg-white border-r border-slate-200 p-2.5 flex flex-col justify-between text-xs space-y-2">
+                  <div className="space-y-1.5">
+                    {/* 搜索输入框 */}
+                    <div className="relative">
+                      <input
+                        type="text"
+                        readOnly
+                        value="asd001"
+                        className="w-full bg-slate-100 border border-slate-300 rounded px-2 py-1 text-xs text-slate-900 font-mono font-bold pr-6 focus:outline-none"
+                      />
+                      <X className="w-3 h-3 text-slate-400 absolute right-2 top-1/2 -translate-y-1/2" />
+                    </div>
+
+                    {/* 检索命中统计 */}
+                    <div className="flex items-center justify-between text-[10px] text-slate-500 px-1 pb-1 border-b border-slate-100">
+                      <span className="font-bold text-slate-700">9 messages found</span>
+                      <span className="font-mono text-slate-400">All chats</span>
+                    </div>
+
+                    {/* 搜索命中消息列表 */}
+                    <div className="space-y-1">
+                      {[
+                        { group: "群1", date: "6/26", preview: "专员-B: 📰 平台 : 1 帐号: asd001...", active: true },
+                        { group: "群2", date: "9/6", preview: "...: 平台: 1 帐号: asd001 ...", active: false },
+                        { group: "群1", date: "8/24", preview: "...: 平台: 1 帐号: asd001 ...", active: false },
+                        { group: "群3", date: "4/13", preview: "... 平台 : 4 帐号: asd001 ...", active: false },
+                      ].map((item, i) => (
+                        <div
+                          key={i}
+                          className={`p-1.5 rounded flex items-start gap-2 text-xs transition-colors ${
+                            item.active
+                              ? "bg-[#3390ec] text-white shadow-xs"
+                              : "hover:bg-slate-100 text-slate-700"
+                          }`}
+                        >
+                          <div
+                            className={`w-5 h-5 rounded-full flex items-center justify-center font-bold text-[9px] shrink-0 ${
+                              item.active ? "bg-white/20 text-white" : "bg-[#3390ec] text-white"
+                            }`}
+                          >
+                            {item.group}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between leading-tight">
+                              <span className="font-bold truncate text-[10px]">👥 {item.group}</span>
+                              <span
+                                className={`text-[9px] font-mono shrink-0 ml-1 ${
+                                  item.active ? "text-blue-100" : "text-slate-400"
+                                }`}
+                              >
+                                {item.date}
+                              </span>
+                            </div>
+                            <div
+                              className={`text-[9.5px] truncate mt-0.5 ${
+                                item.active ? "text-blue-50 font-medium" : "text-slate-500"
+                              }`}
+                            >
+                              {item.preview}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="text-[10px] text-slate-400 text-center py-0.5 border-t border-slate-100 font-mono">
+                    ...跨群共 9 条历史报单记录
+                  </div>
+                </div>
+
+                {/* 右侧：聊天对话主视窗 */}
+                <div className="sm:col-span-7 bg-[#8ca37b]/20 flex flex-col justify-between relative bg-[radial-gradient(#6c895c_1px,transparent_1px)] [background-size:16px_16px]">
+                  {/* 群聊顶栏 */}
+                  <div className="bg-white/95 backdrop-blur-xs px-3 py-1.5 border-b border-slate-200 flex items-center justify-between shrink-0">
+                    <div>
+                      <div className="text-xs font-bold text-slate-900 leading-tight">群1</div>
+                      <div className="text-[10px] text-slate-500 leading-none mt-0.5">464 位成员</div>
+                    </div>
+                    <div className="flex items-center gap-2 text-slate-500">
+                      <Search className="w-3.5 h-3.5 cursor-pointer hover:text-slate-800" />
+                      <Sliders className="w-3.5 h-3.5 cursor-pointer hover:text-slate-800" />
+                      <MoreVertical className="w-3.5 h-3.5 cursor-pointer hover:text-slate-800" />
+                    </div>
+                  </div>
+
+                  {/* 消息流主区域 */}
+                  <div className="p-2.5 sm:p-3 space-y-2 text-xs flex-1 flex flex-col justify-between">
+                    {/* 日期分隔线 */}
+                    <div className="flex justify-center">
+                      <span className="bg-slate-800/50 text-white text-[9px] font-mono px-2 py-0.2 rounded-full">
+                        6月26日
+                      </span>
+                    </div>
+
+                    {/* 核心高危报单明细消息 */}
+                    <div className="flex items-start gap-1.5">
+                      <div className="w-6 h-6 rounded-full bg-rose-600 text-white flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">
+                        F
+                      </div>
+                      <div className="bg-white p-2 sm:p-2.5 rounded-r-lg rounded-bl-lg w-full space-y-1 shadow-2xs border border-slate-200">
+                        <div className="text-[10.5px] font-bold text-rose-700 flex items-center justify-between">
+                          <span>A001</span>
+                          <span className="text-[9.5px] text-slate-400 font-mono font-normal">14:02</span>
+                        </div>
+
+                        {/* 报单明文文本 */}
+                        <div className="space-y-0.5 font-mono text-[11px] text-slate-900 leading-relaxed bg-slate-50 p-2 rounded border border-slate-200">
+                          <div>平台 : 1</div>
+                          <div>
+                            帐号:{" "}
+                            <strong className="font-mono font-bold text-slate-950">
+                              asd001
+                            </strong>
+                          </div>
+                          <div>等级: 7</div>
+                          <div>上级: leader_001</div>
+                          <div>上标/复审:    复审</div>
+                          <div className="pt-0.5">
+                            <span className="text-slate-700 font-bold">问题描述/截图:</span>
+                            <div className="text-slate-800 pl-1.5 mt-0.5 border-l-2 border-slate-300 space-y-0.5 text-[10.5px]">
+                              <div>user_test 4 有记录异常游戏  同下注</div>
+                              <div>该会员多次异常游戏被处理后 今天继续同赛事下注多局 ，可疑继续电竞异常投注 ，麻烦复审</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Telegram 视窗模拟（紧凑高度，紧贴核心报单实况） */}
-          <div className="w-full bg-white border border-slate-300 shadow-sm overflow-hidden text-slate-900 font-sans">
-            {/* macOS 顶部窗口控制栏 */}
-            <div className="bg-[#242f3d] px-3.5 py-1.5 flex items-center justify-between border-b border-[#17212b] text-white">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56] inline-block shadow-inner" />
-                <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e] inline-block shadow-inner" />
-                <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f] inline-block shadow-inner" />
-                <span className="ml-2.5 text-xs font-medium text-slate-300 font-mono">群1 – 示例</span>
+          {/* 右半部分：上下堆叠对比卡片（上：传统弊端，下：治理成效） */}
+          <div className="xl:col-span-6 flex flex-col justify-between gap-4 h-full">
+            {/* 上半：治理前 · 隐患暴露（传统弊端） */}
+            <div className="bg-white border border-slate-200 p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3">
+              <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-3.5 bg-rose-600 shrink-0"></span>
+                  <h4 className="text-sm sm:text-base font-bold text-slate-950">
+                    线下群聊明文操作（传统弊端）
+                  </h4>
+                </div>
+                <ReportBadge tone="red" className="text-xs font-mono font-medium">
+                  治理前 · 隐患暴露
+                </ReportBadge>
+              </div>
+
+              <div className="space-y-2.5 flex-1 flex flex-col justify-center">
+                <div className="space-y-1">
+                  <div className="flex items-center gap-1.5 font-bold text-slate-900 text-xs sm:text-sm">
+                    <AlertTriangle className="w-3.5 h-3.5 text-rose-600 shrink-0" />
+                    <span>风险 1：跨群全局检索穿透，敏感记录缺乏隔离</span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    {highlightNumbers(
+                      "在通讯工具中全局搜索任一会员账号（如 asd001），直接搜出跨度从 2025 年 8 月到 2026 年 9 月长达一年多的 9 条历史报单记录，跨群暴露无任何隔离。"
+                    )}
+                  </p>
+                </div>
+
+                <div className="pt-2 border-t border-slate-100 space-y-1">
+                  <div className="flex items-center gap-1.5 font-bold text-slate-900 text-xs sm:text-sm">
+                    <ShieldAlert className="w-3.5 h-3.5 text-rose-600 shrink-0" />
+                    <span>风险 2：口头催单报单，缺乏系统审计留痕</span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    {highlightNumbers(
+                      "群内口头私下催单报单，缺乏标准化系统工单流转与权限管控，极易滋生人情单与操作隐患。"
+                    )}
+                  </p>
+                </div>
               </div>
             </div>
 
-            {/* 主体 2 列架构：左侧全局搜索命中列表 + 右侧群聊真实明文消息视窗（高度紧凑贴合） */}
-            <div className="grid grid-cols-1 md:grid-cols-12">
-              {/* 左侧：全局搜索栏与跨群检索命中结果 */}
-              <div className="md:col-span-5 lg:col-span-4 bg-white border-r border-slate-200 p-2.5 flex flex-col justify-between text-xs space-y-2">
-                <div className="space-y-1.5">
-                  {/* 搜索输入框 */}
-                  <div className="relative">
-                    <input
-                      type="text"
-                      readOnly
-                      value="asd001"
-                      className="w-full bg-slate-100 border border-slate-300 rounded px-2 py-1 text-xs text-slate-900 font-mono font-bold pr-6 focus:outline-none"
-                    />
-                    <X className="w-3 h-3 text-slate-400 absolute right-2 top-1/2 -translate-y-1/2" />
-                  </div>
+            {/* VS 对比转换指示条 */}
+            <div className="relative flex items-center justify-center -my-1 py-1 z-10">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-slate-200" />
+              </div>
+              <div className="relative inline-flex items-center gap-1.5 px-3 py-0.5 bg-slate-900 text-white text-xs font-mono font-bold tracking-wider shadow-2xs border border-slate-800">
+                <span>VS</span>
+                <span className="text-slate-300 font-normal text-[11px]">对比</span>
+              </div>
+            </div>
 
-                  {/* 检索命中统计 */}
-                  <div className="flex items-center justify-between text-[10px] text-slate-500 px-1 pb-1 border-b border-slate-100">
-                    <span className="font-bold text-slate-700">9 messages found</span>
-                    <span className="font-mono text-slate-400">All chats search</span>
-                  </div>
-
-                  {/* 搜索命中消息列表（精选代表性命中展示） */}
-                  <div className="space-y-1">
-                    {[
-                      { group: "群1", date: "6/26", preview: "专员-B: 📰 平台 : 1 帐号: asd001...", active: true },
-                      { group: "群2", date: "9/6", preview: "...: 平台: 1 帐号: asd001 ...", active: false },
-                      { group: "群1", date: "8/24", preview: "...: 平台: 1 帐号: asd001 ...", active: false },
-                      { group: "群3", date: "4/13", preview: "... 平台 : 4 帐号: asd001 ...", active: false },
-                    ].map((item, i) => (
-                      <div
-                        key={i}
-                        className={`p-1.5 rounded flex items-start gap-2 text-xs transition-colors ${
-                          item.active
-                            ? "bg-[#3390ec] text-white shadow-xs"
-                            : "hover:bg-slate-100 text-slate-700"
-                        }`}
-                      >
-                        <div
-                          className={`w-6 h-6 rounded-full flex items-center justify-center font-bold text-[10px] shrink-0 ${
-                            item.active ? "bg-white/20 text-white" : "bg-[#3390ec] text-white"
-                          }`}
-                        >
-                          {item.group}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center justify-between leading-tight">
-                            <span className="font-bold truncate text-[10px]">👥 {item.group}</span>
-                            <span
-                              className={`text-[9px] font-mono shrink-0 ml-1 ${
-                                item.active ? "text-blue-100" : "text-slate-400"
-                              }`}
-                            >
-                              {item.date}
-                            </span>
-                          </div>
-                          <div
-                            className={`text-[10px] truncate mt-0.5 ${
-                              item.active ? "text-blue-50 font-medium" : "text-slate-500"
-                            }`}
-                          >
-                            {item.preview}
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+            {/* 下半：治理后 · 全面受控（治理成效） */}
+            <div className="bg-white border border-slate-200 p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3">
+              <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-3.5 bg-emerald-600 shrink-0"></span>
+                  <h4 className="text-sm sm:text-base font-bold text-slate-950">
+                    风控工单系统闭环（治理成效）
+                  </h4>
                 </div>
-
-                <div className="text-[10px] text-slate-400 text-center py-0.5 border-t border-slate-100 font-mono">
-                  ...跨群共 9 条历史报单记录
-                </div>
+                <ReportBadge tone="green" className="text-xs font-mono font-medium">
+                  治理后 · 全面受控
+                </ReportBadge>
               </div>
 
-              {/* 右侧：聊天对话主视窗（高度紧贴单条报单内容） */}
-              <div className="md:col-span-7 lg:col-span-8 bg-[#8ca37b]/20 flex flex-col justify-between relative bg-[radial-gradient(#6c895c_1px,transparent_1px)] [background-size:16px_16px]">
-                {/* 群聊顶栏 */}
-                <div className="bg-white/95 backdrop-blur-xs px-3.5 py-1.5 border-b border-slate-200 flex items-center justify-between">
-                  <div>
-                    <div className="text-xs font-bold text-slate-900 leading-tight">群1</div>
-                    <div className="text-[10px] text-slate-500 leading-none mt-0.5">464 位成员</div>
+              <div className="space-y-2.5 flex-1 flex flex-col justify-center">
+                <div className="space-y-1">
+                  <div className="flex items-center gap-1.5 font-bold text-slate-950 text-xs sm:text-sm">
+                    <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0 stroke-[2.5]" />
+                    <span>成效 1：工单系统收口，敏感数据脱敏隔离</span>
                   </div>
-                  <div className="flex items-center gap-2.5 text-slate-500">
-                    <Search className="w-3.5 h-3.5 cursor-pointer hover:text-slate-800" />
-                    <Sliders className="w-3.5 h-3.5 cursor-pointer hover:text-slate-800" />
-                    <MoreVertical className="w-3.5 h-3.5 cursor-pointer hover:text-slate-800" />
-                  </div>
+                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                    {highlightNumbers(
+                      "关闭所有线下非受控报单群，11项业务 100% [[迁移至风控工单治理闭环]]。严控跨群检索，仅限授权在册角色按需加密调阅，数据不落本地。"
+                    )}
+                  </p>
                 </div>
 
-                {/* 消息流主区域（紧凑对齐，紧贴指定内容） */}
-                <div className="p-3 space-y-2 text-xs">
-                  {/* 日期分隔线 */}
-                  <div className="flex justify-center">
-                    <span className="bg-slate-800/50 text-white text-[9px] font-mono px-2 py-0.2 rounded-full">
-                      6月26日
-                    </span>
+                <div className="pt-2 border-t border-slate-100 space-y-1">
+                  <div className="flex items-center gap-1.5 font-bold text-slate-950 text-xs sm:text-sm">
+                    <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0 stroke-[2.5]" />
+                    <span>成效 2：标准化审批流，100% 审计存证溯源</span>
                   </div>
-
-                  {/* 核心高危报单明细消息（精准呈现明文报单参数） */}
-                  <div className="flex items-start gap-2">
-                    <div className="w-7 h-7 rounded-full bg-rose-600 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
-                      F
-                    </div>
-                    <div className="bg-white p-2.5 rounded-r-lg rounded-bl-lg w-full space-y-1.5 shadow-2xs border border-slate-200">
-                      <div className="text-[11px] font-bold text-rose-700 flex items-center justify-between">
-                        <span>A001</span>
-                        <span className="text-[10px] text-slate-400 font-mono font-normal">14:02</span>
-                      </div>
-
-                      {/* 报单明文文本（精准完整呈现用户指定内容） */}
-                      <div className="space-y-0.5 font-mono text-xs text-slate-900 leading-relaxed bg-slate-50 p-2.5 rounded border border-slate-200">
-                        <div>平台 : 1</div>
-                        <div>
-                          帐号:{" "}
-                          <strong className="font-mono font-bold text-slate-950">
-                            asd001
-                          </strong>
-                        </div>
-                        <div>等级: 7</div>
-                        <div>上级: leader_001</div>
-                        <div>上标/复审:    复审</div>
-                        <div className="pt-0.5">
-                          <span className="text-slate-700 font-bold">问题描述/截图:</span>
-                          <div className="text-slate-800 pl-2 mt-0.5 border-l-2 border-slate-300 space-y-0.5">
-                            <div>user_test 4战 有记录异常游戏  同下注</div>
-                            <div>该会员多次异常游戏被处理后 今天继续同赛事下注多局 ，可疑继续电竞异常投注 ，麻烦复审</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                    {highlightNumbers(
+                      "催单、上标与复审全流程嵌入工单流转，实行[[分级权限与不可篡改的系统日志审计]]，彻底杜绝人情单与口头操作漏洞。"
+                    )}
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        {/* 规范的治理前后双列对比（对标最佳实践，无多层边框嵌套） */}
-        <ReportCompareBlock
-          beforeTag="治理前 · 隐患暴露"
-          beforeTitle="线下群聊明文操作（传统弊端）"
-          beforeContent={
-            <div className="space-y-3">
-              <div className="space-y-1">
-                <div className="flex items-center gap-1.5 font-bold text-slate-900 text-sm">
-                  <AlertTriangle className="w-4 h-4 text-rose-600 shrink-0" />
-                  <span>风险 1：跨群全局检索穿透，敏感记录缺乏隔离</span>
-                </div>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  {highlightNumbers(
-                    "在通讯工具中全局搜索任一会员账号（如 asd001），直接搜出跨度从 2025 年 8 月到 2026 年 9 月长达一年多的 9 条历史报单记录，跨群暴露无任何隔离。"
-                  )}
-                </p>
-              </div>
-
-              <div className="pt-2 border-t border-slate-200/80 space-y-1">
-                <div className="flex items-center gap-1.5 font-bold text-slate-900 text-sm">
-                  <ShieldAlert className="w-4 h-4 text-rose-600 shrink-0" />
-                  <span>风险 2：口头催单报单，缺乏系统审计留痕</span>
-                </div>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  {highlightNumbers(
-                    "群内口头私下催单报单，缺乏标准化系统工单流转与权限管控，极易滋生人情单与操作隐患。"
-                  )}
-                </p>
-              </div>
-            </div>
-          }
-          afterTag="治理后 · 全面受控"
-          afterTitle="风控工单系统闭环（治理成效）"
-          afterContent={
-            <div className="space-y-3">
-              <div className="space-y-1">
-                <div className="flex items-center gap-1.5 font-bold text-slate-950 text-sm">
-                  <Check className="w-4 h-4 text-emerald-600 shrink-0 stroke-[2.5]" />
-                  <span>成效 1：工单系统收口，敏感数据脱敏隔离</span>
-                </div>
-                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                  {highlightNumbers(
-                    "关闭所有线下非受控报单群，12项业务 100% [[迁移至风控工单治理闭环]]。严控跨群检索，仅限授权在册角色按需加密调阅，数据不落本地。"
-                  )}
-                </p>
-              </div>
-
-              <div className="pt-2 border-t border-slate-200/80 space-y-1">
-                <div className="flex items-center gap-1.5 font-bold text-slate-950 text-sm">
-                  <Check className="w-4 h-4 text-emerald-600 shrink-0 stroke-[2.5]" />
-                  <span>成效 2：标准化审批流，100% 审计存证溯源</span>
-                </div>
-                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                  {highlightNumbers(
-                    "催单、上标与复审全流程嵌入工单流转，实行[[分级权限与不可篡改的系统日志审计]]，彻底杜绝人情单与口头操作漏洞。"
-                  )}
-                </p>
-              </div>
-            </div>
-          }
-        />
       </div>
 
-      {/* L2.3 核心流程闭环节点 */}
+      {/* L2.4 高风险审核业务 */}
       <div className="flex flex-col gap-6">
         <ReportSubsectionHeader title="L2.4 高风险审核业务" />
 
@@ -601,8 +629,9 @@ export const TgGovernanceSection: React.FC = () => {
           </p>
         </SummaryBox>
 
-        {/* 核心流程改造管道：全局复用 ReportStepPipeline */}
+        {/* 核心全流程改造管道：去除外部边框 */}
         <ReportStepPipeline
+          bordered={false}
           columns={6}
           steps={[
             { index: 1, title: "提款", subtitle: "业务发起点", status: "触发源", statusType: "neutral" },
