@@ -71,37 +71,37 @@ export const SafetyComplianceSection: React.FC = () => {
       {/* 3.0 章节开头：安全合规分层防御架构 */}
       <SafetyArchitectureDiagram />
 
-      {/* 3.1 权限模式升级 (L0 · 源头控制) */}
-      <section id="section-3.1" className="scroll-mt-6 flex flex-col gap-[var(--report-panel-gap)]">
+      {/* L0 权限模式升级 (源头控制) */}
+      <section id="section-3.1" className="scroll-mt-6 flex flex-col gap-6">
         <ReportSectionHeader
-          title="3.1 权限模式升级"
+          title="L0 权限模式升级"
           rightContent={<SafetyTierLocationIndicator currentLevel="L0" />}
         />
         <PermissionStructureSection />
       </section>
 
-      {/* 3.2 敏感操作限制 (L1 · 行为防线) */}
-      <section id="section-3.2" className="scroll-mt-6 flex flex-col gap-[var(--report-panel-gap)]">
+      {/* L1 敏感操作限制 (行为防线) */}
+      <section id="section-3.2" className="scroll-mt-6 flex flex-col gap-6">
         <ReportSectionHeader
-          title="3.2 敏感操作限制"
+          title="L1 敏感操作限制"
           rightContent={<SafetyTierLocationIndicator currentLevel="L1" />}
         />
         <SecurityUpgradeSection />
       </section>
 
-      {/* 3.3 风控工单治理 (L2 · 链路管控) */}
-      <section id="section-3.3" className="scroll-mt-6 flex flex-col gap-[var(--report-panel-gap)]">
+      {/* L2 风控工单治理 (链路管控) */}
+      <section id="section-3.3" className="scroll-mt-6 flex flex-col gap-6">
         <ReportSectionHeader
-          title="3.3 风控工单治理"
+          title="L2 风控工单治理"
           rightContent={<SafetyTierLocationIndicator currentLevel="L2" />}
         />
         <TgGovernanceSection />
       </section>
 
-      {/* 3.4 专职角色巡检 (L3 · 监督兜底) */}
-      <section id="section-3.4" className="scroll-mt-6 flex flex-col gap-[var(--report-panel-gap)]">
+      {/* L3 专职角色巡检 (监督兜底) */}
+      <section id="section-3.4" className="scroll-mt-6 flex flex-col gap-6">
         <ReportSectionHeader
-          title="3.4 专职角色巡检"
+          title="L3 专职角色巡检"
           rightContent={<SafetyTierLocationIndicator currentLevel="L3" />}
         />
         <InternalControlSection />

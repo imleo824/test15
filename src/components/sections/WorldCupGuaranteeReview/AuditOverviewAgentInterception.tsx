@@ -137,7 +137,7 @@ export const AuditOverviewAgentInterception: React.FC = () => {
   const safePercent = (val, total) => total > 0 ? ((val / total) * 100).toFixed(2) + "%" : "0.00%";
 
   return (
-    <div id="section-audit-agent-interception" className="flex flex-col gap-[var(--report-panel-gap)]">
+    <div id="section-audit-agent-interception" className="flex flex-col gap-6">
       {/* 模块标题 - 统一规范 */}
       <ReportSectionHeader title="2.3 代理拦截分析" />
 

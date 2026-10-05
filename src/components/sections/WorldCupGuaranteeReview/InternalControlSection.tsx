@@ -1,5 +1,5 @@
 import React from "react";
-import { Search, Shield, ShieldCheck } from "lucide-react";
+import { Shield, ShieldCheck } from "lucide-react";
 import { SummaryBox, highlightNumbers } from "./utils";
 import {
   ReportBadge,
@@ -10,41 +10,34 @@ import {
   ReportSubsectionHeader,
 } from "../../ReportSections";
 
-const clueSourceItems = [
+const dailyAuditPreviousQuarter = [
   {
-    title: "渠道与行业信息",
-    desc: "监测[[公开及私密群组]]、外部渠道与工作室动态，掌握黑产动向与风险线索。",
+    title: "日常监控",
+    tag: "办公合规",
+    content: "针对虚拟机员工日常办公操作实施[[全流程监控]]，严厉杜绝各类违法违规行为及违反公司规章制度的情况，筑牢内部合规防线。",
   },
   {
-    title: "系统预警与参数变动",
-    desc: "实时预警[[返水比例]]、[[查控费率]]、[[代理方案]]等敏感配置变更，纳入专项核查。",
+    title: "审核预警群",
+    tag: "流程抽查",
+    content: "针对“预警功能”专项抽查，对内部审核业务流程中的核心风险场景实施[[精准抽查监控]]，排查潜在违规操作与异常问题。",
   },
   {
-    title: "审核异常",
-    desc: "识别[[非审核人员代审]]、[[多人流转异常]]、[[同人多次审核]]等高危动作。",
-  },
-  {
-    title: "匿名举报与行为留痕",
-    desc: "结合[[匿名举报]]、管理页面与查控录屏、登录与操作日志，补充异常操作线索。",
+    title: "外部钓鱼",
+    tag: "黑产对抗",
+    content: "通过各类外部群组，以合作方式接触相关工作室，精准钓取与工作室勾结的[[内部卧底]]，掌握一手动态，前置防控外部勾结风险。",
   },
 ];
 
-const auditActionItems = [
+const dailyAuditCurrentQuarter = [
   {
-    title: "归集线索并建立排查节奏",
-    desc: "对渠道信息、系统预警、举报与录屏线索统一归档，建立[[定期排查机制]]，分层分级跟进。",
+    title: "员工忠诚度测试",
+    tag: "本季新增",
+    content: "为排查内部潜在违规风险，稽查部将[[伪装外部工作室]]对员工开展忠诚度测试，通过沟通挖掘人员是否存在此意图，识别岗位底线意识，提前预防人员[[数据泄露、被外部引诱]]等隐患。",
   },
   {
-    title: "复核流程与重点场景",
-    desc: "针对新员工、高风险岗位及核心预警场景开展[[专项抽查]]，核验违规与异常流转。",
-  },
-  {
-    title: "追溯行为与权限链路",
-    desc: "追溯[[虚拟机办公操作]]、核心页面访问、权限变更与敏感数据查看，定位异常登录与越权操作。",
-  },
-  {
-    title: "核验外部勾结并回流规则",
-    desc: "排查内外勾结与利益输送风险，确认的问题沉淀为[[预警规则]]与处置依据。",
+    title: "IM端监控预警",
+    tag: "本季新增",
+    content: "实时抓取使用虚拟机员工聊天中的[[敏感字段、文件外发]]等高危操作，触发后实时警报，稽查部联动抽查，实现[[风险精准预警、操作全程记录、快速跟进]]的管控。",
   },
 ];
 
@@ -53,14 +46,20 @@ export const InternalControlSection: React.FC = () => {
     <div id="section-internal-control" className="flex flex-col gap-10 sm:gap-12">
       <SummaryBox variant="module">
         {highlightNumbers(
-          "由专职监督独立把关，重点监控[[红利发放]]、[[敏感参数变动]]与[[异常登录]]；依托行为留痕与操作日志实现全链路可溯，违规操作即时预警与查处。",
+          "由专职监督独立把关，围绕[[敏感信息监控]]与[[稽查违规监控]]两大方向纵深推进；依托行为留痕与操作日志实现全链路可溯，违规操作即时预警与查处惩戒。",
         )}
       </SummaryBox>
 
-      {/* 3.4.1 专职监督工作成果 */}
+      {/* L3.1 敏感信息监控 */}
       <div className="flex flex-col gap-6">
-        <ReportSubsectionHeader title="3.4.1 违规查处与稽查成果" />
-        
+        <ReportSubsectionHeader title="L3.1 敏感信息监控" />
+
+        <SummaryBox variant="module">
+          {highlightNumbers(
+            "常态化全链路监控[[明文回显]]、[[红利发放]]、[[敏感参数变动]]与[[数据导出]]等高风险操作，依托行为留痕精准定位并即时阻断异常行为。",
+          )}
+        </SummaryBox>
+
         <ReportMetricHero
           title="违规处理总计"
           desc="通过渠道稽查与敏感操作全链路监控精准定位"
@@ -126,204 +125,277 @@ export const InternalControlSection: React.FC = () => {
         </ReportMetricGrid>
       </div>
 
-      {/* 3.4.2 监督排查核心主线 */}
-      <div className="flex flex-col gap-6">
-        <ReportSubsectionHeader title="3.4.2 监督排查核心主线" />
-
-        <SummaryBox variant="module">
-          {highlightNumbers(
-            "内控稽查围绕[[线索发现]]与[[跟进处置]]两条主线开展：前端扩大信息触达面，后端通过日志、录屏、权限、流程和外部核验完成闭环追溯。",
-          )}
-        </SummaryBox>
-        
+      {/* L3.2 稽查违规监控 */}
+      <div className="flex flex-col gap-8 sm:gap-10">
         <div className="flex flex-col gap-6">
-          {/* 1. 线索来源 */}
+          <ReportSubsectionHeader title="L3.2 稽查违规监控" />
+
+          <SummaryBox variant="module">
+            {highlightNumbers(
+              "深入开展违规专项稽查与问责挽回：通过[[核心数据总览]]、[[日常稽查项演进]]加固及[[典型案例]]深度穿透，本季度累计查处违规与罚款 192人，实现止损挽回与罚没 63,423U。",
+            )}
+          </SummaryBox>
+
+          {/* 1. 本季度核心数据总览 */}
           <div className="flex flex-col gap-3.5">
-            <div className="flex items-center gap-2 pb-1.5 border-b border-slate-200">
-              <span className="w-1.5 h-3.5 bg-slate-900"></span>
-              <span className="font-bold text-slate-950 text-base flex items-center gap-2">
-                <Search className="w-4 h-4 text-slate-900 shrink-0" />
-                <span>线索来源</span>
-              </span>
+            <div className="flex items-center justify-between pb-2 border-b border-slate-200">
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-3.5 bg-slate-900"></span>
+                <span className="font-bold text-slate-950 text-base flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-slate-900 shrink-0" />
+                  <span>本季度核心数据总览</span>
+                </span>
+              </div>
+              <ReportBadge tone="slate" className="text-xs font-mono">
+                稽查惩戒与挽回
+              </ReportBadge>
             </div>
-            <SummaryBox variant="note">
-              {highlightNumbers("通过[[外部渠道]]、[[系统预警]]、[[业务流程异常]]、[[匿名举报]]与[[行为留痕]]发现问题。")}
-            </SummaryBox>
+
+            <ReportMetricHero
+              title="稽查处理与挽回总计"
+              desc="专项查处违规责任人、追回资产损失与执行纪律惩戒"
+              metrics={
+                <div className="flex items-baseline gap-4">
+                  <span className="text-3xl md:text-4xl text-slate-950 font-bold tracking-tight tabular-nums">192<small className="ml-1 text-xs text-slate-500 font-bold">人</small></span>
+                  <span className="text-2xl md:text-3xl text-slate-950 font-bold tracking-tight tabular-nums">63,423<small className="ml-1 text-xs text-slate-500 font-bold">U</small></span>
+                </div>
+              }
+            />
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
-              {clueSourceItems.map((item, index) => (
-                <div
-                  key={item.title}
-                  className="bg-white border border-slate-200 p-4 sm:p-5 flex flex-col justify-between space-y-2.5 h-full"
-                >
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2 pb-2 border-b border-slate-100">
-                      <span className="w-5 h-5 bg-slate-900 text-white font-mono font-bold text-xs flex items-center justify-center shrink-0">
-                        {index + 1}
-                      </span>
-                      <span className="font-bold text-slate-950 text-sm sm:text-[15px]">
-                        {item.title}
-                      </span>
-                    </div>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                      {highlightNumbers(item.desc)}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* 2. 稽查动作 */}
-          <div className="flex flex-col gap-3.5">
-            <div className="flex items-center gap-2 pb-1.5 border-b border-slate-200">
-              <span className="w-1.5 h-3.5 bg-slate-900"></span>
-              <span className="font-bold text-slate-950 text-base flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-slate-900 shrink-0" />
-                <span>稽查动作</span>
-              </span>
-            </div>
-            <SummaryBox variant="note">
-              {highlightNumbers("线索进入后，按[[归集]]、[[复核]]、[[追溯]]、[[核验]]和[[规则回流]]推进闭环处理。")}
-            </SummaryBox>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
-              {auditActionItems.map((item, index) => (
-                <div
-                  key={item.title}
-                  className="bg-white border border-slate-200 p-4 sm:p-5 flex flex-col justify-between space-y-2.5 h-full"
-                >
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2 pb-2 border-b border-slate-100">
-                      <span className="w-5 h-5 bg-slate-900 text-white font-mono font-bold text-xs flex items-center justify-center shrink-0">
-                        {index + 1}
-                      </span>
-                      <span className="font-bold text-slate-950 text-sm sm:text-[15px]">
-                        {item.title}
-                      </span>
-                    </div>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                      {highlightNumbers(item.desc)}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* 3.4.3 高危场景防范 */}
-      <div className="flex flex-col gap-6">
-        <ReportSubsectionHeader title="3.4.3 高危场景防范" />
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 items-stretch">
-          {/* 1. 外部通讯群信息 */}
-          <div className="bg-white border border-slate-200 p-5 sm:p-6 flex flex-col justify-between space-y-4 h-full">
-            <div className="space-y-3">
-              <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
-                <div className="flex items-center gap-2 text-slate-950 font-bold text-base sm:text-lg">
-                  <span className="w-5 h-5 bg-slate-900 text-white font-mono font-bold text-xs flex items-center justify-center shrink-0">
-                    1
+              {/* Card 1: 违规人数 */}
+              <div className="bg-white border border-slate-200 p-5 flex flex-col justify-between space-y-3">
+                <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
+                  <span className="text-xs sm:text-sm font-bold text-slate-700 tracking-wide">
+                    违规人数
                   </span>
-                  <span>外部通讯群聊风险</span>
+                  <ReportBadge tone="red" className="text-xs font-mono">
+                    严重违规
+                  </ReportBadge>
                 </div>
-                <ReportBadge tone="red" className="text-xs font-mono">
-                  高危暴露
-                </ReportBadge>
-              </div>
-              <p className="text-sm text-slate-700 leading-relaxed font-normal">
-                {highlightNumbers("群聊信息易被全局检索，导致[[敏感数据暴露]]与非受控扩散，存在严重信息泄露隐患。")}
-              </p>
-            </div>
-            <div className="pt-3 space-y-1 border-t border-slate-100">
-              <div className="text-xs font-mono font-bold text-slate-900 uppercase tracking-wider">
-                应对举措
-              </div>
-              <p className="text-sm text-slate-800 leading-relaxed font-normal">
-                {highlightNumbers("全面[[关停外部通讯群聊]]，收拢至系统工单流转（详见 3.3 节）。")}
-              </p>
-            </div>
-          </div>
-
-          {/* 2. 内部勾结查控 */}
-          <div className="bg-white border border-slate-200 p-5 sm:p-6 flex flex-col justify-between space-y-4 h-full">
-            <div className="space-y-3">
-              <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
-                <div className="flex items-center gap-2 text-slate-950 font-bold text-base sm:text-lg">
-                  <span className="w-5 h-5 bg-slate-900 text-white font-mono font-bold text-xs flex items-center justify-center shrink-0">
-                    2
+                <div className="flex items-baseline gap-1 py-1">
+                  <span className="text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight font-mono tabular-nums">
+                    16
                   </span>
-                  <span>内部勾结风险</span>
+                  <span className="text-xs sm:text-sm font-bold text-slate-600">人</span>
                 </div>
-                <ReportBadge tone="amber" className="text-xs font-mono">
-                  协同隐患
-                </ReportBadge>
+                <p className="text-xs text-slate-600 leading-relaxed font-normal pt-1 border-t border-slate-50">
+                  {highlightNumbers("专项稽查锁定的核心违规与利益输送责任人")}
+                </p>
               </div>
-              <p className="text-sm text-slate-700 leading-relaxed font-normal">
-                {highlightNumbers("涉及[[身份验证]]、[[佣金结算]]与[[提款审核]]等环节，若缺乏随机隔离与交叉复核，易产生协同违规。")}
-              </p>
-            </div>
-            <div className="pt-3 space-y-1 border-t border-slate-100">
-              <div className="text-xs font-mono font-bold text-slate-900 uppercase tracking-wider">
-                应对举措
+
+              {/* Card 2: 预估挽回金额 */}
+              <div className="bg-white border border-slate-200 p-5 flex flex-col justify-between space-y-3">
+                <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
+                  <span className="text-xs sm:text-sm font-bold text-slate-700 tracking-wide">
+                    预估挽回金额
+                  </span>
+                  <ReportBadge tone="green" className="text-xs font-mono">
+                    资产止损
+                  </ReportBadge>
+                </div>
+                <div className="flex items-baseline gap-1 py-1">
+                  <span className="text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight font-mono tabular-nums">
+                    32,799
+                  </span>
+                  <span className="text-xs sm:text-sm font-bold text-slate-600">U</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed font-normal pt-1 border-t border-slate-50">
+                  {highlightNumbers("通过止付、追回与违规扣回有效挽回的资产损失")}
+                </p>
               </div>
-              <p className="text-sm text-slate-800 leading-relaxed font-normal">
-                {highlightNumbers("核心环节实行[[随机派单与多层审批]]，强化权限隔离（详见 3.1 与 3.2 节）。")}
-              </p>
+
+              {/* Card 3: 罚款人数 */}
+              <div className="bg-white border border-slate-200 p-5 flex flex-col justify-between space-y-3">
+                <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
+                  <span className="text-xs sm:text-sm font-bold text-slate-700 tracking-wide">
+                    罚款人数
+                  </span>
+                  <ReportBadge tone="amber" className="text-xs font-mono">
+                    纪律惩戒
+                  </ReportBadge>
+                </div>
+                <div className="flex items-baseline gap-1 py-1">
+                  <span className="text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight font-mono tabular-nums">
+                    176
+                  </span>
+                  <span className="text-xs sm:text-sm font-bold text-slate-600">人</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed font-normal pt-1 border-t border-slate-50">
+                  {highlightNumbers("触犯风控合规红线与操作规范的受惩人员")}
+                </p>
+              </div>
+
+              {/* Card 4: 罚款金额 */}
+              <div className="bg-white border border-slate-200 p-5 flex flex-col justify-between space-y-3">
+                <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
+                  <span className="text-xs sm:text-sm font-bold text-slate-700 tracking-wide">
+                    罚款金额
+                  </span>
+                  <ReportBadge tone="slate" className="text-xs font-mono">
+                    依规罚没
+                  </ReportBadge>
+                </div>
+                <div className="flex items-baseline gap-1 py-1">
+                  <span className="text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight font-mono tabular-nums">
+                    30,624
+                  </span>
+                  <span className="text-xs sm:text-sm font-bold text-slate-600">U</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed font-normal pt-1 border-t border-slate-50">
+                  {highlightNumbers("依规严肃执行的违规问责与经济惩戒款项")}
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      {/* 3.4.4 典型违规案例剖析 */}
-      <div className="flex flex-col gap-6">
-        <ReportSubsectionHeader title="3.4.4 典型案例剖析" />
-        
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-5 sm:gap-6 items-stretch">
-          <ReportCaseCard
-            title="外包审核违规案例"
-            icon={<Shield className="w-5 h-5 text-blue-800 shrink-0" />}
-            badge={<ReportBadge tone="red" className="text-xs font-mono">违规查处</ReportBadge>}
-            steps={[
-              {
-                step: 1,
-                title: "背景起因",
-                content: highlightNumbers("外包审核存在数据外泄风险且质检率偏高，5月启动[[外包专项治理]]。"),
-              },
-              {
-                step: 2,
-                title: "专项跟进与录屏分析",
-                content: highlightNumbers("对全量外包账号录屏抽检，查出[[不规范操作]]占比达 33%，安全隐患突出。"),
-              },
-              {
-                step: 3,
-                title: "深度挖掘与处理情况",
-                content: highlightNumbers("锁定责任人利用职务便利违规放单与[[不当获利]]，已固定证据并严肃问责处置。"),
-              },
-            ]}
-          />
+          {/* 2. 日常稽查项演进矩阵：上季度基线 vs 本季度新增 */}
+          <div className="flex flex-col gap-3.5 pt-4 border-t border-slate-200">
+            <div className="flex items-center justify-between pb-2 border-b border-slate-200">
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-3.5 bg-slate-900"></span>
+                <span className="text-sm sm:text-base font-bold text-slate-950">
+                  日常稽查项机制演进（上季度基线 ➔ 本季度新增）
+                </span>
+              </div>
+              <ReportBadge tone="blue" className="text-xs font-mono">
+                稽查能力加固
+              </ReportBadge>
+            </div>
 
-          <ReportCaseCard
-            title="业绩造假违规案例"
-            icon={<Shield className="w-5 h-5 text-blue-800 shrink-0" />}
-            badge={<ReportBadge tone="amber" className="text-xs font-mono">稽查纠偏</ReportBadge>}
-            steps={[
-              {
-                step: 1,
-                title: "违规类型",
-                content: highlightNumbers("[[业绩造假]]：伪造业务过程材料与用户参与记录，虚增个人业绩。"),
-              },
-              {
-                step: 2,
-                title: "发现情况",
-                content: highlightNumbers("多名员工利用[[图像合成工具]]伪造用户对话记录，导致业绩数据失真。"),
-              },
-              {
-                step: 3,
-                title: "风险影响",
-                content: highlightNumbers("破坏[[考核真实性]]与合规性，已纳入素材复核、交叉验证与绩效审计。"),
-              },
-            ]}
-          />
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 items-stretch">
+              {/* 左列：上季度（常态基线 · 3项） */}
+              <div className="lg:col-span-6 bg-white border border-slate-200 p-5 flex flex-col justify-between space-y-4">
+                <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
+                  <div className="flex items-center gap-2 text-slate-900 font-bold text-sm sm:text-base">
+                    <span className="w-2 h-2 bg-slate-600 shrink-0"></span>
+                    <span>上季度（常态基线 · 3项）</span>
+                  </div>
+                  <ReportBadge tone="slate" className="text-xs font-mono">
+                    基础防线
+                  </ReportBadge>
+                </div>
+
+                <div className="space-y-3 flex-1 flex flex-col justify-between">
+                  {dailyAuditPreviousQuarter.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="p-3.5 bg-slate-50 border border-slate-100 space-y-1.5 flex-1 flex flex-col justify-between"
+                    >
+                      <div className="flex items-center justify-between">
+                        <strong className="text-xs sm:text-sm font-bold text-slate-950">
+                          {item.title}
+                        </strong>
+                        <ReportBadge tone="slate" className="text-[11px] font-mono">
+                          {item.tag}
+                        </ReportBadge>
+                      </div>
+                      <p className="text-xs sm:text-[13px] text-slate-700 leading-relaxed font-normal">
+                        {highlightNumbers(item.content)}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 右列：本季度（新增拓展 · 2项） */}
+              <div className="lg:col-span-6 bg-white border border-slate-200 p-5 flex flex-col justify-between space-y-4">
+                <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
+                  <div className="flex items-center gap-2 text-slate-950 font-bold text-sm sm:text-base">
+                    <span className="w-2 h-2 bg-blue-700 shrink-0"></span>
+                    <span>本季度（新增拓展 · 2项）</span>
+                  </div>
+                  <ReportBadge tone="blue" className="text-xs font-mono">
+                    深度探测升级
+                  </ReportBadge>
+                </div>
+
+                <div className="space-y-3 flex-1 flex flex-col justify-between">
+                  {dailyAuditCurrentQuarter.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="p-3.5 bg-blue-50/40 border border-blue-100 space-y-1.5 flex-1 flex flex-col justify-between"
+                    >
+                      <div className="flex items-center justify-between">
+                        <strong className="text-xs sm:text-sm font-bold text-slate-950">
+                          {item.title}
+                        </strong>
+                        <ReportBadge tone="blue" className="text-[11px] font-mono">
+                          {item.tag}
+                        </ReportBadge>
+                      </div>
+                      <p className="text-xs sm:text-[13px] text-slate-700 leading-relaxed font-normal">
+                        {highlightNumbers(item.content)}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 3. 典型违规案例剖析 */}
+          <div className="flex flex-col gap-3.5 pt-4 border-t border-slate-200">
+            <div className="flex items-center justify-between pb-2 border-b border-slate-200">
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-3.5 bg-slate-900"></span>
+                <span className="text-sm sm:text-base font-bold text-slate-950">
+                  典型违规案例剖析
+                </span>
+              </div>
+              <ReportBadge tone="slate" className="text-xs font-mono">
+                深度穿透查处
+              </ReportBadge>
+            </div>
+            
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-5 sm:gap-6 items-stretch">
+              <ReportCaseCard
+                title="外包审核违规案例"
+                icon={<Shield className="w-5 h-5 text-blue-800 shrink-0" />}
+                badge={<ReportBadge tone="red" className="text-xs font-mono">违规查处</ReportBadge>}
+                steps={[
+                  {
+                    step: 1,
+                    title: "背景起因",
+                    content: highlightNumbers("外包审核存在数据外泄风险且质检率偏高，5月启动[[外包专项治理]]。"),
+                  },
+                  {
+                    step: 2,
+                    title: "专项跟进与录屏分析",
+                    content: highlightNumbers("对全量外包账号录屏抽检，查出[[不规范操作]]占比达 33%，安全隐患突出。"),
+                  },
+                  {
+                    step: 3,
+                    title: "深度挖掘与处理情况",
+                    content: highlightNumbers("锁定责任人利用职务便利违规放单与[[不当获利]]，已固定证据并严肃问责处置。"),
+                  },
+                ]}
+              />
+
+              <ReportCaseCard
+                title="业绩造假违规案例"
+                icon={<Shield className="w-5 h-5 text-blue-800 shrink-0" />}
+                badge={<ReportBadge tone="amber" className="text-xs font-mono">稽查纠偏</ReportBadge>}
+                steps={[
+                  {
+                    step: 1,
+                    title: "违规类型",
+                    content: highlightNumbers("[[业绩造假]]：伪造业务过程材料与用户参与记录，虚增个人业绩。"),
+                  },
+                  {
+                    step: 2,
+                    title: "发现情况",
+                    content: highlightNumbers("多名员工利用[[图像合成工具]]伪造用户对话记录，导致业绩数据失真。"),
+                  },
+                  {
+                    step: 3,
+                    title: "风险影响",
+                    content: highlightNumbers("破坏[[考核真实性]]与合规性，已纳入素材复核、交叉验证与绩效审计。"),
+                  },
+                ]}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>

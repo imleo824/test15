@@ -157,7 +157,7 @@ export const AuditOverviewInterceptionType: React.FC = () => {
   ];
 
   return (
-    <div id="section-audit-interception-type" className="flex flex-col gap-[var(--report-panel-gap)]">
+    <div id="section-audit-interception-type" className="flex flex-col gap-6">
       {/* 模块标题 - 统一规范 */}
       <ReportSectionHeader title="2.2 拦截类型与站点分布" />
 

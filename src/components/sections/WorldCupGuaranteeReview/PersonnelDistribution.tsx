@@ -29,7 +29,7 @@ export const PersonnelDistribution: React.FC = () => {
   return (
     <div className="report-chapter-content">
       {/* 1.1 组织优化举措 */}
-      <div className="flex flex-col gap-[var(--report-panel-gap)]">
+      <div className="flex flex-col gap-6">
         <ReportSectionHeader title="1.1 组织优化" />
 
         <SummaryBox variant="module">
@@ -71,7 +71,7 @@ export const PersonnelDistribution: React.FC = () => {
       </div>
 
       {/* 1.2 各职场人员分布与变动明细 */}
-      <div className="flex flex-col gap-[var(--report-panel-gap)]">
+      <div className="flex flex-col gap-6">
         <ReportSectionHeader title="1.2 人员分布" />
 
         <SummaryBox variant="module">

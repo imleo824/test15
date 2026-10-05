@@ -255,7 +255,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
       .toFixed(2);
 
   return (
-    <div id="section-audit-sports-interception" className="flex flex-col gap-[var(--report-panel-gap)]">
+    <div id="section-audit-sports-interception" className="flex flex-col gap-6">
       {/* 模块标题 - 统一规范 */}
       <ReportSectionHeader title="2.4 体育拦截分析" />
 

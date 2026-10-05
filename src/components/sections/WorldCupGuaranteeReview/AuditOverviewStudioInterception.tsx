@@ -107,7 +107,7 @@ export const AuditOverviewStudioInterception: React.FC = () => {
   ];
 
   return (
-    <div id="section-audit-studio-interception" className="flex flex-col gap-[var(--report-panel-gap)]">
+    <div id="section-audit-studio-interception" className="flex flex-col gap-6">
       {/* 模块标题 - 统一规范 */}
       <ReportSectionHeader title="2.5 工作室拦截明细" />
 

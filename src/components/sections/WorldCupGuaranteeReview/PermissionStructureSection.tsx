@@ -5,7 +5,7 @@ import { ReportBadge } from "../../ReportSections";
 
 export const PermissionStructureSection: React.FC = () => {
   return (
-    <div id="section-permission-structure" className="flex flex-col gap-[var(--report-panel-gap)]">
+    <div id="section-permission-structure" className="flex flex-col gap-6">
       {/* 3.1 权限模式升级 章节导语 */}
       <SummaryBox variant="module">
         <div className="space-y-2.5">

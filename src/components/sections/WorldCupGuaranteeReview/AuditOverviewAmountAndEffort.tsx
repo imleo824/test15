@@ -55,7 +55,7 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
     };
 
   return (
-    <div id="section-audit-amount-effort" className="flex flex-col gap-[var(--report-panel-gap)]">
+    <div id="section-audit-amount-effort" className="flex flex-col gap-6">
       {/* 模块标题 - 统一规范 */}
       <ReportSectionHeader title="2.1 拦截金额与处理时效" />
 

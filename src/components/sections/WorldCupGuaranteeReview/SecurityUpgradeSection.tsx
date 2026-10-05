@@ -136,7 +136,7 @@ export const SecurityUpgradeSection: React.FC = () => {
   ];
 
   return (
-    <div id="section-security-upgrade" className="flex flex-col gap-[var(--report-panel-gap)]">
+    <div id="section-security-upgrade" className="flex flex-col gap-6">
       {/* 3.2 敏感操作限制 章节核心导语 */}
       <SummaryBox variant="module">
         <div className="space-y-2.5">

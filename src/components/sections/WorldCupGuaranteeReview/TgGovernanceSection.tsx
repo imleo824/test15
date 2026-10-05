@@ -121,9 +121,9 @@ export const TgGovernanceSection: React.FC = () => {
 
   return (
     <div id="section-tg-governance" className="flex flex-col gap-10 sm:gap-12">
-      {/* 3.3.1 线下离线流程治理 */}
+      {/* L2.1 线下离线流程治理 */}
       <div className="flex flex-col gap-6">
-        <ReportSubsectionHeader title="3.3.1 线下离线流程治理" />
+        <ReportSubsectionHeader title="L2.1 线下离线流程治理" />
 
         {/* 关键治理准则：警惕“形式化工单化”——源头消除优先于工单流转 */}
         <div className="bg-slate-50 border-l-2 border-slate-800 p-5 space-y-3">
@@ -351,9 +351,9 @@ export const TgGovernanceSection: React.FC = () => {
         </div>
       </div>
 
-      {/* 3.3.2 线下群聊与系统工单流转对比 */}
+      {/* L2.2 线下群聊与系统工单流转对比 */}
       <div className="flex flex-col gap-6">
-        <ReportSubsectionHeader title="3.3.2 线下治理典型案例" />
+        <ReportSubsectionHeader title="L2.2 线下治理典型案例" />
 
         <SummaryBox>
           <p className="text-sm text-slate-700 font-normal leading-relaxed">
@@ -586,9 +586,9 @@ export const TgGovernanceSection: React.FC = () => {
         />
       </div>
 
-      {/* 3.3.3 核心流程闭环节点 */}
+      {/* L2.3 核心流程闭环节点 */}
       <div className="flex flex-col gap-6">
-        <ReportSubsectionHeader title="3.3.3 高风险审核业务" />
+        <ReportSubsectionHeader title="L2.3 高风险审核业务" />
 
         <SummaryBox>
           <p className="text-sm text-slate-700 font-normal leading-relaxed">
