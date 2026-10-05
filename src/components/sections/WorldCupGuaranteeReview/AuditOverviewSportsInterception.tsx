@@ -327,70 +327,73 @@ export const AuditOverviewSportsInterception: React.FC = () => {
       </div>
 
       {/* 体育拦截分类与站点明细大表 */}
-      <ReportTableFrame>
-        <table className="report-dense-table report-dense-table--sports-detail w-full report-data-table min-w-[1000px] text-[11px] sm:text-xs">
-          <thead className="bg-slate-50 text-slate-800">
-            <tr className="border-b border-slate-200 font-bold text-slate-900">
-              <th rowSpan={3} className="w-[60px] text-center py-2 px-1">站点</th>
-              <th rowSpan={3} className="w-[75px] text-center py-2 px-1">合计</th>
-              <th colSpan={6} className="text-center py-1 px-1 border-b border-slate-200">体育打水</th>
-              <th colSpan={4} className="text-center py-1 px-1 border-b border-slate-200">出货</th>
-              <th colSpan={2} className="text-center py-1 px-1 border-b border-slate-200">快咨询</th>
-              <th colSpan={2} className="text-center py-1 px-1 border-b border-slate-200">其他</th>
+      <ReportTableFrame noScroll className="overflow-x-hidden">
+        <table className="report-dense-table report-dense-table--sports-detail w-full report-data-table">
+          <thead>
+            <tr className="border-b border-slate-300 font-bold text-slate-900 bg-slate-100/90 text-[11px] sm:text-xs">
+              <th rowSpan={3} className="w-[60px] text-center py-2 px-1 border-r border-slate-300">站点</th>
+              <th rowSpan={3} className="w-[75px] text-center py-2 px-1 border-r border-slate-300 bg-blue-100/50 text-blue-950">合计</th>
+              <th colSpan={6} className="text-center py-1 px-1 border-b border-r border-slate-300">体育打水</th>
+              <th colSpan={4} className="text-center py-1 px-1 border-b border-r border-slate-300">出货</th>
+              <th colSpan={2} className="text-center py-1 px-1 border-b border-r border-slate-300">快咨询</th>
+              <th colSpan={2} className="text-center py-1 px-1 border-b border-slate-300">其他</th>
             </tr>
-            <tr className="border-b border-slate-200 font-bold text-slate-800 text-[11px]">
-              <th colSpan={2} className="text-center py-1 px-1">批量打水</th>
-              <th colSpan={2} className="text-center py-1 px-1">打负、租卖号</th>
-              <th colSpan={2} className="text-center py-1 px-1">其他打水</th>
-              <th colSpan={2} className="text-center py-1 px-1">野鸡、协议球</th>
-              <th colSpan={2} className="text-center py-1 px-1">其他出货</th>
-              <th colSpan={2} className="text-center py-1 px-1">夹盘、卡进球</th>
+            <tr className="border-b border-slate-300 font-bold text-slate-800 text-[11px] bg-slate-50">
+              <th colSpan={2} className="text-center py-1 px-1 border-r border-slate-300">批量打水</th>
+              <th colSpan={2} className="text-center py-1 px-1 border-r border-slate-300">打负、租卖号</th>
+              <th colSpan={2} className="text-center py-1 px-1 border-r border-slate-300">其他打水</th>
+              <th colSpan={2} className="text-center py-1 px-1 border-r border-slate-300">野鸡、协议球</th>
+              <th colSpan={2} className="text-center py-1 px-1 border-r border-slate-300">其他出货</th>
+              <th colSpan={2} className="text-center py-1 px-1 border-r border-slate-300">夹盘、卡进球</th>
               <th colSpan={2} className="text-center py-1 px-1">其他</th>
             </tr>
-            <tr className="border-b border-slate-200 text-slate-700 font-bold text-[10px] sm:text-[11px]">
+            <tr className="border-b border-slate-300 text-slate-700 font-semibold text-[10.5px] sm:text-[11px] bg-slate-50/80">
               {categoryDetailColumns.flatMap((_, index) => [
                 <th key={`${index}-amount`} className="text-center py-1 px-1">金额</th>,
-                <th key={`${index}-pct`} className="text-center py-1 px-1">占比</th>,
+                <th key={`${index}-pct`} className={`text-center py-1 px-1 ${index < categoryDetailColumns.length - 1 ? "border-r border-slate-300" : ""}`}>占比</th>,
               ])}
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-slate-100 tabular-nums text-[11px] sm:text-xs">
+          <tbody className="bg-white divide-y divide-slate-100 tabular-nums font-mono text-[9px] sm:text-[9.5px]">
             {categoryDetailData.map((row, idx) => {
               const isMain = row.col1_pct && parseFloat(row.col1_pct) > 30;
               return (
-                <tr key={idx} className={idx % 2 === 0 ? "bg-white" : "bg-slate-50/50"}>
-                  <td className="text-center font-bold text-slate-900 py-1.5 px-1">{row.site}</td>
-                  <td className="text-center tabular-nums font-bold text-blue-900 py-1.5 px-1">{getCategoryDetailRowTotal(row)}</td>
+                <tr key={idx} className={idx % 2 === 0 ? "bg-white" : "bg-slate-50/40"}>
+                  <td className="text-center font-bold text-slate-900 py-1.5 px-1 border-r border-slate-200">{row.site}</td>
+                  <td className="text-center tabular-nums font-bold text-blue-900 py-1.5 px-1 border-r border-slate-200">{getCategoryDetailRowTotal(row)}</td>
                   {categoryDetailColumns.flatMap((_, columnIndex) => {
                     const key = `col${columnIndex + 1}`;
                     const isCol1 = columnIndex === 0;
+                    const isLastCol = columnIndex === categoryDetailColumns.length - 1;
 
                     return [
                       <td key={`${row.site}-${key}-amount`} className={`text-center tabular-nums py-1.5 px-1 ${isCol1 && isMain ? "font-bold text-slate-900" : "text-slate-700"}`}>{row[`${key}_amt` as keyof typeof row]}</td>,
-                      <td key={`${row.site}-${key}-pct`} className={`text-center tabular-nums py-1.5 px-1 ${isCol1 && isMain ? "font-bold text-slate-900" : "text-slate-700"}`}>{row[`${key}_pct` as keyof typeof row]}</td>,
+                      <td key={`${row.site}-${key}-pct`} className={`text-center tabular-nums py-1.5 px-1 ${!isLastCol ? "border-r border-slate-200" : ""} ${isCol1 && isMain ? "font-bold text-slate-900" : "text-slate-700"}`}>{row[`${key}_pct` as keyof typeof row]}</td>,
                     ];
                   })}
                 </tr>
               );
             })}
           </tbody>
-          <tfoot className="border-t border-b border-slate-200 bg-slate-50 tabular-nums text-[11px] sm:text-xs text-slate-900 font-bold">
+          <tfoot className="border-t-2 border-slate-300 bg-slate-50 tabular-nums font-mono text-[9px] sm:text-[9.5px] text-slate-900 font-bold">
             <tr className="border-b border-slate-200">
-              <td className="text-center font-bold py-2 px-1">小计|占比</td>
-              <td className="text-center tabular-nums text-blue-900 font-bold py-2 px-1">{categoryDetailSubtotal.total}</td>
+              <td className="text-center font-bold py-2 px-1 border-r border-slate-200">小计</td>
+              <td className="text-center tabular-nums text-blue-900 font-bold py-2 px-1 border-r border-slate-200">{categoryDetailSubtotal.total}</td>
               {categoryDetailSubtotal.columns.flatMap((amount, index) => {
+                const isLastCol = index === categoryDetailSubtotal.columns.length - 1;
                 return [
                   <td key={`subtotal-${index}-amount`} className="text-center tabular-nums text-slate-800 py-2 px-1">{amount}</td>,
-                  <td key={`subtotal-${index}-pct`} className="text-center tabular-nums text-slate-700 py-2 px-1">100%</td>,
+                  <td key={`subtotal-${index}-pct`} className={`text-center tabular-nums text-slate-700 py-2 px-1 ${!isLastCol ? "border-r border-slate-200" : ""}`}>100%</td>,
                 ];
               })}
             </tr>
-            <tr className="bg-slate-100 font-bold">
-              <td className="text-center font-bold py-2 px-1">总计|占比</td>
-              <td className="text-center tabular-nums font-bold text-blue-900 py-2 px-1">{categoryDetailTotalPct.total}</td>
+            <tr className="bg-slate-100/90 font-bold">
+              <td className="text-center font-bold py-2 px-1 border-r border-slate-200">总计</td>
+              <td className="text-center tabular-nums font-bold text-blue-900 py-2 px-1 border-r border-slate-200">{categoryDetailTotalPct.total}</td>
               {categoryDetailTotalPct.columns.map((pct, index) => {
+                const isLastCol = index === categoryDetailTotalPct.columns.length - 1;
                 return (
-                  <td key={`total-${index}`} colSpan={2} className="text-center tabular-nums text-slate-800 py-2 px-1">{pct}</td>
+                  <td key={`total-${index}`} colSpan={2} className={`text-center tabular-nums text-slate-800 py-2 px-1 ${!isLastCol ? "border-r border-slate-200" : ""}`}>{pct}</td>
                 );
               })}
             </tr>

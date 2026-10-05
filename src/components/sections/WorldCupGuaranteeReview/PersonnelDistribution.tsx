@@ -89,11 +89,8 @@ export const PersonnelDistribution: React.FC = () => {
             <div className="bg-white border border-slate-200 p-6 flex flex-col justify-between space-y-3">
               <div className="flex items-center justify-between pb-3 border-b border-slate-100">
                 <span className="text-xs sm:text-sm font-bold text-slate-700 tracking-wider uppercase">
-                  内部职场在岗
+                  场地
                 </span>
-                <ReportBadge tone="slate" className="text-xs font-mono">
-                  内部在岗
-                </ReportBadge>
               </div>
               <div className="flex items-baseline justify-between py-1">
                 <div className="flex items-baseline gap-1.5">
@@ -112,11 +109,8 @@ export const PersonnelDistribution: React.FC = () => {
             <div className="bg-white border border-slate-200 p-6 flex flex-col justify-between space-y-3">
               <div className="flex items-center justify-between pb-3 border-b border-slate-100">
                 <span className="text-xs sm:text-sm font-bold text-slate-700 tracking-wider uppercase">
-                  外包在岗总数
+                  外包
                 </span>
-                <ReportBadge tone="slate" className="text-xs font-mono">
-                  外包编制
-                </ReportBadge>
               </div>
               <div className="flex items-baseline justify-between py-1">
                 <div className="flex items-baseline gap-1.5">
@@ -136,7 +130,7 @@ export const PersonnelDistribution: React.FC = () => {
           <div className="space-y-3 pt-2">
             <div className="flex items-center justify-between px-1">
               <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
-                各职场属地分布明细
+                分布
               </span>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 items-stretch">

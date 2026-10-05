@@ -2493,23 +2493,25 @@
   .report-dense-table {
     table-layout: auto;
     width: 100%;
-    min-width: 100%;
-    font-size: 13px !important;
+    min-width: 0 !important;
+    font-size: 11px !important;
+    letter-spacing: -0.015em;
   }
 
   .report-dense-table--site-detail th:first-child,
   .report-dense-table--site-detail td:first-child {
-    width: auto;
-    padding-inline: 6px !important;
-    font-size: 13px !important;
+    width: auto !important;
+    padding-inline: 4px !important;
+    font-size: 11px !important;
+    letter-spacing: -0.015em;
   }
 
   .report-dense-table--sports-detail th:first-child,
   .report-dense-table--sports-detail td:first-child {
     width: auto !important;
-    padding-inline: 6px !important;
-    font-size: 13px !important;
-    letter-spacing: -0.01em;
+    padding-inline: 4px !important;
+    font-size: 11px !important;
+    letter-spacing: -0.015em;
   }
 
   .report-standard-table th,
@@ -2524,21 +2526,69 @@
     overflow: visible;
   }
 
-  .report-dense-table th,
-  .report-dense-table td {
-    padding: 6px 4px !important;
+  .report-dense-table th {
+    padding: 4px 2px !important;
     vertical-align: middle;
-    border-right: 0 !important;
+    border-bottom: 1px solid #cbd5e1;
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    font-size: 11px;
+    font-family: var(--font-sans);
+    line-height: 1.35 !important;
+  }
+
+  .report-dense-table td {
+    padding: 2.5px 2px !important;
+    vertical-align: middle;
     border-bottom: 1px solid #e2e8f0;
     white-space: nowrap !important;
     word-break: keep-all !important;
     overflow-wrap: normal !important;
-    overflow: visible;
-    text-overflow: clip;
+    font-size: 9px;
+    font-family: var(--font-mono, monospace);
+    line-height: 1.25 !important;
+  }
+
+  /* 紧凑型超密表格（用于高等级会员拦截等超多列场景，表头保持清晰可读，内部数字小巧精致） */
+  .report-dense-table--compact thead th {
+    padding: 3px 1.5px !important;
+    font-size: 10.5px !important;
+    line-height: 1.3 !important;
+  }
+
+  .report-dense-table--compact td {
+    padding: 2px 1px !important;
+    font-size: 8.5px !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.02em;
+  }
+
+  .report-table-frame.no-scroll,
+  .report-table-frame--no-scroll {
+    overflow-x: hidden !important;
+    overflow: hidden !important;
+  }
+
+  /* 允许在数据表格中施加显式的列维度垂直分割线 */
+  .report-dense-table th.border-r,
+  .report-dense-table td.border-r,
+  .report-standard-table th.border-r,
+  .report-standard-table td.border-r,
+  .report-col-divider {
+    border-right: 1.5px solid #cbd5e1 !important;
+  }
+
+  .report-dense-table th.border-r-2,
+  .report-dense-table td.border-r-2,
+  .report-standard-table th.border-r-2,
+  .report-standard-table td.border-r-2,
+  .report-col-divider-strong {
+    border-right: 2px solid #94a3b8 !important;
   }
 
   .report-dense-table tr {
-    min-height: 38px;
+    min-height: 26px;
   }
 
   .report-standard-table thead th,
@@ -2547,7 +2597,7 @@
     border-bottom: 1px solid #cbd5e1 !important;
     white-space: nowrap !important;
     color: var(--report-ink) !important;
-    font-size: 13px !important;
+    font-size: 11px;
     font-weight: 700;
   }
 
@@ -2572,8 +2622,8 @@
   .report-standard-table td,
   .report-dense-table td {
     color: var(--report-ink);
-    font-size: 12.5px !important;
-    font-weight: var(--report-weight-medium);
+    font-size: 11px !important;
+    font-weight: 500;
   }
 
   .report-standard-table td {
@@ -2843,21 +2893,22 @@
   }
 
   .studio-data-table {
-    min-width: 100% !important;
-    table-layout: fixed;
+    min-width: 0 !important;
+    width: 100% !important;
+    table-layout: auto !important;
   }
 
   .studio-data-table th,
   .studio-data-table td {
-    padding: 10px 8px !important;
-    text-align: right !important;
-    font-family: var(--font-mono) !important;
+    padding: 4px 2px !important;
+    text-align: center !important;
+    font-size: 11px !important;
     white-space: nowrap;
   }
 
   .studio-data-table.report-dense-table th:not(:first-child),
   .studio-data-table.report-dense-table td:not(:first-child) {
-    text-align: right !important;
+    text-align: center !important;
   }
 
   .studio-data-table th {
@@ -2865,28 +2916,30 @@
   }
 
   .studio-data-table thead tr:nth-child(2) th {
-    text-align: right !important;
+    text-align: center !important;
     font-family: var(--font-mono) !important;
   }
 
   .studio-data-table th:first-child,
   .studio-data-table td:first-child {
-    width: 96px;
+    width: auto !important;
     text-align: center !important;
     font-family: var(--font-sans) !important;
     font-weight: var(--report-weight-semibold) !important;
+    font-size: 11px !important;
   }
 
   .studio-data-table thead tr:first-child th {
     background: #e8eef3 !important;
     border-bottom-color: #cad5df !important;
-    font-size: 13.5px !important;
+    font-size: 11px !important;
   }
 
   .studio-data-table thead tr:nth-child(2) th {
     background: #f4f7f9 !important;
     color: var(--report-muted) !important;
-    font-size: var(--report-font-caption);
+    font-size: 10.5px !important;
+    text-align: center !important;
   }
 
   .studio-data-table tbody tr:nth-child(even) {
@@ -2899,8 +2952,8 @@
   }
 
   .studio-data-table tfoot td {
-    text-align: right !important;
-    font-family: var(--font-mono) !important;
+    text-align: center !important;
+    font-size: 11px !important;
   }
 
   .studio-data-table tfoot td:first-child {

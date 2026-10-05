@@ -116,9 +116,14 @@ export const ReportSubsectionHeader: React.FC<{
 export const ReportTableFrame: React.FC<{
   children: React.ReactNode;
   className?: string;
-}> = ({ children, className = "" }) => {
+  noScroll?: boolean;
+}> = ({ children, className = "", noScroll = false }) => {
   return (
-    <div className={`report-table-frame border-t border-b border-slate-200 my-6 sm:my-7 overflow-x-auto ${className}`}>
+    <div
+      className={`report-table-frame border-t border-b border-slate-200 my-6 sm:my-7 ${
+        noScroll ? "overflow-hidden report-table-frame--no-scroll" : "overflow-x-auto"
+      } ${className}`}
+    >
       {children}
     </div>
   );

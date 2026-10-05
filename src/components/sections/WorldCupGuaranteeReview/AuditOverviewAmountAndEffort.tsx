@@ -89,13 +89,6 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
         <ReportChartCard
           title="26年第三季度总防范金"
           value="2.98E"
-          legend={
-            <ReportChartLegend
-              items={[
-                { label: "防范金额 (E)", color: chartSeriesColors.secondary, shape: "rect" },
-              ]}
-            />
-          }
         >
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={amountData} margin={{ top: 40, right: 20, left: 20, bottom: 10 }}>
@@ -122,16 +115,8 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
 
         {/* 右卡片: 26年第三季度平均审核时长 */}
         <ReportChartCard
-          title="26年第三季度平均审核时长"
+          title="26年第三季度平均时长"
           value="09:15"
-          legend={
-            <ReportChartLegend
-              items={[
-                { label: "人工单量 (w)", color: chartSeriesColors.secondary, shape: "rect" },
-                { label: "人工时效 (分:秒)", color: chartSeriesColors.trend, shape: "line" },
-              ]}
-            />
-          }
         >
             <ResponsiveContainer width="100%" height="100%">
               <ComposedChart data={effortData} margin={{ top: 48, right: 20, left: 20, bottom: 10 }}>
