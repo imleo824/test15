@@ -117,7 +117,7 @@ export const AuditOverviewStudioInterception: React.FC = () => {
           <p>
             <strong className="text-slate-950 font-bold">整体规模与重点站点：</strong>
             {highlightNumbers(
-              "工作室整体拦截金额在 [[4.5kw]] 左右，其中 [[Y4 站、Y6+Y9 站、BD+XK 站]] 占比较高，合计占比达 [[56%]]（金额约 [[2.4kw]] 左右），对比上季度有所下降。"
+              "工作室整体拦截金额在 [[4,500 W]] 左右，其中 [[Y4 站、Y6+Y9 站、BD+XK 站]] 占比较高，合计占比达 [[56%]]（金额约 [[2.4kw]] 左右），对比上季度有所下降。"
             )}
           </p>
           <p>
