@@ -37,7 +37,7 @@ export const FuturePlansSection: React.FC = () => {
       statusTone: "amber",
       highlights: [
         {
-          title: "代理云盾体系（解决线上问题中）",
+          title: "代理云盾体系",
           desc: "构建[[专属风控特征集]]，整合**佣金审核**与**质量分数**两大核心模块；当前正[[持续解决上线初期的问题中]]。",
         },
         {
@@ -62,7 +62,6 @@ export const FuturePlansSection: React.FC = () => {
             <div className="flex items-start gap-2 text-xs text-slate-600 font-normal leading-relaxed border-t border-dashed border-slate-200 pt-2.5 mt-2.5">
               <Lightbulb className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
               <div>
-                <span className="font-bold text-slate-800">注：</span>
                 {highlightNumbers(
                   "跨站关联占比极高，这是[[系统策略的智能化与高精度]]的核心，[[依赖于底层大数据的支撑]]（涵盖[[数据多维度、准确性、稳定性、时效性]]等核心维度），以此作为保障系统持续稳定、安全输出成效的技术基石。"
                 )}
