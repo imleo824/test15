@@ -1,6 +1,6 @@
 import React from "react";
 import { SummaryBox, highlightNumbers } from "./utils";
-import { ReportBadge, ReportSectionHeader } from "../../ReportSections";
+import { ReportBadge, ReportSectionHeader, ReportTableFrame } from "../../ReportSections";
 
 export const PersonnelDistribution: React.FC = () => {
   const policyItems = [
@@ -78,181 +78,231 @@ export const PersonnelDistribution: React.FC = () => {
           <div className="space-y-2.5 text-sm text-slate-700 font-normal leading-relaxed">
             <p>
               {highlightNumbers(
-                "各职场承载动态调配，持续[[提升系统自动审单比例]]，实现[[成本节约与差错压降]]实质成效。历经三轮持续深化调整，大盘审核人员总编制已从最初的 [[524 人]] 稳步压缩降至当前的 [[456 人]]，累计**净减 68 人**（整体降幅 [[-13.0%]]）："
+                "各职场承载动态调配，持续[[提升系统自动审单比例]]，实现[[成本节约与差错压降]]实质成效。历经三轮持续深化调整，大盘审核人员总编制已从最初的 [[524 人]] 稳步压缩降至当前的 [[456 人]]，累计**净减 68 人**（整体降幅 [[-13.0%]]）；后续规划预期：**10 月**随外包清零大盘总编制压降至 [[320 人]]，**11 月**全面出单替代后最终目标收敛至 [[288 人]]（规划累计总压降 [[-45.0%]]，净减 [[236 人]]）："
               )}
             </p>
             <ul className="space-y-1.5 pt-0.5">
               <li className="flex items-start gap-2">
                 <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
                 <span>
-                  <strong className="text-slate-950 font-bold">远程办公：</strong>
+                  <strong className="text-slate-950 font-bold">远程：</strong>
                   {highlightNumbers("效率极低且缺乏合规监管机制的远程人员已[[全面清零]]（从原 84 人全部平稳分流或清退）。")}
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
                 <span>
-                  <strong className="text-slate-950 font-bold">外包团队：</strong>
-                  {highlightNumbers("审单人力[[持续压减 24.8%]]（由 133 人压降至 100 人），自 9 月起将外包审单量压降至 [[1% 以下]]（预计在 10 月内人员清零）。人员清零后，同步安全[[回收：后台管理系统权限、各种IP白名单、虚拟机等]]，并收回所有相关办公设备。")}
+                  <strong className="text-slate-950 font-bold">外包：</strong>
+                  {highlightNumbers("审单人力[[持续压减 24.8%]]（由 133 人压降至 100 人），自 9 月起将外包审单量压降至 [[1% 以下]]（预计在 10 月内人员清零）。人员清零后，同步安全[[回收：后台管理系统权限、各种 IP 白名单、虚拟机等]]，并收回所有相关办公设备。")}
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
                 <span>
-                  <strong className="text-slate-950 font-bold">总部场地：</strong>
-                  {highlightNumbers("绩效考核以及系统比例提升等手段持续[[压缩和清理]]低效人员。")}
+                  <strong className="text-slate-950 font-bold">场地：</strong>
+                  {highlightNumbers("依托绩效考核与系统自动化出单替代，持续[[优化人员结构与清理低效人力]]。")}
                 </span>
               </li>
             </ul>
           </div>
         </SummaryBox>
 
-        <div className="space-y-8 pt-2">
-          {/* 第一部分：历年各阶段人员动态优化趋势（简单表格展示形式） */}
-          <div className="space-y-4">
-            <div className="flex items-center justify-between px-1">
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-3.5 bg-slate-950 shrink-0" />
-                <span className="text-sm sm:text-base font-bold text-slate-950">
+        <div className="space-y-6 pt-2">
+          {/* 第一部分：历年各阶段人员动态优化趋势 */}
+          <div className="space-y-3.5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-slate-200 gap-2 px-1">
+              <div className="flex items-center gap-2.5">
+                <span className="w-1.5 h-4 bg-slate-950 shrink-0" />
+                <span className="text-sm sm:text-base font-bold text-slate-950 tracking-tight">
                   人员趋势
+                </span>
+                <span className="text-xs font-mono text-slate-500 font-normal">
+                  2025 Q4 ➔ 2026 Q3 (当前) ➔ 2026 11月 (规划)
+                </span>
+              </div>
+              <div className="flex items-center gap-2 self-start sm:self-auto">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-slate-100 border border-slate-200 text-xs font-mono">
+                  <span className="text-slate-600 font-medium">规划累计总压降:</span>
+                  <span className="text-emerald-800 font-bold">-45.0% (-236人)</span>
                 </span>
               </div>
             </div>
             
-            <div className="bg-white border border-slate-200 overflow-hidden">
+            <ReportTableFrame noScroll>
               <table className="w-full text-left border-collapse text-xs sm:text-sm">
                 <thead>
-                  <tr className="bg-slate-50 border-b border-slate-200 text-slate-950 font-bold">
-                    <th className="py-3 px-3 font-bold text-slate-900 text-left">编制类型</th>
-                    <th className="py-3 px-3 font-mono font-bold text-center">25 Q4</th>
-                    <th className="py-3 px-3 font-mono font-bold text-center">26 Q1</th>
-                    <th className="py-3 px-3 font-mono font-bold text-center">26 Q2</th>
-                    <th className="py-3 px-3 font-mono font-extrabold text-center text-blue-950 bg-blue-100 border-x-2 border-blue-300">26 Q3 (当前)</th>
-                    <th className="py-3 px-3 font-mono font-bold text-center bg-amber-50/40 text-amber-950 border-x border-amber-100/50">2026 10月</th>
-                    <th className="py-3 px-3 font-mono font-bold text-center bg-indigo-50/40 text-indigo-950 border-x border-indigo-100/50">2026 11月</th>
-                    <th className="py-3 px-3 font-bold text-right">变化</th>
+                  <tr className="bg-slate-100/90 border-b border-slate-300 text-slate-950 font-bold">
+                    <th className="py-2.5 px-3.5 font-bold text-slate-950 text-left border-r border-slate-200">编制类型</th>
+                    <th className="py-2.5 px-3 font-mono font-bold text-center border-r border-slate-200">25 Q4</th>
+                    <th className="py-2.5 px-3 font-mono font-bold text-center border-r border-slate-200">26 Q1</th>
+                    <th className="py-2.5 px-3 font-mono font-bold text-center border-r border-slate-200">26 Q2</th>
+                    <th className="py-2.5 px-3.5 font-mono text-center text-slate-950 bg-slate-200 border-x-2 border-slate-500 shadow-xs">
+                      <div className="flex flex-col items-center justify-center gap-0.5">
+                        <span className="font-extrabold text-xs sm:text-sm">26 Q3</span>
+                        <span className="inline-block px-1.5 py-0.2 bg-slate-950 text-white text-[10px] font-mono font-bold">
+                          当前
+                        </span>
+                      </div>
+                    </th>
+                    <th className="py-2.5 px-3 font-mono text-center text-slate-900 bg-slate-100 border-r border-slate-300">
+                      <div className="flex flex-col items-center justify-center gap-0.5">
+                        <span className="font-extrabold text-xs sm:text-sm">26 10月</span>
+                        <span className="inline-block px-1.5 py-0.2 bg-slate-700 text-white text-[10px] font-mono font-bold">
+                          规划
+                        </span>
+                      </div>
+                    </th>
+                    <th className="py-2.5 px-3 font-mono text-center text-slate-900 bg-slate-100 border-r-2 border-slate-400">
+                      <div className="flex flex-col items-center justify-center gap-0.5">
+                        <span className="font-extrabold text-xs sm:text-sm">26 11月</span>
+                        <span className="inline-block px-1.5 py-0.2 bg-slate-700 text-white text-[10px] font-mono font-bold">
+                          规划
+                        </span>
+                      </div>
+                    </th>
+                    <th className="py-2.5 px-3.5 font-bold text-right">规划变动幅度</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 font-normal">
-                  <tr className="hover:bg-slate-50/50 transition-colors">
-                    <td className="py-3 px-3 font-bold text-slate-800">外包人员</td>
-                    <td className="py-3 px-3 font-mono text-center text-slate-600">133</td>
-                    <td className="py-3 px-3 font-mono text-center text-slate-600">131</td>
-                    <td className="py-3 px-3 font-mono text-center text-slate-600">121</td>
-                    <td className="py-3 px-3 font-mono text-center font-bold text-blue-950 bg-blue-50 border-x-2 border-blue-200/80">100</td>
-                    <td className="py-3 px-3 font-mono text-center">
-                      <div className="inline-block bg-amber-100/80 border border-amber-300 text-amber-950 px-2 py-0.5 font-extrabold rounded-sm text-xs shadow-2xs">
-                        0 <span className="text-[9px] font-bold block text-amber-800">-100%</span>
+                <tbody className="divide-y divide-slate-100 font-normal tabular-nums">
+                  <tr className="hover:bg-slate-50/70 transition-colors">
+                    <td className="py-2.5 px-3.5 font-bold text-slate-900 border-r border-slate-200">外包</td>
+                    <td className="py-2.5 px-3 font-mono text-center text-slate-600 border-r border-slate-200">133</td>
+                    <td className="py-2.5 px-3 font-mono text-center text-slate-600 border-r border-slate-200">131</td>
+                    <td className="py-2.5 px-3 font-mono text-center text-slate-600 border-r border-slate-200">121</td>
+                    <td className="py-2.5 px-3.5 font-mono text-center font-extrabold text-slate-950 bg-slate-100 border-x-2 border-slate-400 text-sm sm:text-base">
+                      100
+                    </td>
+                    <td className="py-2.5 px-3 font-mono text-center border-r border-slate-300 bg-slate-50/80">
+                      <div className="flex flex-col items-center justify-center gap-0.5">
+                        <span className="font-bold text-slate-900">0</span>
+                        <span className="inline-block px-1.5 py-0.2 bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold font-mono">
+                          清零
+                        </span>
                       </div>
                     </td>
-                    <td className="py-3 px-3 font-mono text-center text-slate-500">0</td>
-                    <td className="py-3 px-3 text-right">
-                      <span className="inline-flex items-center gap-1.5 text-emerald-700 font-bold font-mono text-xs">
-                        <span>↓ -100%</span>
-                        <span className="text-[11px] font-sans font-medium text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded-xs">10月清零</span>
-                      </span>
-                    </td>
-                  </tr>
-                  <tr className="hover:bg-slate-50/50 transition-colors">
-                    <td className="py-3 px-3 font-bold text-slate-800">远程办公</td>
-                    <td className="py-3 px-3 font-mono text-center text-slate-600">84</td>
-                    <td className="py-3 px-3 font-mono text-center text-slate-600">19</td>
-                    <td className="py-3 px-3 font-mono text-center text-slate-600">0</td>
-                    <td className="py-3 px-3 font-mono text-center font-bold text-blue-950 bg-blue-50 border-x-2 border-blue-200/80">0</td>
-                    <td className="py-3 px-3 font-mono text-center text-slate-500">0</td>
-                    <td className="py-3 px-3 font-mono text-center text-slate-500">0</td>
-                    <td className="py-3 px-3 text-right">
-                      <span className="inline-flex items-center gap-1.5 text-emerald-700 font-bold font-mono text-xs">
-                        <span>↓ -100%</span>
-                        <span className="text-[11px] font-sans font-medium text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded-xs">-84</span>
-                      </span>
-                    </td>
-                  </tr>
-                  <tr className="hover:bg-slate-50/50 transition-colors">
-                    <td className="py-3 px-3 font-bold text-slate-800">总部场地</td>
-                    <td className="py-3 px-3 font-mono text-center text-slate-600">307</td>
-                    <td className="py-3 px-3 font-mono text-center text-slate-600">365</td>
-                    <td className="py-3 px-3 font-mono text-center text-slate-600">366</td>
-                    <td className="py-3 px-3 font-mono text-center font-bold text-blue-950 bg-blue-50 border-x-2 border-blue-200/80">356</td>
-                    <td className="py-3 px-3 font-mono text-center">
-                      <div className="inline-block bg-amber-100/80 border border-amber-300 text-amber-950 px-2 py-0.5 font-extrabold rounded-sm text-xs shadow-2xs">
-                        320 <span className="text-[9px] font-bold block text-amber-800">-10%</span>
+                    <td className="py-2.5 px-3 font-mono text-center text-slate-500 border-r-2 border-slate-400 bg-slate-50/80">0</td>
+                    <td className="py-2.5 px-3.5 text-right">
+                      <div className="flex flex-col items-end justify-center leading-tight gap-0.5">
+                        <span className="text-emerald-800 font-bold font-mono text-xs sm:text-sm">↓ -100%</span>
+                        <span className="text-[10px] text-emerald-700 font-mono font-medium">(全面清零)</span>
                       </div>
                     </td>
-                    <td className="py-3 px-3 font-mono text-center">
-                      <div className="inline-block bg-amber-100/80 border border-amber-300 text-amber-950 px-2 py-0.5 font-extrabold rounded-sm text-xs shadow-2xs">
-                        288 <span className="text-[9px] font-bold block text-amber-800">-10%</span>
+                  </tr>
+                  <tr className="hover:bg-slate-50/70 transition-colors">
+                    <td className="py-2.5 px-3.5 font-bold text-slate-900 border-r border-slate-200">远程</td>
+                    <td className="py-2.5 px-3 font-mono text-center text-slate-600 border-r border-slate-200">84</td>
+                    <td className="py-2.5 px-3 font-mono text-center text-slate-600 border-r border-slate-200">19</td>
+                    <td className="py-2.5 px-3 font-mono text-center text-slate-600 border-r border-slate-200">0</td>
+                    <td className="py-2.5 px-3.5 font-mono text-center font-extrabold text-slate-950 bg-slate-100 border-x-2 border-slate-400 text-sm sm:text-base">
+                      <div className="flex flex-col items-center justify-center gap-0.5">
+                        <span>0</span>
+                        <span className="inline-block px-1.5 py-0.2 bg-slate-200 text-slate-800 border border-slate-300 text-[10px] font-bold font-mono">
+                          已清零
+                        </span>
                       </div>
                     </td>
-                    <td className="py-3 px-3 text-right">
-                      <span className="inline-flex items-center gap-1.5 text-blue-700 font-bold font-mono text-xs">
-                        <span>↓ -6.2%</span>
-                        <span className="text-[11px] font-sans font-medium text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded-xs">总部精减</span>
-                      </span>
+                    <td className="py-2.5 px-3 font-mono text-center text-slate-500 border-r border-slate-300 bg-slate-50/80">0</td>
+                    <td className="py-2.5 px-3 font-mono text-center text-slate-500 border-r-2 border-slate-400 bg-slate-50/80">0</td>
+                    <td className="py-2.5 px-3.5 text-right">
+                      <div className="flex flex-col items-end justify-center leading-tight gap-0.5">
+                        <span className="text-emerald-800 font-bold font-mono text-xs sm:text-sm">↓ -100%</span>
+                        <span className="text-[10px] text-emerald-700 font-mono font-medium">(已出清)</span>
+                      </div>
                     </td>
                   </tr>
-                  <tr className="bg-slate-100/90 font-extrabold border-t-2 border-b border-slate-300 text-slate-950 text-xs sm:text-sm">
-                    <td className="py-3.5 px-3 font-extrabold text-slate-950 text-sm">编制总计</td>
-                    <td className="py-3.5 px-3 font-mono font-extrabold text-center text-slate-950 text-sm">524</td>
-                    <td className="py-3.5 px-3 font-mono font-extrabold text-center text-slate-950 text-sm">
-                      515 <span className="text-emerald-600 font-black">↓</span>
+                  <tr className="hover:bg-slate-50/70 transition-colors">
+                    <td className="py-2.5 px-3.5 font-bold text-slate-900 border-r border-slate-200">场地</td>
+                    <td className="py-2.5 px-3 font-mono text-center text-slate-600 border-r border-slate-200">307</td>
+                    <td className="py-2.5 px-3 font-mono text-center text-slate-600 border-r border-slate-200">365</td>
+                    <td className="py-2.5 px-3 font-mono text-center text-slate-600 border-r border-slate-200">366</td>
+                    <td className="py-2.5 px-3.5 font-mono text-center font-extrabold text-slate-950 bg-slate-100 border-x-2 border-slate-400 text-sm sm:text-base">
+                      356
                     </td>
-                    <td className="py-3.5 px-3 font-mono font-extrabold text-center text-slate-950 text-sm">
-                      487 <span className="text-emerald-600 font-black">↓</span>
+                    <td className="py-2.5 px-3 font-mono text-center border-r border-slate-300 bg-slate-50/80">
+                      <div className="flex flex-col items-center justify-center leading-tight gap-0.5">
+                        <span className="font-bold text-slate-900">320</span>
+                        <span className="text-[10px] text-slate-500 font-mono">(-10%)</span>
+                      </div>
                     </td>
-                    <td className="py-3.5 px-3 font-mono font-black text-center text-blue-950 bg-blue-100/80 border-x-2 border-blue-300 text-sm shadow-2xs">
-                      456 <span className="text-emerald-600 font-black">↓</span>
+                    <td className="py-2.5 px-3 font-mono text-center border-r-2 border-slate-400 bg-slate-50/80">
+                      <div className="flex flex-col items-center justify-center leading-tight gap-0.5">
+                        <span className="font-bold text-slate-900">288</span>
+                        <span className="text-[10px] text-slate-500 font-mono">(-10%)</span>
+                      </div>
                     </td>
-                    <td className="py-3.5 px-3 font-mono font-extrabold text-center text-slate-950 bg-amber-50/80 text-sm">
-                      320 <span className="text-emerald-600 font-black">↓</span>
+                    <td className="py-2.5 px-3.5 text-right">
+                      <div className="flex flex-col items-end justify-center leading-tight gap-0.5">
+                        <span className="text-slate-800 font-bold font-mono text-xs sm:text-sm">↓ -19.1%</span>
+                        <span className="text-[10px] text-slate-500 font-mono">(较峰值 366 人)</span>
+                      </div>
                     </td>
-                    <td className="py-3.5 px-3 font-mono font-extrabold text-center text-slate-950 bg-indigo-50/80 text-sm">
-                      288 <span className="text-emerald-600 font-black">↓</span>
+                  </tr>
+                  <tr className="bg-slate-100 font-bold border-t-2 border-b-2 border-slate-900 text-slate-950 shadow-xs">
+                    <td className="py-3.5 px-3.5 font-bold text-slate-950 text-sm sm:text-base border-r border-slate-300 bg-slate-200/60">
+                      <div className="flex items-center gap-2">
+                        <span className="w-1.5 h-4 bg-slate-950 shrink-0" />
+                        <span>总计</span>
+                      </div>
                     </td>
-                    <td className="py-3.5 px-3 text-right">
-                      <span className="inline-flex items-center gap-1.5 text-emerald-800 font-black font-mono text-xs sm:text-sm">
-                        <span>↓ -45.0%</span>
-                        <span className="text-[11px] font-sans font-black text-emerald-950 bg-emerald-100 border border-emerald-300 px-1.5 py-0.5 rounded-xs">累计压降</span>
-                      </span>
+                    <td className="py-3.5 px-3 font-mono font-bold text-center text-slate-950 text-sm sm:text-base border-r border-slate-300">524</td>
+                    <td className="py-3.5 px-3 font-mono font-bold text-center text-slate-950 text-sm sm:text-base border-r border-slate-300">515</td>
+                    <td className="py-3.5 px-3 font-mono font-bold text-center text-slate-950 text-sm sm:text-base border-r border-slate-300">487</td>
+                    <td className="py-3.5 px-3.5 font-mono font-black text-center text-slate-950 bg-slate-300 border-x-2 border-slate-600 text-base sm:text-lg">
+                      456
+                    </td>
+                    <td className="py-3.5 px-3 font-mono font-bold text-center text-slate-950 text-sm sm:text-base border-r border-slate-300 bg-slate-100">320</td>
+                    <td className="py-3.5 px-3 font-mono font-bold text-center text-slate-950 text-sm sm:text-base border-r-2 border-slate-400 bg-slate-100">288</td>
+                    <td className="py-3.5 px-3.5 text-right bg-emerald-50/70 border-l border-emerald-200">
+                      <div className="flex flex-col items-end leading-tight gap-0.5">
+                        <span className="text-emerald-900 font-extrabold font-mono text-sm sm:text-base">
+                          ↓ -45.0%
+                        </span>
+                        <span className="text-[10px] text-emerald-800 font-mono font-semibold">
+                          (-236人)
+                        </span>
+                        <span className="inline-block px-1.5 py-0.5 bg-emerald-100 text-emerald-900 text-[10px] font-mono font-bold border border-emerald-300 mt-0.5">
+                          当前已压降 -13.0% (-68人)
+                        </span>
+                      </div>
                     </td>
                   </tr>
                 </tbody>
               </table>
-            </div>
+            </ReportTableFrame>
           </div>
 
           {/* 第二部分：各场地属地分布明细 */}
-          <div className="space-y-4">
-            <div className="flex items-center justify-start pb-2 border-b border-slate-100 gap-3 px-1">
+          <div className="space-y-3">
+            <div className="flex items-center justify-between pb-2 border-b border-slate-100 px-1">
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-3.5 bg-slate-950 shrink-0" />
                 <span className="text-sm sm:text-base font-bold text-slate-950">
                   分布情况
                 </span>
               </div>
-              <div className="inline-flex items-center gap-1 px-2.5 py-0.5 bg-blue-50 border border-blue-200 text-xs rounded-sm">
-                <span className="font-bold text-blue-950">当前分布总人数：</span>
-                <span className="font-mono font-extrabold text-blue-700">456</span>
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-slate-100 border border-slate-200 text-xs">
+                <span className="font-medium text-slate-700">总计：</span>
+                <span className="font-mono font-bold text-slate-950">456</span>
               </div>
             </div>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 items-stretch">
               {[
-                { label: "T", count: "3" },
-                { label: "D", count: "115" },
-                { label: "S", count: "211" },
-                { label: "F", count: "24" },
-                { label: "远程", count: "0" },
-                { label: "外包", count: "100" },
+                { label: "T 场地", count: "3" },
+                { label: "D 场地", count: "115" },
+                { label: "S 场地", count: "211" },
+                { label: "F 场地", count: "24" },
+                { label: "远程办公", count: "0" },
+                { label: "外包团队", count: "100" },
               ].map((item) => (
                 <div
                   key={item.label}
-                  className="bg-white border border-slate-200 p-4 text-center flex flex-col items-center justify-center space-y-1.5 h-full hover:shadow-2xs transition-shadow"
+                  className="bg-white border border-slate-200 p-3.5 text-center flex flex-col items-center justify-between space-y-2 h-full"
                 >
-                  <div className="text-xs sm:text-sm font-bold text-slate-700 tracking-wide pb-1.5 border-b border-slate-100 w-full">
+                  <div className="text-xs font-bold text-slate-700 tracking-wide pb-1.5 border-b border-slate-100 w-full">
                     {item.label}
                   </div>
-                  <div className="text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight font-mono tabular-nums pt-1.5">
+                  <div className="text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight font-mono tabular-nums py-1">
                     {item.count}
                   </div>
                 </div>

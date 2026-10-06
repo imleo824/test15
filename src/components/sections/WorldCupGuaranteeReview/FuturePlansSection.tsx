@@ -114,8 +114,8 @@ export const FuturePlansSection: React.FC = () => {
 
           {/* 01 与 02 之间的大号 + 标志 */}
           <div className="md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-10 flex items-center justify-center my-3 md:my-0 pointer-events-none">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-slate-900 text-white border-2 border-white shadow-md flex items-center justify-center shrink-0 rounded-full">
-              <Plus className="w-5 h-5 sm:w-6 sm:h-6 stroke-[3]" />
+            <div className="w-8 h-8 sm:w-9 sm:h-9 bg-slate-900 text-white border border-slate-300 shadow-xs flex items-center justify-center shrink-0">
+              <Plus className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
             </div>
           </div>
         </div>

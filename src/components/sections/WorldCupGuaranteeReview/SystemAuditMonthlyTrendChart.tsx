@@ -152,14 +152,14 @@ const renderLineLabel = ({ x, y, value, index }: any) => {
   if (isLast) {
     return (
       <g>
-        {/* 9月成就高亮气泡：质检率降至历史最低 0.072% */}
+        {/* 9.30全量质检率标签：0.072% */}
         <rect
           x={x - 28}
           y={y - 25}
           width={56}
           height={18}
-          fill="#047857"
-          rx={3}
+          fill="#0f172a"
+          rx={2}
         />
         <text
           x={x}
@@ -168,7 +168,7 @@ const renderLineLabel = ({ x, y, value, index }: any) => {
           fill="#ffffff"
           fontSize={11.5}
           fontFamily="var(--font-mono, monospace)"
-          fontWeight={900}
+          fontWeight={800}
         >
           {value}
         </text>
@@ -179,14 +179,14 @@ const renderLineLabel = ({ x, y, value, index }: any) => {
   if (isFirst) {
     return (
       <g>
-        {/* 1月峰值高亮气泡：0.324% */}
+        {/* 1月峰值质检率标签：0.324% */}
         <rect
           x={x - 28}
           y={y - 25}
           width={56}
           height={18}
           fill="#991b1b"
-          rx={3}
+          rx={2}
         />
         <text
           x={x}
@@ -195,7 +195,7 @@ const renderLineLabel = ({ x, y, value, index }: any) => {
           fill="#ffffff"
           fontSize={11.5}
           fontFamily="var(--font-mono, monospace)"
-          fontWeight={900}
+          fontWeight={800}
         >
           {value}
         </text>
@@ -212,7 +212,7 @@ const renderLineLabel = ({ x, y, value, index }: any) => {
         height={16}
         rx={2}
         fill="#ffffff"
-        stroke="#fca5a5"
+        stroke="#cbd5e1"
         strokeWidth={1}
         opacity={0.96}
       />
@@ -223,7 +223,7 @@ const renderLineLabel = ({ x, y, value, index }: any) => {
         fill="#b91c1c"
         fontSize={10.5}
         fontFamily="var(--font-mono, monospace)"
-        fontWeight={800}
+        fontWeight={750}
       >
         {value}
       </text>
@@ -236,10 +236,15 @@ const renderCustomDot = (props: any) => {
   const isLast = index === monthlyTrendData.length - 1;
   if (isLast) {
     return (
-      <g key={`dot-${index}`}>
-        <circle cx={cx} cy={cy} r={7} fill="#047857" stroke="#ffffff" strokeWidth={2.5} />
-        <circle cx={cx} cy={cy} r={11} fill="none" stroke="#047857" strokeWidth={1.5} strokeDasharray="3 3" />
-      </g>
+      <circle
+        key={`dot-${index}`}
+        cx={cx}
+        cy={cy}
+        r={5.5}
+        fill="#0f172a"
+        stroke="#ffffff"
+        strokeWidth={2}
+      />
     );
   }
   return (
@@ -247,10 +252,10 @@ const renderCustomDot = (props: any) => {
       key={`dot-${index}`}
       cx={cx}
       cy={cy}
-      r={4.5}
+      r={4}
       fill="#b91c1c"
       stroke="#ffffff"
-      strokeWidth={2}
+      strokeWidth={1.5}
     />
   );
 };
@@ -261,12 +266,12 @@ const renderCustomLegend = () => (
       <span className="h-3 w-3 rounded-xs bg-[#cbd5e1]" />
       <span>1~8月 出单比例 (%)</span>
     </div>
-    <div className="flex items-center gap-2 font-bold text-blue-900">
+    <div className="flex items-center gap-2 font-bold text-slate-900">
       <span className="h-3 w-3 rounded-xs bg-[#1d4ed8]" />
       <span>9.30全量 出单比例</span>
     </div>
-    <div className="flex items-center gap-2 font-bold text-red-700">
-      <span className="h-2.5 w-5 bg-red-600 rounded-full inline-block" />
+    <div className="flex items-center gap-2 font-bold text-red-800">
+      <span className="h-0.5 w-4 bg-red-700 inline-block my-auto" />
       <span>实际月度质检率</span>
     </div>
   </div>
@@ -283,7 +288,7 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
       footnote="注：数据周期为 2026年1月至2026年9月（含 9.30 全量推全节点）。左 Y 轴出单比例展示系统出单放量趋势；右 Y 轴质检率展示质量持续改善与收敛落差。"
     >
       <div className="flex flex-col h-full justify-between">
-        {/* 顶部：系统自身出单与质检率演进对比看板 (聚焦系统本身：1~8月基线 ➔ 930全量 ➔ 变化与比例) */}
+        {/* 顶部：系统自身出单与质检率演进对比看板 (聚焦系统本身：1~8月基线 ➔ 9.30全量 ➔ 变化与比例) */}
         <div className="overflow-x-auto my-1.5">
           <table className="w-full text-sm sm:text-base text-center border-collapse report-data-table">
             <thead>
@@ -294,7 +299,7 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
                 <th className="py-2.5 px-4 font-bold text-blue-950 bg-blue-100/80 text-sm sm:text-base">
                   <div className="flex items-center justify-center gap-1.5">
                     <span className="w-2 h-2 bg-blue-800 shrink-0"></span>
-                    <span>930 (全量推全)</span>
+                    <span>9.30 (全量推全)</span>
                   </div>
                 </th>
                 <th className="py-2.5 px-4 font-bold text-slate-900 text-sm sm:text-base bg-slate-50 border-l border-slate-200/80">
@@ -338,7 +343,7 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
                 <td className="py-3 text-center font-bold text-emerald-600 text-base sm:text-lg">
                   ➔
                 </td>
-                <td className="py-3 px-4 font-bold text-emerald-700 bg-blue-100/40 text-sm sm:text-base font-mono">
+                <td className="py-3 px-4 font-bold text-emerald-800 bg-slate-100/70 text-sm sm:text-base font-mono">
                   0.072%
                 </td>
                 <td className="py-3 px-4 text-center font-mono bg-slate-50/60 border-l border-slate-200/80">
@@ -402,7 +407,7 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
 
               <Legend content={renderCustomLegend} />
 
-              {/* 柱状图：系统出单比例 (930全量使用统一高亮蓝，1-8月统一为灰系) */}
+              {/* 柱状图：系统出单比例 (9.30全量使用统一高亮蓝，1-8月统一为灰系) */}
               <Bar
                 yAxisId="left"
                 dataKey="autoRate"
@@ -423,7 +428,7 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
               <ReferenceLine
                 y={0.072}
                 yAxisId="right"
-                stroke="#059669"
+                stroke="#94a3b8"
                 strokeDasharray="4 3"
                 strokeWidth={1.5}
                 isFront={true}
@@ -436,9 +441,9 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
                 dataKey="linearErrorRate"
                 name="0.324% ➔ 0.072% 直线连接"
                 legendType="none"
-                stroke="#059669"
-                strokeWidth={2.5}
-                strokeDasharray="6 4"
+                stroke="#64748b"
+                strokeWidth={2}
+                strokeDasharray="4 3"
                 dot={(props: any) => {
                   const { cx, cy, index } = props;
                   if (typeof cx !== "number" || typeof cy !== "number") return null;
@@ -448,10 +453,10 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
                         key={`linear-dot-${index}`}
                         cx={cx}
                         cy={cy}
-                        r={5.5}
-                        fill="#059669"
+                        r={4.5}
+                        fill="#64748b"
                         stroke="#ffffff"
-                        strokeWidth={2}
+                        strokeWidth={1.5}
                       />
                     );
                   }
@@ -467,9 +472,9 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
                 dataKey="errorRate"
                 name="实际月度质检率"
                 stroke="#b91c1c"
-                strokeWidth={3.5}
+                strokeWidth={3}
                 dot={renderCustomDot}
-                activeDot={{ r: 8 }}
+                activeDot={{ r: 7 }}
                 isAnimationActive={false}
               >
                 <LabelList dataKey="errorRateLabel" content={renderLineLabel} />

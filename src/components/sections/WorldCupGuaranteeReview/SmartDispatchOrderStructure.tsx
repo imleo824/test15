@@ -217,20 +217,12 @@ const render930AnchorAndLabel = (props: any) => {
       {/* 当渲染到第3个节点（系统 9.30）时，直接在 SVG 内部绘制从 外包 ➔ 总部 ➔ 系统 的高精度直连线 */}
       {hasThreePoints && (
         <g className="m930-internal-line pointer-events-none">
-          {/* 发光蓝底色层 */}
-          <path
-            d={`M ${anchorCoords[0].x} ${anchorCoords[0].y} L ${anchorCoords[1].x} ${anchorCoords[1].y} L ${centerX} ${y}`}
-            stroke="#3b82f6"
-            strokeWidth={8}
-            strokeOpacity={0.35}
-            fill="none"
-          />
           {/* 科技蓝高对比度虚线主轴 */}
           <path
             d={`M ${anchorCoords[0].x} ${anchorCoords[0].y} L ${anchorCoords[1].x} ${anchorCoords[1].y} L ${centerX} ${y}`}
             stroke="#1d4ed8"
-            strokeWidth={3.5}
-            strokeDasharray="6 4"
+            strokeWidth={2}
+            strokeDasharray="4 3"
             fill="none"
           />
         </g>
@@ -240,31 +232,22 @@ const render930AnchorAndLabel = (props: any) => {
       <circle
         cx={centerX}
         cy={y}
-        r={6}
+        r={4.5}
         fill="#1d4ed8"
         stroke="#ffffff"
-        strokeWidth={2}
-      />
-      <circle
-        cx={centerX}
-        cy={y}
-        r={10}
-        fill="none"
-        stroke="#1d4ed8"
         strokeWidth={1.5}
-        strokeDasharray="3 3"
       />
       {/* 9.30 柱顶标签 */}
       <g transform={`translate(${centerX}, ${y - 14})`}>
         <rect
-          x={-28}
+          x={-27}
           y={-14}
-          width={56}
+          width={54}
           height={18}
-          rx={3}
-          fill="#1e40af"
+          rx={2}
+          fill="#0f172a"
           stroke="#ffffff"
-          strokeWidth={1.5}
+          strokeWidth={1}
         />
         <text
           x={0}
@@ -273,7 +256,7 @@ const render930AnchorAndLabel = (props: any) => {
           fill="#ffffff"
           fontSize={11}
           fontFamily="var(--font-mono, monospace)"
-          fontWeight={900}
+          fontWeight={800}
         >
           {text}
         </text>
@@ -369,7 +352,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                 <th className="py-2.5 px-3 font-bold text-blue-950 bg-blue-100/80 text-sm sm:text-base">
                   <div className="flex items-center justify-center gap-1.5">
                     <span className="w-2 h-2 bg-blue-800 shrink-0"></span>
-                    <span>系统 (930全量)</span>
+                    <span>系统 (9.30全量)</span>
                   </div>
                 </th>
                 <th className="py-2.5 px-3 font-bold text-slate-900 text-sm sm:text-base bg-slate-50 border-l border-slate-200/80">
@@ -425,7 +408,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                 <td className="py-3 text-center font-bold text-emerald-600 text-base sm:text-lg">
                   ➔
                 </td>
-                <td className="py-3 px-3 font-bold text-emerald-700 bg-blue-100/40 text-sm sm:text-base font-mono">
+                <td className="py-3 px-3 font-bold text-emerald-800 bg-slate-100/70 text-sm sm:text-base font-mono">
                   0.072%
                 </td>
                 <td className="py-3 px-3 text-center font-mono bg-slate-50/60 border-l border-slate-200/80">
