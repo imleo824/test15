@@ -238,10 +238,10 @@ export const PersonnelDistribution: React.FC = () => {
             
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 items-stretch">
               {[
-                { label: "T场地", count: "3" },
-                { label: "D场地", count: "115" },
-                { label: "S场地", count: "211" },
-                { label: "F场地", count: "24" },
+                { label: "T", count: "3" },
+                { label: "D", count: "115" },
+                { label: "S", count: "211" },
+                { label: "F", count: "24" },
                 { label: "远程", count: "0" },
                 { label: "外包", count: "100" },
               ].map((item) => (

@@ -1896,7 +1896,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       <div className="flex items-center gap-2">
                         <span className="w-1.5 h-3.5 bg-blue-600 shrink-0" />
                         <span className="text-sm font-bold text-slate-950">
-                          系统迭代进化监控释义
+                          系统迭代进化释义
                         </span>
                       </div>
                       <div className="flex items-center gap-4 text-xs font-semibold text-slate-600">
@@ -1911,77 +1911,80 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* 标题下方的一句话总结模块 */}
+                    {/* 标题下方的一句话总结模块：整合 3 个执行动作 Bubble 与成效说明 */}
                     <SummaryBox variant="module">
-                      <div className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
-                        {highlightNumbers(
-                          "随着闭环反馈机制按周对拦截特征及规则权重进行精准调优校准，系统出单比例呈现**稳步上升**之势（从 [[50.83%]] 攀升至 [[61.21%]]，绝对值提升 [[10.38%]]，相对增幅达 [[+20.42%]]）；同时，由误拦截等差错引发的系统质检率实现**阶梯式稳步压降**（从 [[0.0731%]] 降至 [[0.0605%]]，绝对值降低 [[0.0126%]]，相对降幅达 [[-17.24%]]）。这充分证明了系统自进化实现了**「出单放行比例大幅上升、系统差错率不升反降」**的逆向双增益，自进化安全成效极为显著。"
-                        )}
+                      <div className="space-y-3.5">
+                        {/* 3 个执行动作 Bubble 区域 */}
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                          {/* Bubble 1: 策略优化 */}
+                          <div className="bg-white/90 border border-slate-200/90 rounded-xl p-3.5 space-y-1.5 shadow-2xs">
+                            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-blue-50 text-blue-950 border border-blue-200 rounded-full text-xs font-bold">
+                              <span className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
+                              <span>1. 策略优化</span>
+                            </div>
+                            <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                              {highlightNumbers("按周开展[[实盘特征比对与案例复盘]]，精细更新欺诈套利特征指标，填补潜在漏检盲区。")}
+                            </p>
+                          </div>
+
+                          {/* Bubble 2: 调整参数 */}
+                          <div className="bg-white/90 border border-slate-200/90 rounded-xl p-3.5 space-y-1.5 shadow-2xs">
+                            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-blue-50 text-blue-950 border border-blue-200 rounded-full text-xs font-bold">
+                              <span className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
+                              <span>2. 调整参数</span>
+                            </div>
+                            <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                              {highlightNumbers("结合各渠道拦截比例[[微调决策判定阈值]]，确保系统放行阈值既紧贴安全底线，又释放出单潜能。")}
+                            </p>
+                          </div>
+
+                          {/* Bubble 3: 调整权重 */}
+                          <div className="bg-white/90 border border-slate-200/90 rounded-xl p-3.5 space-y-1.5 shadow-2xs">
+                            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-blue-50 text-blue-950 border border-blue-200 rounded-full text-xs font-bold">
+                              <span className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
+                              <span>3. 调整权重</span>
+                            </div>
+                            <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                              {highlightNumbers("动态修正底层多维指标特征的[[风险评分计分权重]]，使良性高等级会员的分值分配更趋向合规。")}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Bubble 下方的成效说明 */}
+                        <div className="pt-2 border-t border-slate-200/80 text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+                          {highlightNumbers(
+                            "系统出单比例呈现**稳步上升**之势（从 [[50.83%]] 攀升至 [[61.21%]]，绝对值提升 [[10.38%]]，相对增幅达 [[+20.42%]]）；同时，由误拦截等差错引发的系统质检率实现**阶梯式稳步压降**（从 [[0.0731%]] 降至 [[0.0605%]]，绝对值降低 [[0.0126%]]，相对降幅达 [[-17.24%]]）。系统进化实现了**「出单放行比例大幅上升、系统差错率不升反降」**的逆向双增益，自进化成效显著。"
+                          )}
+                        </div>
                       </div>
                     </SummaryBox>
 
-                    {/* 新增的三个动作子方块 */}
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4">
-                      {/* 方块 1: 策略优化 */}
-                      <div className="bg-slate-50 border border-slate-200 p-4 space-y-1.5">
-                        <div className="text-sm font-bold text-slate-950 flex items-center gap-1.5">
-                          <span className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                          <span>1. 策略优化</span>
-                        </div>
-                        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                          {highlightNumbers("按周开展[[实盘特征比对与案例复盘]]，精细更新欺诈套利特征指标，填补潜在漏检盲区。")}
-                        </p>
-                      </div>
-
-                      {/* 方块 2: 调整参数 */}
-                      <div className="bg-slate-50 border border-slate-200 p-4 space-y-1.5">
-                        <div className="text-sm font-bold text-slate-950 flex items-center gap-1.5">
-                          <span className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                          <span>2. 调整参数</span>
-                        </div>
-                        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                          {highlightNumbers("结合各渠道拦截比例[[微调决策判定阈值]]，确保系统放行阈值既紧贴安全底线，又释放出单潜能。")}
-                        </p>
-                      </div>
-
-                      {/* 方块 3: 调整权重 */}
-                      <div className="bg-slate-50 border border-slate-200 p-4 space-y-1.5">
-                        <div className="text-sm font-bold text-slate-950 flex items-center gap-1.5">
-                          <span className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                          <span>3. 调整权重</span>
-                        </div>
-                        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                          {highlightNumbers("动态修正底层多维指标特征的[[风险评分计分权重]]，使良性高等级会员的分值分配更趋向合规。")}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="bg-white border border-slate-200 p-4 h-[260px] sm:h-[300px]">
+                    <div className="bg-white border border-slate-200 p-4 h-[280px] sm:h-[320px]">
                       <ResponsiveContainer width="100%" height="100%">
                         <ComposedChart data={[
-                          { name: "第1周", ratio: 50.83, errorRate: 0.0731 },
-                          { name: "第2周", ratio: 57.71, errorRate: 0.0598 },
-                          { name: "第3周", ratio: 55.39, errorRate: 0.0644 },
-                          { name: "第4周", ratio: 61.21, errorRate: 0.0605 },
-                        ]} margin={{ top: 30, right: 40, left: 40, bottom: 5 }}>
+                          { name: "9月第1周", ratio: 50.83, errorRate: 0.0731 },
+                          { name: "9月第2周", ratio: 57.71, errorRate: 0.0598 },
+                          { name: "9月第3周", ratio: 55.39, errorRate: 0.0644 },
+                          { name: "9月第4周", ratio: 61.21, errorRate: 0.0605 },
+                        ]} margin={{ top: 30, right: 40, left: 35, bottom: 5 }}>
                           <XAxis dataKey="name" tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} />
-                          {/* 左 Y 轴：出单比例（通过 domain[45, 100] 放大周级增长斜率，使第1周到第4周的增长态势展现得极其明显，同时保持在下半区高度以下） */}
+                          {/* 左 Y 轴：出单比例（调整 domain[40, 65] 视觉上极大地放大第1周到第4周的陡峭上升态势） */}
                           <YAxis
                             yAxisId="left"
-                            domain={[45, 100]}
-                            ticks={[45, 60, 75, 90]}
+                            domain={[40, 65]}
+                            ticks={[40, 45, 50, 55, 60, 65]}
                             tickFormatter={(val) => `${val}%`}
                             tick={chartAxisTick}
                             axisLine={{ stroke: chartColors.ink }}
                             tickLine={false}
                           />
-                          {/* 右 Y 轴：质检率（通过 domain[-0.015, 0.125] 抬高至上半区，最低点占 ~62%，从而拉开近 20% 高度的绝对安全视觉隔离带） */}
+                          {/* 右 Y 轴：质检率（调整 domain[0.050, 0.080] 集中聚焦区间，清晰呈现质检错误率阶梯式大幅下降的趋势） */}
                           <YAxis
                             yAxisId="right"
                             orientation="right"
-                            domain={[-0.015, 0.125]}
-                            ticks={[0.00, 0.04, 0.08, 0.12]}
-                            tickFormatter={(val) => `${val.toFixed(4)}%`}
+                            domain={[0.050, 0.080]}
+                            ticks={[0.050, 0.060, 0.070, 0.080]}
+                            tickFormatter={(val) => `${val.toFixed(2)}%`}
                             tick={chartAxisTick}
                             axisLine={{ stroke: chartColors.ink }}
                             tickLine={false}
@@ -2007,12 +2010,12 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                             yAxisId="right"
                             type="monotone"
                             dataKey="errorRate"
-                            stroke="#f59e0b"
-                            strokeWidth={2.5}
+                            stroke="#d97706"
+                            strokeWidth={3}
                             isAnimationActive={false}
-                            dot={{ r: 4, fill: "#ffffff", stroke: "#f59e0b", strokeWidth: 2 }}
+                            dot={{ r: 5, fill: "#ffffff", stroke: "#d97706", strokeWidth: 2.5 }}
                             label={({ x, y, value }: any) => (
-                              <text x={x} y={y - 12} textAnchor="middle" className="fill-amber-700 text-xs font-bold font-mono">
+                              <text x={x} y={y - 12} textAnchor="middle" className="fill-amber-800 text-xs font-bold font-mono">
                                 {Number(value).toFixed(4)}%
                               </text>
                             )}
@@ -2026,7 +2029,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       <div className="flex items-center gap-1.5 px-1">
                         <Calculator className="w-4 h-4 text-slate-700" />
                         <span className="text-xs sm:text-sm font-bold text-slate-800">
-                          9月系统进化每周策略和参数持续迭代
+                          9月为例：
                         </span>
                       </div>
                       
@@ -2133,7 +2136,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                         {/* 第4周 */}
                         <div className="bg-slate-50 border border-slate-200 p-4 space-y-2">
                           <div className="flex items-center justify-between pb-1.5 border-b border-slate-200">
-                            <span className="text-xs font-bold text-slate-800 font-mono">9月第4周 (09/22-09/28+)</span>
+                            <span className="text-xs font-bold text-slate-800 font-mono">9月第4周 (09/22-09/30)</span>
                           </div>
                           <ul className="text-xs sm:text-sm text-slate-700 space-y-1.5">
                             <li className="flex items-start gap-1.5">
