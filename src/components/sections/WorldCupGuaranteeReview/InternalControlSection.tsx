@@ -41,7 +41,8 @@ const dailyAuditCurrentQuarter = [
 
 export const InternalControlSection: React.FC = () => {
   return (
-    <div id="section-internal-control" className="space-y-10 sm:space-y-12">
+    <div id="section-internal-control" className="flex flex-col gap-10 sm:gap-12">
+      {/* 专职监督一句话总结模块 */}
       <SummaryBox variant="module">
         {highlightNumbers(
           "专职监督独立把关，聚焦[[敏感信息监控]]与[[稽查违规监控]]两大重点：依托全量操作日志与行为留痕，对违规操作实施即时预警、严肃追责与资产止损。",

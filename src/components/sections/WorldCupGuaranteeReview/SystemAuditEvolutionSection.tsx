@@ -498,7 +498,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <p>
                       <strong className="text-slate-950">自动化占比跃升：</strong>
                       {highlightNumbers(
-                        "云盾系统出单占比由 1-9月均值 50.4% 提升至 9.30 全量节点的 65.0%，占比相对提升 +29.0%。"
+                        "[[云盾系统出单占比]]由 1-9月均值 50.4% 提升至 9.30 全量节点的 [[65.0%]]，占比相对提升 [[+29.0%]]。"
                       )}
                     </p>
                   </div>
@@ -507,7 +507,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <p>
                       <strong className="text-slate-950">外包清退与降本止损：</strong>
                       {highlightNumbers(
-                        "外包团队占比由 1-9月月均 9.7% 清退压降至 系统 9.30 的 0.6%（相对减幅 -93.8%），全面释放 100+ 人力，直接削减外包硬性成本近 100w/月；并减少外包差错引发的约 50w+ 元/月 资金损失，月度综合经济价值达 150w/月。"
+                        "外包团队占比由 1-9月月均 9.7% 清退压降至 系统 9.30 的 [[0.6%]]（相对减幅 [[-93.8%]]），[[全面释放 100+ 人力]]，直接削减外包硬性成本[[近 100w/月]]；并减少外包差错引发的约 [[50w+ 元/月]] 资金损失，月度综合经济价值达 [[150w/月]]。"
                       )}
                     </p>
                   </div>
@@ -516,7 +516,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <p>
                       <strong className="text-slate-950">总部减负与成本节约：</strong>
                       {highlightNumbers(
-                        "总部人工审核占比由月均 40.0% 降至 系统 9.30 的 34.4%（相对精简 -14.0%），相当于释放约 30人 的日常审核工作量，实现总部月均理论成本节约约 100w/月；后续将持续降低总部人工审核单量。"
+                        "总部人工审核占比由月均 40.0% 降至 系统 9.30 的 [[34.4%]]（相对精简 [[-14.0%]]），相当于释放约 [[30人]] 的日常审核工作量，实现总部月均理论成本节约[[约 100w/月]]；后续将持续[[降低总部人工审核单量]]。"
                       )}
                     </p>
                   </div>
@@ -624,7 +624,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <p>
                       <strong className="text-slate-950">订单风控停留缩短：</strong>
                       {highlightNumbers(
-                        "按总单量 500w 单 测算，加权平均停留时间从 4.13 分钟降至 2.96 分钟，净压缩 1.17 分钟（全盘时效提速 +28.2%）。"
+                        "按总单量 500w 单 测算，加权平均停留时间从 4.13 分钟降至 [[2.96 分钟]]，净压缩 [[1.17 分钟]]（全盘时效提速 [[+28.2%]]）。"
                       )}
                     </p>
                   </div>
@@ -633,7 +633,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <p>
                       <strong className="text-slate-950">优质用户体感跃升：</strong>
                       {highlightNumbers(
-                        "释放的 75w 单 由原约 8 分钟左右降至 15 秒；占总量 65% 的优质客户提单（325w 单）实现[[秒级放行]]，出款体感显著改善。"
+                        "释放的 75w 单 由原约 8 分钟左右降至 [[15 秒]]；占总量 65% 的优质客户提单（325w 单）实现[[秒级放行]]，[[出款体感显著改善]]。"
                       )}
                     </p>
                   </div>
@@ -642,7 +642,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <p>
                       <strong className="text-slate-950">风险玩家深度严查：</strong>
                       {highlightNumbers(
-                        "占总量 35% 的风险玩家订单 由专业人工实施[[多维交叉复核]]，审核时效严控在 10分钟内 快速闭环，兼顾安全防御与流转速率。"
+                        "占总量 35% 的风险玩家订单 由专业人工实施[[多维交叉复核]]，审核时效严控在 [[10分钟内]] 快速闭环，兼顾[[安全防御与流转速率]]。"
                       )}
                     </p>
                   </div>
@@ -769,7 +769,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <p>
                       <strong className="text-slate-950">消灭外包高差错风险：</strong>
                       {highlightNumbers(
-                        "系统审单质量远高于外包和一般审核人员，全面替代质检差错率高达 1.91% 的外包审核，从根本上消除了外包质量控制不力带来的高危差错及安全漏洞。"
+                        "系统审单质量**远高于外包和一般审核人员**，[[全面替代质检差错率高达 1.91% 的外包审核]]，从根本上消除了外包质量控制不力带来的[[高危差错及安全漏洞]]。"
                       )}
                     </p>
                   </div>
@@ -778,7 +778,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <p>
                       <strong className="text-slate-950">缓解总部压力聚焦核心：</strong>
                       {highlightNumbers(
-                        "总部人审订单现已减少 25w+ 单，后续随着自动化出单深化，减单规模还将进一步扩大，持续降低一线审核人员的疲劳负荷，释放更多空间深耕高危、复杂及高净值大额订单。"
+                        "总部人审订单现已[[减少 25w+ 单]]，后续随着自动化出单深化，[[减单规模还将进一步扩大]]，[[持续降低一线审核人员的疲劳负荷]]，释放更多空间深耕[[高危、复杂及高净值大额订单]]。"
                       )}
                     </p>
                   </div>
@@ -787,7 +787,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <p>
                       <strong className="text-slate-950">精准预审给出高亮强提醒：</strong>
                       {highlightNumbers(
-                        "流转至人工复审的订单均已是明确的高风险订单，且系统预审给出精准且醒目的[[高危风险特征强提醒]]；随着识别准确率持续攀升，赋能审核人员快速完成风控研判，显著带动全盘审核业务的质效。"
+                        "流转至人工复审的订单均已是[[明确的高风险订单]]，且系统预审给出精准且醒目的[[高危风险特征强提醒]]；随着识别准确率持续攀升，赋能审核人员[[快速完成风控研判]]，[[显著带动全盘审核业务的质效]]。"
                       )}
                     </p>
                   </div>
@@ -1128,7 +1128,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                             </p>
                             <div className="bg-rose-50/50 border border-rose-200/80 p-2.5 space-y-1.5 text-xs text-slate-800">
                               <div className="font-bold text-rose-950 text-[11px] sm:text-xs">
-                                典型组合：敏感资料变更 + 快进快出 / 新绑账户 + 异常红利
+                                组合举例：特殊类型上分 + 快进快出 
                               </div>
                               <div className="text-[11px] text-slate-600 font-sans space-y-1 pt-1 border-t border-rose-100">
                                 <div>

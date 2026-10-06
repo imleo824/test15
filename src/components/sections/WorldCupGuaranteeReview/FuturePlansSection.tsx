@@ -59,11 +59,12 @@ export const FuturePlansSection: React.FC = () => {
                 "随着在[[会员维度]]系统化审核取得的阶段性成果，下阶段核心将会员维度的成功实践与经验[[全面落地至代理审核]]，构建「会员 + 代理」双轮驱动的智能化风控体系，取得更大的风控收益与人效突破。工作主线围绕 **优化会员云盾** 与 **落地代理云盾** 两大核心展开，持续巩固并扩大智能化治理成果。"
               )}
             </p>
-            <div className="flex items-start gap-1.5 text-xs text-slate-500 font-normal leading-relaxed border-t border-dashed border-slate-200 pt-2 mt-2">
-              <Lightbulb className="w-3.5 h-3.5 text-amber-500 shrink-0 mt-0.5" />
+            <div className="flex items-start gap-2 text-xs text-slate-600 font-normal leading-relaxed border-t border-dashed border-slate-200 pt-2.5 mt-2.5">
+              <Lightbulb className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
               <div>
+                <span className="font-bold text-slate-800">注：</span>
                 {highlightNumbers(
-                  "跨站关联占比极高，[[系统策略的智能化与高精度]]的核心，[[依赖于底层大数据的支撑]]（涵盖[[数据的多维度、准确性、稳定性、时效性]]等核心维度），以此作为保障系统持续稳定、安全输出成效的技术基石。"
+                  "跨站关联占比极高，这是[[系统策略的智能化与高精度]]的核心，[[依赖于底层大数据的支撑]]（涵盖[[数据多维度、准确性、稳定性、时效性]]等核心维度），以此作为保障系统持续稳定、安全输出成效的技术基石。"
                 )}
               </div>
             </div>
