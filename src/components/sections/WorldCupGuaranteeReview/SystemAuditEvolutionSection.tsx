@@ -1163,7 +1163,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       <SummaryBox variant="module">
                         <div className="text-xs sm:text-sm text-slate-700 font-normal leading-relaxed">
                           {highlightNumbers(
-                            "全盘依托 50+ 规则策略与 100+ 风险特征探针实时穿透扫描，本次出单检测呈现 45 正常 / 5 异常，综合风险总得分累计达 105分（超过 60分放行安全门槛），自动触发[[高危阻断并转人工审核]]。"
+                            "全盘依托 50+ 规则策略与 100+ 风险特征探针实时穿透扫描；举例，本次检测呈现 45 正常 / 5 异常，综合风险总得分累计达 105分（超过 60分放行安全门槛），自动触发[[高危阻断并转人工审核]]。"
                           )}
                         </div>
                       </SummaryBox>
@@ -1922,74 +1922,45 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                         </div>
                         <div className="flex items-center gap-1.5">
                           <span className="w-3.5 h-0.5 bg-amber-700 inline-block my-auto" />
-                          <span>质检差错率（右轴，折线）</span>
+                          <span>质检率（右轴，折线）</span>
                         </div>
                       </div>
                     </div>
 
-                    {/* 标题下方总结模块：整合 3 个执行动作与成效说明 */}
+                    {/* 标题下方总结模块：简化为一句话说明 3 个方向迭代 + 9月迭代成效说明 */}
                     <SummaryBox variant="module">
-                      <div className="space-y-3.5">
-                        {/* 3 个执行动作区域 */}
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                          {/* 动作 1: 策略优化 */}
-                          <div className="bg-white border border-slate-200 p-3 space-y-1.5">
-                            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-blue-50 text-blue-950 border border-blue-200 text-xs font-bold">
-                              <span className="w-1.5 h-1.5 bg-blue-700 shrink-0" />
-                              <span>1. 策略优化</span>
-                            </div>
-                            <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                              {highlightNumbers("按周开展实盘特征比对与案例复盘，精准补齐欺诈套利特征指标，填补潜在漏检盲区。")}
-                            </p>
-                          </div>
+                      <div className="space-y-3">
+                        {/* 一句话说明：每周在三个方向进行迭代 */}
+                        <div className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+                          {highlightNumbers(
+                            "系统按周常态化围绕**策略优化**、**调整参数**与**调整权重**三个核心方向持续动态迭代："
+                          )}
+                        </div>
 
-                          {/* 动作 2: 调整参数 */}
-                          <div className="bg-white border border-slate-200 p-3 space-y-1.5">
-                            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-blue-50 text-blue-950 border border-blue-200 text-xs font-bold">
-                              <span className="w-1.5 h-1.5 bg-blue-700 shrink-0" />
-                              <span>2. 调整参数</span>
+                        {/* 成效对比卡片 */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          <div className="bg-white border border-slate-200 p-2.5 sm:p-3 flex items-center justify-between">
+                            <div className="text-xs font-bold text-slate-800">系统自动出单比例</div>
+                            <div className="text-right font-mono">
+                              <span className="text-sm font-bold text-slate-950">50.83% ➔ 61.21%</span>
+                              <span className="text-xs font-bold text-blue-700 ml-1.5">(+10.38%, 增幅 +20.42%)</span>
                             </div>
-                            <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                              {highlightNumbers("结合各场馆与渠道拦截比例微调决策判定阈值，在紧贴安全底线的前提下最大化释放自动出单产能。")}
-                            </p>
                           </div>
-
-                          {/* 动作 3: 调整权重 */}
-                          <div className="bg-white border border-slate-200 p-3 space-y-1.5">
-                            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-blue-50 text-blue-950 border border-blue-200 text-xs font-bold">
-                              <span className="w-1.5 h-1.5 bg-blue-700 shrink-0" />
-                              <span>3. 调整权重</span>
+                          <div className="bg-white border border-slate-200 p-2.5 sm:p-3 flex items-center justify-between">
+                            <div className="text-xs font-bold text-slate-800">系统质检率</div>
+                            <div className="text-right font-mono">
+                              <span className="text-sm font-bold text-slate-950">0.0731% ➔ 0.0605%</span>
+                              <span className="text-xs font-bold text-emerald-800 ml-1.5">(-0.0126%, 降幅 -17.24%)</span>
                             </div>
-                            <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                              {highlightNumbers("动态修正底层多维指标特征的风险评分权重，降低良性高信誉会员误触概率。")}
-                            </p>
                           </div>
                         </div>
 
-                        {/* 成效对比卡片与业务总结 */}
-                        <div className="pt-2 border-t border-slate-200/80 space-y-2">
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            <div className="bg-white border border-slate-200 p-2.5 flex items-center justify-between">
-                              <div className="text-xs font-bold text-slate-800">系统自动出单比例</div>
-                              <div className="text-right font-mono">
-                                <span className="text-sm font-bold text-slate-950">50.83% ➔ 61.21%</span>
-                                <span className="text-xs font-bold text-blue-700 ml-1.5">(+10.38%, 增幅 +20.42%)</span>
-                              </div>
-                            </div>
-                            <div className="bg-white border border-slate-200 p-2.5 flex items-center justify-between">
-                              <div className="text-xs font-bold text-slate-800">系统质检差错率</div>
-                              <div className="text-right font-mono">
-                                <span className="text-sm font-bold text-slate-950">0.0731% ➔ 0.0605%</span>
-                                <span className="text-xs font-bold text-emerald-800 ml-1.5">(-0.0126%, 降幅 -17.24%)</span>
-                              </div>
-                            </div>
-                          </div>
-                          <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
-                            {highlightNumbers(
-                              "实盘数据充分验证：伴随周度自进化策略迭代，系统实现了**「系统出单放行比例稳步跃升（+20.42%）、系统质检差错率阶梯式反向下行（-17.24%）」**的双向良性演进。"
-                            )}
-                          </p>
-                        </div>
+                        {/* 9 月取得的迭代效果说明 */}
+                        <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+                          {highlightNumbers(
+                            "9 月迭代成效显著：系统出单比例呈现稳步上升之势（从 [[50.83%]] 攀升至 [[61.21%]]，绝对值提升 [[10.38%]]，相对增幅达 [[+20.42%]]）；同时，由误拦截等差错引发的系统质检率实现阶梯式稳步压降（从 [[0.0731%]] 降至 [[0.0605%]]，绝对值降低 [[0.0126%]]，相对降幅达 [[-17.24%]]）。系统进化实现了**「出单放行比例大幅上升、系统差错率不升反降」**的逆向双增益。"
+                          )}
+                        </p>
                       </div>
                     </SummaryBox>
 
@@ -2102,7 +2073,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                             yAxisId="left"
                             type="linear"
                             dataKey="linearRatio"
-                            name="出单比例变化连线 (50.83% ➔ 61.21%)"
+                            name="出单比例变化 (50.83% ➔ 61.21%)"
                             stroke="#1e40af"
                             strokeWidth={2}
                             strokeDasharray="4 3"
@@ -2132,7 +2103,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                             yAxisId="right"
                             type="linear"
                             dataKey="linearErrorRate"
-                            name="质检差错率变化连线 (0.0731% ➔ 0.0605%)"
+                            name="质检率变化 (0.0731% ➔ 0.0605%)"
                             stroke="#64748b"
                             strokeWidth={2}
                             strokeDasharray="4 3"
@@ -2199,13 +2170,13 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                           </div>
                           <ul className="text-xs text-slate-700 space-y-2 leading-relaxed">
                             <li className="flex items-start gap-1.5">
-                              <span className="px-1 py-0.2 bg-slate-200 text-slate-800 text-[10px] font-mono font-bold shrink-0 mt-0.5">参数</span>
+                              <span className="px-1.5 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-mono font-medium shrink-0 mt-0.5">参数</span>
                               <span className="font-mono tracking-tight text-slate-800">
                                 调整彩**策略参数 <span className="text-slate-500 font-normal">(09-01)</span>
                               </span>
                             </li>
                             <li className="flex items-start gap-1.5">
-                              <span className="px-1 py-0.2 bg-blue-100 text-blue-900 text-[10px] font-mono font-bold shrink-0 mt-0.5">彩票</span>
+                              <span className="px-1.5 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-mono font-medium shrink-0 mt-0.5">彩票</span>
                               <span className="font-mono tracking-tight text-slate-800">
                                 全**级 <span className="text-slate-500 font-normal">(09-01)</span> <span className="font-sans text-slate-600">策略首发上线</span>
                               </span>
@@ -2220,49 +2191,49 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                           </div>
                           <ul className="text-xs text-slate-700 space-y-1.5 leading-relaxed">
                             <li className="flex items-start gap-1.5">
-                              <span className="px-1 py-0.2 bg-slate-200 text-slate-800 text-[10px] font-mono font-bold shrink-0 mt-0.5">参数</span>
+                              <span className="px-1.5 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-mono font-medium shrink-0 mt-0.5">参数</span>
                               <span className="font-mono tracking-tight text-slate-800">
                                 调整套**策略参数 <span className="text-slate-500 font-normal">(09-08)</span>
                               </span>
                             </li>
                             <li className="flex items-start gap-1.5">
-                              <span className="px-1 py-0.2 bg-blue-100 text-blue-900 text-[10px] font-mono font-bold shrink-0 mt-0.5">策略</span>
+                              <span className="px-1.5 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-mono font-medium shrink-0 mt-0.5">策略</span>
                               <span className="font-mono tracking-tight text-slate-800">
                                 策**命中**级 <span className="text-slate-500 font-normal">(09-08)</span>
                               </span>
                             </li>
                             <li className="flex items-start gap-1.5">
-                              <span className="px-1 py-0.2 bg-amber-100 text-amber-900 text-[10px] font-mono font-bold shrink-0 mt-0.5">行为</span>
+                              <span className="px-1.5 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-mono font-medium shrink-0 mt-0.5">行为</span>
                               <span className="font-mono tracking-tight text-slate-800">
                                 快**快出**期 <span className="text-slate-500 font-normal">(09-11)</span>
                               </span>
                             </li>
                             <li className="flex items-start gap-1.5">
-                              <span className="px-1 py-0.2 bg-blue-100 text-blue-900 text-[10px] font-mono font-bold shrink-0 mt-0.5">彩票</span>
+                              <span className="px-1.5 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-mono font-medium shrink-0 mt-0.5">彩票</span>
                               <span className="font-mono tracking-tight text-slate-800">
                                 全**级 <span className="text-slate-500 font-normal">(09-11)</span> <span className="font-sans text-slate-600">迭代升级</span>
                               </span>
                             </li>
                             <li className="flex items-start gap-1.5">
-                              <span className="px-1 py-0.2 bg-blue-100 text-blue-900 text-[10px] font-mono font-bold shrink-0 mt-0.5">策略</span>
+                              <span className="px-1.5 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-mono font-medium shrink-0 mt-0.5">策略</span>
                               <span className="font-mono tracking-tight text-slate-800">
                                 转人**判断**级 <span className="text-slate-500 font-normal">(09-09)</span>
                               </span>
                             </li>
                             <li className="flex items-start gap-1.5">
-                              <span className="px-1 py-0.2 bg-emerald-100 text-emerald-900 text-[10px] font-mono font-bold shrink-0 mt-0.5">体育</span>
+                              <span className="px-1.5 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-mono font-medium shrink-0 mt-0.5">体育</span>
                               <span className="font-mono tracking-tight text-slate-800">
                                 B**下注**常 <span className="text-slate-500 font-normal">(09-09)</span>
                               </span>
                             </li>
                             <li className="flex items-start gap-1.5">
-                              <span className="px-1 py-0.2 bg-blue-100 text-blue-900 text-[10px] font-mono font-bold shrink-0 mt-0.5">策略</span>
+                              <span className="px-1.5 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-mono font-medium shrink-0 mt-0.5">策略</span>
                               <span className="font-mono tracking-tight text-slate-800">
                                 转人**判断**级 <span className="text-slate-500 font-normal">(09-10)</span>
                               </span>
                             </li>
                             <li className="flex items-start gap-1.5">
-                              <span className="px-1 py-0.2 bg-blue-100 text-blue-900 text-[10px] font-mono font-bold shrink-0 mt-0.5">真人</span>
+                              <span className="px-1.5 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-mono font-medium shrink-0 mt-0.5">真人</span>
                               <span className="font-mono tracking-tight text-slate-800">
                                 B**下注**常 <span className="text-slate-500 font-normal">(09-10)</span>
                               </span>
@@ -2277,31 +2248,31 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                           </div>
                           <ul className="text-xs text-slate-700 space-y-1.5 leading-relaxed">
                             <li className="flex items-start gap-1.5">
-                              <span className="px-1 py-0.2 bg-slate-200 text-slate-800 text-[10px] font-mono font-bold shrink-0 mt-0.5">参数</span>
+                              <span className="px-1.5 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-mono font-medium shrink-0 mt-0.5">参数</span>
                               <span className="font-mono tracking-tight text-slate-800">
                                 调整单**策略参数 <span className="text-slate-500 font-normal">(09-15)</span>
                               </span>
                             </li>
                             <li className="flex items-start gap-1.5">
-                              <span className="px-1 py-0.2 bg-amber-100 text-amber-900 text-[10px] font-mono font-bold shrink-0 mt-0.5">行为</span>
+                              <span className="px-1.5 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-mono font-medium shrink-0 mt-0.5">行为</span>
                               <span className="font-mono tracking-tight text-slate-800">
                                 单**线 <span className="text-slate-500 font-normal">(09-16)</span>
                               </span>
                             </li>
                             <li className="flex items-start gap-1.5">
-                              <span className="px-1 py-0.2 bg-slate-200 text-slate-800 text-[10px] font-mono font-bold shrink-0 mt-0.5">账户</span>
+                              <span className="px-1.5 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-mono font-medium shrink-0 mt-0.5">账户</span>
                               <span className="font-mono tracking-tight text-slate-800">
                                 存**关联**号 <span className="text-slate-500 font-normal">(09-16)</span>
                               </span>
                             </li>
                             <li className="flex items-start gap-1.5">
-                              <span className="px-1 py-0.2 bg-blue-100 text-blue-900 text-[10px] font-mono font-bold shrink-0 mt-0.5">策略</span>
+                              <span className="px-1.5 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-mono font-medium shrink-0 mt-0.5">策略</span>
                               <span className="font-mono tracking-tight text-slate-800">
                                 转人**判断**级 <span className="text-slate-500 font-normal">(09-22)</span>
                               </span>
                             </li>
                             <li className="flex items-start gap-1.5">
-                              <span className="px-1 py-0.2 bg-slate-200 text-slate-800 text-[10px] font-mono font-bold shrink-0 mt-0.5">账户</span>
+                              <span className="px-1.5 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-mono font-medium shrink-0 mt-0.5">账户</span>
                               <span className="font-mono tracking-tight text-slate-800">
                                 存**关联**号 <span className="text-slate-500 font-normal">(09-22)</span>
                               </span>
@@ -2316,31 +2287,31 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                           </div>
                           <ul className="text-xs text-slate-700 space-y-1.5 leading-relaxed">
                             <li className="flex items-start gap-1.5">
-                              <span className="px-1 py-0.2 bg-slate-200 text-slate-800 text-[10px] font-mono font-bold shrink-0 mt-0.5">参数</span>
+                              <span className="px-1.5 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-mono font-medium shrink-0 mt-0.5">参数</span>
                               <span className="font-mono tracking-tight text-slate-800">
                                 调整提**策略参数 <span className="text-slate-500 font-normal">(09-22)</span>
                               </span>
                             </li>
                             <li className="flex items-start gap-1.5">
-                              <span className="px-1 py-0.2 bg-slate-200 text-slate-800 text-[10px] font-mono font-bold shrink-0 mt-0.5">账户</span>
+                              <span className="px-1.5 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-mono font-medium shrink-0 mt-0.5">账户</span>
                               <span className="font-mono tracking-tight text-slate-800">
                                 睡**号 <span className="text-slate-500 font-normal">(09-28)</span>
                               </span>
                             </li>
                             <li className="flex items-start gap-1.5">
-                              <span className="px-1 py-0.2 bg-slate-200 text-slate-800 text-[10px] font-mono font-bold shrink-0 mt-0.5">账户</span>
+                              <span className="px-1.5 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-mono font-medium shrink-0 mt-0.5">账户</span>
                               <span className="font-mono tracking-tight text-slate-800">
                                 新**款账**提 <span className="text-slate-500 font-normal">(09-28)</span>
                               </span>
                             </li>
                             <li className="flex items-start gap-1.5">
-                              <span className="px-1 py-0.2 bg-slate-200 text-slate-800 text-[10px] font-mono font-bold shrink-0 mt-0.5">环境</span>
+                              <span className="px-1.5 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-mono font-medium shrink-0 mt-0.5">环境</span>
                               <span className="font-mono tracking-tight text-slate-800">
                                 使**设备**提 <span className="text-slate-500 font-normal">(09-28)</span>
                               </span>
                             </li>
                             <li className="flex items-start gap-1.5">
-                              <span className="px-1 py-0.2 bg-emerald-100 text-emerald-900 text-[10px] font-mono font-bold shrink-0 mt-0.5">体育</span>
+                              <span className="px-1.5 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-mono font-medium shrink-0 mt-0.5">体育</span>
                               <span className="font-mono tracking-tight text-slate-800">
                                 B**下注**常 <span className="text-slate-500 font-normal">(09-28)</span>
                               </span>

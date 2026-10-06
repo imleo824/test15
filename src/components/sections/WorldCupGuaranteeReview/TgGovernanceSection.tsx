@@ -475,20 +475,20 @@ export const TgGovernanceSection: React.FC = () => {
                   <div className="p-2.5 sm:p-3 space-y-2 text-xs flex-1 flex flex-col justify-between">
                     {/* 日期分隔线 */}
                     <div className="flex justify-center">
-                      <span className="bg-slate-800/50 text-white text-[9px] font-mono px-2 py-0.2 rounded-full">
-                        6月26日
+                      <span className="text-slate-500 text-[10px] font-mono font-medium px-2 py-0.5 bg-slate-100 border border-slate-200">
+                        2026年6月26日 离线报单留样
                       </span>
                     </div>
 
                     {/* 核心高危报单明细消息 */}
                     <div className="flex items-start gap-1.5">
-                      <div className="w-6 h-6 rounded-full bg-rose-600 text-white flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">
+                      <div className="w-5 h-5 bg-slate-800 text-white flex items-center justify-center font-bold font-mono text-[10px] shrink-0 mt-0.5">
                         F
                       </div>
-                      <div className="bg-white p-2 sm:p-2.5 rounded-r-lg rounded-bl-lg w-full space-y-1 shadow-2xs border border-slate-200">
-                        <div className="text-[10.5px] font-bold text-rose-700 flex items-center justify-between">
+                      <div className="bg-white p-2 sm:p-2.5 w-full space-y-1 shadow-2xs border border-slate-200">
+                        <div className="text-[10.5px] font-bold text-slate-900 flex items-center justify-between">
                           <span>A001</span>
-                          <span className="text-[9.5px] text-slate-400 font-mono font-normal">14:02</span>
+                          <span className="text-[9.5px] text-slate-500 font-mono font-normal">14:02</span>
                         </div>
 
                         {/* 报单明文文本 */}

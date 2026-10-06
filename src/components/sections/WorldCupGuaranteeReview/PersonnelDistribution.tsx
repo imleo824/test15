@@ -1,4 +1,5 @@
 import React from "react";
+import { ArrowDown } from "lucide-react";
 import { SummaryBox, highlightNumbers } from "./utils";
 import { ReportBadge, ReportSectionHeader, ReportTableFrame } from "../../ReportSections";
 
@@ -86,7 +87,7 @@ export const PersonnelDistribution: React.FC = () => {
                 <span className="w-1.5 h-1.5 bg-slate-800 shrink-0 mt-2" />
                 <span>
                   <strong className="text-slate-950 font-bold">远程：</strong>
-                  {highlightNumbers("效率极低且缺乏合规监管机制的远程人员已[[全面清零]]（从原 84 人全部平稳分流或清退）。")}
+                  {highlightNumbers("效率极低且缺乏合规监管机制的远程人员已于 [[26 Q2 全面清零]]（从原 84 人全部平稳分流或清退）。")}
                 </span>
               </li>
               <li className="flex items-start gap-2">
@@ -192,14 +193,16 @@ export const PersonnelDistribution: React.FC = () => {
                     <td className="py-2.5 px-3.5 font-bold text-slate-900 border-r border-slate-200">远程</td>
                     <td className="py-2.5 px-3 font-mono text-center text-slate-600 border-r border-slate-200">84</td>
                     <td className="py-2.5 px-3 font-mono text-center text-slate-600 border-r border-slate-200">19</td>
-                    <td className="py-2.5 px-3 font-mono text-center text-slate-600 border-r border-slate-200">0</td>
-                    <td className="py-2.5 px-3.5 font-mono text-center font-extrabold text-slate-950 bg-slate-100 border-x-2 border-slate-400 text-sm sm:text-base">
+                    <td className="py-2.5 px-3 font-mono text-center border-r border-slate-200">
                       <div className="flex flex-col items-center justify-center gap-0.5">
-                        <span>0</span>
-                        <span className="inline-block px-1.5 py-0.2 bg-slate-200 text-slate-800 border border-slate-300 text-[10px] font-bold font-mono">
+                        <span className="font-bold text-slate-900">0</span>
+                        <span className="inline-block px-1.5 py-0.2 bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold font-mono">
                           已清零
                         </span>
                       </div>
+                    </td>
+                    <td className="py-2.5 px-3.5 font-mono text-center font-extrabold text-slate-950 bg-slate-100 border-x-2 border-slate-400 text-sm sm:text-base">
+                      0
                     </td>
                     <td className="py-2.5 px-3 font-mono text-center text-slate-500 border-r border-slate-300 bg-slate-50/80">0</td>
                     <td className="py-2.5 px-3 font-mono text-center text-slate-500 border-r-2 border-slate-400 bg-slate-50/80">0</td>
@@ -241,17 +244,45 @@ export const PersonnelDistribution: React.FC = () => {
                     <td className="py-3.5 px-3.5 font-bold text-slate-950 text-sm sm:text-base border-r border-slate-300 bg-slate-200/60">
                       <div className="flex items-center gap-2">
                         <span className="w-1.5 h-4 bg-slate-950 shrink-0" />
-                        <span>总计</span>
+                        <span>编制总计</span>
                       </div>
                     </td>
-                    <td className="py-3.5 px-3 font-mono font-bold text-center text-slate-950 text-sm sm:text-base border-r border-slate-300">524</td>
-                    <td className="py-3.5 px-3 font-mono font-bold text-center text-slate-950 text-sm sm:text-base border-r border-slate-300">515</td>
-                    <td className="py-3.5 px-3 font-mono font-bold text-center text-slate-950 text-sm sm:text-base border-r border-slate-300">487</td>
-                    <td className="py-3.5 px-3.5 font-mono font-black text-center text-slate-950 bg-slate-300 border-x-2 border-slate-600 text-base sm:text-lg">
-                      456
+                    <td className="py-3.5 px-3 font-mono font-bold text-center text-slate-950 text-sm sm:text-base border-r border-slate-300">
+                      <div className="inline-flex items-center justify-center gap-1">
+                        <span>524</span>
+                        <ArrowDown className="w-3.5 h-3.5 text-emerald-700 stroke-[2.5] shrink-0" />
+                      </div>
                     </td>
-                    <td className="py-3.5 px-3 font-mono font-bold text-center text-slate-950 text-sm sm:text-base border-r border-slate-300 bg-slate-100">320</td>
-                    <td className="py-3.5 px-3 font-mono font-bold text-center text-slate-950 text-sm sm:text-base border-r-2 border-slate-400 bg-slate-100">288</td>
+                    <td className="py-3.5 px-3 font-mono font-bold text-center text-slate-950 text-sm sm:text-base border-r border-slate-300">
+                      <div className="inline-flex items-center justify-center gap-1">
+                        <span>515</span>
+                        <ArrowDown className="w-3.5 h-3.5 text-emerald-700 stroke-[2.5] shrink-0" />
+                      </div>
+                    </td>
+                    <td className="py-3.5 px-3 font-mono font-bold text-center text-slate-950 text-sm sm:text-base border-r border-slate-300">
+                      <div className="inline-flex items-center justify-center gap-1">
+                        <span>487</span>
+                        <ArrowDown className="w-3.5 h-3.5 text-emerald-700 stroke-[2.5] shrink-0" />
+                      </div>
+                    </td>
+                    <td className="py-3.5 px-3.5 font-mono font-black text-center text-slate-950 bg-slate-300 border-x-2 border-slate-600 text-base sm:text-lg">
+                      <div className="inline-flex items-center justify-center gap-1">
+                        <span>456</span>
+                        <ArrowDown className="w-4 h-4 text-emerald-700 stroke-[2.5] shrink-0" />
+                      </div>
+                    </td>
+                    <td className="py-3.5 px-3 font-mono font-bold text-center text-slate-950 text-sm sm:text-base border-r border-slate-300 bg-slate-100">
+                      <div className="inline-flex items-center justify-center gap-1">
+                        <span>320</span>
+                        <ArrowDown className="w-3.5 h-3.5 text-emerald-700 stroke-[2.5] shrink-0" />
+                      </div>
+                    </td>
+                    <td className="py-3.5 px-3 font-mono font-bold text-center text-slate-950 text-sm sm:text-base border-r-2 border-slate-400 bg-slate-100">
+                      <div className="inline-flex items-center justify-center gap-1">
+                        <span>288</span>
+                        <ArrowDown className="w-3.5 h-3.5 text-emerald-700 stroke-[2.5] shrink-0" />
+                      </div>
+                    </td>
                     <td className="py-3.5 px-3.5 text-right bg-emerald-50/70 border-l border-emerald-200">
                       <div className="flex flex-col items-end leading-tight gap-0.5">
                         <span className="text-emerald-900 font-extrabold font-mono text-sm sm:text-base">
