@@ -304,7 +304,7 @@ export const AuditOverviewAgentInterception: React.FC = () => {
               <td className="px-1.5 py-2 text-right text-slate-800">17.8</td>
               <td className="px-1.5 py-2 text-center text-slate-600">100.00%</td>
             </tr>
-            <tr className="bg-slate-100/90">
+            <tr className="bg-slate-100/90 font-bold border-t border-slate-300 border-b-2 border-slate-900">
               <td className="px-2 py-2 text-left font-bold border-r border-slate-200">总计</td>
               <td colSpan={1} className="px-2 py-2 text-right font-bold text-blue-950 border-r border-slate-200 bg-blue-100/40">14,494.1</td>
               <td colSpan={2} className="px-1.5 py-2 text-center font-mono font-bold text-slate-900 border-r border-slate-200">27.41%</td>

@@ -14,7 +14,7 @@ import {
   ArrowDown,
   ArrowUp
 } from "lucide-react";
-import { ResponsiveContainer, ComposedChart, Bar, Line, XAxis, YAxis } from "recharts";
+import { ResponsiveContainer, ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
 import {
   chartAxisTick,
   chartBarRadius,
@@ -1993,14 +1993,42 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                       </div>
                     </SummaryBox>
 
-                    <div className="bg-white border border-slate-200 p-4 h-[280px] sm:h-[320px]">
+                    <div className="bg-white border border-slate-200 p-4 h-[320px] sm:h-[360px]">
                       <ResponsiveContainer width="100%" height="100%">
-                        <ComposedChart data={[
-                          { name: "9月第1周", ratio: 50.83, errorRate: 0.0731 },
-                          { name: "9月第2周", ratio: 57.71, errorRate: 0.0598 },
-                          { name: "9月第3周", ratio: 55.39, errorRate: 0.0644 },
-                          { name: "9月第4周", ratio: 61.21, errorRate: 0.0605 },
-                        ]} margin={{ top: 28, right: 48, left: 24, bottom: 6 }}>
+                        <ComposedChart
+                          data={[
+                            {
+                              name: "9月第1周",
+                              ratio: 50.83,
+                              errorRate: 0.0731,
+                              linearRatio: 50.83,
+                              linearErrorRate: 0.0731,
+                            },
+                            {
+                              name: "9月第2周",
+                              ratio: 57.71,
+                              errorRate: 0.0598,
+                              linearRatio: +(50.83 + (61.21 - 50.83) * (1 / 3)).toFixed(2),
+                              linearErrorRate: +(0.0731 + (0.0605 - 0.0731) * (1 / 3)).toFixed(4),
+                            },
+                            {
+                              name: "9月第3周",
+                              ratio: 55.39,
+                              errorRate: 0.0644,
+                              linearRatio: +(50.83 + (61.21 - 50.83) * (2 / 3)).toFixed(2),
+                              linearErrorRate: +(0.0731 + (0.0605 - 0.0731) * (2 / 3)).toFixed(4),
+                            },
+                            {
+                              name: "9月第4周",
+                              ratio: 61.21,
+                              errorRate: 0.0605,
+                              linearRatio: 61.21,
+                              linearErrorRate: 0.0605,
+                            },
+                          ]}
+                          margin={{ top: 28, right: 48, left: 24, bottom: 6 }}
+                        >
+                          <CartesianGrid strokeDasharray="3 3" stroke={chartColors.grid} />
                           <XAxis dataKey="name" tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} />
                           {/* 左 Y 轴：出单比例 */}
                           <YAxis
@@ -2008,7 +2036,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                             domain={[40, 65]}
                             ticks={[40, 45, 50, 55, 60, 65]}
                             tickFormatter={(val) => `${val}%`}
-                            tick={chartAxisTick}
+                            tick={{ ...chartAxisTick, fill: "#1e40af" }}
                             axisLine={{ stroke: chartColors.ink }}
                             tickLine={false}
                           />
@@ -2019,37 +2047,128 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                             domain={[0.050, 0.080]}
                             ticks={[0.050, 0.060, 0.070, 0.080]}
                             tickFormatter={(val) => `${Number(val).toFixed(3)}%`}
-                            tick={{ ...chartAxisTick, fill: "#b45309" }}
+                            tick={{ ...chartAxisTick, fill: "#b91c1c" }}
                             axisLine={{ stroke: chartColors.ink }}
                             tickLine={false}
+                          />
+
+                          <Tooltip
+                            content={({ active, payload, label }: any) => {
+                              if (active && payload && payload.length) {
+                                const row = payload[0]?.payload;
+                                return (
+                                  <div className="bg-white border border-slate-300 p-2.5 shadow-xs text-xs font-mono">
+                                    <div className="font-bold text-slate-900 border-b border-slate-200 pb-1 mb-1.5">{label}</div>
+                                    <div className="flex items-center justify-between gap-3 text-blue-900 font-bold">
+                                      <span>系统出单比例:</span>
+                                      <span>{row?.ratio}%</span>
+                                    </div>
+                                    <div className="flex items-center justify-between gap-3 text-rose-700 font-bold">
+                                      <span>质检差错率:</span>
+                                      <span>{row?.errorRate}%</span>
+                                    </div>
+                                  </div>
+                                );
+                              }
+                              return null;
+                            }}
+                          />
+
+                          <Legend
+                            verticalAlign="top"
+                            align="right"
+                            wrapperStyle={{ paddingBottom: "12px", fontSize: "12px", fontWeight: "600" }}
+                            formatter={(value) => <span className="text-slate-800 text-xs font-sans font-medium">{value}</span>}
                           />
                           
                           {/* 柱状图：出单比例 */}
                           <Bar
                             yAxisId="left"
                             dataKey="ratio"
+                            name="系统出单比例 (%)"
                             fill="#1d4ed8"
                             radius={chartBarRadius.standard}
                             barSize={chartBarSize.single}
                             isAnimationActive={false}
                             label={({ x, y, width, value }: any) => (
-                              <text x={x + width / 2} y={y - 8} textAnchor="middle" className="fill-blue-900 text-xs font-bold font-mono">
+                              <text x={x + width / 2} y={y - 8} textAnchor="middle" fill="#1e40af" fontSize={11} fontFamily="var(--font-mono, monospace)" fontWeight={800}>
                                 {Number(value).toFixed(2)}%
                               </text>
                             )}
                           />
 
-                          {/* 折线图：质检差错率 */}
+                          {/* 连线 1：第1周 ➔ 第4周 出单比例演进直连线 */}
+                          <Line
+                            yAxisId="left"
+                            type="linear"
+                            dataKey="linearRatio"
+                            name="出单比例变化连线 (50.83% ➔ 61.21%)"
+                            stroke="#1e40af"
+                            strokeWidth={2}
+                            strokeDasharray="4 3"
+                            isAnimationActive={false}
+                            dot={(props: any) => {
+                              const { cx, cy, index } = props;
+                              if (typeof cx !== "number" || typeof cy !== "number") return null;
+                              if (index === 0 || index === 3) {
+                                return (
+                                  <circle
+                                    key={`dot-ratio-${index}`}
+                                    cx={cx}
+                                    cy={cy}
+                                    r={4.5}
+                                    fill="#1e40af"
+                                    stroke="#ffffff"
+                                    strokeWidth={1.5}
+                                  />
+                                );
+                              }
+                              return null;
+                            }}
+                          />
+
+                          {/* 连线 2：第1周 ➔ 第4周 质检差错率变化直连线 */}
+                          <Line
+                            yAxisId="right"
+                            type="linear"
+                            dataKey="linearErrorRate"
+                            name="质检差错率变化连线 (0.0731% ➔ 0.0605%)"
+                            stroke="#64748b"
+                            strokeWidth={2}
+                            strokeDasharray="4 3"
+                            isAnimationActive={false}
+                            dot={(props: any) => {
+                              const { cx, cy, index } = props;
+                              if (typeof cx !== "number" || typeof cy !== "number") return null;
+                              if (index === 0 || index === 3) {
+                                return (
+                                  <circle
+                                    key={`dot-error-${index}`}
+                                    cx={cx}
+                                    cy={cy}
+                                    r={4.5}
+                                    fill="#64748b"
+                                    stroke="#ffffff"
+                                    strokeWidth={1.5}
+                                  />
+                                );
+                              }
+                              return null;
+                            }}
+                          />
+
+                          {/* 折线图：实际周度质检差错率 */}
                           <Line
                             yAxisId="right"
                             type="monotone"
                             dataKey="errorRate"
-                            stroke="#b45309"
+                            name="实际周度质检率 (%)"
+                            stroke="#b91c1c"
                             strokeWidth={2.5}
                             isAnimationActive={false}
-                            dot={{ r: 4.5, fill: "#ffffff", stroke: "#b45309", strokeWidth: 2.5 }}
+                            dot={{ r: 4.5, fill: "#ffffff", stroke: "#b91c1c", strokeWidth: 2.5 }}
                             label={({ x, y, value }: any) => (
-                              <text x={x} y={y - 12} textAnchor="middle" className="fill-amber-800 text-xs font-bold font-mono">
+                              <text x={x} y={y - 12} textAnchor="middle" fill="#b91c1c" fontSize={11} fontFamily="var(--font-mono, monospace)" fontWeight={800}>
                                 {Number(value).toFixed(4)}%
                               </text>
                             )}
@@ -2143,7 +2262,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                               </span>
                             </li>
                             <li className="flex items-start gap-1.5">
-                              <span className="px-1 py-0.2 bg-purple-100 text-purple-900 text-[10px] font-mono font-bold shrink-0 mt-0.5">真人</span>
+                              <span className="px-1 py-0.2 bg-blue-100 text-blue-900 text-[10px] font-mono font-bold shrink-0 mt-0.5">真人</span>
                               <span className="font-mono tracking-tight text-slate-800">
                                 B**下注**常 <span className="text-slate-500 font-normal">(09-10)</span>
                               </span>
@@ -2215,7 +2334,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                               </span>
                             </li>
                             <li className="flex items-start gap-1.5">
-                              <span className="px-1 py-0.2 bg-teal-100 text-teal-900 text-[10px] font-mono font-bold shrink-0 mt-0.5">环境</span>
+                              <span className="px-1 py-0.2 bg-slate-200 text-slate-800 text-[10px] font-mono font-bold shrink-0 mt-0.5">环境</span>
                               <span className="font-mono tracking-tight text-slate-800">
                                 使**设备**提 <span className="text-slate-500 font-normal">(09-28)</span>
                               </span>

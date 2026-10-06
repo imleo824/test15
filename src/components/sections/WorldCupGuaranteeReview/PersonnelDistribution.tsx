@@ -132,7 +132,7 @@ export const PersonnelDistribution: React.FC = () => {
               <table className="w-full text-left border-collapse text-xs sm:text-sm">
                 <thead>
                   <tr className="bg-slate-100/90 border-b border-slate-300 text-slate-950 font-bold">
-                    <th className="py-2.5 px-3.5 font-bold text-slate-950 text-left border-r border-slate-200">编制类型</th>
+                    <th className="py-2.5 px-3.5 font-bold text-slate-950 text-left border-r border-slate-200">类型</th>
                     <th className="py-2.5 px-3 font-mono font-bold text-center border-r border-slate-200">25 Q4</th>
                     <th className="py-2.5 px-3 font-mono font-bold text-center border-r border-slate-200">26 Q1</th>
                     <th className="py-2.5 px-3 font-mono font-bold text-center border-r border-slate-200">26 Q2</th>
@@ -272,10 +272,10 @@ export const PersonnelDistribution: React.FC = () => {
           </div>
 
           {/* 第二部分：各场地属地分布明细 */}
-          <div className="space-y-3">
-            <div className="flex items-center justify-between pb-2 border-b border-slate-100 px-1">
+          <div className="space-y-3.5">
+            <div className="flex items-center justify-between pb-2 border-b border-slate-200 px-1">
               <div className="flex items-center gap-2">
-                <span className="w-1.5 h-3.5 bg-slate-950 shrink-0" />
+                <span className="w-1.5 h-4 bg-slate-950 shrink-0" />
                 <span className="text-sm sm:text-base font-bold text-slate-950">
                   分布情况
                 </span>
@@ -288,12 +288,12 @@ export const PersonnelDistribution: React.FC = () => {
             
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 items-stretch">
               {[
-                { label: "T 场地", count: "3" },
-                { label: "D 场地", count: "115" },
-                { label: "S 场地", count: "211" },
-                { label: "F 场地", count: "24" },
-                { label: "远程办公", count: "0" },
-                { label: "外包团队", count: "100" },
+                { label: "T", count: "6" },
+                { label: "D", count: "115" },
+                { label: "S", count: "211" },
+                { label: "F", count: "24" },
+                { label: "远程", count: "0" },
+                { label: "外包", count: "100" },
               ].map((item) => (
                 <div
                   key={item.label}

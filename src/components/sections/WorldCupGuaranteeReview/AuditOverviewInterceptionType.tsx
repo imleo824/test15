@@ -251,7 +251,7 @@ export const AuditOverviewInterceptionType: React.FC = () => {
               <td className="py-2 px-1.5 text-right font-mono text-slate-800">6,323.78</td>
               <td className="py-2 px-1.5 text-center font-mono text-slate-600">100%</td>
             </tr>
-            <tr className="bg-slate-100/90 font-bold">
+            <tr className="bg-slate-100/90 font-bold border-t border-slate-300 border-b-2 border-slate-900">
               <td className="py-2 px-2.5 text-left font-bold border-r border-slate-200">总计</td>
               <td className="py-2 px-1.5 text-right font-mono font-bold text-slate-900">27,233.47</td>
               <td className="py-2 px-1.5 text-center font-mono font-bold border-r border-slate-200 text-slate-600">100%</td>

@@ -64,7 +64,7 @@ export const PermissionStructureSection: React.FC = () => {
       <ReportTableFrame>
         <table className="w-full text-left border-collapse min-w-[680px]">
           <thead>
-            <tr className="border-b border-slate-200 bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm uppercase tracking-wider">
+            <tr className="border-b border-slate-300 bg-slate-100/90 text-slate-950 font-bold text-xs sm:text-sm">
               <th className="py-2.5 px-3 w-[18%]">权限模式</th>
               <th className="py-2.5 px-3 w-[12%]">支持状态</th>
               <th className="py-2.5 px-3 w-[20%]">适用场景</th>
@@ -72,7 +72,7 @@ export const PermissionStructureSection: React.FC = () => {
               <th className="py-2.5 px-3 w-[16%]">管控机制</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-200 text-sm">
+          <tbody className="divide-y divide-slate-100 text-sm">
             {permissionItems.map((item) => (
               <tr key={item.id}>
                 <td className="py-3 px-3 align-top">

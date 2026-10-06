@@ -41,7 +41,7 @@ const dailyAuditCurrentQuarter = [
 
 export const InternalControlSection: React.FC = () => {
   return (
-    <div id="section-internal-control" className="flex flex-col gap-10 sm:gap-12">
+    <div id="section-internal-control" className="space-y-10 sm:space-y-12">
       <SummaryBox variant="module">
         {highlightNumbers(
           "专职监督独立把关，聚焦[[敏感信息监控]]与[[稽查违规监控]]两大重点：依托全量操作日志与行为留痕，对违规操作实施即时预警、严肃追责与资产止损。",
@@ -120,7 +120,7 @@ export const InternalControlSection: React.FC = () => {
         <div className="flex flex-col gap-3.5">
           <div className="flex items-center justify-between pb-2 border-b border-slate-200">
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-3.5 bg-slate-900"></span>
+              <span className="w-1.5 h-4 bg-slate-950 shrink-0" />
               <span className="font-bold text-slate-950 text-sm sm:text-base">
                 数据总览
               </span>
@@ -217,7 +217,7 @@ export const InternalControlSection: React.FC = () => {
           <div className="flex flex-col gap-3.5 pt-4 border-t border-slate-200">
             <div className="flex items-center justify-between pb-2 border-b border-slate-200">
               <div className="flex items-center gap-2">
-                <span className="w-1.5 h-3.5 bg-slate-900"></span>
+                <span className="w-1.5 h-4 bg-slate-950 shrink-0" />
                 <span className="text-sm sm:text-base font-bold text-slate-950">
                   日常稽查项机制演进（上季度基线 ➔ 本季度新增）
                 </span>

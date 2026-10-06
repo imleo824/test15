@@ -387,7 +387,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
                 ];
               })}
             </tr>
-            <tr className="bg-slate-100/90 font-bold">
+            <tr className="bg-slate-100/90 font-bold border-t border-slate-300 border-b-2 border-slate-900">
               <td className="text-left font-bold py-2 px-2 border-r border-slate-200">总计</td>
               <td className="text-right tabular-nums font-bold text-blue-900 py-2 px-2 border-r border-slate-200 bg-blue-100/40">{categoryDetailTotalPct.total}</td>
               {categoryDetailTotalPct.columns.map((pct, index) => {

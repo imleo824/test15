@@ -178,7 +178,7 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
               })}
             </tbody>
             <tfoot className="border-t-2 border-slate-300 bg-slate-50 font-bold font-mono tabular-nums text-slate-900">
-              <tr>
+              <tr className="border-b-2 border-slate-900 bg-slate-100/90 font-bold">
                 <td className="px-2.5 py-2 text-left font-bold border-r border-slate-200">总计</td>
                 <td className="px-1.5 py-2 text-center text-slate-900 font-bold">490</td>
                 <td className="px-1.5 py-2 text-center text-slate-900 font-bold border-r border-slate-200">100.00%</td>

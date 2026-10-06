@@ -525,7 +525,7 @@ export const TgGovernanceSection: React.FC = () => {
             <div className="bg-white border border-slate-200 p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3">
               <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
                 <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-3.5 bg-rose-600 shrink-0"></span>
+                  <span className="w-1.5 h-4 bg-rose-700 shrink-0"></span>
                   <h4 className="text-sm sm:text-base font-bold text-slate-950">
                     线下群聊明文操作（传统弊端）
                   </h4>
@@ -577,7 +577,7 @@ export const TgGovernanceSection: React.FC = () => {
             <div className="bg-white border border-slate-200 p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3">
               <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
                 <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-3.5 bg-emerald-600 shrink-0"></span>
+                  <span className="w-1.5 h-4 bg-emerald-700 shrink-0"></span>
                   <h4 className="text-sm sm:text-base font-bold text-slate-950">
                     风控工单系统闭环（治理成效）
                   </h4>

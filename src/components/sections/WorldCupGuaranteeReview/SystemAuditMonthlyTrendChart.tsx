@@ -19,6 +19,7 @@ import {
   chartAxisTick,
   chartColors,
   chartBarRadius,
+  chartTooltipStyle,
 } from "./chartStyles";
 
 // 2026年1月至9月系统出单趋势与错误率月度数据（提取自实际运营报表）
@@ -396,6 +397,7 @@ export const SystemAuditMonthlyTrendChart: React.FC = () => {
               />
 
               <Tooltip
+                contentStyle={chartTooltipStyle}
                 formatter={(val: any, name: string) => {
                   if (name === "系统出单比例") return [`${val}%`, "系统出单比例"];
                   if (name === "系统质检率" || name === "实际月度质检率") return [`${val}%`, "系统质检率"];
