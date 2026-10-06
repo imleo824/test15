@@ -14,6 +14,17 @@ import {
   ArrowDown,
   ArrowUp
 } from "lucide-react";
+import { ResponsiveContainer, ComposedChart, Bar, Line, XAxis, YAxis } from "recharts";
+import {
+  chartAxisTick,
+  chartBarRadius,
+  chartBarSize,
+  chartColors,
+  getChartLabelClassName,
+  getChartLabelStyle,
+  chartMargins,
+  chartSeriesColors,
+} from "./chartStyles";
 import {
   ReportBadge,
   ReportDimensionCard,
@@ -622,7 +633,7 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     <p>
                       <strong className="text-slate-950">优质用户体感跃升：</strong>
                       {highlightNumbers(
-                        "释放的 75w 单 由原 8 分钟降至 15 秒；占总量 65% 的优质客户提单（325w 单）实现[[秒级放行]]，出款体感显著改善。"
+                        "释放的 75w 单 由原约 8 分钟左右降至 15 秒；占总量 65% 的优质客户提单（325w 单）实现[[秒级放行]]，出款体感显著改善。"
                       )}
                     </p>
                   </div>
@@ -636,6 +647,25 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                     </p>
                   </div>
                 </div>
+              </div>
+            </div>
+
+            {/* 时效计算口径说明 */}
+            <div className="mt-5 pt-4 border-t border-slate-100 flex flex-col gap-1.5 text-[11px] sm:text-xs text-slate-500 font-normal leading-relaxed">
+              <span className="font-bold text-slate-800 flex items-center gap-1.5">
+                <Calculator className="w-3.5 h-3.5 shrink-0 text-slate-600" />
+                时效加权口径与计算公式说明
+              </span>
+              <div className="space-y-1 pl-5">
+                <p>
+                  • <strong className="text-slate-700">原有时效 (4.13 分钟)</strong>：50.0% 系统放行 (按平均极速 15 秒 = 0.25 分钟计) + 50.0% 人工审核 (按原平均时效 8.0 分钟计)，即 {highlightNumbers("50.0% × 0.25 + 50.0% × 8.0 = [[4.13 分钟]]")}。
+                </p>
+                <p>
+                  • <strong className="text-slate-700">当前时效 (2.96 分钟)</strong>：65.0% 系统放行 (按平均极速 15 秒 = 0.25 分钟计) + 35.0% 人工审核 (按平均时效 8.0 分钟计)，即 {highlightNumbers("65.0% × 0.25 + 35.0% × 8.0 = [[2.96 分钟]]")}。
+                </p>
+                <p>
+                  • <strong className="text-slate-700">综合提速幅度</strong>：{highlightNumbers("(4.13 - 2.96) / 4.13 = [[+28.2%]]")}。
+                </p>
               </div>
             </div>
           </ReportDimensionCard>
@@ -1857,6 +1887,282 @@ export const SystemAuditEvolutionSection: React.FC = () => {
                           "灰黑产套利模式持续升级，风控系统保持高度警惕，每周进行[[实盘推演与算法模型版本更新]]。"
                         )}
                       </p>
+                    </div>
+                  </div>
+
+                  {/* 新增：26年9月每周数据变化自进化监控图表 */}
+                  <div className="pt-4 space-y-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between px-1 gap-2">
+                      <div className="flex items-center gap-2">
+                        <span className="w-1.5 h-3.5 bg-blue-600 shrink-0" />
+                        <span className="text-sm font-bold text-slate-950">
+                          系统迭代进化监控释义
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-4 text-xs font-semibold text-slate-600">
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-3 h-3 bg-blue-600 rounded-sm inline-block" />
+                          <span>出单比例 (左轴)</span>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-3 h-0.5 bg-amber-500 inline-block" />
+                          <span>质检错误 (右轴)</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* 标题下方的一句话总结模块 */}
+                    <SummaryBox variant="module">
+                      <div className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+                        {highlightNumbers(
+                          "随着闭环反馈机制按周对拦截特征及规则权重进行精准调优校准，系统出单比例呈现**稳步上升**之势（从 [[50.83%]] 攀升至 [[61.21%]]，绝对值提升 [[10.38%]]，相对增幅达 [[+20.42%]]）；同时，由误拦截等差错引发的系统质检率实现**阶梯式稳步压降**（从 [[0.0731%]] 降至 [[0.0605%]]，绝对值降低 [[0.0126%]]，相对降幅达 [[-17.24%]]）。这充分证明了系统自进化实现了**「出单放行比例大幅上升、系统差错率不升反降」**的逆向双增益，自进化安全成效极为显著。"
+                        )}
+                      </div>
+                    </SummaryBox>
+
+                    {/* 新增的三个动作子方块 */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4">
+                      {/* 方块 1: 策略优化 */}
+                      <div className="bg-slate-50 border border-slate-200 p-4 space-y-1.5">
+                        <div className="text-sm font-bold text-slate-950 flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
+                          <span>1. 策略优化</span>
+                        </div>
+                        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                          {highlightNumbers("按周开展[[实盘特征比对与案例复盘]]，精细更新欺诈套利特征指标，填补潜在漏检盲区。")}
+                        </p>
+                      </div>
+
+                      {/* 方块 2: 调整参数 */}
+                      <div className="bg-slate-50 border border-slate-200 p-4 space-y-1.5">
+                        <div className="text-sm font-bold text-slate-950 flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
+                          <span>2. 调整参数</span>
+                        </div>
+                        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                          {highlightNumbers("结合各渠道拦截比例[[微调决策判定阈值]]，确保系统放行阈值既紧贴安全底线，又释放出单潜能。")}
+                        </p>
+                      </div>
+
+                      {/* 方块 3: 调整权重 */}
+                      <div className="bg-slate-50 border border-slate-200 p-4 space-y-1.5">
+                        <div className="text-sm font-bold text-slate-950 flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
+                          <span>3. 调整权重</span>
+                        </div>
+                        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                          {highlightNumbers("动态修正底层多维指标特征的[[风险评分计分权重]]，使良性高等级会员的分值分配更趋向合规。")}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="bg-white border border-slate-200 p-4 h-[260px] sm:h-[300px]">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <ComposedChart data={[
+                          { name: "第1周", ratio: 50.83, errorRate: 0.0731 },
+                          { name: "第2周", ratio: 57.71, errorRate: 0.0598 },
+                          { name: "第3周", ratio: 55.39, errorRate: 0.0644 },
+                          { name: "第4周", ratio: 61.21, errorRate: 0.0605 },
+                        ]} margin={{ top: 30, right: 40, left: 40, bottom: 5 }}>
+                          <XAxis dataKey="name" tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} />
+                          {/* 左 Y 轴：出单比例（通过 domain[45, 100] 放大周级增长斜率，使第1周到第4周的增长态势展现得极其明显，同时保持在下半区高度以下） */}
+                          <YAxis
+                            yAxisId="left"
+                            domain={[45, 100]}
+                            ticks={[45, 60, 75, 90]}
+                            tickFormatter={(val) => `${val}%`}
+                            tick={chartAxisTick}
+                            axisLine={{ stroke: chartColors.ink }}
+                            tickLine={false}
+                          />
+                          {/* 右 Y 轴：质检率（通过 domain[-0.015, 0.125] 抬高至上半区，最低点占 ~62%，从而拉开近 20% 高度的绝对安全视觉隔离带） */}
+                          <YAxis
+                            yAxisId="right"
+                            orientation="right"
+                            domain={[-0.015, 0.125]}
+                            ticks={[0.00, 0.04, 0.08, 0.12]}
+                            tickFormatter={(val) => `${val.toFixed(4)}%`}
+                            tick={chartAxisTick}
+                            axisLine={{ stroke: chartColors.ink }}
+                            tickLine={false}
+                          />
+                          
+                          {/* 柱状图：出单比例 */}
+                          <Bar
+                            yAxisId="left"
+                            dataKey="ratio"
+                            fill="#2563eb"
+                            radius={chartBarRadius.standard}
+                            barSize={chartBarSize.single}
+                            isAnimationActive={false}
+                            label={({ x, y, width, value }: any) => (
+                              <text x={x + width / 2} y={y - 8} textAnchor="middle" className="fill-blue-900 text-xs font-bold font-mono">
+                                {Number(value).toFixed(2)}%
+                              </text>
+                            )}
+                          />
+
+                          {/* 折线图：质检率 */}
+                          <Line
+                            yAxisId="right"
+                            type="monotone"
+                            dataKey="errorRate"
+                            stroke="#f59e0b"
+                            strokeWidth={2.5}
+                            isAnimationActive={false}
+                            dot={{ r: 4, fill: "#ffffff", stroke: "#f59e0b", strokeWidth: 2 }}
+                            label={({ x, y, value }: any) => (
+                              <text x={x} y={y - 12} textAnchor="middle" className="fill-amber-700 text-xs font-bold font-mono">
+                                {Number(value).toFixed(4)}%
+                              </text>
+                            )}
+                          />
+                        </ComposedChart>
+                      </ResponsiveContainer>
+                    </div>
+
+                    {/* 新增：26年9月每周策略迭代动作明细 */}
+                    <div className="mt-4 pt-4 border-t border-slate-100 space-y-3">
+                      <div className="flex items-center gap-1.5 px-1">
+                        <Calculator className="w-4 h-4 text-slate-700" />
+                        <span className="text-xs sm:text-sm font-bold text-slate-800">
+                          9月系统进化每周策略和参数持续迭代
+                        </span>
+                      </div>
+                      
+                      <div className="flex flex-col gap-3.5">
+                        {/* 第1周 */}
+                        <div className="bg-slate-50 border border-slate-200 p-4 space-y-2">
+                          <div className="flex items-center justify-between pb-1.5 border-b border-slate-200">
+                            <span className="text-xs font-bold text-slate-800 font-mono">9月第1周 (09/01-09/07)</span>
+                          </div>
+                          <ul className="text-xs sm:text-sm text-slate-700 space-y-1.5">
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-blue-600 mt-1 shrink-0">•</span>
+                              <span>{highlightNumbers("【参数】[[调整彩**策略参数 (09-01)]]")}</span>
+                            </li>
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-blue-600 mt-1 shrink-0">•</span>
+                              <span>{highlightNumbers("【彩票】[[全**级 (09-01)]] 策略首发上线")}</span>
+                            </li>
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-slate-400 mt-1 shrink-0">•</span>
+                              <span className="text-slate-400 font-mono tracking-widest text-xs">……</span>
+                            </li>
+                          </ul>
+                        </div>
+
+                        {/* 第2周 */}
+                        <div className="bg-slate-50 border border-slate-200 p-4 space-y-2">
+                          <div className="flex items-center justify-between pb-1.5 border-b border-slate-200">
+                            <span className="text-xs font-bold text-slate-800 font-mono">9月第2周 (09/08-09/14)</span>
+                          </div>
+                          <ul className="text-xs sm:text-sm text-slate-700 space-y-1.5">
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-blue-600 mt-1 shrink-0">•</span>
+                              <span>{highlightNumbers("【参数】[[调整套**策略参数 (09-08)]]")}</span>
+                            </li>
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-blue-600 mt-1 shrink-0">•</span>
+                              <span>{highlightNumbers("【策略】[[策**命中**级 (09-08)]]")}</span>
+                            </li>
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-blue-600 mt-1 shrink-0">•</span>
+                              <span>{highlightNumbers("【行为】[[快**快出**期 (09-11)]]")}</span>
+                            </li>
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-blue-600 mt-1 shrink-0">•</span>
+                              <span>{highlightNumbers("【彩票】[[全**级 (09-11)]] 迭代升级")}</span>
+                            </li>
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-blue-600 mt-1 shrink-0">•</span>
+                              <span>{highlightNumbers("【策略】转人工判断逻辑升级 (09-09)")}</span>
+                            </li>
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-blue-600 mt-1 shrink-0">•</span>
+                              <span>{highlightNumbers("【体育】[[B**下注**常 (09-09)]]")}</span>
+                            </li>
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-blue-600 mt-1 shrink-0">•</span>
+                              <span>{highlightNumbers("【策略】转人工判断逻辑升级 (09-10)")}</span>
+                            </li>
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-blue-600 mt-1 shrink-0">•</span>
+                              <span>{highlightNumbers("【真人】[[B**下注**常 (09-10)]]")}</span>
+                            </li>
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-slate-400 mt-1 shrink-0">•</span>
+                              <span className="text-slate-400 font-mono tracking-widest text-xs">……</span>
+                            </li>
+                          </ul>
+                        </div>
+
+                        {/* 第3周 */}
+                        <div className="bg-slate-50 border border-slate-200 p-4 space-y-2">
+                          <div className="flex items-center justify-between pb-1.5 border-b border-slate-200">
+                            <span className="text-xs font-bold text-slate-800 font-mono">9月第3周 (09/15-09/21)</span>
+                          </div>
+                          <ul className="text-xs sm:text-sm text-slate-700 space-y-1.5">
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-blue-600 mt-1 shrink-0">•</span>
+                              <span>{highlightNumbers("【参数】[[调整单**策略参数 (09-15)]]")}</span>
+                            </li>
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-blue-600 mt-1 shrink-0">•</span>
+                              <span>{highlightNumbers("【行为】[[单**线 (09-16)]]")}</span>
+                            </li>
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-blue-600 mt-1 shrink-0">•</span>
+                              <span>{highlightNumbers("【账户】[[存**关联**号 (09-16)]]")}</span>
+                            </li>
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-blue-600 mt-1 shrink-0">•</span>
+                              <span>{highlightNumbers("【策略】转人工判断逻辑升级 (09-22)")}</span>
+                            </li>
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-blue-600 mt-1 shrink-0">•</span>
+                              <span>{highlightNumbers("【账户】[[存**关联**号 (09-22)]]")}</span>
+                            </li>
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-slate-400 mt-1 shrink-0">•</span>
+                              <span className="text-slate-400 font-mono tracking-widest text-xs">……</span>
+                            </li>
+                          </ul>
+                        </div>
+
+                        {/* 第4周 */}
+                        <div className="bg-slate-50 border border-slate-200 p-4 space-y-2">
+                          <div className="flex items-center justify-between pb-1.5 border-b border-slate-200">
+                            <span className="text-xs font-bold text-slate-800 font-mono">9月第4周 (09/22-09/28+)</span>
+                          </div>
+                          <ul className="text-xs sm:text-sm text-slate-700 space-y-1.5">
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-blue-600 mt-1 shrink-0">•</span>
+                              <span>{highlightNumbers("【参数】[[调整提**策略参数 (09-22)]]")}</span>
+                            </li>
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-blue-600 mt-1 shrink-0">•</span>
+                              <span>{highlightNumbers("【账户】[[睡**号 (09-28)]]")}</span>
+                            </li>
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-blue-600 mt-1 shrink-0">•</span>
+                              <span>{highlightNumbers("【账户】[[新**款账**提 (09-28)]]")}</span>
+                            </li>
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-blue-600 mt-1 shrink-0">•</span>
+                              <span>{highlightNumbers("【环境】[[使**设备**提 (09-28)]]")}</span>
+                            </li>
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-blue-600 mt-1 shrink-0">•</span>
+                              <span>{highlightNumbers("【体育】[[B**下注**常 (09-28)]]")}</span>
+                            </li>
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-slate-400 mt-1 shrink-0">•</span>
+                              <span className="text-slate-400 font-mono tracking-widest text-xs">……</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

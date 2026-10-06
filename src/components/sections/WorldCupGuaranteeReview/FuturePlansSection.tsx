@@ -8,12 +8,16 @@ export const FuturePlansSection: React.FC = () => {
     index: string;
     badge: string;
     badgeTone: "blue" | "slate";
+    status?: string;
+    statusTone?: "blue" | "slate" | "amber" | "green";
     highlights: { title: string; desc: string }[];
   }[] = [
     {
       index: "01",
       badge: "优化会员云盾",
       badgeTone: "blue",
+      status: "持续进化",
+      statusTone: "blue",
       highlights: [
         {
           title: "规则按周校准",
@@ -29,14 +33,16 @@ export const FuturePlansSection: React.FC = () => {
       index: "02",
       badge: "落地代理云盾",
       badgeTone: "slate",
+      status: "持续在解决线上问题中",
+      statusTone: "amber",
       highlights: [
         {
-          title: "佣金自动审核",
-          desc: "将云盾规则引擎拓展至[[代理佣金自动审核]]场景，构建[[代理专属风控特征集]]。",
+          title: "代理云盾体系（解决线上问题中）",
+          desc: "构建[[专属风控特征集]]，整合**佣金审核**与**质量分数**两大核心模块；当前正[[持续解决上线初期的问题中]]。",
         },
         {
           title: "动态随机派单",
-          desc: "佣金审核全面落实[[动态随机派单]]，优化审核人与代理的固定审核分配带来的违规风险。",
+          desc: "审核全面落实[[动态随机派单]]，优化审核人与代理的固定审核分配带来的违规风险。",
         },
       ],
     },
@@ -50,12 +56,12 @@ export const FuturePlansSection: React.FC = () => {
           <div className="space-y-2">
             <p className="text-sm sm:text-base text-slate-800 font-normal leading-relaxed">
               {highlightNumbers(
-                "随着在[[会员维度]]系统化审核取得的阶段性成果，下阶段核心将会员维度的成功实践与经验[[全面落地至代理审核]]，构建「会员 + 代理」双轮驱动的智能化风控体系，取得更大的风控收益与人效突破。"
+                "随着在[[会员维度]]系统化审核取得的阶段性成果，下阶段核心将会员维度的成功实践与经验[[全面落地至代理审核]]，构建「会员 + 代理」双轮驱动的智能化风控体系，取得更大的风控收益与人效突破。工作主线围绕 **优化会员云盾** 与 **落地代理云盾** 两大核心展开，持续巩固并扩大智能化治理成果。"
               )}
             </p>
-            <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed border-t border-slate-200/80 pt-2 mt-2">
+            <p className="text-xs text-slate-500 font-normal leading-relaxed border-t border-dashed border-slate-200 pt-2 mt-2">
               {highlightNumbers(
-                "工作主线围绕 **优化会员云盾** 与 **落地代理云盾** 两大核心展开，持续巩固并扩大智能化治理成果。"
+                "注：跨站关联占比极高，这是系统策略的智能化与高精度的核心，[[依赖于底层大数据的支撑]]（涵盖[[数据多维度、准确性、稳定性、时效性]]等核心维度），以此作为保障系统持续稳定、安全输出成效的技术基石。"
               )}
             </p>
           </div>
@@ -80,8 +86,8 @@ export const FuturePlansSection: React.FC = () => {
                         {plan.badge}
                       </h3>
                     </div>
-                    <ReportBadge tone={plan.badgeTone} className="text-xs font-mono font-bold">
-                      重点推进
+                    <ReportBadge tone={plan.statusTone || plan.badgeTone} className="text-xs font-mono font-bold">
+                      {plan.status || "重点推进"}
                     </ReportBadge>
                   </div>
 

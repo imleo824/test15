@@ -167,7 +167,7 @@ export const AuditOverviewInterceptionType: React.FC = () => {
           <p>
             <strong className="text-slate-950 font-bold">核心拦截结构：</strong>
             {highlightNumbers(
-              "体育类为[[主要拦截部分]]，占比达 [[46.6%]]。不同于过往季度，代理拦截在本季度呈现占比大幅减少。"
+              "体育类为[[主要拦截部分]]，占比达 [[46.6%]]。"
             )}
           </p>
           <p>
